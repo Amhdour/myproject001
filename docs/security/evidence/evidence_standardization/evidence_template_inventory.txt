@@ -1,0 +1,9 @@
+Evidence template inventory (UTC 2026-05-26)
+docs/security/evidence/templates/command_evidence_template.md
+docs/security/evidence/templates/test_evidence_template.md
+docs/security/evidence/templates/demo_attack_evidence_template.md
+docs/security/evidence/templates/launch_gate_evidence_template.md
+docs/security/evidence/templates/staging_validation_evidence_template.md
+docs/security/evidence/templates/incident_drill_evidence_template.md
+docs/security/evidence/templates/rollback_evidence_template.md
+docs/security/evidence/templates/review_signoff_template.md

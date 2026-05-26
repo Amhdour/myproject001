@@ -1,0 +1,4 @@
+Evidence directory inventory (UTC 2026-05-26)
+docs/security/evidence/
+docs/security/evidence/templates/
+docs/security/evidence/evidence_standardization/

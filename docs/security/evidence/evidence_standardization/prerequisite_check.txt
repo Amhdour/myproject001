@@ -1,0 +1,9 @@
+Step 7 prerequisite verification (UTC 2026-05-26)
+OK BASELINE_COMMIT.md
+OK docs/security/baseline_validation.md
+OK docs/security/security_requirements.md
+OK docs/security/risk_register.md
+OK docs/security/control_traceability_matrix.md
+OK docs/security/evidence_report.md
+OK docs/security/known_limitations.md
+OK docs/security/evidence/
