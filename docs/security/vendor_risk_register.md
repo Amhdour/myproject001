@@ -1,7 +1,7 @@
-# Known Limitations
+# Vendor Risk Register
 
 ## Purpose
-Document the known limitations for security readiness planning.
+Document the vendor risk register for security readiness planning.
 
 ## Scope
 This document covers planning and documentation requirements only for the current security readiness phase. It does not implement controls or modify runtime behavior.

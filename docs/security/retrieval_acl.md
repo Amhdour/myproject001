@@ -1,7 +1,7 @@
-# Known Limitations
+# Retrieval Acl
 
 ## Purpose
-Document the known limitations for security readiness planning.
+Document the retrieval acl for security readiness planning.
 
 ## Scope
 This document covers planning and documentation requirements only for the current security readiness phase. It does not implement controls or modify runtime behavior.
