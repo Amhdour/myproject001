@@ -1,0 +1,24 @@
+policy_id: mcp_policy
+surface: mcp
+default_decision: deny
+policy_version: v1
+mode: observe
+
+scopes:
+  - mcp:use
+  - mcp:search
+  - mcp:read_document
+  - mcp:web_search
+  - mcp:open_url
+  - mcp:file_read
+  - mcp:file_write
+  - mcp:code_execute
+  - mcp:admin
+
+scope_rules:
+  missing_required_scope: deny
+  mcp:file_write: require_approval
+  mcp:code_execute: require_approval
+  mcp:admin: deny
+
+rules: []

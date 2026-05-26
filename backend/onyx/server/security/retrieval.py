@@ -1,0 +1,26 @@
+from fastapi import APIRouter, Depends, Query
+
+from onyx.auth.permissions import require_permission
+from onyx.db.enums import Permission
+from onyx.db.models import User
+from onyx.security_layer.persistence_service import SecurityPersistenceService
+from shared_configs.contextvars import get_current_tenant_id
+from onyx.server.security.serializers import serialize_security_row
+
+router = APIRouter(prefix="/retrieval")
+
+
+@router.get("/events")
+def get_retrieval_events(
+    _: User = Depends(require_permission(Permission.FULL_ADMIN_PANEL_ACCESS)),
+    decision: str | None = None,
+    correlation_id: str | None = None,
+    limit: int = Query(default=100, ge=1, le=500),
+    offset: int = Query(default=0, ge=0),
+) -> list[dict[str, object]]:
+    rows = SecurityPersistenceService().list_retrieval_events(
+        filters={"tenant_id": get_current_tenant_id(), "decision": decision, "correlation_id": correlation_id},
+        limit=limit,
+        offset=offset,
+    )
+    return [serialize_security_row(row) for row in rows]

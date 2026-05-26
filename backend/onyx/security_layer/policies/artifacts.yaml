@@ -1,0 +1,21 @@
+policy_id: artifacts_policy
+surface: artifact
+default_decision: deny
+policy_version: v1
+mode: observe
+
+block_on:
+  - secrets
+  - private_keys
+  - api_keys
+  - private_document_excerpts
+  - malicious_html
+  - external_beacons
+  - tracking_pixels
+
+warn_on:
+  - pii
+  - external_links
+  - large_pasted_document_excerpts
+
+rules: []

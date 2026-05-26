@@ -1,0 +1,16 @@
+policy_id: launch_gates_policy
+mode: observe
+
+blocking_failures:
+  - unknown_acl_allowed
+  - high_risk_tool_without_decision
+  - mcp_call_without_scope
+  - docker_socket_exposed
+  - local_sandbox_in_production
+  - tmp_sandbox_base_path_in_production
+  - artifact_secret_leak
+  - retrieval_cross_tenant_allowed
+  - audit_disabled
+  - policy_engine_disabled
+
+rules: []

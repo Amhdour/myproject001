@@ -1,0 +1,18 @@
+policy_id: default_policy
+surface: default
+default_decision: deny
+policy_version: v1
+mode: observe
+
+default_behavior:
+  unknown_acl: deny
+  stale_acl: deny
+  sync_failed_acl: deny
+  cross_tenant: deny
+
+audit:
+  redact_secrets: true
+  store_raw_prompts: false
+  store_raw_tool_arguments: false
+
+rules: []

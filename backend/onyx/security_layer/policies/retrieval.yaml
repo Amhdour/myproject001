@@ -1,0 +1,23 @@
+policy_id: retrieval_policy
+surface: retrieval
+default_decision: deny
+policy_version: v1
+mode: observe
+
+deny_states:
+  - unknown_acl
+  - stale_acl
+  - sync_failed_acl
+  - cross_tenant
+  - deleted_pending_prune
+  - external_permission_unverified
+
+required_provenance:
+  - document_id
+  - chunk_id
+  - tenant_id
+  - connector_id
+  - acl_state
+  - permission_source
+
+rules: []

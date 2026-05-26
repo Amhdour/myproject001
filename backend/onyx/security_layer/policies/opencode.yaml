@@ -1,0 +1,29 @@
+policy_id: opencode_policy
+mode: observe
+
+defaults:
+  bash: require_approval
+  read: workspace_allowlist_only
+  write: outputs_only
+  edit: workspace_allowlist_only
+  webfetch: domain_policy
+
+deny_patterns:
+  - ~/.ssh
+  - ~/.aws
+  - ~/.config
+  - /etc/passwd
+  - /var/run/docker.sock
+  - sudo
+  - chmod
+  - chown
+  - kubectl
+  - terraform apply
+  - docker
+  - git push
+  - scp
+  - rsync
+  - printenv
+  - env
+
+rules: []
