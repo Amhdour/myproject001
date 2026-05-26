@@ -1,0 +1,5 @@
+Remote sync limitation observed during Step 8.
+
+Command: git fetch origin --dry-run
+Result: fatal: 'origin' does not appear to be a git repository
+Impact: remote/main verification and PR link population unavailable in this environment; use TBD and verify in GitHub UI when access is restored.

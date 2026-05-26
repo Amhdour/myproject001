@@ -21,6 +21,7 @@ draft
 - Requirements/risk/traceability evidence.
 - Evidence standardization artifacts and template inventories.
 - Known limitations and blocker records.
+- Execution tracker records and tracker-support evidence artifacts.
 
 ## Baseline Evidence Section
 References baseline commit and baseline validation state:
@@ -40,6 +41,12 @@ References requirements and traceability artifacts:
 - `docs/security/security_requirements.md`
 - `docs/security/risk_register.md`
 - `docs/security/control_traceability_matrix.md`
+
+## Execution Tracker Evidence Section
+References execution-governance tracking artifacts:
+- `docs/security/execution_tracker.md`
+- `docs/security/evidence/execution_tracker/prerequisite_check.txt`
+- `docs/security/evidence/execution_tracker/tracker_summary.md`
 
 ## Missing Evidence Section
 Current gaps to be filled in later phases:

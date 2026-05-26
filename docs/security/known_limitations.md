@@ -9,6 +9,9 @@ Step 7 (Evidence Standardization) is completed as documentation-only work. No ru
 3. **Evidence standard maturity limitation:** `docs/security/evidence_standard.md` is currently a draft and may require refinement after control implementation begins.
 4. **Evidence sanitization limitation:** raw evidence artifacts may require a later sanitization review before external distribution.
 5. **Production-readiness limitation:** no production-readiness claim is supported at this stage.
+6. **Execution tracker remote metadata limitation:** PR links may remain `TBD` when remote fetch is unavailable.
+7. **Execution tracker lineage limitation:** commit lineage may require GitHub UI verification when remote/main is inaccessible.
+
 
 ## Operational Impact
 - Full baseline verification remains incomplete until dependency and/or environment issues are resolved.
