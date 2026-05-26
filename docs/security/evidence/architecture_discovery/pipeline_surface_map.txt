@@ -1,0 +1,321 @@
+# Pipeline surface map
+web/src/lib/settings/svc.ts:3:async function parseErrorDetail(
+web/src/lib/settings/svc.ts:22:    throw new Error(await parseErrorDetail(res, "Failed to update settings"));
+web/src/lib/connectors/credentials.ts:352:          "If you select this mode, the SharePoint connector will use a client secret to authenticate. You will need to provide the client ID and client secret.",
+web/src/lib/connectors/credentials.ts:365:          "If you select this mode, the SharePoint connector will use a certificate to authenticate. You will need to provide the client ID, directory ID, certificate password, and PFX data.",
+web/src/lib/connectors/credentials.ts:467:  ingestion_api: null,
+web/src/lib/connectors/oauth.ts:7:  connector: ValidSources,
+web/src/lib/connectors/oauth.ts:15:    `/api/connector/oauth/authorize/${connector}?${queryParams.toString()}`
+web/src/lib/connectors/oauth.ts:19:    console.error(`Failed to fetch OAuth redirect URL for ${connector}`);
+web/src/lib/connectors/oauth.ts:29:    `/api/connector/oauth/details/${sourceType}`,
+web/src/lib/connectors/connectors.tsx:3:import { AccessTypeGroupSelectorFormType } from "@/components/admin/connectors/AccessTypeGroupSelector";
+web/src/lib/connectors/connectors.tsx:4:import { Credential } from "@/lib/connectors/credentials"; // Import Credential type
+web/src/lib/connectors/connectors.tsx:7:export function isLoadState(connector_name: string): boolean {
+web/src/lib/connectors/connectors.tsx:8:  // TODO: centralize connector metadata like this somewhere instead of hardcoding it here
+web/src/lib/connectors/connectors.tsx:10:  if (loadStateConnectors.includes(connector_name)) {
+web/src/lib/connectors/connectors.tsx:117:  initialConnectorName?: string; // a key in the credential to prepopulate the connector name field
+web/src/lib/connectors/connectors.tsx:145:export const connectorConfigs: Record<
+web/src/lib/connectors/connectors.tsx:150:    description: "Configure Web connector",
+web/src/lib/connectors/connectors.tsx:161:        query: "Select the web connector type:",
+web/src/lib/connectors/connectors.tsx:163:        name: "web_connector_type",
+web/src/lib/connectors/connectors.tsx:185:    description: "Configure GitHub connector",
+web/src/lib/connectors/connectors.tsx:224:                  "This connector will index all repositories the provided credentials have access to!",
+web/src/lib/connectors/connectors.tsx:250:    description: "Configure TestRail connector",
+web/src/lib/connectors/connectors.tsx:289:    description: "Configure GitLab connector",
+web/src/lib/connectors/connectors.tsx:326:    description: "Configure Bitbucket connector",
+web/src/lib/connectors/connectors.tsx:328:      "Configure Bitbucket connector (Cloud only). You can index a workspace, specific projects or repositories.",
+web/src/lib/connectors/connectors.tsx:380:                  "This connector will index all repositories in the workspace.",
+web/src/lib/connectors/connectors.tsx:390:    description: "Configure GitBook connector",
+web/src/lib/connectors/connectors.tsx:408:    description: "Configure Google Drive connector",
+web/src/lib/connectors/connectors.tsx:525:    description: "Configure Gmail connector",
+web/src/lib/connectors/connectors.tsx:530:    description: "Configure Bookstack connector",
+web/src/lib/connectors/connectors.tsx:535:    description: "Configure Outline connector",
+web/src/lib/connectors/connectors.tsx:540:    description: "Configure Confluence connector",
+web/src/lib/connectors/connectors.tsx:600:                  "This connector will index all pages the provided credentials have access to!",
+web/src/lib/connectors/connectors.tsx:653:                  "IMPORTANT: We currently only support CQL queries that return objects of type 'page'. This means all CQL queries must contain 'type=page' as the only type filter. It is also important that no filters for 'lastModified' are used as it will cause issues with our connector polling logic. We will still get all attachments and comments for the pages returned by the CQL query. Any 'lastmodified' filters will be overwritten. See Atlassian's [CQL documentation](https://developer.atlassian.com/server/confluence/advanced-searching-using-cql/) for more details.",
+web/src/lib/connectors/connectors.tsx:664:    description: "Configure Jira connector",
+web/src/lib/connectors/connectors.tsx:699:                  "This connector will index all issues the provided credentials have access to!",
+web/src/lib/connectors/connectors.tsx:728:                  "\n\nIMPORTANT: Do not include any time-based filters in the JQL query as that will conflict with the connector's logic. Additionally, do not include ORDER BY clauses." +
+web/src/lib/connectors/connectors.tsx:749:    description: "Configure Salesforce connector",
+web/src/lib/connectors/connectors.tsx:795:                  `\n\n[See our docs](${DOCS_ADMINS_PATH}/connectors/official/salesforce) for more details.`,
+web/src/lib/connectors/connectors.tsx:806:    description: "Configure SharePoint connector",
+web/src/lib/connectors/connectors.tsx:915:    description: "Configure Teams connector",
+web/src/lib/connectors/connectors.tsx:954:    description: "Configure Discourse connector",
+web/src/lib/connectors/connectors.tsx:974:    description: "Configure Drupal Wiki connector",
+web/src/lib/connectors/connectors.tsx:1000:                  "This connector will index all spaces the provided credentials have access to!",
+web/src/lib/connectors/connectors.tsx:1047:    description: "Configure Axero connector",
+web/src/lib/connectors/connectors.tsx:1063:    description: "Configure Productboard connector",
+web/src/lib/connectors/connectors.tsx:1068:    description: "Configure Slack connector",
+web/src/lib/connectors/connectors.tsx:1086:        description: `If enabled, we will treat the "channels" specified above as regular expressions. A channel's messages will be pulled in by the connector if the name of the channel fully matches any of the specified regular expressions.
+web/src/lib/connectors/connectors.tsx:1087:For example, specifying .*-support.* as a "channel" will cause the connector to include any channels with "-support" in the name.`,
+web/src/lib/connectors/connectors.tsx:1102:    description: "Configure Slab connector",
+web/src/lib/connectors/connectors.tsx:1116:    description: "Configure Guru connector",
+web/src/lib/connectors/connectors.tsx:1121:    description: "Configure Gong connector",
+web/src/lib/connectors/connectors.tsx:1136:    description: "Configure Loopio connector",
+web/src/lib/connectors/connectors.tsx:1152:    description: "Configure File connector",
+web/src/lib/connectors/connectors.tsx:1165:    description: "Configure Zulip connector",
+web/src/lib/connectors/connectors.tsx:1185:    description: "Configure Coda connector",
+web/src/lib/connectors/connectors.tsx:1190:    description: "Configure Notion connector",
+web/src/lib/connectors/connectors.tsx:1205:    description: "Configure HubSpot connector",
+web/src/lib/connectors/connectors.tsx:1227:    description: "Configure Document360 connector",
+web/src/lib/connectors/connectors.tsx:1249:    description: "Configure ClickUp connector",
+web/src/lib/connectors/connectors.tsx:1253:        query: "Select the connector type:",
+web/src/lib/connectors/connectors.tsx:1255:        name: "connector_type",
+web/src/lib/connectors/connectors.tsx:1266:        query: "Enter connector IDs:",
+web/src/lib/connectors/connectors.tsx:1268:        name: "connector_ids",
+web/src/lib/connectors/connectors.tsx:1276:        name: "retrieve_task_comments",
+web/src/lib/connectors/connectors.tsx:1278:          "If checked, then all the comments for each task will also be retrieved and indexed.",
+web/src/lib/connectors/connectors.tsx:1285:    description: "Configure Google Sites connector",
+web/src/lib/connectors/connectors.tsx:1307:    description: "Configure Zendesk connector",
+web/src/lib/connectors/connectors.tsx:1311:        query: "Select the what content this connector will index:",
+web/src/lib/connectors/connectors.tsx:1329:          "Restricts how many Zendesk API calls this connector can make per minute (applies only to this connector). See defaults: https://developer.zendesk.com/api-reference/introduction/rate-limits/",
+web/src/lib/connectors/connectors.tsx:1334:    description: "Configure Linear connector",
+web/src/lib/connectors/connectors.tsx:1339:    description: "Configure Dropbox connector",
+web/src/lib/connectors/connectors.tsx:1344:    description: "Configure S3 connector",
+web/src/lib/connectors/connectors.tsx:1373:    description: "Configure R2 connector",
+web/src/lib/connectors/connectors.tsx:1411:    description: "Configure Google Cloud Storage connector",
+web/src/lib/connectors/connectors.tsx:1441:    description: "Configure OCI Storage connector",
+web/src/lib/connectors/connectors.tsx:1469:    description: "Configure Wikipedia connector",
+web/src/lib/connectors/connectors.tsx:1509:    description: "Configure Xenforo connector",
+web/src/lib/connectors/connectors.tsx:1524:    description: "Configure Asana connector",
+web/src/lib/connectors/connectors.tsx:1557:    description: "Configure MediaWiki connector",
+web/src/lib/connectors/connectors.tsx:1605:    description: "Configure Discord connector",
+web/src/lib/connectors/connectors.tsx:1635:    description: "Configure Freshdesk connector",
+web/src/lib/connectors/connectors.tsx:1640:    description: "Configure Fireflies connector",
+web/src/lib/connectors/connectors.tsx:1645:    description: "Configure Egnyte connector",
+web/src/lib/connectors/connectors.tsx:1660:    description: "Configure Airtable connector",
+web/src/lib/connectors/connectors.tsx:1677:                  "This connector will automatically discover and index all bases and tables accessible by your API token.",
+web/src/lib/connectors/connectors.tsx:1719:    description: "Configure Highspot connector",
+web/src/lib/connectors/connectors.tsx:1750:                  "This connector will index all spots the provided credentials have access to!",
+web/src/lib/connectors/connectors.tsx:1760:    description: "Configure Email connector",
+web/src/lib/connectors/connectors.tsx:1817:  connector: ConfigurableSources
+web/src/lib/connectors/connectors.tsx:1819:  const configuration = connectorConfigs[connector];
+web/src/lib/connectors/connectors.tsx:1831:  connector: ConfigurableSources
+web/src/lib/connectors/connectors.tsx:1833:  const configuration = connectorConfigs[connector];
+web/src/lib/connectors/connectors.tsx:1883:  connector_specific_config: T;
+web/src/lib/connectors/connectors.tsx:1904:  // connector_specific_config
+web/src/lib/connectors/connectors.tsx:1916:  web_connector_type?: "recursive" | "single" | "sitemap";
+web/src/lib/connectors/connectors.tsx:2057:  connector_type: "list" | "folder" | "space" | "workspace";
+web/src/lib/connectors/connectors.tsx:2058:  connector_ids?: string[];
+web/src/lib/connectors/connectors.tsx:2059:  retrieve_task_comments: boolean;
+web/src/lib/connectors/connectors.tsx:2104:  connector_name: string;
+web/src/lib/connectors/AutoSyncOptionFields.tsx:4:// The first key is the connector type, and the second key is the field name
+web/src/lib/admin-routes.ts:58:    path: "/admin/add-connector",
+web/src/lib/admin-routes.ts:106:    path: "/admin/actions/mcp",
+backend/ee/onyx/prompts/search_flow_classification.py:5:# Will note that with many larger LLMs the latency on running this prompt via third party APIs is as high as 2 seconds which is too slow for many
+web/src/lib/search/utils.test.ts:15:    chunk_ind: 0,
+web/src/lib/search/utils.test.ts:50:  it("opens the in-app preview for connector File documents without a link", () => {
+web/src/lib/search/utils.test.ts:64:    // Regression test: prior to the fix, "Uploaded Files" citations
+web/src/lib/search/streamingUtils.ts:4:  streamingResponse: Response,
+web/src/lib/search/streamingUtils.ts:7:  const reader = streamingResponse.body?.getReader();
+web/src/lib/search/streamingUtils.ts:19:      throw new Error("Unable to process chunk");
+web/src/lib/search/streamingUtils.ts:26:    buffer += decoder.decode(value, { stream: true });
+web/src/lib/search/streamingUtils.ts:34:        const data = JSON.parse(line) as T;
+web/src/lib/search/streamingUtils.ts:39:        // Detect JSON objects (ie. check if parseable json has been accumulated)
+web/src/lib/search/streamingUtils.ts:44:              const data = JSON.parse(jsonObj) as T;
+web/src/lib/search/streamingUtils.ts:58:      const data = JSON.parse(buffer) as T;
+web/src/lib/search/utilsSS.ts:3:import { Connector } from "../connectors/connectors";
+web/src/lib/search/utilsSS.ts:6:  const [connectorsResponse, documentSetResponse] = await Promise.all([
+web/src/lib/search/utilsSS.ts:7:    fetchSS("/manage/connector"),
+web/src/lib/search/utilsSS.ts:11:  let connectors = [] as Connector<any>[];
+web/src/lib/search/utilsSS.ts:12:  if (connectorsResponse.ok) {
+web/src/lib/search/utilsSS.ts:13:    connectors = (await connectorsResponse.json()) as Connector<any>[];
+web/src/lib/search/utilsSS.ts:16:      `Failed to fetch connectors - ${connectorsResponse.status} - ${connectorsResponse.statusText}`
+web/src/lib/search/utilsSS.ts:29:  return { connectors, documentSets };
+web/src/lib/search/interfaces.ts:36:  stream_type?: "sub_answer" | "sub_questions" | "main_answer";
+web/src/lib/search/interfaces.ts:67:  chunk_ind: number;
+web/src/lib/search/interfaces.ts:143:  // For federated connectors, this stores the base source type for the icon
+web/src/lib/search/interfaces.ts:145:  // For connectors that are always available (don't need connection setup)
+web/src/lib/search/interfaces.ts:245:  stream?: boolean;
+web/src/lib/search/interfaces.ts:254:  chunk_ind: number;
+web/src/lib/search/interfaces.ts:274: * Full response from a search query (non-streaming)
+web/src/lib/search/interfaces.ts:306:// Streaming Packets (for stream=true)
+web/src/lib/fileConnector.ts:19:  connectorId: number,
+web/src/lib/fileConnector.ts:34:    `/api/manage/admin/connector/${connectorId}/files/update`,
+web/src/lib/fileConnector.ts:44:      `Failed to update connector files (${response.status}): ${
+web/src/lib/gmail.ts:1:import { Credential } from "./connectors/credentials";
+web/src/lib/gmail.ts:29:    `/api/manage/connector/gmail/authorize/${credential.id}`
+web/src/lib/ccPair.ts:1:import { ConnectorCredentialPairStatus } from "@/app/admin/connector/[ccPairId]/types";
+web/src/lib/ccPair.ts:23:      toast.error(`Failed to update connector status - ${detail}`);
+web/src/lib/ccPair.ts:29:        ? "Enabled connector!"
+web/src/lib/ccPair.ts:30:        : "Paused connector!"
+web/src/lib/ccPair.ts:36:    toast.error("Failed to update connector status");
+web/src/lib/ccPair.ts:49:    return "Cannot index while connector is deleting";
+backend/ee/onyx/connectors/perm_sync_valid.py:1:from onyx.connectors.confluence.connector import ConfluenceConnector
+backend/ee/onyx/connectors/perm_sync_valid.py:2:from onyx.connectors.google_drive.connector import GoogleDriveConnector
+backend/ee/onyx/connectors/perm_sync_valid.py:3:from onyx.connectors.interfaces import BaseConnector
+backend/ee/onyx/connectors/perm_sync_valid.py:4:from onyx.connectors.sharepoint.connector import SharepointConnector
+backend/ee/onyx/connectors/perm_sync_valid.py:7:def validate_confluence_perm_sync(connector: ConfluenceConnector) -> None:
+backend/ee/onyx/connectors/perm_sync_valid.py:9:    Validate that the connector is configured correctly for permissions syncing.
+backend/ee/onyx/connectors/perm_sync_valid.py:14:    misconfiguration surfaces at connector creation time -- with an
+backend/ee/onyx/connectors/perm_sync_valid.py:18:    connector.probe_rest_space_permissions_admin_access()
+backend/ee/onyx/connectors/perm_sync_valid.py:21:def validate_drive_perm_sync(connector: GoogleDriveConnector) -> None:
+backend/ee/onyx/connectors/perm_sync_valid.py:23:    Validate that the connector is configured correctly for permissions syncing.
+backend/ee/onyx/connectors/perm_sync_valid.py:27:    connector creation instead of every external-group-sync tick.
+backend/ee/onyx/connectors/perm_sync_valid.py:29:    connector.probe_directory_admin_permission()
+backend/ee/onyx/connectors/perm_sync_valid.py:32:def validate_sharepoint_perm_sync(connector: SharepointConnector) -> None:
+backend/ee/onyx/connectors/perm_sync_valid.py:34:    Validate that the connector is configured correctly for permissions syncing.
+backend/ee/onyx/connectors/perm_sync_valid.py:41:    Probe both here so misconfigured apps fail fast at connector creation
+backend/ee/onyx/connectors/perm_sync_valid.py:44:    connector.probe_role_assignments_permission()
+backend/ee/onyx/connectors/perm_sync_valid.py:45:    connector.probe_group_members_permission()
+backend/ee/onyx/connectors/perm_sync_valid.py:48:def validate_perm_sync(connector: BaseConnector) -> None:
+backend/ee/onyx/connectors/perm_sync_valid.py:50:    Override this if your connector needs to validate permissions syncing.
+backend/ee/onyx/connectors/perm_sync_valid.py:55:    if isinstance(connector, ConfluenceConnector):
+backend/ee/onyx/connectors/perm_sync_valid.py:56:        validate_confluence_perm_sync(connector)
+backend/ee/onyx/connectors/perm_sync_valid.py:57:    elif isinstance(connector, GoogleDriveConnector):
+backend/ee/onyx/connectors/perm_sync_valid.py:58:        validate_drive_perm_sync(connector)
+backend/ee/onyx/connectors/perm_sync_valid.py:59:    elif isinstance(connector, SharepointConnector):
+backend/ee/onyx/connectors/perm_sync_valid.py:60:        validate_sharepoint_perm_sync(connector)
+web/src/lib/swr-keys.ts:2: * Centralized SWR cache key registry.
+web/src/lib/swr-keys.ts:51:  connectorStatus: "/api/manage/connector-status",
+web/src/lib/swr-keys.ts:55:  indexingStatus: "/api/manage/admin/connector/indexing-status",
+web/src/lib/swr-keys.ts:56:  adminConnectorStatus: "/api/manage/admin/connector/status",
+web/src/lib/swr-keys.ts:61:    `/api/manage/admin/connector/${service}/app-credential`,
+web/src/lib/swr-keys.ts:63:    `/api/manage/admin/connector/${service}/service-account-key`,
+web/src/lib/swr-keys.ts:65:    `/api/manage/admin/connector/${service}/credentials`,
+web/src/lib/swr-keys.ts:67:    `/api/manage/admin/connector/${service}/public-credential`,
+web/src/lib/swr-keys.ts:70:  ) => `/api/manage/admin/connector/${service}/service-account-credential`,
+web/src/lib/swr-keys.ts:75:  embeddingProviders: "/api/admin/embedding/embedding-provider",
+web/src/lib/swr-keys.ts:106:  adminMcpServers: "/api/admin/mcp/servers",
+web/src/lib/swr-keys.ts:107:  mcpServers: "/api/mcp/servers",
+web/src/lib/swr-keys.ts:114:  tools: "/api/tool",
+web/src/lib/swr-keys.ts:115:  openApiTools: "/api/tool/openapi",
+web/src/lib/swr-keys.ts:131:    `/api/build/sessions/${sessionId}/artifacts`,
+web/src/lib/swr-keys.ts:133:    `/api/build/sessions/${sessionId}/artifacts/${filePath}`,
+web/src/lib/swr-keys.ts:152:  promptShortcuts: "/api/input_prompt",
+web/src/lib/swr-keys.ts:179:  adminMcpServer: (id: number) => `/api/admin/mcp/servers/${id}`,
+web/src/lib/swr-keys.ts:185:  connector: "/api/manage/connector",
+web/src/lib/skills/picker.ts:4: * Used by the Craft chat input (`InputBar`) and the scheduled trigger prompt
+web/src/lib/skills/api.ts:39:// non-list cache).
+backend/ee/onyx/search/process_search_query.py:10:from ee.onyx.server.query_and_chat.streaming_models import LLMSelectedDocsPacket
+backend/ee/onyx/search/process_search_query.py:11:from ee.onyx.server.query_and_chat.streaming_models import SearchDocsPacket
+backend/ee/onyx/search/process_search_query.py:12:from ee.onyx.server.query_and_chat.streaming_models import SearchErrorPacket
+backend/ee/onyx/search/process_search_query.py:13:from ee.onyx.server.query_and_chat.streaming_models import SearchQueriesPacket
+backend/ee/onyx/search/process_search_query.py:17:from onyx.context.search.pipeline import merge_individual_chunks
+backend/ee/onyx/search/process_search_query.py:25:from onyx.tools.tool_implementations.search.search_utils import (
+backend/ee/onyx/search/process_search_query.py:49:    """Execute a single search query and return chunks."""
+backend/ee/onyx/search/process_search_query.py:50:    chunk_search_request = ChunkSearchRequest(
+backend/ee/onyx/search/process_search_query.py:58:        chunk_search_request=chunk_search_request,
+backend/ee/onyx/search/process_search_query.py:66:def stream_search_query(
+backend/ee/onyx/search/process_search_query.py:76:    Core search function that yields streaming packets.
+backend/ee/onyx/search/process_search_query.py:77:    Used by both streaming and non-streaming endpoints.
+backend/ee/onyx/search/process_search_query.py:118:        chunks = _run_single_search(
+backend/ee/onyx/search/process_search_query.py:177:            chunks = []
+backend/ee/onyx/search/process_search_query.py:179:            chunks = weighted_reciprocal_rank_fusion(
+backend/ee/onyx/search/process_search_query.py:182:                id_extractor=lambda chunk: f"{chunk.document_id}_{chunk.chunk_id}",
+backend/ee/onyx/search/process_search_query.py:185:    # Merge chunks into sections
+backend/ee/onyx/search/process_search_query.py:186:    sections = merge_individual_chunks(chunks)
+backend/ee/onyx/search/process_search_query.py:218:                    section.center_chunk.document_id for section in selected_sections
+backend/ee/onyx/search/process_search_query.py:258:def gather_search_stream(
+backend/ee/onyx/search/process_search_query.py:269:    Aggregate all streaming packets into SearchFullResponse.
+web/src/lib/oauth_utils.ts:11:  connector: string,
+web/src/lib/oauth_utils.ts:14:  let url = `/api/oauth/prepare-authorization-request?connector=${encodeURIComponent(
+web/src/lib/oauth_utils.ts:15:    connector
+web/src/lib/oauth_utils.ts:29:      connector: connector,
+web/src/lib/oauth_utils.ts:46:  connector: string,
+web/src/lib/oauth_utils.ts:50:  if (connector === "slack") {
+web/src/lib/oauth_utils.ts:54:  if (connector === "google-drive") {
+web/src/lib/oauth_utils.ts:58:  if (connector === "confluence") {
+web/src/lib/oauth_utils.ts:65:// Handler for federated connector OAuth callbacks
+web/src/lib/oauth_utils.ts:71:  // Use the generic callback endpoint - the connector ID will be extracted from the state parameter
+web/src/lib/oauth_utils.ts:121:  const url = `/api/oauth/connector/slack/callback?code=${encodeURIComponent(
+web/src/lib/oauth_utils.ts:159:  const url = `/api/oauth/connector/google-drive/callback?code=${encodeURIComponent(
+web/src/lib/oauth_utils.ts:199:  const url = `/api/oauth/connector/confluence/callback?code=${encodeURIComponent(
+web/src/lib/oauth_utils.ts:234:  connector: string,
+web/src/lib/oauth_utils.ts:237:  if (connector === "confluence") {
+web/src/lib/oauth_utils.ts:249:  const url = `/api/oauth/connector/confluence/accessible-resources?credential_id=${encodeURIComponent(
+web/src/lib/oauth_utils.ts:289:  const url = `/api/oauth/connector/confluence/finalize?credential_id=${encodeURIComponent(
+backend/ee/onyx/secondary_llm_flows/search_flow_classification.py:1:from ee.onyx.prompts.search_flow_classification import CHAT_CLASS
+backend/ee/onyx/secondary_llm_flows/search_flow_classification.py:2:from ee.onyx.prompts.search_flow_classification import SEARCH_CHAT_PROMPT
+backend/ee/onyx/secondary_llm_flows/search_flow_classification.py:3:from ee.onyx.prompts.search_flow_classification import SEARCH_CLASS
+backend/ee/onyx/secondary_llm_flows/search_flow_classification.py:24:        prompt=messages,
+web/src/lib/build/client.ts:11:  artifact_type: "webapp" | "file" | "markdown" | "image";
+web/src/lib/build/client.ts:23:  sessionUpdate: "agent_message_chunk";
+web/src/lib/build/client.ts:34:  sessionUpdate: "agent_thought_chunk";
+web/src/lib/build/client.ts:40:  sessionUpdate: "tool_call";
+web/src/lib/build/client.ts:41:  toolCallId: string;
+web/src/lib/build/client.ts:42:  toolName: string;
+web/src/lib/build/client.ts:43:  toolInput?: Record<string, unknown>;
+web/src/lib/build/client.ts:48:  sessionUpdate: "tool_call_update";
+web/src/lib/build/client.ts:49:  toolCallId: string;
+web/src/lib/build/client.ts:76:/** Agent finished processing prompt */
+web/src/lib/build/client.ts:103:  stream: "stdout" | "stderr";
+web/src/lib/build/client.ts:113:  artifact_type: string;
+web/src/lib/build/client.ts:141:  | { type: "agent_message_chunk"; data: AgentMessageChunkEvent }
+web/src/lib/build/client.ts:142:  | { type: "agent_thought_chunk"; data: AgentThoughtChunkEvent }
+web/src/lib/build/client.ts:143:  | { type: "tool_call"; data: ToolCallStartEvent }
+web/src/lib/build/client.ts:144:  | { type: "tool_call_update"; data: ToolCallProgressEvent }
+web/src/lib/build/client.ts:147:  | { type: "prompt_response"; data: PromptResponseEvent }
+web/src/lib/build/client.ts:150:  | { type: "artifact"; data: ArtifactEvent }
+web/src/lib/build/client.ts:192:        Accept: "text/event-stream",
+web/src/lib/build/client.ts:213:      buffer += decoder.decode(value, { stream: true });
+web/src/lib/build/client.ts:225:              const parsed = JSON.parse(data);
+web/src/lib/build/client.ts:226:              onEvent({ type: currentEventType, data: parsed } as BuildEvent);
+web/src/lib/build/client.ts:243: * This endpoint streams SSE events with message-prefixed packet types.
+web/src/lib/build/client.ts:257:        Accept: "text/event-stream",
+web/src/lib/build/client.ts:281:      buffer += decoder.decode(value, { stream: true });
+web/src/lib/build/client.ts:293:              const parsed = JSON.parse(data);
+web/src/lib/build/client.ts:295:              const eventType = mapMessagePacketToEventType(parsed.type);
+web/src/lib/build/client.ts:297:                onEvent({ type: eventType, data: parsed } as BuildEvent);
+web/src/lib/build/client.ts:300:              console.error("Failed to parse SSE data:", err);
+web/src/lib/build/client.ts:320:    agent_message_chunk: "agent_message_chunk",
+web/src/lib/build/client.ts:321:    agent_thought_chunk: "agent_thought_chunk",
+web/src/lib/build/client.ts:322:    tool_call_start: "tool_call",
+web/src/lib/build/client.ts:323:    tool_call_progress: "tool_call_update",
+web/src/lib/build/client.ts:326:    prompt_response: "prompt_response",
+web/src/lib/build/client.ts:329:    artifact_created: "artifact",
+web/src/lib/build/client.ts:338:  const response = await fetch(`/api/build/sessions/${sessionId}/artifacts`);
+web/src/lib/build/client.ts:340:    throw new Error(`Failed to list artifacts: ${response.statusText}`);
+web/src/lib/build/client.ts:346:  return `/api/build/sessions/${sessionId}/artifacts/${path}`;
+backend/ee/onyx/secondary_llm_flows/query_expansion.py:3:from ee.onyx.prompts.query_expansion import KEYWORD_EXPANSION_PROMPT
+backend/ee/onyx/secondary_llm_flows/query_expansion.py:13:# Pattern to remove common LLM artifacts: brackets, quotes, list markers, etc.
+backend/ee/onyx/secondary_llm_flows/query_expansion.py:18:    """Clean a keyword line by removing common LLM artifacts.
+backend/ee/onyx/secondary_llm_flows/query_expansion.py:23:    # Remove common artifacts
+backend/ee/onyx/secondary_llm_flows/query_expansion.py:54:            prompt=messages,
+backend/ee/onyx/secondary_llm_flows/query_expansion.py:67:        # Clean each line to remove LLM artifacts and drop empty lines
+backend/ee/onyx/secondary_llm_flows/query_expansion.py:68:        parsed_queries = []
+backend/ee/onyx/secondary_llm_flows/query_expansion.py:72:                parsed_queries.append(cleaned)
+backend/ee/onyx/secondary_llm_flows/query_expansion.py:74:        if not parsed_queries:
+backend/ee/onyx/secondary_llm_flows/query_expansion.py:81:        for query in parsed_queries:
+web/src/lib/targeted_reindex.ts:12:} from "@/app/admin/connector/[ccPairId]/types";
+web/src/lib/targeted_reindex.ts:49:function chunk<T>(items: T[], size: number): T[][] {
+web/src/lib/targeted_reindex.ts:77: * targeted-reindex jobs (chunked at MAX_TARGETS_PER_REQUEST). Returns
+web/src/lib/targeted_reindex.ts:78: * once the POSTs complete; does NOT wait for the celery jobs to finish.
+web/src/lib/targeted_reindex.ts:91:  const batches = chunk(errorIds, TARGETED_REINDEX_MAX_PER_REQUEST);
+web/src/lib/documentDeletion.ts:5:  connectorId: number,
+web/src/lib/documentDeletion.ts:9:  // 1. Remove all documents indexed by the connector / credential pair
+web/src/lib/documentDeletion.ts:10:  // 2. Remove the connector (if this is the only pair using the connector)
+web/src/lib/documentDeletion.ts:17:      connector_id: connectorId,
+web/src/lib/documentDeletion.ts:28:  connectorId: number,
+web/src/lib/documentDeletion.ts:33:    connectorId,
+web/src/lib/documentDeletion.ts:39:  toast.success("Scheduled deletion of connector!");
+web/src/lib/utils.ts:61:    const parsedUrl = new URL(trimmedHref);
+web/src/lib/utils.ts:62:    const protocol = parsedUrl.protocol.toLowerCase();
+web/src/lib/utils.ts:171:    parseFloat((bytes / Math.pow(k, unitIndex)).toFixed(dm)) +
+web/src/lib/languageModels/utils.ts:82:export const parseLlmDescriptor = (value: string): LlmDescriptor => {
+web/src/lib/languageModels/svc.ts:264:          "Failed to parse OpenRouter model fetch error response",
+web/src/lib/languageModels/svc.ts:323:          "Failed to parse LM Studio model fetch error response",
+web/src/lib/languageModels/svc.ts:381:          "Failed to parse Bifrost model fetch error response",
+web/src/lib/indexing/index.ts:31:    embeddingModels: [
+web/src/lib/indexing/index.ts:33:        modelName: "embed-english-v3.0",
+web/src/lib/indexing/index.ts:39:          "Cohere's English embedding model. Good performance for English-language tasks.",
+web/src/lib/indexing/index.ts:42:        modelName: "embed-english-light-v3.0",
+web/src/lib/indexing/index.ts:48:          "Cohere's lightweight English embedding model. Faster and more efficient for simpler tasks.",
+web/src/lib/indexing/index.ts:51:        modelName: "embed-v4.0",
+web/src/lib/indexing/index.ts:57:          "Cohere's latest multilingual embedding model with the default 1536-dim output for stronger retrieval quality.",
+web/src/lib/indexing/index.ts:68:    embeddingModels: [
+web/src/lib/indexing/index.ts:70:        modelName: "text-embedding-3-large",
+web/src/lib/indexing/index.ts:76:          "OpenAI's large embedding model. Best performance, but more expensive.",
+web/src/lib/indexing/index.ts:79:        modelName: "text-embedding-3-small",
+web/src/lib/indexing/index.ts:85:          "OpenAI's newer, more efficient embedding model. Good balance of performance and cost.",
+web/src/lib/indexing/index.ts:96:    embeddingModels: [
+web/src/lib/indexing/index.ts:98:        modelName: "gemini-embedding-001",
+web/src/lib/indexing/index.ts:103:        description: "Google's Gemini embedding model. Powerful and efficient.",
+web/src/lib/indexing/index.ts:106:        modelName: "text-embedding-005",
+web/src/lib/indexing/index.ts:111:        description: "Smaller, lighter-weight embedding model from Google.",
+web/src/lib/indexing/index.ts:114:        modelName: "gemini-embedding-2-preview",
+web/src/lib/indexing/index.ts:120:          "Google's multimodal embedding model. Higher-quality retrieval with a 3072-dim output.",
+web/src/lib/indexing/index.ts:132:    embeddingModels: [
+web/src/lib/indexing/index.ts:140:          "Voyage's large embedding model. High performance with instruction fine-tuning.",
+web/src/lib/indexing/index.ts:149:          "Voyage's lightweight embedding model. Good balance of performance and efficiency.",
+web/src/lib/indexing/index.ts:158:    embeddingModels: [],
