@@ -1,0 +1,261 @@
+# Authz surface map signals
+backend/ee/onyx/server/query_and_chat/query_backend.py:11:from onyx.auth.permissions import require_permission
+backend/ee/onyx/server/query_and_chat/query_backend.py:12:from onyx.db.engine.sql_engine import get_session
+backend/ee/onyx/server/query_and_chat/query_backend.py:25:    db_session: Session = Depends(get_session),
+backend/ee/onyx/server/query_and_chat/query_backend.py:26:    _: User = Depends(require_permission(Permission.BASIC_ACCESS)),
+backend/ee/onyx/server/query_and_chat/query_backend.py:32:            db_session=db_session,
+backend/ee/onyx/server/query_and_chat/search_backend.py:33:from onyx.auth.permissions import require_permission
+backend/ee/onyx/server/query_and_chat/search_backend.py:35:from onyx.db.engine.sql_engine import get_session
+backend/ee/onyx/server/query_and_chat/search_backend.py:36:from onyx.db.engine.sql_engine import get_session_with_current_tenant
+backend/ee/onyx/server/query_and_chat/search_backend.py:44:from shared_configs.contextvars import get_current_tenant_id
+backend/ee/onyx/server/query_and_chat/search_backend.py:54:    _: User = Depends(require_permission(Permission.BASIC_ACCESS)),
+backend/ee/onyx/server/query_and_chat/search_backend.py:55:    db_session: Session = Depends(get_session),
+backend/ee/onyx/server/query_and_chat/search_backend.py:66:        db_session=db_session,
+backend/ee/onyx/server/query_and_chat/search_backend.py:67:        tenant_id=get_current_tenant_id(),
+backend/ee/onyx/server/query_and_chat/search_backend.py:94:    user: User = Depends(require_permission(Permission.BASIC_ACCESS)),
+backend/ee/onyx/server/query_and_chat/search_backend.py:95:    db_session: Session = Depends(get_session),
+backend/ee/onyx/server/query_and_chat/search_backend.py:114:            packets = stream_search_query(request, user, db_session)
+backend/ee/onyx/server/query_and_chat/search_backend.py:126:            with get_session_with_current_tenant() as streaming_db_session:
+backend/ee/onyx/server/query_and_chat/search_backend.py:127:                for packet in stream_search_query(request, user, streaming_db_session):
+backend/ee/onyx/server/query_and_chat/search_backend.py:144:    user: User = Depends(require_permission(Permission.BASIC_ACCESS)),
+backend/ee/onyx/server/query_and_chat/search_backend.py:145:    db_session: Session = Depends(get_session),
+backend/ee/onyx/server/query_and_chat/search_backend.py:148:    Fetch past search queries for the authenticated user.
+backend/ee/onyx/server/query_and_chat/search_backend.py:177:        db_session=db_session,
+backend/ee/onyx/server/query_and_chat/token_limit.py:16:from onyx.db.engine.sql_engine import get_session_with_current_tenant
+backend/ee/onyx/server/query_and_chat/token_limit.py:56:    with get_session_with_current_tenant() as db_session:
+backend/ee/onyx/server/query_and_chat/token_limit.py:58:            db_session=db_session, enabled_only=True, ordered=False
+backend/ee/onyx/server/query_and_chat/token_limit.py:63:            user_usage = _fetch_user_usage(user_id, user_cutoff_time, db_session)
+backend/ee/onyx/server/query_and_chat/token_limit.py:73:    user_id: UUID, cutoff_time: datetime, db_session: Session
+backend/ee/onyx/server/query_and_chat/token_limit.py:78:    result = db_session.execute(
+backend/ee/onyx/server/query_and_chat/token_limit.py:83:        .join(ChatSession, ChatMessage.chat_session_id == ChatSession.id)
+backend/ee/onyx/server/query_and_chat/token_limit.py:97:    with get_session_with_current_tenant() as db_session:
+backend/ee/onyx/server/query_and_chat/token_limit.py:98:        group_rate_limits = _fetch_all_user_group_rate_limits(user_id, db_session)
+backend/ee/onyx/server/query_and_chat/token_limit.py:110:                user_group_ids, group_cutoff_time, db_session
+backend/ee/onyx/server/query_and_chat/token_limit.py:129:    user_id: UUID, db_session: Session
+backend/ee/onyx/server/query_and_chat/token_limit.py:151:    raw_rate_limits = db_session.execute(group_limits).all()
+backend/ee/onyx/server/query_and_chat/token_limit.py:161:    user_group_ids: list[int], cutoff_time: datetime, db_session: Session
+backend/ee/onyx/server/query_and_chat/token_limit.py:166:    user_group_usage = db_session.execute(
+backend/ee/onyx/server/query_and_chat/token_limit.py:172:        .join(ChatSession, ChatMessage.chat_session_id == ChatSession.id)
+backend/ee/onyx/server/settings/api.py:13:from onyx.db.engine.sql_engine import get_session_with_current_tenant
+backend/ee/onyx/server/settings/api.py:20:from shared_configs.contextvars import get_current_tenant_id
+backend/ee/onyx/server/settings/api.py:45:        # Cloud mode - EE features always available (gating handled by is_tenant_gated)
+backend/ee/onyx/server/settings/api.py:49:    tenant_id = get_current_tenant_id()
+backend/ee/onyx/server/settings/api.py:51:        metadata = get_cached_license_metadata(tenant_id)
+backend/ee/onyx/server/settings/api.py:55:                with get_session_with_current_tenant() as db_session:
+backend/ee/onyx/server/settings/api.py:56:                    metadata = refresh_license_cache(db_session, tenant_id)
+backend/ee/onyx/server/settings/api.py:81:    For multi-tenant (cloud), the settings already have the correct status
+backend/ee/onyx/server/settings/api.py:97:        # Cloud mode - EE features always available (gating handled by is_tenant_gated)
+backend/ee/onyx/server/settings/api.py:103:    tenant_id = get_current_tenant_id()
+backend/ee/onyx/server/settings/api.py:105:        metadata = get_cached_license_metadata(tenant_id)
+backend/ee/onyx/server/settings/api.py:111:                with get_session_with_current_tenant() as db_session:
+backend/ee/onyx/server/settings/api.py:112:                    metadata = refresh_license_cache(db_session, tenant_id)
+backend/ee/onyx/server/settings/api.py:134:                # Legacy EE flag is set → prior EE usage (e.g. permission
+backend/onyx/auth/users.py:45:from fastapi_users.authentication import AuthenticationBackend
+backend/onyx/auth/users.py:46:from fastapi_users.authentication import CookieTransport
+backend/onyx/auth/users.py:47:from fastapi_users.authentication import JWTStrategy
+backend/onyx/auth/users.py:48:from fastapi_users.authentication import (
+backend/onyx/auth/users.py:51:from fastapi_users.authentication import Strategy
+backend/onyx/auth/users.py:52:from fastapi_users.authentication.strategy.db import AccessTokenDatabase
+backend/onyx/auth/users.py:53:from fastapi_users.authentication.strategy.db import DatabaseStrategy
+backend/onyx/auth/users.py:63:from httpx_oauth.integrations.fastapi import OAuth2AuthorizeCallback
+backend/onyx/auth/users.py:64:from httpx_oauth.oauth2 import BaseOAuth2
+backend/onyx/auth/users.py:65:from httpx_oauth.oauth2 import GetAccessTokenError
+backend/onyx/auth/users.py:66:from httpx_oauth.oauth2 import OAuth2Token
+backend/onyx/auth/users.py:74:from onyx.auth.api_key import get_hashed_api_key_from_request
+backend/onyx/auth/users.py:75:from onyx.auth.disposable_email_validator import is_disposable_email
+backend/onyx/auth/users.py:76:from onyx.auth.email_utils import send_forgot_password_email
+backend/onyx/auth/users.py:77:from onyx.auth.email_utils import send_user_verification_email
+backend/onyx/auth/users.py:78:from onyx.auth.invited_users import get_invited_users
+backend/onyx/auth/users.py:79:from onyx.auth.invited_users import remove_user_from_invited_users
+backend/onyx/auth/users.py:80:from onyx.auth.jwt import verify_jwt_token
+backend/onyx/auth/users.py:81:from onyx.auth.pat import get_hashed_pat_from_request
+backend/onyx/auth/users.py:82:from onyx.auth.schemas import AuthBackend
+backend/onyx/auth/users.py:83:from onyx.auth.schemas import UserCreate
+backend/onyx/auth/users.py:84:from onyx.auth.schemas import UserRole
+backend/onyx/auth/users.py:85:from onyx.auth.signup_rate_limit import enforce_signup_rate_limit
+backend/onyx/auth/users.py:116:from onyx.db.auth import get_access_token_db
+backend/onyx/auth/users.py:117:from onyx.db.auth import get_default_admin_user_emails
+backend/onyx/auth/users.py:118:from onyx.db.auth import get_user_count
+backend/onyx/auth/users.py:119:from onyx.db.auth import get_user_db
+backend/onyx/auth/users.py:120:from onyx.db.auth import SQLAlchemyUserAdminDB
+backend/onyx/auth/users.py:121:from onyx.db.engine.async_sql_engine import get_async_session
+backend/onyx/auth/users.py:122:from onyx.db.engine.async_sql_engine import get_async_session_context_manager
+backend/onyx/auth/users.py:123:from onyx.db.engine.sql_engine import get_session_with_current_tenant
+backend/onyx/auth/users.py:124:from onyx.db.engine.sql_engine import get_session_with_tenant
+backend/onyx/auth/users.py:156:from shared_configs.contextvars import get_current_tenant_id
+backend/onyx/auth/users.py:163:def is_user_admin(user: User) -> bool:
+backend/onyx/auth/users.py:164:    return user.role == UserRole.ADMIN
+backend/onyx/auth/users.py:167:def verify_auth_setting() -> None:
+backend/onyx/auth/users.py:172:    raw_auth_type = (os.environ.get("AUTH_TYPE") or "").lower()
+backend/onyx/auth/users.py:174:    if raw_auth_type == "cloud":
+backend/onyx/auth/users.py:176:            "'cloud' is not a valid auth type for self-hosted deployments."
+backend/onyx/auth/users.py:178:    if raw_auth_type == "disabled":
+backend/onyx/auth/users.py:228:    # For other auth types, if the user is authenticated it's assumed that
+backend/onyx/auth/users.py:233:def anonymous_user_enabled(*, tenant_id: str | None = None) -> bool:
+backend/onyx/auth/users.py:236:    cache = get_cache_backend(tenant_id=tenant_id)
+backend/onyx/auth/users.py:245:def workspace_invite_only_enabled() -> bool:
+backend/onyx/auth/users.py:255:    if not workspace_invite_only_enabled():
+backend/onyx/auth/users.py:285:        "This workspace is invite-only. Please ask your admin to invite you.",
+backend/onyx/auth/users.py:289:def verify_email_in_whitelist(email: str, tenant_id: str) -> None:
+backend/onyx/auth/users.py:290:    with get_session_with_tenant(tenant_id=tenant_id) as db_session:
+backend/onyx/auth/users.py:291:        if not get_user_by_email(email, db_session):
+backend/onyx/auth/users.py:339:    db_session: Session,
+backend/onyx/auth/users.py:341:    lock_session: Session | None = None,
+backend/onyx/auth/users.py:352:            "onyx.server.tenants.billing",
+backend/onyx/auth/users.py:357:            tenant_id=get_current_tenant_id(),
+backend/onyx/auth/users.py:358:            db_session=lock_session,
+backend/onyx/auth/users.py:364:    )(db_session, seats_needed=seats_needed)
+backend/onyx/auth/users.py:370:def enforce_seat_limit_locked(db_session: Session, seats_needed: int = 1) -> None:
+backend/onyx/auth/users.py:371:    """Acquire the tenant advisory lock on ``db_session``, then enforce.
+backend/onyx/auth/users.py:374:    session — held until caller commits.
+backend/onyx/auth/users.py:376:    Cloud: lock + ``get_tenant_count`` + Stripe modify also held on the
+backend/onyx/auth/users.py:377:    caller's session — released on caller commit so the seat-consuming
+backend/onyx/auth/users.py:381:        db_session, get_current_tenant_id()
+backend/onyx/auth/users.py:384:    enforce_seat_limit(db_session, seats_needed=seats_needed, lock_session=db_session)
+backend/onyx/auth/users.py:423:        tenant_id = fetch_ee_implementation_or_noop(
+backend/onyx/auth/users.py:424:            "onyx.server.tenants.user_mapping", "get_tenant_id_for_email", None
+backend/onyx/auth/users.py:426:        async with get_async_session_context_manager(tenant_id) as db_session:
+backend/onyx/auth/users.py:428:                tenant_user_db = SQLAlchemyUserAdminDB[User, uuid.UUID](
+backend/onyx/auth/users.py:429:                    db_session, User, OAuthAccount
+backend/onyx/auth/users.py:431:                user = await tenant_user_db.get_by_email(user_email)
+backend/onyx/auth/users.py:469:        from onyx.auth.captcha import CaptchaAction
+backend/onyx/auth/users.py:470:        from onyx.auth.captcha import CaptchaVerificationError
+backend/onyx/auth/users.py:471:        from onyx.auth.captcha import is_captcha_enabled
+backend/onyx/auth/users.py:472:        from onyx.auth.captcha import verify_captcha_token
+backend/onyx/auth/users.py:501:        tenant_id = await fetch_ee_implementation_or_noop(
+backend/onyx/auth/users.py:502:            "onyx.server.tenants.provisioning",
+backend/onyx/auth/users.py:503:            "get_or_provision_tenant",
+backend/onyx/auth/users.py:512:        token = CURRENT_TENANT_ID_CONTEXTVAR.set(tenant_id)
+backend/onyx/auth/users.py:514:            async with get_async_session_context_manager(tenant_id) as db_session:
+backend/onyx/auth/users.py:517:                    # Multi-tenant: Only require invite for existing tenants
+backend/onyx/auth/users.py:518:                    # New tenant creation (first user) doesn't require an invite
+backend/onyx/auth/users.py:524:                    # Single-tenant: Check invite list (skips if SAML/OIDC or no list configured)
+backend/onyx/auth/users.py:527:                    tenant_user_db = SQLAlchemyUserAdminDB[User, uuid.UUID](
+backend/onyx/auth/users.py:528:                        db_session, User, OAuthAccount
+backend/onyx/auth/users.py:530:                    self.user_db = tenant_user_db
+backend/onyx/auth/users.py:532:                if hasattr(user_create, "role"):
+backend/onyx/auth/users.py:533:                    user_create.role = UserRole.BASIC  # ty: ignore[invalid-assignment]
+backend/onyx/auth/users.py:538:                        or user_create.email in get_default_admin_user_emails()
+backend/onyx/auth/users.py:540:                        user_create.role = (  # ty: ignore[invalid-assignment]
+backend/onyx/auth/users.py:544:                # Lock + check on the same session that does the insert.
+backend/onyx/auth/users.py:545:                existing = await self.user_db.session.run_sync(
+backend/onyx/auth/users.py:549:                    await self.user_db.session.run_sync(
+backend/onyx/auth/users.py:560:                    await self.user_db.session.rollback()
+backend/onyx/auth/users.py:573:                        user_by_session = await db_session.get(User, user.id)
+backend/onyx/auth/users.py:574:                        if user_by_session:
+backend/onyx/auth/users.py:575:                            user = user_by_session
+backend/onyx/auth/users.py:589:                    # Expire so the async session re-fetches the row updated by
+backend/onyx/auth/users.py:590:                    # the sync session above.
+backend/onyx/auth/users.py:591:                    self.user_db.session.expire(user)
+backend/onyx/auth/users.py:598:                    # we must use the existing user in the session if it matches
+backend/onyx/auth/users.py:600:                    # to multi-tenant, due to the overwriting of the user_db
+backend/onyx/auth/users.py:602:                        user_by_session = await db_session.get(User, user.id)
+backend/onyx/auth/users.py:603:                        if user_by_session:
+backend/onyx/auth/users.py:604:                            user = user_by_session
+backend/onyx/auth/users.py:619:                    # Expire so the async session re-fetches the row updated by
+backend/onyx/auth/users.py:620:                    # the sync session above.
+backend/onyx/auth/users.py:621:                    self.user_db.session.expire(user)
+backend/onyx/auth/users.py:626:                    await self._assign_default_pinned_assistants(user, db_session)
+backend/onyx/auth/users.py:633:        self, user: User, db_session: AsyncSession
+backend/onyx/auth/users.py:638:        result = await db_session.execute(
+backend/onyx/auth/users.py:673:        with get_session_with_current_tenant() as sync_db:
+backend/onyx/auth/users.py:689:                sync_user.role = user_create.role
+backend/onyx/auth/users.py:694:                    is_admin=(user_create.role == UserRole.ADMIN),
+backend/onyx/auth/users.py:699:                    "User %s not found in sync session during upgrade to standard; skipping upgrade",
+backend/onyx/auth/users.py:738:    async def oauth_callback(  # ty: ignore[invalid-method-override]
+backend/onyx/auth/users.py:740:        oauth_name: str,
+backend/onyx/auth/users.py:755:        tenant_id = await fetch_ee_implementation_or_noop(
+backend/onyx/auth/users.py:756:            "onyx.server.tenants.provisioning",
+backend/onyx/auth/users.py:757:            "get_or_provision_tenant",
+backend/onyx/auth/users.py:765:        if not tenant_id:
+backend/onyx/auth/users.py:768:        # Proceed with the tenant context
+backend/onyx/auth/users.py:770:        async with get_async_session_context_manager(tenant_id) as db_session:
+backend/onyx/auth/users.py:771:            token = CURRENT_TENANT_ID_CONTEXTVAR.set(tenant_id)
+backend/onyx/auth/users.py:773:            verify_email_in_whitelist(account_email, tenant_id)
+backend/onyx/auth/users.py:779:                tenant_user_db = SQLAlchemyUserAdminDB[User, uuid.UUID](
+backend/onyx/auth/users.py:780:                    db_session, User, OAuthAccount
+backend/onyx/auth/users.py:782:                self.user_db = tenant_user_db
+backend/onyx/auth/users.py:784:            oauth_account_dict = {
+backend/onyx/auth/users.py:785:                "oauth_name": oauth_name,
+backend/onyx/auth/users.py:797:                user = await self.get_by_oauth_account(oauth_name, account_id)
+backend/onyx/auth/users.py:808:                        user = await self.user_db.add_oauth_account(
+backend/onyx/auth/users.py:809:                            user, oauth_account_dict
+backend/onyx/auth/users.py:819:                    # Lock + check on the same session that does the insert.
+backend/onyx/auth/users.py:820:                    await self.user_db.session.run_sync(
+backend/onyx/auth/users.py:833:                    await self.user_db.add_oauth_account(user, oauth_account_dict)
+backend/onyx/auth/users.py:834:                    await self._assign_default_pinned_assistants(user, db_session)
+backend/onyx/auth/users.py:840:                    for existing_oauth_account in user.oauth_accounts:
+backend/onyx/auth/users.py:842:                            existing_oauth_account.account_id == account_id
+backend/onyx/auth/users.py:843:                            and existing_oauth_account.oauth_name == oauth_name
+backend/onyx/auth/users.py:845:                            user = await self.user_db.update_oauth_account(
+backend/onyx/auth/users.py:849:                                existing_oauth_account,  # ty: ignore[invalid-argument-type]
+backend/onyx/auth/users.py:850:                                oauth_account_dict,
+backend/onyx/auth/users.py:854:            # re-authenticate that frequently, so by default this is disabled
+backend/onyx/auth/users.py:863:                # We must use the existing user in the session if it matches
+backend/onyx/auth/users.py:864:                # the user we just got by email/oauth. Note that this only applies
+backend/onyx/auth/users.py:865:                # to multi-tenant, due to the overwriting of the user_db
+backend/onyx/auth/users.py:868:                        user_by_session = await db_session.get(User, user.id)
+backend/onyx/auth/users.py:869:                        if user_by_session:
+backend/onyx/auth/users.py:870:                            user = user_by_session
+backend/onyx/auth/users.py:875:                with get_session_with_current_tenant() as sync_db:
+backend/onyx/auth/users.py:891:                        sync_user.role = UserRole.BASIC
+backend/onyx/auth/users.py:902:                self.user_db.session.expire(user)
+backend/onyx/auth/users.py:906:            # this is needed if an organization goes from `TRACK_EXTERNAL_IDP_EXPIRY=true` to `false`
+backend/onyx/auth/users.py:936:        tenant_id = CURRENT_TENANT_ID_CONTEXTVAR.get()
+backend/onyx/auth/users.py:938:        # Link the anonymous PostHog session to the identified user so that
+backend/onyx/auth/users.py:939:        # pre-login session recordings and events merge into one person profile.
+backend/onyx/auth/users.py:945:            properties={"email": user.email, "tenant_id": tenant_id},
+backend/onyx/auth/users.py:951:        tenant_id = await fetch_ee_implementation_or_noop(
+backend/onyx/auth/users.py:952:            "onyx.server.tenants.provisioning",
+backend/onyx/auth/users.py:953:            "get_or_provision_tenant",
+backend/onyx/auth/users.py:961:        token = CURRENT_TENANT_ID_CONTEXTVAR.set(tenant_id)
+backend/onyx/auth/users.py:964:            logger.debug("Current tenant user count: %s", user_count)
+backend/onyx/auth/users.py:966:            # Link the anonymous PostHog session to the identified user so
+backend/onyx/auth/users.py:967:            # that pre-signup session recordings merge into one person profile.
+backend/onyx/auth/users.py:974:                properties={"email": user.email, "tenant_id": tenant_id},
+backend/onyx/auth/users.py:978:                tenant_id=tenant_id,
+backend/onyx/auth/users.py:985:                    tenant_id=tenant_id,
+backend/onyx/auth/users.py:991:            # Must happen inside the try block while tenant context is active,
+backend/onyx/auth/users.py:992:            # otherwise get_session_with_current_tenant() targets the wrong schema.
+backend/onyx/auth/users.py:993:            is_admin = user_count == 1 or user.email in get_default_admin_user_emails()
+backend/onyx/auth/users.py:994:            with get_session_with_current_tenant() as db_session:
+backend/onyx/auth/users.py:996:                    db_session, user, is_admin=is_admin
+backend/onyx/auth/users.py:998:                db_session.commit()
+backend/onyx/auth/users.py:1032:            # it is the first user in a tenant. However, it is semantically correct
+backend/onyx/auth/users.py:1038:                "tenant_id": str(tenant_id) if tenant_id else None,
+backend/onyx/auth/users.py:1039:                "role": user.role.value,
+backend/onyx/auth/users.py:1074:                "Email is not configured. Please configure email in the admin panel"
+backend/onyx/auth/users.py:1078:                "Your admin has not enabled this feature.",
+backend/onyx/auth/users.py:1080:        tenant_id = await fetch_ee_implementation_or_noop(
+backend/onyx/auth/users.py:1081:            "onyx.server.tenants.provisioning",
+backend/onyx/auth/users.py:1082:            "get_or_provision_tenant",
+backend/onyx/auth/users.py:1086:        send_forgot_password_email(user.email, tenant_id=tenant_id, token=token)
+backend/onyx/auth/users.py:1101:            user.email, token, new_organization=user_count == 1
+backend/onyx/auth/users.py:1105:    async def authenticate(
+backend/onyx/auth/users.py:1110:        tenant_id: str | None = None
+backend/onyx/auth/users.py:1112:            tenant_id = fetch_ee_implementation_or_noop(
+backend/onyx/auth/users.py:1113:                "onyx.server.tenants.provisioning",
+backend/onyx/auth/users.py:1114:                "get_tenant_id_for_email",
+backend/onyx/auth/users.py:1124:        if not tenant_id:
+backend/onyx/auth/users.py:1129:        # Create a tenant-specific session
+backend/onyx/auth/users.py:1130:        async with get_async_session_context_manager(tenant_id) as tenant_session:
+backend/onyx/auth/users.py:1131:            tenant_user_db: SQLAlchemyUserDatabase = SQLAlchemyUserDatabase(
+backend/onyx/auth/users.py:1132:                tenant_session, User
+backend/onyx/auth/users.py:1134:            self.user_db = tenant_user_db
+backend/onyx/auth/users.py:1136:            # Proceed with authentication
+backend/onyx/auth/users.py:1162:    async def reset_password_as_admin(self, user_id: uuid.UUID) -> str:
+backend/onyx/auth/users.py:1216:    """Protocol for authentication strategies that support token refreshing."""
+backend/onyx/auth/users.py:1243:        tenant_id = await fetch_ee_implementation_or_noop(
+backend/onyx/auth/users.py:1244:            "onyx.server.tenants.provisioning",
+backend/onyx/auth/users.py:1245:            "get_or_provision_tenant",
+backend/onyx/auth/users.py:1251:            "tenant_id": tenant_id,
+backend/onyx/auth/users.py:1341:    """Stateless JWT strategy for single-tenant deployments.
+backend/onyx/auth/users.py:1364:            token_audience=token_audience or ["fastapi-users:auth"],
+backend/onyx/auth/users.py:1381:        # NOTE: a compromise that makes JWT auth stateful but revocable
+backend/onyx/auth/users.py:1419:            "JWT auth backend is only supported for single-tenant, self-hosted deployments. Use 'redis' or 'postgres' instead."
+backend/onyx/auth/users.py:1422:        raise ValueError("USER_AUTH_SECRET is required for JWT auth backend.")
+backend/onyx/auth/users.py:1425:    auth_backend = AuthenticationBackend(
+backend/onyx/auth/users.py:1429:    auth_backend = AuthenticationBackend(
+backend/onyx/auth/users.py:1433:    auth_backend = AuthenticationBackend(
+backend/onyx/auth/users.py:1437:    raise ValueError(f"Invalid auth backend: {AUTH_BACKEND}")
+backend/onyx/auth/users.py:1452:        get_current_user_token = self.authenticator.current_user_token(

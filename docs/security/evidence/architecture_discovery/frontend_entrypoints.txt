@@ -1,0 +1,221 @@
+# Frontend entrypoints
+web/src/lib/constants.ts:22:// NOTE: this should ONLY be used on the server-side (including middleware).
+web/src/components/oauth/OAuthCallbackPage.tsx:35:export default function OAuthCallbackPage({ config }: OAuthCallbackPageProps) {
+web/src/components/dev/StatsOverlay.tsx:12:export default function StatsOverlay() {
+web/src/components/dev/StatsOverlayLoader.tsx:9:export default function StatsOverlayLoader() {
+web/src/components/llm/LLMSelector.tsx:36:export default function LLMSelector({
+web/src/components/GatedContentWrapper.tsx:20:export default function GatedContentWrapper({
+web/src/components/modals/NoAgentModal.tsx:9:export default function NoAgentModal() {
+web/src/components/modals/CreateProjectModal.tsx:19:export default function CreateProjectModal({
+web/src/components/modals/EditPropertyModal.tsx:16:export default function EditPropertyModal({
+web/src/components/modals/ProviderModal.tsx:27:export default function ProviderModal({
+web/src/components/OnyxInitializingLoader.tsx:7:export default function OnyxInitializingLoader() {
+web/src/components/modals/AddInstructionModal.tsx:11:export default function AddInstructionModal() {
+web/src/components/modals/UserFilesModal.tsx:108:export default function UserFilesModal({
+web/src/components/modals/MoveCustomAgentChatModal.tsx:14:export default function MoveCustomAgentChatModal({
+web/src/components/chat/FederatedOAuthModal.tsx:103:export default function FederatedOAuthModal() {
+web/src/components/modals/NewTeamModal.tsx:25:export default function NewTeamModal() {
+web/src/components/modals/GenericConfirmModal.tsx:13:export default function GenericConfirmModal({
+web/src/components/chat/MCPApiKeyModal.tsx:32:export default function MCPApiKeyModal({
+web/src/components/chat/MinimalMarkdown.tsx:30:export default function MinimalMarkdown({
+web/src/components/SourceTile.tsx:15:export default function SourceTile({
+web/src/components/credentials/CredentialSection.tsx:47:export default function CredentialSection({
+web/src/components/credentials/CredentialFields.tsx:3:export default function CredentialSubText({
+web/src/components/credentials/actions/CreateCredential.tsx:54:export default function CreateCredential({
+web/src/components/credentials/actions/ModifyCredential.tsx:173:export default function ModifyCredential({
+web/src/components/credentials/actions/EditCredential.tsx:26:export default function EditCredential({
+web/src/components/tools/ExpandableContentWrapper.tsx:23:export default function ExpandableContentWrapper({
+web/src/sections/settings/Memories.tsx:18:export default function Memories({ memories, onSaveMemories }: MemoriesProps) {
+web/src/sections/cards/SkillCard.tsx:38:export default function SkillCard({ item, onClick }: SkillCardProps) {
+web/src/sections/cards/DocumentSetCard.tsx:19:export default function DocumentSetCard({
+web/src/sections/modals/ShareAgentModal.tsx:425:export default function ShareAgentModal({
+web/src/sections/modals/ShareChatSessionModal.tsx:98:export default function ShareChatSessionModal({
+web/src/sections/modals/NewTenantModal.tsx:24:export default function NewTenantModal({
+web/src/components/ui/title.tsx:3:export default function Title({
+web/src/sections/modals/languageModels/AnthropicModal.tsx:25:export default function AnthropicModal({
+web/src/sections/modals/languageModels/CustomModal.tsx:241:export default function CustomModal({
+web/src/sections/modals/languageModels/OpenAIModal.tsx:25:export default function OpenAIModal({
+web/src/sections/modals/languageModels/LMStudioModal.tsx:118:export default function LMStudioModal({
+web/src/sections/modals/languageModels/OpenAICompatibleModal.tsx:105:export default function OpenAICompatibleModal({
+web/src/sections/modals/languageModels/LiteLLMProxyModal.tsx:102:export default function LiteLLMProxyModal({
+web/src/sections/modals/languageModels/BifrostModal.tsx:105:export default function BifrostModal({
+web/src/components/errorPages/CloudErrorPage.tsx:4:export default function CloudError() {
+web/src/components/errorPages/AccessRestrictedPage.tsx:41:export default function AccessRestricted() {
+web/src/components/errorPages/ErrorPage.tsx:6:export default function Error() {
+web/src/sections/modals/languageModels/VertexAIModal.tsx:178:export default function VertexAIModal({
+web/src/sections/modals/languageModels/OpenRouterModal.tsx:102:export default function OpenRouterModal({
+web/src/components/errorPages/ErrorPageLayout.tsx:8:export default function ErrorPageLayout({ children }: ErrorPageLayoutProps) {
+web/src/sections/modals/languageModels/AzureModal.tsx:99:export default function AzureModal({
+web/src/sections/modals/languageModels/OllamaModal.tsx:165:export default function OllamaModal({
+web/src/sections/modals/languageModels/BedrockModal.tsx:256:export default function BedrockModal({
+web/src/sections/modals/PreviewModal/FloatingFooter.tsx:10:export default function FloatingFooter({
+web/src/sections/modals/PreviewModal/ExceptionTraceModal.tsx:20:export default function ExceptionTraceModal({
+web/src/components/auth/AuthFlowContainer.tsx:4:export default function AuthFlowContainer({
+web/src/components/auth/AuthErrorDisplay.tsx:10:export default function AuthErrorDisplay({
+web/src/sections/modals/PreviewModal/PreviewModal.tsx:25:export default function PreviewModal({
+web/src/components/admin/connectors/ConnectorDocsLink.tsx:4:export default function ConnectorDocsLink({
+web/src/sections/modals/AgentViewerModal.tsx:171:export default function AgentViewerModal({ agent }: AgentViewerModalProps) {
+web/src/sections/modals/FeedbackModal.tsx:23:export default function FeedbackModal({
+web/src/sections/AppHealthBanner.tsx:19:export default function AppHealthBanner() {
+web/src/components/admin/CardSection.tsx:9:export default function CardSection({ children, className }: CardSectionProps) {
+web/src/sections/onboarding/components/NonAdminStep.tsx:17:export default function NonAdminStep() {
+web/src/sections/onboarding/steps/FinalStep.tsx:48:export default function FinalStep() {
+web/src/sections/Suggestions.tsx:12:export default function Suggestions({ onSubmit }: SuggestionsProps) {
+web/src/sections/LicenseExpiryBanner.tsx:158:export default function LicenseExpiryBanner() {
+web/src/sections/document-sidebar/ChatDocumentDisplay.tsx:62:export default function ChatDocumentDisplay({
+web/src/sections/input/SharedAppInputBar.tsx:14:export default function SharedAppInputBar() {
+web/src/refresh-pages/AgentEditorPage.tsx:483:export default function AgentEditorPage({
+web/src/sections/admin/ProviderCard.tsx:77:export default function ProviderCard({
+web/src/sections/admin/AdminListHeader.tsx:53:export default function AdminListHeader({
+web/src/refresh-pages/admin/SkillsPage.tsx:29:export default function SkillsPage() {
+web/src/sections/agents/AgentCard.tsx:45:export default function AgentCard({ agent }: AgentCardProps) {
+web/src/refresh-pages/admin/ChatPreferencesPage.tsx:377:export default function ChatPreferencesPage() {
+web/src/refresh-pages/admin/AgentsPage.tsx:14:export default function AgentsPage() {
+web/src/refresh-pages/admin/AgentsPage/AgentsTable.tsx:109:export default function AgentsTable() {
+web/src/sections/knowledge/AgentKnowledgePane.tsx:857:export default function AgentKnowledgePane({
+web/src/refresh-pages/admin/AgentsPage/AgentRowActions.tsx:55:export default function AgentRowActions({
+web/src/sections/knowledge/SourceHierarchyBrowser.tsx:145:export default function SourceHierarchyBrowser({
+web/src/refresh-pages/admin/UsersPage/EditUserModal.tsx:48:export default function EditUserModal({
+web/src/refresh-pages/admin/UsersPage/UsersTable.tsx:138:export default function UsersTable({
+web/src/sections/sidebar/NotificationsPopover.tsx:102:export default function NotificationsPopover({
+web/src/refresh-pages/admin/UsersPage/index.tsx:67:export default function UsersPage() {
+web/src/sections/sidebar/SidebarBody.tsx:17:export default function SidebarBody({
+web/src/refresh-pages/admin/UsersPage/UserRoleCell.tsx:36:export default function UserRoleCell({ user, onMutate }: UserRoleCellProps) {
+web/src/sections/sidebar/StepSidebarWrapper.tsx:13:export default function StepSidebar({
+web/src/sections/sidebar/SidebarSection.tsx:14:export default function SidebarSection({
+web/src/refresh-pages/admin/UsersPage/GroupsCell.tsx:33:export default function GroupsCell({
+web/src/sections/sidebar/CreateConnectorSidebar.tsx:8:export default function Sidebar() {
+web/src/sections/sidebar/AccountPopover.tsx:197:export default function AccountPopover({
+web/src/sections/sidebar/AdminSidebar.tsx:336:export default function AdminSidebar() {
+web/src/refresh-pages/admin/UsersPage/UsersSummary.tsx:103:export default function UsersSummary({
+web/src/sections/sidebar/AppSidebar.tsx:750:export default function AppSidebar() {
+web/src/refresh-pages/admin/UsersPage/InviteOnlyCard.tsx:14:export default function InviteOnlyCard() {
+web/src/refresh-pages/admin/UsersPage/UserFilters.tsx:84:export default function UserFilters({
+web/src/sections/sidebar/ChatSearchCommandMenu.tsx:65:export default function ChatSearchCommandMenu({
+web/src/refresh-pages/admin/UsersPage/UserRowActions.tsx:54:export default function UserRowActions({
+web/src/refresh-pages/admin/UsersPage/InviteUsersModal.tsx:32:export default function InviteUsersModal({
+web/src/sections/sidebar/SidebarWrapper.tsx:70:export default function SidebarWrapper({
+web/src/refresh-pages/admin/WebSearchPage/index.tsx:52:export default function WebSearchPage() {
+web/src/sections/actions/OpenApiActionCard.tsx:29:export default function OpenApiActionCard({
+web/src/refresh-pages/admin/IndexSettingsPage/index.tsx:680:export default function IndexSettingsPage() {
+web/src/sections/actions/modals/AddMCPServerModal.tsx:43:export default function AddMCPServerModal({
+web/src/sections/actions/modals/MCPAuthenticationModal.tsx:100:export default function MCPAuthenticationModal({
+web/src/sections/actions/modals/AddOpenAPIActionModal.tsx:402:export default function AddOpenAPIActionModal({
+web/src/sections/actions/modals/OpenAPIAuthenticationModal.tsx:67:export default function OpenAPIAuthenticationModal({
+web/src/sections/actions/modals/DisconnectEntityModal.tsx:20:export default function DisconnectEntityModal({
+web/src/sections/actions/MCPActionCard.tsx:83:export default function MCPActionCard({
+web/src/sections/actions/OpenApiPageContent.tsx:21:export default function OpenApiPageContent() {
+web/src/sections/actions/MCPPageContent.tsx:32:export default function MCPPageContent() {
+web/src/sections/actions/ActionCard.tsx:57:export default function ActionCard({
+web/src/refresh-pages/admin/GroupsPage/useGroupMemberCandidates.ts:99:export default function useGroupMemberCandidates(): UseGroupMemberCandidatesResult {
+web/src/refresh-pages/UserSkillsPage.tsx:21:export default function UserSkillsPage() {
+web/src/refresh-pages/admin/LanguageModelsPage.tsx:296:export default function LanguageModelsPage() {
+web/src/refresh-pages/admin/ImageGenerationPage/ImageGenerationContent.tsx:36:export default function ImageGenerationContent() {
+web/src/refresh-pages/admin/ImageGenerationPage/index.tsx:9:export default function ImageGenerationPage() {
+web/src/ee/sections/SearchCard.tsx:32:export default function SearchCard({
+web/src/ee/sections/SearchUI.tsx:54:export default function SearchUI({ onDocumentClick }: SearchResultsProps) {
+web/src/ee/refresh-pages/admin/HooksPage/HookFormModal.tsx:153:export default function HookFormModal({
+web/src/ee/refresh-pages/admin/HooksPage/HookStatusPopover.tsx:81:export default function HookStatusPopover({
+web/src/refresh-pages/admin/VoicePage/index.tsx:184:export default function VoicePage() {
+web/src/ee/refresh-pages/admin/HooksPage/index.tsx:450:export default function HooksPage() {
+web/src/ee/refresh-pages/admin/HooksPage/HookLogsModal.tsx:81:export default function HookLogsModal({ hook, spec }: HookLogsModalProps) {
+web/src/refresh-pages/admin/ServiceAccountsPage/index.tsx:59:export default function ServiceAccountsPage() {
+web/src/refresh-pages/admin/ServiceAccountsPage/ApiKeyFormModal.tsx:25:export default function ApiKeyFormModal({
+web/src/refresh-pages/admin/CodeInterpreterPage/index.tsx:85:export default function CodeInterpreterPage() {
+web/src/refresh-pages/admin/SkillsPage/SkillSharePicker.tsx:32:export default function SkillSharePicker({
+web/src/refresh-pages/admin/SkillsPage/CustomSkillRowActions.tsx:33:export default function CustomSkillRowActions({
+web/src/refresh-pages/admin/SkillsPage/CustomSkillsTable.tsx:60:export default function CustomSkillsTable({
+web/src/layouts/admin/ClientLayout.tsx:17:export default function ClientLayout({ children }: ClientLayoutProps) {
+web/src/refresh-pages/admin/SkillsPage/ShareSkillModal.tsx:21:export default function ShareSkillModal({
+web/src/refresh-pages/admin/SkillsPage/UploadSkillModal.tsx:20:export default function UploadSkillModal({
+web/src/layouts/app-layouts.tsx:11: * export default function ChatPage() {
+web/src/refresh-pages/admin/SkillsPage/BuiltinSkillsTable.tsx:76:export default function BuiltinSkillsTable({
+web/src/refresh-pages/AppPage.tsx:112:export default function AppPage({ firstMessage }: ChatPageProps) {
+web/src/refresh-pages/AgentsNavigationPage.tsx:49:export default function AgentsNavigationPage() {
+web/src/hooks/useCCPairs.ts:70:export default function useCCPairs(enabled: boolean = true) {
+web/src/hooks/useFederatedOAuthStatus.ts:80:export default function useFederatedOAuthStatus() {
+web/src/hooks/useUsers.ts:40:export default function useUsers({ includeApiKeys }: UseUsersParams) {
+web/src/hooks/useGroups.ts:39:export default function useGroups() {
+web/src/hooks/useShareableUsers.ts:11:export default function useShareableUsers({
+web/src/hooks/useNotifications.ts:21:export default function useNotifications() {
+web/src/hooks/useChatController.ts:134:export default function useChatController({
+web/src/hooks/useServerTools.ts:70:export default function useServerTools(
+web/src/hooks/useMultiModelChat.ts:39:export default function useMultiModelChat(
+web/src/hooks/useMcpServers.ts:25:export default function useMcpServers() {
+web/src/hooks/useFeedbackController.ts:30:export default function useFeedbackController() {
+web/src/hooks/useUserCounts.ts:24:export default function useUserCounts(): UserCounts {
+web/src/hooks/useUserPersonalization.ts:95:export default function useUserPersonalization(
+web/src/hooks/useShareableGroups.ts:17:export default function useShareableGroups() {
+web/src/hooks/useBrowserInfo.ts:29:export default function useBrowserInfo(): BrowserInfo {
+web/src/hooks/useAdminUsers.ts:74:export default function useAdminUsers() {
+web/src/hooks/useUserSkills.ts:8:export default function useUserSkills() {
+web/src/hooks/useCodeInterpreter.ts:15:export default function useCodeInterpreter() {
+web/src/hooks/useContainerCenter.ts:39:export default function useContainerCenter(): ContainerCenter {
+web/src/hooks/useAdminSkills.ts:8:export default function useAdminSkills() {
+web/src/hooks/useOpenApiTools.ts:25:export default function useOpenApiTools() {
+web/src/hooks/useScreenSize.ts:19:export default function useScreenSize(): ScreenSize {
+web/src/hooks/useIndexAttemptStageMetrics.ts:27:export default function useIndexAttemptStageMetrics(indexAttemptId: number) {
+web/src/hooks/useAppFocus.ts:66:export default function useAppFocus(): AppFocus {
+web/src/app/federated/oauth/callback/page.tsx:6:export default function FederatedOAuthCallbackPage() {
+web/src/hooks/useTags.ts:20:export default function useTags() {
+web/src/hooks/useDeepResearchToggle.ts:23:export default function useDeepResearchToggle({
+web/src/hooks/useChatSessions.ts:140:export default function useChatSessions(): UseChatSessionsOutput {
+web/src/hooks/usePromptShortcuts.ts:8:export default function usePromptShortcuts() {
+web/src/app/global-error.tsx:8:export default function GlobalError({
+web/src/hooks/useChatSessionController.ts:69:export default function useChatSessionController({
+web/src/app/not-found.tsx:3:export default function NotFound() {
+web/src/hooks/useFilter.ts:46:export default function useFilter<T>(
+web/src/hooks/useFeatureFlag.ts:33:export default function useFeatureFlag(
+web/src/hooks/useOnMount.ts:33:export default function useOnMount(f?: React.EffectCallback): boolean {
+web/src/app/mcp/oauth/callback/page.tsx:5:export default function MCPOAuthCallbackPage() {
+web/src/app/PostHogPageView.tsx:7:export default function PostHogPageView(): null {
+web/src/app/oauth-config/callback/page.tsx:3:export default function OAuthConfigCallbackPage() {
+web/src/app/nrf/NRFChrome.tsx:61:export default function NRFChrome() {
+web/src/app/anonymous/[id]/AnonymousPage.tsx:5:export default function AnonymousPage({
+web/src/app/nrf/side-panel/SidePanelHeader.tsx:12:export default function SidePanelHeader({
+web/src/app/nrf/(main)/page.tsx:11: * requirement in /app/app/layout.tsx. The NRFPage component handles
+web/src/app/nrf/layout.tsx:14:export default function Layout({ children }: LayoutProps) {
+web/src/app/nrf/NRFPage.tsx:61:export default function NRFPage({ isSidePanel = false }: NRFPageProps) {
+web/src/app/ee/admin/standard-answer/page.tsx:426:export default function Page() {
+web/src/app/ee/admin/billing/page.tsx:19:export default function page() {
+web/src/app/ee/admin/billing/BillingInformationPage.tsx:22:export default function BillingInformationPage() {
+web/src/refresh-components/FrostedDiv.tsx:57:export default function FrostedDiv({
+web/src/refresh-components/Attachment.tsx:9:export default function Attachments({ fileName, open }: AttachmentsProps) {
+web/src/refresh-components/Spacer.tsx:9:export default function Spacer({
+web/src/app/ee/admin/theme/page.tsx:31:export default function ThemePage() {
+web/src/refresh-components/skeletons/SidebarTabSkeleton.tsx:7:export default function SidebarTabSkeleton({
+web/src/refresh-components/skeletons/ChatSessionSkeleton.tsx:1:export default function ChatSessionSkeleton() {
+web/src/refresh-components/ColorSwatch.tsx:21:export default function ColorSwatch({ light, dark }: ColorSwatchProps) {
+web/src/refresh-components/PreviewImage.tsx:9:export default function PreviewImage({
+web/src/refresh-components/CharacterCount.tsx:6:export default function CharacterCount({ value, limit }: CharacterCountProps) {
+web/src/app/ee/admin/groups/[id]/page.tsx:6:export default function EditGroupRoute({
+web/src/refresh-components/tiles/FileTile.tsx:70:export default function FileTile({
+web/src/refresh-components/tiles/ButtonTile.tsx:24:export default function ButtonTile({
+web/src/refresh-components/cards/Card.tsx:67:export default function Card({
+web/src/app/ee/admin/performance/usage/page.tsx:17:export default function AnalyticsPage() {
+web/src/app/ee/admin/performance/usage/UsageReports.tsx:360:export default function UsageReports() {
+web/src/refresh-components/modals/MemoriesModal.tsx:164:export default function MemoriesModal({
+web/src/refresh-components/Code.tsx:9:export default function Code({
+web/src/app/ee/admin/performance/query-history/[id]/page.tsx:68:export default function QueryPage(props: { params: Promise<{ id: string }> }) {
+web/src/app/ee/admin/performance/query-history/KickoffCSVExport.tsx:20:export default function KickoffCSVExport({
+web/src/refresh-components/popovers/ModelSelector.tsx:35:export default function ModelSelector({
+web/src/app/ee/admin/performance/query-history/page.tsx:9:export default function QueryHistoryPage() {
+web/src/refresh-components/popovers/ActionsPopover/SwitchList.tsx:36:export default function SwitchList({
+web/src/refresh-components/popovers/ActionsPopover/index.tsx:160:export default function ActionsPopover({
+web/src/refresh-components/popovers/ActionsPopover/MCPLineItem.tsx:49:export default function MCPLineItem({
+web/src/refresh-components/popovers/ActionsPopover/ActionLineItem.tsx:44:export default function ActionLineItem({
+web/src/refresh-components/popovers/ModelListContent.tsx:33:export default function ModelListContent({
+web/src/app/ee/admin/performance/custom-analytics/page.tsx:40:export default function Page() {
+web/src/refresh-components/popovers/FilePickerPopover.tsx:182:export default function FilePickerPopover({
+web/src/app/ee/EEFeatureRedirect.tsx:7:export default function EEFeatureRedirect() {
+web/src/refresh-components/popovers/LLMPopover.tsx:77:export default function LLMPopover({
+web/src/refresh-components/Logo.tsx:20:export default function Logo({ folded, size, className }: LogoProps) {
+web/src/refresh-components/ScrollIndicatorDiv.tsx:54:export default function ScrollIndicatorDiv({
+web/src/refresh-components/loaders/SimpleLoader.tsx:5:export default function SimpleLoader({ className, ...props }: IconProps) {
+web/src/app/layout.tsx:64:export default function RootLayout({
+web/src/app/auth/create-account/page.tsx:9:export default function Page() {
+web/src/app/auth/impersonate/page.tsx:20:export default function ImpersonatePage() {
+web/src/refresh-components/inputs/InputComboBox/InputComboBox.tsx:180:    middleware: [
+web/src/app/auth/error/layout.tsx:1:export default function AuthErrorLayout({
+web/src/refresh-components/inputs/InputFile.tsx:35:export default function InputFile({
+web/src/app/auth/verify-email/Verify.tsx:16:export default function Verify({ user }: VerifyProps) {
