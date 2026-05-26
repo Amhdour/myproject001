@@ -1,0 +1,9 @@
+web/package.json:9:    "dev": "next dev",
+web/package.json:10:    "dev:profile": "NEXT_PUBLIC_ENABLE_STATS=true next dev",
+web/package.json:11:    "build": "next build",
+web/package.json:12:    "start": "next start",
+web/src/proxy.ts:23:    // Auth-protected routes (for middleware auth check)
+web/src/app/auth/login/SignInButton.tsx:10: * where the backend middleware verifies it.
+web/src/lib/constants.ts:22:// NOTE: this should ONLY be used on the server-side (including middleware).
+web/src/app/app/page.tsx:11:  // Other pages in `web/src/app/chat` are wrapped with `<AppPageLayout>`.
+web/src/refresh-components/inputs/InputComboBox/InputComboBox.tsx:180:    middleware: [
