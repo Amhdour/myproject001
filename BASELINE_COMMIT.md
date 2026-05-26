@@ -1,101 +1,71 @@
-# Onyx Agent Runtime Security Layer — Step 1 Baseline Lock
+# Security Baseline Commit
 
-Date recorded: 2026-05-25
-Repository: `Amhdour/onyxBuildON`
-Baseline branch: `security-layer-mvp`
-Default branch source: `main`
-Baseline source commit: `a75621ff6845222b1339dc1caa4ed91da508fe49`
-Baseline source commit message: `Merge pull request #43 from Amhdour/codex/complete-baseline-documentation-for-onyx-agent`
+## Baseline purpose
+This file records the baseline reference context before any security-layer implementation begins, so all future security work can be audited against an explicit, documentation-backed starting point.
 
-## Purpose
+## Baseline identifiers
+- Baseline branch: `security-layer-mvp`
+- Baseline documentation commit SHA: `c00de38`
+- Recorded source commit SHA: `502239d50c41172ae14759fe3cc31780ace71b98`
 
-This file locks the original GitHub baseline used before continuing the security-layer MVP work. It records the reference commit, observed structure, setup/test assumptions, known evidence, and current security gaps. No application code is changed by this baseline-lock commit.
+## Baseline integrity statements
+- No application behavior changed as part of the baseline documentation step.
+- No security controls were implemented as part of the baseline documentation step.
+- No refactor was performed as part of the baseline documentation step.
 
-## Baseline actions completed
+## Original high-level project structure
+- `backend/` — backend services, APIs, workers, data/indexing logic, and tests.
+- `web/` — Next.js/React frontend and web test surface.
+- `desktop/` — desktop application assets.
+- `deployment/` — deployment and infrastructure artifacts.
+- `docs/` — project and security documentation.
+- `scripts/`, `tools/`, `examples/`, `demo/` — supporting scripts, tooling, and examples.
 
-1. Confirmed connected GitHub account: `Amhdour`.
-2. Located target repository: `Amhdour/onyxBuildON`.
-3. Confirmed repository default branch: `main`.
-4. Created branch `security-layer-mvp` from commit `a75621ff6845222b1339dc1caa4ed91da508fe49`.
-5. Preserved project code untouched.
-6. Refreshed this `BASELINE_COMMIT.md` on `security-layer-mvp` to match the locked GitHub baseline.
-
-## Original project structure summary
-
-Observed high-level project structure and areas from repository files and the previous baseline record:
-
-- `backend/` — backend application, services, workers, tests, model server, and enterprise modules.
-- `web/` — Next.js / React / TypeScript frontend and frontend tests.
-- `desktop/` — desktop app assets.
-- `deployment/` — Docker Compose, Helm, Terraform, ECS, and deployment assets.
-- `docs/` — documentation and existing security-layer documentation/evidence.
-- `scripts/`, `tools/`, `examples/`, `demo/` — operational scripts, tooling, examples, and demo assets.
-
-## Observed product/security-relevant capabilities
-
-The README identifies Onyx as an open-source AI platform for LLM applications with RAG, web search, code execution, file creation, deep research, artifacts, actions, and MCP-related capabilities. These capabilities are the relevant baseline surfaces for the planned security layer.
-
-## Original setup and test commands recorded from prior baseline evidence
-
-The existing baseline evidence recorded the following intended commands or command families:
-
+## Original setup/test commands discovered so far
 - `source .venv/bin/activate`
+- `pytest -xv backend/tests/unit`
 - `python -m dotenv -f .vscode/.env run -- pytest backend/tests/external_dependency_unit`
 - `python -m dotenv -f .vscode/.env run -- pytest backend/tests/integration`
-- `pytest -xv backend/tests/unit`
-- `npm test` from `web/package.json`
 - `npx playwright test <TEST_NAME>`
 
-## Original passing checks recorded from prior baseline evidence
+## Original passing checks (known)
+- Repository metadata/snapshot capture artifacts were recorded under `docs/security/evidence/`.
+- Baseline environment and stack detection artifacts were recorded under `docs/security/evidence/`.
 
-The previous baseline record stated that repository metadata capture succeeded and environment info commands succeeded for Python, Node, npm, and pytest.
+## Original failing checks (known)
+- Unit-test collection previously recorded a missing dependency failure:
+  - `ModuleNotFoundError: No module named 'fastapi_users'`
+  - Exit code artifact recorded under `docs/security/evidence/`.
 
-## Original failing checks recorded from prior baseline evidence
+## Checks not yet executed (or not re-executed in this baseline documentation step)
+- Full backend unit test execution
+- External dependency unit test execution
+- Integration test suite execution
+- Playwright E2E test execution
+- End-to-end security validation scenarios
 
-The previous baseline record stated that `pytest -xv backend/tests/unit --collect-only` failed with:
-
-```text
-ModuleNotFoundError: No module named 'fastapi_users'
-Exit code: 4
-```
-
-## Checks not independently executed in this GitHub connector step
-
-This GitHub baseline-lock operation did not run the test suite, dependency installation, backend startup, frontend startup, Playwright, or demo attacks. The connector operation can update repository files and branches, but it does not provide a live Codespace shell for executing project commands.
-
-## Original security gaps and unknowns
-
-- A green baseline test state is not confirmed in this operation.
-- Runtime security-layer validation is not confirmed in this operation.
-- Dependency completeness is not confirmed in this operation.
-- Cross-tenant retrieval isolation is not confirmed in this operation.
-- Tool authorization enforcement is not confirmed in this operation.
-- MCP hardening is not confirmed in this operation.
-- Artifact scanning/release enforcement is not confirmed in this operation.
-- Sandbox execution enforcement is not confirmed in this operation.
-- Audit trail completeness is not confirmed in this operation.
-- CI branch protection and required checks are not confirmed in this operation.
+## Current known security gaps
+- Security-layer runtime enforcement is not yet validated.
+- Cross-tenant isolation validation status is not yet confirmed.
+- Tool authorization enforcement status is not yet confirmed.
+- MCP hardening status is not yet confirmed.
+- Artifact scanning/release gate enforcement is not yet confirmed.
+- Sandbox execution enforcement status is not yet confirmed.
+- Audit-trail completeness status is not yet confirmed.
 
 ## Assumptions
+- `security-layer-mvp` is the working branch for baseline/security-layer preparation.
+- Recorded source commit `502239d50c41172ae14759fe3cc31780ace71b98` is the pre-security-layer reference point.
+- Existing evidence files in `docs/security/evidence/` are baseline artifacts unless explicitly superseded by newer dated evidence.
 
-- `Amhdour/onyxBuildON` is the intended repository for this baseline-lock request.
-- `main` at `a75621ff6845222b1339dc1caa4ed91da508fe49` is the GitHub baseline source for this step.
-- Existing code should remain untouched until the baseline is recorded.
-- Any previous evidence under `docs/security/evidence/` should be treated as historical evidence unless re-run in the current environment.
-
-## Next required manual/Codespace validation
-
-1. Open `security-layer-mvp` in Codespaces.
-2. Run environment version checks.
-3. Install dependencies without patching application code.
-4. Run backend compile/test collection.
-5. Run backend tests.
-6. Run frontend lint/typecheck/tests.
-7. Run Playwright smoke tests.
-8. Run existing demo attacks, if present.
-9. Save outputs under `docs/security/evidence/`.
-10. Update `docs/security/baseline_validation.md` with exact pass/fail evidence.
+## Required next validation steps
+1. Re-run environment checks in the active development environment.
+2. Re-run backend unit test collection and record exact output.
+3. Execute external dependency unit tests and record pass/fail.
+4. Execute integration tests and record pass/fail.
+5. Execute targeted Playwright smoke tests and record pass/fail.
+6. Save all outputs/logs in `docs/security/evidence/`.
+7. Update `docs/security/baseline_validation.md` with exact command results and dates.
 
 ## Non-claim statement
-
-This baseline lock does not claim production readiness, enterprise readiness, passing tests, complete security coverage, or successful launch-gate status. It only records the repository baseline reference before continuing implementation.
+This baseline does not claim production readiness, enterprise readiness, passing tests, complete security coverage, or launch-gate success.
