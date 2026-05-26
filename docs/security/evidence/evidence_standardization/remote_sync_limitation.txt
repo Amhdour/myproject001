@@ -1,0 +1,4 @@
+Remote verification limitation recorded at UTC 2026-05-26.
+Command attempted: git fetch origin --quiet
+Observed result: fatal: 'origin' does not appear to be a git repository
+Impact: unable to verify remote/main parity from this environment.

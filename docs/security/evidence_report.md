@@ -1,34 +1,76 @@
 # Evidence Report
 
 ## Purpose
-Define the intended structure and future evidence model for evidence report.
+Define and maintain the evidence index, acceptance criteria, and review checklist for security-readiness documentation artifacts.
 
 ## Scope
-Documentation-only placeholder for security-readiness planning and traceability. No runtime or application behavior changes are introduced.
+Documentation-only security evidence under `docs/security/` and `docs/security/evidence/`.
 
 ## Status
 draft
 
-## Owner
-AI Trust & Security Readiness Engineer
+## Evidence Index Structure
+- `docs/security/evidence/` as the canonical evidence root.
+- `docs/security/evidence/templates/` for standardized artifact templates.
+- Step/topic subdirectories (for example: `evidence_standardization/`) containing inventories and supporting records.
 
-## Evidence Required
-- Control design and implementation records (future).
-- Test/validation outputs mapped to this document.
-- Review approvals and sign-off artifacts.
+## Current Evidence Categories
+- Baseline and baseline validation evidence.
+- Architecture discovery evidence.
+- Patch-point mapping evidence.
+- Requirements/risk/traceability evidence.
+- Evidence standardization artifacts and template inventories.
+- Known limitations and blocker records.
+
+## Baseline Evidence Section
+References baseline commit and baseline validation state:
+- `BASELINE_COMMIT.md`
+- `docs/security/baseline_validation.md`
+
+## Architecture Discovery Evidence Section
+References architecture analysis and system mapping:
+- `docs/security/architecture_discovery.md`
+
+## Patch-Point Evidence Section
+References control insertion and ownership mapping:
+- `docs/security/patch_points.md`
+
+## Requirements/Risk/Traceability Evidence Section
+References requirements and traceability artifacts:
+- `docs/security/security_requirements.md`
+- `docs/security/risk_register.md`
+- `docs/security/control_traceability_matrix.md`
+
+## Missing Evidence Section
+Current gaps to be filled in later phases:
+- Control implementation artifacts.
+- Executed security test logs with final outcomes.
+- CI-integrated evidence bundles.
+- Formal launch-gate signoff records.
+
+## Evidence Acceptance Criteria
+Evidence is accepted when it:
+1. Uses standard metadata fields.
+2. Links to requirement/risk/patch-point IDs when applicable.
+3. Includes command/action, expected vs actual outcome, and pass/fail/skipped status.
+4. Identifies raw artifact location.
+5. Contains redaction and reviewer status.
+6. Avoids unsupported readiness or compliance claims.
+
+## Evidence Review Checklist
+- [ ] Evidence ID present and unique.
+- [ ] Requirement/risk/patch-point links present (or marked N/A).
+- [ ] Environment, commit SHA, operator, and timestamp recorded.
+- [ ] Expected/actual result and status recorded.
+- [ ] Raw artifact path is valid.
+- [ ] Redaction status declared.
+- [ ] Reviewer and notes completed.
+- [ ] Non-claim language preserved when blockers exist.
 
 ## Related Links
-- [Baseline Commit](../../BASELINE_COMMIT.md)
-- [Baseline Validation](./baseline_validation.md)
-- [Architecture Discovery](./architecture_discovery.md)
-- [Patch Points](./patch_points.md)
+- [Evidence Standard](./evidence_standard.md)
 - [Known Limitations](./known_limitations.md)
+- [Security README](./README.md)
 
-
-## TODO Future Implementation Evidence
-- [ ] Add control-specific evidence after implementation.
-- [ ] Link validation tests and outcomes.
-- [ ] Add approval metadata (reviewer, date, decision).
-
-## Non-Claim Statement
-This draft is a documentation scaffold only and does **not** claim implementation completeness, control effectiveness, compliance, or production readiness.
+## No-Readiness-Claim Statement
+This evidence report summarizes documentation artifacts and evidence format status only. It does **not** claim production readiness, control effectiveness, or compliance certification.
