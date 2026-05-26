@@ -9,6 +9,7 @@
 6. Requirements, risk, and traceability (completed in documentation form)
 7. Evidence standardization (completed in documentation form)
 8. Execution tracker (completed in documentation form)
+9. Test data factories and fixtures planning (completed in documentation form)
 
 ## Step 8 Deliverables
 - Execution tracker (`docs/security/execution_tracker.md`)
@@ -25,7 +26,7 @@
 - Execution tracker: `docs/security/execution_tracker.md`
 
 ## Next Step
-- Step 9: test data factories and fixtures planning/execution once implementation work is authorized.
+- Step 10: migration safety planning/execution once implementation work is authorized.
 
 ## Non-Claim
 No production-readiness claim is made in this phase.

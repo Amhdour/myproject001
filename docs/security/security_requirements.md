@@ -179,3 +179,28 @@ Status: Initial documentation baseline only. No controls implemented in this ste
 - **Required tests:** Readiness checklist completeness validation.
 - **Required evidence:** Signed evidence report, residual risk acceptance record.
 - **Blocker status:** Open (No production readiness claim).
+
+## Step 9 Planned Fixture Coverage References
+The following planned fixture catalog provides requirement-level test data coverage mapping for all security requirements in this document:
+- `docs/security/test_data_factories.md`
+- `docs/security/evidence/test_data_factories/fixture_traceability_summary.md`
+
+Per-requirement fixture references (planned):
+- SR-ING-001: FX-CONN-001, FX-DOC-001, FX-MALDOC-001
+- SR-RET-001: FX-TENANT-001, FX-USER-001, FX-ACL-001, FX-XTENANT-001, FX-EXPACL-001, FX-DELDOC-001
+- SR-VEC-001: FX-VNS-001, FX-EMBED-001, FX-CHUNK-001, FX-POISONCHUNK-001
+- SR-CACHE-001: FX-CACHE-001, FX-STALEACL-001
+- SR-TOOL-001: FX-TOOL-001, FX-UNAUTH-TOOL-001
+- SR-MCP-001: FX-MCPSRV-001, FX-MCPRES-001, FX-UNAUTH-MCP-001
+- SR-ART-001: FX-ART-001, FX-SECRETA-001
+- SR-SBX-001: FX-SBXCFG-001, FX-POLICY-001
+- SR-APPROVAL-001: FX-APPROVAL-001, FX-APPBYPASS-001
+- SR-AUDIT-001: FX-AUDIT-001
+- SR-DLP-001: FX-ART-001, FX-SECRETA-001, FX-MALDOC-001
+- SR-PROMPT-001: FX-PROMPT-001, FX-POISONCHUNK-001
+- SR-MODEL-001: FX-MODEL-001
+- SR-ADMIN-001: FX-ADMIN-001, FX-ROLE-001
+- SR-CI-001: FX-FINDING-001 (evidence completeness fixtures)
+- SR-EVIDENCE-001: FX-FINDING-001, FX-AUDIT-001
+
+All fixture references above are planning metadata only; no fixture implementation is included in this step.

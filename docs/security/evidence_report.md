@@ -81,3 +81,11 @@ Evidence is accepted when it:
 
 ## No-Readiness-Claim Statement
 This evidence report summarizes documentation artifacts and evidence format status only. It does **not** claim production readiness, control effectiveness, or compliance certification.
+
+## Test-Data-Fixtures Evidence Section (Step 9)
+References Step 9 planning and evidence artifacts:
+- `docs/security/test_data_factories.md`
+- `docs/security/evidence/test_data_factories/prerequisite_check.txt`
+- `docs/security/evidence/test_data_factories/fixture_inventory.md`
+- `docs/security/evidence/test_data_factories/fixture_traceability_summary.md`
+- `docs/security/evidence/test_data_factories/remote_sync_limitation.txt` (when remote verification is unavailable)

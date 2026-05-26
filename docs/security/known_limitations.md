@@ -12,6 +12,8 @@ Step 7 (Evidence Standardization) is completed as documentation-only work. No ru
 6. **Execution tracker remote metadata limitation:** PR links may remain `TBD` when remote fetch is unavailable.
 7. **Execution tracker lineage limitation:** commit lineage may require GitHub UI verification when remote/main is inaccessible.
 
+8. **Fixture implementation limitation:** fixtures are planned only in documentation and no fixture code has been implemented yet.
+9. **Test-data governance limitation:** no real tenant, user, or customer data may be used for fixture work; synthetic data rules are mandatory.
 
 ## Operational Impact
 - Full baseline verification remains incomplete until dependency and/or environment issues are resolved.
