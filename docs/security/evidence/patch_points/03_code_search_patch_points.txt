@@ -1,0 +1,1021 @@
+## startup
+backend/onyx/server/metrics/prometheus_setup.py:9:``setup_postgres_connection_pool_metrics`` during application lifespan
+backend/onyx/server/security/__init__.py:16:router.include_router(overview_router)
+backend/onyx/server/security/__init__.py:17:router.include_router(approvals_router)
+backend/onyx/server/security/__init__.py:18:router.include_router(findings_router)
+backend/onyx/server/security/__init__.py:19:router.include_router(audit_router)
+backend/onyx/server/security/__init__.py:20:router.include_router(tools_router)
+backend/onyx/server/security/__init__.py:21:router.include_router(retrieval_router)
+backend/onyx/server/security/__init__.py:22:router.include_router(mcp_router)
+backend/onyx/server/security/__init__.py:23:router.include_router(sandbox_router)
+backend/onyx/server/security/__init__.py:24:router.include_router(artifacts_router)
+backend/onyx/server/security/__init__.py:25:router.include_router(launch_gates_router)
+backend/onyx/server/security/__init__.py:26:router.include_router(reports_router)
+backend/onyx/server/features/build/api/api.py:61:router.include_router(sessions_router, tags=["build"])
+backend/onyx/server/features/build/api/api.py:62:router.include_router(messages_router, tags=["build"])
+backend/onyx/server/features/build/api/api.py:63:router.include_router(user_library_router, tags=["build"])
+backend/onyx/server/features/build/api/api.py:64:router.include_router(scheduled_tasks_router, tags=["build"])
+backend/onyx/server/features/build/sandbox/kubernetes/docker/sandbox_daemon/server.py:27:app = FastAPI(title="sandbox-sidecar", docs_url=None, redoc_url=None)
+\n## middleware
+backend/onyx/server/kg/api.py:29:from onyx.server.features.persona.models import PersonaUpsertRequest
+backend/onyx/server/kg/api.py:30:from onyx.server.kg.models import DisableKGConfigRequest
+backend/onyx/server/kg/api.py:31:from onyx.server.kg.models import EnableKGConfigRequest
+backend/onyx/server/kg/api.py:83:    req: EnableKGConfigRequest | DisableKGConfigRequest,
+backend/onyx/server/kg/api.py:87:    if isinstance(req, DisableKGConfigRequest):
+backend/onyx/server/kg/api.py:134:    persona_request = PersonaUpsertRequest(
+backend/onyx/server/kg/models.py:31:class EnableKGConfigRequest(BaseModel):
+backend/onyx/server/kg/models.py:42:class DisableKGConfigRequest(BaseModel):
+backend/onyx/auth/api_key.py:6:from fastapi import Request
+backend/onyx/auth/api_key.py:60:def get_hashed_api_key_from_request(request: Request) -> str | None:
+backend/onyx/auth/utils.py:6:from fastapi import Request
+backend/onyx/auth/utils.py:17:    request: Request,
+backend/onyx/auth/utils.py:58:    request: Request, valid_prefixes: list[str]
+backend/onyx/auth/utils.py:97:def extract_tenant_from_auth_header(request: Request) -> str | None:
+backend/onyx/auth/signup_rate_limit.py:5:from fastapi import Request
+backend/onyx/auth/signup_rate_limit.py:22:def _client_ip(request: Request) -> str:
+backend/onyx/auth/signup_rate_limit.py:39:async def enforce_signup_rate_limit(request: Request) -> None:
+backend/onyx/server/auth/captcha_api.py:1:"""API + middleware for the reCAPTCHA cookie and header flows.
+backend/onyx/server/auth/captcha_api.py:18:from fastapi import Request
+backend/onyx/server/auth/captcha_api.py:21:from starlette.middleware.base import BaseHTTPMiddleware
+backend/onyx/server/auth/captcha_api.py:22:from starlette.middleware.base import RequestResponseEndpoint
+backend/onyx/server/auth/captcha_api.py:52:class OAuthCaptchaVerifyRequest(BaseModel):
+backend/onyx/server/auth/captcha_api.py:62:    body: OAuthCaptchaVerifyRequest,
+backend/onyx/server/auth/captcha_api.py:90:class CaptchaCookieMiddleware(BaseHTTPMiddleware):
+backend/onyx/server/auth/captcha_api.py:98:        self, request: Request, call_next: RequestResponseEndpoint
+backend/onyx/server/auth/captcha_api.py:131:def _health_check_bypass_ok(request: Request) -> bool:
+backend/onyx/server/auth/captcha_api.py:145:def _client_ip_for_log(request: Request) -> str:
+backend/onyx/server/auth/captcha_api.py:154:class LoginCaptchaMiddleware(BaseHTTPMiddleware):
+backend/onyx/server/auth/captcha_api.py:168:        self, request: Request, call_next: RequestResponseEndpoint
+backend/onyx/auth/pat.py:10:from fastapi import Request
+backend/onyx/auth/pat.py:40:def get_hashed_pat_from_request(request: Request) -> str | None:
+backend/onyx/server/api_key_usage.py:4:from fastapi import Request
+backend/onyx/server/api_key_usage.py:21:    request: Request,
+backend/onyx/server/federated/api.py:8:from fastapi import Request
+backend/onyx/server/federated/api.py:40:from onyx.server.federated.models import FederatedConnectorRequest
+backend/onyx/server/federated/api.py:43:from onyx.server.federated.models import FederatedConnectorUpdateRequest
+backend/onyx/server/federated/api.py:67:    federated_connector_data: FederatedConnectorRequest,
+backend/onyx/server/federated/api.py:283:    request: Request,
+backend/onyx/server/federated/api.py:375:    request: Request,
+backend/onyx/server/federated/api.py:570:    update_request: FederatedConnectorUpdateRequest,
+backend/onyx/auth/users.py:32:from fastapi import Request
+backend/onyx/auth/users.py:38:from fastapi.security import OAuth2PasswordRequestForm
+backend/onyx/auth/users.py:410:    """Invalidate license cache so middleware re-reads ``used_seats``."""
+backend/onyx/auth/users.py:444:        request: Optional[Request] = None,
+backend/onyx/auth/users.py:746:        request: Optional[Request] = None,
+backend/onyx/auth/users.py:920:        request: Optional[Request] = None,
+backend/onyx/auth/users.py:949:        self, user: User, request: Optional[Request] = None
+backend/onyx/auth/users.py:1070:        request: Optional[Request] = None,  # noqa: ARG002
+backend/onyx/auth/users.py:1092:        request: Optional[Request] = None,  # noqa: ARG002
+backend/onyx/auth/users.py:1106:        self, credentials: OAuth2PasswordRequestForm
+backend/onyx/auth/users.py:1618:    request: Request,
+backend/onyx/auth/users.py:1675:    request: Request,
+backend/onyx/auth/users.py:1732:    request: Request,
+backend/onyx/auth/users.py:2087:        request: Request,
+backend/onyx/auth/users.py:2205:        request: Request,
+backend/onyx/server/federated/models.py:18:class FederatedConnectorRequest(BaseModel):
+backend/onyx/server/federated/models.py:90:class FederatedConnectorUpdateRequest(BaseModel):
+backend/onyx/server/pat/api.py:18:from onyx.server.pat.models import CreateTokenRequest
+backend/onyx/server/pat/api.py:49:    request: CreateTokenRequest,
+backend/onyx/server/pat/models.py:9:class CreateTokenRequest(BaseModel):
+backend/onyx/auth/jwt.py:39:    except requests.RequestException as exc:
+backend/onyx/server/documents/document.py:17:from onyx.document_index.interfaces_new import DocumentSectionRequest
+backend/onyx/server/documents/document.py:41:        chunk_requests=[DocumentSectionRequest(document_id=document_id)],
+backend/onyx/server/documents/document.py:85:    chunk_request = DocumentSectionRequest(
+backend/onyx/server/saml.py:11:from fastapi import Request
+backend/onyx/server/saml.py:122:async def prepare_from_fastapi_request(request: Request) -> dict[str, Any]:
+backend/onyx/server/saml.py:193:async def saml_login(request: Request) -> SAMLAuthorizeResponse:
+backend/onyx/server/saml.py:203:    request: Request,
+backend/onyx/server/saml.py:213:    request: Request,
+backend/onyx/server/saml.py:222:    request: Request,
+backend/onyx/server/documents/cc_pair.py:71:from onyx.server.documents.models import CCPropertyUpdateRequest
+backend/onyx/server/documents/cc_pair.py:72:from onyx.server.documents.models import CCStatusUpdateRequest
+backend/onyx/server/documents/cc_pair.py:425:    status_update_request: CCStatusUpdateRequest,
+backend/onyx/server/documents/cc_pair.py:454:        # Request cancellation for any active indexing attempts for this cc_pair
+backend/onyx/server/documents/cc_pair.py:475:                    "Requested cancellation for active indexing attempt %s due to connector pause: cc_pair=%s",
+backend/onyx/server/documents/cc_pair.py:539:    update_request: CCPropertyUpdateRequest,  # in seconds
+backend/onyx/server/documents/targeted_reindex.py:46:class DocumentTargetRequest(BaseModel):
+backend/onyx/server/documents/targeted_reindex.py:51:class TargetedReindexRequest(BaseModel):
+backend/onyx/server/documents/targeted_reindex.py:56:    targets: list[DocumentTargetRequest] | None = None
+backend/onyx/server/documents/targeted_reindex.py:79:    request: TargetedReindexRequest,
+backend/onyx/server/documents/models.py:85:class ConnectorUpdateRequest(ConnectorBase):
+backend/onyx/server/documents/models.py:122:class CredentialSwapRequest(BaseModel):
+backend/onyx/server/documents/models.py:128:class CredentialDataUpdateRequest(BaseModel):
+backend/onyx/server/documents/models.py:625:class CCStatusUpdateRequest(BaseModel):
+backend/onyx/server/documents/models.py:657:class RunConnectorRequest(BaseModel):
+backend/onyx/server/documents/models.py:663:class ConnectorRequestSubmission(BaseModel):
+backend/onyx/server/documents/models.py:667:class CCPropertyUpdateRequest(BaseModel):
+backend/onyx/server/documents/models.py:704:class GoogleServiceAccountCredentialRequest(BaseModel):
+backend/onyx/server/documents/models.py:748:class IndexingStatusRequest(BaseModel):
+backend/onyx/server/documents/connector.py:17:from fastapi import Request
+backend/onyx/server/documents/connector.py:115:from onyx.server.documents.models import ConnectorRequestSubmission
+backend/onyx/server/documents/connector.py:118:from onyx.server.documents.models import ConnectorUpdateRequest
+backend/onyx/server/documents/connector.py:127:from onyx.server.documents.models import GoogleServiceAccountCredentialRequest
+backend/onyx/server/documents/connector.py:130:from onyx.server.documents.models import IndexingStatusRequest
+backend/onyx/server/documents/connector.py:132:from onyx.server.documents.models import RunConnectorRequest
+backend/onyx/server/documents/connector.py:339:    service_account_credential_request: GoogleServiceAccountCredentialRequest,
+backend/onyx/server/documents/connector.py:366:    service_account_credential_request: GoogleServiceAccountCredentialRequest,
+backend/onyx/server/documents/connector.py:1089:    request: IndexingStatusRequest,
+backend/onyx/server/documents/connector.py:1535:    connector_data: ConnectorUpdateRequest,
+backend/onyx/server/documents/connector.py:1574:    connector_data: ConnectorUpdateRequest,
+backend/onyx/server/documents/connector.py:1661:    connector_data: ConnectorUpdateRequest,
+backend/onyx/server/documents/connector.py:1727:    run_info: RunConnectorRequest,
+backend/onyx/server/documents/connector.py:1824:    request: Request,
+backend/onyx/server/documents/connector.py:1832:            status_code=401, detail="Request did not pass CSRF verification."
+backend/onyx/server/documents/connector.py:1854:    request: Request,
+backend/onyx/server/documents/connector.py:1862:            status_code=401, detail="Request did not pass CSRF verification."
+backend/onyx/server/documents/connector.py:1940:    request_data: ConnectorRequestSubmission,
+backend/onyx/server/documents/connector.py:1972:            subject = "Onyx Craft Connector Request"
+backend/onyx/server/documents/credential.py:32:from onyx.server.documents.models import CredentialDataUpdateRequest
+backend/onyx/server/documents/credential.py:34:from onyx.server.documents.models import CredentialSwapRequest
+backend/onyx/server/documents/credential.py:110:    credential_swap_req: CredentialSwapRequest,
+backend/onyx/server/documents/credential.py:265:    credential_update: CredentialDataUpdateRequest,
+backend/onyx/server/documents/standard_oauth.py:10:from fastapi import Request
+backend/onyx/server/documents/standard_oauth.py:62:    request: Request, connector_cls: type[OAuthConnector], args_to_ignore: list[str]
+backend/onyx/server/documents/standard_oauth.py:90:    request: Request,
+backend/onyx/server/manage/administrative.py:40:from onyx.server.manage.models import BoostUpdateRequest
+backend/onyx/server/manage/administrative.py:41:from onyx.server.manage.models import HiddenUpdateRequest
+backend/onyx/server/manage/administrative.py:80:    boost_update: BoostUpdateRequest,
+backend/onyx/server/manage/administrative.py:95:    hidden_update: HiddenUpdateRequest,
+backend/onyx/server/manage/voice/user_api.py:26:from onyx.server.manage.models import VoiceSettingsUpdateRequest
+backend/onyx/server/manage/voice/user_api.py:142:class SynthesizeRequest(BaseModel):
+backend/onyx/server/manage/voice/user_api.py:150:    body: SynthesizeRequest,
+backend/onyx/server/manage/voice/user_api.py:241:    request: VoiceSettingsUpdateRequest,
+backend/onyx/server/manage/voice/api.py:24:from onyx.server.manage.voice.models import VoiceProviderTestRequest
+backend/onyx/server/manage/voice/api.py:26:from onyx.server.manage.voice.models import VoiceProviderUpsertRequest
+backend/onyx/server/manage/voice/api.py:89:    request: VoiceProviderUpsertRequest,
+backend/onyx/server/manage/voice/api.py:221:    request: VoiceProviderTestRequest,
+backend/onyx/server/manage/voice/models.py:41:class VoiceProviderUpsertRequest(BaseModel):
+backend/onyx/server/manage/voice/models.py:42:    """Request model for creating or updating a voice provider."""
+backend/onyx/server/manage/voice/models.py:78:class VoiceProviderTestRequest(BaseModel):
+backend/onyx/server/manage/voice/models.py:79:    """Request model for testing a voice provider connection."""
+backend/onyx/server/features/default_assistant/api.py:16:from onyx.server.features.default_assistant.models import DefaultAssistantUpdateRequest
+backend/onyx/server/features/default_assistant/api.py:50:    update_request: DefaultAssistantUpdateRequest,
+backend/onyx/server/features/default_assistant/api.py:57:        update_request: Request with optional tool_ids and system_prompt
+backend/onyx/server/features/default_assistant/models.py:22:class DefaultAssistantUpdateRequest(BaseModel):
+backend/onyx/server/features/default_assistant/models.py:23:    """Request model for updating default assistant configuration."""
+backend/onyx/server/manage/opensearch_migration/api.py:17:    OpenSearchRetrievalStatusRequest,
+backend/onyx/server/manage/opensearch_migration/api.py:59:    request: OpenSearchRetrievalStatusRequest,
+backend/onyx/server/features/document_set/api.py:23:from onyx.server.features.document_set.models import CheckDocSetPublicRequest
+backend/onyx/server/features/document_set/api.py:25:from onyx.server.features.document_set.models import DocumentSetCreationRequest
+backend/onyx/server/features/document_set/api.py:27:from onyx.server.features.document_set.models import DocumentSetUpdateRequest
+backend/onyx/server/features/document_set/api.py:36:    document_set_creation_request: DocumentSetCreationRequest,
+backend/onyx/server/features/document_set/api.py:71:    document_set_update_request: DocumentSetUpdateRequest,
+backend/onyx/server/features/document_set/api.py:176:    check_public_request: CheckDocSetPublicRequest,
+backend/onyx/server/manage/opensearch_migration/models.py:14:class OpenSearchRetrievalStatusRequest(BaseModel):
+backend/onyx/server/features/document_set/models.py:52:class DocumentSetCreationRequest(BaseModel):
+backend/onyx/server/features/document_set/models.py:64:class DocumentSetUpdateRequest(BaseModel):
+backend/onyx/server/features/document_set/models.py:77:class CheckDocSetPublicRequest(BaseModel):
+backend/onyx/server/features/input_prompt/api.py:18:from onyx.server.features.input_prompt.models import CreateInputPromptRequest
+backend/onyx/server/features/input_prompt/api.py:20:from onyx.server.features.input_prompt.models import UpdateInputPromptRequest
+backend/onyx/server/features/input_prompt/api.py:60:    create_input_prompt_request: CreateInputPromptRequest,
+backend/onyx/server/features/input_prompt/api.py:84:    update_input_prompt_request: UpdateInputPromptRequest,
+backend/onyx/server/features/input_prompt/models.py:11:class CreateInputPromptRequest(BaseModel):
+backend/onyx/server/features/input_prompt/models.py:17:class UpdateInputPromptRequest(BaseModel):
+backend/onyx/server/manage/llm/api.py:71:from onyx.server.manage.llm.models import BedrockModelsRequest
+backend/onyx/server/manage/llm/api.py:73:from onyx.server.manage.llm.models import BifrostModelsRequest
+backend/onyx/server/manage/llm/api.py:78:from onyx.server.manage.llm.models import LitellmModelsRequest
+backend/onyx/server/manage/llm/api.py:82:from onyx.server.manage.llm.models import LLMProviderUpsertRequest
+backend/onyx/server/manage/llm/api.py:85:from onyx.server.manage.llm.models import LMStudioModelsRequest
+backend/onyx/server/manage/llm/api.py:86:from onyx.server.manage.llm.models import ModelConfigurationUpsertRequest
+backend/onyx/server/manage/llm/api.py:89:from onyx.server.manage.llm.models import OllamaModelsRequest
+backend/onyx/server/manage/llm/api.py:91:from onyx.server.manage.llm.models import OpenAICompatibleModelsRequest
+backend/onyx/server/manage/llm/api.py:94:from onyx.server.manage.llm.models import OpenRouterModelsRequest
+backend/onyx/server/manage/llm/api.py:96:from onyx.server.manage.llm.models import TestLLMRequest
+backend/onyx/server/manage/llm/api.py:374:    test_llm_request: TestLLMRequest,
+backend/onyx/server/manage/llm/api.py:497:    llm_provider_upsert_request: LLMProviderUpsertRequest,
+backend/onyx/server/manage/llm/api.py:589:            ModelConfigurationUpsertRequest.from_model(mc)
+backend/onyx/server/manage/llm/api.py:983:    request: BedrockModelsRequest,
+backend/onyx/server/manage/llm/api.py:1158:    request: OllamaModelsRequest,
+backend/onyx/server/manage/llm/api.py:1284:    request: OpenRouterModelsRequest,
+backend/onyx/server/manage/llm/api.py:1369:    request: LMStudioModelsRequest,
+backend/onyx/server/manage/llm/api.py:1482:    request: LitellmModelsRequest,
+backend/onyx/server/manage/llm/api.py:1606:    except httpx.RequestError as e:
+backend/onyx/server/manage/llm/api.py:1630:    request: BifrostModelsRequest,
+backend/onyx/server/manage/llm/api.py:1728:    request: OpenAICompatibleModelsRequest,
+backend/onyx/server/manage/llm/models.py:36:class TestLLMRequest(BaseModel):
+backend/onyx/server/manage/llm/models.py:108:class LLMProviderUpsertRequest(LLMProvider):
+backend/onyx/server/manage/llm/models.py:114:    model_configurations: list["ModelConfigurationUpsertRequest"] = []
+backend/onyx/server/manage/llm/models.py:173:class ModelConfigurationUpsertRequest(BaseModel):
+backend/onyx/server/manage/llm/models.py:185:    ) -> "ModelConfigurationUpsertRequest":
+backend/onyx/server/manage/llm/models.py:326:class BedrockModelsRequest(BaseModel):
+backend/onyx/server/manage/llm/models.py:341:class OllamaModelsRequest(BaseModel):
+backend/onyx/server/manage/llm/models.py:391:class OpenRouterModelsRequest(BaseModel):
+backend/onyx/server/manage/llm/models.py:431:class LMStudioModelsRequest(BaseModel):
+backend/onyx/server/manage/llm/models.py:491:class LitellmModelsRequest(BaseModel):
+backend/onyx/server/manage/llm/models.py:574:class BifrostModelsRequest(BaseModel):
+backend/onyx/server/manage/llm/models.py:589:class OpenAICompatibleModelsRequest(BaseModel):
+backend/onyx/server/features/search/api.py:42:from onyx.server.features.search.models import SearchRequest
+backend/onyx/server/features/search/api.py:60:    request: SearchRequest,
+backend/onyx/server/features/search/api.py:126:    # 3. Build filters. See SearchRequest.time_cutoff for the naive-→-UTC
+backend/onyx/server/features/search/models.py:12:class SearchRequest(BaseModel):
+backend/onyx/server/features/search/models.py:32:    def validate_provider_model_pair(self) -> "SearchRequest":
+backend/onyx/server/manage/slack_bot.py:27:from onyx.server.manage.models import SlackBotCreationRequest
+backend/onyx/server/manage/slack_bot.py:29:from onyx.server.manage.models import SlackChannelConfigCreationRequest
+backend/onyx/server/manage/slack_bot.py:48:    slack_channel_config_creation_request: SlackChannelConfigCreationRequest,
+backend/onyx/server/manage/slack_bot.py:110:    slack_channel_config_creation_request: SlackChannelConfigCreationRequest,
+backend/onyx/server/manage/slack_bot.py:151:    slack_channel_config_creation_request: SlackChannelConfigCreationRequest,
+backend/onyx/server/manage/slack_bot.py:237:    slack_bot_creation_request: SlackBotCreationRequest,
+backend/onyx/server/manage/slack_bot.py:283:    slack_bot_creation_request: SlackBotCreationRequest,
+backend/onyx/server/manage/image_generation/api.py:28:from onyx.server.manage.image_generation.models import TestImageGenerationRequest
+\n## auth/session/user/admin
+backend/onyx/auth/constants.py:1:"""Authentication constants shared across auth modules."""
+backend/onyx/auth/permissions.py:2:Permission resolution for group-based authorization.
+backend/onyx/auth/permissions.py:5:loaded for free with every auth query. Implied permissions are expanded
+backend/onyx/auth/permissions.py:15:from onyx.auth.users import current_user
+backend/onyx/auth/permissions.py:68:    If "admin" is present, returns all 19 permissions.
+backend/onyx/auth/permissions.py:110:    async def dependency(user: User = Depends(current_user)) -> User:
+backend/onyx/auth/permissions.py:125:        True  # sentinel for auth_check detection
+backend/onyx/auth/api_key.py:10:from onyx.auth.constants import API_KEY_LENGTH
+backend/onyx/auth/api_key.py:11:from onyx.auth.constants import API_KEY_PREFIX
+backend/onyx/auth/api_key.py:12:from onyx.auth.constants import DEPRECATED_API_KEY_PREFIX
+backend/onyx/auth/api_key.py:13:from onyx.auth.schemas import UserRole
+backend/onyx/auth/api_key.py:14:from onyx.auth.utils import get_hashed_bearer_token_from_request
+backend/onyx/auth/api_key.py:29:def generate_api_key(tenant_id: str | None = None) -> str:
+backend/onyx/auth/api_key.py:30:    if not MULTI_TENANT or not tenant_id:
+backend/onyx/auth/api_key.py:33:    encoded_tenant = quote(tenant_id)  # URL encode the tenant ID
+backend/onyx/auth/api_key.py:34:    return f"{API_KEY_PREFIX}{encoded_tenant}.{secrets.token_urlsafe(API_KEY_LENGTH)}"
+backend/onyx/auth/oauth_token_manager.py:11:from onyx.db.oauth_config import get_user_oauth_token
+backend/onyx/auth/oauth_token_manager.py:12:from onyx.db.oauth_config import upsert_user_oauth_token
+backend/onyx/auth/oauth_token_manager.py:22:    def __init__(self, oauth_config: OAuthConfig, user_id: UUID, db_session: Session):
+backend/onyx/auth/oauth_token_manager.py:23:        self.oauth_config = oauth_config
+backend/onyx/auth/oauth_token_manager.py:25:        self.db_session = db_session
+backend/onyx/auth/oauth_token_manager.py:29:        user_token = get_user_oauth_token(
+backend/onyx/auth/oauth_token_manager.py:30:            self.oauth_config.id, self.user_id, self.db_session
+backend/onyx/auth/oauth_token_manager.py:61:            self.oauth_config.client_id is None
+backend/onyx/auth/oauth_token_manager.py:62:            or self.oauth_config.client_secret is None
+backend/onyx/auth/oauth_token_manager.py:73:            "client_id": self._unwrap_sensitive_str(self.oauth_config.client_id),
+backend/onyx/auth/oauth_token_manager.py:75:                self.oauth_config.client_secret
+backend/onyx/auth/oauth_token_manager.py:79:            self.oauth_config.token_url,
+backend/onyx/auth/oauth_token_manager.py:98:        upsert_user_oauth_token(
+backend/onyx/auth/oauth_token_manager.py:99:            self.oauth_config.id,
+backend/onyx/auth/oauth_token_manager.py:102:            self.db_session,
+backend/onyx/auth/oauth_token_manager.py:127:        """Exchange authorization code for access token"""
+backend/onyx/auth/oauth_token_manager.py:129:            self.oauth_config.client_id is None
+backend/onyx/auth/oauth_token_manager.py:130:            or self.oauth_config.client_secret is None
+backend/onyx/auth/oauth_token_manager.py:137:            "grant_type": "authorization_code",
+backend/onyx/auth/oauth_token_manager.py:139:            "client_id": self._unwrap_sensitive_str(self.oauth_config.client_id),
+backend/onyx/auth/oauth_token_manager.py:141:                self.oauth_config.client_secret
+backend/onyx/auth/oauth_token_manager.py:146:            self.oauth_config.token_url,
+backend/onyx/auth/oauth_token_manager.py:161:    def build_authorization_url(
+backend/onyx/auth/oauth_token_manager.py:162:        oauth_config: OAuthConfig, redirect_uri: str, state: str
+backend/onyx/auth/oauth_token_manager.py:164:        """Build OAuth authorization URL"""
+backend/onyx/auth/oauth_token_manager.py:165:        if oauth_config.client_id is None:
+backend/onyx/auth/oauth_token_manager.py:166:            raise ValueError("OAuth client_id is required to build authorization URL")
+backend/onyx/auth/oauth_token_manager.py:170:                oauth_config.client_id
+backend/onyx/auth/oauth_token_manager.py:178:        if oauth_config.scopes:
+backend/onyx/auth/oauth_token_manager.py:179:            params["scope"] = " ".join(oauth_config.scopes)
+backend/onyx/auth/oauth_token_manager.py:182:        if oauth_config.additional_params:
+backend/onyx/auth/oauth_token_manager.py:183:            params.update(oauth_config.additional_params)
+backend/onyx/auth/oauth_token_manager.py:186:        separator = "&" if "?" in oauth_config.authorization_url else "?"
+backend/onyx/auth/oauth_token_manager.py:188:        return f"{oauth_config.authorization_url}{separator}{urlencode(params)}"
+backend/onyx/auth/utils.py:1:"""Shared authentication utilities for bearer token extraction and validation."""
+backend/onyx/auth/utils.py:8:from onyx.auth.constants import API_KEY_HEADER_ALTERNATIVE_NAME
+backend/onyx/auth/utils.py:9:from onyx.auth.constants import API_KEY_HEADER_NAME
+backend/onyx/auth/utils.py:10:from onyx.auth.constants import API_KEY_PREFIX
+backend/onyx/auth/utils.py:11:from onyx.auth.constants import BEARER_PREFIX
+backend/onyx/auth/utils.py:12:from onyx.auth.constants import DEPRECATED_API_KEY_PREFIX
+backend/onyx/auth/utils.py:13:from onyx.auth.constants import PAT_PREFIX
+backend/onyx/auth/utils.py:33:    auth_header = request.headers.get(
+backend/onyx/auth/utils.py:37:    if not auth_header:
+backend/onyx/auth/utils.py:41:    if auth_header.startswith(BEARER_PREFIX):
+backend/onyx/auth/utils.py:42:        token = auth_header[len(BEARER_PREFIX) :].strip()
+backend/onyx/auth/utils.py:44:        token = auth_header
+backend/onyx/auth/utils.py:57:def _extract_tenant_from_bearer_token(
+backend/onyx/auth/utils.py:60:    """Generic tenant extraction from bearer token. Returns None if invalid format.
+backend/onyx/auth/utils.py:67:        Tenant ID if found in format <prefix><tenant>.<random>, else None
+backend/onyx/auth/utils.py:69:    auth_header = request.headers.get(
+backend/onyx/auth/utils.py:73:    if not auth_header or not auth_header.startswith(BEARER_PREFIX):
+backend/onyx/auth/utils.py:76:    token = auth_header[len(BEARER_PREFIX) :].strip()
+backend/onyx/auth/utils.py:88:    # Parse tenant from token format: <prefix><tenant>.<random>
+backend/onyx/auth/utils.py:93:    tenant_id = parts[0]
+backend/onyx/auth/utils.py:94:    return unquote(tenant_id) if tenant_id else None
+backend/onyx/auth/utils.py:97:def extract_tenant_from_auth_header(request: Request) -> str | None:
+backend/onyx/auth/utils.py:98:    """Extract tenant ID from API key or PAT header.
+backend/onyx/auth/utils.py:100:    Unified function for extracting tenant from any bearer token (API key or PAT).
+backend/onyx/auth/utils.py:106:    return _extract_tenant_from_bearer_token(
+backend/onyx/auth/anonymous_user.py:5:from onyx.auth.schemas import UserRole
+backend/onyx/db/web_search.py:14:def fetch_web_search_providers(db_session: Session) -> list[InternetSearchProvider]:
+backend/onyx/db/web_search.py:16:    return list(db_session.scalars(stmt).all())
+backend/onyx/db/web_search.py:19:def fetch_web_content_providers(db_session: Session) -> list[InternetContentProvider]:
+backend/onyx/db/web_search.py:21:    return list(db_session.scalars(stmt).all())
+backend/onyx/db/web_search.py:25:    db_session: Session,
+backend/onyx/db/web_search.py:30:    return db_session.scalars(stmt).first()
+backend/onyx/db/web_search.py:34:    provider_id: int, db_session: Session
+backend/onyx/db/web_search.py:36:    return db_session.get(InternetSearchProvider, provider_id)
+backend/onyx/db/web_search.py:40:    name: str, db_session: Session
+backend/onyx/db/web_search.py:43:    return db_session.scalars(stmt).first()
+backend/onyx/db/web_search.py:47:    provider_type: WebSearchProviderType, db_session: Session
+backend/onyx/db/web_search.py:52:    return db_session.scalars(stmt).first()
+backend/onyx/db/web_search.py:56:    name: str, provider_id: int | None, db_session: Session
+backend/onyx/db/web_search.py:58:    existing = fetch_web_search_provider_by_name(name=name, db_session=db_session)
+backend/onyx/db/web_search.py:89:    db_session: Session,
+backend/onyx/db/web_search.py:92:        name=name, provider_id=provider_id, db_session=db_session
+backend/onyx/db/web_search.py:97:        provider = fetch_web_search_provider_by_id(provider_id, db_session)
+backend/onyx/db/web_search.py:102:        db_session.add(provider)
+backend/onyx/db/web_search.py:113:    db_session.flush()
+backend/onyx/db/web_search.py:116:        set_active_web_search_provider(provider_id=provider.id, db_session=db_session)
+backend/onyx/db/web_search.py:118:    db_session.refresh(provider)
+backend/onyx/db/web_search.py:123:    *, provider_id: int | None, db_session: Session
+backend/onyx/db/web_search.py:128:    provider = fetch_web_search_provider_by_id(provider_id, db_session)
+backend/onyx/db/web_search.py:132:    db_session.execute(
+backend/onyx/db/web_search.py:142:    db_session.flush()
+backend/onyx/db/web_search.py:143:    db_session.refresh(provider)
+backend/onyx/db/web_search.py:148:    *, provider_id: int | None, db_session: Session
+backend/onyx/db/web_search.py:153:    provider = fetch_web_search_provider_by_id(provider_id, db_session)
+backend/onyx/db/web_search.py:159:    db_session.flush()
+backend/onyx/db/web_search.py:160:    db_session.refresh(provider)
+backend/onyx/db/web_search.py:164:def delete_web_search_provider(provider_id: int, db_session: Session) -> None:
+backend/onyx/db/web_search.py:165:    provider = fetch_web_search_provider_by_id(provider_id, db_session)
+backend/onyx/db/web_search.py:169:    db_session.delete(provider)
+backend/onyx/db/web_search.py:170:    db_session.flush()
+backend/onyx/db/web_search.py:172:    db_session.commit()
+backend/onyx/db/web_search.py:179:    db_session: Session,
+backend/onyx/db/web_search.py:184:    return db_session.scalars(stmt).first()
+backend/onyx/db/web_search.py:188:    provider_id: int, db_session: Session
+backend/onyx/db/web_search.py:190:    return db_session.get(InternetContentProvider, provider_id)
+backend/onyx/db/web_search.py:194:    name: str, db_session: Session
+backend/onyx/db/web_search.py:199:    return db_session.scalars(stmt).first()
+backend/onyx/db/web_search.py:203:    provider_type: WebContentProviderType, db_session: Session
+backend/onyx/db/web_search.py:208:    return db_session.scalars(stmt).first()
+backend/onyx/db/web_search.py:212:    name: str, provider_id: int | None, db_session: Session
+backend/onyx/db/web_search.py:214:    existing = fetch_web_content_provider_by_name(name=name, db_session=db_session)
+backend/onyx/db/web_search.py:245:    db_session: Session,
+backend/onyx/db/web_search.py:248:        name=name, provider_id=provider_id, db_session=db_session
+backend/onyx/db/web_search.py:253:        provider = fetch_web_content_provider_by_id(provider_id, db_session)
+backend/onyx/db/web_search.py:258:        db_session.add(provider)
+backend/onyx/db/web_search.py:269:    db_session.flush()
+backend/onyx/db/web_search.py:272:        set_active_web_content_provider(provider_id=provider.id, db_session=db_session)
+backend/onyx/db/web_search.py:274:    db_session.refresh(provider)
+backend/onyx/db/web_search.py:279:    *, provider_id: int | None, db_session: Session
+backend/onyx/db/web_search.py:284:    provider = fetch_web_content_provider_by_id(provider_id, db_session)
+backend/onyx/db/web_search.py:288:    db_session.execute(
+backend/onyx/db/web_search.py:298:    db_session.flush()
+backend/onyx/db/web_search.py:299:    db_session.refresh(provider)
+backend/onyx/db/web_search.py:304:    *, provider_id: int | None, db_session: Session
+backend/onyx/db/web_search.py:309:    provider = fetch_web_content_provider_by_id(provider_id, db_session)
+backend/onyx/db/web_search.py:315:    db_session.flush()
+backend/onyx/db/web_search.py:316:    db_session.refresh(provider)
+backend/onyx/db/web_search.py:320:def delete_web_content_provider(provider_id: int, db_session: Session) -> None:
+backend/onyx/db/web_search.py:321:    provider = fetch_web_content_provider_by_id(provider_id, db_session)
+backend/onyx/db/web_search.py:325:    db_session.delete(provider)
+backend/onyx/db/web_search.py:326:    db_session.flush()
+backend/onyx/db/web_search.py:328:    db_session.commit()
+backend/onyx/auth/schemas.py:14:    - Basic can't perform any admin actions
+backend/onyx/auth/schemas.py:15:    - Admin can perform all admin actions
+backend/onyx/auth/schemas.py:16:    - Curator can perform admin actions for
+backend/onyx/auth/schemas.py:18:    - Global Curator can perform admin actions
+backend/onyx/auth/schemas.py:27:    ADMIN = "admin"
+backend/onyx/auth/schemas.py:47:    tenant_id: str | None = None
+backend/onyx/auth/schemas.py:72:    Role changes should be handled through a separate, admin-only process
+backend/onyx/db/entity_type.py:17:    db_session: Session,
+backend/onyx/db/entity_type.py:22:        db_session: SQLAlchemy session
+backend/onyx/db/entity_type.py:28:        db_session.query(KGEntityType)
+backend/onyx/db/entity_type.py:35:    db_session: Session,
+backend/onyx/db/entity_type.py:41:        return db_session.query(KGEntityType).order_by(KGEntityType.id_name).all()
+backend/onyx/db/entity_type.py:45:            db_session.query(KGEntityType)
+backend/onyx/db/entity_type.py:52:def get_configured_entity_types(db_session: Session) -> dict[str, list[KGEntityType]]:
+backend/onyx/db/entity_type.py:56:        for source in fetch_unique_document_sources(db_session=db_session)
+backend/onyx/db/entity_type.py:59:        db_session.query(KGEntityType)
+backend/onyx/db/entity_type.py:82:        db_session.query(KGEntityType)
+backend/onyx/db/entity_type.py:96:    db_session: Session, updates: list[EntityType]
+backend/onyx/db/entity_type.py:99:        db_session.execute(
+backend/onyx/db/entity_type.py:107:    db_session.flush()
+backend/onyx/db/entity_type.py:111:    configured_entity_types = get_configured_entity_types(db_session=db_session)
+backend/onyx/db/entity_type.py:121:    db_session.execute(
+backend/onyx/db/entity_type.py:137:    db_session.execute(
+backend/onyx/db/entity_type.py:152:    db_session.commit()
+backend/onyx/db/hook.py:25:    db_session: Session,
+backend/onyx/db/hook.py:35:    return db_session.scalar(stmt)
+backend/onyx/db/hook.py:40:    db_session: Session,
+backend/onyx/db/hook.py:49:    return db_session.scalar(stmt)
+backend/onyx/db/hook.py:54:    db_session: Session,
+backend/onyx/db/hook.py:64:    return list(db_session.scalars(stmt).all())
+backend/onyx/db/hook.py:69:    db_session: Session,
+backend/onyx/db/hook.py:87:        db_session=db_session, hook_point=hook_point
+backend/onyx/db/hook.py:108:    savepoint = db_session.begin_nested()
+backend/onyx/db/hook.py:110:        db_session.add(hook)
+backend/onyx/db/hook.py:125:    db_session: Session,
+backend/onyx/db/hook.py:143:        db_session=db_session, hook_id=hook_id, include_creator=include_creator
+backend/onyx/db/hook.py:163:    db_session.flush()
+backend/onyx/db/hook.py:169:    db_session: Session,
+backend/onyx/db/hook.py:172:    hook = get_hook_by_id(db_session=db_session, hook_id=hook_id)
+backend/onyx/db/hook.py:178:    db_session.flush()
+backend/onyx/db/hook.py:186:    db_session: Session,
+backend/onyx/db/hook.py:200:    db_session.add(log)
+backend/onyx/db/hook.py:201:    db_session.flush()
+backend/onyx/db/hook.py:207:    db_session: Session,
+backend/onyx/db/hook.py:217:    return list(db_session.scalars(stmt).all())
+backend/onyx/db/hook.py:222:    db_session: Session,
+backend/onyx/db/hook.py:229:    result: CursorResult = db_session.execute(  # ty: ignore[invalid-assignment]
+backend/onyx/db/hook.py:232:        .execution_options(synchronize_session=False)
+backend/onyx/auth/email_utils.py:343:    from_email: str, to_email: str, application_name: str, auth_type: AuthType
+backend/onyx/auth/email_utils.py:347:    # the exact action taken by the user, and thus the message, depends on the auth type
+backend/onyx/auth/email_utils.py:348:    message = f"<p>You have been invited by {from_email} to join an organization on {application_name}.</p>"
+backend/onyx/auth/email_utils.py:349:    if auth_type == AuthType.CLOUD:
+backend/onyx/auth/email_utils.py:351:            "<p>To join the organization, please click the button below to set a password "
+backend/onyx/auth/email_utils.py:354:    elif auth_type == AuthType.BASIC:
+backend/onyx/auth/email_utils.py:355:        message += "<p>To join the organization, please click the button below to set a password and complete your registration.</p>"
+backend/onyx/auth/email_utils.py:356:    elif auth_type == AuthType.GOOGLE_OAUTH:
+backend/onyx/auth/email_utils.py:357:        message += "<p>To join the organization, please click the button below to login with Google and complete your registration.</p>"
+backend/onyx/auth/email_utils.py:358:    elif auth_type == AuthType.OIDC or auth_type == AuthType.SAML:
+backend/onyx/auth/email_utils.py:359:        message += "<p>To join the organization, please click the button below to complete your registration.</p>"
+backend/onyx/auth/email_utils.py:361:        raise ValueError(f"Invalid auth type: {auth_type}")
+backend/onyx/auth/email_utils.py:364:    cta_link = f"{WEB_DOMAIN}/auth/signup?email={to_email}"
+backend/onyx/auth/email_utils.py:375:    # not as critical, so not having special cases for each auth type
+backend/onyx/auth/email_utils.py:377:        f"You have been invited by {from_email} to join an organization on {application_name}.\n"
+backend/onyx/auth/email_utils.py:378:        "To join the organization, please visit the following link:\n"
+backend/onyx/auth/email_utils.py:379:        f"{WEB_DOMAIN}/auth/signup?email={to_email}\n"
+backend/onyx/auth/email_utils.py:381:    if auth_type == AuthType.CLOUD:
+backend/onyx/auth/email_utils.py:388:    user_email: str, current_user: User, auth_type: AuthType
+backend/onyx/auth/email_utils.py:404:        current_user.email, user_email, application_name, auth_type
+backend/onyx/auth/email_utils.py:416:def send_forgot_password_email(
+backend/onyx/auth/email_utils.py:419:    tenant_id: str,
+backend/onyx/auth/email_utils.py:422:    # Builds a forgot password email with or without fancy HTML
+backend/onyx/auth/email_utils.py:436:    tenant_param = f"&tenant={tenant_id}" if tenant_id and MULTI_TENANT else ""
+backend/onyx/auth/email_utils.py:439:    cta_link = f"{WEB_DOMAIN}/auth/reset-password?token={token}{tenant_param}"
+backend/onyx/auth/email_utils.py:449:        f"{WEB_DOMAIN}/auth/reset-password?token={token}{tenant_param}"
+backend/onyx/auth/email_utils.py:464:    new_organization: bool = False,
+backend/onyx/auth/email_utils.py:480:    link = f"{WEB_DOMAIN}/auth/verify-email?token={token}"
+backend/onyx/auth/email_utils.py:481:    if new_organization:
+backend/onyx/auth/pat.py:12:from onyx.auth.constants import PAT_LENGTH
+backend/onyx/auth/pat.py:13:from onyx.auth.constants import PAT_PREFIX
+backend/onyx/auth/pat.py:14:from onyx.auth.utils import get_hashed_bearer_token_from_request
+backend/onyx/auth/pat.py:18:def generate_pat(tenant_id: str | None = None) -> str:
+backend/onyx/auth/pat.py:20:    if MULTI_TENANT and tenant_id:
+backend/onyx/auth/pat.py:21:        encoded_tenant = quote(tenant_id)
+backend/onyx/auth/pat.py:22:        return f"{PAT_PREFIX}{encoded_tenant}.{secrets.token_urlsafe(PAT_LENGTH)}"
+backend/onyx/db/llm.py:38:    db_session: Session,
+backend/onyx/db/llm.py:41:    db_session.query(LLMProvider__UserGroup).filter(
+backend/onyx/db/llm.py:43:    ).delete(synchronize_session="fetch")
+backend/onyx/db/llm.py:54:        db_session.add_all(new_relationships)
+backend/onyx/db/llm.py:58:    db_session: Session,
+backend/onyx/db/llm.py:63:    db_session.execute(
+backend/onyx/db/llm.py:70:        db_session.add_all(
+backend/onyx/db/llm.py:79:def fetch_user_group_ids(db_session: Session, user: User) -> set[int]:
+backend/onyx/db/llm.py:83:        db_session: Database session
+backend/onyx/db/llm.py:93:        db_session.scalars(
+backend/onyx/db/llm.py:105:    is_admin: bool = False,
+backend/onyx/db/llm.py:113:        is_admin: If True, bypass user group restrictions but still respect persona restrictions
+backend/onyx/db/llm.py:118:      (or be admin).
+backend/onyx/db/llm.py:120:      This allows admins to make a provider available to all users while still
+backend/onyx/db/llm.py:126:    3. is_public=False, groups+personas set → must satisfy BOTH (admins bypass groups)
+backend/onyx/db/llm.py:127:    4. is_public=False, only groups set → must be in group (admins bypass)
+backend/onyx/db/llm.py:129:    6. is_public=False, neither set → admin-only (locked)
+backend/onyx/db/llm.py:144:        return is_admin or bool(user_group_ids & provider_group_ids)
+backend/onyx/db/llm.py:146:    # No groups: either persona-whitelisted (already passed) or admin-only if locked
+backend/onyx/db/llm.py:147:    return has_personas or is_admin
+backend/onyx/db/llm.py:151:    db_session: Session, persona_ids: list[int]
+backend/onyx/db/llm.py:159:        db_session.scalars(select(Persona.id).where(Persona.id.in_(persona_ids))).all()
+backend/onyx/db/llm.py:165:def get_personas_using_provider(db_session: Session, provider_id: int) -> list[Persona]:
+backend/onyx/db/llm.py:168:        db_session.scalars(
+backend/onyx/db/llm.py:182:def fetch_persona_with_groups(db_session: Session, persona_id: int) -> Persona | None:
+backend/onyx/db/llm.py:184:    return db_session.scalar(
+backend/onyx/db/llm.py:192:    db_session: Session, provider: CloudEmbeddingProviderCreationRequest
+backend/onyx/db/llm.py:195:        db_session.query(CloudEmbeddingProviderModel)
+backend/onyx/db/llm.py:205:        db_session.add(new_provider)
+backend/onyx/db/llm.py:207:    db_session.commit()
+backend/onyx/db/llm.py:208:    db_session.refresh(existing_provider)
+backend/onyx/db/llm.py:214:    db_session: Session,
+backend/onyx/db/llm.py:219:            id=llm_provider_upsert_request.id, db_session=db_session
+backend/onyx/db/llm.py:228:        db_session.add(existing_llm_provider)
+backend/onyx/db/llm.py:263:        db_session.flush()
+backend/onyx/db/llm.py:285:    default_model = fetch_default_llm_model(db_session)
+backend/onyx/db/llm.py:302:        db_session.query(ModelConfiguration).filter(
+backend/onyx/db/llm.py:304:        ).delete(synchronize_session="fetch")
+backend/onyx/db/llm.py:305:        db_session.flush()
+backend/onyx/db/llm.py:317:                db_session=db_session,
+backend/onyx/db/llm.py:327:                db_session=db_session,
+backend/onyx/db/llm.py:341:        db_session=db_session,
+backend/onyx/db/llm.py:344:        db_session=db_session,
+backend/onyx/db/llm.py:349:    db_session.flush()
+backend/onyx/db/llm.py:350:    db_session.refresh(existing_llm_provider)
+backend/onyx/db/llm.py:353:        db_session.commit()
+backend/onyx/db/llm.py:355:        db_session.rollback()
+backend/onyx/db/llm.py:363:    db_session: Session,
+backend/onyx/db/llm.py:373:        db_session: Database session
+backend/onyx/db/llm.py:380:    provider = fetch_existing_llm_provider(name=provider_name, db_session=db_session)
+backend/onyx/db/llm.py:398:                db_session=db_session,
+backend/onyx/db/llm.py:409:        db_session.commit()
+backend/onyx/db/llm.py:415:    db_session: Session,
+backend/onyx/db/llm.py:417:    return list(db_session.scalars(select(CloudEmbeddingProviderModel)).all())
+backend/onyx/db/llm.py:421:    db_session: Session, doc_ids: list[int]
+backend/onyx/db/llm.py:424:        db_session.scalars(select(DocumentSet).where(DocumentSet.id.in_(doc_ids))).all()
+backend/onyx/db/llm.py:428:def fetch_existing_tools(db_session: Session, tool_ids: list[int]) -> list[ToolModel]:
+backend/onyx/db/llm.py:430:        db_session.scalars(select(ToolModel).where(ToolModel.id.in_(tool_ids))).all()
+backend/onyx/db/llm.py:435:    db_session: Session,
+backend/onyx/db/llm.py:448:    return list(db_session.scalars(models).all())
+backend/onyx/db/llm.py:452:    db_session: Session,
+backend/onyx/db/llm.py:460:        db_session: Database session
+backend/onyx/db/llm.py:489:    providers = list(db_session.scalars(stmt).all())
+backend/onyx/db/llm.py:496:    name: str, db_session: Session
+backend/onyx/db/llm.py:498:    provider_model = db_session.scalar(
+backend/onyx/db/llm.py:512:    id: int, db_session: Session
+backend/onyx/db/llm.py:514:    provider_model = db_session.scalar(
+backend/onyx/db/llm.py:528:    name: str, provider_type: str, db_session: Session
+backend/onyx/db/llm.py:537:        db_session.scalars(
+backend/onyx/db/llm.py:562:    provider_type: str, db_session: Session
+backend/onyx/db/llm.py:570:        db_session.scalars(
+backend/onyx/db/llm.py:594:    db_session: Session, provider_type: EmbeddingProvider
+backend/onyx/db/llm.py:596:    return db_session.scalar(
+backend/onyx/db/llm.py:603:def fetch_default_llm_model(db_session: Session) -> ModelConfiguration | None:
+\n## ingestion/retrieval/llm/tools
+backend/onyx/federated_connectors/registry.py:1:"""Registry mapping for federated connector classes."""
+backend/onyx/federated_connectors/registry.py:13:# Mapping of FederatedConnectorSource to connector details for lazy loading
+backend/onyx/federated_connectors/registry.py:16:        module_path="onyx.federated_connectors.slack.federated_connector",
+backend/onyx/federated_connectors/oauth_utils.py:1:"""Generic OAuth utilities for federated connectors API layer."""
+backend/onyx/federated_connectors/oauth_utils.py:8:from onyx.cache.factory import get_cache_backend
+backend/onyx/federated_connectors/oauth_utils.py:19:    """Represents an OAuth session stored in the cache backend."""
+backend/onyx/federated_connectors/oauth_utils.py:23:        federated_connector_id: int,
+backend/onyx/federated_connectors/oauth_utils.py:28:        self.federated_connector_id = federated_connector_id
+backend/onyx/federated_connectors/oauth_utils.py:35:            "federated_connector_id": self.federated_connector_id,
+backend/onyx/federated_connectors/oauth_utils.py:44:            federated_connector_id=data["federated_connector_id"],
+backend/onyx/federated_connectors/oauth_utils.py:52:    federated_connector_id: int,
+backend/onyx/federated_connectors/oauth_utils.py:59:    Generate a secure state parameter and store session data in the cache backend.
+backend/onyx/federated_connectors/oauth_utils.py:62:        federated_connector_id: ID of the federated connector
+backend/onyx/federated_connectors/oauth_utils.py:66:        ttl: Time-to-live in seconds for the cache key
+backend/onyx/federated_connectors/oauth_utils.py:76:        federated_connector_id=federated_connector_id,
+backend/onyx/federated_connectors/oauth_utils.py:82:    cache = get_cache_backend()
+backend/onyx/federated_connectors/oauth_utils.py:83:    cache_key = f"{OAUTH_STATE_PREFIX}:{state_uuid}"
+backend/onyx/federated_connectors/oauth_utils.py:84:    cache.set(cache_key, json.dumps(session.to_dict()), ex=ttl)
+backend/onyx/federated_connectors/oauth_utils.py:87:        "Generated OAuth state for federated_connector_id=%s, user_id=%s, state=%s",
+backend/onyx/federated_connectors/oauth_utils.py:88:        federated_connector_id,
+backend/onyx/federated_connectors/oauth_utils.py:98:    Verify OAuth state parameter and retrieve session data.
+backend/onyx/federated_connectors/oauth_utils.py:113:    cache = get_cache_backend()
+backend/onyx/federated_connectors/oauth_utils.py:114:    cache_key = f"{OAUTH_STATE_PREFIX}:{state_uuid}"
+backend/onyx/federated_connectors/oauth_utils.py:116:    session_data = cache.get(cache_key)
+backend/onyx/federated_connectors/oauth_utils.py:120:    cache.delete(cache_key)
+backend/onyx/federated_connectors/oauth_utils.py:128:    Generate the OAuth callback URI for a federated connector.
+backend/onyx/federated_connectors/oauth_utils.py:143:        base_oauth_url: The base OAuth URL from the connector
+backend/ee/onyx/server/query_history/api.py:25:from onyx.background.celery.versioned_apps.client import app as client_app
+backend/ee/onyx/server/query_history/api.py:343:        queue=OnyxCeleryQueues.CSV_GENERATION,
+backend/ee/onyx/server/query_history/api.py:407:            csv_stream = file_store.read_file(report_name)
+backend/ee/onyx/server/query_history/api.py:413:        csv_stream.seek(0)
+backend/ee/onyx/server/query_history/api.py:415:            iter(csv_stream),
+backend/ee/onyx/server/query_history/api.py:421:    # Therefore, we check the task queue to determine its status, if there is any.
+backend/onyx/federated_connectors/slack/__init__.py:1:# Slack federated connector module
+backend/ee/onyx/server/query_history/models.py:67:                for document in message.search_docs
+backend/ee/onyx/server/query_history/models.py:166:    retrieved_documents: list[AbridgedSearchDoc]
+backend/ee/onyx/server/query_history/models.py:194:                retrieved_documents=ai_message.documents,
+backend/ee/onyx/server/query_history/models.py:211:            "retrieved_documents": "|".join(
+backend/ee/onyx/server/query_history/models.py:214:                    for doc in self.retrieved_documents
+backend/ee/onyx/server/query_history/models.py:236:        task_queue_state: TaskQueueState,
+backend/ee/onyx/server/query_history/models.py:238:        start_end = task_queue_state.task_name.removeprefix(
+backend/ee/onyx/server/query_history/models.py:243:        if not task_queue_state.start_time:
+backend/ee/onyx/server/query_history/models.py:247:            task_id=task_queue_state.task_id,
+backend/ee/onyx/server/query_history/models.py:248:            status=task_queue_state.status,
+backend/ee/onyx/server/query_history/models.py:251:            start_time=task_queue_state.start_time,
+backend/onyx/federated_connectors/slack/federated_connector.py:5:from urllib.parse import urlencode
+backend/onyx/federated_connectors/slack/federated_connector.py:12:from onyx.context.search.federated.slack_search import slack_retrieval
+backend/onyx/federated_connectors/slack/federated_connector.py:13:from onyx.context.search.models import ChunkIndexRequest
+backend/onyx/federated_connectors/slack/federated_connector.py:14:from onyx.context.search.models import InferenceChunk
+backend/onyx/federated_connectors/slack/federated_connector.py:16:from onyx.federated_connectors.interfaces import FederatedConnector
+backend/onyx/federated_connectors/slack/federated_connector.py:17:from onyx.federated_connectors.models import CredentialField
+backend/onyx/federated_connectors/slack/federated_connector.py:18:from onyx.federated_connectors.models import EntityField
+backend/onyx/federated_connectors/slack/federated_connector.py:19:from onyx.federated_connectors.models import OAuthResult
+backend/onyx/federated_connectors/slack/federated_connector.py:20:from onyx.federated_connectors.slack.models import SlackCredentials
+backend/onyx/federated_connectors/slack/federated_connector.py:21:from onyx.federated_connectors.slack.models import SlackEntities
+backend/onyx/federated_connectors/slack/federated_connector.py:33:    "search:read",
+backend/onyx/federated_connectors/slack/federated_connector.py:51:        For Slack federated search, we expect:
+backend/onyx/federated_connectors/slack/federated_connector.py:75:                description="Exclude the following channels from search. Glob patterns are supported.",
+backend/onyx/federated_connectors/slack/federated_connector.py:79:            "search_all_channels": EntityField(
+backend/onyx/federated_connectors/slack/federated_connector.py:94:                description="Include user direct messages in search results",
+backend/onyx/federated_connectors/slack/federated_connector.py:101:                description="Include group direct messages (multi-person DMs) in search results",
+backend/onyx/federated_connectors/slack/federated_connector.py:108:                description="Include private channels in search results (user must have access)",
+backend/onyx/federated_connectors/slack/federated_connector.py:113:            "default_search_days": EntityField(
+backend/onyx/federated_connectors/slack/federated_connector.py:115:                description="Maximum number of days to search back. Increasing this value degrades answer quality.",
+backend/onyx/federated_connectors/slack/federated_connector.py:123:                    "Maximum number of messages to retrieve per search query. "
+backend/onyx/federated_connectors/slack/federated_connector.py:140:        """Return the specification of what credentials are required for Slack connector."""
+backend/onyx/federated_connectors/slack/federated_connector.py:271:    def search(
+backend/onyx/federated_connectors/slack/federated_connector.py:280:        """Perform a federated search on Slack.
+backend/onyx/federated_connectors/slack/federated_connector.py:283:            query: The search query
+backend/onyx/federated_connectors/slack/federated_connector.py:293:        logger.debug("Slack federated search called with entities: %s", entities)
+backend/onyx/federated_connectors/slack/federated_connector.py:312:            return slack_retrieval(
+backend/onyx/federated_connectors/slack/models.py:10:    """Pydantic model for Slack federated search entities."""
+backend/onyx/federated_connectors/slack/models.py:13:    search_all_channels: bool = Field(
+backend/onyx/federated_connectors/slack/models.py:19:        description="List of Slack channel names to search across.",
+backend/onyx/federated_connectors/slack/models.py:29:        description="Include user direct messages in search results",
+backend/onyx/federated_connectors/slack/models.py:33:        description="Include group direct messages (multi-person DMs) in search results",
+backend/onyx/federated_connectors/slack/models.py:39:        description="Include private channels in search results (user must have access)",
+backend/onyx/federated_connectors/slack/models.py:43:    default_search_days: int = Field(
+backend/onyx/federated_connectors/slack/models.py:45:        description="Maximum number of days to search back. Increasing this value degrades answer quality.",
+backend/onyx/federated_connectors/slack/models.py:52:            "Maximum number of messages to retrieve per search query. "
+backend/onyx/federated_connectors/slack/models.py:57:    @field_validator("default_search_days")
+backend/onyx/federated_connectors/slack/models.py:59:    def validate_default_search_days(cls, v: int) -> int:
+backend/onyx/federated_connectors/slack/models.py:60:        """Validate default_search_days is positive and reasonable"""
+backend/onyx/federated_connectors/slack/models.py:62:            raise ValueError("default_search_days must be at least 1")
+backend/onyx/federated_connectors/slack/models.py:64:            raise ValueError("default_search_days cannot exceed 365 days")
+backend/onyx/federated_connectors/slack/models.py:104:        """Validate search_all_channels configuration"""
+backend/onyx/federated_connectors/slack/models.py:105:        # If search_all_channels is False, channels list must be provided
+backend/onyx/federated_connectors/slack/models.py:106:        if not self.search_all_channels:
+backend/onyx/federated_connectors/slack/models.py:109:                    "Must specify at least one channel when search_all_channels is False"
+backend/onyx/federated_connectors/slack/models.py:116:    """Slack federated connector credentials."""
+backend/onyx/federated_connectors/slack/models.py:154:    """Individual search result from Slack."""
+backend/onyx/federated_connectors/slack/models.py:175:    """Response from Slack federated search."""
+backend/onyx/federated_connectors/slack/models.py:177:    query: str = Field(..., description="The search query")
+backend/onyx/federated_connectors/slack/models.py:185:    channels_searched: Optional[list[str]] = Field(
+backend/onyx/federated_connectors/slack/models.py:186:        default=None, description="Channels that were searched"
+backend/onyx/federated_connectors/slack/models.py:188:    search_time_ms: Optional[int] = Field(
+backend/onyx/federated_connectors/slack/models.py:189:        default=None, description="Time taken to search in milliseconds"
+backend/ee/onyx/server/user_group/models.py:57:                    connector=ConnectorSnapshot.from_connector_db_model(
+backend/ee/onyx/server/user_group/models.py:58:                        cc_pair_relationship.cc_pair.connector,
+backend/onyx/federated_connectors/factory.py:1:"""Factory for creating federated connector instances."""
+backend/onyx/federated_connectors/factory.py:8:from onyx.federated_connectors.interfaces import FederatedConnector
+backend/onyx/federated_connectors/factory.py:9:from onyx.federated_connectors.registry import FEDERATED_CONNECTOR_CLASS_MAP
+backend/onyx/federated_connectors/factory.py:19:# Cache for already imported federated connector classes
+backend/onyx/federated_connectors/factory.py:20:_federated_connector_cache: dict[
+backend/onyx/federated_connectors/factory.py:25:def _load_federated_connector_class(
+backend/onyx/federated_connectors/factory.py:28:    """Dynamically load and cache a federated connector class."""
+backend/onyx/federated_connectors/factory.py:29:    if source in _federated_connector_cache:
+backend/onyx/federated_connectors/factory.py:30:        return _federated_connector_cache[source]
+backend/onyx/federated_connectors/factory.py:34:            f"Federated connector not found for source={source}"
+backend/onyx/federated_connectors/factory.py:41:        connector_class = getattr(module, mapping.class_name)
+backend/onyx/federated_connectors/factory.py:42:        _federated_connector_cache[source] = connector_class
+backend/onyx/federated_connectors/factory.py:43:        return connector_class
+backend/onyx/federated_connectors/factory.py:50:def get_federated_connector(
+backend/onyx/federated_connectors/factory.py:54:    """Get an instance of the appropriate federated connector."""
+backend/onyx/federated_connectors/factory.py:55:    connector_cls = get_federated_connector_cls(source)
+backend/onyx/federated_connectors/factory.py:56:    return connector_cls(credentials)
+backend/onyx/federated_connectors/factory.py:59:def get_federated_connector_cls(
+backend/onyx/federated_connectors/factory.py:62:    """Get the class of the appropriate federated connector."""
+backend/onyx/federated_connectors/factory.py:63:    return _load_federated_connector_class(source)
+backend/ee/onyx/server/oauth/api.py:26:    connector: DocumentSource,
+backend/ee/onyx/server/oauth/api.py:36:    # create random oauth state param for security and to retrieve user data later
+backend/ee/onyx/server/oauth/api.py:46:    if connector == DocumentSource.SLACK:
+backend/ee/onyx/server/oauth/api.py:55:    elif connector == DocumentSource.CONFLUENCE:
+backend/ee/onyx/server/oauth/api.py:63:    elif connector == DocumentSource.GOOGLE_DRIVE:
+backend/ee/onyx/server/oauth/api.py:77:            detail=f"The document source type {connector} does not have OAuth implemented",
+backend/ee/onyx/server/oauth/api.py:83:            detail=f"The document source type {connector} failed to generate an OAuth session.",
+backend/ee/onyx/server/oauth/api.py:88:    # store important session state to retrieve when the user is redirected back
+backend/onyx/federated_connectors/interfaces.py:6:from onyx.context.search.models import ChunkIndexRequest
+backend/onyx/federated_connectors/interfaces.py:7:from onyx.context.search.models import InferenceChunk
+backend/onyx/federated_connectors/interfaces.py:8:from onyx.federated_connectors.models import CredentialField
+backend/onyx/federated_connectors/interfaces.py:9:from onyx.federated_connectors.models import EntityField
+backend/onyx/federated_connectors/interfaces.py:10:from onyx.federated_connectors.models import OAuthResult
+backend/onyx/federated_connectors/interfaces.py:15:    """Base interface that all federated connectors must implement."""
+backend/onyx/federated_connectors/interfaces.py:20:        Initialize the connector with credentials + validate their structure.
+backend/onyx/federated_connectors/interfaces.py:23:            credentials: Dictionary of credentials to initialize the connector with
+backend/onyx/federated_connectors/interfaces.py:39:        For connector-level config validation, use validate_config() instead.
+backend/onyx/federated_connectors/interfaces.py:47:        when validating connector-level configuration.
+backend/onyx/federated_connectors/interfaces.py:61:        Return the specification of what configuration fields are available for this connector.
+backend/onyx/federated_connectors/interfaces.py:72:        Return the specification of what credentials are required for this connector.
+backend/onyx/federated_connectors/interfaces.py:102:    def search(
+backend/onyx/federated_connectors/interfaces.py:113:        Perform a federated search using the provided query and entities.
+backend/onyx/federated_connectors/interfaces.py:116:            query: The search query
+backend/ee/onyx/server/oauth/slack.py:43:    # SCOPE is per https://docs.danswer.dev/connectors/slack
+backend/ee/onyx/server/oauth/slack.py:56:    REDIRECT_URI = f"{WEB_DOMAIN}/admin/connectors/slack/oauth/callback"
+backend/ee/onyx/server/oauth/slack.py:93:    def parse_session(cls, session_json: str) -> OAuthSession:
+backend/ee/onyx/server/oauth/slack.py:98:@router.post("/connector/slack/callback")
+backend/ee/onyx/server/oauth/slack.py:137:        session = SlackOAuth.parse_session(session_json)
+backend/ee/onyx/server/oauth/confluence_cloud.py:24:from onyx.connectors.confluence.utils import CONFLUENCE_OAUTH_TOKEN_URL
+backend/ee/onyx/server/oauth/confluence_cloud.py:82:        "search:confluence%20"
+backend/ee/onyx/server/oauth/confluence_cloud.py:89:    REDIRECT_URI = f"{WEB_DOMAIN}/admin/connectors/confluence/oauth/callback"
+backend/ee/onyx/server/oauth/confluence_cloud.py:122:            "&prompt=consent"
+backend/ee/onyx/server/oauth/confluence_cloud.py:137:    def parse_session(cls, session_json: str) -> OAuthSession:
+backend/ee/onyx/server/oauth/confluence_cloud.py:143:        return f"{WEB_DOMAIN}/admin/connectors/confluence/oauth/finalize?credential={credential_id}"
+backend/ee/onyx/server/oauth/confluence_cloud.py:146:@router.post("/connector/confluence/callback")
+backend/ee/onyx/server/oauth/confluence_cloud.py:188:        session = ConfluenceCloudOAuth.parse_session(session_json)
+backend/ee/onyx/server/oauth/confluence_cloud.py:259:@router.get("/connector/confluence/accessible-resources")
+backend/ee/onyx/server/oauth/confluence_cloud.py:301:            raise RuntimeError(f"Failed to parse accessible resources: {e}")
+backend/ee/onyx/server/oauth/confluence_cloud.py:307:                "message": f"An error occurred retrieving Confluence Cloud accessible resources: {str(e)}",
+backend/ee/onyx/server/oauth/confluence_cloud.py:323:@router.post("/connector/confluence/finalize")
+backend/ee/onyx/server/oauth/confluence_cloud.py:371:            "redirect_url": f"{WEB_DOMAIN}/admin/connectors/confluence",
+backend/onyx/federated_connectors/federated_retrieval.py:12:from onyx.context.search.models import ChunkIndexRequest
+backend/onyx/federated_connectors/federated_retrieval.py:13:from onyx.context.search.models import InferenceChunk
+backend/onyx/federated_connectors/federated_retrieval.py:15:    get_federated_connector_document_set_mappings_by_document_set_names,
+backend/onyx/federated_connectors/federated_retrieval.py:17:from onyx.db.federated import list_federated_connector_oauth_tokens
+backend/onyx/federated_connectors/federated_retrieval.py:20:from onyx.federated_connectors.factory import get_federated_connector
+backend/onyx/federated_connectors/federated_retrieval.py:21:from onyx.federated_connectors.interfaces import FederatedConnector
+backend/onyx/federated_connectors/federated_retrieval.py:31:    retrieval_function: Callable[[ChunkIndexRequest], list[InferenceChunk]]
+backend/onyx/federated_connectors/federated_retrieval.py:35:def get_federated_retrieval_functions(
+backend/onyx/federated_connectors/federated_retrieval.py:46:        # Slack federated search requires a Slack federated connector to be linked
+backend/onyx/federated_connectors/federated_retrieval.py:47:        # via document sets. If no document sets are provided, skip Slack federated search.
+backend/onyx/federated_connectors/federated_retrieval.py:50:                "Skipping Slack federated search: no document sets provided, "
+backend/onyx/federated_connectors/federated_retrieval.py:51:                "Slack federated connector must be linked via document sets"
+backend/onyx/federated_connectors/federated_retrieval.py:55:        # Check if any Slack federated connector is associated with the document sets
+backend/onyx/federated_connectors/federated_retrieval.py:57:        slack_federated_connector_config: dict[str, Any] | None = None
+backend/onyx/federated_connectors/federated_retrieval.py:59:            get_federated_connector_document_set_mappings_by_document_set_names(
+backend/onyx/federated_connectors/federated_retrieval.py:65:                mapping.federated_connector is not None
+backend/onyx/federated_connectors/federated_retrieval.py:66:                and mapping.federated_connector.source
+backend/onyx/federated_connectors/federated_retrieval.py:69:                slack_federated_connector_config = (
+backend/onyx/federated_connectors/federated_retrieval.py:70:                    mapping.federated_connector.config or {}
+backend/onyx/federated_connectors/federated_retrieval.py:73:                    "Found Slack federated connector config: %s",
+backend/onyx/federated_connectors/federated_retrieval.py:74:                    slack_federated_connector_config,
+backend/onyx/federated_connectors/federated_retrieval.py:78:        if slack_federated_connector_config is None:
+backend/onyx/federated_connectors/federated_retrieval.py:80:                "Skipping Slack federated search: document sets %s are not associated with any Slack federated connector",
+backend/onyx/federated_connectors/federated_retrieval.py:83:            # Return empty list - no Slack federated search for this context
+backend/onyx/federated_connectors/federated_retrieval.py:110:                federated_retrieval_infos_slack = []
+backend/onyx/federated_connectors/federated_retrieval.py:125:                        "Using bot_token for Slack search (limited functionality): %s",
+backend/onyx/federated_connectors/federated_retrieval.py:135:                # Create Slack federated connector
+backend/onyx/federated_connectors/federated_retrieval.py:136:                connector = get_federated_connector(
+backend/onyx/federated_connectors/federated_retrieval.py:149:                # Use connector config for channel filtering (guaranteed to exist at this point)
+backend/onyx/federated_connectors/federated_retrieval.py:150:                connector_entities = slack_federated_connector_config
+backend/onyx/federated_connectors/federated_retrieval.py:152:                    "Using Slack federated connector entities for bot context: %s",
+backend/onyx/federated_connectors/federated_retrieval.py:153:                    connector_entities,
+backend/onyx/federated_connectors/federated_retrieval.py:156:                def create_slack_retrieval_function(
+backend/onyx/federated_connectors/federated_retrieval.py:163:                    def retrieval_fn(query: ChunkIndexRequest) -> list[InferenceChunk]:
+backend/onyx/federated_connectors/federated_retrieval.py:164:                        return conn.search(
+backend/onyx/federated_connectors/federated_retrieval.py:166:                            entities,  # Use connector-level entities for channel filtering
+backend/onyx/federated_connectors/federated_retrieval.py:168:                            limit=None,  # Let connector use its own max_messages_per_query config
+backend/onyx/federated_connectors/federated_retrieval.py:173:                    return retrieval_fn
+backend/onyx/federated_connectors/federated_retrieval.py:175:                federated_retrieval_infos_slack.append(
+backend/onyx/federated_connectors/federated_retrieval.py:177:                        retrieval_function=create_slack_retrieval_function(
+backend/onyx/federated_connectors/federated_retrieval.py:178:                            connector,
+backend/onyx/federated_connectors/federated_retrieval.py:182:                            connector_entities,
+backend/onyx/federated_connectors/federated_retrieval.py:188:                    "Added Slack federated search for bot, returning %s retrieval functions",
+backend/onyx/federated_connectors/federated_retrieval.py:189:                    len(federated_retrieval_infos_slack),
+backend/onyx/federated_connectors/federated_retrieval.py:191:                return federated_retrieval_infos_slack
+backend/onyx/federated_connectors/federated_retrieval.py:194:            logger.warning("Could not setup Slack bot federated search: %s", e)
+backend/onyx/federated_connectors/federated_retrieval.py:195:            # Fall through to regular federated connector logic
+backend/onyx/federated_connectors/federated_retrieval.py:200:            "No user ID provided and no Slack context, returning empty retrieval functions"
+backend/onyx/federated_connectors/federated_retrieval.py:204:    federated_connector__document_set_pairs = (
+backend/onyx/federated_connectors/federated_retrieval.py:206:            get_federated_connector_document_set_mappings_by_document_set_names(
+backend/onyx/federated_connectors/federated_retrieval.py:213:    federated_connector_id_to_document_sets: dict[
+backend/onyx/federated_connectors/federated_retrieval.py:216:    for pair in federated_connector__document_set_pairs:
+backend/onyx/federated_connectors/federated_retrieval.py:217:        federated_connector_id_to_document_sets[pair.federated_connector_id].append(
+backend/onyx/federated_connectors/federated_retrieval.py:224:    # If no source types are specified, don't use any federated connectors
+backend/onyx/federated_connectors/federated_retrieval.py:226:        logger.debug("No source types specified, skipping all federated connectors")
+backend/onyx/federated_connectors/federated_retrieval.py:229:    federated_retrieval_infos: list[FederatedRetrievalInfo] = []
+backend/onyx/federated_connectors/federated_retrieval.py:230:    federated_oauth_tokens = list_federated_connector_oauth_tokens(db_session, user_id)
+backend/onyx/federated_connectors/federated_retrieval.py:234:            oauth_token.federated_connector.source
+backend/onyx/federated_connectors/federated_retrieval.py:238:                "Skipping Slack federated connector in user OAuth path - handled by SearchTool"
+backend/onyx/federated_connectors/federated_retrieval.py:243:            oauth_token.federated_connector.source.to_non_federated_source()
+backend/onyx/federated_connectors/federated_retrieval.py:248:        document_set_associations = federated_connector_id_to_document_sets[
+backend/onyx/federated_connectors/federated_retrieval.py:249:            oauth_token.federated_connector_id
+backend/onyx/federated_connectors/federated_retrieval.py:252:        # if document set names are specified by the user, skip federated connectors that are
+backend/onyx/federated_connectors/federated_retrieval.py:257:        # Only use connector-level config (no junction table entities)
+backend/onyx/federated_connectors/federated_retrieval.py:258:        entities = oauth_token.federated_connector.config or {}
+backend/onyx/federated_connectors/federated_retrieval.py:260:        connector = get_federated_connector(
+backend/onyx/federated_connectors/federated_retrieval.py:261:            oauth_token.federated_connector.source,
+backend/onyx/federated_connectors/federated_retrieval.py:262:            oauth_token.federated_connector.credentials.get_value(  # ty: ignore[unresolved-attribute]
+backend/onyx/federated_connectors/federated_retrieval.py:272:        def create_retrieval_function(
+backend/onyx/federated_connectors/federated_retrieval.py:277:            return lambda query: conn.search(
+backend/onyx/federated_connectors/federated_retrieval.py:281:                limit=None,  # Let connector use its own max_messages_per_query config
+backend/onyx/federated_connectors/federated_retrieval.py:284:        federated_retrieval_infos.append(
+backend/onyx/federated_connectors/federated_retrieval.py:286:                retrieval_function=create_retrieval_function(
+backend/onyx/federated_connectors/federated_retrieval.py:287:                    connector, entities, access_token
+backend/onyx/federated_connectors/federated_retrieval.py:289:                source=oauth_token.federated_connector.source,
+backend/onyx/federated_connectors/federated_retrieval.py:292:    return federated_retrieval_infos
+backend/ee/onyx/server/oauth/google_drive.py:21:from onyx.connectors.google_utils.google_auth import get_google_oauth_creds
+backend/ee/onyx/server/oauth/google_drive.py:22:from onyx.connectors.google_utils.google_auth import sanitize_oauth_credentials
+backend/ee/onyx/server/oauth/google_drive.py:23:from onyx.connectors.google_utils.shared_constants import (
+backend/ee/onyx/server/oauth/google_drive.py:26:from onyx.connectors.google_utils.shared_constants import DB_CREDENTIALS_DICT_TOKEN_KEY
+backend/ee/onyx/server/oauth/google_drive.py:27:from onyx.connectors.google_utils.shared_constants import (
+backend/ee/onyx/server/oauth/google_drive.py:30:from onyx.connectors.google_utils.shared_constants import (
+backend/ee/onyx/server/oauth/google_drive.py:57:    # SCOPE is per https://docs.danswer.dev/connectors/google-drive
+backend/ee/onyx/server/oauth/google_drive.py:66:    REDIRECT_URI = f"{WEB_DOMAIN}/admin/connectors/google-drive/oauth/callback"
+backend/ee/onyx/server/oauth/google_drive.py:83:        # without prompt=consent, a refresh token is only issued the first time the user approves
+backend/ee/onyx/server/oauth/google_drive.py:92:            "&prompt=consent"
+backend/ee/onyx/server/oauth/google_drive.py:107:    def parse_session(cls, session_json: str) -> OAuthSession:
+backend/ee/onyx/server/oauth/google_drive.py:112:@router.post("/connector/google-drive/callback")
+backend/ee/onyx/server/oauth/google_drive.py:151:        session = GoogleDriveOAuth.parse_session(session_json)
+backend/ee/onyx/server/oauth/google_drive.py:175:        # the connector wants us to store the json in its authorized_user_info format
+backend/onyx/federated_connectors/models.py:40:    """Standardized OAuth result that all federated connectors should return from callback."""
+backend/onyx/federated_connectors/models.py:47:        description="The user access token for user-scoped operations like federated search",
+backend/ee/onyx/server/seeding.py:16:from ee.onyx.server.enterprise_settings.store import upload_logo
+backend/ee/onyx/server/seeding.py:37:    in_code_tool_id: Optional[str] = None
+backend/ee/onyx/server/seeding.py:66:    custom_tools: List[CustomToolSeed] | None = None
+backend/ee/onyx/server/seeding.py:69:def _parse_env() -> SeedConfiguration | None:
+backend/ee/onyx/server/seeding.py:77:def _seed_custom_tools(db_session: Session, tools: List[CustomToolSeed]) -> None:
+backend/ee/onyx/server/seeding.py:78:    if tools:
+backend/ee/onyx/server/seeding.py:80:        for tool in tools:
+backend/ee/onyx/server/seeding.py:82:                logger.debug("Attempting to seed tool: %s", tool.name)
+backend/ee/onyx/server/seeding.py:83:                logger.debug("Reading definition from: %s", tool.definition_path)
+backend/ee/onyx/server/seeding.py:84:                with open(tool.definition_path, "r") as file:
+backend/ee/onyx/server/seeding.py:89:                db_tool = Tool(
+backend/ee/onyx/server/seeding.py:90:                    name=tool.name,
+backend/ee/onyx/server/seeding.py:91:                    description=tool.description,
+backend/ee/onyx/server/seeding.py:93:                    custom_headers=tool.custom_headers,
+backend/ee/onyx/server/seeding.py:94:                    display_name=tool.display_name,
+backend/ee/onyx/server/seeding.py:95:                    in_code_tool_id=tool.in_code_tool_id,
+backend/ee/onyx/server/seeding.py:96:                    user_id=tool.user_id,
+backend/ee/onyx/server/seeding.py:98:                db_session.add(db_tool)
+backend/ee/onyx/server/seeding.py:99:                logger.debug("Successfully added tool: %s", tool.name)
+backend/ee/onyx/server/seeding.py:102:                    "Definition file not found for tool %s: %s",
+backend/ee/onyx/server/seeding.py:103:                    tool.name,
+backend/ee/onyx/server/seeding.py:104:                    tool.definition_path,
+backend/ee/onyx/server/seeding.py:108:                    "Invalid JSON in definition file for tool %s: %s", tool.name, str(e)
+backend/ee/onyx/server/seeding.py:111:                logger.error("Failed to seed tool %s: %s", tool.name, str(e))
+backend/ee/onyx/server/seeding.py:113:        logger.notice("Successfully seeded %s Custom Tools", len(tools))
+backend/ee/onyx/server/seeding.py:181:                    tool_ids=persona.tool_ids,
+backend/ee/onyx/server/seeding.py:183:                    system_prompt=persona.system_prompt,
+backend/ee/onyx/server/seeding.py:184:                    task_prompt=persona.task_prompt,
+backend/ee/onyx/server/seeding.py:239:        upload_logo(file=logo_path)
+backend/ee/onyx/server/seeding.py:262:    return _parse_env()
+backend/ee/onyx/server/seeding.py:266:    seed_config = _parse_env()
+backend/ee/onyx/server/seeding.py:278:        if seed_config.custom_tools is not None:
+backend/ee/onyx/server/seeding.py:279:            _seed_custom_tools(db_session, seed_config.custom_tools)
+backend/ee/onyx/server/documents/cc_pair.py:9:from ee.onyx.background.celery.tasks.doc_permission_syncing.tasks import (
+backend/ee/onyx/server/documents/cc_pair.py:12:from ee.onyx.background.celery.tasks.external_group_syncing.tasks import (
+backend/ee/onyx/server/documents/cc_pair.py:16:from onyx.background.celery.versioned_apps.client import app as client_app
+backend/ee/onyx/server/documents/cc_pair.py:17:from onyx.db.connector_credential_pair import (
+backend/ee/onyx/server/documents/cc_pair.py:18:    get_connector_credential_pair_from_id_for_user,
+backend/ee/onyx/server/documents/cc_pair.py:22:from onyx.redis.redis_connector import RedisConnector
+backend/ee/onyx/server/documents/cc_pair.py:38:    cc_pair = get_connector_credential_pair_from_id_for_user(
+backend/ee/onyx/server/documents/cc_pair.py:62:    cc_pair = get_connector_credential_pair_from_id_for_user(
+backend/ee/onyx/server/documents/cc_pair.py:76:    redis_connector = RedisConnector(tenant_id, cc_pair_id)
+backend/ee/onyx/server/documents/cc_pair.py:77:    if redis_connector.permissions.fenced:
+backend/ee/onyx/server/documents/cc_pair.py:84:        "Permissions sync cc_pair=%s connector_id=%s credential_id=%s %s connector.",
+backend/ee/onyx/server/documents/cc_pair.py:86:        cc_pair.connector_id,
+backend/ee/onyx/server/documents/cc_pair.py:88:        cc_pair.connector.name,
+backend/ee/onyx/server/documents/cc_pair.py:99:    logger.info("Permissions sync queued: cc_pair=%s id=%s", cc_pair_id, payload_id)
+backend/ee/onyx/server/documents/cc_pair.py:113:    cc_pair = get_connector_credential_pair_from_id_for_user(
+backend/ee/onyx/server/documents/cc_pair.py:137:    cc_pair = get_connector_credential_pair_from_id_for_user(
+backend/ee/onyx/server/documents/cc_pair.py:151:    redis_connector = RedisConnector(tenant_id, cc_pair_id)
+backend/ee/onyx/server/documents/cc_pair.py:152:    if redis_connector.external_group_sync.fenced:
+backend/ee/onyx/server/documents/cc_pair.py:159:        "External group sync cc_pair=%s connector_id=%s credential_id=%s %s connector.",
+backend/ee/onyx/server/documents/cc_pair.py:161:        cc_pair.connector_id,
+backend/ee/onyx/server/documents/cc_pair.py:163:        cc_pair.connector.name,
+backend/ee/onyx/server/documents/cc_pair.py:174:    logger.info("External group sync queued: cc_pair=%s id=%s", cc_pair_id, payload_id)
+backend/onyx/kg/vespa/vespa_interactions.py:4:from onyx.context.search.models import IndexFilters
+backend/onyx/kg/vespa/vespa_interactions.py:5:from onyx.document_index.vespa.chunk_retrieval import get_chunks_via_visit_api
+backend/onyx/kg/vespa/vespa_interactions.py:6:from onyx.document_index.vespa.internal_types import VespaChunkRequest
+backend/onyx/kg/vespa/vespa_interactions.py:13:def get_document_vespa_contents(
+backend/onyx/kg/vespa/vespa_interactions.py:20:    Retrieves chunks from Vespa for the given document IDs and converts them to KGChunks.
+backend/onyx/kg/vespa/vespa_interactions.py:23:        document_id (str): ID of the document to fetch chunks for
+backend/onyx/kg/vespa/vespa_interactions.py:26:        batch_size (int): Number of chunks to fetch per batch
+backend/onyx/kg/vespa/vespa_interactions.py:29:        list[KGChunk]: Batches of chunks ready for KG processing
+backend/onyx/kg/vespa/vespa_interactions.py:34:    # get all chunks for the document
+backend/onyx/kg/vespa/vespa_interactions.py:36:    chunks = get_chunks_via_visit_api(
+backend/onyx/kg/vespa/vespa_interactions.py:37:        chunk_request=VespaChunkRequest(document_id=document_id),
+backend/onyx/kg/vespa/vespa_interactions.py:42:            "chunk_id",
+backend/onyx/kg/vespa/vespa_interactions.py:50:        get_large_chunks=False,
+backend/onyx/kg/vespa/vespa_interactions.py:53:    # Convert Vespa chunks to KGChunks
+backend/onyx/kg/vespa/vespa_interactions.py:54:    # kg_chunks: list[KGChunkFormat] = []
+backend/onyx/kg/vespa/vespa_interactions.py:56:    for i, chunk in enumerate(chunks):
+backend/onyx/kg/vespa/vespa_interactions.py:57:        fields = chunk["fields"]
+backend/onyx/kg/vespa/vespa_interactions.py:62:                connector_id=None,  # We may need to adjust this
+backend/onyx/kg/vespa/vespa_interactions.py:64:                chunk_id=fields.get("chunk_id"),
+backend/onyx/kg/vespa/vespa_interactions.py:78:    # Yield any remaining chunks
+backend/ee/onyx/server/tenants/billing_api.py:65:_stripe_publishable_key_cache: str | None = None
+backend/ee/onyx/server/tenants/billing_api.py:219:    The key is cached in memory to avoid hitting S3 on every request.
+backend/ee/onyx/server/tenants/billing_api.py:221:    global _stripe_publishable_key_cache
+backend/ee/onyx/server/tenants/billing_api.py:223:    # Fast path: return cached value without lock
+backend/ee/onyx/server/tenants/billing_api.py:224:    if _stripe_publishable_key_cache:
+backend/ee/onyx/server/tenants/billing_api.py:226:            publishable_key=_stripe_publishable_key_cache
+backend/ee/onyx/server/tenants/billing_api.py:231:        # Double-check after acquiring lock (another request may have populated cache)
+backend/ee/onyx/server/tenants/billing_api.py:232:        if _stripe_publishable_key_cache:
+backend/ee/onyx/server/tenants/billing_api.py:234:                publishable_key=_stripe_publishable_key_cache
+backend/ee/onyx/server/tenants/billing_api.py:245:            _stripe_publishable_key_cache = key
+backend/ee/onyx/server/tenants/billing_api.py:268:                _stripe_publishable_key_cache = key
+backend/ee/onyx/server/tenants/tier_management.py:1:"""Per-tenant tier cache (cloud).
+backend/ee/onyx/server/tenants/tier_management.py:17:# Per-tenant cached CustomerTier; TTL bounds upgrade-visible delay if push is missed.
+backend/ee/onyx/server/tenants/tier_management.py:29:def _parse_trial_end(raw: object, tenant_id: str) -> datetime | None:
+backend/ee/onyx/server/tenants/tier_management.py:33:        parsed = datetime.fromisoformat(raw)
+backend/ee/onyx/server/tenants/tier_management.py:44:    # so reject it here rather than poison the cache.
+backend/ee/onyx/server/tenants/tier_management.py:45:    if parsed.tzinfo is None or parsed.tzinfo.utcoffset(parsed) is None:
+backend/ee/onyx/server/tenants/tier_management.py:47:            "Naive trial_end in cache for tenant %s: %r",
+backend/ee/onyx/server/tenants/tier_management.py:52:    return parsed
+backend/ee/onyx/server/tenants/tier_management.py:70:def get_cached_tier(tenant_id: str) -> CachedTier | None:
+backend/ee/onyx/server/tenants/tier_management.py:79:        parsed = json.loads(value)
+backend/ee/onyx/server/tenants/tier_management.py:82:            "Tier cache entry for tenant %s is not valid JSON: %r",
+backend/ee/onyx/server/tenants/tier_management.py:88:    if not isinstance(parsed, dict):
+backend/ee/onyx/server/tenants/tier_management.py:90:            "Tier cache entry for tenant %s is not a JSON object: %r",
+backend/ee/onyx/server/tenants/tier_management.py:96:    raw_tier = parsed.get("customer_tier")
+backend/ee/onyx/server/tenants/tier_management.py:99:            "Tier cache entry for tenant %s missing customer_tier: %r",
+backend/ee/onyx/server/tenants/tier_management.py:109:            "Unrecognized customer_tier in cache for tenant %s: %r",
+backend/ee/onyx/server/tenants/tier_management.py:115:    trial_end = _parse_trial_end(parsed.get("trial_end"), tenant_id)
+backend/onyx/kg/extractions/extraction_processing.py:7:from onyx.db.connector import get_kg_enabled_connectors
+backend/onyx/kg/extractions/extraction_processing.py:10:from onyx.db.document import get_unprocessed_kg_document_batch_for_connector
+backend/onyx/kg/extractions/extraction_processing.py:68:        attributes = entity_type.parsed_attributes
+backend/onyx/kg/extractions/extraction_processing.py:103:    connector_source: str,
+backend/onyx/kg/extractions/extraction_processing.py:135:        connector_source,
+backend/onyx/kg/extractions/extraction_processing.py:145:        chunk_metadata = metadata.source_metadata
+backend/onyx/kg/extractions/extraction_processing.py:151:            if not chunk_metadata:
+backend/onyx/kg/extractions/extraction_processing.py:168:                    chunk_metadata.get(attribute)
+backend/onyx/kg/extractions/extraction_processing.py:189:            document_metadata=chunk_metadata,
+backend/onyx/kg/extractions/extraction_processing.py:203:    processing_chunk_batch_size: int = 8,
+backend/onyx/kg/extractions/extraction_processing.py:206:    This extraction will try to extract from all chunks that have not been kg-processed yet.
+backend/onyx/kg/extractions/extraction_processing.py:209:    - Get all connectors that are enabled for KG extraction
+backend/onyx/kg/extractions/extraction_processing.py:210:    - For each enabled connector:
+backend/onyx/kg/extractions/extraction_processing.py:214:            - Get and extract from chunks
+backend/onyx/kg/extractions/extraction_processing.py:215:            - Update chunks in Vespa
+backend/onyx/kg/extractions/extraction_processing.py:225:    # get connector ids that are enabled for KG extraction
+backend/onyx/kg/extractions/extraction_processing.py:227:        kg_enabled_connectors = get_kg_enabled_connectors(db_session)
+backend/onyx/kg/extractions/extraction_processing.py:243:            entity_type.id_name: entity_type.parsed_attributes.metadata_attribute_conversion
+backend/onyx/kg/extractions/extraction_processing.py:253:    # Iterate over connectors that are enabled for KG extraction
+backend/onyx/kg/extractions/extraction_processing.py:254:    for kg_enabled_connector in kg_enabled_connectors:
+backend/onyx/kg/extractions/extraction_processing.py:255:        connector_id = kg_enabled_connector.id
+backend/onyx/kg/extractions/extraction_processing.py:256:        connector_coverage_days = kg_enabled_connector.kg_coverage_days
+backend/onyx/kg/extractions/extraction_processing.py:257:        connector_source = kg_enabled_connector.source
+backend/onyx/kg/extractions/extraction_processing.py:261:        # iterate over un-kg-processed documents in connector
+backend/onyx/kg/extractions/extraction_processing.py:266:                    get_unprocessed_kg_document_batch_for_connector(
+backend/onyx/kg/extractions/extraction_processing.py:268:                        connector_id,
+backend/onyx/kg/extractions/extraction_processing.py:270:                        kg_max_coverage_days=connector_coverage_days
+backend/onyx/kg/extractions/extraction_processing.py:272:                        batch_size=processing_chunk_batch_size,
+backend/onyx/kg/extractions/extraction_processing.py:278:                    "No unprocessed documents found for connector %s. Processed %s batches.",
+backend/onyx/kg/extractions/extraction_processing.py:279:                    connector_id,
+backend/onyx/kg/extractions/extraction_processing.py:294:                    connector_source, {}
+backend/onyx/kg/extractions/extraction_processing.py:296:                connector_source,
+backend/onyx/kg/extractions/extraction_processing.py:302:                    # info for after the connector has been processed
+backend/onyx/kg/extractions/extraction_processing.py:308:                    # info for after the connector has been processed. But no message as there may be many
+backend/onyx/kg/extractions/extraction_processing.py:366:                # We also collect email addresses of vendors and external accounts to inform chunk processing
+backend/ee/onyx/server/tenants/schema_management.py:96:    # Set the search path to the tenant's schema
+backend/ee/onyx/server/tenants/schema_management.py:98:        connection.execute(text(f'SET search_path TO "{tenant_id}"'))
+backend/ee/onyx/server/tenants/billing.py:101:    # Otherwise, parse as BillingInformation
+backend/ee/onyx/server/tenants/billing.py:137:    subscription = stripe.Subscription.retrieve(stripe_subscription_id)
+backend/ee/onyx/server/tenants/billing.py:192:        subscription = stripe.Subscription.retrieve(stripe_subscription_id)
+backend/onyx/kg/utils/formatting_utils.py:49:    match = re.search(r"\[(.*)\]", attr_split[1])
+backend/onyx/kg/utils/formatting_utils.py:109:    match = re.search(r"([A-Za-z0-9._+-]+@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)+)", email)
+backend/onyx/kg/utils/extraction_utils.py:30:from onyx.kg.vespa.vespa_interactions import get_document_vespa_contents
+backend/onyx/kg/utils/extraction_utils.py:34:from onyx.prompts.kg_prompts import CALL_CHUNK_PREPROCESSING_PROMPT
+backend/onyx/kg/utils/extraction_utils.py:35:from onyx.prompts.kg_prompts import CALL_DOCUMENT_CLASSIFICATION_PROMPT
+backend/onyx/kg/utils/extraction_utils.py:36:from onyx.prompts.kg_prompts import GENERAL_CHUNK_PREPROCESSING_PROMPT
+backend/onyx/kg/utils/extraction_utils.py:37:from onyx.prompts.kg_prompts import MASTER_EXTRACTION_PROMPT
+backend/onyx/kg/utils/extraction_utils.py:67:            attributes = entity_type.parsed_attributes
+backend/onyx/kg/utils/extraction_utils.py:78:                    # e.g., {scope: {internal: prompt, external: prompt}, sentiment: {positive: prompt, negative: prompt}}
+backend/onyx/kg/utils/extraction_utils.py:348:    for i, chunk_batch in enumerate(
+backend/onyx/kg/utils/extraction_utils.py:349:        get_document_vespa_contents(document_id, index_name, tenant_id)
+backend/onyx/kg/utils/extraction_utils.py:359:                chunk_batch=chunk_batch,
+backend/onyx/kg/utils/extraction_utils.py:365:        # deep extract from this chunk batch
+backend/onyx/kg/utils/extraction_utils.py:366:        chunk_batch_results = kg_deep_extract_chunks(
+backend/onyx/kg/utils/extraction_utils.py:368:            chunk_batch=chunk_batch,
+backend/onyx/kg/utils/extraction_utils.py:374:        if chunk_batch_results is not None:
+backend/onyx/kg/utils/extraction_utils.py:376:                chunk_batch_results.deep_extracted_entities
+backend/onyx/kg/utils/extraction_utils.py:379:                chunk_batch_results.deep_extracted_relationships
+backend/onyx/kg/utils/extraction_utils.py:387:    chunk_batch: list[KGChunkFormat],
+backend/onyx/kg/utils/extraction_utils.py:393:    # TODO: add support (or use same prompt and format) for non-call documents
+backend/onyx/kg/utils/extraction_utils.py:398:    # prepare prompt
+backend/onyx/kg/utils/extraction_utils.py:403:        f"Title: {chunk_batch[0].title}:\nVendor Participants:\n"
+backend/onyx/kg/utils/extraction_utils.py:408:        + "\n".join(chunk.content for chunk in chunk_batch)
+backend/onyx/kg/utils/extraction_utils.py:414:    prompt = CALL_DOCUMENT_CLASSIFICATION_PROMPT.format(
+backend/onyx/kg/utils/extraction_utils.py:424:        prompt_msg = UserMessage(content=prompt)
+backend/onyx/kg/utils/extraction_utils.py:428:            input_messages=[prompt_msg],
+backend/onyx/kg/utils/extraction_utils.py:430:            response = llm.invoke(prompt_msg)
+backend/onyx/kg/utils/extraction_utils.py:455:def kg_deep_extract_chunks(
+backend/onyx/kg/utils/extraction_utils.py:457:    chunk_batch: list[KGChunkFormat],
+backend/onyx/kg/utils/extraction_utils.py:468:    content = "\n".join(chunk.content for chunk in chunk_batch)
+backend/onyx/kg/utils/extraction_utils.py:470:    # prepare prompt
+backend/onyx/kg/utils/extraction_utils.py:491:    prompt = MASTER_EXTRACTION_PROMPT.format(
+backend/onyx/kg/utils/extraction_utils.py:499:        prompt_msg = UserMessage(content=prompt)
+backend/onyx/kg/utils/extraction_utils.py:501:            llm=llm, flow=LLMFlow.KG_DEEP_EXTRACTION, input_messages=[prompt_msg]
+backend/onyx/kg/utils/extraction_utils.py:503:            response = llm.invoke(prompt_msg)
+backend/onyx/kg/utils/extraction_utils.py:517:        parsed_result = json.loads(cleaned_response)
+backend/onyx/kg/utils/extraction_utils.py:520:            deep_extracted_entities=set(parsed_result.get("entities", [])),
+backend/onyx/kg/utils/extraction_utils.py:522:                rel.replace(" ", "_") for rel in parsed_result.get("relationships", [])
+backend/onyx/kg/utils/extraction_utils.py:526:        failed_chunks = [chunk.chunk_id for chunk in chunk_batch]
+backend/onyx/kg/utils/extraction_utils.py:528:            "Failed to process chunks %s from document %s. Error: %s",
+backend/onyx/kg/utils/extraction_utils.py:529:            failed_chunks,
+backend/onyx/kg/utils/extraction_utils.py:579:    document_ids: list[str], connector_source: str
+backend/onyx/kg/utils/extraction_utils.py:585:    source_type = DocumentSource(connector_source).value
+backend/onyx/kg/utils/extraction_utils.py:646:                entity_type.parsed_attributes.attribute_values
+backend/onyx/kg/utils/extraction_utils.py:650:                for attr in entity_type.parsed_attributes.metadata_attribute_conversion.values()
+backend/ee/onyx/server/tenants/provisioning.py:39:from onyx.db.llm import upsert_cloud_embedding_provider
+backend/ee/onyx/server/tenants/provisioning.py:56:from onyx.server.manage.embedding.models import CloudEmbeddingProviderCreationRequest
+backend/ee/onyx/server/tenants/provisioning.py:111:                # The tenant was already dequeued from the pool — roll it back so
+backend/ee/onyx/server/tenants/provisioning.py:486:    # Configure Cohere embedding provider
+backend/ee/onyx/server/tenants/provisioning.py:488:        cloud_embedding_provider = CloudEmbeddingProviderCreationRequest(
+backend/ee/onyx/server/tenants/provisioning.py:494:            logger.info("Attempting to upsert Cohere cloud embedding provider")
+backend/ee/onyx/server/tenants/provisioning.py:495:            upsert_cloud_embedding_provider(db_session, cloud_embedding_provider)
+backend/ee/onyx/server/tenants/provisioning.py:496:            logger.info("Successfully upserted Cohere cloud embedding provider")
+backend/ee/onyx/server/tenants/provisioning.py:498:            logger.info("Updating search settings with Cohere embedding model details")
+backend/ee/onyx/server/tenants/provisioning.py:505:            current_search_settings = result.scalars().first()
+backend/ee/onyx/server/tenants/provisioning.py:507:            if current_search_settings:
+backend/ee/onyx/server/tenants/provisioning.py:508:                current_search_settings.model_name = (
+backend/ee/onyx/server/tenants/provisioning.py:509:                    "embed-english-v3.0"  # Cohere's latest model as of now
+backend/ee/onyx/server/tenants/provisioning.py:511:                current_search_settings.model_dim = (
+backend/ee/onyx/server/tenants/provisioning.py:512:                    1024  # Cohere's embed-english-v3.0 dimension
+backend/ee/onyx/server/tenants/provisioning.py:514:                current_search_settings.provider_type = EmbeddingProvider.COHERE
+backend/ee/onyx/server/tenants/provisioning.py:515:                current_search_settings.index_name = (
+backend/ee/onyx/server/tenants/provisioning.py:516:                    "danswer_chunk_cohere_embed_english_v3_0"
+backend/ee/onyx/server/tenants/provisioning.py:518:                current_search_settings.query_prefix = ""
+backend/ee/onyx/server/tenants/provisioning.py:519:                current_search_settings.passage_prefix = ""
+backend/ee/onyx/server/tenants/provisioning.py:523:                    "No search settings specified, DB is not in a valid state"
+backend/ee/onyx/server/tenants/provisioning.py:525:            logger.info("Fetching updated search settings to verify changes")
+backend/ee/onyx/server/tenants/provisioning.py:535:            logger.exception("Failed to configure Cohere embedding provider")
+backend/ee/onyx/server/tenants/provisioning.py:538:            "COHERE_DEFAULT_API_KEY not set, skipping Cohere embedding provider configuration"
+backend/ee/onyx/server/tenants/provisioning.py:605:        domain: The email domain to search for (e.g., "example.com")
+backend/ee/onyx/server/tenants/provisioning.py:700:            current_search_settings = (
+backend/ee/onyx/server/tenants/provisioning.py:706:                current_search_settings is not None
+backend/ee/onyx/server/tenants/provisioning.py:707:                and current_search_settings.provider_type == EmbeddingProvider.COHERE
+backend/onyx/kg/utils/embeddings.py:6:from onyx.db.search_settings import get_current_search_settings
+backend/onyx/kg/utils/embeddings.py:7:from onyx.natural_language_processing.search_nlp_models import EmbeddingModel
+backend/onyx/kg/utils/embeddings.py:8:from onyx.natural_language_processing.search_nlp_models import EmbedTextType
+backend/onyx/kg/utils/embeddings.py:15:        current_search_settings = get_current_search_settings(db_session)
+backend/onyx/kg/utils/embeddings.py:17:            search_settings=current_search_settings,
+backend/onyx/kg/utils/embeddings.py:21:        # Get embeddings while session is still open
+backend/onyx/kg/utils/embeddings.py:22:        embedding = model.encode(strings, text_type=EmbedTextType.QUERY)
+backend/onyx/kg/utils/embeddings.py:23:    return np.array(embedding)
+backend/onyx/kg/models.py:92:    connector_id: int | None = None
+backend/onyx/kg/models.py:94:    chunk_id: int
+backend/onyx/kg/clustering/clustering.py:28:from onyx.document_index.vespa.kg_interactions import (
+backend/onyx/kg/clustering/clustering.py:29:    get_kg_vespa_info_update_requests_for_document,
+backend/onyx/kg/clustering/clustering.py:31:from onyx.document_index.vespa.kg_interactions import update_kg_chunks_vespa_info
+backend/onyx/kg/clustering/clustering.py:206:            update_vespa = (
+backend/onyx/kg/clustering/clustering.py:213:            update_vespa = entity.document_id is not None
+backend/onyx/kg/clustering/clustering.py:218:    return transferred_entity, update_vespa
+backend/onyx/kg/clustering/clustering.py:302:    processing_chunk_batch_size: int = 16,
+backend/onyx/kg/clustering/clustering.py:328:            batch_size=processing_chunk_batch_size
+backend/onyx/kg/clustering/clustering.py:348:            batch_size=processing_chunk_batch_size
+backend/onyx/kg/clustering/clustering.py:366:            batch_size=processing_chunk_batch_size
+backend/onyx/kg/clustering/clustering.py:388:        _get_batch_untransferred_relationships(batch_size=processing_chunk_batch_size)
+backend/onyx/kg/clustering/clustering.py:407:    # Update vespa for each document
+backend/onyx/kg/clustering/clustering.py:411:        _get_batch_kg_processed_documents(batch_size=processing_chunk_batch_size)
+backend/onyx/kg/clustering/clustering.py:415:                (get_kg_vespa_info_update_requests_for_document, (document.id,))
+backend/onyx/kg/clustering/clustering.py:421:                update_kg_chunks_vespa_info(update_requests, index_name, tenant_id)
+backend/onyx/kg/clustering/clustering.py:423:                logger.error("Error updating vespa for document %s: %s", document.id, e)
+backend/onyx/kg/clustering/clustering.py:427:        # logger.debug(f"Updated vespa for documents batch {i}")
+backend/onyx/kg/clustering/normalizations.py:25:from onyx.kg.utils.embeddings import encode_string_batch
+backend/onyx/kg/clustering/normalizations.py:153:    # step 2: do a weighted ngram analysis and damerau levenshtein distance to rerank
+backend/ee/onyx/server/scim/patch.py:246:    Pydantic may parse raw dicts as ``ScimPatchResourceValue`` (which uses
+backend/onyx/kg/resets/reset_index.py:25:    # Update all connectors to disable KG processing
+backend/ee/onyx/server/scim/api.py:33:from ee.onyx.server.scim.filtering import parse_scim_filter

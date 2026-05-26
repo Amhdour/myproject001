@@ -1,0 +1,5 @@
+### git branch --show-current
+work
+
+### git rev-parse HEAD
+a64b428e009b2c7a9ce9f4dd74d8410222d4e239
