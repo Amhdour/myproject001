@@ -1,39 +1,18 @@
 # Known Limitations
 
-## Purpose
-Track known blockers and constraints affecting security-readiness verification.
+## Step 6 Status
+Step 6 (Requirements, Risk, and Traceability) is completed as documentation-only work. No runtime controls were implemented.
 
-## Scope
-Limitations impacting local baseline validation, remote sync verification, and readiness assertions.
+## Active Limitations / Blockers
+1. **Baseline dependency blocker:** backend unit test collection fails due to missing `fastapi_users` in current environment.
+2. **Remote verification limitation:** git remote verification is limited because `origin` fetch is unavailable in this environment (`fatal: 'origin' does not appear to be a git repository`).
+3. **Production-readiness limitation:** no production-readiness claim is supported at this stage.
 
-## Status
-draft
+## Operational Impact
+- Full baseline verification remains incomplete until dependency and/or environment issues are resolved.
+- Remote/main branch parity cannot be confirmed from the current environment.
 
-## Owner
-AI Trust & Security Readiness Engineer
-
-## Evidence Required
-- Command outputs demonstrating failure conditions.
-- Logs/screenshots of dependency and network blockers.
-- Follow-up remediation records.
-
-## Related Links
-- [Baseline Commit](../../BASELINE_COMMIT.md)
-- [Baseline Validation](./baseline_validation.md)
-- [Architecture Discovery](./architecture_discovery.md)
-- [Patch Points](./patch_points.md)
-- [Known Limitations](./known_limitations.md)
-
-
-## Current Known Limitations
-1. **Baseline blocker**: `fastapi_users` missing during backend unit collection.
-2. **Remote verification blocker**: GitHub fetch unavailable due HTTP 403 tunnel error (`git fetch origin --prune` against `https://github.com/Amhdour/myproject001.git`).
-3. **Readiness constraint**: No production readiness is claimed while the above blockers remain unresolved.
-
-## TODO Future Implementation Evidence
-- [ ] Capture successful baseline run after dependency resolution.
-- [ ] Capture successful remote sync verification after network/auth issue resolution.
-- [ ] Add dated closure entries per limitation.
-
-## Non-Claim Statement
-This document records unresolved limitations and does **not** assert that baseline verification, remote sync integrity, or production readiness has been achieved.
+## Required Follow-up
+- Restore or configure dependencies for unit collection and rerun baseline checks.
+- Reconfigure/restore remote `origin` access and rerun fetch/verification.
+- Continue control design and implementation in later steps before any readiness decision.
