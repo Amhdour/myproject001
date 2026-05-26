@@ -45,3 +45,17 @@ This document records baseline validation evidence only. No security-layer featu
 ## Follow-up (next step, not executed here)
 - Reproduce environment provisioning used by project maintainers.
 - Re-run baseline test matrix and append outputs to `docs/security/evidence/`.
+
+## Step 2C evidence gap verification (2026-05-26 UTC)
+Evidence re-check on commit `502239d50c41172ae14759fe3cc31780ace71b98` found the following required baseline artifacts missing from both Git tracking and workspace:
+- `docs/security/architecture_discovery.md`
+- `docs/security/patch_points.md`
+- `docs/security/known_limitations.md`
+- `docs/security/evidence/README.md`
+- `docs/security/evidence/baseline/baseline_env_checks.txt`
+- `docs/security/evidence/baseline/baseline_repo_snapshot.txt`
+- `docs/security/evidence/baseline/unit_collect_only.txt`
+- `docs/security/evidence/baseline/unit_collect_only.exitcode`
+- `docs/security/evidence/baseline/baseline_stack_detection.txt`
+
+Gap status: baseline evidence set is incomplete and must be restored before security-layer MVP validation can be considered complete.
