@@ -45,3 +45,12 @@ This document records baseline validation evidence only. No security-layer featu
 ## Follow-up (next step, not executed here)
 - Reproduce environment provisioning used by project maintainers.
 - Re-run baseline test matrix and append outputs to `docs/security/evidence/`.
+
+## Step 2B lineage note (Baseline Evidence Consolidation)
+
+- Historical commits `c00de38`, `f647b54`, and `30e5164` were unavailable in this clone and could not be used for ancestry verification.
+- The branch lineage was reconstructed from source commit `502239d50c41172ae14759fe3cc31780ace71b98`.
+- The current HEAD of `security-layer-mvp` is the authoritative baseline-validation evidence state for this clone.
+- No application behavior changed in this consolidation step.
+- No security controls were implemented in this consolidation step.
+- No refactor was performed in this consolidation step.
