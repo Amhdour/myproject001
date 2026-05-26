@@ -64,3 +64,10 @@ plans/
 .claude/CLAUDE.md
 .claude/settings.local.json
 .claude/worktrees/
+
+# Allow baseline validation evidence logs
+!docs/security/evidence/baseline/
+!docs/security/evidence/baseline/*.txt
+!docs/security/evidence/baseline/*.log
+!docs/security/evidence/baseline/*.md
+!docs/security/evidence/baseline/*.json

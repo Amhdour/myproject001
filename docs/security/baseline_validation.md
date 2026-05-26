@@ -45,3 +45,15 @@ This document records baseline validation evidence only. No security-layer featu
 ## Follow-up (next step, not executed here)
 - Reproduce environment provisioning used by project maintainers.
 - Re-run baseline test matrix and append outputs to `docs/security/evidence/`.
+
+## Step 2A Cleanup Note (Branch/Evidence Chain Repair)
+- Original baseline validation execution happened on branch `work`.
+- Baseline evidence was moved/replayed onto `security-layer-mvp` so validation artifacts live on the intended branch.
+- The expected historical commits `c00de38`, `f647b54`, and `30e516433f17ad42af24d4b02db67a0f1098ca7b` were not present in this repository clone and could not be cherry-picked by object ID.
+- As a safe replacement, the baseline documentation/evidence chain was reconstructed with documentation-only updates and raw evidence file placement under `docs/security/evidence/baseline/`.
+- `f647b54` ancestry was explicitly checked and is **not verifiable in this clone** because the commit object is missing.
+- No application code paths, runtime behavior, or tests were modified in this cleanup.
+
+### Uncommitted local evidence note
+The following raw evidence file remains outside `docs/security/evidence/baseline/` and was not replayed into that folder because it includes secret-related placeholder configuration strings and requires sanitization review before duplication:
+- `docs/security/evidence/baseline_stack_detection.txt`
