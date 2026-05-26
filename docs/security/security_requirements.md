@@ -204,3 +204,11 @@ Per-requirement fixture references (planned):
 - SR-EVIDENCE-001: FX-FINDING-001, FX-AUDIT-001
 
 All fixture references above are planning metadata only; no fixture implementation is included in this step.
+
+
+## Step 10 Migration-Safety Requirement References
+The following requirement mappings add migration-safety planning references relevant to CI, evidence, admin, and retrieval domains:
+- SR-CI-001: Planned migration CI gates include dry-run, rollback, clean/existing DB migration, drift detection, seed validations, and backup/restore checks (see `docs/security/migration_safety.md`).
+- SR-EVIDENCE-001: Migration evidence bundle requirements include prerequisite check, run logs, drift output, seed validation, and backup/restore proof.
+- SR-ADMIN-001: Admin/security migration operations must be blocked without backup-before-migration and restore validation evidence.
+- SR-RET-001: Retrieval safety depends on existing-database migration validation and ACL/document seed checks to prevent post-migration authorization regressions.

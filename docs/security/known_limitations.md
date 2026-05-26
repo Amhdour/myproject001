@@ -28,3 +28,8 @@ Step 7 (Evidence Standardization) is completed as documentation-only work. No ru
 
 ## No-Readiness-Claim Statement
 This documentation set does not claim production readiness.
+
+
+10. **Migration safety planning-only limitation:** migration safety is documented as planned only; implementation has not started.
+11. **Migration code limitation:** no migration code has been implemented in this step.
+12. **Migration automation limitation:** migration safety checks are planned but not yet automated.
