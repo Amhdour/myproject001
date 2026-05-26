@@ -1,0 +1,221 @@
+# Runtime entrypoints
+backend/ee/onyx/utils/telemetry.py:18:    is ``None`` outside a request (e.g. Celery), in which case ``$ip``
+backend/ee/onyx/background/celery/tasks/cloud/tasks.py:3:from celery import shared_task
+backend/ee/onyx/background/celery/tasks/cloud/tasks.py:13:from onyx.configs.constants import OnyxCeleryPriority
+backend/ee/onyx/background/celery/tasks/cloud/tasks.py:14:from onyx.configs.constants import OnyxCeleryTask
+backend/ee/onyx/background/celery/tasks/cloud/tasks.py:69:@shared_task(
+backend/ee/onyx/background/celery/tasks/cloud/tasks.py:70:    name=OnyxCeleryTask.CLOUD_BEAT_TASK_GENERATOR,
+backend/ee/onyx/background/celery/tasks/cloud/tasks.py:78:    queue: str = OnyxCeleryTask.DEFAULT,
+backend/ee/onyx/background/celery/tasks/cloud/tasks.py:79:    priority: int = OnyxCeleryPriority.MEDIUM,
+backend/ee/onyx/background/celery/tasks/cleanup/tasks.py:4:from celery import shared_task
+backend/ee/onyx/background/celery/tasks/cleanup/tasks.py:8:from onyx.configs.constants import OnyxCeleryTask
+backend/ee/onyx/background/celery/tasks/cleanup/tasks.py:17:@shared_task(
+backend/ee/onyx/background/celery/tasks/cleanup/tasks.py:18:    name=OnyxCeleryTask.EXPORT_QUERY_HISTORY_CLEANUP_TASK,
+backend/ee/onyx/background/celery/tasks/beat_schedule.py:16:from onyx.configs.constants import OnyxCeleryPriority
+backend/ee/onyx/background/celery/tasks/beat_schedule.py:17:from onyx.configs.constants import OnyxCeleryQueues
+backend/ee/onyx/background/celery/tasks/beat_schedule.py:18:from onyx.configs.constants import OnyxCeleryTask
+backend/ee/onyx/background/celery/tasks/beat_schedule.py:26:        "task": OnyxCeleryTask.GENERATE_USAGE_REPORT_TASK,
+backend/ee/onyx/background/celery/tasks/beat_schedule.py:29:            "priority": OnyxCeleryPriority.MEDIUM,
+backend/ee/onyx/background/celery/tasks/beat_schedule.py:35:        "task": OnyxCeleryTask.CHECK_TTL_MANAGEMENT_TASK,
+backend/ee/onyx/background/celery/tasks/beat_schedule.py:38:            "priority": OnyxCeleryPriority.MEDIUM,
+backend/ee/onyx/background/celery/tasks/beat_schedule.py:44:        "task": OnyxCeleryTask.EXPORT_QUERY_HISTORY_CLEANUP_TASK,
+backend/ee/onyx/background/celery/tasks/beat_schedule.py:47:            "priority": OnyxCeleryPriority.MEDIUM,
+backend/ee/onyx/background/celery/tasks/beat_schedule.py:49:            "queue": OnyxCeleryQueues.CSV_GENERATION,
+backend/ee/onyx/background/celery/tasks/beat_schedule.py:60:            "task": OnyxCeleryTask.HOOK_EXECUTION_LOG_CLEANUP_TASK,
+backend/ee/onyx/background/celery/tasks/beat_schedule.py:63:                "priority": OnyxCeleryPriority.LOW,
+backend/ee/onyx/background/celery/tasks/beat_schedule.py:69:            "task": OnyxCeleryTask.CHECK_LICENSE_EXPIRY_NOTIFICATIONS,
+backend/ee/onyx/background/celery/tasks/beat_schedule.py:72:                "priority": OnyxCeleryPriority.MEDIUM,
+backend/ee/onyx/background/celery/tasks/beat_schedule.py:78:            "task": OnyxCeleryTask.GENERATE_USAGE_REPORT_TASK,
+backend/ee/onyx/background/celery/tasks/beat_schedule.py:81:                "priority": OnyxCeleryPriority.MEDIUM,
+backend/ee/onyx/background/celery/tasks/beat_schedule.py:87:            "task": OnyxCeleryTask.CHECK_TTL_MANAGEMENT_TASK,
+backend/ee/onyx/background/celery/tasks/beat_schedule.py:90:                "priority": OnyxCeleryPriority.MEDIUM,
+backend/ee/onyx/background/celery/tasks/beat_schedule.py:96:            "task": OnyxCeleryTask.EXPORT_QUERY_HISTORY_CLEANUP_TASK,
+backend/ee/onyx/background/celery/tasks/beat_schedule.py:99:                "priority": OnyxCeleryPriority.MEDIUM,
+backend/ee/onyx/background/celery/tasks/beat_schedule.py:101:                "queue": OnyxCeleryQueues.CSV_GENERATION,
+backend/ee/onyx/background/celery/tasks/license_notifications/tasks.py:1:from celery import shared_task
+backend/ee/onyx/background/celery/tasks/license_notifications/tasks.py:9:from onyx.configs.constants import OnyxCeleryTask
+backend/ee/onyx/background/celery/tasks/license_notifications/tasks.py:17:@shared_task(
+backend/ee/onyx/background/celery/tasks/license_notifications/tasks.py:18:    name=OnyxCeleryTask.CHECK_LICENSE_EXPIRY_NOTIFICATIONS,
+backend/ee/onyx/background/celery/tasks/query_history/tasks.py:5:from celery import shared_task
+backend/ee/onyx/background/celery/tasks/query_history/tasks.py:15:from onyx.configs.constants import OnyxCeleryTask
+backend/ee/onyx/background/celery/tasks/query_history/tasks.py:28:@shared_task(
+backend/ee/onyx/background/celery/tasks/query_history/tasks.py:29:    name=OnyxCeleryTask.EXPORT_QUERY_HISTORY_TASK,
+backend/ee/onyx/background/celery/tasks/tenant_provisioning/tasks.py:9:from celery import shared_task
+backend/ee/onyx/background/celery/tasks/tenant_provisioning/tasks.py:20:from onyx.configs.constants import OnyxCeleryQueues
+backend/ee/onyx/background/celery/tasks/tenant_provisioning/tasks.py:21:from onyx.configs.constants import OnyxCeleryTask
+backend/ee/onyx/background/celery/tasks/tenant_provisioning/tasks.py:39:@shared_task(
+backend/ee/onyx/background/celery/tasks/tenant_provisioning/tasks.py:40:    name=OnyxCeleryTask.CLOUD_CHECK_AVAILABLE_TENANTS,
+backend/ee/onyx/background/celery/tasks/tenant_provisioning/tasks.py:41:    queue=OnyxCeleryQueues.MONITORING,
+backend/ee/onyx/background/celery/tasks/ttl_management/tasks.py:3:from celery import shared_task
+backend/ee/onyx/background/celery/tasks/ttl_management/tasks.py:8:from onyx.configs.constants import OnyxCeleryTask
+backend/ee/onyx/background/celery/tasks/ttl_management/tasks.py:18:@shared_task(
+backend/ee/onyx/background/celery/tasks/ttl_management/tasks.py:19:    name=OnyxCeleryTask.PERFORM_TTL_MANAGEMENT_TASK,
+backend/ee/onyx/background/celery/tasks/ttl_management/tasks.py:69:@shared_task(
+backend/ee/onyx/background/celery/tasks/ttl_management/tasks.py:70:    name=OnyxCeleryTask.CHECK_TTL_MANAGEMENT_TASK,
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:10:from celery import Celery
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:11:from celery import shared_task
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:41:from onyx.configs.constants import OnyxCeleryPriority
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:42:from onyx.configs.constants import OnyxCeleryQueues
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:43:from onyx.configs.constants import OnyxCeleryTask
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:157:@shared_task(
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:158:    name=OnyxCeleryTask.CHECK_FOR_EXTERNAL_GROUP_SYNC,
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:264:    app: Celery,
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:313:            OnyxCeleryTask.CONNECTOR_EXTERNAL_GROUP_SYNC_GENERATOR_TASK,
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:318:            queue=OnyxCeleryQueues.CONNECTOR_EXTERNAL_GROUP_SYNC,
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:320:            priority=OnyxCeleryPriority.MEDIUM,
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:343:@shared_task(
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:344:    name=OnyxCeleryTask.CONNECTOR_EXTERNAL_GROUP_SYNC_GENERATOR_TASK,
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:570:                # NOTE: Celery's soft_time_limit does not work with thread pools,
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:673:    celery_app: Celery,  # noqa: ARG001
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:680:        OnyxCeleryQueues.CONNECTOR_EXTERNAL_GROUP_SYNC, r_celery
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:726:    More TTL clarification: it is seemingly impossible to exactly query Celery for
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:775:        payload.celery_task_id, OnyxCeleryQueues.CONNECTOR_EXTERNAL_GROUP_SYNC, r_celery
+backend/ee/onyx/background/celery/tasks/usage_reporting/tasks.py:4:from celery import shared_task
+backend/ee/onyx/background/celery/tasks/usage_reporting/tasks.py:9:from onyx.configs.constants import OnyxCeleryTask
+backend/ee/onyx/background/celery/tasks/usage_reporting/tasks.py:16:@shared_task(
+backend/ee/onyx/background/celery/tasks/usage_reporting/tasks.py:17:    name=OnyxCeleryTask.GENERATE_USAGE_REPORT_TASK,
+backend/ee/onyx/background/celery/tasks/hooks/tasks.py:1:from celery import shared_task
+backend/ee/onyx/background/celery/tasks/hooks/tasks.py:4:from onyx.configs.constants import OnyxCeleryTask
+backend/ee/onyx/background/celery/tasks/hooks/tasks.py:14:@shared_task(
+backend/ee/onyx/background/celery/tasks/hooks/tasks.py:15:    name=OnyxCeleryTask.HOOK_EXECUTION_LOG_CLEANUP_TASK,
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:11:from celery import Celery
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:12:from celery import shared_task
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:43:from onyx.configs.constants import OnyxCeleryPriority
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:44:from onyx.configs.constants import OnyxCeleryQueues
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:45:from onyx.configs.constants import OnyxCeleryTask
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:182:@shared_task(
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:183:    name=OnyxCeleryTask.CHECK_FOR_DOC_PERMISSIONS_SYNC,
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:292:    app: Celery,
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:352:            OnyxCeleryTask.CONNECTOR_PERMISSION_SYNC_GENERATOR_TASK,
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:357:            queue=OnyxCeleryQueues.CONNECTOR_DOC_PERMISSIONS_SYNC,
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:359:            priority=OnyxCeleryPriority.MEDIUM,
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:383:@shared_task(
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:384:    name=OnyxCeleryTask.CONNECTOR_PERMISSION_SYNC_GENERATOR_TASK,
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:766:        OnyxCeleryQueues.DOC_PERMISSIONS_UPSERT, r_celery
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:772:        OnyxCeleryQueues.DOC_PERMISSIONS_UPSERT, r_celery
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:775:        OnyxCeleryQueues.CONNECTOR_DOC_PERMISSIONS_SYNC, r_celery
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:826:    More TTL clarification: it is seemingly impossible to exactly query Celery for
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:879:        OnyxCeleryQueues.CONNECTOR_DOC_PERMISSIONS_SYNC,
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:981:        # NOTE: Celery's soft_time_limit does not work with thread pools,
+backend/ee/onyx/background/task_name_builders.py:3:from onyx.configs.constants import OnyxCeleryTask
+backend/ee/onyx/background/task_name_builders.py:5:QUERY_HISTORY_TASK_NAME_PREFIX = OnyxCeleryTask.EXPORT_QUERY_HISTORY_TASK
+backend/ee/onyx/hooks/executor.py:3:Usage (Celery tasks and FastAPI handlers):
+backend/ee/onyx/server/query_and_chat/query_backend.py:19:basic_router = APIRouter(prefix="/query")
+backend/ee/onyx/server/query_and_chat/search_backend.py:48:router = APIRouter(prefix="/search")
+backend/ee/onyx/server/reporting/usage_export_api.py:17:from onyx.configs.constants import OnyxCeleryTask
+backend/ee/onyx/server/reporting/usage_export_api.py:24:router = APIRouter()
+backend/ee/onyx/server/reporting/usage_export_api.py:47:        OnyxCeleryTask.GENERATE_USAGE_REPORT_TASK,
+backend/ee/onyx/server/token_rate_limits/api.py:22:router = APIRouter(prefix="/admin/token-rate-limits", tags=PUBLIC_API_TAGS)
+backend/ee/onyx/server/evals/api.py:6:from onyx.configs.constants import OnyxCeleryTask
+backend/ee/onyx/server/evals/api.py:14:router = APIRouter(prefix="/evals")
+backend/ee/onyx/server/evals/api.py:27:        OnyxCeleryTask.EVAL_RUN_TASK,
+backend/ee/onyx/server/query_history/api.py:31:from onyx.configs.constants import OnyxCeleryPriority
+backend/ee/onyx/server/query_history/api.py:32:from onyx.configs.constants import OnyxCeleryQueues
+backend/ee/onyx/server/query_history/api.py:33:from onyx.configs.constants import OnyxCeleryTask
+backend/ee/onyx/server/query_history/api.py:58:router = APIRouter()
+backend/ee/onyx/server/query_history/api.py:340:        OnyxCeleryTask.EXPORT_QUERY_HISTORY_TASK,
+backend/ee/onyx/server/query_history/api.py:342:        priority=OnyxCeleryPriority.MEDIUM,
+backend/ee/onyx/server/query_history/api.py:343:        queue=OnyxCeleryQueues.CSV_GENERATION,
+backend/ee/onyx/server/documents/cc_pair.py:29:router = APIRouter(prefix="/manage")
+backend/ee/onyx/server/tenants/tenant_management_api.py:14:router = APIRouter(prefix="/tenants")
+backend/ee/onyx/server/tenants/admin_api.py:19:router = APIRouter(prefix="/tenants")
+backend/ee/onyx/server/tenants/anonymous_users_api.py:27:router = APIRouter(prefix="/tenants")
+backend/ee/onyx/server/tenants/user_invitations_api.py:21:router = APIRouter(prefix="/tenants")
+backend/ee/onyx/server/tenants/billing_api.py:62:router = APIRouter(prefix="/tenants")
+backend/ee/onyx/server/tenants/team_membership_api.py:22:router = APIRouter(prefix="/tenants")
+backend/ee/onyx/server/tenants/api.py:17:router = APIRouter()
+backend/ee/onyx/server/tenants/proxy.py:43:router = APIRouter(prefix="/proxy")
+backend/ee/onyx/server/manage/standard_answer.py:24:router = APIRouter(prefix="/manage")
+backend/ee/onyx/server/billing/api.py:71:router = APIRouter(prefix="/admin/billing")
+backend/ee/onyx/server/features/hooks/api.py:172:router = APIRouter(prefix="/admin/hooks")
+backend/ee/onyx/server/analytics/api.py:26:router = APIRouter(prefix="/analytics", tags=PUBLIC_API_TAGS)
+backend/ee/onyx/server/oauth/api_router.py:3:router: APIRouter = APIRouter(prefix="/oauth")
+backend/ee/onyx/server/scim/api.py:89:scim_router = APIRouter(prefix="/scim/v2", tags=["SCIM"])
+backend/ee/onyx/server/enterprise_settings/api.py:49:admin_router = APIRouter(prefix="/admin/enterprise-settings")
+backend/ee/onyx/server/enterprise_settings/api.py:50:basic_router = APIRouter(prefix="/enterprise-settings")
+backend/ee/onyx/server/license/api.py:45:router = APIRouter(prefix="/license")
+backend/ee/onyx/server/user_group/api.py:45:router = APIRouter(prefix="/manage", tags=PUBLIC_API_TAGS)
+backend/ee/onyx/configs/app_configs.py:103:# Celery Job Frequency
+backend/onyx/auth/users.py:1450:        router = APIRouter()
+backend/onyx/auth/users.py:1488:        router = APIRouter()
+backend/onyx/auth/users.py:2057:    router = APIRouter()
+backend/onyx/main.py:11:import uvicorn
+backend/onyx/main.py:160:from onyx.utils.logger import setup_uvicorn_logger
+backend/onyx/main.py:189:setup_uvicorn_logger(shared_file_handlers=file_handlers)
+backend/onyx/main.py:275:    when Celery is not running (which requires DISABLE_VECTOR_DB=true).
+backend/onyx/main.py:281:            "deployments where Celery is replaced by the in-process task runner."
+backend/onyx/main.py:435:    application = FastAPI(
+backend/onyx/main.py:726:    uvicorn.run(app, host=APP_HOST, port=APP_PORT)
+backend/onyx/redis/redis_object_helper.py:4:from celery import Celery
+backend/onyx/redis/redis_object_helper.py:86:        celery_app: Celery,
+backend/onyx/redis/redis_document_set.py:5:from celery import Celery
+backend/onyx/redis/redis_document_set.py:11:from onyx.configs.constants import OnyxCeleryPriority
+backend/onyx/redis/redis_document_set.py:12:from onyx.configs.constants import OnyxCeleryQueues
+backend/onyx/redis/redis_document_set.py:13:from onyx.configs.constants import OnyxCeleryTask
+backend/onyx/redis/redis_document_set.py:55:        celery_app: Celery,
+backend/onyx/redis/redis_document_set.py:89:                OnyxCeleryTask.DOCUMENT_INDEX_METADATA_SYNC_TASK,
+backend/onyx/redis/redis_document_set.py:91:                queue=OnyxCeleryQueues.VESPA_METADATA_SYNC,
+backend/onyx/redis/redis_document_set.py:93:                priority=OnyxCeleryPriority.MEDIUM,
+backend/onyx/redis/redis_connector_delete.py:6:from celery import Celery
+backend/onyx/redis/redis_connector_delete.py:13:from onyx.configs.constants import OnyxCeleryPriority
+backend/onyx/redis/redis_connector_delete.py:14:from onyx.configs.constants import OnyxCeleryQueues
+backend/onyx/redis/redis_connector_delete.py:15:from onyx.configs.constants import OnyxCeleryTask
+backend/onyx/redis/redis_connector_delete.py:105:        celery_app: Celery,
+backend/onyx/redis/redis_connector_delete.py:143:                OnyxCeleryTask.DOCUMENT_BY_CC_PAIR_CLEANUP_TASK,
+backend/onyx/redis/redis_connector_delete.py:150:                queue=OnyxCeleryQueues.CONNECTOR_DELETION,
+backend/onyx/redis/redis_connector_delete.py:152:                priority=OnyxCeleryPriority.MEDIUM,
+backend/onyx/redis/redis_usergroup.py:5:from celery import Celery
+backend/onyx/redis/redis_usergroup.py:11:from onyx.configs.constants import OnyxCeleryPriority
+backend/onyx/redis/redis_usergroup.py:12:from onyx.configs.constants import OnyxCeleryQueues
+backend/onyx/redis/redis_usergroup.py:13:from onyx.configs.constants import OnyxCeleryTask
+backend/onyx/redis/redis_usergroup.py:59:        celery_app: Celery,
+backend/onyx/redis/redis_usergroup.py:103:                OnyxCeleryTask.DOCUMENT_INDEX_METADATA_SYNC_TASK,
+backend/onyx/redis/redis_usergroup.py:105:                queue=OnyxCeleryQueues.VESPA_METADATA_SYNC,
+backend/onyx/redis/redis_usergroup.py:107:                priority=OnyxCeleryPriority.MEDIUM,
+backend/onyx/redis/redis_connector_ext_group_sync.py:4:from celery import Celery
+backend/onyx/redis/redis_connector_ext_group_sync.py:151:        celery_app: Celery,
+backend/onyx/redis/redis_connector_prune.py:6:from celery import Celery
+backend/onyx/redis/redis_connector_prune.py:13:from onyx.configs.constants import OnyxCeleryPriority
+backend/onyx/redis/redis_connector_prune.py:14:from onyx.configs.constants import OnyxCeleryQueues
+backend/onyx/redis/redis_connector_prune.py:15:from onyx.configs.constants import OnyxCeleryTask
+backend/onyx/redis/redis_connector_prune.py:156:        celery_app: Celery,
+backend/onyx/redis/redis_connector_prune.py:190:                OnyxCeleryTask.DOCUMENT_BY_CC_PAIR_CLEANUP_TASK,
+backend/onyx/redis/redis_connector_prune.py:197:                queue=OnyxCeleryQueues.CONNECTOR_DELETION,
+backend/onyx/redis/redis_connector_prune.py:199:                priority=OnyxCeleryPriority.MEDIUM,
+backend/onyx/db/dal.py:9:  2. **Self-managed session** (Celery tasks, scripts) — the DAL creates its
+backend/onyx/db/dal.py:24:Example (Celery)::
+backend/onyx/db/projects.py:18:from onyx.configs.constants import OnyxCeleryPriority
+backend/onyx/db/projects.py:19:from onyx.configs.constants import OnyxCeleryQueues
+backend/onyx/db/projects.py:20:from onyx.configs.constants import OnyxCeleryTask
+backend/onyx/db/projects.py:161:                OnyxCeleryTask.PROCESS_SINGLE_USER_FILE,
+backend/onyx/db/projects.py:163:                queue=OnyxCeleryQueues.USER_FILE_PROCESSING,
+backend/onyx/db/projects.py:164:                priority=OnyxCeleryPriority.HIGH,
+backend/onyx/mcp_server_main.py:3:import uvicorn
+backend/onyx/mcp_server_main.py:27:    uvicorn.run(
+backend/onyx/db/document_set.py:323:    That will be processed via Celery in check_for_vespa_sync_task
+backend/onyx/db/indexing_coordination.py:247:        The actual orphan detection requires checking with Celery, which should be
+backend/onyx/db/indexing_coordination.py:251:        # The caller needs to check each one with Celery to confirm orphaned status
+backend/onyx/db/models.py:4118:    # Currently refers to Celery Tasks
+backend/onyx/db/models.py:4122:    # Celery task id. currently only for readability/diagnostics
+backend/onyx/db/models.py:5815:    Retention: rows older than 30 days are deleted by a nightly Celery task.
+backend/onyx/db/enums.py:155:# Consistent with Celery task statuses
+backend/onyx/cache/interface.py:57:    Covers the subset of Redis operations used outside of Celery. When
+backend/onyx/utils/client_ip.py:61:    request. Returns ``None`` outside of a request context (e.g. Celery tasks
+backend/onyx/utils/logger.py:156:def get_uvicorn_standard_formatter() -> ColoredFormatter:
+backend/onyx/utils/logger.py:233:    # own handler (e.g. by Uvicorn / Celery).
+backend/onyx/utils/logger.py:239:def setup_uvicorn_logger(
+backend/onyx/utils/logger.py:243:    uvicorn_logger = logging.getLogger("uvicorn.access")
+backend/onyx/utils/logger.py:244:    if not uvicorn_logger:
+backend/onyx/utils/logger.py:247:    formatter = get_uvicorn_standard_formatter()
+backend/onyx/utils/logger.py:253:    uvicorn_logger.handlers = []
+backend/onyx/utils/logger.py:254:    uvicorn_logger.addHandler(handler)
+backend/onyx/utils/logger.py:255:    uvicorn_logger.setLevel(log_level)
+backend/onyx/utils/logger.py:256:    uvicorn_logger.addFilter(OnyxRequestIDFilter())
+backend/onyx/utils/logger.py:260:            uvicorn_logger.addHandler(fh)
+backend/onyx/background/celery/celery_redis.py:7:from celery import Celery
+backend/onyx/background/celery/celery_redis.py:12:from onyx.configs.constants import OnyxCeleryPriority
+backend/onyx/background/celery/celery_redis.py:20:def celery_get_broker_client(app: Celery) -> Redis:
+backend/onyx/background/celery/celery_redis.py:21:    """Return a shared Redis client connected to the Celery broker DB.
+backend/onyx/background/celery/celery_redis.py:27:    Thread-safe via lock — safe for use in Celery thread-pool workers.
+backend/onyx/background/celery/celery_redis.py:119:    for i in range(len(OnyxCeleryPriority)):
+backend/onyx/background/celery/celery_redis.py:141:    for priority in range(len(OnyxCeleryPriority)):
