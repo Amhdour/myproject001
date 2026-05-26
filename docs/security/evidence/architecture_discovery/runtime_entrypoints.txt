@@ -1,0 +1,1135 @@
+backend/onyx/server/runtime/onyx_runtime.py:5:from onyx.background.celery.tasks.beat_schedule import CLOUD_BEAT_MULTIPLIER_DEFAULT
+backend/onyx/server/runtime/onyx_runtime.py:6:from onyx.background.celery.tasks.beat_schedule import (
+backend/ee/onyx/server/tenants/api.py:20:router.include_router(admin_router)
+backend/ee/onyx/server/tenants/api.py:21:router.include_router(anonymous_users_router)
+backend/ee/onyx/server/tenants/api.py:22:router.include_router(billing_router)
+backend/ee/onyx/server/tenants/api.py:23:router.include_router(team_membership_router)
+backend/ee/onyx/server/tenants/api.py:24:router.include_router(tenant_management_router)
+backend/ee/onyx/server/tenants/api.py:25:router.include_router(user_invitations_router)
+backend/ee/onyx/server/tenants/api.py:26:router.include_router(proxy_router)
+backend/ee/onyx/server/reporting/usage_export_api.py:16:from onyx.background.celery.versioned_apps.client import app as client_app
+backend/onyx/server/documents/targeted_reindex.py:10:rows + per-cc-pair synthetic IndexAttempts, and enqueues the celery
+backend/onyx/server/documents/targeted_reindex.py:23:from onyx.background.celery.versioned_apps.client import app as client_app
+backend/onyx/server/documents/targeted_reindex.py:141:            task_id=result.celery_task_id,
+backend/onyx/server/documents/cc_pair.py:15:from onyx.background.celery.tasks.pruning.tasks import try_creating_prune_generator_task
+backend/onyx/server/documents/cc_pair.py:16:from onyx.background.celery.versioned_apps.client import app as client_app
+backend/onyx/server/documents/cc_pair.py:472:                if attempt.celery_task_id:
+backend/onyx/server/documents/cc_pair.py:473:                    client_app.control.revoke(attempt.celery_task_id)
+backend/onyx/server/documents/connector.py:28:from onyx.background.celery.tasks.pruning.tasks import try_creating_prune_generator_task
+backend/onyx/server/documents/connector.py:29:from onyx.background.celery.versioned_apps.client import app as client_app
+backend/ee/onyx/server/documents/cc_pair.py:9:from ee.onyx.background.celery.tasks.doc_permission_syncing.tasks import (
+backend/ee/onyx/server/documents/cc_pair.py:12:from ee.onyx.background.celery.tasks.external_group_syncing.tasks import (
+backend/ee/onyx/server/documents/cc_pair.py:16:from onyx.background.celery.versioned_apps.client import app as client_app
+backend/onyx/server/security/__init__.py:16:router.include_router(overview_router)
+backend/onyx/server/security/__init__.py:17:router.include_router(approvals_router)
+backend/onyx/server/security/__init__.py:18:router.include_router(findings_router)
+backend/onyx/server/security/__init__.py:19:router.include_router(audit_router)
+backend/onyx/server/security/__init__.py:20:router.include_router(tools_router)
+backend/onyx/server/security/__init__.py:21:router.include_router(retrieval_router)
+backend/onyx/server/security/__init__.py:22:router.include_router(mcp_router)
+backend/onyx/server/security/__init__.py:23:router.include_router(sandbox_router)
+backend/onyx/server/security/__init__.py:24:router.include_router(artifacts_router)
+backend/onyx/server/security/__init__.py:25:router.include_router(launch_gates_router)
+backend/onyx/server/security/__init__.py:26:router.include_router(reports_router)
+backend/ee/onyx/server/query_history/api.py:25:from onyx.background.celery.versioned_apps.client import app as client_app
+backend/ee/onyx/server/evals/api.py:5:from onyx.background.celery.apps.client import celery_app as client_app
+backend/onyx/server/features/document_set/api.py:9:from onyx.background.celery.versioned_apps.client import app as client_app
+backend/ee/onyx/server/scim/api.py:97:    Call this after ``app.include_router(scim_router)`` so that auth
+backend/onyx/server/features/build/api/api.py:61:router.include_router(sessions_router, tags=["build"])
+backend/onyx/server/features/build/api/api.py:62:router.include_router(messages_router, tags=["build"])
+backend/onyx/server/features/build/api/api.py:63:router.include_router(user_library_router, tags=["build"])
+backend/onyx/server/features/build/api/api.py:64:router.include_router(scheduled_tasks_router, tags=["build"])
+backend/onyx/server/features/build/scheduled_tasks/api.py:32:from onyx.background.celery.versioned_apps.client import app as celery_app
+backend/onyx/server/features/build/scheduled_tasks/api.py:331:    celery_app.send_task(
+backend/onyx/server/features/build/sandbox/tasks/tasks.py:3:from celery import shared_task
+backend/onyx/server/features/build/sandbox/tasks/tasks.py:4:from celery import Task
+backend/onyx/server/features/build/sandbox/tasks/tasks.py:7:from onyx.background.celery.apps.app_base import task_logger
+backend/onyx/server/features/build/sandbox/tasks/tasks.py:29:@shared_task(
+backend/onyx/server/features/build/sandbox/tasks/tasks.py:182:# @shared_task(
+backend/ee/onyx/main.py:177:    application.include_router(scim_router)
+backend/ee/onyx/background/celery/apps/heavy.py:1:from onyx.background.celery.apps import app_base
+backend/ee/onyx/background/celery/apps/heavy.py:2:from onyx.background.celery.apps.heavy import celery_app
+backend/ee/onyx/background/celery/apps/heavy.py:4:celery_app.autodiscover_tasks(
+backend/ee/onyx/background/celery/apps/heavy.py:7:            "ee.onyx.background.celery.tasks.doc_permission_syncing",
+backend/ee/onyx/background/celery/apps/heavy.py:8:            "ee.onyx.background.celery.tasks.external_group_syncing",
+backend/ee/onyx/background/celery/apps/heavy.py:9:            "ee.onyx.background.celery.tasks.cleanup",
+backend/ee/onyx/background/celery/apps/heavy.py:10:            "ee.onyx.background.celery.tasks.query_history",
+backend/ee/onyx/background/celery/apps/light.py:1:from onyx.background.celery.apps import app_base
+backend/ee/onyx/background/celery/apps/light.py:2:from onyx.background.celery.apps.light import celery_app
+backend/ee/onyx/background/celery/apps/light.py:4:celery_app.autodiscover_tasks(
+backend/ee/onyx/background/celery/apps/light.py:7:            "ee.onyx.background.celery.tasks.doc_permission_syncing",
+backend/ee/onyx/background/celery/apps/light.py:8:            "ee.onyx.background.celery.tasks.external_group_syncing",
+backend/ee/onyx/background/celery/apps/monitoring.py:1:from onyx.background.celery.apps import app_base
+backend/ee/onyx/background/celery/apps/monitoring.py:2:from onyx.background.celery.apps.monitoring import celery_app
+backend/ee/onyx/background/celery/apps/monitoring.py:4:celery_app.autodiscover_tasks(
+backend/ee/onyx/background/celery/apps/monitoring.py:7:            "ee.onyx.background.celery.tasks.tenant_provisioning",
+backend/ee/onyx/background/celery/apps/primary.py:1:from onyx.background.celery.apps import app_base
+backend/ee/onyx/background/celery/apps/primary.py:2:from onyx.background.celery.apps.primary import celery_app
+backend/ee/onyx/background/celery/apps/primary.py:4:celery_app.autodiscover_tasks(
+backend/ee/onyx/background/celery/apps/primary.py:7:            "ee.onyx.background.celery.tasks.hooks",
+backend/ee/onyx/background/celery/apps/primary.py:8:            "ee.onyx.background.celery.tasks.doc_permission_syncing",
+backend/ee/onyx/background/celery/apps/primary.py:9:            "ee.onyx.background.celery.tasks.external_group_syncing",
+backend/ee/onyx/background/celery/apps/primary.py:10:            "ee.onyx.background.celery.tasks.cloud",
+backend/ee/onyx/background/celery/apps/primary.py:11:            "ee.onyx.background.celery.tasks.ttl_management",
+backend/ee/onyx/background/celery/apps/primary.py:12:            "ee.onyx.background.celery.tasks.usage_reporting",
+backend/ee/onyx/background/celery/apps/primary.py:13:            "ee.onyx.background.celery.tasks.license_notifications",
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:10:from celery import Celery
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:11:from celery import shared_task
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:12:from celery import Task
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:13:from celery.exceptions import SoftTimeLimitExceeded
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:18:from ee.onyx.background.celery.tasks.external_group_syncing.group_sync_utils import (
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:31:from onyx.background.celery.apps.app_base import task_logger
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:32:from onyx.background.celery.celery_redis import celery_find_task
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:33:from onyx.background.celery.celery_redis import celery_get_broker_client
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:34:from onyx.background.celery.celery_redis import celery_get_unacked_task_ids
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:35:from onyx.background.celery.tasks.beat_schedule import CLOUD_BEAT_MULTIPLIER_DEFAULT
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:157:@shared_task(
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:164:    # we need to use celery's redis client to access its redis data
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:227:            # clear fences that don't have associated celery tasks in progress
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:231:                r_celery = celery_get_broker_client(self.app)
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:233:                    tenant_id, self.app, r, r_replica, r_celery, lock_beat
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:306:            celery_task_id=None,
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:323:        payload.celery_task_id = result.id
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:343:@shared_task(
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:392:        if payload.celery_task_id is None:
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:673:    celery_app: Celery,  # noqa: ARG001
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:676:    r_celery: Redis,
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:679:    reserved_tasks = celery_get_unacked_task_ids(
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:680:        OnyxCeleryQueues.CONNECTOR_EXTERNAL_GROUP_SYNC, r_celery
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:696:            r_celery,
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:707:    r_celery: Redis,
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:709:    """Checks for the error condition where an indexing fence is set but the associated celery tasks don't exist.
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:770:    if not payload.celery_task_id:
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:774:    found = celery_find_task(
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:775:        payload.celery_task_id, OnyxCeleryQueues.CONNECTOR_EXTERNAL_GROUP_SYNC, r_celery
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:778:        # the celery task exists in the redis queue
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:782:    if payload.celery_task_id in reserved_tasks:
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:783:        # the celery task was prefetched and is reserved within the indexing worker
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:787:    # if we get here, we didn't find any direct indication that the associated celery tasks exist,
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:794:    # celery tasks don't exist and the active signal has expired, possibly due to a crash. Clean it up.
+backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py:798:            "Resetting fence because no associated celery tasks were found: "
+backend/ee/onyx/background/celery/tasks/license_notifications/tasks.py:1:from celery import shared_task
+backend/ee/onyx/background/celery/tasks/license_notifications/tasks.py:17:@shared_task(
+backend/ee/onyx/background/celery/tasks/vespa/tasks.py:7:from onyx.background.celery.apps.app_base import task_logger
+backend/ee/onyx/background/celery/tasks/tenant_provisioning/tasks.py:9:from celery import shared_task
+backend/ee/onyx/background/celery/tasks/tenant_provisioning/tasks.py:10:from celery import Task
+backend/ee/onyx/background/celery/tasks/tenant_provisioning/tasks.py:17:from onyx.background.celery.apps.app_base import task_logger
+backend/ee/onyx/background/celery/tasks/tenant_provisioning/tasks.py:39:@shared_task(
+backend/ee/onyx/background/celery/tasks/hooks/tasks.py:1:from celery import shared_task
+backend/ee/onyx/background/celery/tasks/hooks/tasks.py:14:@shared_task(
+backend/ee/onyx/background/celery/tasks/usage_reporting/tasks.py:4:from celery import shared_task
+backend/ee/onyx/background/celery/tasks/usage_reporting/tasks.py:5:from celery import Task
+backend/ee/onyx/background/celery/tasks/usage_reporting/tasks.py:16:@shared_task(
+backend/ee/onyx/background/celery/tasks/cleanup/tasks.py:4:from celery import shared_task
+backend/ee/onyx/background/celery/tasks/cleanup/tasks.py:17:@shared_task(
+backend/ee/onyx/background/celery/tasks/query_history/tasks.py:5:from celery import shared_task
+backend/ee/onyx/background/celery/tasks/query_history/tasks.py:6:from celery import Task
+backend/ee/onyx/background/celery/tasks/query_history/tasks.py:28:@shared_task(
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:11:from celery import Celery
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:12:from celery import shared_task
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:13:from celery import Task
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:14:from celery.exceptions import SoftTimeLimitExceeded
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:30:from onyx.background.celery.apps.app_base import task_logger
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:31:from onyx.background.celery.celery_redis import celery_find_task
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:32:from onyx.background.celery.celery_redis import celery_get_broker_client
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:33:from onyx.background.celery.celery_redis import celery_get_queue_length
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:34:from onyx.background.celery.celery_redis import celery_get_queued_task_ids
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:35:from onyx.background.celery.celery_redis import celery_get_unacked_task_ids
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:36:from onyx.background.celery.tasks.beat_schedule import CLOUD_BEAT_MULTIPLIER_DEFAULT
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:182:@shared_task(
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:191:    # we need to use celery's redis client to access its redis data
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:235:            # clear any permission fences that don't have associated celery tasks in progress
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:239:                r_celery = celery_get_broker_client(self.app)
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:241:                    tenant_id, r, r_replica, r_celery, lock_beat
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:347:            celery_task_id=None,
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:362:        # fill in the celery task id
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:363:        payload.celery_task_id = result.id
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:383:@shared_task(
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:449:        if payload.celery_task_id is None:
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:547:                celery_task_id=payload.celery_task_id,
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:758:    r_celery: Redis,
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:765:    queue_len = celery_get_queue_length(
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:766:        OnyxCeleryQueues.DOC_PERMISSIONS_UPSERT, r_celery
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:771:    queued_upsert_tasks = celery_get_queued_task_ids(
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:772:        OnyxCeleryQueues.DOC_PERMISSIONS_UPSERT, r_celery
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:774:    reserved_generator_tasks = celery_get_unacked_task_ids(
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:775:        OnyxCeleryQueues.CONNECTOR_DOC_PERMISSIONS_SYNC, r_celery
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:793:            r_celery,
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:807:    r_celery: Redis,
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:809:    """Checks for the error condition where an indexing fence is set but the associated celery tasks don't exist.
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:832:    queued_tasks: the celery queue of lightweight permission sync tasks
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:871:    if not payload.celery_task_id:
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:877:    found = celery_find_task(
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:878:        payload.celery_task_id,
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:880:        r_celery,
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:883:        # the celery task exists in the redis queue
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:887:    if payload.celery_task_id in reserved_tasks:
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:888:        # the celery task was prefetched and is reserved within a worker
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:892:    # look up every task in the current taskset in the celery queue
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:893:    # every entry in the taskset should have an associated entry in the celery task queue
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:894:    # because we get the celery tasks first, the entries in our own permissions taskset
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:895:    # should be roughly a subset of the tasks in celery
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:900:    # TODO: if the number of tasks in celery is much lower than than the taskset length
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:902:    # must not exist in celery.
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:905:    tasks_not_in_celery = 0  # a non-zero number after completing our check is bad
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:917:        tasks_not_in_celery += 1
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:920:        f"validate_permission_sync_fence task check: tasks_scanned={tasks_scanned} tasks_not_in_celery={tasks_not_in_celery}"
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:923:    # we're active if there are still tasks to run and those tasks all exist in celery
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:924:    if tasks_scanned > 0 and tasks_not_in_celery == 0:
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:930:    #     logger.info(f"{payload.celery_task_id} is currently executing.")
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:932:    # if we get here, we didn't find any direct indication that the associated celery tasks exist,
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:939:    # celery tasks don't exist and the active signal has expired, possibly due to a crash. Clean it up.
+backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py:942:        "Resetting fence because no associated celery tasks were found: "
+backend/ee/onyx/background/celery/tasks/beat_schedule.py:5:from onyx.background.celery.tasks.beat_schedule import (
+backend/ee/onyx/background/celery/tasks/beat_schedule.py:8:from onyx.background.celery.tasks.beat_schedule import BEAT_EXPIRES_DEFAULT
+backend/ee/onyx/background/celery/tasks/beat_schedule.py:9:from onyx.background.celery.tasks.beat_schedule import (
+backend/ee/onyx/background/celery/tasks/beat_schedule.py:12:from onyx.background.celery.tasks.beat_schedule import generate_cloud_tasks
+backend/ee/onyx/background/celery/tasks/beat_schedule.py:13:from onyx.background.celery.tasks.beat_schedule import (
+backend/ee/onyx/background/celery/tasks/ttl_management/tasks.py:3:from celery import shared_task
+backend/ee/onyx/background/celery/tasks/ttl_management/tasks.py:4:from celery import Task
+backend/ee/onyx/background/celery/tasks/ttl_management/tasks.py:6:from ee.onyx.background.celery_utils import should_perform_chat_ttl_check
+backend/ee/onyx/background/celery/tasks/ttl_management/tasks.py:18:@shared_task(
+backend/ee/onyx/background/celery/tasks/ttl_management/tasks.py:69:@shared_task(
+backend/ee/onyx/background/celery/tasks/cloud/tasks.py:3:from celery import shared_task
+backend/ee/onyx/background/celery/tasks/cloud/tasks.py:4:from celery import Task
+backend/ee/onyx/background/celery/tasks/cloud/tasks.py:5:from celery.exceptions import SoftTimeLimitExceeded
+backend/ee/onyx/background/celery/tasks/cloud/tasks.py:9:from onyx.background.celery.apps.app_base import task_logger
+backend/ee/onyx/background/celery/tasks/cloud/tasks.py:10:from onyx.background.celery.tasks.beat_schedule import BEAT_EXPIRES_DEFAULT
+backend/ee/onyx/background/celery/tasks/cloud/tasks.py:69:@shared_task(
+backend/onyx/redis/redis_object_helper.py:4:from celery import Celery
+backend/onyx/redis/redis_object_helper.py:86:        celery_app: Celery,
+backend/onyx/redis/redis_connector_doc_perm_sync.py:40:    celery_task_id: str | None
+backend/onyx/redis/redis_connector_doc_perm_sync.py:141:        the celery queue and task status could result in race conditions."""
+backend/onyx/redis/redis_connector_doc_perm_sync.py:188:            "onyx.background.celery.tasks.doc_permission_syncing.tasks",
+backend/onyx/redis/redis_document_set.py:5:from celery import Celery
+backend/onyx/redis/redis_document_set.py:55:        celery_app: Celery,
+backend/onyx/redis/redis_document_set.py:78:            # celery's default task id format is "dd32ded3-00aa-4884-8b21-42f8332e7fac"
+backend/onyx/redis/redis_document_set.py:79:            # the key for the result is "celery-task-meta-dd32ded3-00aa-4884-8b21-42f8332e7fac"
+backend/onyx/redis/redis_document_set.py:88:            celery_app.send_task(
+backend/onyx/redis/redis_connector_delete.py:6:from celery import Celery
+backend/onyx/redis/redis_connector_delete.py:90:        the celery queue and task status could result in race conditions."""
+backend/onyx/redis/redis_connector_delete.py:97:        # celery's default task id format is "dd32ded3-00aa-4884-8b21-42f8332e7fac"
+backend/onyx/redis/redis_connector_delete.py:105:        celery_app: Celery,
+backend/onyx/redis/redis_connector_delete.py:136:            # add to the tracking taskset in redis BEFORE creating the celery task.
+backend/onyx/redis/redis_connector_delete.py:142:            celery_app.send_task(
+backend/onyx/redis/redis_usergroup.py:5:from celery import Celery
+backend/onyx/redis/redis_usergroup.py:59:        celery_app: Celery,
+backend/onyx/redis/redis_usergroup.py:92:            # celery's default task id format is "dd32ded3-00aa-4884-8b21-42f8332e7fac"
+backend/onyx/redis/redis_usergroup.py:93:            # the key for the result is "celery-task-meta-dd32ded3-00aa-4884-8b21-42f8332e7fac"
+backend/onyx/redis/redis_usergroup.py:102:            celery_app.send_task(
+backend/onyx/redis/redis_connector_prune.py:6:from celery import Celery
+backend/onyx/redis/redis_connector_prune.py:26:    celery_task_id: str | None
+backend/onyx/redis/redis_connector_prune.py:127:        the celery queue and task status could result in race conditions."""
+backend/onyx/redis/redis_connector_prune.py:156:        celery_app: Celery,
+backend/onyx/redis/redis_connector_prune.py:178:            # celery's default task id format is "dd32ded3-00aa-4884-8b21-42f8332e7fac"
+backend/onyx/redis/redis_connector_prune.py:179:            # the actual redis key is "celery-task-meta-dd32ded3-00aa-4884-8b21-42f8332e7fac"
+backend/onyx/redis/redis_connector_prune.py:184:            # add to the tracking taskset in redis BEFORE creating the celery task.
+backend/onyx/redis/redis_connector_prune.py:189:            result = celery_app.send_task(
+backend/onyx/redis/redis_connector_ext_group_sync.py:4:from celery import Celery
+backend/onyx/redis/redis_connector_ext_group_sync.py:18:    celery_task_id: str | None
+backend/onyx/redis/redis_connector_ext_group_sync.py:118:        the celery queue and task status could result in race conditions."""
+backend/onyx/redis/redis_connector_ext_group_sync.py:151:        celery_app: Celery,
+backend/onyx/redis/redis_connector_index.py:10:    celery_task_id: str | None
+backend/onyx/utils/supervisord_watchdog.py:42:                    "Exception checking for celery beat heartbeat: key=%s.", key
+backend/onyx/mcp_server/api.py:81:    app = FastAPI(
+backend/onyx/server/features/build/sandbox/kubernetes/docker/sandbox_daemon/server.py:27:app = FastAPI(title="sandbox-sidecar", docs_url=None, redoc_url=None)
+backend/onyx/server/features/build/sandbox/kubernetes/docker/sandbox_daemon/server.py:204:    uvicorn.run(app, host="0.0.0.0", port=8731)  # noqa: S104
+backend/onyx/db/indexing_coordination.py:39:        celery_task_id: str,
+backend/onyx/db/indexing_coordination.py:82:                celery_task_id=celery_task_id,
+backend/onyx/db/indexing_coordination.py:86:                "Created Index Attempt: cc_pair=%s search_settings=%s attempt_id=%s celery_task_id=%s",
+backend/onyx/db/indexing_coordination.py:90:                celery_task_id,
+backend/onyx/db/indexing_coordination.py:258:                    IndexAttempt.celery_task_id.isnot(None),
+backend/onyx/db/opensearch_migration.py:16:from onyx.background.celery.tasks.opensearch_migration.constants import (
+backend/onyx/db/opensearch_migration.py:19:from onyx.background.celery.tasks.opensearch_migration.constants import (
+backend/onyx/db/targeted_reindex.py:15:Nothing here enqueues celery work — that's the caller's job. Helpers
+backend/onyx/db/targeted_reindex.py:65:    - `celery_task_id`: pre-allocated UUID. Caller (API endpoint) uses
+backend/onyx/db/targeted_reindex.py:81:    celery_task_id: str
+backend/onyx/db/targeted_reindex.py:142:    `(cc_pair_id, search_settings_id)` tuple. Pre-allocates the celery
+backend/onyx/db/targeted_reindex.py:152:    The caller (API endpoint) is responsible for enqueueing the celery
+backend/onyx/db/targeted_reindex.py:153:    task with the returned `celery_task_id` after this commits.
+backend/onyx/db/targeted_reindex.py:176:    celery_task_id = str(uuid4())
+backend/onyx/db/targeted_reindex.py:199:        celery_task_id=celery_task_id,
+backend/onyx/db/targeted_reindex.py:234:                # Mirror celery_task_id so the orphan sweeper skips this row.
+backend/onyx/db/targeted_reindex.py:235:                celery_task_id=celery_task_id,
+backend/onyx/db/targeted_reindex.py:247:        celery_task_id=celery_task_id,
+backend/onyx/db/projects.py:157:        from onyx.background.celery.versioned_apps.client import app as client_app
+backend/onyx/db/index_attempt.py:120:                IndexAttempt.celery_task_id.isnot(None),
+backend/onyx/db/index_attempt.py:145:    celery_task_id: str | None = None,
+backend/onyx/db/index_attempt.py:152:        celery_task_id=celery_task_id,
+backend/onyx/db/index_attempt.py:297:        attempt.celery_task_id = None
+backend/onyx/db/index_attempt.py:337:        attempt.celery_task_id = None
+backend/onyx/db/index_attempt.py:425:        attempt.celery_task_id = None
+backend/onyx/db/models.py:2234:    # Pre-allocated celery task UUID. Written before `apply_async` so the
+backend/onyx/db/models.py:2237:    celery_task_id: Mapped[str | None] = mapped_column(Text, nullable=True)
+backend/onyx/db/models.py:2379:    celery_task_id: Mapped[str | None] = mapped_column(String, nullable=True)
+backend/onyx/document_index/vespa/chunk_retrieval.py:14:from onyx.background.celery.tasks.opensearch_migration.constants import (
+backend/onyx/document_index/vespa/chunk_retrieval.py:17:from onyx.background.celery.tasks.opensearch_migration.transformer import (
+backend/onyx/server/features/projects/api.py:65:    from onyx.background.celery.tasks.user_file_processing.tasks import (
+backend/onyx/server/features/projects/api.py:68:    from onyx.background.celery.tasks.user_file_processing.tasks import (
+backend/onyx/server/features/projects/api.py:71:    from onyx.background.celery.versioned_apps.client import app as client_app
+backend/onyx/server/features/projects/api.py:86:        celery_app=client_app,
+backend/onyx/server/features/projects/api.py:486:        from onyx.background.celery.versioned_apps.client import app as client_app
+backend/onyx/server/features/projects/projects_file_utils.py:272:                # user-file-processing celery worker because every image is
+backend/onyx/mcp_server_main.py:27:    uvicorn.run(
+backend/onyx/server/manage/administrative.py:13:from onyx.background.celery.versioned_apps.client import app as client_app
+backend/onyx/server/metrics/indexing_task_metrics.py:28:from celery import Task
+backend/onyx/server/metrics/indexing_task_metrics.py:33:from onyx.server.metrics.celery_task_metrics import _MAX_START_TIME_AGE_SECONDS
+backend/onyx/server/metrics/celery_task_metrics.py:10:    from onyx.server.metrics.celery_task_metrics import (
+backend/onyx/server/metrics/celery_task_metrics.py:11:        on_celery_task_prerun,
+backend/onyx/server/metrics/celery_task_metrics.py:12:        on_celery_task_postrun,
+backend/onyx/server/metrics/celery_task_metrics.py:13:        on_celery_task_retry,
+backend/onyx/server/metrics/celery_task_metrics.py:14:        on_celery_task_revoked,
+backend/onyx/server/metrics/celery_task_metrics.py:15:        on_celery_task_rejected,
+backend/onyx/server/metrics/celery_task_metrics.py:23:from celery import Task
+backend/onyx/server/metrics/celery_task_metrics.py:33:    "onyx_celery_task_started_total",
+backend/onyx/server/metrics/celery_task_metrics.py:39:    "onyx_celery_task_completed_total",
+backend/onyx/server/metrics/celery_task_metrics.py:45:    "onyx_celery_task_duration_seconds",
+backend/onyx/server/metrics/celery_task_metrics.py:52:    "onyx_celery_tasks_active",
+backend/onyx/server/metrics/celery_task_metrics.py:58:    "onyx_celery_task_retried_total",
+backend/onyx/server/metrics/celery_task_metrics.py:64:    "onyx_celery_task_revoked_total",
+backend/onyx/server/metrics/celery_task_metrics.py:70:    "onyx_celery_task_rejected_total",
+backend/onyx/server/metrics/celery_task_metrics.py:76:    "onyx_celery_task_queue_wait_seconds",
+backend/onyx/server/metrics/celery_task_metrics.py:148:def on_celery_task_prerun(
+backend/onyx/server/metrics/celery_task_metrics.py:171:        logger.debug("Failed to record celery task prerun metrics", exc_info=True)
+backend/onyx/server/metrics/celery_task_metrics.py:174:def on_celery_task_postrun(
+backend/onyx/server/metrics/celery_task_metrics.py:200:        logger.debug("Failed to record celery task postrun metrics", exc_info=True)
+backend/onyx/server/metrics/celery_task_metrics.py:203:def on_celery_task_retry(
+backend/onyx/server/metrics/celery_task_metrics.py:214:        logger.debug("Failed to record celery task retry metrics", exc_info=True)
+backend/onyx/server/metrics/celery_task_metrics.py:217:def on_celery_task_revoked(
+backend/onyx/server/metrics/celery_task_metrics.py:228:        logger.debug("Failed to record celery task revoked metrics", exc_info=True)
+backend/onyx/server/metrics/celery_task_metrics.py:231:def on_celery_task_rejected(
+backend/onyx/server/metrics/celery_task_metrics.py:241:        logger.debug("Failed to record celery task rejected metrics", exc_info=True)
+backend/onyx/server/metrics/indexing_pipeline.py:5:monitoring celery worker which already has Redis access.
+backend/onyx/server/metrics/indexing_pipeline.py:27:from onyx.background.celery.celery_redis import celery_get_broker_client
+backend/onyx/server/metrics/indexing_pipeline.py:28:from onyx.background.celery.celery_redis import celery_get_queue_length
+backend/onyx/server/metrics/indexing_pipeline.py:29:from onyx.background.celery.celery_redis import celery_get_unacked_task_ids
+backend/onyx/server/metrics/indexing_pipeline.py:152:        self._celery_app: Any | None = None
+backend/onyx/server/metrics/indexing_pipeline.py:154:    def set_celery_app(self, app: Any) -> None:
+backend/onyx/server/metrics/indexing_pipeline.py:156:        self._celery_app = app
+backend/onyx/server/metrics/indexing_pipeline.py:159:        if self._celery_app is None:
+backend/onyx/server/metrics/indexing_pipeline.py:162:        redis_client = celery_get_broker_client(self._celery_app)
+backend/onyx/server/metrics/indexing_pipeline.py:183:            length = celery_get_queue_length(queue_name, redis_client)
+backend/onyx/server/metrics/indexing_pipeline.py:194:            task_ids = celery_get_unacked_task_ids(queue_name, redis_client)
+backend/onyx/server/metrics/indexing_pipeline.py:242:        self._celery_app: Any | None = None
+backend/onyx/server/metrics/indexing_pipeline.py:244:    def set_celery_app(self, app: Any) -> None:
+backend/onyx/server/metrics/indexing_pipeline.py:246:        self._celery_app = app
+backend/onyx/server/metrics/indexing_pipeline.py:249:        if self._celery_app is None:
+backend/onyx/server/metrics/indexing_pipeline.py:252:        redis_client = celery_get_broker_client(self._celery_app)
+backend/onyx/server/metrics/indexing_pipeline.py:302:    def __init__(self, celery_app: Any) -> None:
+backend/onyx/server/metrics/indexing_pipeline.py:303:        self._app = celery_app
+backend/onyx/server/metrics/indexing_pipeline.py:422:            "onyx_celery_active_worker_count",
+backend/onyx/server/metrics/indexing_pipeline.py:432:            "onyx_celery_worker_up",
+backend/onyx/server/metrics/deletion_metrics.py:63:    "Deletion fences reset due to missing celery tasks",
+backend/onyx/server/metrics/indexing_pipeline_setup.py:3:Called once by the monitoring celery worker after Redis and DB are ready.
+backend/onyx/server/metrics/indexing_pipeline_setup.py:6:from celery import Celery
+backend/onyx/server/metrics/indexing_pipeline_setup.py:18:# state) until configure() / set_celery_app() is called. Keeping them at
+backend/onyx/server/metrics/indexing_pipeline_setup.py:27:def setup_indexing_pipeline_metrics(celery_app: Celery) -> None:
+backend/onyx/server/metrics/indexing_pipeline_setup.py:31:        celery_app: The Celery application instance. Used to obtain a
+backend/onyx/server/metrics/indexing_pipeline_setup.py:37:    _queue_collector.set_celery_app(celery_app)
+backend/onyx/server/metrics/indexing_pipeline_setup.py:38:    _redis_health_collector.set_celery_app(celery_app)
+backend/onyx/server/metrics/indexing_pipeline_setup.py:45:        _heartbeat_monitor = WorkerHeartbeatMonitor(celery_app)
+backend/onyx/tracing/framework/provider.py:276:                # outside an active trace context (e.g. celery tasks with
+backend/onyx/main.py:251:    application.include_router(router, **final_kwargs)
+backend/onyx/main.py:435:    application = FastAPI(
+backend/onyx/main.py:726:    uvicorn.run(app, host=APP_HOST, port=APP_PORT)
+backend/onyx/configs/app_configs.py:535:# Used by celery as broker and backend
+backend/onyx/configs/app_configs.py:541:# will propagate to both our redis client as well as celery's redis client
+backend/onyx/configs/app_configs.py:544:# our redis client only, not celery's
+backend/onyx/configs/app_configs.py:547:# https://docs.celeryq.dev/en/stable/userguide/configuration.html#redis-backend-settings
+backend/onyx/configs/app_configs.py:554:# https://docs.celeryq.dev/en/stable/userguide/configuration.html#broker-pool-limit
+backend/onyx/configs/app_configs.py:963:# (serial-ish celery fan-out plus per-image vision-LLM calls) to OOM the
+backend/onyx/configs/constants.py:84:POSTGRES_CELERY_APP_NAME = "celery"
+backend/onyx/configs/constants.py:85:POSTGRES_CELERY_BEAT_APP_NAME = "celery_beat"
+backend/onyx/configs/constants.py:86:POSTGRES_CELERY_WORKER_PRIMARY_APP_NAME = "celery_worker_primary"
+backend/onyx/configs/constants.py:87:POSTGRES_CELERY_WORKER_LIGHT_APP_NAME = "celery_worker_light"
+backend/onyx/configs/constants.py:88:POSTGRES_CELERY_WORKER_DOCPROCESSING_APP_NAME = "celery_worker_docprocessing"
+backend/onyx/configs/constants.py:89:POSTGRES_CELERY_WORKER_DOCFETCHING_APP_NAME = "celery_worker_docfetching"
+backend/onyx/configs/constants.py:90:POSTGRES_CELERY_WORKER_INDEXING_CHILD_APP_NAME = "celery_worker_indexing_child"
+backend/onyx/configs/constants.py:91:POSTGRES_CELERY_WORKER_HEAVY_APP_NAME = "celery_worker_heavy"
+backend/onyx/configs/constants.py:92:POSTGRES_CELERY_WORKER_MONITORING_APP_NAME = "celery_worker_monitoring"
+backend/onyx/configs/constants.py:94:    "celery_worker_user_file_processing"
+backend/onyx/configs/constants.py:96:POSTGRES_CELERY_WORKER_SCHEDULED_TASKS_APP_NAME = "celery_worker_scheduled_tasks"
+backend/onyx/configs/constants.py:410:    # "celery" is the default queue defined by celery and also the queue
+backend/onyx/configs/constants.py:413:    PRIMARY = "celery"
+backend/onyx/configs/constants.py:548:    DEFAULT = "celery"
+backend/onyx/configs/constants.py:553:        f"{ONYX_CLOUD_CELERY_TASK_PREFIX}_monitor_celery_queues"
+backend/onyx/configs/constants.py:559:        f"{ONYX_CLOUD_CELERY_TASK_PREFIX}_monitor_celery_pidbox"
+backend/onyx/configs/constants.py:591:    MONITOR_CELERY_QUEUES = "monitor_celery_queues"
+backend/onyx/configs/constants.py:593:    CELERY_BEAT_HEARTBEAT = "celery_beat_heartbeat"
+backend/onyx/configs/constants.py:653:ONYX_CELERY_BEAT_HEARTBEAT_KEY = "onyx:celery:beat:heartbeat"
+backend/onyx/background/README.md:15:| Primary                   | `apps/primary.py`              | `celery`                                                                                                             |
+backend/onyx/background/README.md:22:| Background (consolidated) | `apps/background.py`           | All queues above except `celery`                                                                                     |
+backend/onyx/background/README.md:43:It is the single worker which handles tasks from the default celery queue. It is a singleton worker ensured by the `PRIMARY_WORKER` Redis lock
+backend/onyx/background/README.md:64:| `celery_beat_heartbeat`           | 1m        | Heartbeat for Beat watchdog                                                                |
+backend/onyx/background/README.md:66:Watchdog is a separate Python process managed by supervisord which runs alongside celery workers. It checks the ONYX_CELERY_BEAT_HEARTBEAT_KEY in
+backend/onyx/background/README.md:67:Redis to ensure Celery Beat is not dead. Beat schedules the celery_beat_heartbeat for Primary to touch the key and share that it's still alive.
+backend/onyx/background/README.md:111:For the full metric reference, integration guide, and PromQL examples, see [`docs/METRICS.md`](../../../docs/METRICS.md#celery-worker-metrics).
+backend/onyx/background/celery/celery_redis.py:7:from celery import Celery
+backend/onyx/background/celery/celery_redis.py:10:from onyx.background.celery.configs.base import CELERY_SEPARATOR
+backend/onyx/background/celery/celery_redis.py:20:def celery_get_broker_client(app: Celery) -> Redis:
+backend/onyx/background/celery/celery_redis.py:30:        r_celery = celery_get_broker_client(self.app)
+backend/onyx/background/celery/celery_redis.py:31:        length = celery_get_queue_length(queue, r_celery)
+backend/onyx/background/celery/celery_redis.py:65:def celery_get_unacked_length(r: Redis) -> int:
+backend/onyx/background/celery/celery_redis.py:72:    ref: https://blog.hikaru.run/2022/08/29/get-waiting-tasks-count-in-celery.html
+backend/onyx/background/celery/celery_redis.py:78:def celery_get_unacked_task_ids(queue: str, r: Redis) -> set[str]:
+backend/onyx/background/celery/celery_redis.py:113:def celery_get_queue_length(queue: str, r: Redis) -> int:
+backend/onyx/background/celery/celery_redis.py:114:    """This is a redis specific way to get the length of a celery queue.
+backend/onyx/background/celery/celery_redis.py:131:def celery_find_task(task_id: str, queue: str, r: Redis) -> int:
+backend/onyx/background/celery/celery_redis.py:153:def celery_get_queued_task_ids(queue: str, r: Redis) -> set[str]:
+backend/onyx/background/celery/celery_redis.py:176:def celery_inspect_get_workers(name_filter: str | None, app: Celery) -> list[str]:
+backend/onyx/background/celery/celery_redis.py:180:    We've empirically discovered that the celery inspect API is potentially unstable
+backend/onyx/background/celery/celery_redis.py:181:    and may hang or return empty results when celery is under load. Suggest using this
+backend/onyx/background/celery/celery_redis.py:205:def celery_inspect_get_reserved(worker_names: list[str], app: Celery) -> set[str]:
+backend/onyx/background/celery/celery_redis.py:208:    We've empirically discovered that the celery inspect API is potentially unstable
+backend/onyx/background/celery/celery_redis.py:209:    and may hang or return empty results when celery is under load. Suggest using this
+backend/onyx/background/celery/celery_redis.py:228:def celery_inspect_get_active(worker_names: list[str], app: Celery) -> set[str]:
+backend/onyx/background/celery/celery_redis.py:231:    We've empirically discovered that the celery inspect API is potentially unstable
+backend/onyx/background/celery/celery_redis.py:232:    and may hang or return empty results when celery is under load. Suggest using this
+backend/onyx/background/celery/memory_monitoring.py:1:# backend/onyx/background/celery/memory_monitoring.py
+backend/onyx/background/celery/apps/app_base.py:10:from celery import bootsteps  # ty: ignore[unresolved-import]
+backend/onyx/background/celery/apps/app_base.py:11:from celery import Task
+backend/onyx/background/celery/apps/app_base.py:12:from celery.app import trace  # ty: ignore[unresolved-import]
+backend/onyx/background/celery/apps/app_base.py:13:from celery.exceptions import WorkerShutdown
+backend/onyx/background/celery/apps/app_base.py:14:from celery.signals import before_task_publish
+backend/onyx/background/celery/apps/app_base.py:15:from celery.signals import task_postrun
+backend/onyx/background/celery/apps/app_base.py:16:from celery.signals import task_prerun
+backend/onyx/background/celery/apps/app_base.py:17:from celery.states import READY_STATES
+backend/onyx/background/celery/apps/app_base.py:18:from celery.utils.log import get_task_logger
+backend/onyx/background/celery/apps/app_base.py:19:from celery.worker import strategy  # ty: ignore[unresolved-import]
+backend/onyx/background/celery/apps/app_base.py:21:from sentry_sdk.integrations.celery import CeleryIntegration
+backend/onyx/background/celery/apps/app_base.py:26:from onyx.background.celery.apps.task_formatters import CeleryTaskColoredFormatter
+backend/onyx/background/celery/apps/app_base.py:27:from onyx.background.celery.apps.task_formatters import CeleryTaskPlainFormatter
+backend/onyx/background/celery/apps/app_base.py:28:from onyx.background.celery.celery_utils import celery_is_worker_primary
+backend/onyx/background/celery/apps/app_base.py:29:from onyx.background.celery.celery_utils import make_probe_path
+backend/onyx/background/celery/apps/app_base.py:30:from onyx.background.celery.tasks.vespa.document_sync import DOCUMENT_SYNC_PREFIX
+backend/onyx/background/celery/apps/app_base.py:31:from onyx.background.celery.tasks.vespa.document_sync import DOCUMENT_SYNC_TASKSET_KEY
+backend/onyx/background/celery/apps/app_base.py:170:    # Get tenant_id directly from kwargs- each celery task has a tenant_id kwarg
+backend/onyx/background/celery/apps/app_base.py:237:def on_celeryd_init(
+backend/onyx/background/celery/apps/app_base.py:242:    """The first signal sent on celery worker startup"""
+backend/onyx/background/celery/apps/app_base.py:276:    Will raise WorkerShutdown to kill the celery worker if the timeout
+backend/onyx/background/celery/apps/app_base.py:318:    Will raise WorkerShutdown to kill the celery worker if the timeout is reached."""
+backend/onyx/background/celery/apps/app_base.py:358:    logger.info("Running as a secondary celery worker: pid=%s", os.getpid())
+backend/onyx/background/celery/apps/app_base.py:392:    # https://medium.com/ambient-innovation/health-checks-for-celery-in-kubernetes-cf3274a3e106
+backend/onyx/background/celery/apps/app_base.py:393:    # https://github.com/celery/celery/issues/4079#issuecomment-1270085680
+backend/onyx/background/celery/apps/app_base.py:408:    if not celery_is_worker_primary(sender):
+backend/onyx/background/celery/apps/app_base.py:433:    Returns True iff --loglevel or -l was explicitly passed on the celery CLI.
+backend/onyx/background/celery/apps/app_base.py:454:    Returns the (level, human-readable explanation) for celery worker logging.
+backend/onyx/background/celery/apps/app_base.py:467:        return cli_loglevel, "celery --loglevel CLI arg"
+backend/onyx/background/celery/apps/app_base.py:476:    return cli_loglevel, "celery default (no --loglevel, no LOG_LEVEL)"
+backend/onyx/background/celery/apps/app_base.py:487:    # celery's config
+backend/onyx/background/celery/apps/app_base.py:562:    # hide celery task received spam
+backend/onyx/background/celery/apps/app_base.py:566:    # uncomment this to hide celery task succeeded/failed spam
+backend/onyx/background/celery/apps/app_base.py:638:    requires = {"celery.worker.components:Timer"}
+backend/onyx/background/celery/apps/app_base.py:670:    "onyx.background.celery.tasks.connector_deletion",
+backend/onyx/background/celery/apps/app_base.py:671:    "onyx.background.celery.tasks.docprocessing",
+backend/onyx/background/celery/apps/app_base.py:672:    "onyx.background.celery.tasks.docfetching",
+backend/onyx/background/celery/apps/app_base.py:673:    "onyx.background.celery.tasks.pruning",
+backend/onyx/background/celery/apps/app_base.py:674:    "onyx.background.celery.tasks.vespa",
+backend/onyx/background/celery/apps/app_base.py:675:    "onyx.background.celery.tasks.opensearch_migration",
+backend/onyx/background/celery/apps/app_base.py:676:    "onyx.background.celery.tasks.doc_permission_syncing",
+backend/onyx/background/celery/apps/app_base.py:677:    "onyx.background.celery.tasks.hierarchyfetching",
+backend/onyx/background/celery/apps/app_base.py:679:    "ee.onyx.background.celery.tasks.doc_permission_syncing",
+backend/onyx/background/celery/apps/app_base.py:680:    "ee.onyx.background.celery.tasks.external_group_syncing",
+backend/onyx/background/celery/apps/app_base.py:682:# NOTE: "onyx.background.celery.tasks.shared" is intentionally NOT in the set
+backend/onyx/background/celery/apps/app_base.py:683:# above. It contains celery_beat_heartbeat (which only writes to Redis) alongside
+backend/onyx/background/celery/apps/user_file_processing.py:4:from celery import Celery
+backend/onyx/background/celery/apps/user_file_processing.py:5:from celery import signals
+backend/onyx/background/celery/apps/user_file_processing.py:6:from celery import Task
+backend/onyx/background/celery/apps/user_file_processing.py:7:from celery.apps.worker import Worker
+backend/onyx/background/celery/apps/user_file_processing.py:8:from celery.signals import celeryd_init
+backend/onyx/background/celery/apps/user_file_processing.py:9:from celery.signals import worker_init
+backend/onyx/background/celery/apps/user_file_processing.py:10:from celery.signals import worker_process_init
+backend/onyx/background/celery/apps/user_file_processing.py:11:from celery.signals import worker_ready
+backend/onyx/background/celery/apps/user_file_processing.py:12:from celery.signals import worker_shutdown
+backend/onyx/background/celery/apps/user_file_processing.py:14:import onyx.background.celery.apps.app_base as app_base
+backend/onyx/background/celery/apps/user_file_processing.py:22:celery_app = Celery(__name__)
+backend/onyx/background/celery/apps/user_file_processing.py:23:celery_app.config_from_object("onyx.background.celery.configs.user_file_processing")
+backend/onyx/background/celery/apps/user_file_processing.py:24:celery_app.Task = app_base.TenantAwareTask  # ty: ignore[invalid-assignment]
+backend/onyx/background/celery/apps/user_file_processing.py:53:@celeryd_init.connect
+backend/onyx/background/celery/apps/user_file_processing.py:54:def on_celeryd_init(sender: str, conf: Any = None, **kwargs: Any) -> None:
+backend/onyx/background/celery/apps/user_file_processing.py:55:    app_base.on_celeryd_init(sender, conf, **kwargs)
+backend/onyx/background/celery/apps/user_file_processing.py:106:    celery_app.steps["worker"].add(bootstep)
+backend/onyx/background/celery/apps/user_file_processing.py:108:celery_app.autodiscover_tasks(
+backend/onyx/background/celery/apps/user_file_processing.py:111:            "onyx.background.celery.tasks.user_file_processing",
+backend/onyx/background/celery/apps/scheduled_tasks.py:4:from celery import Celery
+backend/onyx/background/celery/apps/scheduled_tasks.py:5:from celery import signals
+backend/onyx/background/celery/apps/scheduled_tasks.py:6:from celery import Task
+backend/onyx/background/celery/apps/scheduled_tasks.py:7:from celery.apps.worker import Worker
+backend/onyx/background/celery/apps/scheduled_tasks.py:8:from celery.signals import celeryd_init
+backend/onyx/background/celery/apps/scheduled_tasks.py:9:from celery.signals import worker_init
+backend/onyx/background/celery/apps/scheduled_tasks.py:10:from celery.signals import worker_ready
+backend/onyx/background/celery/apps/scheduled_tasks.py:11:from celery.signals import worker_shutdown
+backend/onyx/background/celery/apps/scheduled_tasks.py:13:import onyx.background.celery.apps.app_base as app_base
+backend/onyx/background/celery/apps/scheduled_tasks.py:16:from onyx.server.metrics.celery_task_metrics import on_celery_task_postrun
+backend/onyx/background/celery/apps/scheduled_tasks.py:17:from onyx.server.metrics.celery_task_metrics import on_celery_task_prerun
+backend/onyx/background/celery/apps/scheduled_tasks.py:18:from onyx.server.metrics.celery_task_metrics import on_celery_task_rejected
+backend/onyx/background/celery/apps/scheduled_tasks.py:19:from onyx.server.metrics.celery_task_metrics import on_celery_task_retry
+backend/onyx/background/celery/apps/scheduled_tasks.py:20:from onyx.server.metrics.celery_task_metrics import on_celery_task_revoked
+backend/onyx/background/celery/apps/scheduled_tasks.py:27:celery_app = Celery(__name__)
+backend/onyx/background/celery/apps/scheduled_tasks.py:28:celery_app.config_from_object("onyx.background.celery.configs.scheduled_tasks")
+backend/onyx/background/celery/apps/scheduled_tasks.py:29:celery_app.Task = app_base.TenantAwareTask  # ty: ignore[invalid-assignment]
+backend/onyx/background/celery/apps/scheduled_tasks.py:42:    on_celery_task_prerun(task_id, task)
+backend/onyx/background/celery/apps/scheduled_tasks.py:57:    on_celery_task_postrun(task_id, task, state)
+backend/onyx/background/celery/apps/scheduled_tasks.py:63:    on_celery_task_retry(task_id, sender)
+backend/onyx/background/celery/apps/scheduled_tasks.py:69:    on_celery_task_revoked(kwargs.get("task_id"), task_name)
+backend/onyx/background/celery/apps/scheduled_tasks.py:81:    on_celery_task_rejected(None, task_name)
+backend/onyx/background/celery/apps/scheduled_tasks.py:84:@celeryd_init.connect
+backend/onyx/background/celery/apps/scheduled_tasks.py:85:def on_celeryd_init(sender: str, conf: Any = None, **kwargs: Any) -> None:
+backend/onyx/background/celery/apps/scheduled_tasks.py:86:    app_base.on_celeryd_init(sender, conf, **kwargs)
+backend/onyx/background/celery/apps/scheduled_tasks.py:128:    celery_app.steps["worker"].add(bootstep)
+backend/onyx/background/celery/apps/scheduled_tasks.py:130:celery_app.autodiscover_tasks(
+backend/onyx/background/celery/apps/scheduled_tasks.py:137:            "onyx.background.celery.tasks.scheduled_tasks",
+backend/onyx/background/celery/apps/heavy.py:4:from celery import Celery
+backend/onyx/background/celery/apps/heavy.py:5:from celery import signals
+backend/onyx/background/celery/apps/heavy.py:6:from celery import Task
+backend/onyx/background/celery/apps/heavy.py:7:from celery.apps.worker import Worker
+backend/onyx/background/celery/apps/heavy.py:8:from celery.signals import celeryd_init
+backend/onyx/background/celery/apps/heavy.py:9:from celery.signals import worker_init
+backend/onyx/background/celery/apps/heavy.py:10:from celery.signals import worker_ready
+backend/onyx/background/celery/apps/heavy.py:11:from celery.signals import worker_shutdown
+backend/onyx/background/celery/apps/heavy.py:13:import onyx.background.celery.apps.app_base as app_base
+backend/onyx/background/celery/apps/heavy.py:16:from onyx.server.metrics.celery_task_metrics import on_celery_task_postrun
+backend/onyx/background/celery/apps/heavy.py:17:from onyx.server.metrics.celery_task_metrics import on_celery_task_prerun
+backend/onyx/background/celery/apps/heavy.py:18:from onyx.server.metrics.celery_task_metrics import on_celery_task_rejected
+backend/onyx/background/celery/apps/heavy.py:19:from onyx.server.metrics.celery_task_metrics import on_celery_task_retry
+backend/onyx/background/celery/apps/heavy.py:20:from onyx.server.metrics.celery_task_metrics import on_celery_task_revoked
+backend/onyx/background/celery/apps/heavy.py:27:celery_app = Celery(__name__)
+backend/onyx/background/celery/apps/heavy.py:28:celery_app.config_from_object("onyx.background.celery.configs.heavy")
+backend/onyx/background/celery/apps/heavy.py:29:celery_app.Task = app_base.TenantAwareTask  # ty: ignore[invalid-assignment]
+backend/onyx/background/celery/apps/heavy.py:42:    on_celery_task_prerun(task_id, task)
+backend/onyx/background/celery/apps/heavy.py:57:    on_celery_task_postrun(task_id, task, state)
+backend/onyx/background/celery/apps/heavy.py:63:    on_celery_task_retry(task_id, sender)
+backend/onyx/background/celery/apps/heavy.py:69:    on_celery_task_revoked(kwargs.get("task_id"), task_name)
+backend/onyx/background/celery/apps/heavy.py:81:    on_celery_task_rejected(None, task_name)
+backend/onyx/background/celery/apps/heavy.py:84:@celeryd_init.connect
+backend/onyx/background/celery/apps/heavy.py:85:def on_celeryd_init(sender: str, conf: Any = None, **kwargs: Any) -> None:
+backend/onyx/background/celery/apps/heavy.py:86:    app_base.on_celeryd_init(sender, conf, **kwargs)
+backend/onyx/background/celery/apps/heavy.py:128:    celery_app.steps["worker"].add(bootstep)
+backend/onyx/background/celery/apps/heavy.py:130:celery_app.autodiscover_tasks(
+backend/onyx/background/celery/apps/heavy.py:133:            "onyx.background.celery.tasks.pruning",
+backend/onyx/background/celery/apps/heavy.py:136:            "onyx.background.celery.tasks.hierarchyfetching",
+backend/onyx/background/celery/apps/light.py:3:from celery import Celery
+backend/onyx/background/celery/apps/light.py:4:from celery import signals
+backend/onyx/background/celery/apps/light.py:5:from celery import Task
+backend/onyx/background/celery/apps/light.py:6:from celery.apps.worker import Worker
+backend/onyx/background/celery/apps/light.py:7:from celery.signals import celeryd_init
+backend/onyx/background/celery/apps/light.py:8:from celery.signals import worker_init
+backend/onyx/background/celery/apps/light.py:9:from celery.signals import worker_ready
+backend/onyx/background/celery/apps/light.py:10:from celery.signals import worker_shutdown
+backend/onyx/background/celery/apps/light.py:12:import onyx.background.celery.apps.app_base as app_base
+backend/onyx/background/celery/apps/light.py:13:from onyx.background.celery.celery_utils import httpx_init_vespa_pool
+backend/onyx/background/celery/apps/light.py:19:from onyx.server.metrics.celery_task_metrics import on_celery_task_postrun
+backend/onyx/background/celery/apps/light.py:20:from onyx.server.metrics.celery_task_metrics import on_celery_task_prerun
+backend/onyx/background/celery/apps/light.py:21:from onyx.server.metrics.celery_task_metrics import on_celery_task_rejected
+backend/onyx/background/celery/apps/light.py:22:from onyx.server.metrics.celery_task_metrics import on_celery_task_retry
+backend/onyx/background/celery/apps/light.py:23:from onyx.server.metrics.celery_task_metrics import on_celery_task_revoked
+backend/onyx/background/celery/apps/light.py:30:celery_app = Celery(__name__)
+backend/onyx/background/celery/apps/light.py:31:celery_app.config_from_object("onyx.background.celery.configs.light")
+backend/onyx/background/celery/apps/light.py:32:celery_app.Task = app_base.TenantAwareTask  # ty: ignore[invalid-assignment]
+backend/onyx/background/celery/apps/light.py:45:    on_celery_task_prerun(task_id, task)
+backend/onyx/background/celery/apps/light.py:60:    on_celery_task_postrun(task_id, task, state)
+backend/onyx/background/celery/apps/light.py:66:    on_celery_task_retry(task_id, sender)
+backend/onyx/background/celery/apps/light.py:72:    on_celery_task_revoked(kwargs.get("task_id"), task_name)
+backend/onyx/background/celery/apps/light.py:84:    on_celery_task_rejected(None, task_name)
+backend/onyx/background/celery/apps/light.py:87:@celeryd_init.connect
+backend/onyx/background/celery/apps/light.py:88:def on_celeryd_init(sender: str, conf: Any = None, **kwargs: Any) -> None:
+backend/onyx/background/celery/apps/light.py:89:    app_base.on_celeryd_init(sender, conf, **kwargs)
+backend/onyx/background/celery/apps/light.py:151:    celery_app.steps["worker"].add(bootstep)
+backend/onyx/background/celery/apps/light.py:153:celery_app.autodiscover_tasks(
+backend/onyx/background/celery/apps/light.py:156:            "onyx.background.celery.tasks.shared",
+backend/onyx/background/celery/apps/light.py:157:            "onyx.background.celery.tasks.vespa",
+backend/onyx/background/celery/apps/light.py:158:            "onyx.background.celery.tasks.connector_deletion",
+backend/onyx/background/celery/apps/light.py:159:            "onyx.background.celery.tasks.doc_permission_syncing",
+backend/onyx/background/celery/apps/light.py:160:            "onyx.background.celery.tasks.docprocessing",
+backend/onyx/background/celery/apps/light.py:161:            "onyx.background.celery.tasks.opensearch_migration",
+backend/onyx/chat/chat_utils.py:420:        # the celery indexing worker stores), otherwise fall back to the
+backend/onyx/background/celery/apps/beat.py:4:from celery import Celery
+backend/onyx/background/celery/apps/beat.py:5:from celery import signals
+backend/onyx/background/celery/apps/beat.py:6:from celery.beat import PersistentScheduler  # ty: ignore[unresolved-import]
+backend/onyx/background/celery/apps/beat.py:7:from celery.signals import beat_init
+backend/onyx/background/celery/apps/beat.py:8:from celery.utils.log import get_task_logger
+backend/onyx/background/celery/apps/beat.py:10:import onyx.background.celery.apps.app_base as app_base
+backend/onyx/background/celery/apps/beat.py:11:from onyx.background.celery.celery_utils import make_probe_path
+backend/onyx/background/celery/apps/beat.py:12:from onyx.background.celery.tasks.beat_schedule import CLOUD_BEAT_MULTIPLIER_DEFAULT
+backend/onyx/background/celery/apps/beat.py:23:celery_app = Celery(__name__)
+backend/onyx/background/celery/apps/beat.py:24:celery_app.config_from_object("onyx.background.celery.configs.beat")
+backend/onyx/background/celery/apps/beat.py:85:        """Given a list of tenant id's, generates a new beat schedule for celery."""
+backend/onyx/background/celery/apps/beat.py:92:                "onyx.background.celery.tasks.beat_schedule",
+backend/onyx/background/celery/apps/beat.py:118:            "onyx.background.celery.tasks.beat_schedule", "get_tasks_to_schedule"
+backend/onyx/background/celery/apps/beat.py:156:        """Only updates the actual beat schedule on the celery app when it changes"""
+backend/onyx/background/celery/apps/beat.py:274:celery_app.conf.beat_scheduler = DynamicTenantScheduler
+backend/onyx/background/celery/apps/beat.py:275:celery_app.conf.task_default_base = app_base.TenantAwareTask
+backend/onyx/background/celery/apps/monitoring.py:4:from celery import Celery
+backend/onyx/background/celery/apps/monitoring.py:5:from celery import signals
+backend/onyx/background/celery/apps/monitoring.py:6:from celery import Task
+backend/onyx/background/celery/apps/monitoring.py:7:from celery.signals import celeryd_init
+backend/onyx/background/celery/apps/monitoring.py:8:from celery.signals import worker_init
+backend/onyx/background/celery/apps/monitoring.py:9:from celery.signals import worker_ready
+backend/onyx/background/celery/apps/monitoring.py:10:from celery.signals import worker_shutdown
+backend/onyx/background/celery/apps/monitoring.py:12:import onyx.background.celery.apps.app_base as app_base
+backend/onyx/background/celery/apps/monitoring.py:20:celery_app = Celery(__name__)
+backend/onyx/background/celery/apps/monitoring.py:21:celery_app.config_from_object("onyx.background.celery.configs.monitoring")
+backend/onyx/background/celery/apps/monitoring.py:22:celery_app.Task = app_base.TenantAwareTask  # ty: ignore[invalid-assignment]
+backend/onyx/background/celery/apps/monitoring.py:51:@celeryd_init.connect
+backend/onyx/background/celery/apps/monitoring.py:52:def on_celeryd_init(sender: Any = None, conf: Any = None, **kwargs: Any) -> None:
+backend/onyx/background/celery/apps/monitoring.py:53:    app_base.on_celeryd_init(sender, conf, **kwargs)
+backend/onyx/background/celery/apps/monitoring.py:130:    celery_app.steps["worker"].add(bootstep)
+backend/onyx/background/celery/apps/monitoring.py:132:celery_app.autodiscover_tasks(
+backend/onyx/background/celery/apps/monitoring.py:135:            "onyx.background.celery.tasks.monitoring",
+backend/onyx/background/celery/apps/docprocessing.py:4:from celery import Celery
+backend/onyx/background/celery/apps/docprocessing.py:5:from celery import signals
+backend/onyx/background/celery/apps/docprocessing.py:6:from celery import Task
+backend/onyx/background/celery/apps/docprocessing.py:7:from celery.apps.worker import Worker
+backend/onyx/background/celery/apps/docprocessing.py:8:from celery.signals import celeryd_init
+backend/onyx/background/celery/apps/docprocessing.py:9:from celery.signals import worker_init
+backend/onyx/background/celery/apps/docprocessing.py:10:from celery.signals import worker_process_init
+backend/onyx/background/celery/apps/docprocessing.py:11:from celery.signals import worker_ready
+backend/onyx/background/celery/apps/docprocessing.py:12:from celery.signals import worker_shutdown
+backend/onyx/background/celery/apps/docprocessing.py:14:import onyx.background.celery.apps.app_base as app_base
+backend/onyx/background/celery/apps/docprocessing.py:15:from onyx.background.celery.tasks.docprocessing.batch_counters import (
+backend/onyx/background/celery/apps/docprocessing.py:18:from onyx.background.celery.tasks.docprocessing.batch_counters import (
+backend/onyx/background/celery/apps/docprocessing.py:23:from onyx.server.metrics.celery_task_metrics import on_celery_task_postrun
+backend/onyx/background/celery/apps/docprocessing.py:24:from onyx.server.metrics.celery_task_metrics import on_celery_task_prerun
+backend/onyx/background/celery/apps/docprocessing.py:25:from onyx.server.metrics.celery_task_metrics import on_celery_task_rejected
+backend/onyx/background/celery/apps/docprocessing.py:26:from onyx.server.metrics.celery_task_metrics import on_celery_task_retry
+backend/onyx/background/celery/apps/docprocessing.py:27:from onyx.server.metrics.celery_task_metrics import on_celery_task_revoked
+backend/onyx/background/celery/apps/docprocessing.py:36:celery_app = Celery(__name__)
+backend/onyx/background/celery/apps/docprocessing.py:37:celery_app.config_from_object("onyx.background.celery.configs.docprocessing")
+backend/onyx/background/celery/apps/docprocessing.py:38:celery_app.Task = app_base.TenantAwareTask  # ty: ignore[invalid-assignment]
+backend/onyx/background/celery/apps/docprocessing.py:51:    on_celery_task_prerun(task_id, task)
+backend/onyx/background/celery/apps/docprocessing.py:68:    on_celery_task_postrun(task_id, task, state)
+backend/onyx/background/celery/apps/docprocessing.py:78:    on_celery_task_retry(task_id, sender)
+backend/onyx/background/celery/apps/docprocessing.py:84:    on_celery_task_revoked(kwargs.get("task_id"), task_name)
+backend/onyx/background/celery/apps/docprocessing.py:98:    on_celery_task_rejected(None, task_name)
+backend/onyx/background/celery/apps/docprocessing.py:101:@celeryd_init.connect
+backend/onyx/background/celery/apps/docprocessing.py:102:def on_celeryd_init(sender: str, conf: Any = None, **kwargs: Any) -> None:
+backend/onyx/background/celery/apps/docprocessing.py:103:    app_base.on_celeryd_init(sender, conf, **kwargs)
+backend/onyx/background/celery/apps/docprocessing.py:161:    celery_app.steps["worker"].add(bootstep)
+backend/onyx/background/celery/apps/docprocessing.py:163:celery_app.autodiscover_tasks(
+backend/onyx/background/celery/apps/docprocessing.py:166:            "onyx.background.celery.tasks.docprocessing",
+backend/onyx/background/celery/apps/task_formatters.py:3:from celery import current_task
+backend/onyx/background/celery/apps/client.py:1:from celery import Celery
+backend/onyx/background/celery/apps/client.py:3:import onyx.background.celery.apps.app_base as app_base
+backend/onyx/background/celery/apps/client.py:5:celery_app = Celery(__name__)
+backend/onyx/background/celery/apps/client.py:6:celery_app.config_from_object("onyx.background.celery.configs.client")
+backend/onyx/background/celery/apps/client.py:7:celery_app.Task = app_base.TenantAwareTask  # ty: ignore[invalid-assignment]
+backend/onyx/background/celery/apps/primary.py:6:from celery import bootsteps  # ty: ignore[unresolved-import]
+backend/onyx/background/celery/apps/primary.py:7:from celery import Celery
+backend/onyx/background/celery/apps/primary.py:8:from celery import signals
+backend/onyx/background/celery/apps/primary.py:9:from celery import Task
+backend/onyx/background/celery/apps/primary.py:10:from celery.apps.worker import Worker
+backend/onyx/background/celery/apps/primary.py:11:from celery.exceptions import WorkerShutdown
+backend/onyx/background/celery/apps/primary.py:12:from celery.result import AsyncResult
+backend/onyx/background/celery/apps/primary.py:13:from celery.signals import celeryd_init
+backend/onyx/background/celery/apps/primary.py:14:from celery.signals import worker_init
+backend/onyx/background/celery/apps/primary.py:15:from celery.signals import worker_ready
+backend/onyx/background/celery/apps/primary.py:16:from celery.signals import worker_shutdown
+backend/onyx/background/celery/apps/primary.py:19:import onyx.background.celery.apps.app_base as app_base
+backend/onyx/background/celery/apps/primary.py:20:from onyx.background.celery.apps.app_base import task_logger
+backend/onyx/background/celery/apps/primary.py:21:from onyx.background.celery.celery_utils import celery_is_worker_primary
+backend/onyx/background/celery/apps/primary.py:22:from onyx.background.celery.tasks.vespa.document_sync import reset_document_sync
+backend/onyx/background/celery/apps/primary.py:41:from onyx.server.metrics.celery_task_metrics import on_celery_task_postrun
+backend/onyx/background/celery/apps/primary.py:42:from onyx.server.metrics.celery_task_metrics import on_celery_task_prerun
+backend/onyx/background/celery/apps/primary.py:43:from onyx.server.metrics.celery_task_metrics import on_celery_task_rejected
+backend/onyx/background/celery/apps/primary.py:44:from onyx.server.metrics.celery_task_metrics import on_celery_task_retry
+backend/onyx/background/celery/apps/primary.py:45:from onyx.server.metrics.celery_task_metrics import on_celery_task_revoked
+backend/onyx/background/celery/apps/primary.py:53:celery_app = Celery(__name__)
+backend/onyx/background/celery/apps/primary.py:54:celery_app.config_from_object("onyx.background.celery.configs.primary")
+backend/onyx/background/celery/apps/primary.py:55:celery_app.Task = app_base.TenantAwareTask  # ty: ignore[invalid-assignment]
+backend/onyx/background/celery/apps/primary.py:68:    on_celery_task_prerun(task_id, task)
+backend/onyx/background/celery/apps/primary.py:83:    on_celery_task_postrun(task_id, task, state)
+backend/onyx/background/celery/apps/primary.py:89:    on_celery_task_retry(task_id, sender)
+backend/onyx/background/celery/apps/primary.py:95:    on_celery_task_revoked(kwargs.get("task_id"), task_name)
+backend/onyx/background/celery/apps/primary.py:107:    on_celery_task_rejected(None, task_name)
+backend/onyx/background/celery/apps/primary.py:110:@celeryd_init.connect
+backend/onyx/background/celery/apps/primary.py:111:def on_celeryd_init(sender: str, conf: Any = None, **kwargs: Any) -> None:
+backend/onyx/background/celery/apps/primary.py:112:    app_base.on_celeryd_init(sender, conf, **kwargs)
+backend/onyx/background/celery/apps/primary.py:129:    logger.info("Running as the primary celery worker: pid=%s", os.getpid())
+backend/onyx/background/celery/apps/primary.py:214:                or not attempt.celery_task_id
+backend/onyx/background/celery/apps/primary.py:221:                result: AsyncResult = AsyncResult(attempt.celery_task_id)
+backend/onyx/background/celery/apps/primary.py:233:                    f"celery_task_id={attempt.celery_task_id}"
+backend/onyx/background/celery/apps/primary.py:243:                    attempt.celery_task_id,
+backend/onyx/background/celery/apps/primary.py:278:    requires = {"celery.worker.components:Hub"}
+backend/onyx/background/celery/apps/primary.py:285:        if not celery_is_worker_primary(worker):
+backend/onyx/background/celery/apps/primary.py:299:            if not celery_is_worker_primary(worker):
+backend/onyx/background/celery/apps/primary.py:342:celery_app.steps["worker"].add(HubPeriodicTask)
+backend/onyx/background/celery/apps/primary.py:346:    celery_app.steps["worker"].add(bootstep)
+backend/onyx/background/celery/apps/primary.py:348:celery_app.autodiscover_tasks(
+backend/onyx/background/celery/apps/primary.py:351:            "onyx.background.celery.tasks.connector_deletion",
+backend/onyx/background/celery/apps/primary.py:352:            "onyx.background.celery.tasks.docprocessing",
+backend/onyx/background/celery/apps/primary.py:353:            "onyx.background.celery.tasks.evals",
+backend/onyx/background/celery/apps/primary.py:354:            "onyx.background.celery.tasks.hierarchyfetching",
+backend/onyx/background/celery/apps/primary.py:355:            "onyx.background.celery.tasks.pruning",
+backend/onyx/background/celery/apps/primary.py:356:            "onyx.background.celery.tasks.scheduled_tasks",
+backend/onyx/background/celery/apps/primary.py:357:            "onyx.background.celery.tasks.shared",
+backend/onyx/background/celery/apps/primary.py:358:            "onyx.background.celery.tasks.vespa",
+backend/onyx/background/celery/apps/primary.py:359:            "onyx.background.celery.tasks.llm_model_update",
+backend/onyx/background/celery/apps/primary.py:360:            "onyx.background.celery.tasks.user_file_processing",
+backend/onyx/background/celery/apps/docfetching.py:4:from celery import Celery
+backend/onyx/background/celery/apps/docfetching.py:5:from celery import signals
+backend/onyx/background/celery/apps/docfetching.py:6:from celery import Task
+backend/onyx/background/celery/apps/docfetching.py:7:from celery.apps.worker import Worker
+backend/onyx/background/celery/apps/docfetching.py:8:from celery.signals import celeryd_init
+backend/onyx/background/celery/apps/docfetching.py:9:from celery.signals import worker_init
+backend/onyx/background/celery/apps/docfetching.py:10:from celery.signals import worker_ready
+backend/onyx/background/celery/apps/docfetching.py:11:from celery.signals import worker_shutdown
+backend/onyx/background/celery/apps/docfetching.py:13:import onyx.background.celery.apps.app_base as app_base
+backend/onyx/background/celery/apps/docfetching.py:16:from onyx.server.metrics.celery_task_metrics import on_celery_task_postrun
+backend/onyx/background/celery/apps/docfetching.py:17:from onyx.server.metrics.celery_task_metrics import on_celery_task_prerun
+backend/onyx/background/celery/apps/docfetching.py:18:from onyx.server.metrics.celery_task_metrics import on_celery_task_rejected
+backend/onyx/background/celery/apps/docfetching.py:19:from onyx.server.metrics.celery_task_metrics import on_celery_task_retry
+backend/onyx/background/celery/apps/docfetching.py:20:from onyx.server.metrics.celery_task_metrics import on_celery_task_revoked
+backend/onyx/background/celery/apps/docfetching.py:29:celery_app = Celery(__name__)
+backend/onyx/background/celery/apps/docfetching.py:30:celery_app.config_from_object("onyx.background.celery.configs.docfetching")
+backend/onyx/background/celery/apps/docfetching.py:31:celery_app.Task = app_base.TenantAwareTask  # ty: ignore[invalid-assignment]
+backend/onyx/background/celery/apps/docfetching.py:44:    on_celery_task_prerun(task_id, task)
+backend/onyx/background/celery/apps/docfetching.py:60:    on_celery_task_postrun(task_id, task, state)
+backend/onyx/background/celery/apps/docfetching.py:69:    on_celery_task_retry(task_id, sender)
+backend/onyx/background/celery/apps/docfetching.py:75:    on_celery_task_revoked(kwargs.get("task_id"), task_name)
+backend/onyx/background/celery/apps/docfetching.py:89:    on_celery_task_rejected(None, task_name)
+backend/onyx/background/celery/apps/docfetching.py:92:@celeryd_init.connect
+backend/onyx/background/celery/apps/docfetching.py:93:def on_celeryd_init(sender: str, conf: Any = None, **kwargs: Any) -> None:
+backend/onyx/background/celery/apps/docfetching.py:94:    app_base.on_celeryd_init(sender, conf, **kwargs)
+backend/onyx/background/celery/apps/docfetching.py:136:    celery_app.steps["worker"].add(bootstep)
+backend/onyx/background/celery/apps/docfetching.py:138:celery_app.autodiscover_tasks(
+backend/onyx/background/celery/apps/docfetching.py:141:            "onyx.background.celery.tasks.docfetching",
+backend/onyx/background/celery/tasks/user_file_processing/tasks.py:8:from celery import Celery
+backend/onyx/background/celery/tasks/user_file_processing/tasks.py:9:from celery import shared_task
+backend/onyx/background/celery/tasks/user_file_processing/tasks.py:10:from celery import Task
+backend/onyx/background/celery/tasks/user_file_processing/tasks.py:17:from onyx.background.celery.apps.app_base import task_logger
+backend/onyx/background/celery/tasks/user_file_processing/tasks.py:18:from onyx.background.celery.celery_redis import celery_get_broker_client
+backend/onyx/background/celery/tasks/user_file_processing/tasks.py:19:from onyx.background.celery.celery_redis import celery_get_queue_length
+backend/onyx/background/celery/tasks/user_file_processing/tasks.py:20:from onyx.background.celery.celery_utils import httpx_init_vespa_pool
+backend/onyx/background/celery/tasks/user_file_processing/tasks.py:21:from onyx.background.celery.tasks.shared.RetryDocumentIndex import RetryDocumentIndex
+backend/onyx/background/celery/tasks/user_file_processing/tasks.py:107:def get_user_file_project_sync_queue_depth(celery_app: Celery) -> int:
+backend/onyx/background/celery/tasks/user_file_processing/tasks.py:108:    redis_celery = celery_get_broker_client(celery_app)
+backend/onyx/background/celery/tasks/user_file_processing/tasks.py:109:    return celery_get_queue_length(
+backend/onyx/background/celery/tasks/user_file_processing/tasks.py:110:        OnyxCeleryQueues.USER_FILE_PROJECT_SYNC, redis_celery
+backend/onyx/background/celery/tasks/user_file_processing/tasks.py:116:    celery_app: Celery,
+backend/onyx/background/celery/tasks/user_file_processing/tasks.py:136:        celery_app.send_task(
+backend/onyx/background/celery/tasks/user_file_processing/tasks.py:197:@shared_task(
+backend/onyx/background/celery/tasks/user_file_processing/tasks.py:241:        r_celery = celery_get_broker_client(self.app)
+backend/onyx/background/celery/tasks/user_file_processing/tasks.py:242:        queue_len = celery_get_queue_length(
+backend/onyx/background/celery/tasks/user_file_processing/tasks.py:243:            OnyxCeleryQueues.USER_FILE_PROCESSING, r_celery
+backend/onyx/background/celery/tasks/user_file_processing/tasks.py:552:@shared_task(
+backend/onyx/background/celery/tasks/user_file_processing/tasks.py:568:@shared_task(
+backend/onyx/background/celery/tasks/user_file_processing/tasks.py:607:        r_celery = celery_get_broker_client(self.app)
+backend/onyx/background/celery/tasks/user_file_processing/tasks.py:608:        queue_len = celery_get_queue_length(OnyxCeleryQueues.USER_FILE_DELETE, r_celery)
+backend/onyx/background/celery/tasks/user_file_processing/tasks.py:778:@shared_task(
+backend/onyx/background/celery/tasks/user_file_processing/tasks.py:794:@shared_task(
+backend/onyx/background/celery/tasks/user_file_processing/tasks.py:843:                    celery_app=self.app,
+backend/onyx/background/celery/tasks/user_file_processing/tasks.py:977:@shared_task(
+backend/onyx/background/celery/tasks/vespa/document_sync.py:5:from celery import Celery
+backend/onyx/background/celery/tasks/vespa/document_sync.py:75:    celery_app: Celery,
+backend/onyx/background/celery/tasks/vespa/document_sync.py:85:        celery_app: Celery application instance
+backend/onyx/background/celery/tasks/vespa/document_sync.py:114:        # Add to the tracking taskset in Redis BEFORE creating the celery task
+backend/onyx/background/celery/tasks/vespa/document_sync.py:119:        celery_app.send_task(
+backend/onyx/background/celery/tasks/vespa/document_sync.py:137:    celery_app: Celery,
+backend/onyx/background/celery/tasks/vespa/document_sync.py:148:    # add tasks to celery and build up the task set to monitor in redis
+backend/onyx/background/celery/tasks/vespa/document_sync.py:167:        r, max_tasks, celery_app, db_session, lock_beat, tenant_id
+backend/onyx/background/celery/tasks/vespa/tasks.py:8:from celery import Celery
+backend/onyx/background/celery/tasks/vespa/tasks.py:9:from celery import shared_task
+backend/onyx/background/celery/tasks/vespa/tasks.py:10:from celery import Task
+backend/onyx/background/celery/tasks/vespa/tasks.py:11:from celery.exceptions import SoftTimeLimitExceeded
+backend/onyx/background/celery/tasks/vespa/tasks.py:17:from onyx.background.celery.apps.app_base import task_logger
+backend/onyx/background/celery/tasks/vespa/tasks.py:18:from onyx.background.celery.tasks.shared.RetryDocumentIndex import RetryDocumentIndex
+backend/onyx/background/celery/tasks/vespa/tasks.py:19:from onyx.background.celery.tasks.shared.tasks import LIGHT_SOFT_TIME_LIMIT
+backend/onyx/background/celery/tasks/vespa/tasks.py:20:from onyx.background.celery.tasks.shared.tasks import LIGHT_TIME_LIMIT
+backend/onyx/background/celery/tasks/vespa/tasks.py:21:from onyx.background.celery.tasks.shared.tasks import OnyxCeleryTaskCompletionStatus
+backend/onyx/background/celery/tasks/vespa/tasks.py:22:from onyx.background.celery.tasks.vespa.document_sync import DOCUMENT_SYNC_FENCE_KEY
+backend/onyx/background/celery/tasks/vespa/tasks.py:23:from onyx.background.celery.tasks.vespa.document_sync import get_document_sync_payload
+backend/onyx/background/celery/tasks/vespa/tasks.py:24:from onyx.background.celery.tasks.vespa.document_sync import get_document_sync_remaining
+backend/onyx/background/celery/tasks/vespa/tasks.py:25:from onyx.background.celery.tasks.vespa.document_sync import reset_document_sync
+backend/onyx/background/celery/tasks/vespa/tasks.py:26:from onyx.background.celery.tasks.vespa.document_sync import (
+backend/onyx/background/celery/tasks/vespa/tasks.py:71:# celery auto associates tasks created inside another task,
+backend/onyx/background/celery/tasks/vespa/tasks.py:75:@shared_task(
+backend/onyx/background/celery/tasks/vespa/tasks.py:183:                        "onyx.background.celery.tasks.vespa.tasks",
+backend/onyx/background/celery/tasks/vespa/tasks.py:212:    celery_app: Celery,
+backend/onyx/background/celery/tasks/vespa/tasks.py:246:    # add tasks to celery and build up the task set to monitor in redis
+backend/onyx/background/celery/tasks/vespa/tasks.py:255:        VESPA_SYNC_MAX_TASKS, celery_app, db_session, r, lock_beat, tenant_id
+backend/onyx/background/celery/tasks/vespa/tasks.py:288:    celery_app: Celery,
+backend/onyx/background/celery/tasks/vespa/tasks.py:322:    # add tasks to celery and build up the task set to monitor in redis
+backend/onyx/background/celery/tasks/vespa/tasks.py:330:        VESPA_SYNC_MAX_TASKS, celery_app, db_session, r, lock_beat, tenant_id
+backend/onyx/background/celery/tasks/vespa/tasks.py:453:@shared_task(
+backend/onyx/background/celery/tasks/vespa/tasks.py:464:    tenant_id: str,  # noqa: ARG001 — kept on the celery task signature
+backend/onyx/background/celery/tasks/vespa/tasks.py:572:            self.retry(exc=e, countdown=countdown)  # this will raise a celery exception
+backend/onyx/background/celery/tasks/docprocessing/batch_counters.py:11:from celery import Task
+backend/onyx/background/celery/tasks/docprocessing/tasks.py:12:from celery import Celery
+backend/onyx/background/celery/tasks/docprocessing/tasks.py:13:from celery import current_app
+backend/onyx/background/celery/tasks/docprocessing/tasks.py:14:from celery import shared_task
+backend/onyx/background/celery/tasks/docprocessing/tasks.py:15:from celery import Task
+backend/onyx/background/celery/tasks/docprocessing/tasks.py:16:from celery.exceptions import SoftTimeLimitExceeded
+backend/onyx/background/celery/tasks/docprocessing/tasks.py:23:from onyx.background.celery.apps.app_base import task_logger
+backend/onyx/background/celery/tasks/docprocessing/tasks.py:24:from onyx.background.celery.celery_redis import celery_get_broker_client
+backend/onyx/background/celery/tasks/docprocessing/tasks.py:25:from onyx.background.celery.celery_redis import celery_get_queued_task_ids
+backend/onyx/background/celery/tasks/docprocessing/tasks.py:26:from onyx.background.celery.celery_redis import celery_get_unacked_task_ids
+backend/onyx/background/celery/tasks/docprocessing/tasks.py:27:from onyx.background.celery.celery_utils import httpx_init_vespa_pool
+backend/onyx/background/celery/tasks/docprocessing/tasks.py:28:from onyx.background.celery.memory_monitoring import emit_process_memory
+backend/onyx/background/celery/tasks/docprocessing/tasks.py:29:from onyx.background.celery.tasks.beat_schedule import CLOUD_BEAT_MULTIPLIER_DEFAULT
+backend/onyx/background/celery/tasks/docprocessing/tasks.py:30:from onyx.background.celery.tasks.docfetching.task_creation_utils import (
+backend/onyx/background/celery/tasks/docprocessing/tasks.py:33:from onyx.background.celery.tasks.docprocessing.heartbeat import start_heartbeat
+backend/onyx/background/celery/tasks/docprocessing/tasks.py:34:from onyx.background.celery.tasks.docprocessing.heartbeat import stop_heartbeat
+backend/onyx/background/celery/tasks/docprocessing/tasks.py:35:from onyx.background.celery.tasks.docprocessing.targeted_reindex_task import (  # noqa: F401  # registers @shared_task with celery
+backend/onyx/background/celery/tasks/docprocessing/tasks.py:38:from onyx.background.celery.tasks.docprocessing.utils import IndexingCallback
+backend/onyx/background/celery/tasks/docprocessing/tasks.py:39:from onyx.background.celery.tasks.docprocessing.utils import is_in_repeated_error_state
+backend/onyx/background/celery/tasks/docprocessing/tasks.py:40:from onyx.background.celery.tasks.docprocessing.utils import should_index
+backend/onyx/background/celery/tasks/docprocessing/tasks.py:41:from onyx.background.celery.tasks.models import DocProcessingContext
+backend/onyx/background/celery/tasks/docprocessing/tasks.py:187:                    IndexAttempt.celery_task_id.isnot(None),
+backend/onyx/background/celery/tasks/docprocessing/tasks.py:347:            redis_celery = celery_get_broker_client(current_app)
+backend/onyx/background/celery/tasks/docprocessing/tasks.py:348:            queued_ids = celery_get_queued_task_ids(
+backend/onyx/background/celery/tasks/docprocessing/tasks.py:349:                OnyxCeleryQueues.CONNECTOR_DOC_FETCHING, redis_celery
+backend/onyx/background/celery/tasks/docprocessing/tasks.py:351:            unacked_ids = celery_get_unacked_task_ids(
+backend/onyx/background/celery/tasks/docprocessing/tasks.py:352:                OnyxCeleryQueues.CONNECTOR_DOC_FETCHING, redis_celery
+backend/onyx/background/celery/tasks/docprocessing/tasks.py:357:                if not attempt.celery_task_id or attempt.celery_task_id in live_ids:
+backend/onyx/background/celery/tasks/docprocessing/tasks.py:368:                    f"{attempt.celery_task_id} no longer exists — marking failed."
+backend/onyx/background/celery/tasks/docprocessing/tasks.py:416:    if not attempt.celery_task_id:
+backend/onyx/background/celery/tasks/docprocessing/tasks.py:738:    celery_app: Celery,
+backend/onyx/background/celery/tasks/docprocessing/tasks.py:815:            celery_app,
+backend/onyx/background/celery/tasks/docprocessing/tasks.py:838:@shared_task(
+backend/onyx/background/celery/tasks/docprocessing/tasks.py:867:    # we need to use celery's redis client to access its redis data
+backend/onyx/background/celery/tasks/docprocessing/tasks.py:869:    # redis_client_celery: Redis = self.app.broker_connection().channel().client
+backend/onyx/background/celery/tasks/docprocessing/tasks.py:1036:                celery_app=self.app,
+backend/onyx/background/celery/tasks/docprocessing/tasks.py:1054:                    celery_app=self.app,
+backend/onyx/background/celery/tasks/docprocessing/tasks.py:1091:                        IndexAttempt.celery_task_id.is_(None),
+backend/onyx/background/celery/tasks/docprocessing/tasks.py:1106:                    or fresh_attempt.celery_task_id
+backend/onyx/background/celery/tasks/docprocessing/tasks.py:1208:@shared_task(
+backend/onyx/background/celery/tasks/docprocessing/tasks.py:1257:@shared_task(
+backend/onyx/background/celery/tasks/docprocessing/tasks.py:1283:@shared_task(
+backend/onyx/background/celery/tasks/docprocessing/tasks.py:1346:@shared_task(
+backend/onyx/background/celery/tasks/docprocessing/tasks.py:1455:@shared_task(
+backend/onyx/background/celery/tasks/docprocessing/tasks.py:1639:                index_attempt.celery_task_id is None
+backend/onyx/background/celery/tasks/docprocessing/targeted_reindex_task.py:13:from celery import shared_task
+backend/onyx/background/celery/tasks/docprocessing/targeted_reindex_task.py:14:from celery import Task
+backend/onyx/background/celery/tasks/docprocessing/targeted_reindex_task.py:16:from onyx.background.celery.apps.app_base import task_logger
+backend/onyx/background/celery/tasks/docprocessing/targeted_reindex_task.py:34:    celery_task_id: str | None = None,
+backend/onyx/background/celery/tasks/docprocessing/targeted_reindex_task.py:36:    """Body of the targeted-reindex task. Lifted out of the @shared_task
+backend/onyx/background/celery/tasks/docprocessing/targeted_reindex_task.py:38:    celery's binding machinery."""
+backend/onyx/background/celery/tasks/docprocessing/targeted_reindex_task.py:43:            "celery_task_id": celery_task_id,
+backend/onyx/background/celery/tasks/docprocessing/targeted_reindex_task.py:162:            # cause so celery records the right error.
+backend/onyx/background/celery/tasks/docprocessing/targeted_reindex_task.py:182:                    "row may remain IN_PROGRESS until the celery retry"
+backend/onyx/background/celery/tasks/docprocessing/targeted_reindex_task.py:194:@shared_task(
+backend/onyx/background/celery/tasks/docprocessing/targeted_reindex_task.py:208:        celery_task_id=self.request.id,
+backend/onyx/background/celery/tasks/scheduled_tasks/tasks.py:3:Three @shared_task wrappers, split across two queues:
+backend/onyx/background/celery/tasks/scheduled_tasks/tasks.py:20:- All tasks use ``@shared_task`` (never ``@celery_app.task``).
+backend/onyx/background/celery/tasks/scheduled_tasks/tasks.py:36:from celery import shared_task
+backend/onyx/background/celery/tasks/scheduled_tasks/tasks.py:37:from celery import Task
+backend/onyx/background/celery/tasks/scheduled_tasks/tasks.py:39:from onyx.background.celery.apps.app_base import task_logger
+backend/onyx/background/celery/tasks/scheduled_tasks/tasks.py:83:@shared_task(
+backend/onyx/background/celery/tasks/scheduled_tasks/tasks.py:187:@shared_task(
+backend/onyx/background/celery/tasks/scheduled_tasks/tasks.py:208:    _ = self  # bound only for symmetry with other shared_task wrappers
+backend/onyx/background/celery/tasks/scheduled_tasks/tasks.py:222:@shared_task(
+backend/onyx/background/celery/tasks/opensearch_migration/tasks.py:6:from celery import shared_task
+backend/onyx/background/celery/tasks/opensearch_migration/tasks.py:7:from celery import Task
+backend/onyx/background/celery/tasks/opensearch_migration/tasks.py:10:from onyx.background.celery.apps.app_base import task_logger
+backend/onyx/background/celery/tasks/opensearch_migration/tasks.py:11:from onyx.background.celery.tasks.opensearch_migration.constants import (
+backend/onyx/background/celery/tasks/opensearch_migration/tasks.py:14:from onyx.background.celery.tasks.opensearch_migration.constants import (
+backend/onyx/background/celery/tasks/opensearch_migration/tasks.py:17:from onyx.background.celery.tasks.opensearch_migration.constants import (
+backend/onyx/background/celery/tasks/opensearch_migration/tasks.py:20:from onyx.background.celery.tasks.opensearch_migration.constants import (
+backend/onyx/background/celery/tasks/opensearch_migration/tasks.py:23:from onyx.background.celery.tasks.opensearch_migration.constants import (
+backend/onyx/background/celery/tasks/opensearch_migration/tasks.py:26:from onyx.background.celery.tasks.opensearch_migration.constants import (
+backend/onyx/background/celery/tasks/opensearch_migration/tasks.py:29:from onyx.background.celery.tasks.opensearch_migration.transformer import (
+backend/onyx/background/celery/tasks/opensearch_migration/tasks.py:69:# shared_task allows this task to be shared across celery app instances.
+backend/onyx/background/celery/tasks/opensearch_migration/tasks.py:70:@shared_task(
+backend/onyx/background/celery/tasks/monitoring/tasks.py:10:from celery import shared_task
+backend/onyx/background/celery/tasks/monitoring/tasks.py:11:from celery import Task
+backend/onyx/background/celery/tasks/monitoring/tasks.py:12:from celery.exceptions import SoftTimeLimitExceeded
+backend/onyx/background/celery/tasks/monitoring/tasks.py:20:from onyx.background.celery.apps.app_base import task_logger
+backend/onyx/background/celery/tasks/monitoring/tasks.py:21:from onyx.background.celery.celery_redis import celery_get_broker_client
+backend/onyx/background/celery/tasks/monitoring/tasks.py:22:from onyx.background.celery.celery_redis import celery_get_queue_length
+backend/onyx/background/celery/tasks/monitoring/tasks.py:23:from onyx.background.celery.celery_redis import celery_get_unacked_task_ids
+backend/onyx/background/celery/tasks/monitoring/tasks.py:24:from onyx.background.celery.memory_monitoring import emit_process_memory
+backend/onyx/background/celery/tasks/monitoring/tasks.py:147:def _collect_queue_metrics(redis_celery: Redis) -> list[Metric]:
+backend/onyx/background/celery/tasks/monitoring/tasks.py:151:        "celery_queue_length": OnyxCeleryQueues.PRIMARY,
+backend/onyx/background/celery/tasks/monitoring/tasks.py:178:                value=celery_get_queue_length(queue, redis_celery),
+backend/onyx/background/celery/tasks/monitoring/tasks.py:676:@shared_task(
+backend/onyx/background/celery/tasks/monitoring/tasks.py:712:        r_celery = celery_get_broker_client(self.app)
+backend/onyx/background/celery/tasks/monitoring/tasks.py:713:        queue_metrics = _collect_queue_metrics(r_celery)
+backend/onyx/background/celery/tasks/monitoring/tasks.py:746:@shared_task(
+backend/onyx/background/celery/tasks/monitoring/tasks.py:888:@shared_task(
+backend/onyx/background/celery/tasks/monitoring/tasks.py:891:def cloud_monitor_celery_queues(
+backend/onyx/background/celery/tasks/monitoring/tasks.py:894:    return monitor_celery_queues_helper(self)
+backend/onyx/background/celery/tasks/monitoring/tasks.py:897:@shared_task(name=OnyxCeleryTask.MONITOR_CELERY_QUEUES, ignore_result=True, bind=True)
+backend/onyx/background/celery/tasks/monitoring/tasks.py:898:def monitor_celery_queues(self: Task, *, tenant_id: str) -> None:  # noqa: ARG001
+backend/onyx/background/celery/tasks/monitoring/tasks.py:899:    return monitor_celery_queues_helper(self)
+backend/onyx/background/celery/tasks/monitoring/tasks.py:902:def monitor_celery_queues_helper(
+backend/onyx/background/celery/tasks/monitoring/tasks.py:905:    """A task to monitor all celery queue lengths."""
+backend/onyx/background/celery/tasks/monitoring/tasks.py:907:    r_celery = celery_get_broker_client(task.app)
+backend/onyx/background/celery/tasks/monitoring/tasks.py:908:    n_celery = celery_get_queue_length(OnyxCeleryQueues.PRIMARY, r_celery)
+backend/onyx/background/celery/tasks/monitoring/tasks.py:909:    n_docfetching = celery_get_queue_length(
+backend/onyx/background/celery/tasks/monitoring/tasks.py:910:        OnyxCeleryQueues.CONNECTOR_DOC_FETCHING, r_celery
+backend/onyx/background/celery/tasks/monitoring/tasks.py:912:    n_docprocessing = celery_get_queue_length(OnyxCeleryQueues.DOCPROCESSING, r_celery)
+backend/onyx/background/celery/tasks/monitoring/tasks.py:914:    n_user_file_processing = celery_get_queue_length(
+backend/onyx/background/celery/tasks/monitoring/tasks.py:915:        OnyxCeleryQueues.USER_FILE_PROCESSING, r_celery
+backend/onyx/background/celery/tasks/monitoring/tasks.py:917:    n_user_file_project_sync = celery_get_queue_length(
+backend/onyx/background/celery/tasks/monitoring/tasks.py:918:        OnyxCeleryQueues.USER_FILE_PROJECT_SYNC, r_celery
+backend/onyx/background/celery/tasks/monitoring/tasks.py:920:    n_user_file_delete = celery_get_queue_length(
+backend/onyx/background/celery/tasks/monitoring/tasks.py:921:        OnyxCeleryQueues.USER_FILE_DELETE, r_celery
+backend/onyx/background/celery/tasks/monitoring/tasks.py:923:    n_sync = celery_get_queue_length(OnyxCeleryQueues.VESPA_METADATA_SYNC, r_celery)
+backend/onyx/background/celery/tasks/monitoring/tasks.py:924:    n_deletion = celery_get_queue_length(OnyxCeleryQueues.CONNECTOR_DELETION, r_celery)
+backend/onyx/background/celery/tasks/monitoring/tasks.py:925:    n_pruning = celery_get_queue_length(OnyxCeleryQueues.CONNECTOR_PRUNING, r_celery)
+backend/onyx/background/celery/tasks/monitoring/tasks.py:926:    n_permissions_sync = celery_get_queue_length(
+backend/onyx/background/celery/tasks/monitoring/tasks.py:927:        OnyxCeleryQueues.CONNECTOR_DOC_PERMISSIONS_SYNC, r_celery
+backend/onyx/background/celery/tasks/monitoring/tasks.py:929:    n_external_group_sync = celery_get_queue_length(
+backend/onyx/background/celery/tasks/monitoring/tasks.py:930:        OnyxCeleryQueues.CONNECTOR_EXTERNAL_GROUP_SYNC, r_celery
+backend/onyx/background/celery/tasks/monitoring/tasks.py:932:    n_permissions_upsert = celery_get_queue_length(
+backend/onyx/background/celery/tasks/monitoring/tasks.py:933:        OnyxCeleryQueues.DOC_PERMISSIONS_UPSERT, r_celery
+backend/onyx/background/celery/tasks/monitoring/tasks.py:935:    n_hierarchy_fetching = celery_get_queue_length(
+backend/onyx/background/celery/tasks/monitoring/tasks.py:936:        OnyxCeleryQueues.CONNECTOR_HIERARCHY_FETCHING, r_celery
+backend/onyx/background/celery/tasks/monitoring/tasks.py:938:    n_llm_model_update = celery_get_queue_length(
+backend/onyx/background/celery/tasks/monitoring/tasks.py:939:        OnyxCeleryQueues.LLM_MODEL_UPDATE, r_celery
+backend/onyx/background/celery/tasks/monitoring/tasks.py:941:    n_checkpoint_cleanup = celery_get_queue_length(
+backend/onyx/background/celery/tasks/monitoring/tasks.py:942:        OnyxCeleryQueues.CHECKPOINT_CLEANUP, r_celery
+backend/onyx/background/celery/tasks/monitoring/tasks.py:944:    n_index_attempt_cleanup = celery_get_queue_length(
+backend/onyx/background/celery/tasks/monitoring/tasks.py:945:        OnyxCeleryQueues.INDEX_ATTEMPT_CLEANUP, r_celery
+backend/onyx/background/celery/tasks/monitoring/tasks.py:947:    n_csv_generation = celery_get_queue_length(
+backend/onyx/background/celery/tasks/monitoring/tasks.py:948:        OnyxCeleryQueues.CSV_GENERATION, r_celery
+backend/onyx/background/celery/tasks/monitoring/tasks.py:950:    n_monitoring = celery_get_queue_length(OnyxCeleryQueues.MONITORING, r_celery)
+backend/onyx/background/celery/tasks/monitoring/tasks.py:951:    n_sandbox = celery_get_queue_length(OnyxCeleryQueues.SANDBOX, r_celery)
+backend/onyx/background/celery/tasks/monitoring/tasks.py:952:    n_opensearch_migration = celery_get_queue_length(
+backend/onyx/background/celery/tasks/monitoring/tasks.py:953:        OnyxCeleryQueues.OPENSEARCH_MIGRATION, r_celery
+backend/onyx/background/celery/tasks/monitoring/tasks.py:956:    n_docfetching_prefetched = celery_get_unacked_task_ids(
+backend/onyx/background/celery/tasks/monitoring/tasks.py:957:        OnyxCeleryQueues.CONNECTOR_DOC_FETCHING, r_celery
+backend/onyx/background/celery/tasks/monitoring/tasks.py:959:    n_docprocessing_prefetched = celery_get_unacked_task_ids(
+backend/onyx/background/celery/tasks/monitoring/tasks.py:960:        OnyxCeleryQueues.DOCPROCESSING, r_celery
+backend/onyx/background/celery/tasks/monitoring/tasks.py:964:        f"Queue lengths: celery={n_celery} "
+backend/onyx/background/celery/tasks/monitoring/tasks.py:999:@shared_task(
+backend/onyx/background/celery/tasks/monitoring/tasks.py:1045:        # Find all python processes that are likely celery workers
+backend/onyx/background/celery/tasks/monitoring/tasks.py:1082:@shared_task(
+backend/onyx/background/celery/tasks/monitoring/tasks.py:1085:def cloud_monitor_celery_pidbox(
+backend/onyx/background/celery/tasks/monitoring/tasks.py:1102:    r_celery = celery_get_broker_client(self.app)
+backend/onyx/background/celery/tasks/monitoring/tasks.py:1103:    for key in r_celery.scan_iter("*.reply.celery.pidbox"):
+backend/onyx/background/celery/tasks/monitoring/tasks.py:1109:        idletime_raw = r_celery.object("idletime", key)
+backend/onyx/background/celery/tasks/monitoring/tasks.py:1117:        r_celery.delete(key)
+backend/onyx/background/celery/tasks/llm_model_update/tasks.py:1:from celery import shared_task
+backend/onyx/background/celery/tasks/llm_model_update/tasks.py:2:from celery import Task
+backend/onyx/background/celery/tasks/llm_model_update/tasks.py:4:from onyx.background.celery.apps.app_base import task_logger
+backend/onyx/background/celery/tasks/llm_model_update/tasks.py:13:@shared_task(
+backend/onyx/background/celery/celery_utils.py:222:def celery_is_listening_to_queue(worker: Any, name: str) -> bool:
+backend/onyx/background/celery/celery_utils.py:226:    # https://stackoverflow.com/questions/29790523/how-to-determine-which-queues-a-celery-worker-is-consuming-at-runtime
+backend/onyx/background/celery/celery_utils.py:235:def celery_is_worker_primary(worker: Any) -> bool:
+backend/onyx/background/celery/celery_utils.py:236:    """There are multiple approaches that could be taken to determine if a celery worker
+backend/onyx/background/celery/celery_utils.py:238:    for the celery worker, which can be done on the
+backend/onyx/background/celery/tasks/hierarchyfetching/tasks.py:17:from celery import Celery
+backend/onyx/background/celery/tasks/hierarchyfetching/tasks.py:18:from celery import shared_task
+backend/onyx/background/celery/tasks/hierarchyfetching/tasks.py:19:from celery import Task
+backend/onyx/background/celery/tasks/hierarchyfetching/tasks.py:23:from onyx.background.celery.apps.app_base import task_logger
+backend/onyx/background/celery/tasks/hierarchyfetching/tasks.py:105:    celery_app: Celery,
+backend/onyx/background/celery/tasks/hierarchyfetching/tasks.py:137:        result = celery_app.send_task(
+backend/onyx/background/celery/tasks/hierarchyfetching/tasks.py:152:            f"Created hierarchy fetching task: cc_pair={cc_pair.id} celery_task_id={custom_task_id}"
+backend/onyx/background/celery/tasks/hierarchyfetching/tasks.py:167:@shared_task(
+backend/onyx/background/celery/tasks/hierarchyfetching/tasks.py:218:                    celery_app=self.app,
+backend/onyx/background/celery/tasks/hierarchyfetching/tasks.py:349:@shared_task(
+backend/onyx/background/celery/tasks/evals/tasks.py:5:from celery import shared_task
+backend/onyx/background/celery/tasks/evals/tasks.py:6:from celery import Task
+backend/onyx/background/celery/tasks/evals/tasks.py:21:@shared_task(
+backend/onyx/background/celery/tasks/evals/tasks.py:44:@shared_task(
+backend/onyx/background/celery/configs/user_file_processing.py:1:import onyx.background.celery.configs.base as shared_config
+backend/onyx/background/celery/configs/scheduled_tasks.py:1:import onyx.background.celery.configs.base as shared_config
+backend/onyx/background/celery/configs/heavy.py:1:import onyx.background.celery.configs.base as shared_config
+backend/onyx/background/celery/tasks/docfetching/task_creation_utils.py:3:from celery import Celery
+backend/onyx/background/celery/tasks/docfetching/task_creation_utils.py:7:from onyx.background.celery.apps.app_base import task_logger
+backend/onyx/background/celery/tasks/docfetching/task_creation_utils.py:21:    celery_app: Celery,
+backend/onyx/background/celery/tasks/docfetching/task_creation_utils.py:41:    # either via celery beat or manually (API call)
+backend/onyx/background/celery/tasks/docfetching/task_creation_utils.py:67:            celery_task_id=custom_task_id,
+backend/onyx/background/celery/tasks/docfetching/task_creation_utils.py:85:        result = celery_app.send_task(
+backend/onyx/background/celery/tasks/docfetching/task_creation_utils.py:105:            f"celery_task_id={custom_task_id}"
+backend/onyx/background/celery/configs/light.py:1:import onyx.background.celery.configs.base as shared_config
+backend/onyx/background/celery/configs/beat.py:1:# docs: https://docs.celeryq.dev/en/stable/userguide/configuration.html
+backend/onyx/background/celery/configs/beat.py:2:import onyx.background.celery.configs.base as shared_config
+backend/onyx/background/celery/tasks/docfetching/tasks.py:8:from celery import Celery
+backend/onyx/background/celery/tasks/docfetching/tasks.py:9:from celery import shared_task
+backend/onyx/background/celery/tasks/docfetching/tasks.py:10:from celery import Task
+backend/onyx/background/celery/tasks/docfetching/tasks.py:13:from onyx.background.celery.apps.app_base import task_logger
+backend/onyx/background/celery/tasks/docfetching/tasks.py:14:from onyx.background.celery.memory_monitoring import emit_process_memory
+backend/onyx/background/celery/tasks/docfetching/tasks.py:15:from onyx.background.celery.tasks.docprocessing.heartbeat import start_heartbeat
+backend/onyx/background/celery/tasks/docfetching/tasks.py:16:from onyx.background.celery.tasks.docprocessing.heartbeat import stop_heartbeat
+backend/onyx/background/celery/tasks/docfetching/tasks.py:17:from onyx.background.celery.tasks.docprocessing.tasks import ConnectorIndexingLogBuilder
+backend/onyx/background/celery/tasks/docfetching/tasks.py:18:from onyx.background.celery.tasks.docprocessing.utils import IndexingCallback
+backend/onyx/background/celery/tasks/docfetching/tasks.py:19:from onyx.background.celery.tasks.models import DocProcessingContext
+backend/onyx/background/celery/tasks/docfetching/tasks.py:20:from onyx.background.celery.tasks.models import IndexingWatchdogTerminalStatus
+backend/onyx/background/celery/tasks/docfetching/tasks.py:21:from onyx.background.celery.tasks.models import SimpleJobResult
+backend/onyx/background/celery/tasks/docfetching/tasks.py:311:@shared_task(
+backend/onyx/background/celery/tasks/docfetching/tasks.py:376:    celery out of process task execution strategy is pool=prefork, but it uses fork,
+backend/onyx/background/celery/tasks/docfetching/tasks.py:381:    acks_late must be set to False. Otherwise, celery's visibility timeout will
+backend/onyx/background/celery/configs/base.py:1:# docs: https://docs.celeryq.dev/en/stable/userguide/configuration.html
+backend/onyx/background/celery/configs/base.py:36:# example celery_broker_url: "redis://:password@localhost:6379/15"
+backend/onyx/background/celery/configs/base.py:43:# https://docs.celeryq.dev/projects/kombu/en/stable/reference/kombu.transport.redis.html
+backend/onyx/background/celery/configs/base.py:56:# https://docs.celeryq.dev/en/stable/userguide/configuration.html#redis-backend-settings
+backend/onyx/background/celery/configs/base.py:68:# It's possible we don't even need celery's result backend, in which case all of the optimization below
+backend/onyx/background/celery/configs/base.py:75:# and celery think they are controlling the logger.
+backend/onyx/background/celery/configs/base.py:76:# TODO: Configure celery's logger entirely manually and set this to False
+backend/onyx/background/celery/configs/monitoring.py:1:import onyx.background.celery.configs.base as shared_config
+backend/onyx/background/celery/configs/docprocessing.py:1:import onyx.background.celery.configs.base as shared_config
+backend/onyx/background/celery/configs/docprocessing.py:23:# we don't turn this on yet because celery occasionally runs tasks more than once
+backend/onyx/background/celery/configs/client.py:1:import onyx.background.celery.configs.base as shared_config
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:7:from celery import Celery
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:8:from celery import shared_task
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:9:from celery import Task
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:10:from celery.exceptions import SoftTimeLimitExceeded
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:16:from onyx.background.celery.apps.app_base import task_logger
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:17:from onyx.background.celery.celery_redis import celery_get_broker_client
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:18:from onyx.background.celery.celery_redis import celery_get_queue_length
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:19:from onyx.background.celery.celery_redis import celery_get_queued_task_ids
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:95:                and recent_index_attempts[0].celery_task_id
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:97:                app.control.revoke(recent_index_attempts[0].celery_task_id)
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:99:                    f"Revoked indexing task {recent_index_attempts[0].celery_task_id}."
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:106:        if permissions_sync_payload and permissions_sync_payload.celery_task_id:
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:107:            app.control.revoke(permissions_sync_payload.celery_task_id)
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:109:                f"Revoked permissions sync task {permissions_sync_payload.celery_task_id}."
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:116:        if prune_payload and prune_payload.celery_task_id:
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:117:            app.control.revoke(prune_payload.celery_task_id)
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:118:            task_logger.info(f"Revoked pruning task {prune_payload.celery_task_id}.")
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:124:        if external_group_sync_payload and external_group_sync_payload.celery_task_id:
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:125:            app.control.revoke(external_group_sync_payload.celery_task_id)
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:127:                f"Revoked external group sync task {external_group_sync_payload.celery_task_id}."
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:133:@shared_task(
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:157:            # clear fences that don't have associated celery tasks in progress
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:159:                r_celery = celery_get_broker_client(self.app)
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:161:                    tenant_id, r, r_replica, r_celery, lock_beat
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:203:                        # one time revoke of celery tasks
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:339:        # add tasks to celery and build up the task set to monitor in redis
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:595:    r_celery: Redis,
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:602:    queue_len = celery_get_queue_length(OnyxCeleryQueues.CONNECTOR_DELETION, r_celery)
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:606:    queued_upsert_tasks = celery_get_queued_task_ids(
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:607:        OnyxCeleryQueues.CONNECTOR_DELETION, r_celery
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:637:    """Checks for the error condition where an indexing fence is set but the associated celery tasks don't exist.
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:660:    queued_tasks: the celery queue of lightweight permission sync tasks
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:701:    # look up every task in the current taskset in the celery queue
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:702:    # every entry in the taskset should have an associated entry in the celery task queue
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:703:    # because we get the celery tasks first, the entries in our own permissions taskset
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:704:    # should be roughly a subset of the tasks in celery
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:709:    # TODO: if the number of tasks in celery is much lower than than the taskset length
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:711:    # must not exist in celery.
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:714:    tasks_not_in_celery = 0  # a non-zero number after completing our check is bad
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:723:        tasks_not_in_celery += 1
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:726:        f"validate_connector_deletion_fence task check: tasks_scanned={tasks_scanned} tasks_not_in_celery={tasks_not_in_celery}"
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:729:    # we're active if there are still tasks to run and those tasks all exist in celery
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:730:    if tasks_scanned > 0 and tasks_not_in_celery == 0:
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:736:    #     logger.info(f"{payload.celery_task_id} is currently executing.")
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:738:    # if we get here, we didn't find any direct indication that the associated celery tasks exist,
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:745:    # celery tasks don't exist and the active signal has expired, possibly due to a crash. Clean it up.
+backend/onyx/background/celery/tasks/connector_deletion/tasks.py:748:        "Resetting fence because no associated celery tasks were found: "
+backend/onyx/background/celery/configs/primary.py:1:import onyx.background.celery.configs.base as shared_config
+backend/onyx/background/celery/configs/docfetching.py:1:import onyx.background.celery.configs.base as shared_config
+backend/onyx/background/celery/tasks/pruning/tasks.py:9:from celery import Celery
+backend/onyx/background/celery/tasks/pruning/tasks.py:10:from celery import shared_task
+backend/onyx/background/celery/tasks/pruning/tasks.py:11:from celery import Task
+backend/onyx/background/celery/tasks/pruning/tasks.py:12:from celery.exceptions import SoftTimeLimitExceeded
+backend/onyx/background/celery/tasks/pruning/tasks.py:18:from onyx.background.celery.apps.app_base import task_logger
+backend/onyx/background/celery/tasks/pruning/tasks.py:19:from onyx.background.celery.celery_redis import celery_find_task
+backend/onyx/background/celery/tasks/pruning/tasks.py:20:from onyx.background.celery.celery_redis import celery_get_broker_client
+backend/onyx/background/celery/tasks/pruning/tasks.py:21:from onyx.background.celery.celery_redis import celery_get_queue_length
+backend/onyx/background/celery/tasks/pruning/tasks.py:22:from onyx.background.celery.celery_redis import celery_get_queued_task_ids
+backend/onyx/background/celery/tasks/pruning/tasks.py:23:from onyx.background.celery.celery_redis import celery_get_unacked_task_ids
+backend/onyx/background/celery/tasks/pruning/tasks.py:24:from onyx.background.celery.celery_utils import extract_ids_from_runnable_connector
+backend/onyx/background/celery/tasks/pruning/tasks.py:25:from onyx.background.celery.tasks.beat_schedule import CLOUD_BEAT_MULTIPLIER_DEFAULT
+backend/onyx/background/celery/tasks/pruning/tasks.py:26:from onyx.background.celery.tasks.docprocessing.utils import IndexingCallbackBase
+backend/onyx/background/celery/tasks/pruning/tasks.py:201:@shared_task(
+backend/onyx/background/celery/tasks/pruning/tasks.py:273:            # clear any permission fences that don't have associated celery tasks in progress
+backend/onyx/background/celery/tasks/pruning/tasks.py:277:                r_celery = celery_get_broker_client(self.app)
+backend/onyx/background/celery/tasks/pruning/tasks.py:278:                validate_pruning_fences(tenant_id, r, r_replica, r_celery, lock_beat)
+backend/onyx/background/celery/tasks/pruning/tasks.py:319:    celery_app: Celery,
+backend/onyx/background/celery/tasks/pruning/tasks.py:348:    # celery beat or manually (API call)
+backend/onyx/background/celery/tasks/pruning/tasks.py:418:            celery_task_id=None,
+backend/onyx/background/celery/tasks/pruning/tasks.py:422:        result = celery_app.send_task(
+backend/onyx/background/celery/tasks/pruning/tasks.py:436:        # fill in the celery task id
+backend/onyx/background/celery/tasks/pruning/tasks.py:437:        payload.celery_task_id = result.id
+backend/onyx/background/celery/tasks/pruning/tasks.py:457:@shared_task(
+backend/onyx/background/celery/tasks/pruning/tasks.py:513:        if payload.celery_task_id is None:
+backend/onyx/background/celery/tasks/pruning/tasks.py:575:                celery_task_id=payload.celery_task_id,
+backend/onyx/background/celery/tasks/pruning/tasks.py:819:    r_celery: Redis,
+backend/onyx/background/celery/tasks/pruning/tasks.py:826:    queue_len = celery_get_queue_length(OnyxCeleryQueues.CONNECTOR_DELETION, r_celery)
+backend/onyx/background/celery/tasks/pruning/tasks.py:831:    reserved_generator_tasks = celery_get_unacked_task_ids(
+backend/onyx/background/celery/tasks/pruning/tasks.py:832:        OnyxCeleryQueues.CONNECTOR_PRUNING, r_celery
+backend/onyx/background/celery/tasks/pruning/tasks.py:836:    queued_upsert_tasks = celery_get_queued_task_ids(
+backend/onyx/background/celery/tasks/pruning/tasks.py:837:        OnyxCeleryQueues.CONNECTOR_DELETION, r_celery
+backend/onyx/background/celery/tasks/pruning/tasks.py:855:            r_celery,
+backend/onyx/background/celery/tasks/pruning/tasks.py:869:    r_celery: Redis,
+backend/onyx/background/celery/tasks/pruning/tasks.py:873:    queued_tasks: the celery queue of lightweight permission sync tasks
+backend/onyx/background/celery/tasks/pruning/tasks.py:912:    if not payload.celery_task_id:
+backend/onyx/background/celery/tasks/pruning/tasks.py:918:    found = celery_find_task(
+backend/onyx/background/celery/tasks/pruning/tasks.py:919:        payload.celery_task_id,
+backend/onyx/background/celery/tasks/pruning/tasks.py:921:        r_celery,
+backend/onyx/background/celery/tasks/pruning/tasks.py:924:        # the celery task exists in the redis queue
+backend/onyx/background/celery/tasks/pruning/tasks.py:928:    if payload.celery_task_id in reserved_tasks:
+backend/onyx/background/celery/tasks/pruning/tasks.py:929:        # the celery task was prefetched and is reserved within a worker
+backend/onyx/background/celery/tasks/pruning/tasks.py:933:    # look up every task in the current taskset in the celery queue
+backend/onyx/background/celery/tasks/pruning/tasks.py:934:    # every entry in the taskset should have an associated entry in the celery task queue
+backend/onyx/background/celery/tasks/pruning/tasks.py:935:    # because we get the celery tasks first, the entries in our own pruning taskset
+backend/onyx/background/celery/tasks/pruning/tasks.py:936:    # should be roughly a subset of the tasks in celery
+backend/onyx/background/celery/tasks/pruning/tasks.py:941:    # TODO: if the number of tasks in celery is much lower than than the taskset length
+backend/onyx/background/celery/tasks/pruning/tasks.py:943:    # must not exist in celery.
+backend/onyx/background/celery/tasks/pruning/tasks.py:946:    tasks_not_in_celery = 0  # a non-zero number after completing our check is bad
+backend/onyx/background/celery/tasks/pruning/tasks.py:958:        tasks_not_in_celery += 1
+backend/onyx/background/celery/tasks/pruning/tasks.py:961:        f"validate_pruning_fence task check: tasks_scanned={tasks_scanned} tasks_not_in_celery={tasks_not_in_celery}"
+backend/onyx/background/celery/tasks/pruning/tasks.py:964:    # we're active if there are still tasks to run and those tasks all exist in celery
+backend/onyx/background/celery/tasks/pruning/tasks.py:965:    if tasks_scanned > 0 and tasks_not_in_celery == 0:
+backend/onyx/background/celery/tasks/pruning/tasks.py:971:    #     logger.info(f"{payload.celery_task_id} is currently executing.")
+backend/onyx/background/celery/tasks/pruning/tasks.py:973:    # if we get here, we didn't find any direct indication that the associated celery tasks exist,
+backend/onyx/background/celery/tasks/pruning/tasks.py:980:    # celery tasks don't exist and the active signal has expired, possibly due to a crash. Clean it up.
+backend/onyx/background/celery/tasks/pruning/tasks.py:983:        "Resetting fence because no associated celery tasks were found: "
+backend/onyx/background/celery/versioned_apps/user_file_processing.py:3:from celery import Celery
+backend/onyx/background/celery/versioned_apps/user_file_processing.py:11:    from onyx.background.celery.apps.user_file_processing import celery_app
+backend/onyx/background/celery/versioned_apps/user_file_processing.py:13:    return celery_app
+backend/onyx/background/celery/versioned_apps/scheduled_tasks.py:3:from celery import Celery
+backend/onyx/background/celery/versioned_apps/scheduled_tasks.py:11:    from onyx.background.celery.apps.scheduled_tasks import celery_app
+backend/onyx/background/celery/versioned_apps/scheduled_tasks.py:13:    return celery_app
+backend/onyx/background/celery/tasks/beat_schedule.py:5:from celery.schedules import crontab
+backend/onyx/background/celery/tasks/beat_schedule.py:354:        "name": f"{ONYX_CLOUD_CELERY_TASK_PREFIX}_monitor-celery-queues",
+backend/onyx/background/celery/tasks/beat_schedule.py:374:        "name": f"{ONYX_CLOUD_CELERY_TASK_PREFIX}_monitor-celery-pidbox",
+backend/onyx/background/celery/tasks/beat_schedule.py:391:                "name": "monitor-celery-queues",
+backend/onyx/background/celery/tasks/beat_schedule.py:411:                "name": "celery-beat-heartbeat",
+backend/onyx/background/celery/versioned_apps/heavy.py:1:"""Factory stub for running celery worker / celery beat.
+backend/onyx/background/celery/versioned_apps/heavy.py:5:from celery import Celery
+backend/onyx/background/celery/versioned_apps/heavy.py:12:    "onyx.background.celery.apps.heavy",
+backend/onyx/background/celery/versioned_apps/heavy.py:13:    "celery_app",
+backend/onyx/background/celery/versioned_apps/light.py:1:"""Factory stub for running celery worker / celery beat.
+backend/onyx/background/celery/versioned_apps/light.py:5:from celery import Celery
+backend/onyx/background/celery/versioned_apps/light.py:12:    "onyx.background.celery.apps.light",
+backend/onyx/background/celery/versioned_apps/light.py:13:    "celery_app",
+backend/onyx/background/celery/versioned_apps/beat.py:1:"""Factory stub for running celery worker / celery beat."""
+backend/onyx/background/celery/versioned_apps/beat.py:3:from celery import Celery
+backend/onyx/background/celery/versioned_apps/beat.py:5:from onyx.background.celery.apps.beat import celery_app
+backend/onyx/background/celery/versioned_apps/beat.py:9:app: Celery = celery_app
+backend/onyx/background/celery/tasks/shared/RetryDocumentIndex.py:20:    # STOP_AFTER + MAX_WAIT should be slightly less (5?) than the celery soft_time_limit
+backend/onyx/background/celery/versioned_apps/monitoring.py:1:"""Factory stub for running celery worker / celery beat."""
+backend/onyx/background/celery/versioned_apps/monitoring.py:3:from celery import Celery
+backend/onyx/background/celery/versioned_apps/monitoring.py:10:    "onyx.background.celery.apps.monitoring",
+backend/onyx/background/celery/versioned_apps/monitoring.py:11:    "celery_app",
+backend/onyx/background/celery/tasks/shared/tasks.py:6:from celery import shared_task
+backend/onyx/background/celery/tasks/shared/tasks.py:7:from celery import Task
+backend/onyx/background/celery/tasks/shared/tasks.py:8:from celery.exceptions import SoftTimeLimitExceeded
+backend/onyx/background/celery/tasks/shared/tasks.py:12:from onyx.background.celery.apps.app_base import task_logger
+backend/onyx/background/celery/tasks/shared/tasks.py:13:from onyx.background.celery.tasks.shared.RetryDocumentIndex import RetryDocumentIndex
+backend/onyx/background/celery/tasks/shared/tasks.py:68:@shared_task(
+backend/onyx/background/celery/tasks/shared/tasks.py:80:    tenant_id: str,  # noqa: ARG001 — kept on the celery task signature
+backend/onyx/background/celery/tasks/shared/tasks.py:256:                    f"Max celery task retries reached. Marking doc as dirty for reconciliation: doc={document_id}"
+backend/onyx/background/celery/tasks/shared/tasks.py:278:            self.retry(exc=e, countdown=countdown)  # this will raise a celery exception
+backend/onyx/background/celery/tasks/shared/tasks.py:292:@shared_task(name=OnyxCeleryTask.CELERY_BEAT_HEARTBEAT, ignore_result=True, bind=True)
+backend/onyx/background/celery/tasks/shared/tasks.py:293:def celery_beat_heartbeat(self: Task, *, tenant_id: str) -> None:  # noqa: ARG001
+backend/onyx/background/celery/tasks/shared/tasks.py:296:    An external observer can check this key to figure out if the celery beat is still running.
+backend/onyx/background/celery/tasks/shared/tasks.py:302:    task_logger.info(f"celery_beat_heartbeat finished: elapsed={time_elapsed:.2f}")
+backend/onyx/background/celery/versioned_apps/docprocessing.py:1:"""Factory stub for running celery worker / celery beat.
+backend/onyx/background/celery/versioned_apps/docprocessing.py:5:from celery import Celery
+backend/onyx/background/celery/versioned_apps/docprocessing.py:13:    from onyx.background.celery.apps.docprocessing import celery_app
+backend/onyx/background/celery/versioned_apps/docprocessing.py:15:    return celery_app
+backend/onyx/background/celery/versioned_apps/client.py:1:"""Factory stub for running celery worker / celery beat.
+backend/onyx/background/celery/versioned_apps/client.py:8:from celery import Celery
+backend/onyx/background/celery/versioned_apps/client.py:16:    from onyx.background.celery.apps.client import celery_app
+backend/onyx/background/celery/versioned_apps/client.py:18:    return celery_app
+backend/onyx/background/celery/versioned_apps/primary.py:1:"""Factory stub for running celery worker / celery beat."""
+backend/onyx/background/celery/versioned_apps/primary.py:3:from celery import Celery
+backend/onyx/background/celery/versioned_apps/primary.py:10:    "onyx.background.celery.apps.primary",
+backend/onyx/background/celery/versioned_apps/primary.py:11:    "celery_app",
+backend/onyx/background/task_utils.py:141:    from onyx.background.celery.tasks.user_file_processing.tasks import (
+backend/onyx/background/task_utils.py:163:    from onyx.background.celery.tasks.user_file_processing.tasks import (
+backend/onyx/background/task_utils.py:187:    from onyx.background.celery.tasks.user_file_processing.tasks import (
+backend/onyx/background/celery/versioned_apps/docfetching.py:1:"""Factory stub for running celery worker / celery beat.
+backend/onyx/background/celery/versioned_apps/docfetching.py:5:from celery import Celery
+backend/onyx/background/celery/versioned_apps/docfetching.py:13:    from onyx.background.celery.apps.docfetching import celery_app
+backend/onyx/background/celery/versioned_apps/docfetching.py:15:    return celery_app
+backend/onyx/background/indexing/run_targeted_reindex.py:3:The targeted-reindex celery task delegates the actual connector
+backend/onyx/background/indexing/job_client.py:6:https://github.com/celery/celery/issues/7007#issuecomment-1740139367"""
+backend/onyx/background/indexing/run_docfetching.py:12:from celery import Celery
+backend/onyx/background/indexing/run_docfetching.py:265:    if index_attempt_loop.celery_task_id is None:
+backend/onyx/background/indexing/run_docfetching.py:266:        raise RuntimeError(f"Index attempt {index_attempt_id} has no celery task id")

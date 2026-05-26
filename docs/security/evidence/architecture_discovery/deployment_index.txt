@@ -1,0 +1,955 @@
+deployment/aws_ecs_fargate/cloudformation/deploy.sh:35:    S3_BUCKET="${S3_BUCKET:-onyx-ecs-fargate-configs}"
+deployment/aws_ecs_fargate/cloudformation/onyx_config.jsonl:13:  "DomainName": "YOUR_DOMAIN e.g ecs.onyx.app",
+deployment/aws_ecs_fargate/cloudformation/services/onyx_backend_api_server_service_template.yaml:74:      GroupName: !Sub ${Environment}-ecs-${ServiceName}
+deployment/aws_ecs_fargate/cloudformation/services/onyx_backend_api_server_service_template.yaml:137:              awslogs-group: !Sub /ecs/${Environment}-${ServiceName}
+deployment/aws_ecs_fargate/cloudformation/services/onyx_backend_api_server_service_template.yaml:142:              awslogs-stream-prefix: ecs
+deployment/aws_ecs_fargate/cloudformation/services/onyx_backend_api_server_service_template.yaml:191:      ScalableDimension: ecs:service:DesiredCount
+deployment/aws_ecs_fargate/cloudformation/services/onyx_backend_api_server_service_template.yaml:192:      ServiceNamespace: ecs
+deployment/aws_ecs_fargate/cloudformation/services/onyx_vespaengine_service_template.yaml:74:      GroupName: !Sub ${Environment}-ecs-${ServiceName}
+deployment/aws_ecs_fargate/cloudformation/services/onyx_vespaengine_service_template.yaml:158:              awslogs-group: /ecs/OnyxVespaEngineTaskDefinition
+deployment/aws_ecs_fargate/cloudformation/services/onyx_vespaengine_service_template.yaml:163:              awslogs-stream-prefix: ecs
+deployment/aws_ecs_fargate/cloudformation/services/onyx_web_server_service_template.yaml:74:      GroupName: !Sub ${Environment}-ecs-${ServiceName}
+deployment/aws_ecs_fargate/cloudformation/services/onyx_web_server_service_template.yaml:137:              awslogs-group: !Sub /ecs/${Environment}-${ServiceName}
+deployment/aws_ecs_fargate/cloudformation/services/onyx_web_server_service_template.yaml:142:              awslogs-stream-prefix: ecs
+deployment/aws_ecs_fargate/cloudformation/services/onyx_web_server_service_template.yaml:159:      ScalableDimension: ecs:service:DesiredCount
+deployment/aws_ecs_fargate/cloudformation/services/onyx_web_server_service_template.yaml:160:      ServiceNamespace: ecs
+deployment/aws_ecs_fargate/cloudformation/services/onyx_model_server_indexing_service_template.yaml:74:      GroupName: !Sub ${Environment}-ecs-${ServiceName}
+deployment/aws_ecs_fargate/cloudformation/services/onyx_model_server_indexing_service_template.yaml:150:              awslogs-group: !Sub /ecs/${Environment}-${ServiceName}
+deployment/aws_ecs_fargate/cloudformation/services/onyx_model_server_indexing_service_template.yaml:155:              awslogs-stream-prefix: "ecs"
+deployment/aws_ecs_fargate/cloudformation/services/onyx_postgres_service_template.yaml:172:              awslogs-group: /ecs/OnyxPostgresTaskDefinition
+deployment/aws_ecs_fargate/cloudformation/services/onyx_postgres_service_template.yaml:177:              awslogs-stream-prefix: ecs
+deployment/aws_ecs_fargate/cloudformation/services/onyx_model_server_inference_service_template.yaml:74:      GroupName: !Sub ${Environment}-ecs-${ServiceName}
+deployment/aws_ecs_fargate/cloudformation/services/onyx_model_server_inference_service_template.yaml:146:              awslogs-group: !Sub /ecs/${Environment}-${ServiceName}
+deployment/aws_ecs_fargate/cloudformation/services/onyx_model_server_inference_service_template.yaml:151:              awslogs-stream-prefix: "ecs"
+deployment/aws_ecs_fargate/cloudformation/services/onyx_model_server_inference_service_template.yaml:173:      ScalableDimension: ecs:service:DesiredCount
+deployment/aws_ecs_fargate/cloudformation/services/onyx_model_server_inference_service_template.yaml:174:      ServiceNamespace: ecs
+deployment/aws_ecs_fargate/cloudformation/services/onyx_nginx_service_template.yaml:143:              awslogs-group: !Sub /ecs/${Environment}-OnyxNginxTaskDefinition
+deployment/aws_ecs_fargate/cloudformation/services/onyx_nginx_service_template.yaml:148:              awslogs-stream-prefix: ecs
+deployment/aws_ecs_fargate/cloudformation/services/onyx_nginx_service_template.yaml:172:              awslogs-group: !Sub /ecs/${Environment}-github-sync-configs-TaskDefinition
+deployment/aws_ecs_fargate/cloudformation/services/onyx_nginx_service_template.yaml:177:              awslogs-stream-prefix: ecs
+deployment/aws_ecs_fargate/cloudformation/services/onyx_nginx_service_template.yaml:204:      GroupName: !Sub ${Environment}-ecs-${ServiceName}
+deployment/aws_ecs_fargate/cloudformation/services/onyx_redis_service_template.yaml:74:      GroupName: !Sub ${Environment}-ecs-${ServiceName}
+deployment/aws_ecs_fargate/cloudformation/services/onyx_redis_service_template.yaml:138:              awslogs-group: !Sub /ecs/${Environment}-${ServiceName}
+deployment/aws_ecs_fargate/cloudformation/services/onyx_redis_service_template.yaml:143:              awslogs-stream-prefix: ecs
+deployment/aws_ecs_fargate/cloudformation/services/onyx_backend_background_server_service_template.yaml:74:      GroupName: !Sub ${Environment}-ecs-${ServiceName}
+deployment/aws_ecs_fargate/cloudformation/services/onyx_backend_background_server_service_template.yaml:136:              awslogs-group: !Sub /ecs/${Environment}-${ServiceName}
+deployment/aws_ecs_fargate/cloudformation/services/onyx_backend_background_server_service_template.yaml:141:              awslogs-stream-prefix: ecs
+deployment/aws_ecs_fargate/cloudformation/README.md:18:  "DomainName": "YOUR_DOMAIN e.g ecs.onyx.app",
+deployment/aws_ecs_fargate/cloudformation/onyx_cluster_template.yaml:37:      BucketName: !Sub ${Environment}-onyx-ecs-fargate-configs
+deployment/aws_ecs_fargate/cloudformation/onyx_cluster_template.yaml:69:              Service: ecs-tasks.amazonaws.com
+deployment/aws_ecs_fargate/cloudformation/onyx_cluster_template.yaml:97:                  - !Sub "arn:aws:s3:::${Environment}-onyx-ecs-fargate-configs/*"
+deployment/aws_ecs_fargate/cloudformation/onyx_cluster_template.yaml:98:                  - !Sub "arn:aws:s3:::${Environment}-onyx-ecs-fargate-configs"
+deployment/aws_ecs_fargate/cloudformation/onyx_cluster_template.yaml:109:              Service: ecs-tasks.amazonaws.com
+deployment/aws_ecs_fargate/cloudformation/uninstall.sh:20:    S3_BUCKET="${S3_BUCKET:-onyx-ecs-fargate-configs}"
+deployment/terraform/modules/aws/eks/main.tf:9:  source  = "terraform-aws-modules/eks/aws"
+deployment/terraform/modules/aws/eks/main.tf:59:  source  = "terraform-aws-modules/iam/aws//modules/iam-assumable-role-with-oidc"
+deployment/terraform/modules/aws/eks/main.tf:82:resource "kubernetes_storage_class" "gp3_default" {
+deployment/terraform/modules/aws/eks/main.tf:87:      "storageclass.kubernetes.io/is-default-class" = "true"
+deployment/terraform/modules/aws/eks/main.tf:149:  source  = "terraform-aws-modules/iam/aws//modules/iam-assumable-role-with-oidc"
+deployment/terraform/modules/aws/eks/main.tf:162:resource "kubernetes_service_account" "s3_access" {
+deployment/terraform/modules/aws/vpc/main.tf:12:  source  = "terraform-aws-modules/vpc/aws"
+deployment/terraform/modules/aws/vpc/main.tf:29:    "kubernetes.io/role/elb" = "1"
+deployment/terraform/modules/aws/vpc/main.tf:33:    "kubernetes.io/role/internal-elb" = "1"
+deployment/terraform/modules/aws/README.md:20:- Configures `kubernetes` and `helm` providers against the created cluster
+deployment/terraform/modules/aws/README.md:61:provider "kubernetes" {
+deployment/terraform/modules/aws/README.md:67:provider "helm" {
+deployment/terraform/modules/aws/README.md:68:  kubernetes {
+deployment/terraform/modules/aws/README.md:92:terraform init
+deployment/terraform/modules/aws/README.md:93:terraform apply
+deployment/terraform/modules/aws/README.md:170:Once the cluster is active, deploy application workloads via Helm. You can use the chart in `deployment/helm/charts/onyx`.
+deployment/terraform/modules/aws/README.md:173:# Set kubeconfig to your new cluster (if you’re not using the TF providers for kubernetes/helm)
+deployment/terraform/modules/aws/README.md:174:aws eks update-kubeconfig --name $(terraform output -raw cluster_name) --region ${AWS_REGION:-us-west-2}
+deployment/terraform/modules/aws/README.md:180:helm upgrade --install onyx /path/to/onyx/deployment/helm/charts/onyx \
+deployment/terraform/modules/aws/onyx/main.tf:2:  workspace       = terraform.workspace
+deployment/terraform/modules/aws/onyx/versions.tf:1:terraform {
+deployment/terraform/modules/aws/onyx/versions.tf:9:    helm = {
+deployment/terraform/modules/aws/onyx/versions.tf:10:      source  = "hashicorp/helm"
+deployment/terraform/modules/aws/onyx/versions.tf:13:    kubernetes = {
+deployment/terraform/modules/aws/onyx/versions.tf:14:      source  = "hashicorp/kubernetes"
+deployment/docker_compose/install.ps1:36:$script:LiteComposeFile = "docker-compose.onyx-lite.yml"
+deployment/docker_compose/install.ps1:205:    $fileArgs = @("-f", "docker-compose.yml")
+deployment/docker_compose/install.ps1:221:        else { & docker-compose @($fileArgs + $Arguments) }
+deployment/docker_compose/install.ps1:229:    if (Get-Command docker-compose -ErrorAction SilentlyContinue) { $script:ComposeCmdType = "standalone"; return $true }
+deployment/docker_compose/install.ps1:352:    if (-not (Test-Path (Join-Path $deployDir "docker-compose.yml"))) {
+deployment/docker_compose/install.ps1:374:    if ((Test-Path (Join-Path $deployDir "docker-compose.yml")) -and (Initialize-ComposeCommand)) {
+deployment/docker_compose/install.ps1:616:        Download-OnyxFile -Url "https://github.com/docker/compose/releases/latest/download/docker-compose-windows-x86_64.exe" -Output (Join-Path $dest "docker-compose.exe")
+deployment/docker_compose/install.ps1:840:    $composeVersion = Get-NativeVersionString { if ($script:ComposeCmdType -eq "plugin") { docker compose version } else { docker-compose --version } }
+deployment/docker_compose/install.ps1:923:    $composeDest = Join-Path $deploymentDir "docker-compose.yml"
+deployment/docker_compose/install.ps1:924:    if (-not (Ensure-OnyxFile $composeDest "$($script:GitHubRawUrl)/docker-compose.yml" "docker-compose.yml")) { exit 1 }
+deployment/docker_compose/install.ps1:1046:            Download-OnyxFile "$pinnedBase/docker_compose/docker-compose.yml" $composeDest
+deployment/docker_compose/install.ps1:1096:        $cmd = if ($script:ComposeCmdType -eq "plugin") { "docker compose" } else { "docker-compose" }
+deployment/docker_compose/env.prod.template:3:# This is only necessary when using the docker-compose.prod.yml compose file.
+deployment/docker_compose/docker-compose.craft.yml:3:# Layer this on top of ``docker-compose.yml`` to enable Craft's Docker
+deployment/docker_compose/docker-compose.craft.yml:11:#     -f docker-compose.yml \
+deployment/docker_compose/docker-compose.craft.yml:12:#     -f docker-compose.craft.yml \
+deployment/docker_compose/docker-compose.prod-cloud.yml:8:      dockerfile: Dockerfile.cloud
+deployment/docker_compose/docker-compose.prod-cloud.yml:46:      dockerfile: Dockerfile
+deployment/docker_compose/docker-compose.prod-cloud.yml:87:      dockerfile: Dockerfile
+deployment/docker_compose/docker-compose.prod-cloud.yml:111:  #     dockerfile: Dockerfile
+deployment/docker_compose/docker-compose.prod-cloud.yml:166:      dockerfile: Dockerfile.model_server
+deployment/docker_compose/docker-compose.prod-cloud.yml:192:      dockerfile: Dockerfile.model_server
+deployment/docker_compose/docker-compose.search-testing.yml:8:      dockerfile: Dockerfile
+deployment/docker_compose/docker-compose.search-testing.yml:52:      dockerfile: Dockerfile
+deployment/docker_compose/docker-compose.search-testing.yml:93:      dockerfile: Dockerfile
+deployment/docker_compose/docker-compose.search-testing.yml:116:      dockerfile: Dockerfile.model_server
+deployment/docker_compose/docker-compose.search-testing.yml:140:      dockerfile: Dockerfile.model_server
+deployment/docker_compose/docker-compose.dev.yml:5:#   docker compose -f docker-compose.yml -f docker-compose.dev.yml up -d --wait
+deployment/docker_compose/docker-compose.dev.yml:8:#   export COMPOSE_FILE=docker-compose.yml:docker-compose.dev.yml
+deployment/docker_compose/env.template:12:## docker-compose.craft.yml overlay together.
+deployment/docker_compose/env.template:23:## --- Craft sandbox backend (docker-compose only) ---
+deployment/docker_compose/env.template:24:## docker-compose defaults SANDBOX_BACKEND to "docker" so api_server drives
+deployment/docker_compose/docker-compose.prod-no-letsencrypt.yml:8:      dockerfile: Dockerfile
+deployment/docker_compose/docker-compose.prod-no-letsencrypt.yml:60:      dockerfile: Dockerfile
+deployment/docker_compose/docker-compose.prod-no-letsencrypt.yml:108:      dockerfile: Dockerfile
+deployment/docker_compose/docker-compose.prod-no-letsencrypt.yml:131:  #     dockerfile: Dockerfile
+deployment/docker_compose/docker-compose.prod-no-letsencrypt.yml:169:      dockerfile: Dockerfile.model_server
+deployment/docker_compose/docker-compose.prod-no-letsencrypt.yml:197:      dockerfile: Dockerfile.model_server
+deployment/docker_compose/docker-compose.onyx-lite.yml:11:#   docker compose -f docker-compose.yml -f docker-compose.onyx-lite.yml up -d
+deployment/docker_compose/docker-compose.onyx-lite.yml:14:#   docker compose -f docker-compose.yml -f docker-compose.onyx-lite.yml \
+deployment/docker_compose/docker-compose.onyx-lite.yml:15:#                  -f docker-compose.dev.yml up -d --wait
+deployment/docker_compose/docker-compose.multitenant-dev.yml:8:      dockerfile: Dockerfile
+deployment/docker_compose/docker-compose.multitenant-dev.yml:143:      dockerfile: Dockerfile
+deployment/docker_compose/docker-compose.multitenant-dev.yml:284:    #   # Maps to the CA_CERT_PATH environment variable in the Dockerfile
+deployment/docker_compose/docker-compose.multitenant-dev.yml:291:      dockerfile: Dockerfile
+deployment/docker_compose/docker-compose.multitenant-dev.yml:316:  #     dockerfile: Dockerfile
+deployment/docker_compose/docker-compose.multitenant-dev.yml:356:      dockerfile: Dockerfile.model_server
+deployment/docker_compose/docker-compose.multitenant-dev.yml:385:      dockerfile: Dockerfile.model_server
+deployment/docker_compose/install.sh:116:LITE_COMPOSE_FILE="docker-compose.onyx-lite.yml"
+deployment/docker_compose/install.sh:117:CRAFT_COMPOSE_FILE="docker-compose.craft.yml"
+deployment/docker_compose/install.sh:125:    COMPOSE_FILE_ARGS=(-f docker-compose.yml)
+deployment/docker_compose/install.sh:194:# Sets COMPOSE_CMD to "docker compose" (plugin) or "docker-compose" (standalone).
+deployment/docker_compose/install.sh:203:    if command -v docker-compose &> /dev/null; then
+deployment/docker_compose/install.sh:204:        COMPOSE_CMD="docker-compose"
+deployment/docker_compose/install.sh:336:        # Check if docker-compose.yml exists
+deployment/docker_compose/install.sh:337:        if [ -f "${INSTALL_ROOT}/deployment/docker-compose.yml" ]; then
+deployment/docker_compose/install.sh:352:            print_warning "docker-compose.yml not found in ${INSTALL_ROOT}/deployment"
+deployment/docker_compose/install.sh:389:        # Check if docker-compose.yml exists
+deployment/docker_compose/install.sh:390:        if [ -f "${INSTALL_ROOT}/deployment/docker-compose.yml" ]; then
+deployment/docker_compose/install.sh:515:    COMPOSE_URL="https://github.com/docker/compose/releases/latest/download/docker-compose-linux-${COMPOSE_ARCH}"
+deployment/docker_compose/install.sh:520:        sudo mv "$COMPOSE_TMP" "$COMPOSE_DIR/docker-compose"
+deployment/docker_compose/install.sh:521:        sudo chmod +x "$COMPOSE_DIR/docker-compose"
+deployment/docker_compose/install.sh:794:ensure_file "${INSTALL_ROOT}/deployment/docker-compose.yml" \
+deployment/docker_compose/install.sh:795:    "${GITHUB_RAW_URL}/docker-compose.yml" "docker-compose.yml" || exit 1
+deployment/docker_compose/install.sh:797:# Check Docker Compose version compatibility after obtaining docker-compose.yml
+deployment/docker_compose/install.sh:801:    print_warning "The docker-compose.yml file uses the newer env_file format that requires Docker Compose 2.24.0 or later."
+deployment/docker_compose/install.sh:808:    echo "2. Manually replace all env_file sections in docker-compose.yml"
+deployment/docker_compose/install.sh:820:        print_info "Installation cancelled. Please upgrade Docker Compose or manually edit the docker-compose.yml file."
+deployment/docker_compose/install.sh:903:if [ -d "${INSTALL_ROOT}/deployment" ] && [ -f "${INSTALL_ROOT}/deployment/docker-compose.yml" ]; then
+deployment/docker_compose/install.sh:1065:        # Ensure SANDBOX_BACKEND=docker is written explicitly (docker-compose
+deployment/docker_compose/install.sh:1075:        # Pre-create the dedicated sandbox bridge. docker-compose references
+deployment/docker_compose/install.sh:1183:# Export HOST_PORT for docker-compose
+deployment/docker_compose/install.sh:1212:    if download_file "${CONFIG_BASE}/docker_compose/docker-compose.yml" "${INSTALL_ROOT}/deployment/docker-compose.yml" 2>/dev/null; then
+deployment/docker_compose/init-letsencrypt.sh:11:  if command -v docker-compose >/dev/null 2>&1; then
+deployment/docker_compose/init-letsencrypt.sh:12:    echo "docker-compose"
+deployment/docker_compose/init-letsencrypt.sh:16:    echo 'Error: docker-compose or docker compose is not installed.' >&2
+deployment/docker_compose/init-letsencrypt.sh:55:$COMPOSE_CMD -f docker-compose.prod.yml run  --name onyx --rm --entrypoint "\
+deployment/docker_compose/init-letsencrypt.sh:64:$COMPOSE_CMD -f docker-compose.prod.yml up --force-recreate -d nginx
+deployment/docker_compose/init-letsencrypt.sh:82:$COMPOSE_CMD -f docker-compose.prod.yml run  --name onyx --rm --entrypoint "\
+deployment/docker_compose/init-letsencrypt.sh:105:$COMPOSE_CMD -f docker-compose.prod.yml run --name onyx --rm --entrypoint "\
+deployment/docker_compose/init-letsencrypt.sh:116:$COMPOSE_CMD -f docker-compose.prod.yml run --name onyx --rm --entrypoint "\
+deployment/docker_compose/init-letsencrypt.sh:125:$COMPOSE_CMD -f docker-compose.prod.yml up --force-recreate -d
+deployment/docker_compose/docker-compose.prod.yml:8:      dockerfile: Dockerfile
+deployment/docker_compose/docker-compose.prod.yml:60:      dockerfile: Dockerfile
+deployment/docker_compose/docker-compose.prod.yml:119:    #   # Maps to the CA_CERT_PATH environment variable in the Dockerfile
+deployment/docker_compose/docker-compose.prod.yml:126:      dockerfile: Dockerfile
+deployment/docker_compose/docker-compose.prod.yml:150:  #     dockerfile: Dockerfile
+deployment/docker_compose/docker-compose.prod.yml:205:      dockerfile: Dockerfile.model_server
+deployment/docker_compose/docker-compose.prod.yml:233:      dockerfile: Dockerfile.model_server
+deployment/docker_compose/README.md:35:(or `docker compose down` from the directory with the docker-compose.yml file).
+deployment/docker_compose/README.md:39:commands directly from the directory with the docker-compose.yml file. First verify the version you want in the environment file (see below),
+deployment/docker_compose/docker-compose.yml:34:# For a complete production setup, refer to docker-compose.prod.yml
+deployment/docker_compose/docker-compose.yml:44:      dockerfile: Dockerfile
+deployment/docker_compose/docker-compose.yml:69:    # 1. Use docker-compose.dev.yml: docker compose -f docker-compose.yml -f docker-compose.dev.yml up -d --wait
+deployment/docker_compose/docker-compose.yml:89:      - OUTPUTS_TEMPLATE_PATH=${OUTPUTS_TEMPLATE_PATH:-/app/onyx/server/features/build/sandbox/kubernetes/docker/templates/outputs}
+deployment/docker_compose/docker-compose.yml:90:      - VENV_TEMPLATE_PATH=${VENV_TEMPLATE_PATH:-/app/onyx/server/features/build/sandbox/kubernetes/docker/templates/venv}
+deployment/docker_compose/docker-compose.yml:91:      - WEB_TEMPLATE_PATH=${WEB_TEMPLATE_PATH:-/app/onyx/server/features/build/sandbox/kubernetes/docker/templates/outputs/web}
+deployment/docker_compose/docker-compose.yml:129:      dockerfile: Dockerfile
+deployment/docker_compose/docker-compose.yml:174:      - OUTPUTS_TEMPLATE_PATH=${OUTPUTS_TEMPLATE_PATH:-/app/onyx/server/features/build/sandbox/kubernetes/docker/templates/outputs}
+deployment/docker_compose/docker-compose.yml:175:      - VENV_TEMPLATE_PATH=${VENV_TEMPLATE_PATH:-/app/onyx/server/features/build/sandbox/kubernetes/docker/templates/venv}
+deployment/docker_compose/docker-compose.yml:176:      - WEB_TEMPLATE_PATH=${WEB_TEMPLATE_PATH:-/app/onyx/server/features/build/sandbox/kubernetes/docker/templates/outputs/web}
+deployment/docker_compose/docker-compose.yml:200:    #   # Maps to the CA_CERT_PATH environment variable in the Dockerfile
+deployment/docker_compose/docker-compose.yml:207:      dockerfile: Dockerfile
+deployment/docker_compose/docker-compose.yml:242:  #     dockerfile: Dockerfile
+deployment/docker_compose/docker-compose.yml:281:      dockerfile: Dockerfile.model_server
+deployment/docker_compose/docker-compose.yml:331:      dockerfile: Dockerfile.model_server
+deployment/docker_compose/docker-compose.yml:392:    # 1. Use docker-compose.dev.yml: docker compose -f docker-compose.yml -f docker-compose.dev.yml up -d --wait
+deployment/docker_compose/docker-compose.yml:507:    # 1. Use docker-compose.dev.yml: docker compose -f docker-compose.yml -f docker-compose.dev.yml up -d --wait
+deployment/docker_compose/docker-compose.yml:526:    # 1. Use docker-compose.dev.yml: docker compose -f docker-compose.yml -f docker-compose.dev.yml up -d --wait
+deployment/helm/README.md:7:  so `helm install` works on a clean cluster without a separate CRD step.
+deployment/helm/README.md:9:  `templates/postgres-cluster.yaml`, so `helm install` provisions postgres
+deployment/helm/README.md:22:  deletes operator-managed CRs before `helm uninstall` tears down the
+deployment/helm/README.md:29:* helm dependency update .
+deployment/helm/README.md:37:provides the CRD that the Redis CR binds to, so `helm install` works on a clean
+deployment/helm/README.md:41:CRD and controller automatically as part of `helm install onyx onyx/onyx`.
+deployment/helm/README.md:151:# Values that come from docker-compose (do not copy them)
+deployment/helm/README.md:153:The Onyx docker-compose stack uses service-name hostnames like `api_server`,
+deployment/helm/README.md:160:adapting an `.env` file from docker-compose, **remove** these keys from your
+deployment/helm/README.md:163:| Key | Don't set to (docker-compose) | Chart-computed default |
+deployment/helm/README.md:171:Other docker-compose-style values you should set deliberately:
+deployment/helm/README.md:181:> This section covers chart-maintainer testing; for the Onyx Craft local-kind developer workflow, see [docs/dev/local-kubernetes.md](/docs/dev/local-kubernetes.md).
+deployment/helm/README.md:193:  * ct install --all --helm-extra-set-args="--set=nginx.enabled=false" --debug --config ct.yaml
+deployment/helm/README.md:197:* helm template test-output . --set auth.opensearch.values.opensearch_admin_password='StrongPassword123!' > test-output.yaml
+deployment/helm/README.md:201:* helm install onyx . -n onyx --set postgresql.primary.persistence.enabled=false --set auth.opensearch.values.opensearch_admin_password='StrongPassword123!'
+deployment/helm/README.md:208:  * helm uninstall onyx -n onyx
+deployment/helm/README.md:232:In the helm charts, we have resource suggestions for all Onyx-owned components. 
+deployment/helm/dev/k8s-up.sh:5:# Idempotent. See docs/dev/local-kubernetes.md for the full workflow.
+deployment/helm/dev/k8s-up.sh:8:#   deployment/helm/dev/k8s-up.sh
+deployment/helm/dev/k8s-up.sh:9:#   deployment/helm/dev/k8s-up.sh --opensearch-password 'YourStrongPwHere'
+deployment/helm/dev/k8s-up.sh:17:#   --skip-helm                    only create the cluster, don't install Onyx
+deployment/helm/dev/k8s-up.sh:35:    echo "see docs/dev/local-kubernetes.md for installation" >&2
+deployment/helm/dev/k8s-up.sh:46:    --skip-helm)            SKIP_HELM=1; shift ;;
+deployment/helm/dev/k8s-up.sh:59:require helm
+deployment/helm/dev/k8s-up.sh:86:# ---- 2. helm install / upgrade ----
+deployment/helm/dev/k8s-up.sh:89:  echo "skipping helm install (--skip-helm)"
+deployment/helm/dev/k8s-up.sh:101:# Use an isolated helm repo config: helm matches chart deps by repo NAME, so a
+deployment/helm/dev/k8s-up.sh:104:echo "preparing isolated helm repo config ..."
+deployment/helm/dev/k8s-up.sh:105:HELM_DEV_HOME="$(mktemp -d -t onyx-dev-helm-XXXXXX)"
+deployment/helm/dev/k8s-up.sh:112:helm repo add cloudnative-pg  https://cloudnative-pg.github.io/charts          >/dev/null
+deployment/helm/dev/k8s-up.sh:113:helm repo add vespa           https://onyx-dot-app.github.io/vespa-helm-charts >/dev/null
+deployment/helm/dev/k8s-up.sh:114:helm repo add opensearch      https://opensearch-project.github.io/helm-charts >/dev/null
+deployment/helm/dev/k8s-up.sh:115:helm repo add ingress-nginx   https://kubernetes.github.io/ingress-nginx       >/dev/null
+deployment/helm/dev/k8s-up.sh:116:helm repo add redis-ot        https://ot-container-kit.github.io/helm-charts   >/dev/null
+deployment/helm/dev/k8s-up.sh:117:helm repo add minio           https://charts.min.io/                           >/dev/null
+deployment/helm/dev/k8s-up.sh:118:helm repo add code-interpreter https://onyx-dot-app.github.io/python-sandbox/  >/dev/null
+deployment/helm/dev/k8s-up.sh:119:helm repo update >/dev/null
+deployment/helm/dev/k8s-up.sh:122:helm dependency update "$CHART_DIR" >/dev/null
+deployment/helm/dev/k8s-up.sh:137:echo "helm upgrade --install onyx ..."
+deployment/helm/dev/k8s-up.sh:140:helm upgrade --install onyx "$CHART_DIR" \
+deployment/helm/dev/k8s-up.sh:159:       telepresence helm install        # one-time, installs traffic-manager
+deployment/helm/dev/k8s-up.sh:172:  deployment/helm/dev/k8s-down.sh
+deployment/helm/dev/k8s-down.sh:5:# Default: uninstall the helm release and delete the kind cluster (wipes data).
+deployment/helm/dev/k8s-down.sh:9:#   deployment/helm/dev/k8s-down.sh
+deployment/helm/dev/k8s-down.sh:10:#   deployment/helm/dev/k8s-down.sh --keep-cluster
+deployment/helm/dev/k8s-down.sh:60:  echo "uninstalling helm release 'onyx' in namespace '$NAMESPACE' ..."
+deployment/helm/dev/k8s-down.sh:61:  helm uninstall onyx -n "$NAMESPACE" 2>/dev/null || true
+deployment/helm/charts/onyx/values.yaml:8:#                           /docs/dev/local-kubernetes.md for the full workflow.
+deployment/helm/charts/onyx/values.yaml:21:  # The operator looks for a deployment with label app.kubernetes.io/name=cloudnative-pg,
+deployment/helm/charts/onyx/values.yaml:55:  # See https://github.com/opensearch-project/helm-charts/blob/main/charts/opensearch/values.yaml
+deployment/helm/charts/onyx/values.yaml:72:  # See https://docs.opensearch.org/latest/install-and-configure/install-opensearch/helm/#prerequisites
+deployment/helm/charts/onyx/values.yaml:1081:    kubernetesExecutor:
+deployment/helm/charts/onyx/values.yaml:1102:  # RBAC for pod management (required for kubernetes executor)
+deployment/helm/charts/onyx/values.yaml:1325:    # If not set, helm install/upgrade will fail when auth.userauth.enabled=true.
+deployment/helm/charts/onyx/values.yaml:1341:  # WARNING: do NOT copy hostname keys from a docker-compose .env into this
+deployment/helm/charts/onyx/values.yaml:1349:  # See deployment/helm/README.md for the external-Redis / ElastiCache path.
+deployment/helm/charts/onyx/values.yaml:1438:  # Sandbox config — always "kubernetes" for Helm deployments
+deployment/helm/charts/onyx/values.yaml:1439:  SANDBOX_BACKEND: "kubernetes"
+deployment/helm/charts/onyx/values-lite.yaml:10:#   helm install onyx ./deployment/helm/charts/onyx \
+deployment/helm/charts/onyx/values-lite.yaml:11:#     -f ./deployment/helm/charts/onyx/values-lite.yaml
+deployment/helm/charts/onyx/values-lite.yaml:14:#   helm install onyx ./deployment/helm/charts/onyx \
+deployment/helm/charts/onyx/values-lite.yaml:15:#     -f ./deployment/helm/charts/onyx/values-lite.yaml \
+deployment/helm/charts/onyx/templates/_helpers.tpl:37:helm.sh/chart: {{ include "onyx.chart" . }}
+deployment/helm/charts/onyx/templates/_helpers.tpl:40:app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
+deployment/helm/charts/onyx/templates/_helpers.tpl:42:app.kubernetes.io/managed-by: {{ .Release.Service }}
+deployment/helm/charts/onyx/templates/_helpers.tpl:49:app.kubernetes.io/name: {{ include "onyx.name" . }}
+deployment/helm/charts/onyx/templates/_helpers.tpl:50:app.kubernetes.io/instance: {{ .Release.Name }}
+deployment/helm/charts/onyx/templates/ingress-mcp.yaml:8:    kubernetes.io/ingress.class: nginx
+deployment/helm/charts/onyx/templates/ingress-mcp.yaml:10:    nginx.ingress.kubernetes.io/rewrite-target: /$2
+deployment/helm/charts/onyx/templates/ingress-mcp.yaml:11:    nginx.ingress.kubernetes.io/use-regex: "true"
+deployment/helm/charts/onyx/templates/sandbox-namespace.yaml:8:    app.kubernetes.io/managed-by: {{ $.Release.Service }}
+deployment/helm/charts/onyx/templates/sandbox-namespace.yaml:9:    app.kubernetes.io/part-of: {{ include "onyx.fullname" . }}
+deployment/helm/charts/onyx/templates/tests/test-connection.yaml:9:    "helm.sh/hook": test
+deployment/helm/charts/onyx/templates/tests/test-connection.yaml:10:    "helm.sh/hook-delete-policy": hook-succeeded,before-hook-creation
+deployment/helm/charts/onyx/templates/nginx-conf.yaml:3:# before running `helm upgrade` to trigger an automatic nginx restart:
+deployment/helm/charts/onyx/templates/ingress-webserver.yaml:8:    kubernetes.io/ingress.class: nginx
+deployment/helm/charts/onyx/templates/ingress-webserver.yaml:11:    kubernetes.io/tls-acme: "true"
+deployment/helm/charts/onyx/templates/ingress-mcp-oauth-callback.yaml:8:    kubernetes.io/ingress.class: nginx
+deployment/helm/charts/onyx/templates/network-policy-sandbox-push.yaml:11:      app.kubernetes.io/component: sandbox
+deployment/helm/charts/onyx/templates/network-policy-sandbox-push.yaml:17:              kubernetes.io/metadata.name: {{ $.Release.Namespace }}
+deployment/helm/charts/onyx/templates/ingress-api.yaml:8:    kubernetes.io/ingress.class: nginx
+deployment/helm/charts/onyx/templates/ingress-api.yaml:10:    nginx.ingress.kubernetes.io/rewrite-target: /$2
+deployment/helm/charts/onyx/templates/ingress-api.yaml:11:    nginx.ingress.kubernetes.io/use-regex: "true"
+deployment/helm/charts/onyx/templates/ingress-api.yaml:12:    nginx.ingress.kubernetes.io/proxy-read-timeout: "{{ .Values.nginx.timeouts.read }}"
+deployment/helm/charts/onyx/templates/ingress-api.yaml:13:    nginx.ingress.kubernetes.io/proxy-send-timeout: "{{ .Values.nginx.timeouts.send }}"
+deployment/helm/charts/onyx/templates/ingress-api.yaml:14:    nginx.ingress.kubernetes.io/proxy-body-size: "5G"
+deployment/helm/charts/onyx/templates/pre-delete-cleanup.yaml:3:running so their finalizers are processed cleanly. Without this, helm
+deployment/helm/charts/onyx/templates/pre-delete-cleanup.yaml:16:    "helm.sh/hook": pre-delete
+deployment/helm/charts/onyx/templates/pre-delete-cleanup.yaml:17:    "helm.sh/hook-weight": "-10"
+deployment/helm/charts/onyx/templates/pre-delete-cleanup.yaml:18:    "helm.sh/hook-delete-policy": hook-succeeded,before-hook-creation
+deployment/helm/charts/onyx/templates/pre-delete-cleanup.yaml:27:    "helm.sh/hook": pre-delete
+deployment/helm/charts/onyx/templates/pre-delete-cleanup.yaml:28:    "helm.sh/hook-weight": "-10"
+deployment/helm/charts/onyx/templates/pre-delete-cleanup.yaml:29:    "helm.sh/hook-delete-policy": hook-succeeded,before-hook-creation
+deployment/helm/charts/onyx/templates/pre-delete-cleanup.yaml:49:    "helm.sh/hook": pre-delete
+deployment/helm/charts/onyx/templates/pre-delete-cleanup.yaml:50:    "helm.sh/hook-weight": "-10"
+deployment/helm/charts/onyx/templates/pre-delete-cleanup.yaml:51:    "helm.sh/hook-delete-policy": hook-succeeded,before-hook-creation
+deployment/helm/charts/onyx/templates/pre-delete-cleanup.yaml:68:    "helm.sh/hook": pre-delete
+deployment/helm/charts/onyx/templates/pre-delete-cleanup.yaml:69:    "helm.sh/hook-weight": "0"
+deployment/helm/charts/onyx/templates/pre-delete-cleanup.yaml:70:    "helm.sh/hook-delete-policy": hook-succeeded,before-hook-creation
+deployment/helm/charts/onyx/Chart.yaml:35:    repository: https://opensearch-project.github.io/helm-charts
+deployment/helm/charts/onyx/Chart.yaml:39:    repository: https://kubernetes.github.io/ingress-nginx
+deployment/helm/charts/onyx/Chart.yaml:45:    repository: https://ot-container-kit.github.io/helm-charts
+deployment/helm/charts/onyx/Chart.yaml:49:    repository: https://ot-container-kit.github.io/helm-charts
+deployment/helm/charts/onyx/values-ci.yaml:3:# The CI workflow renders specific templates with `helm template --show-only`
+deployment/helm/charts/onyx/values-ci.yaml:15:# Postgres/Redis/MinIO actually run in docker-compose alongside the kind
+deployment/helm/charts/onyx/Chart.lock:6:  repository: https://opensearch-project.github.io/helm-charts
+deployment/helm/charts/onyx/Chart.lock:9:  repository: https://kubernetes.github.io/ingress-nginx
+deployment/helm/charts/onyx/Chart.lock:12:  repository: https://ot-container-kit.github.io/helm-charts
+deployment/helm/charts/onyx/Chart.lock:15:  repository: https://ot-container-kit.github.io/helm-charts
+deployment/helm/charts/onyx/scripts/check-cnpg-crds.sh:19:  echo "CNPG subchart tarball not found in $CHART_DIR/charts/. Run 'helm dependency update' first." >&2
+deployment/helm/charts/onyx/values-localdev.yaml:7:# See docs/dev/local-kubernetes.md for the full workflow.
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:6:    helm.sh/resource-policy: keep
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:145:            x-kubernetes-validations:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:452:    helm.sh/resource-policy: keep
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:515:                x-kubernetes-validations:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:534:    helm.sh/resource-policy: keep
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:650:                                            x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:656:                                      x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:666:                                  x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:680:                                  x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:694:                                  x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:730:                                            x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:736:                                      x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:746:                                  x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:756:                                  x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:779:                        x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:829:                                        x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:835:                                  x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:845:                              x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:859:                              x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:873:                              x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:908:                                        x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:914:                                  x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:924:                              x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:934:                              x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:947:                        x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:1005:                                            x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:1011:                                      x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:1021:                                  x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:1035:                                  x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:1049:                                  x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:1085:                                            x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:1091:                                      x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:1101:                                  x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:1111:                                  x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:1134:                        x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:1184:                                        x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:1190:                                  x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:1200:                              x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:1214:                              x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:1228:                              x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:1263:                                        x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:1269:                                  x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:1279:                              x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:1289:                              x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:1302:                        x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:1312:                      More info: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#node-affinity
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:1361:                                        x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:1367:                                  x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:1395:                                        x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:1401:                                  x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:1403:                              x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:1414:                        x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:1459:                                        x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:1465:                                  x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:1493:                                        x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:1499:                                  x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:1501:                              x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:1503:                            x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:1507:                        x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:1515:                      More info: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:1521:                      "required". Setting it to "required", could lead to instances remaining pending until new kubernetes nodes are
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:1524:                      https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#inter-pod-affinity-and-anti-affinity
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:1530:                      More info: https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:2343:                    x-kubernetes-validations:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:2521:                            x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:2546:                              x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:2570:                            x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:2593:                      The secret of type kubernetes.io/tls containing the client certificate to authenticate as
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:2618:                      The secret of type kubernetes.io/tls containing the server TLS certificate and key that will be set as
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:2689:                                More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:2698:                          x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:2715:                          x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:2732:                              x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:2739:                          x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:2754:                                More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:2763:                          x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:2787:                            More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:2793:                      x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:2808:                            More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:2814:                      x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:2861:                              More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:2865:                            x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:2893:                            x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:2948:                              More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:2956:                                  x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:2959:                                  More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:2967:                                  x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:2972:                                  More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:3005:                                      x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:3011:                                x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:3021:                            x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:3025:                              More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:3039:                              More info: https://kubernetes.io/docs/concepts/storage/volume-attributes-classes/
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:3067:                    x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:3075:                    x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:3455:                            More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:3464:                      x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:3507:                            More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:3516:                      x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:3533:                            More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:3542:                      x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:3559:                            More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:3568:                      x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:3606:                x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:3607:                x-kubernetes-validations:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:3624:                  More info: https://kubernetes.io/docs/concepts/containers/images#updating-images
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:3828:                                        More info: http://kubernetes.io/docs/user-guide/annotations
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:3837:                                        More info: http://kubernetes.io/docs/user-guide/labels
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:3875:                                        More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:3901:                                        More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:3905:                                      x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:3916:                                      x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:3987:                                      x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:4027:                                        More info: https://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:4031:                                      x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:4035:                                        More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:4051:                                                * 'kubernetes.io/h2c' - HTTP/2 prior knowledge over cleartext as described in https://www.rfc-editor.org/rfc/rfc9113.html#name-starting-http-2-with-prior-
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:4052:                                                * 'kubernetes.io/ws'  - WebSocket over cleartext as described in https://www.rfc-editor.org/rfc/rfc6455
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:4053:                                                * 'kubernetes.io/wss' - WebSocket over TLS as described in https://www.rfc-editor.org/rfc/rfc6455
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:4076:                                              More info: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:4102:                                              More info: https://kubernetes.io/docs/concepts/services-networking/service/#defining-a-service
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:4103:                                            x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:4108:                                      x-kubernetes-list-map-keys:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:4111:                                      x-kubernetes-list-type: map
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:4132:                                        More info: https://kubernetes.io/docs/concepts/services-networking/service/
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:4134:                                      x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:4141:                                        More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:4186:                                        More info: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:4579:                                More info: https://kubernetes.io/docs/concepts/containers/images
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:4584:                          x-kubernetes-validations:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:4640:                                  More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:4649:                            x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:4763:                        x-kubernetes-validations:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:4787:                    x-kubernetes-validations:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:4818:                  https://kubernetes.io/docs/concepts/scheduling-eviction/pod-priority-preemption/#priorityclass
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:4838:                          More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:4895:                          More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:4911:                          More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:4920:                        x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:4951:                          More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:4974:                          More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:4983:                        x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:5014:                          More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:5099:                                        x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:5105:                                  x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:5115:                              x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:5184:                              x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:5192:                                More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:5199:                          x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:5226:                                    x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:5260:                                        x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:5267:                                    x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:5272:                              x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:5316:                              x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:5324:                                More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:5331:                          x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:5363:                    x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:5476:                  https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:5507:                    x-kubernetes-list-map-keys:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:5509:                    x-kubernetes-list-type: map
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:5516:                      x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:5519:                      More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:5527:                      x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:5532:                      More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:5540:                  https://kubernetes.io/docs/concepts/scheduling-eviction/kube-scheduler/
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:5581:                          More info: http://kubernetes.io/docs/user-guide/annotations
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:5590:                          More info: http://kubernetes.io/docs/user-guide/labels
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:5634:                          More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:5638:                        x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:5666:                        x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:5721:                          More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:5729:                              x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:5732:                              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:5740:                              x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:5745:                              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:5778:                                  x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:5784:                            x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:5794:                        x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:5798:                          More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:5812:                          More info: https://kubernetes.io/docs/concepts/storage/volume-attributes-classes/
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:5888:                                More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:5892:                              x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:5922:                              x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:5979:                                More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:5987:                                    x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:5990:                                    More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:5998:                                    x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:6003:                                    More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:6036:                                        x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:6042:                                  x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:6052:                              x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:6056:                                More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:6070:                                More info: https://kubernetes.io/docs/concepts/storage/volume-attributes-classes/
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:6118:                  https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:6155:                                x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:6161:                          x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:6171:                      x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:6187:                      x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:6260:                        e.g. If TopologyKey is "kubernetes.io/hostname", each Node is a domain of that topology.
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:6261:                        And, if TopologyKey is "topology.kubernetes.io/zone", each zone is a domain of that topology.
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:6302:                          More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:6306:                        x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:6334:                        x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:6389:                          More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:6397:                              x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:6400:                              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:6408:                              x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:6413:                              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:6446:                                  x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:6452:                            x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:6462:                        x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:6466:                          More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:6480:                          More info: https://kubernetes.io/docs/concepts/storage/volume-attributes-classes/
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:6514:            x-kubernetes-validations:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:6564:                      The secret of type kubernetes.io/tls containing the client certificate to authenticate as
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:6589:                      The secret of type kubernetes.io/tls containing the server TLS certificate and key that will be set as
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:7105:    helm.sh/resource-policy: keep
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:7172:                x-kubernetes-validations:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:7185:                      More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:7188:                x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:7194:                x-kubernetes-validations:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:7215:                x-kubernetes-validations:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:7270:                x-kubernetes-validations:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:7280:                x-kubernetes-validations:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:7295:                x-kubernetes-validations:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:7303:                x-kubernetes-validations:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:7311:                x-kubernetes-validations:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:7320:                x-kubernetes-validations:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:7327:                x-kubernetes-validations:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:7385:                x-kubernetes-validations:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:7393:            x-kubernetes-validations:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:7478:    helm.sh/resource-policy: keep
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:7556:    helm.sh/resource-policy: keep
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:7618:                x-kubernetes-validations:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:7637:    helm.sh/resource-policy: keep
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:7721:                        x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:7737:                        x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8002:                          More info: http://kubernetes.io/docs/user-guide/annotations
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8011:                          More info: http://kubernetes.io/docs/user-guide/labels
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8049:                          More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8075:                          More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8079:                        x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8090:                        x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8161:                        x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8201:                          More info: https://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8205:                        x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8209:                          More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8225:                                  * 'kubernetes.io/h2c' - HTTP/2 prior knowledge over cleartext as described in https://www.rfc-editor.org/rfc/rfc9113.html#name-starting-http-2-with-prior-
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8226:                                  * 'kubernetes.io/ws'  - WebSocket over cleartext as described in https://www.rfc-editor.org/rfc/rfc6455
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8227:                                  * 'kubernetes.io/wss' - WebSocket over TLS as described in https://www.rfc-editor.org/rfc/rfc6455
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8250:                                More info: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8275:                                More info: https://kubernetes.io/docs/concepts/services-networking/service/#defining-a-service
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8276:                              x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8281:                        x-kubernetes-list-map-keys:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8284:                        x-kubernetes-list-type: map
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8305:                          More info: https://kubernetes.io/docs/concepts/services-networking/service/
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8307:                        x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8314:                          More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8359:                          More info: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8378:                          More info: http://kubernetes.io/docs/user-guide/annotations
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8387:                          More info: http://kubernetes.io/docs/user-guide/labels
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8460:                                                x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8466:                                          x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8494:                                                x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8500:                                          x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8502:                                      x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8514:                                x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8559:                                                x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8565:                                          x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8593:                                                x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8599:                                          x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8601:                                      x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8603:                                    x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8607:                                x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8667:                                                    x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8673:                                              x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8683:                                          x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8697:                                          x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8711:                                          x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8748:                                                    x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8754:                                              x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8764:                                          x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8774:                                          x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8797:                                x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8848:                                                x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8854:                                          x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8864:                                      x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8878:                                      x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8892:                                      x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8928:                                                x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8934:                                          x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8944:                                      x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8954:                                      x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:8967:                                x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9027:                                                    x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9033:                                              x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9043:                                          x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9057:                                          x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9071:                                          x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9108:                                                    x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9114:                                              x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9124:                                          x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9134:                                          x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9157:                                x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9208:                                                x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9214:                                          x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9224:                                      x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9238:                                      x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9252:                                      x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9288:                                                x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9294:                                          x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9304:                                      x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9314:                                      x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9327:                                x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9353:                                More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9357:                              x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9367:                                More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9371:                              x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9413:                                              More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9422:                                        x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9440:                                        x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9458:                                            x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9465:                                        x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9482:                                              More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9491:                                        x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9497:                              x-kubernetes-list-map-keys:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9499:                              x-kubernetes-list-type: map
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9522:                                          More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9529:                                    x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9544:                                          More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9551:                                    x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9554:                              x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9558:                                More info: https://kubernetes.io/docs/concepts/containers/images
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9568:                                More info: https://kubernetes.io/docs/concepts/containers/images#updating-images
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9580:                                    More info: https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#container-hooks
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9596:                                          x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9627:                                          x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9640:                                          x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9679:                                          x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9694:                                    More info: https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#container-hooks
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9710:                                          x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9741:                                          x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9754:                                          x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9793:                                          x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9810:                                More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9826:                                      x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9882:                                      x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9894:                                      x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9906:                                    More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9937:                                      x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9959:                                    More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:9976:                                For more information See https://github.com/kubernetes/kubernetes/issues/108255.
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:10016:                              x-kubernetes-list-map-keys:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:10019:                              x-kubernetes-list-type: map
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:10025:                                More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:10041:                                      x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:10097:                                      x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:10109:                                      x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:10121:                                    More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:10152:                                      x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:10174:                                    More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:10199:                              x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:10204:                                More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:10235:                                  x-kubernetes-list-map-keys:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:10237:                                  x-kubernetes-list-type: map
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:10244:                                    x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:10247:                                    More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:10255:                                    x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:10260:                                    More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:10285:                                More info: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:10334:                                      x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:10342:                                      x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:10453:                                        (https://github.com/kubernetes-sigs/windows-gmsa) inlines the contents of the
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:10484:                                More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:10500:                                      x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:10556:                                      x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:10568:                                      x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:10580:                                    More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:10611:                                      x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:10633:                                    More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:10699:                              x-kubernetes-list-map-keys:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:10701:                              x-kubernetes-list-type: map
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:10768:                              x-kubernetes-list-map-keys:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:10770:                              x-kubernetes-list-type: map
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:10782:                        x-kubernetes-list-map-keys:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:10784:                        x-kubernetes-list-type: map
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:10799:                            x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:10821:                            x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:10830:                            x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:10873:                                More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:10877:                              x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:10887:                                More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:10891:                              x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:10933:                                              More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:10942:                                        x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:10960:                                        x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:10978:                                            x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:10985:                                        x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:11002:                                              More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:11011:                                        x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:11017:                              x-kubernetes-list-map-keys:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:11019:                              x-kubernetes-list-type: map
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:11042:                                          More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:11049:                                    x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:11064:                                          More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:11071:                                    x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:11074:                              x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:11078:                                More info: https://kubernetes.io/docs/concepts/containers/images
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:11086:                                More info: https://kubernetes.io/docs/concepts/containers/images#updating-images
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:11097:                                    More info: https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#container-hooks
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:11113:                                          x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:11144:                                          x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:11157:                                          x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:11196:                                          x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:11211:                                    More info: https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#container-hooks
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:11227:                                          x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:11258:                                          x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:11271:                                          x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:11310:                                          x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:11339:                                      x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:11395:                                      x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:11407:                                      x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:11419:                                    More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:11450:                                      x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:11472:                                    More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:11521:                              x-kubernetes-list-map-keys:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:11524:                              x-kubernetes-list-type: map
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:11542:                                      x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:11598:                                      x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:11610:                                      x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:11622:                                    More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:11653:                                      x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:11675:                                    More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:11700:                              x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:11735:                                  x-kubernetes-list-map-keys:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:11737:                                  x-kubernetes-list-type: map
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:11744:                                    x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:11747:                                    More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:11755:                                    x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:11760:                                    More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:11822:                                      x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:11830:                                      x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:11941:                                        (https://github.com/kubernetes-sigs/windows-gmsa) inlines the contents of the
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:11981:                                      x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12037:                                      x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12049:                                      x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12061:                                    More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12092:                                      x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12114:                                    More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12189:                              x-kubernetes-list-map-keys:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12191:                              x-kubernetes-list-type: map
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12258:                              x-kubernetes-list-map-keys:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12260:                              x-kubernetes-list-type: map
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12272:                        x-kubernetes-list-map-keys:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12274:                        x-kubernetes-list-type: map
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12289:                              x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12297:                        x-kubernetes-list-map-keys:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12299:                        x-kubernetes-list-type: map
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12337:                          More info: https://kubernetes.io/docs/concepts/containers/images#specifying-imagepullsecrets-on-a-pod
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12350:                                More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12353:                          x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12355:                        x-kubernetes-list-map-keys:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12357:                        x-kubernetes-list-type: map
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12372:                          More info: https://kubernetes.io/docs/concepts/workloads/pods/init-containers/
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12386:                                More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12390:                              x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12400:                                More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12404:                              x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12446:                                              More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12455:                                        x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12473:                                        x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12491:                                            x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12498:                                        x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12515:                                              More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12524:                                        x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12530:                              x-kubernetes-list-map-keys:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12532:                              x-kubernetes-list-type: map
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12555:                                          More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12562:                                    x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12577:                                          More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12584:                                    x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12587:                              x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12591:                                More info: https://kubernetes.io/docs/concepts/containers/images
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12601:                                More info: https://kubernetes.io/docs/concepts/containers/images#updating-images
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12613:                                    More info: https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#container-hooks
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12629:                                          x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12660:                                          x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12673:                                          x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12712:                                          x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12727:                                    More info: https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#container-hooks
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12743:                                          x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12774:                                          x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12787:                                          x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12826:                                          x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12843:                                More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12859:                                      x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12915:                                      x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12927:                                      x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12939:                                    More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12970:                                      x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:12992:                                    More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:13009:                                For more information See https://github.com/kubernetes/kubernetes/issues/108255.
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:13049:                              x-kubernetes-list-map-keys:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:13052:                              x-kubernetes-list-type: map
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:13058:                                More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:13074:                                      x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:13130:                                      x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:13142:                                      x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:13154:                                    More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:13185:                                      x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:13207:                                    More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:13232:                              x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:13237:                                More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:13268:                                  x-kubernetes-list-map-keys:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:13270:                                  x-kubernetes-list-type: map
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:13277:                                    x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:13280:                                    More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:13288:                                    x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:13293:                                    More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:13318:                                More info: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:13367:                                      x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:13375:                                      x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:13486:                                        (https://github.com/kubernetes-sigs/windows-gmsa) inlines the contents of the
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:13517:                                More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:13533:                                      x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:13589:                                      x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:13601:                                      x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:13613:                                    More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:13644:                                      x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:13666:                                    More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:13732:                              x-kubernetes-list-map-keys:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:13734:                              x-kubernetes-list-type: map
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:13801:                              x-kubernetes-list-map-keys:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:13803:                              x-kubernetes-list-type: map
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:13815:                        x-kubernetes-list-map-keys:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:13817:                        x-kubernetes-list-type: map
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:13824:                          https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodename
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:13832:                          More info: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:13834:                        x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:13885:                          x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:13937:                        x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:13993:                        x-kubernetes-list-map-keys:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:13995:                        x-kubernetes-list-type: map
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:14036:                            x-kubernetes-list-map-keys:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:14038:                            x-kubernetes-list-type: map
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:14045:                              x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:14048:                              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:14056:                              x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:14061:                              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:14069:                          More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#restart-policy
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:14104:                        x-kubernetes-list-map-keys:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:14106:                        x-kubernetes-list-type: map
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:14279:                            x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:14308:                            x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:14319:                                  (https://github.com/kubernetes-sigs/windows-gmsa) inlines the contents of the
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:14350:                          More info: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:14424:                        x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:14466:                                        x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:14472:                                  x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:14482:                              x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:14498:                              x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:14571:                                e.g. If TopologyKey is "kubernetes.io/hostname", each Node is a domain of that topology.
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:14572:                                And, if TopologyKey is "topology.kubernetes.io/zone", each zone is a domain of that topology.
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:14602:                        x-kubernetes-list-map-keys:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:14605:                        x-kubernetes-list-type: map
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:14609:                          More info: https://kubernetes.io/docs/concepts/storage/volumes
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:14620:                                More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:14627:                                    More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:14640:                                    More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:14645:                                    More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:14726:                                  x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:14755:                                        More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:14758:                                  x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:14799:                                        More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:14802:                                  x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:14864:                                  x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:14872:                                    More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:14879:                              x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:14911:                                        More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:14914:                                  x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:14971:                                        x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15006:                                            x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15013:                                        x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15018:                                  x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15023:                                More info: https://kubernetes.io/docs/concepts/storage/volumes#emptydir
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15030:                                    More info: https://kubernetes.io/docs/concepts/storage/volumes#emptydir
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15042:                                    More info: https://kubernetes.io/docs/concepts/storage/volumes#emptydir
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15044:                                  x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15113:                                            More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15117:                                          x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15147:                                          x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15204:                                            More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15212:                                                x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15215:                                                More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15223:                                                x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15228:                                                More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15263:                                                    x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15269:                                              x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15279:                                          x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15283:                                            More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15297:                                            More info: https://kubernetes.io/docs/concepts/storage/volume-attributes-classes/
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15340:                                  x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15348:                                  x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15392:                                        More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15395:                                  x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15420:                                More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15427:                                    More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15435:                                    More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15441:                                    More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15447:                                    More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15508:                                More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15514:                                    More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15520:                                    More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15555:                                    More info: https://kubernetes.io/docs/concepts/containers/images
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15579:                                    More info: https://kubernetes.io/docs/concepts/storage/volumes#iscsi
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15607:                                  x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15624:                                        More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15627:                                  x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15642:                                More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15647:                                More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15652:                                    More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15658:                                    More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15663:                                    More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15673:                                More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15678:                                    More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15805:                                                      x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15811:                                                x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15821:                                            x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15890:                                            x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15898:                                              More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15905:                                        x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15937:                                                  x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15975:                                                      x-kubernetes-int-or-string: true
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15983:                                                  x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:15988:                                            x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:16032:                                            x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:16040:                                              More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:16047:                                        x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:16079:                                  x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:16131:                                    More info: https://kubernetes.io/docs/concepts/storage/volumes#rbd
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:16152:                                  x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:16180:                                        More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:16183:                                  x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:16233:                                        More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:16236:                                  x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:16268:                                More info: https://kubernetes.io/docs/concepts/storage/volumes#secret
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:16319:                                  x-kubernetes-list-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:16327:                                    More info: https://kubernetes.io/docs/concepts/storage/volumes#secret
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:16358:                                        More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:16361:                                  x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:16409:                        x-kubernetes-list-map-keys:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:16411:                        x-kubernetes-list-type: map
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:16504:    helm.sh/resource-policy: keep
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:16568:                      More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:16571:                x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:16577:                x-kubernetes-validations:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:16583:                x-kubernetes-validations:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:16610:                    x-kubernetes-validations:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:16648:                      x-kubernetes-validations:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:16654:                    x-kubernetes-validations:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:16660:                x-kubernetes-validations:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:16700:    helm.sh/resource-policy: keep
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:16892:    helm.sh/resource-policy: keep
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:16956:                      More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:16959:                x-kubernetes-map-type: atomic
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:16965:                x-kubernetes-validations:
+deployment/helm/charts/onyx/crds/cnpg-crds.yaml:16975:                x-kubernetes-validations:

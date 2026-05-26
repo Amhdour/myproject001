@@ -1,0 +1,461 @@
+backend/onyx/db/security_layer.py:13:class SecurityAuditEvent(Base):
+backend/onyx/db/security_layer.py:14:    __tablename__ = "security_audit_events"
+backend/onyx/db/security_layer.py:40:class SecurityPolicyDecision(Base):
+backend/onyx/db/security_layer.py:41:    __tablename__ = "security_policy_decisions"
+backend/onyx/db/security_layer.py:61:class SecurityApprovalRequest(Base):
+backend/onyx/db/security_layer.py:62:    __tablename__ = "security_approval_requests"
+backend/onyx/db/security_layer.py:82:class SecurityLaunchGateRun(Base):
+backend/onyx/db/security_layer.py:83:    __tablename__ = "security_launch_gate_runs"
+backend/onyx/db/security_layer.py:97:class SecurityFinding(Base):
+backend/onyx/db/security_layer.py:98:    __tablename__ = "security_findings"
+backend/onyx/db/security_layer.py:118:class SecurityArtifactScan(Base):
+backend/onyx/db/security_layer.py:119:    __tablename__ = "security_artifact_scans"
+backend/onyx/db/security_layer.py:134:class SecurityRetrievalEvent(Base):
+backend/onyx/db/security_layer.py:135:    __tablename__ = "security_retrieval_events"
+backend/onyx/db/security_layer.py:151:class SecurityMCPEvent(Base):
+backend/onyx/db/security_layer.py:152:    __tablename__ = "security_mcp_events"
+backend/onyx/db/rotate_encryption_key.py:99:        table_name: str = model_cls.__tablename__  # ty: ignore[unresolved-attribute]
+backend/onyx/db/models.py:461:class Memory(Base):
+backend/onyx/db/models.py:462:    __tablename__ = "memory"
+backend/onyx/db/models.py:466:        PGUUID(as_uuid=True), ForeignKey("user.id", ondelete="CASCADE"), nullable=False
+backend/onyx/db/models.py:486:class ApiKey(Base):
+backend/onyx/db/models.py:487:    __tablename__ = "api_key"
+backend/onyx/db/models.py:494:    user_id: Mapped[UUID] = mapped_column(ForeignKey("user.id"), nullable=False)
+backend/onyx/db/models.py:496:    owner_id: Mapped[UUID | None] = mapped_column(ForeignKey("user.id"), nullable=True)
+backend/onyx/db/models.py:505:class PersonalAccessToken(Base):
+backend/onyx/db/models.py:506:    __tablename__ = "personal_access_token"
+backend/onyx/db/models.py:516:        ForeignKey("user.id", ondelete="CASCADE"), nullable=False
+backend/onyx/db/models.py:550:class Notification(Base):
+backend/onyx/db/models.py:551:    __tablename__ = "notification"
+backend/onyx/db/models.py:558:        ForeignKey("user.id", ondelete="CASCADE"), nullable=True
+backend/onyx/db/models.py:589:class Persona__DocumentSet(Base):
+backend/onyx/db/models.py:590:    __tablename__ = "persona__document_set"
+backend/onyx/db/models.py:592:    persona_id: Mapped[int] = mapped_column(ForeignKey("persona.id"), primary_key=True)
+backend/onyx/db/models.py:594:        ForeignKey("document_set.id"), primary_key=True
+backend/onyx/db/models.py:598:class Persona__User(Base):
+backend/onyx/db/models.py:599:    __tablename__ = "persona__user"
+backend/onyx/db/models.py:601:    persona_id: Mapped[int] = mapped_column(ForeignKey("persona.id"), primary_key=True)
+backend/onyx/db/models.py:603:        ForeignKey("user.id", ondelete="CASCADE"), primary_key=True, nullable=True
+backend/onyx/db/models.py:607:class DocumentSet__User(Base):
+backend/onyx/db/models.py:608:    __tablename__ = "document_set__user"
+backend/onyx/db/models.py:611:        ForeignKey("document_set.id"), primary_key=True
+backend/onyx/db/models.py:614:        ForeignKey("user.id", ondelete="CASCADE"), primary_key=True, nullable=True
+backend/onyx/db/models.py:618:class DocumentSet__ConnectorCredentialPair(Base):
+backend/onyx/db/models.py:619:    __tablename__ = "document_set__connector_credential_pair"
+backend/onyx/db/models.py:622:        ForeignKey("document_set.id"), primary_key=True
+backend/onyx/db/models.py:625:        ForeignKey("connector_credential_pair.id"), primary_key=True
+backend/onyx/db/models.py:642:class ChatMessage__SearchDoc(Base):
+backend/onyx/db/models.py:643:    __tablename__ = "chat_message__search_doc"
+backend/onyx/db/models.py:646:        ForeignKey("chat_message.id", ondelete="CASCADE"), primary_key=True
+backend/onyx/db/models.py:649:        ForeignKey("search_doc.id", ondelete="CASCADE"), primary_key=True
+backend/onyx/db/models.py:653:class ToolCall__SearchDoc(Base):
+backend/onyx/db/models.py:654:    __tablename__ = "tool_call__search_doc"
+backend/onyx/db/models.py:657:        ForeignKey("tool_call.id", ondelete="CASCADE"), primary_key=True
+backend/onyx/db/models.py:660:        ForeignKey("search_doc.id", ondelete="CASCADE"), primary_key=True
+backend/onyx/db/models.py:664:class Document__Tag(Base):
+backend/onyx/db/models.py:665:    __tablename__ = "document__tag"
+backend/onyx/db/models.py:668:        ForeignKey("document.id"), primary_key=True
+backend/onyx/db/models.py:671:        ForeignKey("tag.id"), primary_key=True, index=True
+backend/onyx/db/models.py:675:class Persona__Tool(Base):
+backend/onyx/db/models.py:684:    __tablename__ = "persona__tool"
+backend/onyx/db/models.py:687:        ForeignKey("persona.id", ondelete="CASCADE"), primary_key=True
+backend/onyx/db/models.py:690:        ForeignKey("tool.id", ondelete="CASCADE"), primary_key=True
+backend/onyx/db/models.py:694:class StandardAnswer__StandardAnswerCategory(Base):
+backend/onyx/db/models.py:695:    __tablename__ = "standard_answer__standard_answer_category"
+backend/onyx/db/models.py:698:        ForeignKey("standard_answer.id"), primary_key=True
+backend/onyx/db/models.py:701:        ForeignKey("standard_answer_category.id"), primary_key=True
+backend/onyx/db/models.py:705:class SlackChannelConfig__StandardAnswerCategory(Base):
+backend/onyx/db/models.py:706:    __tablename__ = "slack_channel_config__standard_answer_category"
+backend/onyx/db/models.py:709:        ForeignKey("slack_channel_config.id"), primary_key=True
+backend/onyx/db/models.py:712:        ForeignKey("standard_answer_category.id"), primary_key=True
+backend/onyx/db/models.py:716:class ChatMessage__StandardAnswer(Base):
+backend/onyx/db/models.py:717:    __tablename__ = "chat_message__standard_answer"
+backend/onyx/db/models.py:720:        ForeignKey("chat_message.id", ondelete="CASCADE"), primary_key=True
+backend/onyx/db/models.py:723:        ForeignKey("standard_answer.id"), primary_key=True
+backend/onyx/db/models.py:732:class ConnectorCredentialPair(Base):
+backend/onyx/db/models.py:738:    __tablename__ = "connector_credential_pair"
+backend/onyx/db/models.py:755:        ForeignKey("connector.id"), primary_key=True
+backend/onyx/db/models.py:761:        ForeignKey("credential.id"), primary_key=True
+backend/onyx/db/models.py:848:class HierarchyNode(Base):
+backend/onyx/db/models.py:861:    __tablename__ = "hierarchy_node"
+backend/onyx/db/models.py:906:        ForeignKey("document.id", ondelete="SET NULL"), nullable=True, index=True
+backend/onyx/db/models.py:912:        ForeignKey("hierarchy_node.id", ondelete="SET NULL"), nullable=True, index=True
+backend/onyx/db/models.py:948:class Document(Base):
+backend/onyx/db/models.py:949:    __tablename__ = "document"
+backend/onyx/db/models.py:1021:        ForeignKey("hierarchy_node.id", ondelete="SET NULL"), nullable=True, index=True
+backend/onyx/db/models.py:1079:class OpenSearchDocumentMigrationRecord(Base):
+backend/onyx/db/models.py:1086:    __tablename__ = "opensearch_document_migration_record"
+backend/onyx/db/models.py:1090:        ForeignKey("document.id", ondelete="CASCADE"),
+backend/onyx/db/models.py:1118:class OpenSearchTenantMigrationRecord(Base):
+backend/onyx/db/models.py:1127:    __tablename__ = "opensearch_tenant_migration_record"
+backend/onyx/db/models.py:1194:class KGEntityType(Base):
+backend/onyx/db/models.py:1195:    __tablename__ = "kg_entity_type"
+backend/onyx/db/models.py:1261:class KGRelationshipType(Base):
+backend/onyx/db/models.py:1262:    __tablename__ = "kg_relationship_type"
+backend/onyx/db/models.py:1276:        ForeignKey("kg_entity_type.id_name"),
+backend/onyx/db/models.py:1283:        ForeignKey("kg_entity_type.id_name"),
+backend/onyx/db/models.py:1332:class KGRelationshipTypeExtractionStaging(Base):
+backend/onyx/db/models.py:1333:    __tablename__ = "kg_relationship_type_extraction_staging"
+backend/onyx/db/models.py:1347:        ForeignKey("kg_entity_type.id_name"),
+backend/onyx/db/models.py:1354:        ForeignKey("kg_entity_type.id_name"),
+backend/onyx/db/models.py:1404:class KGEntity(Base):
+backend/onyx/db/models.py:1405:    __tablename__ = "kg_entity"
+backend/onyx/db/models.py:1445:        ForeignKey("kg_entity_type.id_name"),
+backend/onyx/db/models.py:1492:class KGEntityExtractionStaging(Base):
+backend/onyx/db/models.py:1493:    __tablename__ = "kg_entity_extraction_staging"
+backend/onyx/db/models.py:1525:        ForeignKey("kg_entity_type.id_name"),
+backend/onyx/db/models.py:1582:class KGRelationship(Base):
+backend/onyx/db/models.py:1583:    __tablename__ = "kg_relationship"
+backend/onyx/db/models.py:1593:        NullFilteredString, ForeignKey("document.id"), nullable=True, index=True
+backend/onyx/db/models.py:1598:        NullFilteredString, ForeignKey("kg_entity.id_name"), nullable=False, index=True
+backend/onyx/db/models.py:1602:        NullFilteredString, ForeignKey("kg_entity.id_name"), nullable=False, index=True
+backend/onyx/db/models.py:1607:        ForeignKey("kg_entity_type.id_name"),
+backend/onyx/db/models.py:1614:        ForeignKey("kg_entity_type.id_name"),
+backend/onyx/db/models.py:1625:        ForeignKey("kg_relationship_type.id_name"),
+backend/onyx/db/models.py:1671:class KGRelationshipExtractionStaging(Base):
+backend/onyx/db/models.py:1672:    __tablename__ = "kg_relationship_extraction_staging"
+backend/onyx/db/models.py:1682:        NullFilteredString, ForeignKey("document.id"), nullable=True, index=True
+backend/onyx/db/models.py:1688:        ForeignKey("kg_entity_extraction_staging.id_name"),
+backend/onyx/db/models.py:1695:        ForeignKey("kg_entity_extraction_staging.id_name"),
+backend/onyx/db/models.py:1702:        ForeignKey("kg_entity_type.id_name"),
+backend/onyx/db/models.py:1709:        ForeignKey("kg_entity_type.id_name"),
+backend/onyx/db/models.py:1720:        ForeignKey("kg_relationship_type_extraction_staging.id_name"),
+backend/onyx/db/models.py:1771:class KGTerm(Base):
+backend/onyx/db/models.py:1772:    __tablename__ = "kg_term"
+backend/onyx/db/models.py:1802:class ChunkStats(Base):
+backend/onyx/db/models.py:1803:    __tablename__ = "chunk_stats"
+backend/onyx/db/models.py:1819:        NullFilteredString, ForeignKey("document.id"), nullable=False, index=True
+backend/onyx/db/models.py:1850:class Tag(Base):
+backend/onyx/db/models.py:1851:    __tablename__ = "tag"
+backend/onyx/db/models.py:1878:class Connector(Base):
+backend/onyx/db/models.py:1879:    __tablename__ = "connector"
+backend/onyx/db/models.py:1945:class Credential(Base):
+backend/onyx/db/models.py:1946:    __tablename__ = "credential"
+backend/onyx/db/models.py:1959:        ForeignKey("user.id", ondelete="CASCADE"), nullable=True
+backend/onyx/db/models.py:1988:class FederatedConnector(Base):
+backend/onyx/db/models.py:1989:    __tablename__ = "federated_connector"
+backend/onyx/db/models.py:2014:class FederatedConnectorOAuthToken(Base):
+backend/onyx/db/models.py:2015:    __tablename__ = "federated_connector_oauth_token"
+backend/onyx/db/models.py:2019:        ForeignKey("federated_connector.id", ondelete="CASCADE"), nullable=False
+backend/onyx/db/models.py:2022:        ForeignKey("user.id", ondelete="CASCADE"), nullable=False
+backend/onyx/db/models.py:2037:class FederatedConnector__DocumentSet(Base):
+backend/onyx/db/models.py:2038:    __tablename__ = "federated_connector__document_set"
+backend/onyx/db/models.py:2042:        ForeignKey("federated_connector.id", ondelete="CASCADE"), nullable=False
+backend/onyx/db/models.py:2045:        ForeignKey("document_set.id", ondelete="CASCADE"), nullable=False
+backend/onyx/db/models.py:2066:class SearchSettings(Base):
+backend/onyx/db/models.py:2067:    __tablename__ = "search_settings"
+backend/onyx/db/models.py:2081:        ForeignKey("embedding_provider.provider_type"), nullable=True
+backend/onyx/db/models.py:2116:        ForeignKey("model_configuration.id", ondelete="SET NULL"), nullable=True
+backend/onyx/db/models.py:2205:class TargetedReindexJob(Base):
+backend/onyx/db/models.py:2213:    __tablename__ = "targeted_reindex_job"
+backend/onyx/db/models.py:2218:        ForeignKey("user.id", ondelete="SET NULL"),
+backend/onyx/db/models.py:2271:class TargetedReindexJobTarget(Base):
+backend/onyx/db/models.py:2279:    __tablename__ = "targeted_reindex_job_target"
+backend/onyx/db/models.py:2282:        ForeignKey("targeted_reindex_job.id", ondelete="CASCADE"),
+backend/onyx/db/models.py:2286:        ForeignKey("connector_credential_pair.id", ondelete="CASCADE"),
+backend/onyx/db/models.py:2291:        ForeignKey("index_attempt_errors.id", ondelete="SET NULL"),
+backend/onyx/db/models.py:2313:class IndexAttempt(Base):
+backend/onyx/db/models.py:2320:    __tablename__ = "index_attempt"
+backend/onyx/db/models.py:2325:        ForeignKey("connector_credential_pair.id"),
+backend/onyx/db/models.py:2339:        ForeignKey("targeted_reindex_job.id", ondelete="SET NULL"),
+backend/onyx/db/models.py:2361:        ForeignKey("search_settings.id", ondelete="SET NULL"),
+backend/onyx/db/models.py:2489:class HierarchyFetchAttempt(Base):
+backend/onyx/db/models.py:2492:    __tablename__ = "hierarchy_fetch_attempt"
+backend/onyx/db/models.py:2499:        ForeignKey("connector_credential_pair.id", ondelete="CASCADE"),
+backend/onyx/db/models.py:2543:class IndexAttemptError(Base):
+backend/onyx/db/models.py:2544:    __tablename__ = "index_attempt_errors"
+backend/onyx/db/models.py:2549:        ForeignKey("index_attempt.id"),
+backend/onyx/db/models.py:2554:        ForeignKey("connector_credential_pair.id"),
+backend/onyx/db/models.py:2584:class IndexAttemptStageMetric(Base):
+backend/onyx/db/models.py:2595:    __tablename__ = "index_attempt_stage_metric"
+backend/onyx/db/models.py:2600:        ForeignKey("index_attempt.id", ondelete="CASCADE"),
+backend/onyx/db/models.py:2645:class SyncRecord(Base):
+backend/onyx/db/models.py:2653:    __tablename__ = "sync_record"
+backend/onyx/db/models.py:2685:class HierarchyNodeByConnectorCredentialPair(Base):
+backend/onyx/db/models.py:2692:    __tablename__ = "hierarchy_node_by_connector_credential_pair"
+backend/onyx/db/models.py:2695:        ForeignKey("hierarchy_node.id", ondelete="CASCADE"), primary_key=True
+backend/onyx/db/models.py:2718:class DocumentByConnectorCredentialPair(Base):
+backend/onyx/db/models.py:2721:    __tablename__ = "document_by_connector_credential_pair"
+backend/onyx/db/models.py:2723:    id: Mapped[str] = mapped_column(ForeignKey("document.id"), primary_key=True)
+backend/onyx/db/models.py:2726:        ForeignKey("connector.id", ondelete="CASCADE"), primary_key=True
+backend/onyx/db/models.py:2729:        ForeignKey("credential.id", ondelete="CASCADE"), primary_key=True
+backend/onyx/db/models.py:2768:class ChatSession(Base):
+backend/onyx/db/models.py:2769:    __tablename__ = "chat_session"
+backend/onyx/db/models.py:2775:        ForeignKey("user.id", ondelete="CASCADE"), nullable=True
+backend/onyx/db/models.py:2778:        ForeignKey("persona.id"), nullable=True
+backend/onyx/db/models.py:2798:        ForeignKey("user_project.id"), nullable=True
+backend/onyx/db/models.py:2840:class ChatMessage(Base):
+backend/onyx/db/models.py:2849:    __tablename__ = "chat_message"
+backend/onyx/db/models.py:2855:        PGUUID(as_uuid=True), ForeignKey("chat_session.id")
+backend/onyx/db/models.py:2861:        ForeignKey("chat_message.id"), nullable=True
+backend/onyx/db/models.py:2866:        ForeignKey("chat_message.id"), nullable=True
+backend/onyx/db/models.py:2872:        ForeignKey("chat_message.id", ondelete="SET NULL"),
+backend/onyx/db/models.py:2879:        ForeignKey("chat_message.id", ondelete="SET NULL"), nullable=True
+backend/onyx/db/models.py:2972:class ToolCall(Base):
+backend/onyx/db/models.py:2975:    __tablename__ = "tool_call"
+backend/onyx/db/models.py:2980:        PGUUID(as_uuid=True), ForeignKey("chat_session.id", ondelete="CASCADE")
+backend/onyx/db/models.py:2986:        ForeignKey("chat_message.id", ondelete="CASCADE"), nullable=True
+backend/onyx/db/models.py:2990:        ForeignKey("tool_call.id", ondelete="CASCADE"), nullable=True
+backend/onyx/db/models.py:3048:class SearchDoc(Base):
+backend/onyx/db/models.py:3056:    __tablename__ = "search_doc"
+backend/onyx/db/models.py:3100:class SearchQuery(Base):
+backend/onyx/db/models.py:3103:    __tablename__ = "search_query"
+backend/onyx/db/models.py:3108:        PGUUID(as_uuid=True), ForeignKey("user.id", ondelete="CASCADE")
+backend/onyx/db/models.py:3124:class DocumentRetrievalFeedback(Base):
+backend/onyx/db/models.py:3125:    __tablename__ = "document_retrieval_feedback"
+backend/onyx/db/models.py:3129:        ForeignKey("chat_message.id", ondelete="SET NULL"), nullable=True
+backend/onyx/db/models.py:3131:    document_id: Mapped[str] = mapped_column(ForeignKey("document.id"))
+backend/onyx/db/models.py:3149:class ChatMessageFeedback(Base):
+backend/onyx/db/models.py:3150:    __tablename__ = "chat_feedback"
+backend/onyx/db/models.py:3154:        ForeignKey("chat_message.id", ondelete="SET NULL"), nullable=True
+backend/onyx/db/models.py:3168:class LLMProvider(Base):
+backend/onyx/db/models.py:3169:    __tablename__ = "llm_provider"
+backend/onyx/db/models.py:3218:class ModelConfiguration(Base):
+backend/onyx/db/models.py:3219:    __tablename__ = "model_configuration"
+backend/onyx/db/models.py:3223:        ForeignKey("llm_provider.id", ondelete="CASCADE"),
+backend/onyx/db/models.py:3274:class LLMModelFlow(Base):
+backend/onyx/db/models.py:3275:    __tablename__ = "llm_model_flow"
+backend/onyx/db/models.py:3283:        ForeignKey("model_configuration.id", ondelete="CASCADE"),
+backend/onyx/db/models.py:3308:class ImageGenerationConfig(Base):
+backend/onyx/db/models.py:3309:    __tablename__ = "image_generation_config"
+backend/onyx/db/models.py:3313:        ForeignKey("model_configuration.id", ondelete="CASCADE"),
+backend/onyx/db/models.py:3331:class VoiceProvider(Base):
+backend/onyx/db/models.py:3334:    __tablename__ = "voice_provider"
+backend/onyx/db/models.py:3388:class CloudEmbeddingProvider(Base):
+backend/onyx/db/models.py:3389:    __tablename__ = "embedding_provider"
+backend/onyx/db/models.py:3408:class InternetSearchProvider(Base):
+backend/onyx/db/models.py:3409:    __tablename__ = "internet_search_provider"
+backend/onyx/db/models.py:3432:class InternetContentProvider(Base):
+backend/onyx/db/models.py:3433:    __tablename__ = "internet_content_provider"
+backend/onyx/db/models.py:3456:class DocumentSet(Base):
+backend/onyx/db/models.py:3457:    __tablename__ = "document_set"
+backend/onyx/db/models.py:3463:        ForeignKey("user.id", ondelete="CASCADE"), nullable=True
+backend/onyx/db/models.py:3516:class Tool(Base):
+backend/onyx/db/models.py:3517:    __tablename__ = "tool"
+backend/onyx/db/models.py:3541:        ForeignKey("user.id", ondelete="CASCADE"), nullable=True
+backend/onyx/db/models.py:3547:        Integer, ForeignKey("mcp_server.id", ondelete="CASCADE"), nullable=True
+backend/onyx/db/models.py:3551:        Integer, ForeignKey("oauth_config.id", ondelete="SET NULL"), nullable=True
+backend/onyx/db/models.py:3571:class OAuthConfig(Base):
+backend/onyx/db/models.py:3574:    __tablename__ = "oauth_config"
+backend/onyx/db/models.py:3615:class OAuthUserToken(Base):
+backend/onyx/db/models.py:3618:    __tablename__ = "oauth_user_token"
+backend/onyx/db/models.py:3622:        ForeignKey("oauth_config.id", ondelete="CASCADE"), nullable=False
+backend/onyx/db/models.py:3625:        ForeignKey("user.id", ondelete="CASCADE"), nullable=False
+backend/onyx/db/models.py:3670:class Persona__PersonaLabel(Base):
+backend/onyx/db/models.py:3671:    __tablename__ = "persona__persona_label"
+backend/onyx/db/models.py:3673:    persona_id: Mapped[int] = mapped_column(ForeignKey("persona.id"), primary_key=True)
+backend/onyx/db/models.py:3675:        ForeignKey("persona_label.id", ondelete="CASCADE"), primary_key=True
+backend/onyx/db/models.py:3679:class Persona(Base):
+backend/onyx/db/models.py:3680:    __tablename__ = "persona"
+backend/onyx/db/models.py:3684:        ForeignKey("user.id", ondelete="CASCADE"), nullable=True
+backend/onyx/db/models.py:3694:        ForeignKey("model_configuration.id", ondelete="SET NULL"),
+backend/onyx/db/models.py:3805:class Persona__UserFile(Base):
+backend/onyx/db/models.py:3806:    __tablename__ = "persona__user_file"
+backend/onyx/db/models.py:3809:        ForeignKey("persona.id", ondelete="CASCADE"), primary_key=True
+backend/onyx/db/models.py:3812:        ForeignKey("user_file.id", ondelete="CASCADE"), primary_key=True
+backend/onyx/db/models.py:3816:class Persona__HierarchyNode(Base):
+backend/onyx/db/models.py:3823:    __tablename__ = "persona__hierarchy_node"
+backend/onyx/db/models.py:3826:        ForeignKey("persona.id", ondelete="CASCADE"), primary_key=True
+backend/onyx/db/models.py:3829:        ForeignKey("hierarchy_node.id", ondelete="CASCADE"), primary_key=True
+backend/onyx/db/models.py:3833:class Persona__Document(Base):
+backend/onyx/db/models.py:3841:    __tablename__ = "persona__document"
+backend/onyx/db/models.py:3844:        ForeignKey("persona.id", ondelete="CASCADE"), primary_key=True
+backend/onyx/db/models.py:3847:        ForeignKey("document.id", ondelete="CASCADE"), primary_key=True
+backend/onyx/db/models.py:3851:class PersonaLabel(Base):
+backend/onyx/db/models.py:3852:    __tablename__ = "persona_label"
+backend/onyx/db/models.py:3863:class Assistant__UserSpecificConfig(Base):
+backend/onyx/db/models.py:3864:    __tablename__ = "assistant__user_specific_config"
+backend/onyx/db/models.py:3867:        ForeignKey("persona.id", ondelete="CASCADE"), primary_key=True
+backend/onyx/db/models.py:3870:        ForeignKey("user.id", ondelete="CASCADE"), primary_key=True
+backend/onyx/db/models.py:3899:class SlackChannelConfig(Base):
+backend/onyx/db/models.py:3900:    __tablename__ = "slack_channel_config"
+backend/onyx/db/models.py:3904:        ForeignKey("slack_bot.id"), nullable=False
+backend/onyx/db/models.py:3907:        ForeignKey("persona.id"), nullable=True
+backend/onyx/db/models.py:3947:class SlackBot(Base):
+backend/onyx/db/models.py:3948:    __tablename__ = "slack_bot"
+backend/onyx/db/models.py:3971:class DiscordBotConfig(Base):
+backend/onyx/db/models.py:3978:    __tablename__ = "discord_bot_config"
+backend/onyx/db/models.py:3991:class DiscordGuildConfig(Base):
+backend/onyx/db/models.py:3999:    __tablename__ = "discord_guild_config"
+backend/onyx/db/models.py:4016:        ForeignKey("persona.id", ondelete="SET NULL"), nullable=True
+backend/onyx/db/models.py:4031:class DiscordChannelConfig(Base):
+backend/onyx/db/models.py:4037:    __tablename__ = "discord_channel_config"
+backend/onyx/db/models.py:4041:        ForeignKey("discord_guild_config.id", ondelete="CASCADE"), nullable=False
+backend/onyx/db/models.py:4072:        ForeignKey("persona.id", ondelete="SET NULL"), nullable=True
+backend/onyx/db/models.py:4091:class Milestone(Base):
+backend/onyx/db/models.py:4095:    __tablename__ = "milestone"
+backend/onyx/db/models.py:4101:        ForeignKey("user.id", ondelete="CASCADE"), nullable=True
+backend/onyx/db/models.py:4117:class TaskQueueState(Base):
+backend/onyx/db/models.py:4119:    __tablename__ = "task_queue_jobs"
+backend/onyx/db/models.py:4136:class KVStore(Base):
+backend/onyx/db/models.py:4137:    __tablename__ = "key_value_store"
+backend/onyx/db/models.py:4146:class FileRecord(Base):
+backend/onyx/db/models.py:4147:    __tablename__ = "file_record"
+backend/onyx/db/models.py:4170:class FileContent(Base):
+backend/onyx/db/models.py:4174:    __tablename__ = "file_content"
+backend/onyx/db/models.py:4178:        ForeignKey("file_record.file_id", ondelete="CASCADE"),
+backend/onyx/db/models.py:4186:class Skill(Base):
+backend/onyx/db/models.py:4194:    __tablename__ = "skill"
+backend/onyx/db/models.py:4211:        ForeignKey("user.id", ondelete="SET NULL"),
+backend/onyx/db/models.py:4254:class SamlAccount(Base):
+backend/onyx/db/models.py:4255:    __tablename__ = "saml"
+backend/onyx/db/models.py:4259:        ForeignKey("user.id", ondelete="CASCADE"), unique=True
+backend/onyx/db/models.py:4270:class User__UserGroup(Base):
+backend/onyx/db/models.py:4271:    __tablename__ = "user__user_group"
+backend/onyx/db/models.py:4278:        ForeignKey("user_group.id"), primary_key=True
+backend/onyx/db/models.py:4281:        ForeignKey("user.id", ondelete="CASCADE"), primary_key=True, nullable=True
+backend/onyx/db/models.py:4285:class PermissionGrant(Base):
+backend/onyx/db/models.py:4286:    __tablename__ = "permission_grant"
+backend/onyx/db/models.py:4296:        ForeignKey("user_group.id", ondelete="CASCADE"), nullable=False
+backend/onyx/db/models.py:4310:        ForeignKey("user.id", ondelete="SET NULL"), nullable=True
+backend/onyx/db/models.py:4332:class UserGroup__ConnectorCredentialPair(Base):
+backend/onyx/db/models.py:4333:    __tablename__ = "user_group__connector_credential_pair"
+backend/onyx/db/models.py:4336:        ForeignKey("user_group.id"), primary_key=True
+backend/onyx/db/models.py:4339:        ForeignKey("connector_credential_pair.id"), primary_key=True
+backend/onyx/db/models.py:4357:class Persona__UserGroup(Base):
+backend/onyx/db/models.py:4358:    __tablename__ = "persona__user_group"
+backend/onyx/db/models.py:4360:    persona_id: Mapped[int] = mapped_column(ForeignKey("persona.id"), primary_key=True)
+backend/onyx/db/models.py:4362:        ForeignKey("user_group.id"), primary_key=True
+backend/onyx/db/models.py:4366:class Skill__UserGroup(Base):
+backend/onyx/db/models.py:4367:    __tablename__ = "skill__user_group"
+backend/onyx/db/models.py:4371:        ForeignKey("skill.id", ondelete="CASCADE"),
+backend/onyx/db/models.py:4376:        ForeignKey("user_group.id", ondelete="CASCADE"),
+backend/onyx/db/models.py:4381:class LLMProvider__Persona(Base):
+backend/onyx/db/models.py:4387:    __tablename__ = "llm_provider__persona"
+backend/onyx/db/models.py:4390:        ForeignKey("llm_provider.id", ondelete="CASCADE"), primary_key=True
+backend/onyx/db/models.py:4393:        ForeignKey("persona.id", ondelete="CASCADE"), primary_key=True
+backend/onyx/db/models.py:4397:class LLMProvider__UserGroup(Base):
+backend/onyx/db/models.py:4398:    __tablename__ = "llm_provider__user_group"
+backend/onyx/db/models.py:4401:        ForeignKey("llm_provider.id"), primary_key=True
+backend/onyx/db/models.py:4404:        ForeignKey("user_group.id"), primary_key=True
+backend/onyx/db/models.py:4408:class DocumentSet__UserGroup(Base):
+backend/onyx/db/models.py:4409:    __tablename__ = "document_set__user_group"
+backend/onyx/db/models.py:4412:        ForeignKey("document_set.id"), primary_key=True
+backend/onyx/db/models.py:4415:        ForeignKey("user_group.id"), primary_key=True
+backend/onyx/db/models.py:4419:class Credential__UserGroup(Base):
+backend/onyx/db/models.py:4420:    __tablename__ = "credential__user_group"
+backend/onyx/db/models.py:4423:        ForeignKey("credential.id"), primary_key=True
+backend/onyx/db/models.py:4426:        ForeignKey("user_group.id"), primary_key=True
+backend/onyx/db/models.py:4430:class UserGroup(Base):
+backend/onyx/db/models.py:4431:    __tablename__ = "user_group"
+backend/onyx/db/models.py:4501:class TokenRateLimit(Base):
+backend/onyx/db/models.py:4502:    __tablename__ = "token_rate_limit"
+backend/onyx/db/models.py:4516:class TokenRateLimit__UserGroup(Base):
+backend/onyx/db/models.py:4517:    __tablename__ = "token_rate_limit__user_group"
+backend/onyx/db/models.py:4520:        ForeignKey("token_rate_limit.id"), primary_key=True
+backend/onyx/db/models.py:4523:        ForeignKey("user_group.id"), primary_key=True
+backend/onyx/db/models.py:4527:class StandardAnswerCategory(Base):
+backend/onyx/db/models.py:4528:    __tablename__ = "standard_answer_category"
+backend/onyx/db/models.py:4544:class StandardAnswer(Base):
+backend/onyx/db/models.py:4545:    __tablename__ = "standard_answer"
+backend/onyx/db/models.py:4576:class BackgroundError(Base):
+backend/onyx/db/models.py:4583:    __tablename__ = "background_error"
+backend/onyx/db/models.py:4593:        ForeignKey("connector_credential_pair.id", ondelete="CASCADE"), nullable=True
+backend/onyx/db/models.py:4604:class User__ExternalUserGroupId(Base):
+backend/onyx/db/models.py:4610:    __tablename__ = "user__external_user_group_id"
+backend/onyx/db/models.py:4612:    user_id: Mapped[UUID] = mapped_column(ForeignKey("user.id"), primary_key=True)
+backend/onyx/db/models.py:4616:        ForeignKey("connector_credential_pair.id"), primary_key=True
+backend/onyx/db/models.py:4636:class PublicExternalUserGroup(Base):
+backend/onyx/db/models.py:4643:    __tablename__ = "public_external_user_group"
+backend/onyx/db/models.py:4647:        ForeignKey("connector_credential_pair.id", ondelete="CASCADE"), primary_key=True
+backend/onyx/db/models.py:4667:class UsageReport(Base):
+backend/onyx/db/models.py:4673:    __tablename__ = "usage_reports"
+backend/onyx/db/models.py:4676:    report_name: Mapped[str] = mapped_column(ForeignKey("file_record.file_id"))
+backend/onyx/db/models.py:4680:        ForeignKey("user.id", ondelete="CASCADE"), nullable=True
+backend/onyx/db/models.py:4694:class InputPrompt(Base):
+backend/onyx/db/models.py:4695:    __tablename__ = "inputprompt"
+backend/onyx/db/models.py:4704:        ForeignKey("user.id", ondelete="CASCADE"), nullable=True
+backend/onyx/db/models.py:4720:class InputPrompt__User(Base):
+backend/onyx/db/models.py:4721:    __tablename__ = "inputprompt__user"
+backend/onyx/db/models.py:4724:        ForeignKey("inputprompt.id"), primary_key=True
+backend/onyx/db/models.py:4727:        ForeignKey("user.id"), primary_key=True
+backend/onyx/db/models.py:4732:class Project__UserFile(Base):
+backend/onyx/db/models.py:4733:    __tablename__ = "project__user_file"
+backend/onyx/db/models.py:4736:        ForeignKey("user_project.id"), primary_key=True
+backend/onyx/db/models.py:4739:        ForeignKey("user_file.id"), primary_key=True
+backend/onyx/db/models.py:4754:class UserProject(Base):
+backend/onyx/db/models.py:4755:    __tablename__ = "user_project"
+backend/onyx/db/models.py:4758:    user_id: Mapped[UUID | None] = mapped_column(ForeignKey("user.id"), nullable=False)
+backend/onyx/db/models.py:4782:class UserFile(Base):
+backend/onyx/db/models.py:4783:    __tablename__ = "user_file"
+backend/onyx/db/models.py:4786:    user_id: Mapped[UUID | None] = mapped_column(ForeignKey("user.id"), nullable=False)
+backend/onyx/db/models.py:4842:class UserTenantMapping(Base):
+backend/onyx/db/models.py:4843:    __tablename__ = "user_tenant_mapping"
+backend/onyx/db/models.py:4855:class AvailableTenant(Base):
+backend/onyx/db/models.py:4856:    __tablename__ = "available_tenant"
+backend/onyx/db/models.py:4867:class TenantAnonymousUserPath(Base):
+backend/onyx/db/models.py:4868:    __tablename__ = "tenant_anonymous_user_path"
+backend/onyx/db/models.py:4879:class TenantInviteCounter(Base):
+backend/onyx/db/models.py:4880:    __tablename__ = "tenant_invite_counter"
+backend/onyx/db/models.py:4895:class MCPServer(Base):
+backend/onyx/db/models.py:4898:    __tablename__ = "mcp_server"
+backend/onyx/db/models.py:4929:        ForeignKey("mcp_connection_config.id", ondelete="SET NULL"),
+backend/onyx/db/models.py:4970:class MCPServer__User(Base):
+backend/onyx/db/models.py:4971:    __tablename__ = "mcp_server__user"
+backend/onyx/db/models.py:4973:        ForeignKey("mcp_server.id", ondelete="CASCADE"), primary_key=True
+backend/onyx/db/models.py:4976:        ForeignKey("user.id", ondelete="CASCADE"), primary_key=True
+backend/onyx/db/models.py:4980:class MCPServer__UserGroup(Base):
+backend/onyx/db/models.py:4981:    __tablename__ = "mcp_server__user_group"
+backend/onyx/db/models.py:4983:        ForeignKey("mcp_server.id"), primary_key=True
+backend/onyx/db/models.py:4986:        ForeignKey("user_group.id"), primary_key=True
+backend/onyx/db/models.py:4990:class MCPConnectionConfig(Base):
+backend/onyx/db/models.py:4993:    __tablename__ = "mcp_connection_config"
+backend/onyx/db/models.py:4998:        Integer, ForeignKey("mcp_server.id", ondelete="CASCADE"), nullable=True
+backend/onyx/db/models.py:5048:class DocPermissionSyncAttempt(Base):
+backend/onyx/db/models.py:5054:    __tablename__ = "doc_permission_sync_attempt"
+backend/onyx/db/models.py:5059:        ForeignKey("connector_credential_pair.id"),
+backend/onyx/db/models.py:5114:class ExternalGroupPermissionSyncAttempt(Base):
+backend/onyx/db/models.py:5120:    __tablename__ = "external_group_permission_sync_attempt"
+backend/onyx/db/models.py:5126:        ForeignKey("connector_credential_pair.id"),
+backend/onyx/db/models.py:5184:class License(Base):
+backend/onyx/db/models.py:5187:    __tablename__ = "license"
+backend/onyx/db/models.py:5203:class TenantUsage(Base):
+backend/onyx/db/models.py:5211:    __tablename__ = "tenant_usage"
+backend/onyx/db/models.py:5248:class BuildSession(Base):
+backend/onyx/db/models.py:5251:    __tablename__ = "build_session"
+backend/onyx/db/models.py:5257:        PGUUID(as_uuid=True), ForeignKey("user.id", ondelete="CASCADE"), nullable=True
+backend/onyx/db/models.py:5317:class Sandbox(Base):
+backend/onyx/db/models.py:5320:    __tablename__ = "sandbox"
+backend/onyx/db/models.py:5327:        ForeignKey("user.id", ondelete="CASCADE"),
+backend/onyx/db/models.py:5357:class Artifact(Base):
+backend/onyx/db/models.py:5360:    __tablename__ = "artifact"
+backend/onyx/db/models.py:5367:        ForeignKey("build_session.id", ondelete="CASCADE"),
+backend/onyx/db/models.py:5397:class Snapshot(Base):
+backend/onyx/db/models.py:5400:    __tablename__ = "snapshot"
+backend/onyx/db/models.py:5407:        ForeignKey("build_session.id", ondelete="CASCADE"),
+backend/onyx/db/models.py:5426:class BuildMessage(Base):
+backend/onyx/db/models.py:5440:    __tablename__ = "build_message"
+backend/onyx/db/models.py:5447:        ForeignKey("build_session.id", ondelete="CASCADE"),
+backend/onyx/db/models.py:5471:class ScheduledTask(Base):
+backend/onyx/db/models.py:5480:    __tablename__ = "scheduled_task"
+backend/onyx/db/models.py:5487:        ForeignKey("user.id", ondelete="CASCADE"),
+backend/onyx/db/models.py:5544:class ScheduledTaskRun(Base):
+backend/onyx/db/models.py:5553:    __tablename__ = "scheduled_task_run"
+backend/onyx/db/models.py:5560:        ForeignKey("scheduled_task.id", ondelete="CASCADE"),
+backend/onyx/db/models.py:5565:        ForeignKey("build_session.id", ondelete="SET NULL"),
+backend/onyx/db/models.py:5631:class ScimToken(Base):
+backend/onyx/db/models.py:5634:    __tablename__ = "scim_token"
+backend/onyx/db/models.py:5646:        ForeignKey("user.id", ondelete="CASCADE"), nullable=False
+backend/onyx/db/models.py:5662:class ScimUserMapping(Base):
+backend/onyx/db/models.py:5665:    __tablename__ = "scim_user_mapping"
+backend/onyx/db/models.py:5672:        ForeignKey("user.id", ondelete="CASCADE"), unique=True, nullable=False
+backend/onyx/db/models.py:5694:class ScimGroupMapping(Base):
+backend/onyx/db/models.py:5697:    __tablename__ = "scim_group_mapping"
+backend/onyx/db/models.py:5702:        ForeignKey("user_group.id", ondelete="CASCADE"), unique=True, nullable=False
+backend/onyx/db/models.py:5720:class CodeInterpreterServer(Base):
+backend/onyx/db/models.py:5723:    __tablename__ = "code_interpreter_server"
+backend/onyx/db/models.py:5729:class CacheStore(Base):
+backend/onyx/db/models.py:5742:    __tablename__ = "cache_store"
+backend/onyx/db/models.py:5751:class Hook(Base):
+backend/onyx/db/models.py:5758:    __tablename__ = "hook"
+backend/onyx/db/models.py:5782:        ForeignKey("user.id", ondelete="SET NULL"),
+backend/onyx/db/models.py:5810:class HookExecutionLog(Base):
+backend/onyx/db/models.py:5818:    __tablename__ = "hook_execution_log"
+backend/onyx/db/models.py:5823:        ForeignKey("hook.id", ondelete="CASCADE"),
+backend/onyx/db/models.py:5838:class ExternalApp(Base):
+backend/onyx/db/models.py:5839:    __tablename__ = "external_app"
+backend/onyx/db/models.py:5847:        ForeignKey("skill.id", ondelete="CASCADE"),
+backend/onyx/db/models.py:5905:class ExternalAppUserCredential(Base):
+backend/onyx/db/models.py:5906:    __tablename__ = "external_app_user_credential"
+backend/onyx/db/models.py:5911:        ForeignKey("external_app.id", ondelete="CASCADE"),
+backend/onyx/db/models.py:5916:        ForeignKey("user.id", ondelete="CASCADE"),
