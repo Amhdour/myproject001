@@ -1,34 +1,23 @@
-# Risk Register
+# Security Risk Register (Step 6)
 
-## Purpose
-Define the intended structure and future evidence model for risk register.
+Status: Initial risk catalog. No mitigation controls implemented in this step.
 
-## Scope
-Documentation-only placeholder for security-readiness planning and traceability. No runtime or application behavior changes are introduced.
-
-## Status
-draft
-
-## Owner
-AI Trust & Security Readiness Engineer
-
-## Evidence Required
-- Control design and implementation records (future).
-- Test/validation outputs mapped to this document.
-- Review approvals and sign-off artifacts.
-
-## Related Links
-- [Baseline Commit](../../BASELINE_COMMIT.md)
-- [Baseline Validation](./baseline_validation.md)
-- [Architecture Discovery](./architecture_discovery.md)
-- [Patch Points](./patch_points.md)
-- [Known Limitations](./known_limitations.md)
-
-
-## TODO Future Implementation Evidence
-- [ ] Add control-specific evidence after implementation.
-- [ ] Link validation tests and outcomes.
-- [ ] Add approval metadata (reviewer, date, decision).
-
-## Non-Claim Statement
-This draft is a documentation scaffold only and does **not** claim implementation completeness, control effectiveness, compliance, or production readiness.
+| Risk ID | Title | Scenario | Affected Assets | Likelihood | Impact | Severity | Mapped Requirements | Mapped Patch Points | Planned Mitigations | Evidence Required | Owner | Status |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| R-001 | Cross-tenant retrieval leakage | Retrieval path returns content from wrong tenant due missing/incorrect ACL filter. | Tenant data, trust boundary | medium | high | high | SR-RET-001, SR-VEC-001, SR-CACHE-001 | PP-RET-01, PP-RET-02, PP-VEC-01, PP-CACHE-01 | Enforce ACL filters and tenant partitions at all retrieval layers. | Isolation tests, retrieval logs | AI Trust & Security Readiness Engineer | Open |
+| R-002 | Unauthorized tool execution | Agent executes sensitive tool without policy authorization. | Internal systems, user data | medium | high | high | SR-TOOL-001, SR-APPROVAL-001 | PP-TOOL-01, PP-TOOL-02, PP-APPROVAL-01 | Tool policy guard plus human approval gates for high-risk actions. | Tool deny logs, policy tests | Codex | Open |
+| R-003 | MCP confused deputy | MCP call executes with broader privileges than request context intended. | External integrations, credentials | medium | high | high | SR-MCP-001, SR-AUDIT-001 | PP-MCP-01, PP-MCP-02, PP-AUDIT-01 | Capability binding and request-context verification. | MCP capability map, audit traces | AI Trust & Security Readiness Engineer | Open |
+| R-004 | Prompt injection via retrieved content | Untrusted retrieved text alters agent behavior/policy intent. | Prompt integrity, data boundaries | high | high | critical | SR-PROMPT-001, SR-RET-001 | PP-PROMPT-01, PP-PROMPT-02, PP-RET-01 | Prompt segmentation and untrusted-content controls. | Red-team transcripts, prompt templates | ChatGPT Plus | Open |
+| R-005 | Poisoned document ingestion | Malicious connector content poisons downstream retrieval/agent actions. | Index quality, policy decisions | medium | high | high | SR-ING-001, SR-DLP-001 | PP-ING-01, PP-ING-02, PP-DLP-01 | Provenance checks and ingestion validation controls. | Ingestion validation tests, anomaly logs | Future Operator | Open |
+| R-006 | Artifact secret leakage | Generated artifacts include credentials or sensitive values. | Secrets, compliance posture | medium | high | high | SR-ART-001, SR-DLP-001 | PP-ART-01, PP-DLP-01 | Artifact scanning and output redaction policy. | Secret scan outputs, false-positive review | Codex | Open |
+| R-007 | Unsafe sandbox execution | Sandbox command execution enables unsafe actions or breakout paths. | Runtime environment, host integrity | medium | high | high | SR-SBX-001, SR-APPROVAL-001 | PP-SBX-01, PP-SBX-02, PP-APPROVAL-01 | Strict execution policy, high-risk approval path. | Sandbox policy tests, execution audit logs | Future Operator | Open |
+| R-008 | Missing audit trail | Critical actions lack attributable event records. | Forensics, compliance evidence | medium | high | high | SR-AUDIT-001, SR-EVIDENCE-001 | PP-AUDIT-01, PP-AUDIT-02, PP-EVIDENCE-01 | Structured logging baseline and retention/coverage checks. | Audit schema, completeness test output | AI Trust & Security Readiness Engineer | Open |
+| R-009 | Admin privilege misuse | Privileged operations performed outside least-privilege/approval expectations. | Admin plane, tenant configuration | medium | high | high | SR-ADMIN-001, SR-APPROVAL-001, SR-AUDIT-001 | PP-ADMIN-01, PP-APPROVAL-01, PP-AUDIT-01 | Role boundaries, SoD, and privileged action audits. | Admin access review, action logs | Future Reviewer | Open |
+| R-010 | Stale ACL/cache leakage | ACL updates not synchronized with caches causing stale authorization decisions. | Authorization integrity | medium | medium | medium | SR-CACHE-001, SR-RET-001 | PP-CACHE-01, PP-RET-02 | ACL-versioned caching and invalidation checks. | Cache invalidation test evidence | Codex | Open |
+| R-011 | Model-provider data boundary violation | Requests routed to non-approved provider/model or region boundary. | Sensitive prompts/data | medium | high | high | SR-MODEL-001, SR-DLP-001 | PP-MODEL-01, PP-DLP-01 | Provider allowlist and route validation policy. | Routing logs, allowlist config evidence | AI Trust & Security Readiness Engineer | Open |
+| R-012 | Approval bypass | High-risk operations proceed without required human review. | Change control, production safety | medium | high | high | SR-APPROVAL-001, SR-EVIDENCE-001 | PP-APPROVAL-01, PP-EVIDENCE-01 | Mandatory approval checkpoints with immutable records. | Approval workflow test results | Future Reviewer | Open |
+| R-013 | Vector namespace/metadata bypass | Query path bypasses namespace/metadata restrictions. | Vector index isolation | medium | high | high | SR-VEC-001, SR-RET-001 | PP-VEC-01, PP-VEC-02, PP-RET-01 | Forced tenant metadata filters and retrieval guardrails. | Namespace isolation test artifacts | Codex | Open |
+| R-014 | Connector permission drift | Connector permissions diverge from source-of-truth identity entitlements. | Connector data, ACL integrity | medium | medium | medium | SR-ING-001, SR-RET-001 | PP-ING-02, PP-RET-02 | Scheduled entitlement reconciliation and drift detection. | Reconciliation reports and drift alerts | Future Operator | Open |
+| R-015 | Unsupported production-readiness claim | Program claims readiness without required evidence and residual-risk review. | Governance credibility, release decision | medium | high | high | SR-EVIDENCE-001, SR-CI-001 | PP-EVIDENCE-01, PP-CI-01 | Enforce launch gates and signed evidence checklist. | Signed readiness report and gate checklist | AI Trust & Security Readiness Engineer | Open |
+| R-016 | Baseline dependency blocker: fastapi_users missing | Backend unit collection cannot complete due missing dependency in environment. | Test confidence, validation baseline | high | medium | high | SR-CI-001, SR-EVIDENCE-001 | PP-CI-01, PP-EVIDENCE-01 | Restore dependency path and re-run baseline suite. | Test rerun output showing resolved blocker | Codex | Open (Known blocker) |
+| R-017 | Remote verification limitation: GitHub fetch not available | Remote/main verification may be incomplete when fetch fails in local environment. | Baseline provenance, branch verification | medium | medium | medium | SR-EVIDENCE-001 | PP-EVIDENCE-01 | Document limitation and continue from verified local baseline. | Git remote/fetch command output | Codex | Open (If remote remains inaccessible) |

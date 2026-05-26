@@ -1,34 +1,32 @@
-# Security Architecture
-
-## Purpose
-Define the intended structure and future evidence model for security architecture.
+# Security Architecture Overview (Step 6 Initial)
 
 ## Scope
-Documentation-only placeholder for security-readiness planning and traceability. No runtime or application behavior changes are introduced.
+Documentation-only architecture view for security readiness planning. No controls are implemented in this step.
 
-## Status
-draft
+## Security Layer Concept
+A future security layer is planned to provide consistent policy decisions and enforcement over ingestion, retrieval, tool execution, MCP operations, sandbox actions, and release governance.
 
-## Owner
-AI Trust & Security Readiness Engineer
+## Enforcement Points
+Planned enforcement points align to mapped patch points:
+- Ingestion admission and provenance checks
+- Retrieval-time ACL and tenant filter enforcement
+- Vector namespace/metadata boundary enforcement
+- Cache isolation and invalidation guards
+- Tool authorization interceptors
+- MCP capability and intent validation
+- Artifact scanning/redaction checkpoints
+- Sandbox command/network constraints
+- Approval workflow gates
+- Structured audit event emission points
 
-## Evidence Required
-- Control design and implementation records (future).
-- Test/validation outputs mapped to this document.
-- Review approvals and sign-off artifacts.
+## Policy Engine (Future Role)
+A policy engine is expected to centralize allow/deny decisions, map actor/context to permitted actions, and provide decision traceability for tests and audits.
 
-## Related Links
-- [Baseline Commit](../../BASELINE_COMMIT.md)
-- [Baseline Validation](./baseline_validation.md)
-- [Architecture Discovery](./architecture_discovery.md)
-- [Patch Points](./patch_points.md)
-- [Known Limitations](./known_limitations.md)
+## Audit (Future Role)
+Audit components are expected to capture structured security events for ingestion, retrieval, policy decisions, tool/MCP calls, sandbox execution, and approvals.
 
-
-## TODO Future Implementation Evidence
-- [ ] Add control-specific evidence after implementation.
-- [ ] Link validation tests and outcomes.
-- [ ] Add approval metadata (reviewer, date, decision).
+## Evidence (Future Role)
+Evidence workflows are expected to aggregate test outputs, attack simulations, and gate checklists required for readiness decisions.
 
 ## Non-Claim Statement
-This draft is a documentation scaffold only and does **not** claim implementation completeness, control effectiveness, compliance, or production readiness.
+This document does not claim production readiness, control completeness, or mitigation effectiveness. It defines planning structure and traceability only.
