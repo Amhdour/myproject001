@@ -1,0 +1,4 @@
+Remote/main verification limitation remains active in this environment.
+- Local context may not be able to fetch/verify latest GitHub remote lineage.
+- Continue from current local verified state until remote access is restored.
+- Verify remote/main lineage and PR linkage in GitHub UI when available.
