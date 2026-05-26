@@ -1,0 +1,13 @@
+# Security Architecture Discovery (Baseline)
+
+This document is part of the clean baseline package.
+
+Scope for this step is documentation/evidence only. No runtime or application behavior changes were made.
+
+High-level areas identified for later security-layer work:
+- Backend APIs and auth boundaries.
+- Tool execution and agent interaction surfaces.
+- Data access and tenancy boundaries.
+- Audit and traceability surfaces.
+
+No controls were implemented in this step.

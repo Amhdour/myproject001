@@ -1,0 +1,50 @@
+== REPO ROOT ==
+/workspace/myproject001
+
+== REMOTES ==
+
+== STATUS SHORT ==
+?? docs/security/evidence/baseline/
+
+== TOP LEVEL ==
+./.devcontainer
+./.git
+./.git-blame-ignore-revs
+./.gitignore
+./.greptile
+./.kanban.toml
+./.mcp.json
+./.oxfmtrc.json
+./.pre-commit-config.yaml
+./.secretsignore
+./.venv
+./.vscode
+./AGENTS.md
+./BASELINE_COMMIT.md
+./CHANGELOG.md
+./CLAUDE.md
+./CONTRIBUTING.md
+./LICENSE
+./README.md
+./README.zh-CN.md
+./SECURITY.md
+./backend
+./cli
+./contributor_ip_assignment
+./ct.yaml
+./cubic.yaml
+./demo
+./deployment
+./desktop
+./docker-bake.hcl
+./docs
+./examples
+./extensions
+./profiling
+./pyproject.toml
+./scripts
+./skills
+./tools
+./uv.lock
+./web
+./widget

@@ -1,0 +1,14 @@
+== STACK DETECTION ==
+
+[python]
+Python 3.14.4
+
+executable: /root/.pyenv/versions/3.14.4/bin/python
+
+[node]
+v24.15.0
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+11.4.2
+
+[pytest]
+pytest 9.0.3
