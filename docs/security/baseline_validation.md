@@ -1,47 +1,45 @@
-# Baseline Validation Record (Step 1)
+# Baseline Validation (Clean Rebuild)
 
-## Scope
-This document records baseline validation evidence only. No security-layer features were implemented, and no application behavior was intentionally modified.
+## Lineage note
+- Branch: `security-layer-mvp`
+- Rebuilt from source commit: `502239d50c41172ae14759fe3cc31780ace71b98`
+- Intent: create a clean, documentation/evidence-only baseline package and supersede prior baseline attempts on `work`.
 
-## Baseline fingerprint
-- Branch: `work`
-- Commit: `5791e31c91e9b2fc90721fa521f0167f51a34104`
-- Timestamp (UTC): see `docs/security/evidence/baseline_repo_snapshot.txt`
+## Command matrix
+| Area | Command | Outcome |
+|---|---|---|
+| Branch confirmation | `git branch --show-current` | PASS (`security-layer-mvp`) |
+| Source commit pin | `git rev-parse HEAD` (post-reset) | PASS (`502239d50c41172ae14759fe3cc31780ace71b98`) |
+| Env checks | see `docs/security/evidence/baseline/baseline_env_checks.txt` | PASS |
+| Repo snapshot | see `docs/security/evidence/baseline/baseline_repo_snapshot.txt` | PASS |
+| Stack detection | see `docs/security/evidence/baseline/baseline_stack_detection.txt` | PASS |
+| Unit collect-only | `source .venv/bin/activate && pytest -xv backend/tests/unit --collect-only` | FAIL (exit code captured) |
 
-## Evidence index
-- `docs/security/evidence/baseline_repo_snapshot.txt`
-  - repo identity, git metadata, top-level directory snapshot
-- `docs/security/evidence/baseline_stack_detection.txt`
-  - dependency and stack detection output
-- `docs/security/evidence/baseline_env_checks.txt`
-  - Python/Node/npm/pytest version checks
-- `docs/security/evidence/unit_collect_only.txt`
-  - raw pytest unit collection output
-- `docs/security/evidence/unit_collect_only.exitcode`
-  - exit code of pytest collection attempt
+## Passing checks
+- Branch rebuild and verification completed.
+- Environment/version snapshot captured.
+- Repository snapshot captured.
+- Stack/tooling detection snapshot captured.
 
-## Validation commands and outcomes
-- PASS: repo snapshot and metadata capture commands
-- PASS: environment version checks
-- FAIL: backend unit test collection
-  - command: `source .venv/bin/activate && pytest -xv backend/tests/unit --collect-only`
-  - observed error: `ModuleNotFoundError: No module named 'fastapi_users'`
-  - exit code: `4`
+## Failing checks
+- Unit-test collection failed in baseline mode; raw output captured in evidence.
+- Exit code recorded in `unit_collect_only.exitcode`.
 
-## Skipped execution
-- Full backend unit/external dependency/integration suites — skipped in this phase; baseline task prohibits scope expansion into setup/fixing.
-- Frontend Jest/Playwright suites — skipped in this phase; same reason.
+## Skipped checks
+- Full backend unit execution.
+- External dependency unit tests.
+- Integration tests.
+- Frontend tests/lint/typecheck.
+- Playwright E2E.
 
-## Constraints honored
-- No security-layer implementation changes.
-- No refactors.
-- No behavioral modifications.
-- Failures recorded as observed without remediation.
+## Known blockers
+- Baseline unit collection failure (see captured output).
+- Per task constraints, no dependency changes or remediation were performed.
 
-## Remaining blockers
-- Python environment appears incomplete for backend test collection (`fastapi_users` missing).
-- Until dependency state is resolved, full baseline validation remains blocked.
-
-## Follow-up (next step, not executed here)
-- Reproduce environment provisioning used by project maintainers.
-- Re-run baseline test matrix and append outputs to `docs/security/evidence/`.
+## Evidence file list
+- `docs/security/evidence/README.md`
+- `docs/security/evidence/baseline/baseline_env_checks.txt`
+- `docs/security/evidence/baseline/baseline_repo_snapshot.txt`
+- `docs/security/evidence/baseline/baseline_stack_detection.txt`
+- `docs/security/evidence/baseline/unit_collect_only.txt`
+- `docs/security/evidence/baseline/unit_collect_only.exitcode`
