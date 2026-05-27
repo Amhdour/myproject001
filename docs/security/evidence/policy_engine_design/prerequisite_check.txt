@@ -1,0 +1,12 @@
+Step 12A prerequisite check - 2026-05-27T08:04:58Z
+OK docs/security/policy_schema.md
+OK docs/security/policy_model.md
+OK docs/security/policies/default_deny_policy.yaml
+OK docs/security/security_requirements.md
+OK docs/security/risk_register.md
+OK docs/security/control_traceability_matrix.md
+OK docs/security/patch_points.md
+OK docs/security/evidence_standard.md
+OK docs/security/evidence_report.md
+OK docs/security/execution_tracker.md
+OK docs/security/known_limitations.md

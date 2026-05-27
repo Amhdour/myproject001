@@ -95,3 +95,8 @@ Remote/main branch lineage and PR linkage may be incomplete from this environmen
 - Step 11: **Complete** (`policy-schema-files` branch)
 - Scope delivered: policy schema draft + 16 draft policy files + policy-schema evidence artifacts.
 - Note: remote/main verification remains limited in this environment (no configured `origin` remote).
+
+## Step 12A Progress Update
+- Step 12A (Policy engine design + test planning): complete as documentation-only change set.
+- Branch target: `policy-engine-design`.
+- Runtime enforcement remains out of scope for this step.

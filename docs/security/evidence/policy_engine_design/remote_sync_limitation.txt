@@ -1,0 +1,1 @@
+Remote sync limitation: origin remote unavailable in this environment; PR linkage may remain TBD.

@@ -68,3 +68,8 @@ These schema files are inputs to a future policy engine design and implementatio
 
 ### Enforcement Status
 **Enforcement is not implemented yet.** No runtime policy engine behavior is introduced by these files.
+
+## Step 12A Addendum: Policy Engine Design Linkage
+- New design reference: `docs/security/policy_engine.md`.
+- New planned test coverage reference: `docs/security/policy_engine_test_plan.md`.
+- Engine status: planned only; runtime enforcement remains unimplemented.
