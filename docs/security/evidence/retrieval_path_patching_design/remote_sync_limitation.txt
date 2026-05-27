@@ -1,0 +1,3 @@
+Remote/main verification limitation (2026-05-27 UTC):
+- `git fetch origin main` failed in this environment (exit code 128).
+- Continued from current local verified state per task instructions.

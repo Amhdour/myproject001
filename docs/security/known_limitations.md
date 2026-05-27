@@ -127,3 +127,10 @@ This documentation set does not claim production readiness.
 - live retrieval enforcement is not active.
 - document/chunk/vector/cache/rerank/context/prompt controls are not integrated into live flows.
 - production enforcement remains inactive.
+
+## step 17A retrieval path patching limitations
+- Retrieval path patching is design-only in this step.
+- No live retrieval path is patched yet.
+- Enforcement remains inactive.
+- Feature flags/rollback controls described but not implemented yet.
+- Production enforcement remains inactive.
