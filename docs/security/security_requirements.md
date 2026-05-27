@@ -278,3 +278,8 @@ Added retrieval-path patching references for design, tests, and evidence linkage
 - Integration sequence plan: `docs/security/retrieval_path_integration_plan.md`.
 - Integration checklist: `docs/security/retrieval_path_integration_checklist.md`.
 - Integration test plan: `docs/security/retrieval_path_integration_test_plan.md`.
+
+## Step 18A Retrieval Security Testing References
+- `docs/security/retrieval_security_tests.md`
+- `docs/security/retrieval_security_test_matrix.md`
+- `docs/security/retrieval_security_test_fixtures.md`

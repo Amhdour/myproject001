@@ -128,3 +128,11 @@ Status: Initial risk catalog. No mitigation controls implemented in this step.
 | R-RINT-004 | Enforce enabled before evidence complete | Enforce mode activated without traceability, rollback rehearsal, and evidence package closure. | Release safety/governance | medium | high | high | SR-EVIDENCE-001, SR-CI-001 | RPC-011, RPC-013, RPC-017 | Gate enforce enablement behind evidence completion criteria. | Signed gate checklist + evidence links | AI Trust & Security Readiness Engineer | Open |
 | R-RINT-005 | Rollback not tested before merge | Integration merges without validated fallback path for disable/monitor reversion. | Incident recovery readiness | medium | medium | medium | SR-EVIDENCE-001 | RPC-015 | Mandatory rollback rehearsal before enforce promotion. | Rollback test evidence | AI Trust & Security Readiness Engineer | Open |
 | R-RINT-006 | Context builder extracts incomplete identity/tenant data | Missing/partial context leads to incorrect decisions or false denies/allows. | Authorization correctness | medium | high | high | SR-RET-001 | RPC-003, RPC-004 | Strict context normalization and missing-field handling tests. | Context builder unit test evidence | AI Trust & Security Readiness Engineer | Open |
+
+## Step 18A Retrieval Security Test Risks
+- R-RTEST-001 insufficient negative test coverage
+- R-RTEST-002 monitor-only behavior changes retrieval output
+- R-RTEST-003 test fixtures use real sensitive data
+- R-RTEST-004 future enforce enabled without regression coverage
+- R-RTEST-005 cache/rerank/citation/context paths untested
+- R-RTEST-006 telemetry evidence missing or incomplete

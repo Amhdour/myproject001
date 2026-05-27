@@ -135,3 +135,10 @@ Mapped controls for R-RPATCH-001 through R-RPATCH-008.
 | CTM-RINT-004 | SR-EVIDENCE-001 | R-RINT-004 | RPC-011, RPC-013 | RPIT-013 | enforce promotion gate evidence | planned |
 | CTM-RINT-005 | SR-EVIDENCE-001 | R-RINT-005 | RPC-015 | RPIT-015 | rollback rehearsal evidence | planned |
 | CTM-RINT-006 | SR-RET-001 | R-RINT-006 | RPC-003, RPC-004 | RPIT-002, RPIT-003, RPIT-004, RPIT-005 | context builder evidence | planned |
+
+## Step 18A Retrieval Security Test Traceability
+| Control/Test Area | Test Group | Matrix Reference | Status |
+|---|---|---|---|
+| Tenant/ACL isolation | RST-G01/G04/G05 | `retrieval_security_test_matrix.md` | planned |
+| Leakage prevention | RST-G13/G14/G15/G17 | `retrieval_security_test_matrix.md` | planned |
+| Mode safety and observability | RST-G16/G18/G19/G20 | `retrieval_security_test_matrix.md` | planned |

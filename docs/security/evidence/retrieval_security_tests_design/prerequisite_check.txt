@@ -1,0 +1,3 @@
+Step 18A prerequisite check: all listed prerequisite files exist locally.
+Branch: retrieval-security-tests-design
+Date: 2026-05-27

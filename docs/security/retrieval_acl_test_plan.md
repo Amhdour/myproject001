@@ -45,3 +45,6 @@ Status: planned/design-only
 - ✅ Audit/finding/metric emission validated in isolated mode.
 - ✅ Non-leakage assertions validated for decision text.
 - ✅ No live app integration imports asserted.
+
+## Step 18A Reference (2026-05-27)
+- Retrieval security test-suite design added: `docs/security/retrieval_security_tests.md`, `docs/security/retrieval_security_test_matrix.md`, and `docs/security/retrieval_security_test_fixtures.md`.

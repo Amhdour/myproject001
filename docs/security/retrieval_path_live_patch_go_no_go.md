@@ -67,3 +67,6 @@ No production enforcement may be enabled until a **separate, evidence-backed app
 - Monitor-only mode preserves retrieval behavior.
 - Enforce mode remains NO-GO/inactive.
 - Retrieval blocking/filtering/denial remains disabled in live path.
+
+## Step 18A Gate Update (2026-05-27)
+- Shadow-deny and enforce modes remain blocked until the Step 18A retrieval security test suite is implemented and passing with evidence.

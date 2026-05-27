@@ -293,3 +293,6 @@ Added retrieval path patching design evidence category and bundle references.
 - Monitor-only mode preserves retrieval behavior.
 - Enforce mode remains NO-GO/inactive.
 - Retrieval blocking/filtering/denial remains disabled in live path.
+
+## Step 18A Evidence Category (2026-05-27)
+- Added retrieval security test design evidence category under `docs/security/evidence/retrieval_security_tests_design/`.

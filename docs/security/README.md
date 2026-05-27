@@ -143,3 +143,7 @@ No production-readiness claim is made in this phase.
 - Monitor-only mode preserves retrieval behavior.
 - Enforce mode remains NO-GO/inactive.
 - Retrieval blocking/filtering/denial remains disabled in live path.
+
+## Step 18A Status
+- Retrieval Security Tests Design: complete (design artifacts only).
+- Next step: implement planned retrieval security test suite and collect passing evidence before shadow-deny/enforce consideration.
