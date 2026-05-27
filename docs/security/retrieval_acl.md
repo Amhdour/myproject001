@@ -355,3 +355,6 @@ See `docs/security/retrieval_acl_test_plan.md` for stage-mapped planned coverage
 - Stage-level authorizers validated across all 17 retrieval ACL stages.
 - No live retrieval/search/vector/rerank/citation/context/prompt/cache/worker/web/deployment wiring was added.
 - Runtime production enforcement remains inactive.
+
+## Step 17B Integration-Plan Reference (2026-05-27)
+See `docs/security/retrieval_path_integration_plan.md`, `docs/security/retrieval_path_integration_checklist.md`, and `docs/security/retrieval_path_integration_test_plan.md` for planned runtime integration sequencing while keeping production enforcement inactive in this step.

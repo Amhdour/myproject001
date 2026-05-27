@@ -251,3 +251,14 @@ Evidence bundle path: `docs/security/evidence/retrieval_acl_validation/`
 
 ## Step 17A Evidence Category
 Added retrieval path patching design evidence category and bundle references.
+
+## Step 17B Evidence Category: Retrieval Path Integration Planning
+- Category ID: EVID-RINT-PLAN
+- Scope: Integration sequencing/checklist/test-plan/traceability for retrieval ACL runtime path integration.
+- Required artifacts:
+  - `docs/security/evidence/retrieval_path_integration_plan/prerequisite_check.txt`
+  - `docs/security/evidence/retrieval_path_integration_plan/integration_phase_inventory.md`
+  - `docs/security/evidence/retrieval_path_integration_plan/integration_checklist_summary.md`
+  - `docs/security/evidence/retrieval_path_integration_plan/integration_test_plan_summary.md`
+  - `docs/security/evidence/retrieval_path_integration_plan/integration_traceability_summary.md`
+- Status: planned/collected-for-step-17b-docs

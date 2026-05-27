@@ -1,0 +1,4 @@
+Remote sync limitation note
+
+If remote synchronization or origin verification is unavailable in the local environment,
+Step 17B planning artifacts are validated against local repository state only.
