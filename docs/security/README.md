@@ -86,3 +86,8 @@ No production-readiness claim is made in this phase.
 - ✅ Step 15A (Secure Ingestion Design) completed as documentation/design/test-planning only.
 - Runtime enforcement remains inactive and not wired into ingestion/runtime request paths.
 - Next step: Step 15B isolated minimal implementation planning/execution (still non-live until explicitly approved).
+
+## Step 15B Status (2026-05-27)
+- ✅ Step 15B (Secure Ingestion Minimal Isolated Controls) completed in isolated scope.
+- Live ingestion integration and production enforcement remain inactive.
+- Next step: Step 15C validation cleanup and further isolated hardening.

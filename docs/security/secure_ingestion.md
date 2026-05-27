@@ -384,3 +384,9 @@ Design-only artifact; no runtime enforcement or path integration is active.
 - **Metric:** ingestion_findings_total
 - **Planned tests:** SITP-011, SITP-012, SITP-013, SITP-021, SITP-026
 - **Implementation status:** planned
+
+## Step 15B Implementation Note (2026-05-27)
+- Minimal isolated ingestion controls implemented under `backend/security_layer/ingestion/`.
+- No live ingestion integration.
+- No parser/chunker/embedder/vector DB integration.
+- No production enforcement active.

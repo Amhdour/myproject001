@@ -193,3 +193,12 @@ References Step 14C validation artifacts:
   - `docs/security/evidence/secure_ingestion_design/secure_ingestion_traceability_summary.md`
   - `docs/security/evidence/secure_ingestion_design/remote_sync_limitation.txt` (if applicable)
 - Non-claim: no runtime enforcement activation is represented by this category.
+
+## Step 15B Evidence Category: Secure Ingestion Minimal Isolated Controls
+Evidence bundle path: `docs/security/evidence/secure_ingestion_minimal/`
+- prerequisite_check.txt
+- implementation_summary.md
+- ingestion_control_coverage.md
+- test_output.txt
+- test_exitcode.txt
+- remote_sync_limitation.txt (when remote verification remains unavailable)

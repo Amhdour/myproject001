@@ -30,3 +30,7 @@ Status: planned-only; no live ingestion enforcement enabled.
 | SITP-024 | shadow-deny ingestion records deny without live block | SR-ING-001 | R-ING-003 | PP-ING-01 | hypothetical deny logged, path continues | shadow-deny evidence record |
 | SITP-025 | enforce-mode ingestion blocks unsafe path | SR-ING-001 | R-ING-006 | PP-ING-01 | unsafe path blocked when enforcement enabled in future | enforce-mode block evidence |
 | SITP-026 | safe denial does not leak document name/content/source secret | SR-ING-001 | R-ING-005 | PP-ING-01 | denial response is sanitized | redaction assertion evidence |
+
+## Step 15B Isolated Test Execution Status (2026-05-27)
+Implemented and passing in isolated tests:
+SITP-001, SITP-002, SITP-003, SITP-005, SITP-006, SITP-007, SITP-008, SITP-009, SITP-011, SITP-012, SITP-014, SITP-018, SITP-020, SITP-021, SITP-022, SITP-026.

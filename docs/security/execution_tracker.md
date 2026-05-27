@@ -142,3 +142,8 @@ Remote/main branch lineage and PR linkage may be incomplete from this environmen
 - Step 15A (Secure Ingestion Design): complete on branch `secure-ingestion-design` after commit.
 - Scope: documentation/design/test-planning/evidence only.
 - Runtime enforcement remains intentionally inactive and not wired into live ingestion paths.
+
+## Step 15B Progress Update
+- Step 15B (Secure Ingestion Minimal Isolated Controls): complete on branch `secure-ingestion-minimal` after commit.
+- Scope: isolated `backend/security_layer/ingestion` helpers/tests/docs/evidence only.
+- Live ingestion/runtime enforcement remains intentionally inactive and not wired.
