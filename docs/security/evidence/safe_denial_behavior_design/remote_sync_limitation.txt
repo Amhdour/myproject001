@@ -1,0 +1,2 @@
+Remote sync limitation applies in current local environment when origin/main verification is unavailable.
+This Step 14A work proceeds from locally verified state and records evidence locally.
