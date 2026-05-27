@@ -128,3 +128,10 @@ No production-readiness claim is made in this phase.
 - ✅ Step 17D (Retrieval Path Integration Readiness Review) completed.
 - Go/no-go result: enforce mode = no-go; future monitor-only integration = go.
 - Next step: scoped monitor-only live retrieval patching with evidence-gated validation.
+\n\n## Step 17E Update (2026-05-27)\n- Added first live retrieval monitor-only hook at  after existing retrieval guard result handling.\n- Mode is disabled by default (), and monitor_only is the only live-enabled behavior for this step.\n- Enforce mode remains NO-GO and is not wired into live retrieval path.\n- Hook is non-blocking, non-filtering, fail-open for telemetry errors, and preserves retrieval response unchanged.\n
+
+## Step 17E Update (2026-05-27)
+- Added first live retrieval monitor-only hook at `backend/onyx/context/search/retrieval/search_runner.py` after existing retrieval guard result handling.
+- Mode is disabled by default (`default_retrieval_integration_config`), and monitor_only is the only live-enabled behavior for this step.
+- Enforce mode remains NO-GO and is not wired into live retrieval path.
+- Hook is non-blocking, non-filtering, fail-open for telemetry errors, and preserves retrieval response unchanged.
