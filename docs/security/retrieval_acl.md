@@ -343,3 +343,9 @@ See `docs/security/retrieval_acl_test_plan.md` for stage-mapped planned coverage
 - **Metric:** retrieval_findings_total
 - **Planned tests:** RET-ACL-T023, RET-ACL-T024, RET-ACL-T025
 - **Implementation status:** planned
+
+## Step 16B Implementation Note (2026-05-27)
+- Minimal isolated retrieval ACL controls implemented under `backend/security_layer/retrieval/`.
+- No live retrieval integration enabled.
+- No search/vector/rerank/cache/context/prompt integration performed.
+- No production enforcement activation.

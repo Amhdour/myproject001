@@ -29,3 +29,7 @@ Status: planned/design-only
 | RET-ACL-T023 | Retrieval finding created | SR-AUDIT-001 | R-RET-004 | PP-AUDIT-02 | Finding recorded when threshold/condition met | finding record sample |
 | RET-ACL-T024 | Retrieval metric emitted | SR-AUDIT-001 | R-RET-009 | PP-AUDIT-02 | Stage metric increments for decision path | metric export snapshot |
 | RET-ACL-T025 | Safe denial does not reveal denied document/source/chunk | SR-RET-001 | R-RET-007 | PP-RET-02 | Deny response redacts sensitive identifiers | response sample + safe-denial checklist |
+
+## Step 16B Test Status (2026-05-27)
+- Added isolated retrieval ACL model, validator, and controls tests in `backend/security_layer/tests/`.
+- Coverage includes deny/filter/placeholder behavior and non-integration assertions.

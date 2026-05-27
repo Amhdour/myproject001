@@ -224,3 +224,6 @@ Evidence bundle path: `docs/security/evidence/secure_ingestion_validation/`
   - `docs/security/evidence/retrieval_acl_design/retrieval_acl_traceability_summary.md`
   - `docs/security/evidence/retrieval_acl_design/remote_sync_limitation.txt` (if remote verification blocked)
 - Acceptance note: design/test-planning evidence only; no runtime enforcement claim.
+
+## Step 16B Evidence Category (2026-05-27)
+- Added `docs/security/evidence/retrieval_acl_minimal/` evidence pack for isolated retrieval ACL controls.

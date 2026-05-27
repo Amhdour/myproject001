@@ -100,3 +100,7 @@ No production-readiness claim is made in this phase.
 - ✅ Step 16A (Retrieval ACL Design) completed as documentation/design/test-planning only.
 - Runtime/live retrieval enforcement remains inactive and not wired into production paths.
 - Next step: Step 16B isolated/minimal retrieval ACL helper implementation planning (still non-production).
+
+## Step 16B Status (2026-05-27)
+- Complete: isolated retrieval ACL helper controls added.
+- Next step: Step 16C integration planning/guardrails while keeping production enforcement inactive.

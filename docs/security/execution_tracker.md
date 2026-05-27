@@ -154,3 +154,5 @@ Remote/main branch lineage and PR linkage may be incomplete from this environmen
 - Live ingestion/runtime enforcement remains intentionally inactive and not wired.
 
 | Phase 1 | 16A | Retrieval ACL design | AI Trust & Security Readiness Engineer | completed | retrieval-acl-design | docs(security): design retrieval ACL controls | docs/security/retrieval_acl.md | docs/security/evidence/retrieval_acl_design/ | complete | N/A | N/A | Design-only step; runtime enforcement remains inactive. |
+
+- [x] Step 16B complete: isolated retrieval ACL helper controls implemented and tested (no runtime wiring).
