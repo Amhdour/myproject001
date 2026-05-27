@@ -29,8 +29,11 @@ def test_monitor_only_skeleton_behaviors() -> None:
         candidate_metadata=metadata,
     )
 
+    assert len(metadata) == len(before)
     assert [m["candidate_id"] for m in metadata] == [m["candidate_id"] for m in before]
     assert any(m["tenant_id"] == "fake_tenant_beta" for m in metadata)
+    assert all(m.get("blocked") is not True for m in metadata)
+    assert all(m.get("denied") is not True for m in metadata)
     assert get_audit_events()
     assert get_findings()
     assert get_security_metrics()

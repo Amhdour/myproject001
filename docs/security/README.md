@@ -152,3 +152,8 @@ No production-readiness claim is made in this phase.
 - Retrieval security test fixtures and test skeletons were added in isolated security-layer test scope.
 - Shadow-deny and enforce remain blocked/inactive.
 - Next step: implement additional retrieval security tests and gather passing evidence prior to any future-mode activation proposal.
+
+## Step 18C Status (2026-05-27)
+- ✅ Retrieval Security Test Validation Cleanup completed.
+- Enforce and shadow-deny remain inactive.
+- Next step: Step 19 (Vector database security) planning/execution when authorized.
