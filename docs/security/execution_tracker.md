@@ -104,3 +104,8 @@ Remote/main branch lineage and PR linkage may be incomplete from this environmen
 ## Step 12B Status
 
 - Step 12B complete on branch `policy-engine-minimal` after commit.
+
+## Step 12C Progress Update
+- Step 12C (Policy engine validation cleanup): complete on branch `policy-engine-validation-cleanup`.
+- Scope: isolated tests/docs/evidence only.
+- Runtime/API enforcement integration remains intentionally not started.

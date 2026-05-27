@@ -1,0 +1,14 @@
+{
+  "policy_id": "malformed-rule-policy",
+  "version": "1.0",
+  "scope": "global",
+  "default_effect": "deny",
+  "enforcement_mode": "disabled",
+  "rules": [
+    {
+      "rule_id": "missing-required-context",
+      "effect": "allow",
+      "actions": ["read"]
+    }
+  ]
+}

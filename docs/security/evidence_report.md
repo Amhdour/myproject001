@@ -120,3 +120,13 @@ Evidence bundle path: `docs/security/evidence/policy_engine_design/`
 
 Evidence artifacts for Step 12B are stored in:
 `docs/security/evidence/policy_engine_minimal/`
+
+## Step 12C Evidence Category: Policy Engine Validation Cleanup
+
+Evidence bundle path: `docs/security/evidence/policy_engine_validation/`
+- prerequisite_check.txt
+- isolation_check.txt
+- test_coverage_summary.md
+- test_output.txt
+- test_exitcode.txt
+- remote_sync_limitation.txt (if remote verification remains unavailable)

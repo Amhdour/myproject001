@@ -50,3 +50,8 @@ This documentation set does not claim production readiness.
 - Minimal policy engine is isolated only.
 - Runtime integration is not implemented.
 - Production enforcement is not active.
+
+## Step 12C Additional Limitations
+- Policy engine remains isolated to `backend/security_layer/policies`.
+- Runtime enforcement is not active.
+- Backend API/request path integration has not started.
