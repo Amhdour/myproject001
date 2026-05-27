@@ -38,3 +38,9 @@ Implemented in isolated tests:
 - non-leakage assertions for tenant/user/document/chunk/tool/MCP/sandbox/prompt/policy/internal exception/credentials/tokens/API keys
 - wrapper deny/fail-closed/approval-required safe behavior
 - monitor-only and shadow-deny non-leakage behavior
+
+## Step 14C validation cleanup update (2026-05-27)
+Validation tests rerun successfully using `PYTHONPATH=. python -m pytest backend/security_layer/tests -q`.
+- Result: 30 passed
+- Exit code: 0
+- Evidence: `docs/security/evidence/safe_denial_validation/`

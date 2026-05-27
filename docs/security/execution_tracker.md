@@ -39,7 +39,7 @@ Remote/main branch lineage and PR linkage may be incomplete from this environmen
 | Phase 2 | 11 | Policy schema and policy files | AI Trust & Security Readiness Engineer | planned | TBD | TBD | TBD | TBD | not started | TBD | TBD | TBD | Planned follow-on step. |
 | Phase 2 | 12 | Policy engine | AI Trust & Security Readiness Engineer | planned | TBD | TBD | TBD | TBD | not started | TBD | TBD | TBD | Planned follow-on step. |
 | Phase 2 | 13 | Runtime context and enforcement wrappers | AI Trust & Security Readiness Engineer | complete | runtime-context-wrappers-design | TBD | TBD | docs/security/runtime_context_wrappers.md; docs/security/runtime_context_wrappers_test_plan.md; docs/security/evidence/runtime_context_wrappers_design/ | open blockers documented | 2026-05-27 | TBD | TBD | Step 13A completed as documentation-only design; no runtime wiring/enforcement activation. |
-| Phase 2 | 14 | Safe denial behavior | AI Trust & Security Readiness Engineer | planned | TBD | TBD | TBD | TBD | not started | TBD | TBD | TBD | Planned follow-on step. |
+| Phase 2 | 14 | Safe denial behavior | AI Trust & Security Readiness Engineer | complete | safe-denial-validation-cleanup | TBD | TBD | docs/security/safe_denial_behavior_test_plan.md; docs/security/evidence/safe_denial_validation/test_output.txt; docs/security/evidence/safe_denial_validation/test_exitcode.txt; docs/security/evidence/safe_denial_validation/denial_coverage_summary.md; docs/security/evidence/safe_denial_validation/non_leakage_validation_summary.md | none | 2026-05-27 | TBD | TBD | Step 14C validation rerun passed; isolated tests/docs evidence only, no runtime wiring. |
 | Phase 2 | 15 | Secure ingestion | AI Trust & Security Readiness Engineer | planned | TBD | TBD | TBD | TBD | not started | TBD | TBD | TBD | Planned follow-on step. |
 | Phase 2 | 16 | Retrieval ACL | AI Trust & Security Readiness Engineer | planned | TBD | TBD | TBD | TBD | not started | TBD | TBD | TBD | Planned follow-on step. |
 | Phase 2 | 17 | Retrieval path patching | AI Trust & Security Readiness Engineer | planned | TBD | TBD | TBD | TBD | not started | TBD | TBD | TBD | Planned follow-on step. |
@@ -132,3 +132,10 @@ Remote/main branch lineage and PR linkage may be incomplete from this environmen
 - Step 14B (Safe Denial Behavior Minimal Implementation): complete on branch `safe-denial-behavior-minimal`.
 - Scope: isolated runtime denial helpers/wrapper updates/tests/docs/evidence only.
 - Runtime enforcement remains intentionally inactive and not wired into application request paths.
+
+
+## Step 14C Progress Update
+- Step 14C (Safe Denial Test Execution Cleanup): complete on branch `safe-denial-validation-cleanup`.
+- Validation command: `PYTHONPATH=. python -m pytest backend/security_layer/tests -q`
+- Result: 30 passed, exit code 0.
+- Scope: isolated security_layer tests and docs/security evidence only; runtime enforcement remains inactive.
