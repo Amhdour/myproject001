@@ -1,0 +1,1 @@
+Implemented 17 retrieval-stage authorization functions and corresponding isolated tests for deny/filter/allow behavior, audit/finding/metric emissions, cache ACL placeholder checks, and non-integration guarantees.
