@@ -157,3 +157,9 @@ No production-readiness claim is made in this phase.
 - ✅ Retrieval Security Test Validation Cleanup completed.
 - Enforce and shadow-deny remain inactive.
 - Next step: Step 19 (Vector database security) planning/execution when authorized.
+
+## Step 18D Status (2026-05-27)
+- ✅ Retrieval Security Negative Tests Implementation completed.
+- Added monitor-only/isolated negative retrieval security tests and evidence.
+- Shadow-deny/enforce remain blocked and inactive.
+- Next step: Step 19 planning/execution when authorized.

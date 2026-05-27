@@ -138,3 +138,9 @@ Purpose: live blocking/filtering behavior validation prerequisites. Risks: R-RTE
 - Monitor-only skeleton behavior validated as non-blocking/non-filtering with telemetry evidence.
 - Future shadow-deny/enforce skeletons remain skipped/xfail (`future mode not enabled yet`).
 - No enforcement mode enabled.
+
+## Step 18D Implementation Note (2026-05-27)
+- Negative retrieval security tests implemented in `backend/security_layer/tests/test_retrieval_security_negative_cases.py`.
+- Monitor-only behavior remains non-blocking and non-filtering.
+- Future shadow-deny/enforce tests remain skipped/blocked.
+- No enforcement mode enabled.

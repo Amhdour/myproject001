@@ -309,3 +309,8 @@ Added retrieval path patching design evidence category and bundle references.
 ## Step 18C Evidence Category Added (2026-05-27)
 - `docs/security/evidence/retrieval_security_test_validation/`
 - Captures prerequisite checks, fixture-quality validation, monitor-only validation, future-mode skip validation, and test outputs/exit code.
+
+## Step 18D Evidence Category (2026-05-27)
+- Category: Retrieval Security Negative Tests Implementation
+- Evidence location: `docs/security/evidence/retrieval_security_negative_tests/`
+- Includes prerequisite verification, negative coverage summaries, monitor-only behavior summary, non-leakage summary, future-mode blocker summary, and test output/exit code.

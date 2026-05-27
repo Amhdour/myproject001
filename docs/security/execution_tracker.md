@@ -201,3 +201,5 @@ Remote/main branch lineage and PR linkage may be incomplete from this environmen
 ## Step 18B-A Validation Cleanup Update (2026-05-27)
 - Step 18B rerun completed with passing evidence (`73 passed, 8 skipped` full security_layer suite; `6 passed, 8 skipped` direct skeleton suite).
 - Step 18B remains complete; blocker for missing pytest is resolved in current environment.
+
+| Step 18D | Retrieval Security Negative Tests Implementation | completed | `test(security): add retrieval security negative tests` | backend/security_layer/tests/test_retrieval_security_negative_cases.py; docs/security/* | docs/security/evidence/retrieval_security_negative_tests/ | local-only verification; remote sync may be unavailable | 2026-05-27 | TBD | TBD | Monitor-only and isolated negative tests only; no enforce/shadow-deny activation; no live retrieval blocking/filtering changes. |

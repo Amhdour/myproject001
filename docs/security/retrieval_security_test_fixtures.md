@@ -46,3 +46,7 @@ Status: planned/design-only.
 - `.invalid` email-domain constraints validated by tests.
 - No raw document/chunk/source-secret content validated by tests.
 - Fixture IDs validated as synthetic and deterministic.
+
+## Step 18D Fixture Coverage Update (2026-05-27)
+- Negative fixture coverage is now implemented in monitor-only and isolated test paths.
+- Synthetic-only fixture policy remains mandatory (fake IDs, synthetic metadata, `.invalid` emails only, no raw text/secrets/tokens).

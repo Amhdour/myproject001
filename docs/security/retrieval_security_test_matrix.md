@@ -62,3 +62,8 @@ Status: planned/design-only
 - Monitor-only behavior-preservation validation: pass.
 - Future-mode skeleton gating validation: pass (skip/xfail retained).
 - Enforcement activation status: inactive.
+
+## Step 18D Matrix Update (2026-05-27)
+- Implemented: monitor-only/isolated negative retrieval tests for cross-tenant, ACL-denied, stale/deleted, vector mismatch, cache mismatch, citation/rerank denied, and non-leakage assertions.
+- Future shadow-deny/enforce cases remain planned/skipped.
+- Passing evidence: `docs/security/evidence/retrieval_security_negative_tests/test_output.txt`.
