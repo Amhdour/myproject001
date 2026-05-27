@@ -127,3 +127,8 @@ Remote/main branch lineage and PR linkage may be incomplete from this environmen
 - Step 14A (Safe Denial Behavior Design): complete on branch `safe-denial-behavior-design`.
 - Scope: documentation/design/test-planning/evidence only.
 - Runtime enforcement remains intentionally inactive and not wired into backend request paths.
+
+## Step 14B Progress Update
+- Step 14B (Safe Denial Behavior Minimal Implementation): complete on branch `safe-denial-behavior-minimal`.
+- Scope: isolated runtime denial helpers/wrapper updates/tests/docs/evidence only.
+- Runtime enforcement remains intentionally inactive and not wired into application request paths.

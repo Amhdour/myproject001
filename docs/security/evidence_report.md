@@ -162,3 +162,13 @@ Evidence bundle path: `docs/security/evidence/runtime_wrapper_validation/`
   - `safe_denial_traceability_summary.md`
   - `remote_sync_limitation.txt` (if remote sync limitation applies)
 - Runtime enforcement status: not wired / not activated.
+
+## Step 14B Evidence Category: Safe Denial Behavior Minimal
+Evidence bundle path: `docs/security/evidence/safe_denial_behavior_minimal/`
+- prerequisite_check.txt
+- implementation_summary.md
+- denial_category_coverage.md
+- non_leakage_test_summary.md
+- test_output.txt
+- test_exitcode.txt
+- remote_sync_limitation.txt (if remote verification remains unavailable)

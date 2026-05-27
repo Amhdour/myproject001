@@ -30,3 +30,11 @@ Status: planned-only. No runtime enforcement activation.
 | T-DENY-022 | retrieval denial does not reveal denied source | SR-RET-001 | R-DENY-001 | PP-RET-02 | Source/document identity hidden. | Retrieval deny evidence |
 | T-DENY-023 | tool denial does not reveal tool secrets | SR-TOOL-001 | R-DENY-003 | PP-TOOL-02 | Secrets absent from tool denial output. | Tool deny evidence |
 | T-DENY-024 | MCP denial does not reveal server credentials | SR-MCP-001 | R-DENY-003 | PP-MCP-02 | Credentials/config absent in response. | MCP deny evidence |
+
+## Step 14B execution update (2026-05-27)
+Implemented in isolated tests:
+- all 14 denial categories return safe user-facing messages and safe error codes
+- approval-required, validation-failed, policy-engine-unavailable, and rate/quota payload structures
+- non-leakage assertions for tenant/user/document/chunk/tool/MCP/sandbox/prompt/policy/internal exception/credentials/tokens/API keys
+- wrapper deny/fail-closed/approval-required safe behavior
+- monitor-only and shadow-deny non-leakage behavior

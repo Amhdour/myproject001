@@ -328,3 +328,9 @@ Design-only; enforcement not wired; localization not implemented; telemetry sche
 - mapped patch points: PP-ADMIN-01, PP-DENY-01
 - planned tests: T-DENY-011, T-DENY-013
 - status: planned
+
+## Step 14B implementation note (2026-05-27)
+- Implemented isolated safe denial helpers and structured payload builders in `backend/security_layer/runtime/denials.py`.
+- Implemented all 14 denial categories and safe error-code mapping.
+- Added isolated wrapper usage for deny/fail-closed and approval-required structured response.
+- Runtime enforcement remains inactive and not wired into backend request paths.

@@ -77,3 +77,9 @@ This documentation set does not claim production readiness.
 - Safe denial behavior is documented only; runtime enforcement wiring is not implemented.
 - Denial taxonomy is planned and not yet enforced across backend/UI/streaming surfaces.
 - Denial metrics/findings/audit mappings are planning metadata pending implementation.
+
+## Step 14B Additional Limitations
+- Safe denial helpers are isolated only.
+- Denial behavior is not globally wired into application paths.
+- Streaming/tool/MCP/artifact denial behavior is not integrated into live flows.
+- Production enforcement remains inactive.

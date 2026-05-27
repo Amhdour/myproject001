@@ -11,6 +11,8 @@ from backend.security_layer.runtime.contexts import RuntimeAction
 from backend.security_layer.runtime.contexts import SecurityDecisionContext
 from backend.security_layer.runtime.contexts import has_required_identity
 from backend.security_layer.runtime.contexts import has_required_tenant
+from backend.security_layer.runtime.denials import DenialCategory
+from backend.security_layer.runtime.denials import approval_required_payload
 from backend.security_layer.runtime.denials import raise_security_denial
 from backend.security_layer.runtime.findings import SecurityFinding
 from backend.security_layer.runtime.findings import record_finding
@@ -29,6 +31,7 @@ class WrapperDecision:
     decision: str
     mode: str
     approval_required: bool = False
+    denial_payload: dict[str, str] | None = None
 
 
 def _normalize_mode(mode: WrapperMode | str) -> WrapperMode:
@@ -44,15 +47,15 @@ def _evaluate(
     normalized_mode = _normalize_mode(mode)
     if not has_required_identity(context):
         _record(action, "deny", normalized_mode, context, "missing_subject")
-        raise_security_denial("missing_subject")
+        raise_security_denial(DenialCategory.SUBJECT_CONTEXT_MISSING)
     if not has_required_tenant(context):
         _record(action, "deny", normalized_mode, context, "missing_tenant")
-        raise_security_denial("missing_tenant")
+        raise_security_denial(DenialCategory.TENANT_CONTEXT_MISSING)
 
     if policy_evaluator is None:
         if normalized_mode == WrapperMode.ENFORCE:
             _record(action, "deny", normalized_mode, context, "evaluator_unavailable")
-            raise_security_denial("evaluator_unavailable")
+            raise_security_denial(DenialCategory.POLICY_ENGINE_UNAVAILABLE)
         _record(action, "allow", normalized_mode, context)
         return WrapperDecision(action.value, "allow", normalized_mode.value)
 
@@ -61,7 +64,7 @@ def _evaluate(
     except Exception:
         if normalized_mode == WrapperMode.ENFORCE:
             _record(action, "deny", normalized_mode, context, "evaluation_error")
-            raise_security_denial("evaluation_error")
+            raise_security_denial(DenialCategory.POLICY_DENIED)
         _record(action, "allow", normalized_mode, context)
         return WrapperDecision(action.value, "allow", normalized_mode.value)
 
@@ -76,11 +79,11 @@ def _evaluate(
             _record(action, "shadow_deny", normalized_mode, context, "shadow_denied")
             return WrapperDecision(action.value, "shadow_deny", normalized_mode.value)
         _record(action, "deny", normalized_mode, context, "denied")
-        raise_security_denial("security_denied")
+        raise_security_denial(DenialCategory.POLICY_DENIED)
 
     if effect_value == PolicyEffect.APPROVAL_REQUIRED.value:
         _record(action, "approval_required", normalized_mode, context)
-        return WrapperDecision(action.value, "approval_required", normalized_mode.value, approval_required=True)
+        return WrapperDecision(action.value, "approval_required", normalized_mode.value, approval_required=True, denial_payload=approval_required_payload())
 
     _record(action, "allow", normalized_mode, context)
     return WrapperDecision(action.value, "allow", normalized_mode.value)
