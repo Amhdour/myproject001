@@ -59,3 +59,11 @@ No production enforcement may be enabled until a **separate, evidence-backed app
 - Mode is disabled by default (`default_retrieval_integration_config`), and monitor_only is the only live-enabled behavior for this step.
 - Enforce mode remains NO-GO and is not wired into live retrieval path.
 - Hook is non-blocking, non-filtering, fail-open for telemetry errors, and preserves retrieval response unchanged.
+
+
+## Step 17F Update (2026-05-27)
+- Retrieval monitor-only validation completed.
+- Disabled mode preserves retrieval behavior.
+- Monitor-only mode preserves retrieval behavior.
+- Enforce mode remains NO-GO/inactive.
+- Retrieval blocking/filtering/denial remains disabled in live path.

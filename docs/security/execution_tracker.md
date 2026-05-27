@@ -189,3 +189,5 @@ Remote/main branch lineage and PR linkage may be incomplete from this environmen
 - Mode is disabled by default (`default_retrieval_integration_config`), and monitor_only is the only live-enabled behavior for this step.
 - Enforce mode remains NO-GO and is not wired into live retrieval path.
 - Hook is non-blocking, non-filtering, fail-open for telemetry errors, and preserves retrieval response unchanged.
+
+- [x] Step 17F: Retrieval Monitor-Only Integration Validation (completed 2026-05-27).
