@@ -44,3 +44,10 @@ Status: Planning artifact only; no controls implemented.
 | R-017 | N/A (remote verification limitation tracking) |
 
 Reference artifact: `docs/security/test_data_factories.md`.
+
+
+| R-MIG-001 | SR-RET-001, SR-ADMIN-001, SR-CI-001 | PP-RET-02, PP-ADMIN-01, PP-CI-01 | Existing-data migration integrity safeguards (planned) | Existing DB migration test; seed users/documents/ACL checks | Data-corruption migration simulation | docs/security/evidence/migration_safety/migration_risk_traceability.md | Planned |
+| R-MIG-002 | SR-CI-001, SR-EVIDENCE-001 | PP-CI-01, PP-EVIDENCE-01 | Rollback readiness and validation gates (planned) | Migration rollback test | Failed-migration rollback drill | docs/security/evidence/migration_safety/migration_risk_traceability.md | Planned |
+| R-MIG-003 | SR-RET-001, SR-CI-001, SR-EVIDENCE-001 | PP-RET-01, PP-CI-01, PP-EVIDENCE-01 | Schema-drift detection and blocker policy (planned) | Schema drift detection check | Drift-induced ACL bypass simulation | docs/security/evidence/migration_safety/migration_risk_traceability.md | Planned |
+| R-MIG-004 | SR-ADMIN-001, SR-CI-001, SR-EVIDENCE-001 | PP-ADMIN-01, PP-CI-01, PP-EVIDENCE-01 | Seed/demo environment isolation checks (planned) | Seed tenants/users/documents/ACL/tools/MCP/demo-attacks checks | Seed leakage simulation | docs/security/evidence/migration_safety/migration_risk_traceability.md | Planned |
+| R-MIG-005 | SR-EVIDENCE-001, SR-CI-001 | PP-EVIDENCE-01, PP-CI-01 | Migration evidence completeness gates (planned) | Evidence completeness verification | Missing-evidence gate bypass attempt | docs/security/evidence/migration_safety/migration_risk_traceability.md | Planned |

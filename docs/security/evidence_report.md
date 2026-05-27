@@ -89,3 +89,12 @@ References Step 9 planning and evidence artifacts:
 - `docs/security/evidence/test_data_factories/fixture_inventory.md`
 - `docs/security/evidence/test_data_factories/fixture_traceability_summary.md`
 - `docs/security/evidence/test_data_factories/remote_sync_limitation.txt` (when remote verification is unavailable)
+
+
+## Migration-Safety Evidence Category (Step 10)
+References Step 10 migration-safety planning artifacts:
+- `docs/security/migration_safety.md`
+- `docs/security/evidence/migration_safety/prerequisite_check.txt`
+- `docs/security/evidence/migration_safety/migration_safety_plan_summary.md`
+- `docs/security/evidence/migration_safety/migration_risk_traceability.md`
+- `docs/security/evidence/migration_safety/remote_sync_limitation.txt` (when remote verification remains unavailable)
