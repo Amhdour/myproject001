@@ -319,3 +319,15 @@ Added retrieval path patching design evidence category and bundle references.
 ## Step 18E Evidence Category (2026-05-27)
 - Added `docs/security/evidence/retrieval_security_negative_validation/` for Step 18E validation artifacts.
 - Includes prerequisite verification, negative-case quality checks, monitor-only preservation checks, non-leakage checks, future-mode blocker validation, and test command evidence.
+
+## Step 19A Evidence Category — Vector DB Security Design
+- Category: `vector_db_security_design`
+- Scope: design, traceability, planned tests, planned metadata contract.
+- Required artifacts:
+  - `docs/security/evidence/vector_db_security_design/prerequisite_check.txt`
+  - `docs/security/evidence/vector_db_security_design/vector_stage_inventory.md`
+  - `docs/security/evidence/vector_db_security_design/vector_metadata_contract_summary.md`
+  - `docs/security/evidence/vector_db_security_design/vector_test_plan_summary.md`
+  - `docs/security/evidence/vector_db_security_design/vector_traceability_summary.md`
+  - `docs/security/evidence/vector_db_security_design/remote_sync_limitation.txt` (if remote verification remains unavailable)
+- Runtime claim: none. This category is design/planning evidence only.
