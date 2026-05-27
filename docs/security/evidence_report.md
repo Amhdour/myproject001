@@ -248,3 +248,6 @@ Evidence bundle path: `docs/security/evidence/retrieval_acl_validation/`
   - `retrieval_path_test_plan_summary.md`
   - `retrieval_path_traceability_summary.md`
   - `remote_sync_limitation.txt` (when remote verification is blocked)
+
+## Step 17A Evidence Category
+Added retrieval path patching design evidence category and bundle references.

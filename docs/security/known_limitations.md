@@ -134,3 +134,10 @@ This documentation set does not claim production readiness.
 - Enforcement remains inactive.
 - Feature flags/rollback controls described but not implemented yet.
 - Production enforcement remains inactive.
+
+## Step 17A Known Limitations
+- Design-only output
+- No live patching
+- Enforcement inactive
+- Feature flags not implemented
+- Rollback controls not implemented
