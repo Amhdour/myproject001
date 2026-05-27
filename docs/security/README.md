@@ -147,3 +147,8 @@ No production-readiness claim is made in this phase.
 ## Step 18A Status
 - Retrieval Security Tests Design: complete (design artifacts only).
 - Next step: implement planned retrieval security test suite and collect passing evidence before shadow-deny/enforce consideration.
+
+## Step 18B Status (2026-05-27)
+- Retrieval security test fixtures and test skeletons were added in isolated security-layer test scope.
+- Shadow-deny and enforce remain blocked/inactive.
+- Next step: implement additional retrieval security tests and gather passing evidence prior to any future-mode activation proposal.

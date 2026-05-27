@@ -70,3 +70,8 @@ No production enforcement may be enabled until a **separate, evidence-backed app
 
 ## Step 18A Gate Update (2026-05-27)
 - Shadow-deny and enforce modes remain blocked until the Step 18A retrieval security test suite is implemented and passing with evidence.
+
+## Step 18B Guardrail Confirmation (2026-05-27)
+- Shadow-deny remains blocked.
+- Enforce mode remains blocked.
+- Future modes require implemented and passing evidence before any activation consideration.

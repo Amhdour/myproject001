@@ -47,3 +47,8 @@ Status: planned/design-only
 | RST-T042 | planned retrieval security case 42 | RST-G04 | future enforce | validate retrieval security behavior | SR-RET-001 | R-RTEST-001 | PP-RET-02 | synthetic fixtures from retrieval_security_test_fixtures.md | expected mode-specific secure behavior | audit/finding/metric + diff artifacts | planned |
 | RST-T043 | planned retrieval security case 43 | RST-G19 | future shadow-deny | validate retrieval security behavior | SR-RET-001 | R-RTEST-001 | PP-RET-02 | synthetic fixtures from retrieval_security_test_fixtures.md | expected mode-specific secure behavior | audit/finding/metric + diff artifacts | planned |
 | RST-T044 | planned retrieval security case 44 | RST-G04 | future enforce | validate retrieval security behavior | SR-RET-001 | R-RTEST-001 | PP-RET-02 | synthetic fixtures from retrieval_security_test_fixtures.md | expected mode-specific secure behavior | audit/finding/metric + diff artifacts | planned |
+
+## Step 18B Status Update (2026-05-27)
+- Implemented skeleton tests: fixture safety/constructibility + monitor-only skeleton behavior checks.
+- Future-mode (shadow-deny/enforce) skeleton tests added and intentionally skipped/xfail with reason: `future mode not enabled yet`.
+- Enforcement modes remain inactive.
