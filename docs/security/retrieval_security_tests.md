@@ -138,3 +138,7 @@ Purpose: live blocking/filtering behavior validation prerequisites. Risks: R-RTE
 - Monitor-only skeleton behavior validated as non-blocking/non-filtering with telemetry evidence.
 - Future shadow-deny/enforce skeletons remain skipped/xfail (`future mode not enabled yet`).
 - No enforcement mode enabled.
+
+## Step 18D-A coverage cleanup (2026-05-27)
+
+Added explicit retrieval security negative-case coverage in `backend/security_layer/tests/test_retrieval_security_negative_cases.py` to satisfy acceptance threshold (>=10 negative tests) while preserving monitor-only behavior.

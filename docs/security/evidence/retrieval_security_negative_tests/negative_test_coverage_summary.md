@@ -1,0 +1,19 @@
+# Step 18D-A Negative Test Coverage Summary
+
+Implemented explicit negative tests in `backend/security_layer/tests/test_retrieval_security_negative_cases.py`.
+
+Count: 12 negative tests (>= 10 required).
+
+Named tests implemented:
+- test_cross_tenant_document_candidate_detected_monitor_only
+- test_cross_tenant_chunk_candidate_detected_monitor_only
+- test_unauthorized_group_candidate_detected_monitor_only
+- test_unauthorized_role_candidate_detected_monitor_only
+- test_stale_acl_snapshot_candidate_detected_monitor_only
+- test_deleted_document_candidate_detected_monitor_only
+- test_vector_namespace_mismatch_detected_monitor_only
+- test_vector_metadata_mismatch_detected_monitor_only
+- test_cache_cross_tenant_fixture_detected_isolated
+- test_citation_denied_fixture_detected_isolated
+- test_rerank_denied_fixture_detected_isolated
+- test_negative_decisions_do_not_include_raw_text_or_secrets

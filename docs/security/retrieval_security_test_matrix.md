@@ -62,3 +62,8 @@ Status: planned/design-only
 - Monitor-only behavior-preservation validation: pass.
 - Future-mode skeleton gating validation: pass (skip/xfail retained).
 - Enforcement activation status: inactive.
+
+
+## Step 18D-A Update (2026-05-27)
+- Negative cases implemented: 12 (required >= 10).
+- Status: Pass.

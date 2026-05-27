@@ -309,3 +309,9 @@ Added retrieval path patching design evidence category and bundle references.
 ## Step 18C Evidence Category Added (2026-05-27)
 - `docs/security/evidence/retrieval_security_test_validation/`
 - Captures prerequisite checks, fixture-quality validation, monitor-only validation, future-mode skip validation, and test outputs/exit code.
+
+
+## Step 18D-A Retrieval Security Negative Test Coverage Cleanup (2026-05-27)
+- Focused suite: pass (20 passed, 8 skipped).
+- Full security_layer suite: pass (87 passed, 8 skipped).
+- Evidence folder: `docs/security/evidence/retrieval_security_negative_tests/`.
