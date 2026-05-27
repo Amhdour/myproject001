@@ -80,3 +80,52 @@ def test_audit_finding_metric_and_safety() -> None:
     d = controls.authorize_prompt_context_authorized(_ctx(RetrievalStage.PROMPT_CONTEXT_AUTHORIZED), [cand])
     assert "text" not in d.reason
     assert "fastapi" not in controls.__dict__ and "celery" not in controls.__dict__
+
+
+def test_all_17_stages_have_isolated_authorizers() -> None:
+    context_by_stage = {
+        RetrievalStage.QUERY_RECEIVED: lambda: controls.authorize_query_received(_ctx(RetrievalStage.QUERY_RECEIVED)),
+        RetrievalStage.SUBJECT_CONTEXT_VALIDATED: lambda: controls.authorize_subject_context_validated(_ctx(RetrievalStage.SUBJECT_CONTEXT_VALIDATED)),
+        RetrievalStage.TENANT_CONTEXT_VALIDATED: lambda: controls.authorize_tenant_context_validated(_ctx(RetrievalStage.TENANT_CONTEXT_VALIDATED)),
+        RetrievalStage.RETRIEVAL_SCOPE_RESOLVED: lambda: controls.authorize_retrieval_scope_resolved(_ctx(RetrievalStage.RETRIEVAL_SCOPE_RESOLVED)),
+        RetrievalStage.CANDIDATE_SOURCES_RESOLVED: lambda: controls.authorize_candidate_sources_resolved(_ctx(RetrievalStage.CANDIDATE_SOURCES_RESOLVED)),
+        RetrievalStage.DOCUMENT_ACL_CHECKED: lambda: controls.authorize_document_acl_checked(_ctx(RetrievalStage.DOCUMENT_ACL_CHECKED), [_cand()]),
+        RetrievalStage.CHUNK_ACL_CHECKED: lambda: controls.authorize_chunk_acl_checked(_ctx(RetrievalStage.CHUNK_ACL_CHECKED), [_cand()]),
+        RetrievalStage.VECTOR_NAMESPACE_CHECKED: lambda: controls.authorize_vector_namespace_checked(_ctx(RetrievalStage.VECTOR_NAMESPACE_CHECKED), [_cand()]),
+        RetrievalStage.VECTOR_METADATA_CHECKED: lambda: controls.authorize_vector_metadata_checked(_ctx(RetrievalStage.VECTOR_METADATA_CHECKED), [_cand()]),
+        RetrievalStage.HYBRID_SEARCH_FILTERED: lambda: controls.authorize_hybrid_search_filtered(_ctx(RetrievalStage.HYBRID_SEARCH_FILTERED), [_cand()]),
+        RetrievalStage.RERANK_CANDIDATES_FILTERED: lambda: controls.authorize_rerank_candidates_filtered(_ctx(RetrievalStage.RERANK_CANDIDATES_FILTERED), [_cand()]),
+        RetrievalStage.CITATION_SOURCES_FILTERED: lambda: controls.authorize_citation_sources_filtered(_ctx(RetrievalStage.CITATION_SOURCES_FILTERED), [_cand()]),
+        RetrievalStage.CONTEXT_CHUNKS_AUTHORIZED: lambda: controls.authorize_context_chunks_authorized(_ctx(RetrievalStage.CONTEXT_CHUNKS_AUTHORIZED), [_cand()]),
+        RetrievalStage.PROMPT_CONTEXT_AUTHORIZED: lambda: controls.authorize_prompt_context_authorized(_ctx(RetrievalStage.PROMPT_CONTEXT_AUTHORIZED), [_cand()]),
+        RetrievalStage.CACHE_READ_AUTHORIZED: lambda: controls.authorize_cache_read_authorized(_ctx(RetrievalStage.CACHE_READ_AUTHORIZED)),
+        RetrievalStage.RETRIEVAL_AUDIT_WRITTEN: lambda: controls.authorize_retrieval_audit_written(_ctx(RetrievalStage.RETRIEVAL_AUDIT_WRITTEN)),
+        RetrievalStage.RETRIEVAL_FINDING_RECORDED_IF_NEEDED: lambda: controls.authorize_retrieval_finding_recorded_if_needed(_ctx(RetrievalStage.RETRIEVAL_FINDING_RECORDED_IF_NEEDED)),
+    }
+    for stage, invoker in context_by_stage.items():
+        decision = invoker()
+        assert decision.stage == stage
+        assert decision.reason
+
+
+def test_decisions_do_not_expose_sensitive_content_or_source_names() -> None:
+    unauthorized = RetrievalCandidate(
+        candidate_id="secret-candidate",
+        source_type=RetrievalSourceType.VECTOR,
+        document=RetrievalDocument("doc-secret", "t2", (), ("unauthorized-group",), ("unauthorized-role",), False),
+        chunk=RetrievalChunk("chunk-secret", "doc-secret", "t2", (), ("unauthorized-group",), ("unauthorized-role",)),
+        vector_namespace=VectorNamespace("tenant:t2"),
+        vector_metadata=VectorMetadata("t2", "doc-secret", "chunk-secret"),
+        provenance_id="Finance-Q4-Projections",
+    )
+    decision = controls.authorize_document_acl_checked(_ctx(), [unauthorized])
+    assert decision.status in {RetrievalDecisionStatus.DENY, RetrievalDecisionStatus.FILTER}
+    assert decision.denial_category is not None
+    assert "finance" not in decision.reason.lower()
+    assert "q4" not in decision.reason.lower()
+    assert "doc-secret" not in decision.reason
+    assert "chunk-secret" not in decision.reason
+
+
+def test_no_live_app_integration_imports_present() -> None:
+    assert "onyx" not in controls.__dict__

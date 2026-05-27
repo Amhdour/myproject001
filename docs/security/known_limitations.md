@@ -121,3 +121,9 @@ This documentation set does not claim production readiness.
 - Not wired into live retrieval.
 - No real vector DB/search/rerank/cache/context/prompt enforcement.
 - Production enforcement remains inactive.
+
+## Step 16C Additional Limitations
+- retrieval ACL remains isolated.
+- live retrieval enforcement is not active.
+- document/chunk/vector/cache/rerank/context/prompt controls are not integrated into live flows.
+- production enforcement remains inactive.

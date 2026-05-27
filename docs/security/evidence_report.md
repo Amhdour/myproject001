@@ -227,3 +227,13 @@ Evidence bundle path: `docs/security/evidence/secure_ingestion_validation/`
 
 ## Step 16B Evidence Category (2026-05-27)
 - Added `docs/security/evidence/retrieval_acl_minimal/` evidence pack for isolated retrieval ACL controls.
+
+## Step 16C Evidence Category: Retrieval ACL Validation Cleanup
+Evidence bundle path: `docs/security/evidence/retrieval_acl_validation/`
+- prerequisite_check.txt
+- isolation_check.txt
+- retrieval_acl_coverage_summary.md
+- non_leakage_validation_summary.md
+- test_output.txt
+- test_exitcode.txt
+- remote_sync_limitation.txt (when remote verification remains unavailable)

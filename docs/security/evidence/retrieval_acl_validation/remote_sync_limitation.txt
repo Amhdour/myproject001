@@ -1,0 +1,4 @@
+Remote/main verification limitation (Step 16C)
+- git fetch origin main failed in this environment.
+- Continue from current local verified state.
+- Remote lineage/PR linkage should be verified later when origin access is restored.
