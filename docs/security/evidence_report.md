@@ -331,3 +331,6 @@ Added retrieval path patching design evidence category and bundle references.
   - `docs/security/evidence/vector_db_security_design/vector_traceability_summary.md`
   - `docs/security/evidence/vector_db_security_design/remote_sync_limitation.txt` (if remote verification remains unavailable)
 - Runtime claim: none. This category is design/planning evidence only.
+
+## Step 19B Evidence Category (2026-05-27)
+- Added `docs/security/evidence/vector_db_security_minimal/` for prerequisite verification, implementation summary, metadata/control coverage, and test execution evidence.
