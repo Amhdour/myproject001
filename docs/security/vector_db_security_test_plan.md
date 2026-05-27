@@ -34,3 +34,9 @@ Status: planned/design only.
 ## Step 19B Implementation Status (2026-05-27)
 - Implemented isolated tests in `backend/security_layer/tests/test_vector_*.py` covering context denials, namespace mismatch, metadata contract validation, forbidden content rejection, ACL/provenance checks, candidate filtering/flagging, and audit/finding/metric emissions.
 - Status updated: isolated helper tests implemented and executed.
+
+## Step 19C Coverage Status (2026-05-27)
+- Validation coverage executed for all isolated vector security stages (18/18).
+- Metadata contract validation coverage executed for all required fields (21/21).
+- Negative coverage includes forbidden metadata keys/content patterns, missing tenant/subject, namespace mismatch, missing/stale ACL snapshot, missing provenance, deleted/stale candidate filtering, and injection/poisoning markers.
+- No live integration behavior was introduced by this step.

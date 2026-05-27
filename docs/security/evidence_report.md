@@ -334,3 +334,6 @@ Added retrieval path patching design evidence category and bundle references.
 
 ## Step 19B Evidence Category (2026-05-27)
 - Added `docs/security/evidence/vector_db_security_minimal/` for prerequisite verification, implementation summary, metadata/control coverage, and test execution evidence.
+
+## Step 19C Evidence Category (2026-05-27)
+- Added `docs/security/evidence/vector_db_security_validation/` with prerequisite verification, model/metadata/validator/control validation notes, non-leakage validation notes, and captured test output/exit codes.

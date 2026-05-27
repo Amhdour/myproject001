@@ -29,3 +29,9 @@ Status: planned/design only.
 ## Step 19B Implementation Update (2026-05-27)
 - Implemented isolated metadata contract helpers in `backend/security_layer/vector/metadata_contract.py`.
 - Added required 21-field schema validation, schema version validation, forbidden key/value pattern checks, and metadata sanitization/build helper.
+
+## Step 19C Metadata Validation Status (2026-05-27)
+- Required metadata field coverage validated end-to-end in isolated tests.
+- Forbidden metadata keys and forbidden value content patterns validated as reject paths.
+- Schema version enforcement validated.
+- Sanitization behavior validated to keep metadata safe/non-raw.

@@ -221,3 +221,10 @@ This documentation set does not claim production readiness.
 - no live vector DB enforcement wired.
 - no real vector DB/search/index/cache calls.
 - production enforcement remains inactive.
+
+## Step 19C Additional Limitations (2026-05-27)
+- isolated vector DB security controls validated only.
+- no live vector DB enforcement wired.
+- no real vector DB/search/index/cache calls added.
+- live vector/retrieval blocking/filtering remains disabled.
+- production enforcement remains inactive.
