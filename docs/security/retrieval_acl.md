@@ -358,3 +358,4 @@ See `docs/security/retrieval_acl_test_plan.md` for stage-mapped planned coverage
 
 ## Step 17B Integration-Plan Reference (2026-05-27)
 See `docs/security/retrieval_path_integration_plan.md`, `docs/security/retrieval_path_integration_checklist.md`, and `docs/security/retrieval_path_integration_test_plan.md` for planned runtime integration sequencing while keeping production enforcement inactive in this step.
+\n## Step 17C Update\n- Isolated feature-flag helper implemented.\n- Isolated retrieval context builder implemented.\n- Isolated monitor/shadow/enforce hook helper implemented.\n- No live retrieval path patched; production enforcement remains inactive.

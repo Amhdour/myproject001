@@ -188,3 +188,4 @@ Phases are strictly ordered from configuration scaffolding to CI/security-gate c
 - **Rollback note:** disable gate additions if false positives block critical pipelines.
 - **Evidence required:** CI gate pass/fail reports.
 - **Implementation status:** planned.
+\n## Step 17C Update\n- Isolated feature-flag helper implemented.\n- Isolated retrieval context builder implemented.\n- Isolated monitor/shadow/enforce hook helper implemented.\n- No live retrieval path patched; production enforcement remains inactive.
