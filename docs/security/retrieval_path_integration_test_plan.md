@@ -38,3 +38,6 @@ Status: planned/test-plan
 - Mode is disabled by default (`default_retrieval_integration_config`), and monitor_only is the only live-enabled behavior for this step.
 - Enforce mode remains NO-GO and is not wired into live retrieval path.
 - Hook is non-blocking, non-filtering, fail-open for telemetry errors, and preserves retrieval response unchanged.
+
+## Step 18A Reference (2026-05-27)
+- Retrieval security test-suite design artifacts are now tracked as prerequisite planning inputs before any shadow-deny/enforce enablement.

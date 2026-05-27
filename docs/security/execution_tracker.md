@@ -191,3 +191,7 @@ Remote/main branch lineage and PR linkage may be incomplete from this environmen
 - Hook is non-blocking, non-filtering, fail-open for telemetry errors, and preserves retrieval response unchanged.
 
 - [x] Step 17F: Retrieval Monitor-Only Integration Validation (completed 2026-05-27).
+
+## Step 18A (2026-05-27)
+- Status: complete
+- Deliverable: Retrieval Security Tests Design documents, matrix, fixtures, and traceability evidence artifacts.

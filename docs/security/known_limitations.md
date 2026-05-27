@@ -176,3 +176,9 @@ This documentation set does not claim production readiness.
 - Monitor-only mode preserves retrieval behavior.
 - Enforce mode remains NO-GO/inactive.
 - Retrieval blocking/filtering/denial remains disabled in live path.
+
+## Step 18A Limitations (2026-05-27)
+- Retrieval security tests are designed only.
+- Broad retrieval security test suite is not implemented yet.
+- Shadow-deny/enforce remain blocked.
+- Production enforcement remains inactive.
