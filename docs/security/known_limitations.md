@@ -141,3 +141,10 @@ This documentation set does not claim production readiness.
 - Enforcement inactive
 - Feature flags not implemented
 - Rollback controls not implemented
+
+## Step 17B Additional Limitations
+- retrieval path integration is planned only.
+- no live retrieval path patched yet.
+- feature flags not implemented yet.
+- rollback not implemented yet.
+- production enforcement remains inactive.
