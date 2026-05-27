@@ -123,3 +123,8 @@ No production-readiness claim is made in this phase.
 - Added isolated feature-flag, context builder, and integration hook helpers under `backend/security_layer/retrieval/` with isolated tests.
 - Live retrieval/runtime enforcement remains inactive and not wired.
 - Next step: controlled live-path integration phases per Step 17B plan, still default-safe and non-enforcing until explicitly authorized.
+
+## Step 17D Status (2026-05-27)
+- ✅ Step 17D (Retrieval Path Integration Readiness Review) completed.
+- Go/no-go result: enforce mode = no-go; future monitor-only integration = go.
+- Next step: scoped monitor-only live retrieval patching with evidence-gated validation.

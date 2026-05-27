@@ -29,3 +29,9 @@ RPC-001, RPC-002, RPC-003, RPC-004, RPC-005, RPC-006, RPC-007, RPC-008, RPC-009,
 ## Step 17C Note (2026-05-27)
 - Added isolated retrieval integration helpers (feature flags, context builder, and hook helpers).
 - No live retrieval path patching or production/runtime wiring was performed.
+
+## Step 17D Readiness Review Reference (2026-05-27)
+- Readiness review: `docs/security/retrieval_path_readiness_review.md`.
+- Go/no-go decision: `docs/security/retrieval_path_live_patch_go_no_go.md`.
+- Live patch target inventory: `docs/security/retrieval_path_live_patch_file_targets.md`.
+- Enforce mode remains no-go; next live patch scope is monitor-only only.

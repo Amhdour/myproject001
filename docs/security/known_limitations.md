@@ -155,3 +155,9 @@ This documentation set does not claim production readiness.
 - feature flags are isolated/test-only.
 - live retrieval path is not patched.
 - production enforcement remains inactive.
+
+## Step 17D Additions (2026-05-27)
+- Live retrieval patching has not started.
+- Enforce mode is explicitly no-go.
+- Next implementation may only be monitor-only.
+- Production enforcement remains inactive.
