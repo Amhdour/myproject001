@@ -81,3 +81,8 @@ No production-readiness claim is made in this phase.
 - ✅ Step 14C (Safe Denial Behavior Validation Cleanup) completed in isolated scope.
 - Runtime enforcement remains inactive and not wired to backend request paths.
 - Next step: Step 15 secure ingestion planning/implementation sequencing (still non-production until explicitly authorized).
+
+## Step 15A Status (2026-05-27)
+- ✅ Step 15A (Secure Ingestion Design) completed as documentation/design/test-planning only.
+- Runtime enforcement remains inactive and not wired into ingestion/runtime request paths.
+- Next step: Step 15B isolated minimal implementation planning/execution (still non-live until explicitly approved).

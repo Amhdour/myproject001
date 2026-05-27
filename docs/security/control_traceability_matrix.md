@@ -93,3 +93,11 @@ Reference artifact: `docs/security/test_data_factories.md`.
 | Control / Requirement | Risks | Patch Points | Planned Tests | Evidence Artifacts | Status |
 |---|---|---|---|---|---|
 | SR-DENY-001 Safe denial response standardization | R-DENY-001, R-DENY-002, R-DENY-003, R-DENY-004, R-DENY-005 | PP-DENY-01, PP-DENY-02, PP-DENY-03 | T-DENY-001..T-DENY-024 | docs/security/evidence/safe_denial_behavior_design/denial_category_inventory.md; docs/security/evidence/safe_denial_behavior_design/safe_denial_traceability_summary.md | planned |
+
+## Step 15A Secure Ingestion Traceability Additions
+
+| Control/Stage | Requirement(s) | Risk(s) | Patch Point(s) | Planned Test(s) | Evidence |
+|---|---|---|---|---|---|
+| Secure ingestion staged controls (SI-01..SI-17) | SR-ING-001, SR-AUDIT-001, SR-DLP-001 | R-ING-001..R-ING-010 | PP-ING-01, PP-ING-02, PP-AUDIT-01, PP-AUDIT-02, PP-DLP-01 | SITP-001..SITP-026 | docs/security/evidence/secure_ingestion_design/ |
+| Tenant boundary + ownership + ACL staging | SR-ING-001 | R-ING-001, R-ING-004, R-ING-008 | PP-ING-02 | SITP-003, SITP-004, SITP-008, SITP-009, SITP-015 | secure_ingestion_traceability_summary.md |
+| Content/size/provenance admission staging | SR-ING-001 | R-ING-005, R-ING-006, R-ING-007 | PP-ING-01 | SITP-005, SITP-006, SITP-007, SITP-018, SITP-019 | ingestion_stage_inventory.md |

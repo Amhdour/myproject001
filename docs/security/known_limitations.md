@@ -89,3 +89,10 @@ This documentation set does not claim production readiness.
 - Denial behavior is not globally wired into backend/runtime application paths.
 - Live streaming/tool/MCP/artifact/sandbox denial integrations are not implemented.
 - Production enforcement remains inactive.
+
+## Step 15A Additional Limitations
+- secure ingestion is design-only.
+- no live ingestion enforcement wired.
+- connector/file-upload/parser/chunking/vector-write controls are not integrated.
+- malware/DLP checks are placeholders unless later implemented.
+- production enforcement remains inactive.
