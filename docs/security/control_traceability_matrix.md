@@ -142,3 +142,18 @@ Mapped controls for R-RPATCH-001 through R-RPATCH-008.
 | Tenant/ACL isolation | RST-G01/G04/G05 | `retrieval_security_test_matrix.md` | planned |
 | Leakage prevention | RST-G13/G14/G15/G17 | `retrieval_security_test_matrix.md` | planned |
 | Mode safety and observability | RST-G16/G18/G19/G20 | `retrieval_security_test_matrix.md` | planned |
+
+## Step 19A Vector DB Security Traceability Rows
+
+| Requirement ID | Risk ID | Control/Design Artifact | Patch Point(s) | Planned Tests | Evidence Artifact |
+|---|---|---|---|---|---|
+| SR-VEC-001 | R-VEC-001 | vector namespace model + vector_namespace_authorized stage | PP-VEC-01, PP-VEC-02 | VEC-TST-003, VEC-TST-012, VEC-TST-014 | docs/security/evidence/vector_db_security_design/vector_traceability_summary.md |
+| SR-VEC-001 | R-VEC-002 | vector metadata validation model + metadata contract | PP-VEC-01, PP-VEC-02 | VEC-TST-007, VEC-TST-013 | docs/security/evidence/vector_db_security_design/vector_metadata_contract_summary.md |
+| SR-VEC-001 | R-VEC-003 | ACL snapshot propagation controls | PP-VEC-01, PP-RET-02 | VEC-TST-004, VEC-TST-005 | docs/security/evidence/vector_db_security_design/vector_test_plan_summary.md |
+| SR-VEC-001 | R-VEC-004 | stale/deleted candidate handling model | PP-VEC-02, PP-RET-02 | VEC-TST-015, VEC-TST-016 | docs/security/evidence/vector_db_security_design/vector_stage_inventory.md |
+| SR-VEC-001 | R-VEC-005 | provenance propagation model | PP-VEC-01, PP-ING-02 | VEC-TST-006, VEC-TST-019 | docs/security/evidence/vector_db_security_design/vector_metadata_contract_summary.md |
+| SR-VEC-001 | R-VEC-006 | poisoning marker propagation model | PP-VEC-01, PP-ING-02 | VEC-TST-008, VEC-TST-024 | docs/security/evidence/vector_db_security_design/vector_test_plan_summary.md |
+| SR-VEC-001 | R-VEC-007 | prompt-injection marker propagation model | PP-VEC-01, PP-PROMPT-01 | VEC-TST-009 | docs/security/evidence/vector_db_security_design/vector_test_plan_summary.md |
+| SR-VEC-001, SR-CACHE-001 | R-VEC-008 | vector cache interaction model | PP-CACHE-01, PP-VEC-02 | VEC-TST-017, VEC-TST-025 | docs/security/evidence/vector_db_security_design/vector_traceability_summary.md |
+| SR-VEC-001 | R-VEC-009 | re-embedding authorization continuity model | PP-VEC-01 | VEC-TST-019 | docs/security/evidence/vector_db_security_design/vector_stage_inventory.md |
+| SR-VEC-001, SR-AUDIT-001 | R-VEC-010 | safe metadata + safe denial + audit/finding model | PP-VEC-02, PP-AUDIT-01, PP-AUDIT-02 | VEC-TST-023, VEC-TST-026 | docs/security/evidence/vector_db_security_design/vector_traceability_summary.md |

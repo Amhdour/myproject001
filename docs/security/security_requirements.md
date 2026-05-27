@@ -283,3 +283,10 @@ Added retrieval-path patching references for design, tests, and evidence linkage
 - `docs/security/retrieval_security_tests.md`
 - `docs/security/retrieval_security_test_matrix.md`
 - `docs/security/retrieval_security_test_fixtures.md`
+
+## Step 19A Vector DB Security Design References
+- Primary design: `docs/security/vector_db_security.md`
+- Planned test strategy: `docs/security/vector_db_security_test_plan.md`
+- Planned metadata contract: `docs/security/vector_db_metadata_contract.md`
+- Evidence bundle: `docs/security/evidence/vector_db_security_design/`
+- Requirement linkage: SR-VEC-001 remains draft/planned; Step 19A adds design depth only and does not activate runtime enforcement.

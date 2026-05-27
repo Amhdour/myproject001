@@ -208,3 +208,10 @@ This documentation set does not claim production readiness.
 - Shadow-deny/enforce remain blocked.
 - Production enforcement remains inactive.
 - Live retrieval blocking/filtering remains disabled.
+
+## Step 19A Additional Limitations (2026-05-27)
+- vector DB security is design-only.
+- no live vector DB enforcement wired.
+- no vector write/read/delete controls integrated.
+- no namespace/metadata filters integrated into live vector queries.
+- production enforcement remains inactive.
