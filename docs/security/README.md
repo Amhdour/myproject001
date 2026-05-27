@@ -109,3 +109,5 @@ No production-readiness claim is made in this phase.
 - ✅ Step 16C (Retrieval ACL Validation Cleanup) completed in isolated scope.
 - Live retrieval enforcement remains inactive and not wired into production paths.
 - Step 17A retrieval path patching design completed (documentation-only). Next step: Step 17B implementation planning under explicit authorization with runtime hooks still disabled.
+
+- Step 17A status: complete (design-only). Next: implementation/integration step.

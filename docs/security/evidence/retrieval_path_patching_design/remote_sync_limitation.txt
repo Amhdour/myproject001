@@ -1,3 +1,1 @@
-Remote/main verification limitation (2026-05-27 UTC):
-- `git fetch origin main` failed in this environment (exit code 128).
-- Continued from current local verified state per task instructions.
+Remote/main verification limitation persists: git fetch origin main failed with exit code 128 in this environment.

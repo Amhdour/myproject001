@@ -111,3 +111,13 @@ Status: Initial risk catalog. No mitigation controls implemented in this step.
 | R-RPATCH-006 | feature flag misconfiguration enables unsafe access | Mode/config mismatch causes unintended allow/deny behavior. | Access control correctness | medium | high | high | SR-CI-001, SR-RET-001 | PP-CI-01, PP-RET-01 | Validate config at startup and in CI; safe defaults. | Config validation tests | AI Trust & Security Readiness Engineer | Open |
 | R-RPATCH-007 | context extraction incomplete | Missing subject/tenant/scope fields yields ambiguous decisions. | Authorization determinism | medium | high | high | SR-RET-001 | PP-RET-01 | Enforce required context fields with fail-closed in enforce mode. | Context completeness test evidence | AI Trust & Security Readiness Engineer | Open |
 | R-RPATCH-008 | cache path bypasses patched retrieval controls | Cached responses returned without ACL revalidation. | Stale/unauthorized data exposure | medium | high | high | SR-CACHE-001, SR-RET-001 | PP-CACHE-01, PP-RET-02 | ACL-aware cache read checks and eviction on mismatch. | Cache authorization test evidence | AI Trust & Security Readiness Engineer | Open |
+
+## Retrieval Path Patching Risks (Step 17A)
+- R-RPATCH-001
+- R-RPATCH-002
+- R-RPATCH-003
+- R-RPATCH-004
+- R-RPATCH-005
+- R-RPATCH-006
+- R-RPATCH-007
+- R-RPATCH-008

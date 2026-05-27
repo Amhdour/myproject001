@@ -270,3 +270,6 @@ No backend runtime enforcement is active from these additions.
 - Design spec: `docs/security/retrieval_path_patching.md`
 - Test plan: `docs/security/retrieval_path_patching_test_plan.md`
 - Evidence bundle: `docs/security/evidence/retrieval_path_patching_design/`
+
+## Step 17A Design/Test Linkage
+Added retrieval-path patching references for design, tests, and evidence linkage.

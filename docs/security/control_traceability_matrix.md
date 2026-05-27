@@ -121,3 +121,6 @@ Reference artifact: `docs/security/test_data_factories.md`.
 | R-RPATCH-006 | SR-CI-001, SR-RET-001 | PP-CI-01, PP-RET-01 | Feature flag/mode safety planning | RPT-020 | Misconfiguration simulation | docs/security/evidence/retrieval_path_patching_design/retrieval_path_traceability_summary.md | Planned |
 | R-RPATCH-007 | SR-RET-001 | PP-RET-01 | Context completeness enforcement planning | RPT-002, RPT-003 | Missing-context simulation | docs/security/evidence/retrieval_path_patching_design/retrieval_path_traceability_summary.md | Planned |
 | R-RPATCH-008 | SR-CACHE-001, SR-RET-001 | PP-CACHE-01, PP-RET-02 | Cache ACL revalidation planning | RPT-015 | Cache bypass simulation | docs/security/evidence/retrieval_path_patching_design/retrieval_path_traceability_summary.md | Planned |
+
+## Step 17A Traceability Additions
+Mapped controls for R-RPATCH-001 through R-RPATCH-008.
