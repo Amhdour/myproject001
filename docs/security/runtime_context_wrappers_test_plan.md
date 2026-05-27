@@ -28,3 +28,10 @@ Status: planned (design only, no runtime integration).
 | TC-RW-022 | monitor-only mode behavior | SR-AUDIT-001 | R-WRAP-004 | PP-AUDIT-01 | deny decision logged while action allowed | mode behavior test output |
 | TC-RW-023 | shadow-deny mode behavior | SR-AUDIT-001 | R-WRAP-004 | PP-AUDIT-01 | shadow deny recorded without blocking action | shadow decision output |
 | TC-RW-024 | no runtime integration yet | SR-EVIDENCE-001 | R-WRAP-005 | PP-EVIDENCE-01 | confirms wrappers remain unbound from request paths | integration-absence checklist |
+
+## Step 13B Status
+- [x] request context creation
+- [x] subject context creation
+- [x] tenant context creation
+- [x] wrapper allow/deny/approval paths and mode handling
+- [x] audit/finding/metric emission assertions

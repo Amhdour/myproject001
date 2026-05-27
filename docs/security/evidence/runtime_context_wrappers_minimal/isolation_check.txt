@@ -1,0 +1,4 @@
+Confirmed implementation is isolated under backend/security_layer/runtime/.
+No wiring added to existing request handlers, routers, middleware, retrieval/tool/MCP/artifact/sandbox/model paths.
+No web/ files modified.
+No deployment runtime files modified.

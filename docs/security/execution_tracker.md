@@ -115,3 +115,5 @@ Remote/main branch lineage and PR linkage may be incomplete from this environmen
 - Step 13A (Runtime Context and Enforcement Wrappers Design): complete on branch `runtime-context-wrappers-design`.
 - Scope: documentation/design/test-planning/evidence only.
 - Runtime enforcement remains intentionally inactive and not wired into backend request paths.
+
+- [x] Step 13B complete: Minimal isolated runtime context + wrapper skeletons (not runtime wired).

@@ -137,3 +137,7 @@ Planned evidence set for runtime context and enforcement wrapper design is track
 - `docs/security/evidence/runtime_context_wrappers_design/`
 
 This category is documentation-only evidence and does not indicate active runtime enforcement.
+
+## Runtime Context/Wrapper Minimal Evidence
+- Added isolated runtime contexts, wrappers, denials, and in-memory test helpers.
+- Added isolated test coverage for allow/deny/approval and mode handling.

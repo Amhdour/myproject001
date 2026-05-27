@@ -62,3 +62,8 @@ This documentation set does not claim production readiness.
 - wrapper implementation is not active.
 - wrappers are not wired into application paths.
 - enforcement remains inactive.
+
+- Runtime wrappers are isolated-only.
+- Runtime wrappers are not wired into application paths.
+- Audit/finding/metric helpers are in-memory test-only.
+- Enforcement remains inactive.
