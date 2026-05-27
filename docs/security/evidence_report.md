@@ -182,3 +182,14 @@ References Step 14C validation artifacts:
 - `docs/security/evidence/safe_denial_validation/test_output.txt`
 - `docs/security/evidence/safe_denial_validation/test_exitcode.txt`
 - `docs/security/evidence/safe_denial_validation/remote_sync_limitation.txt` (when remote remains inaccessible)
+
+## Step 15A Evidence Category: Secure Ingestion Design
+- Category: `secure_ingestion_design`
+- Scope: design-only secure ingestion stages, test planning, and traceability mapping.
+- Required artifacts:
+  - `docs/security/evidence/secure_ingestion_design/prerequisite_check.txt`
+  - `docs/security/evidence/secure_ingestion_design/ingestion_stage_inventory.md`
+  - `docs/security/evidence/secure_ingestion_design/secure_ingestion_test_plan_summary.md`
+  - `docs/security/evidence/secure_ingestion_design/secure_ingestion_traceability_summary.md`
+  - `docs/security/evidence/secure_ingestion_design/remote_sync_limitation.txt` (if applicable)
+- Non-claim: no runtime enforcement activation is represented by this category.

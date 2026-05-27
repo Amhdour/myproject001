@@ -137,3 +137,8 @@ Remote/main branch lineage and PR linkage may be incomplete from this environmen
 - Step 14C (Safe Denial Behavior Validation Cleanup): complete on branch `safe-denial-validation-cleanup`.
 - Scope: isolated security_layer runtime/tests/docs/evidence only.
 - Runtime enforcement remains intentionally inactive and not wired into backend request paths.
+
+## Step 15A Progress Update
+- Step 15A (Secure Ingestion Design): complete on branch `secure-ingestion-design` after commit.
+- Scope: documentation/design/test-planning/evidence only.
+- Runtime enforcement remains intentionally inactive and not wired into live ingestion paths.

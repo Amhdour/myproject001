@@ -1,0 +1,12 @@
+Step 15A prerequisite check
+- docs/security/secure_ingestion.md: present
+- docs/security/policy_engine.md: present
+- docs/security/runtime_context_wrappers.md: present
+- docs/security/safe_denial_behavior.md: present
+- docs/security/security_requirements.md: present
+- docs/security/risk_register.md: present
+- docs/security/control_traceability_matrix.md: present
+- docs/security/patch_points.md: present
+- docs/security/evidence_report.md: present
+- docs/security/execution_tracker.md: present
+- docs/security/known_limitations.md: present

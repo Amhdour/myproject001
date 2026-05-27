@@ -253,3 +253,9 @@ No backend runtime enforcement is active from these additions.
 - **Required tests:** See `docs/security/safe_denial_behavior_test_plan.md` (T-DENY-001 through T-DENY-024).
 - **Required evidence:** Denial category inventory, traceability summary, and denial test-plan evidence bundle.
 - **Blocker status:** Open (design-only; no runtime enforcement wiring).
+
+## Step 15A Secure Ingestion Design References
+- Secure ingestion design baseline: `docs/security/secure_ingestion.md`.
+- Secure ingestion test planning: `docs/security/secure_ingestion_test_plan.md`.
+- Ingestion stage/traceability evidence: `docs/security/evidence/secure_ingestion_design/`.
+- This step is design-only; runtime enforcement integration is intentionally not wired.
