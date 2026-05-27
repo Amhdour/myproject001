@@ -1,0 +1,7 @@
+Focused retrieval security tests:
+PYTHONPATH=. python -m pytest backend/security_layer/tests/test_retrieval_security_fixtures.py backend/security_layer/tests/test_retrieval_security_monitor_only.py backend/security_layer/tests/test_retrieval_security_future_modes.py backend/security_layer/tests/test_retrieval_security_negative_cases.py -q
+Result: 20 passed, 8 skipped in 0.52s
+
+Full security_layer tests:
+PYTHONPATH=. python -m pytest backend/security_layer/tests -q
+Result: 87 passed, 8 skipped in 1.12s

@@ -201,3 +201,6 @@ Remote/main branch lineage and PR linkage may be incomplete from this environmen
 ## Step 18B-A Validation Cleanup Update (2026-05-27)
 - Step 18B rerun completed with passing evidence (`73 passed, 8 skipped` full security_layer suite; `6 passed, 8 skipped` direct skeleton suite).
 - Step 18B remains complete; blocker for missing pytest is resolved in current environment.
+
+
+- 2026-05-27: Step 18D-A cleanup completed with expanded negative tests (12 total) and passing focused/full security-layer runs; Step 18D remains complete at this commit and beyond.

@@ -198,3 +198,6 @@ This documentation set does not claim production readiness.
 - Shadow-deny/enforce remain blocked and inactive.
 - Production retrieval enforcement remains inactive.
 - Retrieval security tests are still skeleton/partial and are not full live-enforcement tests.
+
+
+- Step 18D-A note: monitor-only negative coverage expanded; no new runtime limitations introduced.
