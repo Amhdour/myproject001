@@ -22,6 +22,11 @@ from onyx.natural_language_processing.search_nlp_models import EmbeddingModel
 from onyx.security_layer.retrieval_guard.guard import apply_retrieval_acl_guard
 from onyx.utils.logger import setup_logger
 from onyx.utils.threadpool_concurrency import run_functions_tuples_in_parallel
+from backend.security_layer.retrieval.integration_flags import default_retrieval_integration_config
+from backend.security_layer.retrieval.integration_flags import is_monitor_only
+from backend.security_layer.retrieval.live_monitor_adapter import (
+    monitor_only_live_retrieval_check,
+)
 
 logger = setup_logger()
 
@@ -172,7 +177,49 @@ def search_chunks(
         session_id=session_id,
     )
 
-    return guard_result.allowed_chunks
+    return _apply_monitor_only_live_acl_hook(
+        query_request=query_request,
+        user_id=user_id,
+        session_id=session_id,
+        chunks=guard_result.allowed_chunks,
+    )
+
+
+def _apply_monitor_only_live_acl_hook(
+    query_request: ChunkIndexRequest,
+    user_id: UUID | None,
+    session_id: str | None,
+    chunks: list[InferenceChunk],
+) -> list[InferenceChunk]:
+    config = default_retrieval_integration_config()
+    if not is_monitor_only(config):
+        return chunks
+    try:
+        monitor_only_live_retrieval_check(
+            config,
+            request_id=session_id or "retrieval-monitor-only-live",
+            subject_id=str(user_id) if user_id is not None else None,
+            tenant_id=query_request.filters.tenant_id,
+            retrieval_scope=tuple(query_request.filters.document_set or ()),
+            candidate_metadata=[
+                {
+                    "candidate_id": chunk.unique_id,
+                    "document_id": chunk.document_id,
+                    "chunk_id": str(chunk.chunk_id),
+                    "tenant_id": query_request.filters.tenant_id or "",
+                    "vector_namespace": "",
+                    "source_type": "hybrid",
+                    "provenance_id": chunk.unique_id,
+                }
+                for chunk in chunks
+            ],
+        )
+    except Exception:
+        logger.warning(
+            "retrieval monitor-only hook failed open; preserving retrieval response",
+            exc_info=True,
+        )
+    return chunks
 
 
 # TODO: This is unused code.

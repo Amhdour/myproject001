@@ -19,3 +19,10 @@ Candidate inventory for future monitor-only integration patches. No files listed
 | LPT-013 | prompt context filtering | `backend/onyx/chat/` | prompt construction helpers | low | monitor-only prompt context audit | monitor-only only | disable prompt audit | prompt redaction comparison | prompt templates vary by flow |
 | LPT-014 | cache read path | `backend/onyx/` | retrieval/cache read helpers | low | monitor-only cache observation | monitor-only only | remove observation hook | cache-hit behavior comparison | cache layer topology uncertain |
 | LPT-015 | audit/finding/metric path | `backend/onyx/` | telemetry emitters / metric counters | medium | monitor-only telemetry emission wiring | monitor-only only | disable emission path | structured event samples | sink ownership and schemas vary |
+\n\n## Step 17E Update (2026-05-27)\n- Added first live retrieval monitor-only hook at  after existing retrieval guard result handling.\n- Mode is disabled by default (), and monitor_only is the only live-enabled behavior for this step.\n- Enforce mode remains NO-GO and is not wired into live retrieval path.\n- Hook is non-blocking, non-filtering, fail-open for telemetry errors, and preserves retrieval response unchanged.\n
+
+## Step 17E Update (2026-05-27)
+- Added first live retrieval monitor-only hook at `backend/onyx/context/search/retrieval/search_runner.py` after existing retrieval guard result handling.
+- Mode is disabled by default (`default_retrieval_integration_config`), and monitor_only is the only live-enabled behavior for this step.
+- Enforce mode remains NO-GO and is not wired into live retrieval path.
+- Hook is non-blocking, non-filtering, fail-open for telemetry errors, and preserves retrieval response unchanged.
