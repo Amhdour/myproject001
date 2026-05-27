@@ -115,3 +115,31 @@ def test_negative_decisions_do_not_include_raw_text_or_secrets() -> None:
     forbidden = {"document_text", "chunk_text", "source_secret", "api_key", "token", "password"}
     assert all(not forbidden.intersection(set(item.keys())) for item in after)
     assert all(not any(str(value).lower().startswith("sk-") for value in item.values()) for item in after)
+
+
+def test_monitor_only_preserves_candidate_count_identity_and_order_for_mixed_negative_cases() -> None:
+    f = build_retrieval_security_fixtures()
+    candidate_metadata = [
+        {
+            "candidate_id": "fake_order_first_cross_tenant_doc",
+            "document_id": f["document_cross_tenant"]["id"],
+            "chunk_id": f["chunk_allowed"]["id"],
+            "tenant_id": f["tenant_b"]["id"],
+        },
+        {
+            "candidate_id": "fake_order_second_unauthorized_group",
+            "document_id": f["document_allowed"]["id"],
+            "chunk_id": f["chunk_denied_group"]["id"],
+            "tenant_id": f["tenant_a"]["id"],
+            "group_id": f["group_denied"]["id"],
+        },
+        {
+            "candidate_id": "fake_order_third_vector_metadata_mismatch",
+            "document_id": f["document_allowed"]["id"],
+            "chunk_id": f["chunk_allowed"]["id"],
+            "tenant_id": f["vector_metadata_denied"]["tenant_id"],
+            "security_scope": f["vector_metadata_denied"]["security_scope"],
+        },
+    ]
+    before = [m.copy() for m in candidate_metadata]
+    _assert_monitor_only_non_blocking(before, _run_monitor_only(candidate_metadata))

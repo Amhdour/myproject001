@@ -67,3 +67,8 @@ Status: planned/design-only
 ## Step 18D-A Update (2026-05-27)
 - Negative cases implemented: 12 (required >= 10).
 - Status: Pass.
+
+## Step 18E Validation Status (2026-05-27)
+- Step 18E validation completed with passing focused and full security-layer suites.
+- Negative retrieval-security tests are implemented and passing (monitor-only / isolated scope).
+- Future enforce/shadow-deny coverage remains planned/skipped pending separate approval and evidence.

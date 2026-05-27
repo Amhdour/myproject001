@@ -201,3 +201,10 @@ This documentation set does not claim production readiness.
 
 
 - Step 18D-A note: monitor-only negative coverage expanded; no new runtime limitations introduced.
+
+## Step 18E Additional Limitations (2026-05-27)
+- Retrieval negative tests are validated for monitor-only and isolated behavior only.
+- Future shadow-deny/enforce tests remain skipped/xfail.
+- Shadow-deny/enforce remain blocked.
+- Production enforcement remains inactive.
+- Live retrieval blocking/filtering remains disabled.

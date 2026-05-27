@@ -204,3 +204,8 @@ Remote/main branch lineage and PR linkage may be incomplete from this environmen
 
 
 - 2026-05-27: Step 18D-A cleanup completed with expanded negative tests (12 total) and passing focused/full security-layer runs; Step 18D remains complete at this commit and beyond.
+
+## Step 18E Status (2026-05-27)
+- ✅ Step 18E (Retrieval Security Negative Tests Validation Cleanup) completed.
+- Negative tests validated in monitor-only/isolated scope; no enforce/shadow-deny activation.
+- Evidence: `docs/security/evidence/retrieval_security_negative_validation/`.

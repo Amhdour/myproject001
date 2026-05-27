@@ -80,3 +80,8 @@ No production enforcement may be enabled until a **separate, evidence-backed app
 - Shadow-deny remains blocked (not enabled).
 - Enforce mode remains blocked (not enabled).
 - Future modes still require implementation plus passing evidence before any activation decision.
+
+## Step 18E Validation Addendum (2026-05-27)
+- Shadow-deny and enforce modes remain blocked.
+- Passing Step 18E negative tests do not authorize enforce mode activation.
+- Any future shadow-deny/enforce activation requires separate approval and fresh evidence.

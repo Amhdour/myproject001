@@ -46,3 +46,7 @@ Status: planned/design-only.
 - `.invalid` email-domain constraints validated by tests.
 - No raw document/chunk/source-secret content validated by tests.
 - Fixture IDs validated as synthetic and deterministic.
+
+## Step 18E Fixture Validation Note (2026-05-27)
+- Synthetic-only fixture rule reaffirmed for negative tests.
+- No real tenant/user/customer/document data is used by retrieval security negative tests.
