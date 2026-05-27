@@ -265,3 +265,8 @@ No backend runtime enforcement is active from these additions.
 - Retrieval ACL planned tests: `docs/security/retrieval_acl_test_plan.md`
 - Retrieval ACL evidence scaffold: `docs/security/evidence/retrieval_acl_design/`
 - SR-RET-001, SR-VEC-001, SR-CACHE-001, SR-PROMPT-001, SR-AUDIT-001, SR-EVIDENCE-001 are further decomposed by Retrieval ACL stages (RACL-01..RACL-17).
+
+## retrieval path patching design references (step 17A)
+- Design spec: `docs/security/retrieval_path_patching.md`
+- Test plan: `docs/security/retrieval_path_patching_test_plan.md`
+- Evidence bundle: `docs/security/evidence/retrieval_path_patching_design/`

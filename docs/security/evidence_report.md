@@ -237,3 +237,14 @@ Evidence bundle path: `docs/security/evidence/retrieval_acl_validation/`
 - test_output.txt
 - test_exitcode.txt
 - remote_sync_limitation.txt (when remote verification remains unavailable)
+
+## Step 17A - retrieval path patching design evidence
+- Scope: retrieval-path patching design, patch-candidate inventory, rollout/test planning, and traceability.
+- Evidence directory: `docs/security/evidence/retrieval_path_patching_design/`
+- Core artifacts:
+  - `prerequisite_check.txt`
+  - `retrieval_path_inventory.md`
+  - `patch_candidate_inventory.md`
+  - `retrieval_path_test_plan_summary.md`
+  - `retrieval_path_traceability_summary.md`
+  - `remote_sync_limitation.txt` (when remote verification is blocked)
