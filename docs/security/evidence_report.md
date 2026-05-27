@@ -115,3 +115,8 @@ Evidence bundle path: `docs/security/evidence/policy_engine_design/`
 - policy_engine_test_plan_summary.md
 - policy_engine_traceability_summary.md
 - remote_sync_limitation.txt (if remote verification remains unavailable)
+
+## Policy Engine Minimal Implementation Evidence (Step 12B)
+
+Evidence artifacts for Step 12B are stored in:
+`docs/security/evidence/policy_engine_minimal/`

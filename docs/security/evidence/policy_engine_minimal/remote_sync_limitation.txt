@@ -1,0 +1,4 @@
+Remote/main verification limitation (2026-05-27 UTC):
+- `git fetch origin main` failed.
+- Error: fatal: 'origin' does not appear to be a git repository
+- Continued from current local verified state per instructions.

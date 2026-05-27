@@ -1,0 +1,8 @@
+{
+  "policy_id": "",
+  "version": "1.0.0",
+  "scope": "retrieval",
+  "default_effect": "deny",
+  "enforcement_mode": "disabled",
+  "rules": []
+}
