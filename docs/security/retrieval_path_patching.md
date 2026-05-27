@@ -24,3 +24,4 @@ RPC-001, RPC-002, RPC-003, RPC-004, RPC-005, RPC-006, RPC-007, RPC-008, RPC-009,
 - Integration plan created: `docs/security/retrieval_path_integration_plan.md`.
 - No live retrieval path patching performed in Step 17B.
 - Feature-flag, rollback, and test sequencing are documented for future implementation.
+\n## Step 17C Update\n- Isolated feature-flag helper implemented.\n- Isolated retrieval context builder implemented.\n- Isolated monitor/shadow/enforce hook helper implemented.\n- No live retrieval path patched; production enforcement remains inactive.

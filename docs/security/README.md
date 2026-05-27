@@ -116,3 +116,4 @@ No production-readiness claim is made in this phase.
 - ✅ Step 17B (Retrieval Path Integration Plan) completed as documentation/design/test-planning only.
 - Live retrieval/runtime enforcement remains inactive and not wired in this step.
 - Next step: controlled implementation of Step 17B phases with feature flags default-safe.
+\n## Step 17C Update\n- Isolated feature-flag helper implemented.\n- Isolated retrieval context builder implemented.\n- Isolated monitor/shadow/enforce hook helper implemented.\n- No live retrieval path patched; production enforcement remains inactive.

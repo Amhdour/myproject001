@@ -262,3 +262,4 @@ Added retrieval path patching design evidence category and bundle references.
   - `docs/security/evidence/retrieval_path_integration_plan/integration_test_plan_summary.md`
   - `docs/security/evidence/retrieval_path_integration_plan/integration_traceability_summary.md`
 - Status: planned/collected-for-step-17b-docs
+\n## Step 17C Update\n- Isolated feature-flag helper implemented.\n- Isolated retrieval context builder implemented.\n- Isolated monitor/shadow/enforce hook helper implemented.\n- No live retrieval path patched; production enforcement remains inactive.

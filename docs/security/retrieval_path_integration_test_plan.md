@@ -25,3 +25,4 @@ Status: planned/test-plan
 | RPIT-017 | Validate no unauthorized source appears in citation in enforce mode. | SR-RET-001 | R-RINT-001 | RPC-014 | Unauthorized source references suppressed. | Citation output evidence. |
 | RPIT-018 | Validate cache read cannot bypass retrieval ACL in enforce mode. | SR-CACHE-001, SR-RET-001 | R-RINT-001 | RPC-014 | Cached candidate still ACL-checked and denied if unauthorized. | Cache + ACL decision logs. |
 | RPIT-019 | Validate no unrelated retrieval behavior changes in disabled mode. | SR-CI-001 | R-RINT-001 | RPC-016, RPC-017 | Baseline retrieval parity maintained when disabled. | Regression diff report. |
+\n## Step 17C Update\n- Isolated feature-flag helper implemented.\n- Isolated retrieval context builder implemented.\n- Isolated monitor/shadow/enforce hook helper implemented.\n- No live retrieval path patched; production enforcement remains inactive.
