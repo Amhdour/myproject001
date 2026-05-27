@@ -103,3 +103,9 @@ This documentation set does not claim production readiness.
 - no real malware scanner.
 - no real DLP scanner.
 - no production parser/chunker/embedder/vector-write enforcement.
+
+## Step 15C Additional Limitations
+- secure ingestion remains isolated.
+- live ingestion enforcement is not active.
+- connector/file-upload/parser/chunking/embedding/vector-write controls are not integrated into live flows.
+- production enforcement remains inactive.

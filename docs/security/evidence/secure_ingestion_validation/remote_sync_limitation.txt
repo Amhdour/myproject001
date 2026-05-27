@@ -1,0 +1,3 @@
+Remote/main verification limitation (Step 15C):
+`origin` remote is unavailable in this environment, so remote parity verification could not be completed.
+Continued from local verified state per task instruction.

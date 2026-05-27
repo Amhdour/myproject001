@@ -390,3 +390,9 @@ Design-only artifact; no runtime enforcement or path integration is active.
 - No live ingestion integration.
 - No parser/chunker/embedder/vector DB integration.
 - No production enforcement active.
+
+## Step 15C Validation Note (2026-05-27)
+- Completed isolated validation cleanup for secure ingestion controls under `backend/security_layer/ingestion`.
+- Verified controls remain isolated and are not wired into live ingestion, connector, parser, chunking, embedding, indexing, worker, web, or deployment runtime paths.
+- Added/strengthened isolated tests for 17 ingestion stages, denial categories, findings/audit/metrics emission, and non-leakage expectations.
+- No production-path enforcement activation was introduced in this step.

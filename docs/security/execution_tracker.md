@@ -147,3 +147,8 @@ Remote/main branch lineage and PR linkage may be incomplete from this environmen
 - Step 15B (Secure Ingestion Minimal Isolated Controls): complete on branch `secure-ingestion-minimal` after commit.
 - Scope: isolated `backend/security_layer/ingestion` helpers/tests/docs/evidence only.
 - Live ingestion/runtime enforcement remains intentionally inactive and not wired.
+
+## Step 15C Progress Update
+- Step 15C (Secure Ingestion Validation Cleanup): complete on branch `secure-ingestion-validation-cleanup`.
+- Scope: isolated `backend/security_layer/ingestion` tests/docs/evidence only.
+- Live ingestion/runtime enforcement remains intentionally inactive and not wired.

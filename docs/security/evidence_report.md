@@ -202,3 +202,13 @@ Evidence bundle path: `docs/security/evidence/secure_ingestion_minimal/`
 - test_output.txt
 - test_exitcode.txt
 - remote_sync_limitation.txt (when remote verification remains unavailable)
+
+## Step 15C Evidence Category: Secure Ingestion Validation Cleanup
+Evidence bundle path: `docs/security/evidence/secure_ingestion_validation/`
+- prerequisite_check.txt
+- isolation_check.txt
+- ingestion_coverage_summary.md
+- non_leakage_validation_summary.md
+- test_output.txt
+- test_exitcode.txt
+- remote_sync_limitation.txt (when remote verification remains unavailable)
