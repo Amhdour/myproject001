@@ -273,3 +273,8 @@ No backend runtime enforcement is active from these additions.
 
 ## Step 17A Design/Test Linkage
 Added retrieval-path patching references for design, tests, and evidence linkage.
+
+## Retrieval Path Integration Planning References (Step 17B)
+- Integration sequence plan: `docs/security/retrieval_path_integration_plan.md`.
+- Integration checklist: `docs/security/retrieval_path_integration_checklist.md`.
+- Integration test plan: `docs/security/retrieval_path_integration_test_plan.md`.
