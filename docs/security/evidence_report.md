@@ -141,3 +141,12 @@ This category is documentation-only evidence and does not indicate active runtim
 ## Runtime Context/Wrapper Minimal Evidence
 - Added isolated runtime contexts, wrappers, denials, and in-memory test helpers.
 - Added isolated test coverage for allow/deny/approval and mode handling.
+
+## Step 13C Evidence Category: Runtime Wrapper Validation Cleanup
+Evidence bundle path: `docs/security/evidence/runtime_wrapper_validation/`
+- prerequisite_check.txt
+- isolation_check.txt
+- wrapper_coverage_summary.md
+- test_output.txt
+- test_exitcode.txt
+- remote_sync_limitation.txt (when remote verification remains unavailable)

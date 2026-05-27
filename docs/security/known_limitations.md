@@ -67,3 +67,8 @@ This documentation set does not claim production readiness.
 - Runtime wrappers are not wired into application paths.
 - Audit/finding/metric helpers are in-memory test-only.
 - Enforcement remains inactive.
+
+## Step 13C Additional Limitations
+- Runtime wrappers remain isolated under `backend/security_layer/runtime`.
+- Runtime enforcement is not active.
+- Application-path integration has not started.

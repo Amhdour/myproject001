@@ -35,3 +35,9 @@ Status: planned (design only, no runtime integration).
 - [x] tenant context creation
 - [x] wrapper allow/deny/approval paths and mode handling
 - [x] audit/finding/metric emission assertions
+
+## Step 13C Coverage Status (2026-05-27)
+- Coverage executed in isolated tests: `PYTHONPATH=. python -m pytest backend/security_layer/tests -q`
+- Result: 36 passed.
+- All wrapper function entry points are now explicitly covered.
+- Added/confirmed checks for fail-closed behavior, mode handling, side-effect emission, and safe denial non-leak constraints.
