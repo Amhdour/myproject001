@@ -1,0 +1,17 @@
+{
+  "policy_id": "approval-policy",
+  "version": "1.0.0",
+  "scope": "global",
+  "default_effect": "deny",
+  "enforcement_mode": "shadow",
+  "rules": [
+    {
+      "rule_id": "approve-export",
+      "effect": "approval_required",
+      "actions": ["export"],
+      "required_context": ["ticket_id"],
+      "reason": "approval needed",
+      "risk_level": "medium"
+    }
+  ]
+}

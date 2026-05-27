@@ -1,0 +1,17 @@
+{
+  "policy_id": "deny-policy",
+  "version": "1.0.0",
+  "scope": "tools",
+  "default_effect": "deny",
+  "enforcement_mode": "disabled",
+  "rules": [
+    {
+      "rule_id": "deny-delete",
+      "effect": "deny",
+      "actions": ["delete"],
+      "required_context": ["user_id"],
+      "reason": "deny delete",
+      "risk_level": "high"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "policy_id": "invalid-scope",
+  "version": "1.0.0",
+  "scope": "unknown_scope",
+  "default_effect": "deny",
+  "enforcement_mode": "disabled",
+  "rules": []
+}

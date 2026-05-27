@@ -1,0 +1,11 @@
+Step 12B prerequisite verification (2026-05-27 UTC)
+OK docs/security/policy_schema.md
+OK docs/security/policy_engine.md
+OK docs/security/policy_engine_test_plan.md
+OK docs/security/policies/default_deny_policy.yaml
+OK docs/security/policies/retrieval_policy.yaml
+OK docs/security/policies/tools_policy.yaml
+OK docs/security/evidence_standard.md
+OK docs/security/evidence_report.md
+OK docs/security/execution_tracker.md
+OK docs/security/known_limitations.md

@@ -164,3 +164,10 @@ Replay historical decision contexts against new policy bundles to detect uninten
 - Runtime enforcement is not implemented.
 - Policy evaluation behavior is design-only until implementation step.
 - Performance/security properties are unvalidated until runtime tests exist.
+
+## Step 12B Implementation Note (2026-05-27)
+
+- Minimal isolated policy engine implemented under `backend/security_layer/policies`.
+- Runtime request-path integration is intentionally not implemented.
+- Enforcement-path integration in backend APIs is intentionally not implemented.
+- Isolated unit tests added under `backend/security_layer/tests`.

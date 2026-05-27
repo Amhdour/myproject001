@@ -1,0 +1,17 @@
+{
+  "policy_id": "allow-policy",
+  "version": "1.0.0",
+  "scope": "retrieval",
+  "default_effect": "deny",
+  "enforcement_mode": "disabled",
+  "rules": [
+    {
+      "rule_id": "allow-read",
+      "effect": "allow",
+      "actions": ["read"],
+      "required_context": ["user_id"],
+      "reason": "allow read",
+      "risk_level": "low"
+    }
+  ]
+}

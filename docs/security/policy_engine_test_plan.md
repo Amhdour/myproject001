@@ -25,3 +25,19 @@ Status: planned only.
 | PE-T-019 | fail-closed behavior | SR-POL-001 | R-PE-003 | docs/security/policies/default_deny_policy.yaml | Engine internal failure results in deny. | failure-mode evidence |
 | PE-T-020 | policy comparison result | SR-POL-001 | R-PE-005 | docs/security/policies/default_deny_policy.yaml | Version comparison emits drift summary. | comparison report |
 | PE-T-021 | regression replay compatibility | SR-CI-001 | R-PE-005 | docs/security/policies/default_deny_policy.yaml | Historical context replay completes with diff report. | replay report |
+
+## Step 12B Test Implementation Status (2026-05-27)
+
+Implemented in `backend/security_layer/tests`:
+- valid policy object
+- invalid missing required fields
+- unknown effect rejected
+- unknown scope rejected
+- default deny behavior
+- allow decision
+- deny decision
+- deny precedence over allow
+- approval-required decision
+- explainable decision output
+- policy hash generated
+- unsupported file extension rejected

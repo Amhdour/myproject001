@@ -44,3 +44,9 @@ This documentation set does not claim production readiness.
 - Policy engine is design-only in this step; no runtime enforcement integration exists.
 - Policy engine test plan is planned-only and not yet executed.
 - Policy hash/integrity and decision-audit checks are not yet implemented in runtime code.
+
+## Step 12B Additional Limitations
+
+- Minimal policy engine is isolated only.
+- Runtime integration is not implemented.
+- Production enforcement is not active.

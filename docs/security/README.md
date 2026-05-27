@@ -40,3 +40,8 @@ No production-readiness claim is made in this phase.
 - Policy engine design: `docs/security/policy_engine.md`
 - Policy engine test plan: `docs/security/policy_engine_test_plan.md`
 - Policy engine evidence bundle: `docs/security/evidence/policy_engine_design/`
+
+## Step 12B Status (2026-05-27)
+
+- Completed: Minimal isolated policy engine implementation.
+- Next step: Runtime integration planning and controlled non-production shadow wiring (future step).

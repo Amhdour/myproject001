@@ -100,3 +100,7 @@ Remote/main branch lineage and PR linkage may be incomplete from this environmen
 - Step 12A (Policy engine design + test planning): complete as documentation-only change set.
 - Branch target: `policy-engine-design`.
 - Runtime enforcement remains out of scope for this step.
+
+## Step 12B Status
+
+- Step 12B complete on branch `policy-engine-minimal` after commit.
