@@ -1,0 +1,46 @@
+policy_id: "POL-DLP-001"
+title: "Dlp Policy (Draft)"
+version: "0.1.0"
+status: "draft"
+owner: "security-team"
+environment:
+  - "dev"
+  - "staging"
+  - "prod"
+scope:
+  - "dlp"
+default_effect: "deny"
+rules:
+  - rule_id: "dlp-rule-001"
+    title: "Planned baseline rule"
+    effect: "conditional_allow"
+    risk_level: "medium"
+    description: "Draft-only rule for schema and traceability planning."
+required_context:
+  - "request_id"
+  - "environment"
+  - "actor_id"
+approval_requirements:
+  - requirement_id: "apr-dlp-001"
+    level: "security-review"
+    minimum_approvers: 1
+audit_requirements:
+  - requirement_id: "aud-dlp-001"
+    event_type: "policy_decision"
+    retention: "planned"
+mapped_requirements:
+  - "SR-POLICY-SCHEMA-001"
+  - "SR-TRACEABILITY-001"
+mapped_risks:
+  - "RISK-POLICY-DRIFT"
+  - "RISK-UNENFORCED-CONTROL"
+mapped_patch_points:
+  - "PP-POLICY-MODEL"
+  - "PP-LAUNCH-GATE"
+planned_tests:
+  - "Schema field completeness check"
+  - "Traceability linkage check"
+planned_evidence:
+  - "docs/security/evidence/policy_schema/policy_file_inventory.md"
+  - "docs/security/evidence/policy_schema/policy_traceability_summary.md"
+non_claim_statement: "Draft-only planning artifact. Not runtime-enforced and not a production security claim."

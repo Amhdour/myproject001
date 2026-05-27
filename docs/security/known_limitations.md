@@ -33,3 +33,9 @@ This documentation set does not claim production readiness.
 10. **Migration safety planning-only limitation:** migration safety is documented as planned only; implementation has not started.
 11. **Migration code limitation:** no migration code has been implemented in this step.
 12. **Migration automation limitation:** migration safety checks are planned but not yet automated.
+
+## Step 11 Additional Limitations
+- Policy files under `docs/security/policies/` are draft-only planning artifacts.
+- Policy validation automation is not implemented.
+- Runtime policy engine is not implemented.
+- Runtime enforcement is not active.
