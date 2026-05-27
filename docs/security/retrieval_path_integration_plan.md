@@ -189,3 +189,9 @@ Phases are strictly ordered from configuration scaffolding to CI/security-gate c
 - **Evidence required:** CI gate pass/fail reports.
 - **Implementation status:** planned.
 \n## Step 17C Update\n- Isolated feature-flag helper implemented.\n- Isolated retrieval context builder implemented.\n- Isolated monitor/shadow/enforce hook helper implemented.\n- No live retrieval path patched; production enforcement remains inactive.
+
+## Step 17C Implementation Note (2026-05-27)
+- Isolated feature-flag helper implemented.
+- Isolated retrieval context builder implemented.
+- Isolated monitor/shadow/enforce hook helper implemented.
+- No live retrieval path patched.
