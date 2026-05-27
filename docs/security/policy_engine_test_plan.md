@@ -41,3 +41,16 @@ Implemented in `backend/security_layer/tests`:
 - explainable decision output
 - policy hash generated
 - unsupported file extension rejected
+
+## Step 12C Coverage Status (2026-05-27)
+
+Implemented additional isolated coverage:
+- PE-T-004 malformed rule rejected ✅
+- PE-T-007 missing required context rejected (deny) ✅
+- PE-T-008 default deny behavior ✅
+- PE-T-015 policy version recorded ✅
+- PE-T-016 policy hash recorded ✅ (loader hash function test)
+- PE-T-017 explainable decision generated ✅
+- JSON policy directory loading validation ✅
+
+Still out of scope in isolated Step 12C: runtime startup enforcement, monitor/shadow/enforce operational modes, and integration-path activation tests.

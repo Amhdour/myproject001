@@ -40,8 +40,29 @@ def test_deny_precedence_over_allow() -> None:
     assert decision.effect == PolicyEffect.DENY
 
 
+def test_evaluate_policies_with_no_policies_is_default_deny() -> None:
+    decision = evaluate_policies([], PolicyDecisionContext(action="read", attributes={"user_id": "u1"}))
+    assert decision.effect == PolicyEffect.DENY
+    assert decision.reason == "no policies provided"
+
+
+def test_missing_required_context_denies() -> None:
+    policy = load_policy_file("backend/security_layer/tests/fixtures/valid_allow_policy.json")
+    decision = evaluate_policy(policy, PolicyDecisionContext(action="read", attributes={}))
+    assert decision.effect == PolicyEffect.DENY
+    assert decision.reason == "no matching rule; default deny"
+
+
+def test_policy_version_is_recorded_on_decision() -> None:
+    policy = load_policy_file("backend/security_layer/tests/fixtures/valid_allow_policy.json")
+    decision = evaluate_policy(policy, PolicyDecisionContext(action="read", attributes={"user_id": "u1"}))
+    assert decision.policy_version == policy.version
+
+
 def test_explainable_decision_output() -> None:
     policy = load_policy_file("backend/security_layer/tests/fixtures/valid_allow_policy.json")
     decision = evaluate_policy(policy, PolicyDecisionContext(action="read", attributes={"user_id": "u1"}))
     explanation = explain_decision(decision)
     assert "policy_id=allow-policy" in explanation
+    assert f"version={policy.version}" in explanation
+    assert "matched_rules=allow-read" in explanation

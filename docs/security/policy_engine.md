@@ -171,3 +171,10 @@ Replay historical decision contexts against new policy bundles to detect uninten
 - Runtime request-path integration is intentionally not implemented.
 - Enforcement-path integration in backend APIs is intentionally not implemented.
 - Isolated unit tests added under `backend/security_layer/tests`.
+
+## Step 12C Validation Cleanup Note (2026-05-27)
+
+- Completed isolated validation cleanup for the minimal policy engine implementation.
+- Confirmed engine remains isolated under `backend/security_layer/policies`.
+- Confirmed runtime request-path wiring and backend API enforcement remain intentionally inactive.
+- Added additional isolated tests for directory loading, malformed rule validation, missing-context deny behavior, `evaluate_policies()` empty input handling, and stronger `explain_decision()` coverage.

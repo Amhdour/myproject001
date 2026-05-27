@@ -19,3 +19,9 @@ def test_unknown_effect_rejected() -> None:
 def test_unknown_scope_rejected() -> None:
     with pytest.raises(Exception):
         load_policy_file("backend/security_layer/tests/fixtures/invalid_unknown_scope.json")
+
+
+def test_malformed_policy_rule_rejected() -> None:
+    policy = load_policy_file("backend/security_layer/tests/fixtures/invalid_malformed_rule.json")
+    with pytest.raises(PolicyValidationError):
+        validate_policy(policy)

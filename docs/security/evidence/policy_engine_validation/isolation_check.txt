@@ -1,0 +1,5 @@
+Step 12C isolation check (2026-05-27 UTC)
+- Verified policy engine imports are self-contained under backend/security_layer/policies.
+- Verified no backend API/router/middleware path imports backend.security_layer.policies.
+- Verified no web/ runtime or deployment runtime references to policy engine.
+- Runtime enforcement remains intentionally not wired.
