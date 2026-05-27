@@ -34,3 +34,19 @@ Status: planned-only; no live ingestion enforcement enabled.
 ## Step 15B Isolated Test Execution Status (2026-05-27)
 Implemented and passing in isolated tests:
 SITP-001, SITP-002, SITP-003, SITP-005, SITP-006, SITP-007, SITP-008, SITP-009, SITP-011, SITP-012, SITP-014, SITP-018, SITP-020, SITP-021, SITP-022, SITP-026.
+
+## Step 15C Validation Coverage Status (2026-05-27)
+Expanded isolated validation coverage now includes:
+- all 17 secure-ingestion stages exercised in isolated tests;
+- missing tenant/subject denial assertions;
+- invalid metadata denial assertions;
+- missing/stale ACL denial assertions;
+- invalid content type denial;
+- oversized and excessive file-count denial;
+- missing provenance denial;
+- prompt-injection and poisoning marker flagging;
+- audit event, finding emission, and metric emission assertions;
+- non-leakage assertions for raw document marker text and secret-like values;
+- symbolic assertion that no live app integration is introduced.
+
+This remains isolated-only validation and not live enforcement.

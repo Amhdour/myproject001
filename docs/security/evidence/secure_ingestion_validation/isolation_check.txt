@@ -1,0 +1,26 @@
+Isolation checks (Step 15C)
+
+No live path refs scan (backend/onyx backend/ee web deployment docker k8s):
+No references found.
+
+Ingestion module imports check (should be isolated runtime + ingestion validators/models only):
+backend/security_layer/ingestion/controls.py:from backend.security_layer.ingestion.models import IngestionDecisionStatus
+backend/security_layer/ingestion/controls.py:from backend.security_layer.ingestion.models import IngestionSecurityContext
+backend/security_layer/ingestion/controls.py:from backend.security_layer.ingestion.models import IngestionStage
+backend/security_layer/ingestion/controls.py:from backend.security_layer.ingestion.validators import build_ingestion_decision
+backend/security_layer/ingestion/controls.py:from backend.security_layer.ingestion.validators import detect_poisoning_markers
+backend/security_layer/ingestion/controls.py:from backend.security_layer.ingestion.validators import detect_prompt_injection_markers
+backend/security_layer/ingestion/controls.py:from backend.security_layer.ingestion.validators import validate_acl_snapshot
+backend/security_layer/ingestion/controls.py:from backend.security_layer.ingestion.validators import validate_content_type
+backend/security_layer/ingestion/controls.py:from backend.security_layer.ingestion.validators import validate_file_count
+backend/security_layer/ingestion/controls.py:from backend.security_layer.ingestion.validators import validate_file_size
+backend/security_layer/ingestion/controls.py:from backend.security_layer.ingestion.validators import validate_provenance
+backend/security_layer/ingestion/controls.py:from backend.security_layer.ingestion.validators import validate_source_metadata
+backend/security_layer/ingestion/controls.py:from backend.security_layer.ingestion.validators import validate_subject_context
+backend/security_layer/ingestion/controls.py:from backend.security_layer.ingestion.validators import validate_tenant_context
+backend/security_layer/ingestion/validators.py:from backend.security_layer.ingestion.models import ACLSnapshot
+backend/security_layer/ingestion/validators.py:from backend.security_layer.ingestion.models import IngestionDecisionStatus
+backend/security_layer/ingestion/validators.py:from backend.security_layer.ingestion.models import IngestionSecurityContext
+backend/security_layer/ingestion/validators.py:from backend.security_layer.ingestion.models import IngestionSecurityDecision
+backend/security_layer/ingestion/validators.py:from backend.security_layer.ingestion.models import IngestionStage
+backend/security_layer/ingestion/validators.py:from backend.security_layer.ingestion.models import ProvenanceRecord
