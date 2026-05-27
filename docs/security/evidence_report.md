@@ -212,3 +212,15 @@ Evidence bundle path: `docs/security/evidence/secure_ingestion_validation/`
 - test_output.txt
 - test_exitcode.txt
 - remote_sync_limitation.txt (when remote verification remains unavailable)
+
+## Step 16A Evidence Category — Retrieval ACL Design
+- Category ID: EVID-RET-ACL-DESIGN-16A
+- Required artifacts:
+  - `docs/security/retrieval_acl.md`
+  - `docs/security/retrieval_acl_test_plan.md`
+  - `docs/security/evidence/retrieval_acl_design/prerequisite_check.txt`
+  - `docs/security/evidence/retrieval_acl_design/retrieval_acl_stage_inventory.md`
+  - `docs/security/evidence/retrieval_acl_design/retrieval_acl_test_plan_summary.md`
+  - `docs/security/evidence/retrieval_acl_design/retrieval_acl_traceability_summary.md`
+  - `docs/security/evidence/retrieval_acl_design/remote_sync_limitation.txt` (if remote verification blocked)
+- Acceptance note: design/test-planning evidence only; no runtime enforcement claim.

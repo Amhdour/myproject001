@@ -259,3 +259,9 @@ No backend runtime enforcement is active from these additions.
 - Secure ingestion test planning: `docs/security/secure_ingestion_test_plan.md`.
 - Ingestion stage/traceability evidence: `docs/security/evidence/secure_ingestion_design/`.
 - This step is design-only; runtime enforcement integration is intentionally not wired.
+
+## Step 16A Retrieval ACL Design References
+- Retrieval ACL design: `docs/security/retrieval_acl.md`
+- Retrieval ACL planned tests: `docs/security/retrieval_acl_test_plan.md`
+- Retrieval ACL evidence scaffold: `docs/security/evidence/retrieval_acl_design/`
+- SR-RET-001, SR-VEC-001, SR-CACHE-001, SR-PROMPT-001, SR-AUDIT-001, SR-EVIDENCE-001 are further decomposed by Retrieval ACL stages (RACL-01..RACL-17).

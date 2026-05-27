@@ -95,3 +95,8 @@ No production-readiness claim is made in this phase.
 ## Step 15C Status
 - ✅ Step 15C (Secure Ingestion Validation Cleanup) completed in isolated mode.
 - Next step: Step 16 planning/implementation sequencing (remain non-production until explicitly authorized).
+
+## Step 16A Status (2026-05-27)
+- ✅ Step 16A (Retrieval ACL Design) completed as documentation/design/test-planning only.
+- Runtime/live retrieval enforcement remains inactive and not wired into production paths.
+- Next step: Step 16B isolated/minimal retrieval ACL helper implementation planning (still non-production).
