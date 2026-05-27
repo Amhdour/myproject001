@@ -1,11 +1,14 @@
-# Step 18B Fixture Implementation Summary
+# Fixture Implementation Summary (Step 18B-A)
 
-Implemented `backend/security_layer/tests/retrieval_security_fixtures.py` with 27 synthetic fixture builders/objects:
-tenant_a, tenant_b, user_allowed, user_denied, group_allowed, group_denied, role_allowed, role_denied,
-document_allowed, document_cross_tenant, document_deleted, chunk_allowed, chunk_cross_tenant,
-chunk_denied_group, chunk_denied_role, stale_acl_snapshot, fresh_acl_snapshot, vector_namespace_allowed,
-vector_namespace_denied, vector_metadata_allowed, vector_metadata_denied, cache_entry_allowed,
-cache_entry_cross_tenant, citation_allowed, citation_denied, rerank_candidate_allowed, rerank_candidate_denied.
+Date: 2026-05-27
 
-No real tenant/user/customer/document data is used.
-No secrets/API keys/tokens are present.
+## Result
+- Retrieval security fixture skeleton tests executed successfully without activating `.venv`.
+- Command: `PYTHONPATH=. python -m pytest backend/security_layer/tests/test_retrieval_security_fixtures.py -q`
+- Outcome: passed as part of direct skeleton run (`6 passed, 8 skipped` across skeleton suite).
+
+## Notes
+- No enforce mode enabled.
+- No shadow-deny mode enabled.
+- No retrieval blocking/filtering enabled.
+- No runtime application behavior changed.

@@ -188,3 +188,7 @@ This documentation set does not claim production readiness.
 - future shadow-deny/enforce tests are skipped/xfail.
 - shadow-deny/enforce remain blocked.
 - production enforcement remains inactive.
+
+## Step 18B Limitation Update (2026-05-27)
+- Prior pytest-unavailable blocker for Step 18B validation is resolved in current environment via `python -m pytest` execution.
+- Shadow-deny/enforce remain intentionally not enabled.

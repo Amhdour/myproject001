@@ -52,3 +52,7 @@ Status: planned/design-only
 - Implemented skeleton tests: fixture safety/constructibility + monitor-only skeleton behavior checks.
 - Future-mode (shadow-deny/enforce) skeleton tests added and intentionally skipped/xfail with reason: `future mode not enabled yet`.
 - Enforcement modes remain inactive.
+
+## Step 18B-A Passing Evidence (2026-05-27)
+- Skeleton suite status: pass.
+- Evidence: `docs/security/evidence/retrieval_security_test_skeletons/test_output.txt`, `test_exitcode.txt`.

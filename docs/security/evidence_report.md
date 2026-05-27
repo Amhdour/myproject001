@@ -301,3 +301,7 @@ Added retrieval path patching design evidence category and bundle references.
 - Category: Retrieval Security Test Fixtures and Skeletons
 - Evidence location: `docs/security/evidence/retrieval_security_test_skeletons/`
 - Includes prerequisite verification, fixture summary, monitor-only skeleton summary, future-mode skipped/xfail summary, and test command output/exit code.
+
+## Step 18B-A Evidence Refresh (2026-05-27)
+- Retrieval security test skeleton execution rerun passed.
+- Artifacts updated under `docs/security/evidence/retrieval_security_test_skeletons/`.
