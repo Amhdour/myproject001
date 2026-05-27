@@ -142,3 +142,9 @@ Purpose: live blocking/filtering behavior validation prerequisites. Risks: R-RTE
 ## Step 18D-A coverage cleanup (2026-05-27)
 
 Added explicit retrieval security negative-case coverage in `backend/security_layer/tests/test_retrieval_security_negative_cases.py` to satisfy acceptance threshold (>=10 negative tests) while preserving monitor-only behavior.
+
+## Step 18E Validation Update (2026-05-27)
+- Retrieval security negative tests validated (>=10 explicit negative tests, currently 13).
+- Monitor-only behavior remains non-blocking/non-filtering/non-denying and preserves candidate count/identity/order.
+- Future shadow-deny/enforce tests remain skipped/blocked; no enforcement enabled.
+- Live retrieval behavior remains unchanged (no new blocking/filtering/denial behavior).

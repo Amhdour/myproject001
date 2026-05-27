@@ -315,3 +315,7 @@ Added retrieval path patching design evidence category and bundle references.
 - Focused suite: pass (20 passed, 8 skipped).
 - Full security_layer suite: pass (87 passed, 8 skipped).
 - Evidence folder: `docs/security/evidence/retrieval_security_negative_tests/`.
+
+## Step 18E Evidence Category (2026-05-27)
+- Added `docs/security/evidence/retrieval_security_negative_validation/` for Step 18E validation artifacts.
+- Includes prerequisite verification, negative-case quality checks, monitor-only preservation checks, non-leakage checks, future-mode blocker validation, and test command evidence.
