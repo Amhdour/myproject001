@@ -65,3 +65,13 @@ Status: Initial risk catalog. No mitigation controls implemented in this step.
 - **Impact:** High
 - **Likelihood:** Medium
 - **Status:** open
+
+## Step 13A Wrapper Risks
+
+| Risk ID | Title | Scenario | Affected Assets | Likelihood | Impact | Severity | Mapped Requirements | Mapped Patch Points | Planned Mitigations | Evidence Required | Owner | Status |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| R-WRAP-001 | missing context causes authorization bypass | Required subject/tenant/request fields are omitted and action proceeds incorrectly. | Tenant isolation, authorization integrity | medium | high | high | SR-RET-001, SR-AUDIT-001 | PP-RET-01, PP-AUDIT-01 | Enforce required context construction + context validation deny on missing fields. | Context-construction tests and deny-path evidence | AI Trust & Security Readiness Engineer | Open |
+| R-WRAP-002 | wrapper fails open | Wrapper or policy-engine error defaults to allow instead of deny. | Authorization boundary | medium | critical | critical | SR-RET-001, SR-SBX-001 | PP-RET-01, PP-SBX-01 | Fail-closed wrapper behavior and explicit engine-unavailable deny test coverage. | Fail-closed test outputs and findings | AI Trust & Security Readiness Engineer | Open |
+| R-WRAP-003 | denial leaks sensitive policy/resource details | Deny response exposes internal policy metadata or sensitive resource identifiers. | Sensitive policy details, data confidentiality | medium | high | high | SR-RET-001, SR-ART-001, SR-PROMPT-001 | PP-RET-01, PP-ART-01, PP-PROMPT-01 | Safe-denial contract with redacted outward errors and detailed internal audit only. | Denial payload assertions and audit comparison | AI Trust & Security Readiness Engineer | Open |
+| R-WRAP-004 | audit event missing for wrapper decision | Wrapper decisions do not emit complete audit/finding/metric records. | Forensics, compliance evidence | medium | high | high | SR-AUDIT-001, SR-EVIDENCE-001 | PP-AUDIT-01, PP-EVIDENCE-01 | Require write_audit_event/record_finding/emit_security_metric on all decision paths. | Emission tests and traceability report | AI Trust & Security Readiness Engineer | Open |
+| R-WRAP-005 | wrapper not applied to required patch point | Required patch point remains unwrapped, creating enforcement blind spot. | End-to-end security coverage | medium | high | high | SR-RET-001, SR-VEC-001, SR-CACHE-001, SR-TOOL-001 | PP-RET-01, PP-VEC-01, PP-CACHE-01, PP-TOOL-01, PP-MCP-01, PP-SBX-01 | Maintain wrapper inventory and patch-point traceability checklist before integration. | Wrapper inventory + traceability matrix evidence | AI Trust & Security Readiness Engineer | Open |
