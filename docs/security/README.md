@@ -111,3 +111,8 @@ No production-readiness claim is made in this phase.
 - Step 17A retrieval path patching design completed (documentation-only). Next step: Step 17B implementation planning under explicit authorization with runtime hooks still disabled.
 
 - Step 17A status: complete (design-only). Next: implementation/integration step.
+
+## Step 17B Status (2026-05-27)
+- ✅ Step 17B (Retrieval Path Integration Plan) completed as documentation/design/test-planning only.
+- Live retrieval/runtime enforcement remains inactive and not wired in this step.
+- Next step: controlled implementation of Step 17B phases with feature flags default-safe.

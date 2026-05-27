@@ -124,3 +124,14 @@ Reference artifact: `docs/security/test_data_factories.md`.
 
 ## Step 17A Traceability Additions
 Mapped controls for R-RPATCH-001 through R-RPATCH-008.
+
+## Step 17B Retrieval Path Integration Traceability Rows
+
+| Control ID | Requirement | Risk | Patch Candidates | Planned Tests | Evidence | Status |
+|---|---|---|---|---|---|---|
+| CTM-RINT-001 | SR-RET-001 | R-RINT-001 | RPC-005, RPC-011, RPC-014 | RPIT-006, RPIT-011, RPIT-016 | retrieval_path_integration_plan + test evidence | planned |
+| CTM-RINT-002 | SR-CI-001 | R-RINT-002 | RPC-001, RPC-002, RPC-017 | RPIT-001, RPIT-014, RPIT-019 | config defaults + CI gate evidence | planned |
+| CTM-RINT-003 | SR-RET-001 | R-RINT-003 | RPC-005, RPC-010 | RPIT-006, RPIT-010 | monitor/shadow non-blocking evidence | planned |
+| CTM-RINT-004 | SR-EVIDENCE-001 | R-RINT-004 | RPC-011, RPC-013 | RPIT-013 | enforce promotion gate evidence | planned |
+| CTM-RINT-005 | SR-EVIDENCE-001 | R-RINT-005 | RPC-015 | RPIT-015 | rollback rehearsal evidence | planned |
+| CTM-RINT-006 | SR-RET-001 | R-RINT-006 | RPC-003, RPC-004 | RPIT-002, RPIT-003, RPIT-004, RPIT-005 | context builder evidence | planned |

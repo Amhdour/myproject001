@@ -1,0 +1,20 @@
+Step 17B prerequisite verification (2026-05-27)
+Status: PASS
+
+Verified files:
+- backend/security_layer/retrieval/models.py
+- backend/security_layer/retrieval/validators.py
+- backend/security_layer/retrieval/controls.py
+- docs/security/retrieval_acl.md
+- docs/security/retrieval_acl_test_plan.md
+- docs/security/retrieval_path_patching.md
+- docs/security/retrieval_path_patching_test_plan.md
+- docs/security/patch_points.md
+- docs/security/runtime_context_wrappers.md
+- docs/security/safe_denial_behavior.md
+- docs/security/security_requirements.md
+- docs/security/risk_register.md
+- docs/security/control_traceability_matrix.md
+- docs/security/evidence_report.md
+- docs/security/execution_tracker.md
+- docs/security/known_limitations.md
