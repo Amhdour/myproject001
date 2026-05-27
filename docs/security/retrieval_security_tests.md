@@ -121,3 +121,9 @@ Purpose: shadow deny records deny without live block. Risks: R-RTEST-004. Requir
 
 ### RST-G20 future enforce-mode behavior
 Purpose: live blocking/filtering behavior validation prerequisites. Risks: R-RTEST-004/R-RTEST-005. Requirements: SR-RET-001. Patch: PP-RET-02, PP-CACHE-01, PP-PROMPT-01. Fixtures: cross-tenant/denied/cached/rerank sets. Cases: safe deny + unauthorized exclusion + no reintroduction. Evidence: enforcement regression pack.
+
+## Step 18B Implementation Note (2026-05-27)
+- Safe fake retrieval security fixtures implemented in `backend/security_layer/tests/retrieval_security_fixtures.py`.
+- Monitor-only retrieval security skeleton tests implemented in `backend/security_layer/tests/test_retrieval_security_monitor_only.py`.
+- Future shadow-deny/enforce skeletons added in `backend/security_layer/tests/test_retrieval_security_future_modes.py` and marked skipped/xfail (`future mode not enabled yet`).
+- No enforcement enabled in this step.

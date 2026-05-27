@@ -31,3 +31,8 @@ Status: planned/design-only.
 | citation_denied | unauthorized citation | source_id=s_deny | real source refs | RST-G13,G15 | RST-T013,T015 | planned |
 | rerank_candidate_allowed | authorized rerank item | cand_id=r_allow | real rerank payload | RST-G12 | RST-T012 | planned |
 | rerank_candidate_denied | unauthorized rerank item | cand_id=r_deny | real rerank payload | RST-G12 | RST-T012 | planned |
+
+## Step 18B Fixture Implementation Status (2026-05-27)
+- Status: implemented (synthetic fixtures only).
+- File: `backend/security_layer/tests/retrieval_security_fixtures.py`.
+- Validation tests: `backend/security_layer/tests/test_retrieval_security_fixtures.py`.

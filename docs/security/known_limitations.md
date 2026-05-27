@@ -182,3 +182,9 @@ This documentation set does not claim production readiness.
 - Broad retrieval security test suite is not implemented yet.
 - Shadow-deny/enforce remain blocked.
 - Production enforcement remains inactive.
+
+## Step 18B Additional Limitations (2026-05-27)
+- retrieval security tests are partially implemented.
+- future shadow-deny/enforce tests are skipped/xfail.
+- shadow-deny/enforce remain blocked.
+- production enforcement remains inactive.
