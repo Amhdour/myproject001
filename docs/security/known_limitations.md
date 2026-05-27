@@ -55,3 +55,10 @@ This documentation set does not claim production readiness.
 - Policy engine remains isolated to `backend/security_layer/policies`.
 - Runtime enforcement is not active.
 - Backend API/request path integration has not started.
+
+## Step 13A Runtime Wrapper Limitations
+
+- runtime wrappers are designed only.
+- wrapper implementation is not active.
+- wrappers are not wired into application paths.
+- enforcement remains inactive.

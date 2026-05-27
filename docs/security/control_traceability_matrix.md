@@ -77,3 +77,13 @@ Reference artifact: `docs/security/test_data_factories.md`.
 | R-PE-003 | SR-POL-001 | PP-AUDIT-01 | Fail-closed failure-mode handling | PE-T-014, PE-T-018, PE-T-019 | Engine failure fail-open simulation | docs/security/evidence/policy_engine_design/policy_engine_traceability_summary.md | Planned |
 | R-PE-004 | SR-AUDIT-001, SR-POL-001 | PP-AUDIT-01, PP-AUDIT-02 | Policy decision audit/event recording | PE-T-012, PE-T-015, PE-T-017 | Missing audit trail simulation | docs/security/evidence/policy_engine_design/policy_engine_traceability_summary.md | Planned |
 | R-PE-005 | SR-POL-001, SR-CI-001 | PP-CI-01, PP-EVIDENCE-01 | Policy version/hash drift detection and replay checks | PE-T-013, PE-T-016, PE-T-020, PE-T-021 | Policy drift regression simulation | docs/security/evidence/policy_engine_design/policy_engine_traceability_summary.md | Planned |
+
+## Step 13A Runtime Context Wrapper Traceability (Planned)
+
+| Control ID | Requirement(s) | Risk(s) | Patch Point(s) | Planned Artifact |
+|---|---|---|---|---|
+| CTX-WRAP-01 Request/Tenant/Subject context completeness | SR-RET-001, SR-AUDIT-001 | R-WRAP-001 | PP-RET-01 | docs/security/runtime_context_wrappers.md |
+| CTX-WRAP-02 Fail-closed wrapper contract | SR-RET-001 | R-WRAP-002 | PP-RET-01, PP-SBX-01 | docs/security/runtime_context_wrappers.md |
+| CTX-WRAP-03 Safe denial handling | SR-RET-001, SR-TOOL-001 | R-WRAP-003 | PP-RET-01, PP-TOOL-01 | docs/security/runtime_context_wrappers.md |
+| CTX-WRAP-04 Audit/finding/metric emissions | SR-AUDIT-001, SR-EVIDENCE-001 | R-WRAP-004 | PP-AUDIT-01, PP-EVIDENCE-01 | docs/security/runtime_context_wrappers_test_plan.md |
+| CTX-WRAP-05 Wrapper-to-patch-point coverage | SR-RET-001, SR-VEC-001, SR-CACHE-001, SR-TOOL-001 | R-WRAP-005 | PP-RET-01, PP-VEC-01, PP-CACHE-01, PP-TOOL-01 | docs/security/runtime_context_wrappers.md |

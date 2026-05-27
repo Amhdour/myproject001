@@ -38,7 +38,7 @@ Remote/main branch lineage and PR linkage may be incomplete from this environmen
 | Phase 2 | 10 | Migration safety | AI Trust & Security Readiness Engineer | complete | migration-safety-planning | TBD | TBD | docs/security/migration_safety.md; docs/security/evidence/migration_safety/prerequisite_check.txt; docs/security/evidence/migration_safety/migration_safety_plan_summary.md; docs/security/evidence/migration_safety/migration_risk_traceability.md; docs/security/evidence/migration_safety/remote_sync_limitation.txt | open blockers documented | 2026-05-26 | TBD | TBD | Documentation-only migration safety planning completed; no migration/runtime changes implemented. |
 | Phase 2 | 11 | Policy schema and policy files | AI Trust & Security Readiness Engineer | planned | TBD | TBD | TBD | TBD | not started | TBD | TBD | TBD | Planned follow-on step. |
 | Phase 2 | 12 | Policy engine | AI Trust & Security Readiness Engineer | planned | TBD | TBD | TBD | TBD | not started | TBD | TBD | TBD | Planned follow-on step. |
-| Phase 2 | 13 | Runtime context and enforcement wrappers | AI Trust & Security Readiness Engineer | planned | TBD | TBD | TBD | TBD | not started | TBD | TBD | TBD | Planned follow-on step. |
+| Phase 2 | 13 | Runtime context and enforcement wrappers | AI Trust & Security Readiness Engineer | complete | runtime-context-wrappers-design | TBD | TBD | docs/security/runtime_context_wrappers.md; docs/security/runtime_context_wrappers_test_plan.md; docs/security/evidence/runtime_context_wrappers_design/ | open blockers documented | 2026-05-27 | TBD | TBD | Step 13A completed as documentation-only design; no runtime wiring/enforcement activation. |
 | Phase 2 | 14 | Safe denial behavior | AI Trust & Security Readiness Engineer | planned | TBD | TBD | TBD | TBD | not started | TBD | TBD | TBD | Planned follow-on step. |
 | Phase 2 | 15 | Secure ingestion | AI Trust & Security Readiness Engineer | planned | TBD | TBD | TBD | TBD | not started | TBD | TBD | TBD | Planned follow-on step. |
 | Phase 2 | 16 | Retrieval ACL | AI Trust & Security Readiness Engineer | planned | TBD | TBD | TBD | TBD | not started | TBD | TBD | TBD | Planned follow-on step. |
@@ -109,3 +109,9 @@ Remote/main branch lineage and PR linkage may be incomplete from this environmen
 - Step 12C (Policy engine validation cleanup): complete on branch `policy-engine-validation-cleanup`.
 - Scope: isolated tests/docs/evidence only.
 - Runtime/API enforcement integration remains intentionally not started.
+
+
+## Step 13A Progress Update
+- Step 13A (Runtime Context and Enforcement Wrappers Design): complete on branch `runtime-context-wrappers-design`.
+- Scope: documentation/design/test-planning/evidence only.
+- Runtime enforcement remains intentionally inactive and not wired into backend request paths.

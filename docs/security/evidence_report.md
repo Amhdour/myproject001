@@ -130,3 +130,10 @@ Evidence bundle path: `docs/security/evidence/policy_engine_validation/`
 - test_output.txt
 - test_exitcode.txt
 - remote_sync_limitation.txt (if remote verification remains unavailable)
+
+## Step 13A Evidence Category: Runtime Context/Wrapper Design
+
+Planned evidence set for runtime context and enforcement wrapper design is tracked under:
+- `docs/security/evidence/runtime_context_wrappers_design/`
+
+This category is documentation-only evidence and does not indicate active runtime enforcement.

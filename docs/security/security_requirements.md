@@ -232,3 +232,11 @@ These references are documentation-level only and do not represent active runtim
 - **Required tests:** Policy engine load/validate/evaluate and fail-closed test suite.
 - **Required evidence:** Policy engine design doc, test plan, and decision/audit evidence set.
 - **Blocker status:** Open.
+
+## Step 13A Runtime Context & Wrapper Design References
+
+The following planned controls define runtime authorization context propagation and enforcement wrapper contracts (design-only in Step 13A):
+- `docs/security/runtime_context_wrappers.md`
+- `docs/security/runtime_context_wrappers_test_plan.md`
+
+No backend runtime enforcement is active from these additions.
