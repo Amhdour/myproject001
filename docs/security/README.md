@@ -35,3 +35,8 @@ No production-readiness claim is made in this phase.
 ## Step 11 Status
 - ✅ Step 11 (Policy Schema and Policy Files) completed in documentation/planning mode.
 - Next step: Step 12 implementation planning and validation sequencing (non-runtime until explicitly approved).
+
+## Step 12A Deliverables
+- Policy engine design: `docs/security/policy_engine.md`
+- Policy engine test plan: `docs/security/policy_engine_test_plan.md`
+- Policy engine evidence bundle: `docs/security/evidence/policy_engine_design/`

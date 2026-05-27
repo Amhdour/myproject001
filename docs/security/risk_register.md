@@ -28,3 +28,40 @@ Status: Initial risk catalog. No mitigation controls implemented in this step.
 | R-MIG-003 | Schema drift causes authorization bypass | Drift between expected and actual schema removes/weakens policy-relevant constraints. | Authorization boundaries, tenant isolation | medium | high | high | SR-RET-001, SR-CI-001, SR-EVIDENCE-001 | PP-RET-01, PP-CI-01, PP-EVIDENCE-01 | Enforce schema drift detection gate and unresolved-drift blocker. | Drift report artifacts and gate results | AI Trust & Security Readiness Engineer | Open |
 | R-MIG-004 | Seed/demo data leaks into non-demo environment | Demo attack or seed artifacts contaminate non-demo environments and influence outcomes. | Data hygiene, environment integrity | low | high | medium | SR-ADMIN-001, SR-CI-001, SR-EVIDENCE-001 | PP-ADMIN-01, PP-CI-01, PP-EVIDENCE-01 | Require environment-scoped seed controls and evidence of separation. | Seed scope validation and environment markers | AI Trust & Security Readiness Engineer | Open |
 | R-MIG-005 | Migration evidence missing | Migration proceeds without required evidence, preventing trustworthy release decisions. | Governance, auditability, release gate integrity | medium | high | high | SR-EVIDENCE-001, SR-CI-001 | PP-EVIDENCE-01, PP-CI-01 | Block progression when required migration evidence set is incomplete. | Evidence completeness checklist and report update | AI Trust & Security Readiness Engineer | Open |
+
+## Step 12A Policy Engine Risks
+
+### R-PE-001 — Invalid policy accepted
+- **Category:** Policy integrity
+- **Description:** Engine may accept invalid or malformed policy content, causing unsafe decisions.
+- **Impact:** High
+- **Likelihood:** Medium
+- **Status:** open
+
+### R-PE-002 — Default-deny bypass
+- **Category:** Authorization
+- **Description:** Rule matching or fallback defects may bypass default-deny outcomes.
+- **Impact:** High
+- **Likelihood:** Medium
+- **Status:** open
+
+### R-PE-003 — Fail-open behavior during engine failure
+- **Category:** Resilience
+- **Description:** Loader/validator/evaluator failures could permit execution when denial is expected.
+- **Impact:** Critical
+- **Likelihood:** Medium
+- **Status:** open
+
+### R-PE-004 — Policy decision not audited
+- **Category:** Auditability
+- **Description:** Decision records may be missing required fields or not emitted.
+- **Impact:** High
+- **Likelihood:** Medium
+- **Status:** open
+
+### R-PE-005 — Policy drift between versions
+- **Category:** Change management
+- **Description:** Unintended behavioral drift may occur across policy updates without replay/diff checks.
+- **Impact:** High
+- **Likelihood:** Medium
+- **Status:** open

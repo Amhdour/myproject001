@@ -221,3 +221,14 @@ The following SR groupings now reference policy-schema artifacts:
 - SR evidence requirements map to `docs/security/evidence/policy_schema/`.
 
 These references are documentation-level only and do not represent active runtime enforcement.
+
+### SR-POL-001 — Policy Engine Governance and Fail-Closed Evaluation
+- **Requirement ID:** SR-POL-001
+- **Title:** Policy engine governance and fail-closed evaluation
+- **Requirement statement:** Policy evaluation must validate policy integrity at startup and operate fail-closed for invalid policies, missing required context, and engine failures.
+- **Priority:** must
+- **Status:** draft
+- **Mapped patch points:** PP-AUDIT-01, PP-EVIDENCE-01
+- **Required tests:** Policy engine load/validate/evaluate and fail-closed test suite.
+- **Required evidence:** Policy engine design doc, test plan, and decision/audit evidence set.
+- **Blocker status:** Open.

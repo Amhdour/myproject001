@@ -107,3 +107,11 @@ Added evidence category `policy_schema` to track:
 - policy schema summary
 - policy traceability summary
 - remote/main verification limitation (when applicable)
+
+## Step 12A Evidence Category: Policy Engine Design
+Evidence bundle path: `docs/security/evidence/policy_engine_design/`
+- prerequisite_check.txt
+- policy_engine_design_summary.md
+- policy_engine_test_plan_summary.md
+- policy_engine_traceability_summary.md
+- remote_sync_limitation.txt (if remote verification remains unavailable)
