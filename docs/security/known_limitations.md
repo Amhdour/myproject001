@@ -109,3 +109,9 @@ This documentation set does not claim production readiness.
 - live ingestion enforcement is not active.
 - connector/file-upload/parser/chunking/embedding/vector-write controls are not integrated into live flows.
 - production enforcement remains inactive.
+
+## Step 16A Additional Limitations
+- retrieval ACL is design-only.
+- no live retrieval enforcement wired.
+- document/chunk/vector/cache/rerank/context controls are not integrated.
+- production enforcement remains inactive.

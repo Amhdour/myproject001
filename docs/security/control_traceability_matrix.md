@@ -101,3 +101,14 @@ Reference artifact: `docs/security/test_data_factories.md`.
 | Secure ingestion staged controls (SI-01..SI-17) | SR-ING-001, SR-AUDIT-001, SR-DLP-001 | R-ING-001..R-ING-010 | PP-ING-01, PP-ING-02, PP-AUDIT-01, PP-AUDIT-02, PP-DLP-01 | SITP-001..SITP-026 | docs/security/evidence/secure_ingestion_design/ |
 | Tenant boundary + ownership + ACL staging | SR-ING-001 | R-ING-001, R-ING-004, R-ING-008 | PP-ING-02 | SITP-003, SITP-004, SITP-008, SITP-009, SITP-015 | secure_ingestion_traceability_summary.md |
 | Content/size/provenance admission staging | SR-ING-001 | R-ING-005, R-ING-006, R-ING-007 | PP-ING-01 | SITP-005, SITP-006, SITP-007, SITP-018, SITP-019 | ingestion_stage_inventory.md |
+
+## Step 16A Retrieval ACL Traceability Rows
+
+| Control ID | Requirement IDs | Risk IDs | Patch Points | Design/Test Artifact |
+|---|---|---|---|---|
+| RACL-01..RACL-04 (request + subject/tenant/scope validation) | SR-RET-001 | R-RET-001 | PP-RET-01 | docs/security/retrieval_acl.md, RET-ACL-T001..T006 |
+| RACL-05..RACL-07 (source/doc/chunk ACL) | SR-RET-001 | R-RET-002, R-RET-005, R-RET-009 | PP-RET-02 | docs/security/retrieval_acl.md, RET-ACL-T003..T008, T018 |
+| RACL-08..RACL-09 (vector namespace/metadata) | SR-VEC-001, SR-RET-001 | R-RET-003 | PP-VEC-01, PP-VEC-02 | docs/security/retrieval_acl.md, RET-ACL-T009..T010 |
+| RACL-10..RACL-14 (hybrid/rerank/citation/context/prompt) | SR-RET-001, SR-PROMPT-001 | R-RET-006, R-RET-007, R-RET-010 | PP-RET-02, PP-PROMPT-01 | docs/security/retrieval_acl.md, RET-ACL-T011..T015 |
+| RACL-15 (cache authorization) | SR-CACHE-001, SR-RET-001 | R-RET-008, R-RET-004 | PP-CACHE-01, PP-RET-02 | docs/security/retrieval_acl.md, RET-ACL-T016..T017 |
+| RACL-16..RACL-17 (audit/findings/metrics) | SR-AUDIT-001, SR-EVIDENCE-001 | R-RET-004, R-RET-009 | PP-AUDIT-01, PP-AUDIT-02, PP-EVIDENCE-01 | docs/security/retrieval_acl.md, RET-ACL-T019..T025 |
