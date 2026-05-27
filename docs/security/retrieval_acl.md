@@ -363,3 +363,9 @@ See `docs/security/retrieval_path_integration_plan.md`, `docs/security/retrieval
 ## Step 17C Note (2026-05-27)
 - Added isolated retrieval integration helper modules under `backend/security_layer/retrieval/`.
 - Retrieval ACL enforcement remains inactive in production/runtime paths.
+
+## Step 17D Integration Readiness Reference (2026-05-27)
+- Retrieval path readiness review completed: `docs/security/retrieval_path_readiness_review.md`.
+- Live patch go/no-go record: `docs/security/retrieval_path_live_patch_go_no_go.md`.
+- Candidate live patch targets: `docs/security/retrieval_path_live_patch_file_targets.md`.
+- Runtime enforcement remains inactive; enforce mode remains explicit no-go.

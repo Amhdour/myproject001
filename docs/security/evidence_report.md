@@ -267,3 +267,14 @@ Added retrieval path patching design evidence category and bundle references.
 ## Step 17C Evidence Category (2026-05-27)
 - Added evidence bundle: `docs/security/evidence/retrieval_context_builder_isolated/`.
 - Contains prerequisite verification, implementation summaries, and isolated test outputs/exit code.
+
+## Step 17D Evidence Category (Retrieval Integration Readiness)
+- Category: `retrieval_integration_readiness`
+- Required artifacts:
+  - prerequisite verification output
+  - readiness review summary
+  - go/no-go summary
+  - live patch target inventory summary
+  - test readiness summary
+  - isolated test output + exit code
+  - remote/main sync limitation note (if applicable)

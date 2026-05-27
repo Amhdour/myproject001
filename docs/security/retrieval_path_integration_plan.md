@@ -195,3 +195,8 @@ Phases are strictly ordered from configuration scaffolding to CI/security-gate c
 - Isolated retrieval context builder implemented.
 - Isolated monitor/shadow/enforce hook helper implemented.
 - No live retrieval path patched.
+
+## Step 17D Readiness-Review Note (2026-05-27)
+- Readiness review completed: `docs/security/retrieval_path_readiness_review.md`.
+- Next live patch scope is limited to monitor-only integration.
+- Enforce mode remains explicit no-go pending separate evidence-backed approval.

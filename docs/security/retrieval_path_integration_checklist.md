@@ -65,3 +65,9 @@
 ## merge readiness checks
 - [ ] Step 17B execution tracker updated.
 - [ ] Remaining blockers documented.
+
+## step 17d readiness-review checks
+- [x] Readiness review document created (`docs/security/retrieval_path_readiness_review.md`).
+- [x] Go/no-go decision documented (`docs/security/retrieval_path_live_patch_go_no_go.md`).
+- [x] Live patch file target inventory documented (`docs/security/retrieval_path_live_patch_file_targets.md`).
+- [x] Result: monitor-only future live integration = go; enforce mode = no-go.

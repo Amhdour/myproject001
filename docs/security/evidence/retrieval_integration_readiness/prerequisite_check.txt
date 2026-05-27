@@ -1,0 +1,16 @@
+Step 17D prerequisite verification (2026-05-27 UTC)
+OK backend/security_layer/retrieval/models.py
+OK backend/security_layer/retrieval/validators.py
+OK backend/security_layer/retrieval/controls.py
+OK backend/security_layer/retrieval/integration_flags.py
+OK backend/security_layer/retrieval/context_builder.py
+OK backend/security_layer/retrieval/integration_hook.py
+OK docs/security/retrieval_acl.md
+OK docs/security/retrieval_path_patching.md
+OK docs/security/retrieval_path_integration_plan.md
+OK docs/security/retrieval_path_integration_checklist.md
+OK docs/security/retrieval_path_integration_test_plan.md
+OK docs/security/patch_points.md
+OK docs/security/evidence_report.md
+OK docs/security/execution_tracker.md
+OK docs/security/known_limitations.md

@@ -177,3 +177,8 @@ Remote/main branch lineage and PR linkage may be incomplete from this environmen
 | Phase 4 | 17C | Retrieval path context builder (isolated implementation) | AI Trust & Security Readiness Engineer | complete | retrieval-context-builder-isolated | feat(security): add isolated retrieval context builder | backend/security_layer/retrieval/integration_flags.py; backend/security_layer/retrieval/context_builder.py; backend/security_layer/retrieval/integration_hook.py; backend/security_layer/tests/test_retrieval_integration_flags.py; backend/security_layer/tests/test_retrieval_context_builder.py; backend/security_layer/tests/test_retrieval_integration_hook.py | docs/security/evidence/retrieval_context_builder_isolated/ | remote/main verification may be blocked | 2026-05-27 | TBD | TBD | Isolated-only helpers/tests/docs/evidence. No live retrieval wiring or enforcement activation. |
 
 - Step 17C marked complete (isolated implementation only).
+
+## Step 17D Status (2026-05-27)
+- ✅ Step 17D (Retrieval Path Integration Readiness Review) completed in documentation/evidence scope.
+- Enforce mode remains explicit no-go.
+- Next implementation scope is monitor-only live-path integration only, pending separate approval gates.
