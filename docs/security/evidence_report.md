@@ -305,3 +305,7 @@ Added retrieval path patching design evidence category and bundle references.
 ## Step 18B-A Evidence Refresh (2026-05-27)
 - Retrieval security test skeleton execution rerun passed.
 - Artifacts updated under `docs/security/evidence/retrieval_security_test_skeletons/`.
+
+## Step 18C Evidence Category Added (2026-05-27)
+- `docs/security/evidence/retrieval_security_test_validation/`
+- Captures prerequisite checks, fixture-quality validation, monitor-only validation, future-mode skip validation, and test outputs/exit code.

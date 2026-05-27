@@ -75,3 +75,8 @@ No production enforcement may be enabled until a **separate, evidence-backed app
 - Shadow-deny remains blocked.
 - Enforce mode remains blocked.
 - Future modes require implemented and passing evidence before any activation consideration.
+
+## Step 18C Gate Reaffirmation (2026-05-27)
+- Shadow-deny remains blocked (not enabled).
+- Enforce mode remains blocked (not enabled).
+- Future modes still require implementation plus passing evidence before any activation decision.

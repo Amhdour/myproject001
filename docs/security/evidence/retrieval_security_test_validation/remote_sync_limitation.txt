@@ -1,0 +1,3 @@
+Remote/main verification limitation (2026-05-27 UTC):
+- `git fetch origin --dry-run` failed: "fatal: 'origin' does not appear to be a git repository"
+- Continued from local verified state per step instructions.
