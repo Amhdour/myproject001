@@ -1,0 +1,1 @@
+Remote/main synchronization verification remains unavailable in this environment because origin remote access is not configured/accessible.
