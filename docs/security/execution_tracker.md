@@ -133,9 +133,7 @@ Remote/main branch lineage and PR linkage may be incomplete from this environmen
 - Scope: isolated runtime denial helpers/wrapper updates/tests/docs/evidence only.
 - Runtime enforcement remains intentionally inactive and not wired into application request paths.
 
-
 ## Step 14C Progress Update
-- Step 14C (Safe Denial Test Execution Cleanup): complete on branch `safe-denial-validation-cleanup`.
-- Validation command: `PYTHONPATH=. python -m pytest backend/security_layer/tests -q`
-- Result: 30 passed, exit code 0.
-- Scope: isolated security_layer tests and docs/security evidence only; runtime enforcement remains inactive.
+- Step 14C (Safe Denial Behavior Validation Cleanup): complete on branch `safe-denial-validation-cleanup`.
+- Scope: isolated security_layer runtime/tests/docs/evidence only.
+- Runtime enforcement remains intentionally inactive and not wired into backend request paths.

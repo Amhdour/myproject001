@@ -173,12 +173,12 @@ Evidence bundle path: `docs/security/evidence/safe_denial_behavior_minimal/`
 - test_exitcode.txt
 - remote_sync_limitation.txt (if remote verification remains unavailable)
 
-
-## Step 14C Evidence Category: Safe Denial Validation Cleanup
-Evidence bundle path: `docs/security/evidence/safe_denial_validation/`
-- test_output.txt
-- test_exitcode.txt
-- denial_coverage_summary.md
-- non_leakage_validation_summary.md
-
-Validation status: passing (`30 passed`, exit code `0` on 2026-05-27).
+## Safe Denial Validation Evidence Category (Step 14C)
+References Step 14C validation artifacts:
+- `docs/security/evidence/safe_denial_validation/prerequisite_check.txt`
+- `docs/security/evidence/safe_denial_validation/isolation_check.txt`
+- `docs/security/evidence/safe_denial_validation/denial_coverage_summary.md`
+- `docs/security/evidence/safe_denial_validation/non_leakage_validation_summary.md`
+- `docs/security/evidence/safe_denial_validation/test_output.txt`
+- `docs/security/evidence/safe_denial_validation/test_exitcode.txt`
+- `docs/security/evidence/safe_denial_validation/remote_sync_limitation.txt` (when remote remains inaccessible)

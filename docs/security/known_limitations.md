@@ -84,7 +84,8 @@ This documentation set does not claim production readiness.
 - Streaming/tool/MCP/artifact denial behavior is not integrated into live flows.
 - Production enforcement remains inactive.
 
-
-## Step 14C Validation Status Update
-- The prior Step 14C pytest-availability blocker is resolved in this environment.
-- Safe-denial validation executed successfully via `PYTHONPATH=. python -m pytest backend/security_layer/tests -q` on 2026-05-27 (30 passed, exit code 0).
+## Step 14C Additional Limitations
+- Safe denial behavior remains isolated under `backend/security_layer/runtime`.
+- Denial behavior is not globally wired into backend/runtime application paths.
+- Live streaming/tool/MCP/artifact/sandbox denial integrations are not implemented.
+- Production enforcement remains inactive.

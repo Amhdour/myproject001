@@ -1,12 +1,13 @@
-# Step 14C Safe Denial Validation — Non-Leakage Summary
+# Step 14C Non-Leakage Validation Summary
 
-- Date: 2026-05-27
-- Command: `PYTHONPATH=. python -m pytest backend/security_layer/tests -q`
-- Result: `30 passed`
-- Exit code: `0`
+Validated that denial outputs do not expose:
+- tenant/user identifiers
+- document names/chunk text
+- tool args/secrets
+- MCP endpoints
+- sandbox paths
+- prompt/policy internals
+- raw exception text
+- API key/token/credential strings
 
-## Non-Leakage Validation Result
-
-The isolated `backend/security_layer/tests` suite passed, including safe-denial tests that validate non-leakage constraints for denial responses and wrapper behavior.
-
-No production/runtime request handlers, routers, middleware, retrieval paths, tool paths, MCP paths, artifact paths, or sandbox paths were modified in this step.
+Validated helper outputs are JSON-serializable and redacted.

@@ -1,0 +1,10 @@
+Prerequisite file check:
+OK backend/security_layer/runtime/denials.py
+OK backend/security_layer/runtime/wrappers.py
+OK backend/security_layer/tests/test_runtime_denials.py
+OK backend/security_layer/tests/test_runtime_wrappers.py
+OK docs/security/safe_denial_behavior.md
+OK docs/security/safe_denial_behavior_test_plan.md
+OK docs/security/evidence_report.md
+OK docs/security/execution_tracker.md
+OK docs/security/known_limitations.md

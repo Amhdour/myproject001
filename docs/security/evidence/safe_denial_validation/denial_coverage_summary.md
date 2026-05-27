@@ -1,15 +1,10 @@
-# Step 14C Safe Denial Validation — Denial Coverage Summary
+# Step 14C Denial Coverage Summary
 
-- Date: 2026-05-27
-- Command: `PYTHONPATH=. python -m pytest backend/security_layer/tests -q`
-- Result: `30 passed` (all security layer isolated tests passed)
-- Exit code: `0`
-
-## Coverage Confirmation
-
-The safe-denial validation run confirms isolated denial coverage remains passing for:
-- denial category behavior
-- safe output shaping in runtime denial wrappers
-- policy/runtime denial test suites in `backend/security_layer/tests`
-
-No backend runtime request-path wiring was added or activated in this step.
+- Verified all 14 denial categories in `DenialCategory` return safe message + safe code.
+- Verified category->code mapping uses only `security_*` code family.
+- Verified specialized payload helpers:
+  - `approval_required_payload`
+  - `validation_failed_payload`
+  - `policy_engine_unavailable_payload`
+  - `rate_or_quota_blocked_payload`
+- Verified wrapper behavior remains safe structured on deny/fail-closed/approval paths.

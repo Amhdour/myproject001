@@ -39,8 +39,8 @@ Implemented in isolated tests:
 - wrapper deny/fail-closed/approval-required safe behavior
 - monitor-only and shadow-deny non-leakage behavior
 
-## Step 14C validation cleanup update (2026-05-27)
-Validation tests rerun successfully using `PYTHONPATH=. python -m pytest backend/security_layer/tests -q`.
-- Result: 30 passed
-- Exit code: 0
-- Evidence: `docs/security/evidence/safe_denial_validation/`
+## Step 14C coverage status (2026-05-27)
+- Isolated runtime denial coverage: strengthened and re-validated for all 14 denial categories.
+- Non-leakage coverage: strengthened for raw exception text and credential/token/API-key secrecy.
+- Payload coverage: approval-required, validation-failed, policy-engine-unavailable, and rate/quota payloads validated for safe structure and JSON serialization.
+- Wrapper coverage: deny/fail-closed/approval and monitor/shadow non-leakage behavior remains covered.
