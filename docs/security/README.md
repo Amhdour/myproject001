@@ -104,3 +104,8 @@ No production-readiness claim is made in this phase.
 ## Step 16B Status (2026-05-27)
 - Complete: isolated retrieval ACL helper controls added.
 - Next step: Step 16C integration planning/guardrails while keeping production enforcement inactive.
+
+## Step 16C Status (2026-05-27)
+- ✅ Step 16C (Retrieval ACL Validation Cleanup) completed in isolated scope.
+- Live retrieval enforcement remains inactive and not wired into production paths.
+- Next step: Step 17 retrieval path patching planning/execution under explicit authorization.

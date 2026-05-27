@@ -349,3 +349,9 @@ See `docs/security/retrieval_acl_test_plan.md` for stage-mapped planned coverage
 - No live retrieval integration enabled.
 - No search/vector/rerank/cache/context/prompt integration performed.
 - No production enforcement activation.
+
+## Step 16C Validation Note (2026-05-27)
+- Validation cleanup completed in isolated scope only.
+- Stage-level authorizers validated across all 17 retrieval ACL stages.
+- No live retrieval/search/vector/rerank/citation/context/prompt/cache/worker/web/deployment wiring was added.
+- Runtime production enforcement remains inactive.

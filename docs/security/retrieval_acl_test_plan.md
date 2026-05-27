@@ -33,3 +33,15 @@ Status: planned/design-only
 ## Step 16B Test Status (2026-05-27)
 - Added isolated retrieval ACL model, validator, and controls tests in `backend/security_layer/tests/`.
 - Coverage includes deny/filter/placeholder behavior and non-integration assertions.
+
+## Step 16C Validation Coverage Status (2026-05-27)
+- ✅ Coverage confirmed across all 17 retrieval ACL stages in isolated tests.
+- ✅ Missing tenant/subject/scope deny behavior validated.
+- ✅ Cross-tenant document/chunk denials validated.
+- ✅ Unauthorized group/role denials validated.
+- ✅ Stale ACL snapshot and deleted-document denial behavior validated.
+- ✅ Vector namespace/metadata mismatch denials validated.
+- ✅ Hybrid/rerank/citation/context/prompt/cache authorization filtering placeholders validated.
+- ✅ Audit/finding/metric emission validated in isolated mode.
+- ✅ Non-leakage assertions validated for decision text.
+- ✅ No live app integration imports asserted.

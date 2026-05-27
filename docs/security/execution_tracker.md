@@ -156,3 +156,10 @@ Remote/main branch lineage and PR linkage may be incomplete from this environmen
 | Phase 1 | 16A | Retrieval ACL design | AI Trust & Security Readiness Engineer | completed | retrieval-acl-design | docs(security): design retrieval ACL controls | docs/security/retrieval_acl.md | docs/security/evidence/retrieval_acl_design/ | complete | N/A | N/A | Design-only step; runtime enforcement remains inactive. |
 
 - [x] Step 16B complete: isolated retrieval ACL helper controls implemented and tested (no runtime wiring).
+
+## Step 16C Progress Update
+- Step 16C (Retrieval ACL Validation Cleanup): complete on branch `retrieval-acl-validation-cleanup`.
+- Scope: isolated `backend/security_layer/retrieval` tests/docs/evidence only.
+- Live retrieval/runtime enforcement remains intentionally inactive and not wired into application paths.
+
+| Phase 2 | 16C | Retrieval ACL validation cleanup | AI Trust & Security Readiness Engineer | complete | retrieval-acl-validation-cleanup | TBD | TBD | docs/security/evidence/retrieval_acl_validation/test_output.txt; docs/security/evidence/retrieval_acl_validation/test_exitcode.txt; docs/security/evidence/retrieval_acl_validation/retrieval_acl_coverage_summary.md; docs/security/evidence/retrieval_acl_validation/non_leakage_validation_summary.md | open blockers documented | 2026-05-27 | TBD | TBD | Isolated tests/docs evidence only, no live retrieval wiring. |

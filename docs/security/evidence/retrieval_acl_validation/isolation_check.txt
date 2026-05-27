@@ -1,0 +1,6 @@
+Isolation verification (Step 16C)
+- backend/security_layer/retrieval imports only isolated security-layer helpers/models.
+- No live retrieval/search/vector/rerank/citation/context/prompt/cache/worker runtime path imports backend/security_layer/retrieval.
+- No web/ references to backend/security_layer/retrieval.
+- No deployment/runtime references to backend/security_layer/retrieval.
+- Retrieval ACL controls remain isolated and non-wired.
