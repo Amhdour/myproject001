@@ -172,3 +172,13 @@ Evidence bundle path: `docs/security/evidence/safe_denial_behavior_minimal/`
 - test_output.txt
 - test_exitcode.txt
 - remote_sync_limitation.txt (if remote verification remains unavailable)
+
+## Safe Denial Validation Evidence Category (Step 14C)
+References Step 14C validation artifacts:
+- `docs/security/evidence/safe_denial_validation/prerequisite_check.txt`
+- `docs/security/evidence/safe_denial_validation/isolation_check.txt`
+- `docs/security/evidence/safe_denial_validation/denial_coverage_summary.md`
+- `docs/security/evidence/safe_denial_validation/non_leakage_validation_summary.md`
+- `docs/security/evidence/safe_denial_validation/test_output.txt`
+- `docs/security/evidence/safe_denial_validation/test_exitcode.txt`
+- `docs/security/evidence/safe_denial_validation/remote_sync_limitation.txt` (when remote remains inaccessible)

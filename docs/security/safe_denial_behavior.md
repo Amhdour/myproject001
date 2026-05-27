@@ -334,3 +334,9 @@ Design-only; enforcement not wired; localization not implemented; telemetry sche
 - Implemented all 14 denial categories and safe error-code mapping.
 - Added isolated wrapper usage for deny/fail-closed and approval-required structured response.
 - Runtime enforcement remains inactive and not wired into backend request paths.
+
+## Step 14C validation update (2026-05-27)
+- Validation cleanup executed in isolated scope only.
+- Denial helpers remain isolated under `backend/security_layer/runtime` and are not wired to production request paths.
+- Added strengthened tests for 14 categories, safe error codes, admin summary redaction, forbidden detail filtering, payload helper safety, JSON serializability, and wrapper-safe structured outputs.
+- Remote/main verification remained blocked in this environment; local verified state was used.

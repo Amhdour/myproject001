@@ -83,3 +83,9 @@ This documentation set does not claim production readiness.
 - Denial behavior is not globally wired into application paths.
 - Streaming/tool/MCP/artifact denial behavior is not integrated into live flows.
 - Production enforcement remains inactive.
+
+## Step 14C Additional Limitations
+- Safe denial behavior remains isolated under `backend/security_layer/runtime`.
+- Denial behavior is not globally wired into backend/runtime application paths.
+- Live streaming/tool/MCP/artifact/sandbox denial integrations are not implemented.
+- Production enforcement remains inactive.

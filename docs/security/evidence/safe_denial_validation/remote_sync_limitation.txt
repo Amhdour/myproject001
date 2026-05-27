@@ -1,0 +1,4 @@
+Remote/main verification limitation persists on 2026-05-27.
+Command: git fetch origin main
+Result: fatal: 'origin' does not appear to be a git repository
+Action: continued from local verified state per step instructions.
