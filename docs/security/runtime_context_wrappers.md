@@ -97,3 +97,9 @@ Implementation status for all below: **planned**.
 | raise_security_denial() | Raise safe denial surface | SecurityDecisionContext + denial code | PP-RET-01, PP-TOOL-01 | SR-RET-001, SR-TOOL-001 | R-WRAP-003 | deny decision | safe error/exception | security.wrapper.denial | TC-RW-020 |
 | record_finding() | Record violation/failure finding | SecurityDecisionContext + finding severity | PP-EVIDENCE-01 | SR-EVIDENCE-001 | R-WRAP-004 | finding payload | finding emitted | security.wrapper.finding | TC-RW-018 |
 | emit_security_metric() | Emit security telemetry | SecurityDecisionContext + metric labels | PP-EVIDENCE-01, PP-CI-01 | SR-EVIDENCE-001, SR-CI-001 | R-WRAP-004 | metric event | metric emitted | security.wrapper.metric | TC-RW-019 |
+
+## Step 13B Implementation Note (Minimal)
+- Minimal isolated context/wrapper skeletons implemented under `backend/security_layer/runtime/`.
+- No runtime integration yet.
+- In-memory audit/finding/metric helpers are test-only.
+- Enforcement is not active in application paths.
