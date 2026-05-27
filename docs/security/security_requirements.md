@@ -212,3 +212,12 @@ The following requirement mappings add migration-safety planning references rele
 - SR-EVIDENCE-001: Migration evidence bundle requirements include prerequisite check, run logs, drift output, seed validation, and backup/restore proof.
 - SR-ADMIN-001: Admin/security migration operations must be blocked without backup-before-migration and restore validation evidence.
 - SR-RET-001: Retrieval safety depends on existing-database migration validation and ACL/document seed checks to prevent post-migration authorization regressions.
+
+## Step 11 Policy-Schema References
+
+The following SR groupings now reference policy-schema artifacts:
+- SR policy governance requirements map to `docs/security/policy_schema.md`.
+- SR traceability requirements map to `docs/security/policies/*.yaml` and `docs/security/control_traceability_matrix.md`.
+- SR evidence requirements map to `docs/security/evidence/policy_schema/`.
+
+These references are documentation-level only and do not represent active runtime enforcement.

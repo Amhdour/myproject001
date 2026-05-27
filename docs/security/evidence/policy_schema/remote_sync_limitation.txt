@@ -1,0 +1,2 @@
+Remote sync verification limitation:
+GitHub remote/main verification remains limited in this execution context. Proceeded from current local verified state per instruction.

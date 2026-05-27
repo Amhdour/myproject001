@@ -98,3 +98,12 @@ References Step 10 migration-safety planning artifacts:
 - `docs/security/evidence/migration_safety/migration_safety_plan_summary.md`
 - `docs/security/evidence/migration_safety/migration_risk_traceability.md`
 - `docs/security/evidence/migration_safety/remote_sync_limitation.txt` (when remote verification remains unavailable)
+
+## Step 11 Evidence Category: Policy Schema and Policy Files
+
+Added evidence category `policy_schema` to track:
+- prerequisite verification
+- draft policy file inventory
+- policy schema summary
+- policy traceability summary
+- remote/main verification limitation (when applicable)
