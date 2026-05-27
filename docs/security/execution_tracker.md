@@ -216,3 +216,9 @@ Remote/main branch lineage and PR linkage may be incomplete from this environmen
 - Branch: `vector-db-security-design`
 - Commit: pending update at merge time
 - Notes: documentation/design/test-planning only; no runtime behavior changes.
+
+## Step 19B Status (2026-05-27)
+- ✅ Step 19B (Vector DB Security Minimal Isolated Controls) completed.
+- Added isolated vector security models/contract/validators/controls with isolated tests and evidence bundle.
+- No live vector enforcement wired; enforce/shadow-deny remain inactive.
+- Next step: Step 19C validation cleanup and future gated integration planning.

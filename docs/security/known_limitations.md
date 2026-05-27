@@ -215,3 +215,9 @@ This documentation set does not claim production readiness.
 - no vector write/read/delete controls integrated.
 - no namespace/metadata filters integrated into live vector queries.
 - production enforcement remains inactive.
+
+## Step 19B Additional Limitations (2026-05-27)
+- isolated vector DB security controls only.
+- no live vector DB enforcement wired.
+- no real vector DB/search/index/cache calls.
+- production enforcement remains inactive.

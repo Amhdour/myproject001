@@ -25,3 +25,7 @@ Status: planned/design only.
 | prompt_injection_flag | marker propagated from ingestion checks | required | boolean | non-boolean values | strict boolean; true must be preserved | VEC-TST-009 | planned |
 | poisoning_flag | poisoning/anomaly marker | required | boolean | non-boolean values | strict boolean; true must be preserved | VEC-TST-008 | planned |
 | metadata_schema_version | contract versioning | required | string | invalid/empty version | semver-style string required | VEC-TST-007 | planned |
+
+## Step 19B Implementation Update (2026-05-27)
+- Implemented isolated metadata contract helpers in `backend/security_layer/vector/metadata_contract.py`.
+- Added required 21-field schema validation, schema version validation, forbidden key/value pattern checks, and metadata sanitization/build helper.

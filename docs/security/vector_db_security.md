@@ -367,3 +367,8 @@ Design-only. No live vector write/read/delete/update enforcement wired in Step 1
 - metric: vec_findings_total
 - planned tests: VEC-TST-024, VEC-TST-025, VEC-TST-026
 - implementation status: planned
+
+## Step 19B Update (2026-05-27)
+- Implemented isolated vector DB security helper controls under `backend/security_layer/vector/`.
+- Added isolated stages, metadata contract validation, validators, and control helpers.
+- No live vector DB/search/index/cache integration or enforcement was enabled.

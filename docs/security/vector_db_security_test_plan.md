@@ -30,3 +30,7 @@ Status: planned/design only.
 | VEC-TST-024 | finding emitted | SR-AUDIT-001, SR-EVIDENCE-001 | R-VEC-006 | PP-AUDIT-02, PP-EVIDENCE-01 | finding emitted when condition met | finding record sample | planned |
 | VEC-TST-025 | metric emitted | SR-AUDIT-001 | R-VEC-008 | PP-AUDIT-02 | metric increment recorded | metric sample series | planned |
 | VEC-TST-026 | safe denial does not reveal namespace/document/chunk/source secret | SR-VEC-001 | R-VEC-010 | PP-VEC-02 | denial response generic and non-sensitive | denial payload review evidence | planned |
+
+## Step 19B Implementation Status (2026-05-27)
+- Implemented isolated tests in `backend/security_layer/tests/test_vector_*.py` covering context denials, namespace mismatch, metadata contract validation, forbidden content rejection, ACL/provenance checks, candidate filtering/flagging, and audit/finding/metric emissions.
+- Status updated: isolated helper tests implemented and executed.

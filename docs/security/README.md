@@ -166,3 +166,7 @@ No production-readiness claim is made in this phase.
 - Step 19A (Vector DB Security Design) completed as design-only documentation and planning.
 - No live vector DB enforcement integration was added.
 - Next step: implement isolated/non-live vector security scaffolding and validation before any runtime integration.
+
+## Step 19B Status (2026-05-27)
+- ✅ Implemented isolated vector DB security helper controls and tests.
+- Next step: Step 19C validation cleanup while keeping runtime enforcement inactive.
