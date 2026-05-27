@@ -172,3 +172,8 @@ Remote/main branch lineage and PR linkage may be incomplete from this environmen
 
 - Step 17B marked complete (integration-plan documentation scope only).
 \n## Step 17C Update\n- Isolated feature-flag helper implemented.\n- Isolated retrieval context builder implemented.\n- Isolated monitor/shadow/enforce hook helper implemented.\n- No live retrieval path patched; production enforcement remains inactive.
+
+
+| Phase 4 | 17C | Retrieval path context builder (isolated implementation) | AI Trust & Security Readiness Engineer | complete | retrieval-context-builder-isolated | feat(security): add isolated retrieval context builder | backend/security_layer/retrieval/integration_flags.py; backend/security_layer/retrieval/context_builder.py; backend/security_layer/retrieval/integration_hook.py; backend/security_layer/tests/test_retrieval_integration_flags.py; backend/security_layer/tests/test_retrieval_context_builder.py; backend/security_layer/tests/test_retrieval_integration_hook.py | docs/security/evidence/retrieval_context_builder_isolated/ | remote/main verification may be blocked | 2026-05-27 | TBD | TBD | Isolated-only helpers/tests/docs/evidence. No live retrieval wiring or enforcement activation. |
+
+- Step 17C marked complete (isolated implementation only).

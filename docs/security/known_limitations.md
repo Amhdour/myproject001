@@ -149,3 +149,9 @@ This documentation set does not claim production readiness.
 - rollback not implemented yet.
 - production enforcement remains inactive.
 \n## Step 17C Update\n- Isolated feature-flag helper implemented.\n- Isolated retrieval context builder implemented.\n- Isolated monitor/shadow/enforce hook helper implemented.\n- No live retrieval path patched; production enforcement remains inactive.
+
+## Step 17C Additional Limitations
+- retrieval context builder is isolated only.
+- feature flags are isolated/test-only.
+- live retrieval path is not patched.
+- production enforcement remains inactive.

@@ -1,1 +1,18 @@
-All prerequisites verified present.
+Step 17C prerequisite file check (2026-05-27 UTC)
+All required prerequisite files were verified present locally:
+- backend/security_layer/retrieval/models.py
+- backend/security_layer/retrieval/validators.py
+- backend/security_layer/retrieval/controls.py
+- backend/security_layer/runtime/contexts.py
+- backend/security_layer/runtime/denials.py
+- backend/security_layer/runtime/audit.py
+- backend/security_layer/runtime/findings.py
+- backend/security_layer/runtime/metrics.py
+- docs/security/retrieval_path_integration_plan.md
+- docs/security/retrieval_path_integration_checklist.md
+- docs/security/retrieval_path_integration_test_plan.md
+- docs/security/retrieval_acl.md
+- docs/security/retrieval_path_patching.md
+- docs/security/evidence_report.md
+- docs/security/execution_tracker.md
+- docs/security/known_limitations.md

@@ -26,3 +26,8 @@ Status: planned/test-plan
 | RPIT-018 | Validate cache read cannot bypass retrieval ACL in enforce mode. | SR-CACHE-001, SR-RET-001 | R-RINT-001 | RPC-014 | Cached candidate still ACL-checked and denied if unauthorized. | Cache + ACL decision logs. |
 | RPIT-019 | Validate no unrelated retrieval behavior changes in disabled mode. | SR-CI-001 | R-RINT-001 | RPC-016, RPC-017 | Baseline retrieval parity maintained when disabled. | Regression diff report. |
 \n## Step 17C Update\n- Isolated feature-flag helper implemented.\n- Isolated retrieval context builder implemented.\n- Isolated monitor/shadow/enforce hook helper implemented.\n- No live retrieval path patched; production enforcement remains inactive.
+
+## Step 17C Implemented Isolated Tests (2026-05-27)
+- Implemented isolated tests for integration flags, context builder, and integration hook under `backend/security_layer/tests/`.
+- Coverage includes disabled/monitor/shadow/enforce mode behavior, safe metadata validation, and in-memory audit/finding/metric emission.
+- No live retrieval/runtime integration tests were added in this step.

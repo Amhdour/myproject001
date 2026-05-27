@@ -117,3 +117,9 @@ No production-readiness claim is made in this phase.
 - Live retrieval/runtime enforcement remains inactive and not wired in this step.
 - Next step: controlled implementation of Step 17B phases with feature flags default-safe.
 \n## Step 17C Update\n- Isolated feature-flag helper implemented.\n- Isolated retrieval context builder implemented.\n- Isolated monitor/shadow/enforce hook helper implemented.\n- No live retrieval path patched; production enforcement remains inactive.
+
+## Step 17C Status (2026-05-27)
+- ✅ Step 17C (Retrieval Path Context Builder — Isolated Implementation) completed in isolated scope.
+- Added isolated feature-flag, context builder, and integration hook helpers under `backend/security_layer/retrieval/` with isolated tests.
+- Live retrieval/runtime enforcement remains inactive and not wired.
+- Next step: controlled live-path integration phases per Step 17B plan, still default-safe and non-enforcing until explicitly authorized.
