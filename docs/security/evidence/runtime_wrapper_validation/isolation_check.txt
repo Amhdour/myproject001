@@ -1,0 +1,5 @@
+Isolation checks (Step 13C)
+1) runtime module imports (backend/security_layer/runtime): no application runtime imports found.
+2) backend app paths (backend/onyx, backend/ee): no references to backend.security_layer.runtime found.
+3) web/deployment runtime paths: no references to backend.security_layer.runtime found.
+Result: wrappers remain isolated and not wired into runtime request paths.
