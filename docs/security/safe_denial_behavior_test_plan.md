@@ -38,3 +38,9 @@ Implemented in isolated tests:
 - non-leakage assertions for tenant/user/document/chunk/tool/MCP/sandbox/prompt/policy/internal exception/credentials/tokens/API keys
 - wrapper deny/fail-closed/approval-required safe behavior
 - monitor-only and shadow-deny non-leakage behavior
+
+## Step 14C coverage status (2026-05-27)
+- Isolated runtime denial coverage: strengthened and re-validated for all 14 denial categories.
+- Non-leakage coverage: strengthened for raw exception text and credential/token/API-key secrecy.
+- Payload coverage: approval-required, validation-failed, policy-engine-unavailable, and rate/quota payloads validated for safe structure and JSON serialization.
+- Wrapper coverage: deny/fail-closed/approval and monitor/shadow non-leakage behavior remains covered.

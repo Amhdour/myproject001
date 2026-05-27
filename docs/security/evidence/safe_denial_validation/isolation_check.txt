@@ -1,0 +1,9 @@
+Isolation verification:
+1) denials.py import scope
+from __future__ import annotations
+from dataclasses import asdict
+from dataclasses import dataclass
+from enum import Enum
+from typing import Any
+
+2) references to safe denial helpers outside security_layer/runtime|tests|docs/security
