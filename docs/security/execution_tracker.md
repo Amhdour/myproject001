@@ -197,3 +197,7 @@ Remote/main branch lineage and PR linkage may be incomplete from this environmen
 - Deliverable: Retrieval Security Tests Design documents, matrix, fixtures, and traceability evidence artifacts.
 
 | Step 18B | Retrieval Security Test Fixtures and Test Skeletons | completed | `test(security): add retrieval security test skeletons` | backend/security_layer/tests/retrieval_security_fixtures.py; backend/security_layer/tests/test_retrieval_security_fixtures.py; backend/security_layer/tests/test_retrieval_security_monitor_only.py; backend/security_layer/tests/test_retrieval_security_future_modes.py; docs/security/* | docs/security/evidence/retrieval_security_test_skeletons/ | local-only verification; remote sync may be unavailable | 2026-05-27 | TBD | TBD | Synthetic test fixtures + monitor-only and future-mode skeleton tests only. No enforcement activation. |
+
+## Step 18B-A Validation Cleanup Update (2026-05-27)
+- Step 18B rerun completed with passing evidence (`73 passed, 8 skipped` full security_layer suite; `6 passed, 8 skipped` direct skeleton suite).
+- Step 18B remains complete; blocker for missing pytest is resolved in current environment.

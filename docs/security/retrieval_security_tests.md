@@ -127,3 +127,8 @@ Purpose: live blocking/filtering behavior validation prerequisites. Risks: R-RTE
 - Monitor-only retrieval security skeleton tests implemented in `backend/security_layer/tests/test_retrieval_security_monitor_only.py`.
 - Future shadow-deny/enforce skeletons added in `backend/security_layer/tests/test_retrieval_security_future_modes.py` and marked skipped/xfail (`future mode not enabled yet`).
 - No enforcement enabled in this step.
+
+## Step 18B-A Execution Cleanup (2026-05-27)
+- Executed `PYTHONPATH=. python -m pytest backend/security_layer/tests -q` -> `73 passed, 8 skipped`.
+- Executed direct Step 18B skeleton suite -> `6 passed, 8 skipped`.
+- Step 18B tests are now validated as passing evidence.

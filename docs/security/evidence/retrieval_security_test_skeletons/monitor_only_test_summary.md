@@ -1,11 +1,12 @@
-# Step 18B Monitor-Only Test Summary
+# Monitor-Only Test Summary (Step 18B-A)
 
-Added monitor-only skeleton coverage in:
-- `backend/security_layer/tests/test_retrieval_security_monitor_only.py`
+Date: 2026-05-27
 
-Coverage includes preservation/no-block expectations, telemetry emission checks, and non-leakage key checks
-for document/chunk/secret fields under monitor-only behavior.
+## Result
+- Monitor-only retrieval security skeleton tests executed successfully.
+- Command: `PYTHONPATH=. python -m pytest backend/security_layer/tests/test_retrieval_security_monitor_only.py -q`
+- Outcome: passed in direct skeleton run.
 
-No enforce mode enabled.
-No shadow-deny mode enabled.
-No live retrieval blocking/filtering introduced.
+## Safety Confirmation
+- Monitor-only behavior remained non-blocking/non-filtering.
+- Live retrieval behavior unchanged.
