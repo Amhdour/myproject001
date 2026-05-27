@@ -150,3 +150,15 @@ Evidence bundle path: `docs/security/evidence/runtime_wrapper_validation/`
 - test_output.txt
 - test_exitcode.txt
 - remote_sync_limitation.txt (when remote verification remains unavailable)
+
+## Step 14A Evidence Update — Safe Denial Behavior Design
+
+- Status: complete (documentation/design/test-planning only)
+- Evidence path: `docs/security/evidence/safe_denial_behavior_design/`
+- Included artifacts:
+  - `prerequisite_check.txt`
+  - `denial_category_inventory.md`
+  - `safe_denial_test_plan_summary.md`
+  - `safe_denial_traceability_summary.md`
+  - `remote_sync_limitation.txt` (if remote sync limitation applies)
+- Runtime enforcement status: not wired / not activated.

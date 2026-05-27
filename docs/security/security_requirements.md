@@ -240,3 +240,16 @@ The following planned controls define runtime authorization context propagation 
 - `docs/security/runtime_context_wrappers_test_plan.md`
 
 No backend runtime enforcement is active from these additions.
+
+## Step 14A Safe Denial Behavior Requirements
+
+### SR-DENY-001 — Safe Denial Response Standardization
+- **Requirement ID:** SR-DENY-001
+- **Title:** Safe denial response standardization
+- **Requirement statement:** Denial responses across API/UI/streaming/tool/MCP/sandbox/retrieval surfaces must use standardized safe categories, generic user-facing messaging, redaction, and non-leakage controls.
+- **Priority:** must
+- **Status:** draft
+- **Mapped patch points:** PP-DENY-01, PP-DENY-02, PP-DENY-03
+- **Required tests:** See `docs/security/safe_denial_behavior_test_plan.md` (T-DENY-001 through T-DENY-024).
+- **Required evidence:** Denial category inventory, traceability summary, and denial test-plan evidence bundle.
+- **Blocker status:** Open (design-only; no runtime enforcement wiring).

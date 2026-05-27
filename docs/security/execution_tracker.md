@@ -122,3 +122,8 @@ Remote/main branch lineage and PR linkage may be incomplete from this environmen
 - Step 13C (Runtime Wrapper Validation Cleanup): complete on branch `runtime-wrapper-validation-cleanup`.
 - Scope: isolated runtime wrapper modules/tests/docs/evidence only.
 - Runtime enforcement remains intentionally inactive and not wired into application request paths.
+
+## Step 14A Progress Update
+- Step 14A (Safe Denial Behavior Design): complete on branch `safe-denial-behavior-design`.
+- Scope: documentation/design/test-planning/evidence only.
+- Runtime enforcement remains intentionally inactive and not wired into backend request paths.

@@ -66,3 +66,8 @@ No production-readiness claim is made in this phase.
 - ✅ Step 13C (Runtime Wrapper Validation Cleanup) completed in isolated scope.
 - Runtime wrappers remain isolated and runtime enforcement is still inactive.
 - Next step: Step 14 safe denial behavior hardening and planning for future controlled non-production integration.
+
+## Step 14A Deliverables
+- Safe denial behavior design: `docs/security/safe_denial_behavior.md`
+- Safe denial behavior test plan: `docs/security/safe_denial_behavior_test_plan.md`
+- Evidence bundle: `docs/security/evidence/safe_denial_behavior_design/`

@@ -87,3 +87,9 @@ Reference artifact: `docs/security/test_data_factories.md`.
 | CTX-WRAP-03 Safe denial handling | SR-RET-001, SR-TOOL-001 | R-WRAP-003 | PP-RET-01, PP-TOOL-01 | docs/security/runtime_context_wrappers.md |
 | CTX-WRAP-04 Audit/finding/metric emissions | SR-AUDIT-001, SR-EVIDENCE-001 | R-WRAP-004 | PP-AUDIT-01, PP-EVIDENCE-01 | docs/security/runtime_context_wrappers_test_plan.md |
 | CTX-WRAP-05 Wrapper-to-patch-point coverage | SR-RET-001, SR-VEC-001, SR-CACHE-001, SR-TOOL-001 | R-WRAP-005 | PP-RET-01, PP-VEC-01, PP-CACHE-01, PP-TOOL-01 | docs/security/runtime_context_wrappers.md |
+
+## Step 14A Safe Denial Behavior Traceability Addendum
+
+| Control / Requirement | Risks | Patch Points | Planned Tests | Evidence Artifacts | Status |
+|---|---|---|---|---|---|
+| SR-DENY-001 Safe denial response standardization | R-DENY-001, R-DENY-002, R-DENY-003, R-DENY-004, R-DENY-005 | PP-DENY-01, PP-DENY-02, PP-DENY-03 | T-DENY-001..T-DENY-024 | docs/security/evidence/safe_denial_behavior_design/denial_category_inventory.md; docs/security/evidence/safe_denial_behavior_design/safe_denial_traceability_summary.md | planned |

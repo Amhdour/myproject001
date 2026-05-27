@@ -72,3 +72,8 @@ This documentation set does not claim production readiness.
 - Runtime wrappers remain isolated under `backend/security_layer/runtime`.
 - Runtime enforcement is not active.
 - Application-path integration has not started.
+
+## Step 14A Additional Limitations
+- Safe denial behavior is documented only; runtime enforcement wiring is not implemented.
+- Denial taxonomy is planned and not yet enforced across backend/UI/streaming surfaces.
+- Denial metrics/findings/audit mappings are planning metadata pending implementation.
