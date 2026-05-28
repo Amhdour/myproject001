@@ -28,3 +28,8 @@ Status: planned/design-only.
 
 ## Step 20B Contract Helper Status
 - Isolated cache-key contract helpers implemented (`build_safe_cache_key`, schema validation, forbidden-content validation, sanitization).
+
+## Step 20C Validation Status (2026-05-28)
+- Required 21-field cache-key contract validated by isolated tests.
+- Forbidden cache-key fields and sensitive-content patterns validated as rejected.
+- Schema version and sanitization behavior validated.

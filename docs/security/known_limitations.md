@@ -242,3 +242,10 @@ This documentation set does not claim production readiness.
 - No real cache backend calls.
 - No cache read/write/invalidation controls integrated into live flows.
 - Production enforcement remains inactive.
+
+## Step 20C Limitations (2026-05-28)
+- isolated cache security controls validated only.
+- no live cache enforcement wired.
+- no real cache backend calls.
+- live cache/vector/retrieval blocking/filtering remains disabled.
+- production enforcement remains inactive.

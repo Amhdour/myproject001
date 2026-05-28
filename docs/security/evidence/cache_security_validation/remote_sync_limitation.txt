@@ -1,0 +1,2 @@
+Remote/main verification limitation (2026-05-28): `git fetch origin main` failed because no accessible `origin` remote is configured in this environment.
+Continued from current local verified state per instruction.

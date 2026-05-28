@@ -349,3 +349,7 @@ Added retrieval path patching design evidence category and bundle references.
 
 ## Step 20B Evidence
 - Added `docs/security/evidence/cache_security_minimal/` with prerequisite check, implementation summaries, control/key coverage, and test artifacts.
+
+## Step 20C Evidence Category (2026-05-28)
+- Added `docs/security/evidence/cache_security_validation/`.
+- Includes prerequisite check, model/key/validator/control validation notes, non-leakage notes, and test run artifacts.
