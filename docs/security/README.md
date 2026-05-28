@@ -219,3 +219,9 @@ Implemented minimal isolated MCP hardening helpers/tests only; no live MCP/tool/
 - Step 23A (Artifact Safety Design) is complete as documentation/design/test-planning only.
 - New documents: artifact safety design, test plan, metadata contract, content safety rules, and release policy.
 - Next step: implement minimal isolated artifact safety controls without wiring live enforcement.
+
+
+## Step 23C Update (2026-05-28)
+- Isolated artifact safety validation cleanup completed for controls/tests/docs/evidence only.
+- No live artifact/export/download/sandbox/tool/MCP/retrieval/vector/cache integration changed.
+- Enforce and shadow-deny remain inactive.

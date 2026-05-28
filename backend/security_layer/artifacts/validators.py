@@ -1,10 +1,12 @@
 from __future__ import annotations
 
 from backend.security_layer.artifacts.content_scanners import scan_artifact_malware_markers, scan_artifact_policy_markers, scan_artifact_secret_markers
-from backend.security_layer.artifacts.metadata_contract import validate_artifact_metadata
+from backend.security_layer.artifacts.metadata_contract import sanitize_metadata_for_decision, validate_artifact_metadata
 from backend.security_layer.artifacts.models import ArtifactDecisionStatus, ArtifactSecurityContext, ArtifactSecurityDecision
 from backend.security_layer.artifacts.release_policy import validate_artifact_release_policy
 from backend.security_layer.runtime.denials import DenialCategory
+
+_ALLOWED_ARTIFACT_TYPES = {"report", "export", "summary", "analysis", "log"}
 
 
 def validate_artifact_context(context: ArtifactSecurityContext) -> bool:
@@ -30,5 +32,31 @@ def validate_artifact_context_and_metadata(context: ArtifactSecurityContext) -> 
     return validate_artifact_context(context) and validate_artifact_metadata(context.metadata.values) and validate_artifact_release_policy(context.metadata.values)
 
 
-def build_artifact_decision(context: ArtifactSecurityContext, status: ArtifactDecisionStatus, reason: str, denial_category: DenialCategory | None = None, flags: list[str] | None = None) -> ArtifactSecurityDecision:
-    return ArtifactSecurityDecision(stage=context.stage, status=status, reason=reason, denial_category=denial_category, flags=tuple(flags or []))
+def validate_artifact_type(artifact_type: str) -> bool:
+    return artifact_type in _ALLOWED_ARTIFACT_TYPES
+
+
+def validate_download_authorization(is_authorized: bool) -> bool:
+    return is_authorized
+
+
+def validate_retention_deletion_authorization(can_delete: bool) -> bool:
+    return can_delete
+
+
+def build_artifact_decision(
+    context: ArtifactSecurityContext,
+    status: ArtifactDecisionStatus,
+    reason: str,
+    denial_category: DenialCategory | None = None,
+    flags: list[str] | None = None,
+) -> ArtifactSecurityDecision:
+    safe_metadata = sanitize_metadata_for_decision(context.metadata.values) if context.metadata else {}
+    return ArtifactSecurityDecision(
+        stage=context.stage,
+        status=status,
+        reason=reason,
+        denial_category=denial_category,
+        flags=tuple(flags or []),
+        metadata=safe_metadata,
+    )

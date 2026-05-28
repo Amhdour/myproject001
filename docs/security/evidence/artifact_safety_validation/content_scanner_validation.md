@@ -1,0 +1,1 @@
+Content scanners validated for secret/API-key/token/private-key/password markers and policy markers (document/chunk/cross-tenant/sensitive/prompt-injection/poisoning/dangerous command/path traversal/unsafe URL) and size checks.

@@ -26,3 +26,9 @@ Status: planned
 - known limitations
 
 All items above are design-only and not wired into live behavior in this step.
+
+
+## Step 23C Update (2026-05-28)
+- Isolated artifact safety validation cleanup completed for controls/tests/docs/evidence only.
+- No live artifact/export/download/sandbox/tool/MCP/retrieval/vector/cache integration changed.
+- Enforce and shadow-deny remain inactive.
