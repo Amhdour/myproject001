@@ -1,0 +1,3 @@
+Branch requirement: artifact-safety-minimal (satisfied)
+Required files: created and populated
+No enforce/shadow deny/live blocking modes enabled in artifact module
