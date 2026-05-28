@@ -231,3 +231,15 @@ Status: Initial risk catalog. No mitigation controls implemented in this step.
 | R-SD-006 | feature flag misconfiguration | planned |
 | R-SD-007 | shadow-deny evidence not correlated with monitor-only | planned |
 | R-SD-008 | enforce enabled before shadow-deny gates pass | planned |
+
+## Step 26A Enforce-Mode Readiness Risks
+- R-ENF-001 enforce mode activates before gates pass.
+- R-ENF-002 enforce blocks valid user request.
+- R-ENF-003 enforce denial leaks sensitive context.
+- R-ENF-004 rollback or kill switch unavailable.
+- R-ENF-005 blast radius too broad.
+- R-ENF-006 CI/staging evidence missing.
+- R-ENF-007 false-positive review incomplete.
+- R-ENF-008 telemetry gaps hide enforce impact.
+- R-ENF-009 incident response not ready.
+- R-ENF-010 enforce enabled before legal/compliance/owner approval.

@@ -445,3 +445,8 @@ Evidence bundle path: `docs/security/evidence/cross_control_evidence_validation/
 - Evidence folder: `docs/security/evidence/shadow_deny_simulation_validation/`.
 - Focused and full security-layer test suites passed.
 - Confirmed simulation-only operation (no enforce mode, no live blocking/filtering, no application behavior change).
+
+## Step 26A - Enforce-Mode Readiness Planning Evidence
+- Evidence directory: `docs/security/evidence/enforce_mode_readiness_planning/`
+- Includes prerequisite verification, readiness/test/flag/gate/blast-radius/rollback summaries, traceability summary, and security-layer pytest output capture.
+- This evidence category is planning/documentation only and does not represent enforce-mode runtime activation.

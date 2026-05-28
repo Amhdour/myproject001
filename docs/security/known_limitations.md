@@ -344,3 +344,11 @@ Validation cleanup is isolated-only. No enforce mode, no shadow-deny mode, and n
 - Evidence folder: `docs/security/evidence/shadow_deny_simulation_validation/`.
 - Focused and full security-layer test suites passed.
 - Confirmed simulation-only operation (no enforce mode, no live blocking/filtering, no application behavior change).
+
+## Step 26A Enforce-Mode Readiness Limitations
+- enforce-mode readiness is planning-only.
+- no enforce runtime activation.
+- no live blocking/filtering enabled.
+- shadow-deny runtime remains inactive.
+- production enforcement remains inactive.
+- production readiness is not claimed.

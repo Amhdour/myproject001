@@ -261,3 +261,7 @@ Step 24C is validation/documentation-only and does not enable enforce mode, shad
 - Evidence folder: `docs/security/evidence/shadow_deny_simulation_validation/`.
 - Focused and full security-layer test suites passed.
 - Confirmed simulation-only operation (no enforce mode, no live blocking/filtering, no application behavior change).
+
+## Step 26A Status
+- Step 26A Enforce-Mode Readiness Planning is complete as documentation/evidence only.
+- Next step: Step 26B enforce-mode simulation/validation planning while keeping runtime enforcement inactive.
