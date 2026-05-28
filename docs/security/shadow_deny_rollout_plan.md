@@ -132,3 +132,9 @@ Completion of this plan does not indicate production readiness.
 | Secure ingestion | isolated controls exist | limited | planning only | SD-1..SD-9 | INGESTION_SHADOW_DENY_ENABLED | required | simulation + record | live blocking/filtering | disable family + global flags | SDP-019 | gate + test artifacts | blocked pending monitor-only evidence |
 | Safe denial shared runtime | design/minimal isolated components exist | n/a | planning only | SD-2..SD-6 | SECURITY_SHADOW_DENY_ENABLED | required | categorize simulated denial safely | denial leakage | disable global flags | SDP-007, SDP-004, SDP-005 | non-leakage evidence | ready for future shadow-deny planning only |
 | Audit/finding/metric shared sink | isolated evidence patterns exist | monitor-only emits partial evidence | planning only | SD-1..SD-7 | SHADOW_DENY_DECISION_RECORDING_ENABLED | required | record-only emissions | missing correlation or raw data leakage | disable recording flag | SDP-008, SDP-009, SDP-010 | correlated evidence records | blocked from activation |
+
+## Step 25B Implementation Note
+- Isolated shadow-deny simulation harness implemented.
+- No runtime shadow-deny activation.
+- No live blocking/filtering.
+- No production enforcement active.
