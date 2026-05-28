@@ -373,3 +373,7 @@ Added retrieval path patching design evidence category and bundle references.
 
 ## Step 22B Update (2026-05-28)
 Implemented minimal isolated MCP hardening helpers/tests only; no live MCP/tool/agent integration and no production enforcement activation.
+
+## Step 22C Evidence Category (2026-05-28)
+- Added: `docs/security/evidence/mcp_hardening_validation/`
+- Includes model/registry/request/credential/egress/signing-replay/validator/control/non-leakage validation summaries and test output artifacts.

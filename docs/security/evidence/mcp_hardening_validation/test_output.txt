@@ -1,0 +1,9 @@
+$ source .venv/bin/activate && PYTHONPATH=. pytest backend/security_layer/tests/test_mcp_* -q
+........                                                                 [100%]
+8 passed, 14 warnings in 0.23s
+
+$ source .venv/bin/activate && PYTHONPATH=. pytest backend/security_layer/tests -q
+........................................................................ [ 45%]
+.........ssssssss....................................................... [ 91%]
+.............                                                            [100%]
+149 passed, 8 skipped, 163 warnings in 0.85s

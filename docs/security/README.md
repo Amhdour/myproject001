@@ -208,3 +208,9 @@ No production-readiness claim is made in this phase.
 
 ## Step 22B Update (2026-05-28)
 Implemented minimal isolated MCP hardening helpers/tests only; no live MCP/tool/agent integration and no production enforcement activation.
+
+## Step 22C Status (2026-05-28)
+- ✅ Step 22C (MCP Hardening Validation Cleanup) completed in isolated scope.
+- MCP model/registry/request/credential/egress/signing/replay/validator/control and non-leakage validation evidence captured.
+- Enforce and shadow-deny remain inactive.
+- No live MCP/tool/cache/vector/retrieval blocking/filtering enabled; no application behavior changes.

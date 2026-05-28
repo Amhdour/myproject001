@@ -284,3 +284,6 @@ This documentation set does not claim production readiness.
 
 ## Step 22B Update (2026-05-28)
 Implemented minimal isolated MCP hardening helpers/tests only; no live MCP/tool/agent integration and no production enforcement activation.
+
+## Step 22C Update (2026-05-28)
+Validation cleanup is isolated-only. No enforce mode, no shadow-deny mode, and no live MCP/tool/cache/vector/retrieval blocking/filtering enabled.
