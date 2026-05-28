@@ -207,3 +207,15 @@ Status: Initial risk catalog. No mitigation controls implemented in this step.
 | R-ART-010 | artifact retention/deletion policy bypass | Retention or deletion policy is skipped or bypassed. | Governance, compliance | medium | medium | medium | SR-ART-001 | PP-ART-01 | Retention/deletion authorization stages with audit. | Retention/deletion evidence | Codex | Open |
 | R-ART-011 | prompt injection embedded in artifact | Prompt-injection payload persists in generated/exported artifact. | Prompt integrity | medium | high | high | SR-ART-001, SR-PROMPT-001 | PP-ART-01, PP-PROMPT-01 | Prompt-injection marker checks and findings. | Marker detection evidence | Codex | Open |
 | R-ART-012 | high-risk artifact released without approval | Approval-required artifact is released before approval decision. | Change control, safety | medium | high | high | SR-ART-001, SR-APPROVAL-001 | PP-ART-01, PP-APPROVAL-01 | Approval_required metadata and release hold plan. | Approval flow evidence | Codex | Open |
+
+## Step 24A Cross-Control Risks (8)
+| Risk ID | Description | Status |
+|---|---|---|
+| R-CC-001 | Context propagation mismatch across retrieval/vector/cache surfaces | open |
+| R-CC-002 | Denial contract divergence between wrappers and control modules | open |
+| R-CC-003 | Tool and MCP authorization sequencing mismatch | open |
+| R-CC-004 | Policy/version drift across integrated control boundaries | open |
+| R-CC-005 | Audit/finding event schema inconsistency across modules | open |
+| R-CC-006 | Rollout mode misconfiguration leading to unintended blocking | open |
+| R-CC-007 | Rollback incompleteness after partial integration deployment | open |
+| R-CC-008 | Production launch decision with unresolved cross-control gaps | open |

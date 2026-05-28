@@ -1,0 +1,5 @@
+Step 24A prerequisite check
+- Branch: cross-control-integration-readiness
+- Required docs paths: present
+- Required evidence paths: present
+- Scope: documentation-only

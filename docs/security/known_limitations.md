@@ -301,3 +301,8 @@ Validation cleanup is isolated-only. No enforce mode, no shadow-deny mode, and n
 - Isolated artifact safety validation cleanup completed for controls/tests/docs/evidence only.
 - No live artifact/export/download/sandbox/tool/MCP/retrieval/vector/cache integration changed.
 - Enforce and shadow-deny remain inactive.
+
+## Step 24A Known Limitations
+- Cross-control integration remains documentation-first and monitor-only.
+- No enforce mode, no shadow-deny mode, and no live blocking/filtering were enabled.
+- Remote PR linkage may remain unavailable when remote sync is restricted.

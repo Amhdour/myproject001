@@ -276,3 +276,8 @@ Status: Complete (post-commit).
 - Isolated artifact safety validation cleanup completed for controls/tests/docs/evidence only.
 - No live artifact/export/download/sandbox/tool/MCP/retrieval/vector/cache integration changed.
 - Enforce and shadow-deny remain inactive.
+
+## Step 24A Progress Update
+- Step 24A (Cross-Control Integration Readiness): complete on branch `cross-control-integration-readiness`.
+- Scope: documentation/evidence + isolated test execution only.
+- Runtime enforcement remains intentionally inactive; no application behavior changes introduced.
