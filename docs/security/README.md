@@ -187,3 +187,7 @@ No production-readiness claim is made in this phase.
 ## Step 20C Status (2026-05-28)
 - ✅ Cache Security Validation Cleanup complete in isolated scope.
 - Next step: plan future gated integration sequencing while keeping production enforcement inactive.
+
+## Step 21A Update
+- **Step 21A status:** complete (design-only).
+- **Next step:** implementation planning for non-live scaffolding while shadow-deny/enforce remain blocked.

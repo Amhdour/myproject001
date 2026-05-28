@@ -245,3 +245,5 @@ Remote/main branch lineage and PR linkage may be incomplete from this environmen
 - Enforce mode remains inactive/no-go.
 - Shadow-deny mode remains inactive/blocked.
 - No live cache/vector/retrieval blocking/filtering enabled.
+
+- Step 21A (Tool Authorization Design): complete (design-only docs and evidence added; no live enforcement enabled).

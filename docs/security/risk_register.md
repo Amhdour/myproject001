@@ -165,3 +165,15 @@ Status: Initial risk catalog. No mitigation controls implemented in this step.
 | R-CACHE-008 | answer cache reuses unauthorized context | answer generated from unauthorized context reused | response confidentiality | medium | high | high | SR-CACHE-001,SR-PROMPT-001 | PP-CACHE-01,PP-PROMPT-02 | answer provenance/context binding | answer reuse evidence | AI Trust & Security Readiness Engineer | Open |
 | R-CACHE-009 | tool result cache crosses tenant boundary | tool output cache reused across tenants | tool data | medium | high | high | SR-CACHE-001,SR-TOOL-001 | PP-CACHE-01,PP-TOOL-01 | tenant-bound tool cache policy | tool cache isolation evidence | AI Trust & Security Readiness Engineer | Open |
 | R-CACHE-010 | cache metadata leaks sensitive source details | cache metadata contains secrets/raw internals | secrets/compliance | medium | high | high | SR-CACHE-001,SR-DLP-001,SR-AUDIT-001 | PP-CACHE-01,PP-DLP-01,PP-AUDIT-01 | safe IDs/hashes + denial redaction | metadata redaction evidence | AI Trust & Security Readiness Engineer | Open |
+
+## Tool Authorization Risks (Step 21A)
+- R-TOOL-001 unknown tool executed by default
+- R-TOOL-002 unauthorized user invokes tool
+- R-TOOL-003 cross-tenant tool execution
+- R-TOOL-004 tool argument injection
+- R-TOOL-005 SSRF through tool argument
+- R-TOOL-006 command/path traversal through tool argument
+- R-TOOL-007 high-risk tool executes without approval
+- R-TOOL-008 delegated credential misuse
+- R-TOOL-009 tool result leaks secrets or restricted data
+- R-TOOL-010 prompt injection triggers unsafe tool action

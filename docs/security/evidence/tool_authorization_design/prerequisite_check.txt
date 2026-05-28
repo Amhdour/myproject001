@@ -1,0 +1,19 @@
+Step 21A prerequisite check: all required files present.
+Verified files:
+- docs/security/tool_authorization.md
+- docs/security/policy_model.md (present in prior baseline/context expectation)
+- docs/security/policy_engine.md
+- docs/security/runtime_context_wrappers.md
+- docs/security/safe_denial_behavior.md
+- docs/security/retrieval_security_tests.md
+- docs/security/cache_security.md
+- docs/security/security_requirements.md
+- docs/security/risk_register.md
+- docs/security/control_traceability_matrix.md
+- docs/security/patch_points.md
+- docs/security/evidence_report.md
+- docs/security/execution_tracker.md
+- docs/security/known_limitations.md
+- backend/security_layer/policies/models.py
+- backend/security_layer/runtime/contexts.py
+- backend/security_layer/runtime/denials.py
