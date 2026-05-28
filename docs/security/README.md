@@ -214,3 +214,8 @@ Implemented minimal isolated MCP hardening helpers/tests only; no live MCP/tool/
 - MCP model/registry/request/credential/egress/signing/replay/validator/control and non-leakage validation evidence captured.
 - Enforce and shadow-deny remain inactive.
 - No live MCP/tool/cache/vector/retrieval blocking/filtering enabled; no application behavior changes.
+
+## Step 23A Status
+- Step 23A (Artifact Safety Design) is complete as documentation/design/test-planning only.
+- New documents: artifact safety design, test plan, metadata contract, content safety rules, and release policy.
+- Next step: implement minimal isolated artifact safety controls without wiring live enforcement.
