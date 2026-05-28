@@ -238,3 +238,12 @@ Mapped controls for R-RPATCH-001 through R-RPATCH-008.
 | RDA-CTRL-007 Monitor-only behavior preservation | SR-CI-001, SR-EVIDENCE-001 | R-MON-001, R-MON-002, R-RDA-006 | regression/runner.py | behavior_preservation_validation.md | implemented isolated only |
 | RDA-CTRL-008 Shadow-deny/enforce simulation boundary | SR-CI-001, SR-EVIDENCE-001 | R-SD-001, R-ENF-001, R-ENF-002, R-RDA-005 | regression/runner.py | no_live_blocking_validation.md | implemented isolated only |
 | RDA-CTRL-009 Safe denial and non-leakage | SR-DLP-001, SR-AUDIT-001 | R-SAFE-001, R-SAFE-002, R-AUD-001, R-RDA-003 | regression/non_leakage.py | test_regression_demo_non_leakage.py | implemented isolated only |
+
+## Step 29X Coolify Staging Traceability Rows
+
+| Control ID | Requirement(s) | Risk(s) | Planned/Implemented Artifact | Tests/Evidence | Status |
+|---|---|---|---|---|---|
+| CS-CTRL-001 Staging deployment plan | SR-EVIDENCE-001, SR-CI-001 | R-CS-001, R-CS-003 | coolify_staging_deployment_plan.md | deployment_plan_summary.md | repository-prepared; live validation pending |
+| CS-CTRL-002 Placeholder environment template | SR-DLP-001, SR-CI-001 | R-CS-002 | coolify_staging_env_template.md | env_template_summary.md | implemented documentation only |
+| CS-CTRL-003 Staging smoke and rollback gates | SR-CI-001, SR-EVIDENCE-001 | R-CS-001, R-CS-004 | coolify_staging_smoke_test_plan.md; coolify_staging_rollback_plan.md; coolify_staging_go_no_go.md | smoke_test_plan_summary.md; rollback_plan_summary.md; go_no_go_summary.md | planned; live validation pending |
+| CS-CTRL-004 Isolated staging helper checklist | SR-EVIDENCE-001 | R-CS-003, R-CS-004 | backend/security_layer/staging/ | test_staging_models.py; test_staging_checklist.py; staging_helper_coverage.md | implemented isolated only |

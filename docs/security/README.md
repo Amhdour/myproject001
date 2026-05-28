@@ -297,3 +297,23 @@ Added artifacts:
 Boundary: synthetic fixtures only, no staging execution yet, no live blocking/filtering, no enforce runtime activation, no shadow-deny runtime activation, and no production-readiness claim.
 
 Next recommended step: separately approved staging-only demo attack execution using synthetic tenants and staging telemetry.
+
+## Step 29X — Coolify Staging Evidence Bundle
+
+Status: repository preparation complete; live Coolify staging validation pending.
+
+Added artifacts:
+
+- `docs/security/coolify_staging_deployment_plan.md`
+- `docs/security/coolify_staging_checklist.md`
+- `docs/security/coolify_staging_env_template.md`
+- `docs/security/coolify_staging_smoke_test_plan.md`
+- `docs/security/coolify_staging_rollback_plan.md`
+- `docs/security/coolify_staging_go_no_go.md`
+- `backend/security_layer/staging/`
+- `docs/security/evidence/coolify_staging_evidence_bundle/`
+
+Step 29X did not execute a real Coolify deployment. Live staging validation is
+pending. Enforce mode remains disabled, shadow-deny runtime mode remains
+disabled, live blocking/filtering remain disabled, and no production-readiness
+claim is made.

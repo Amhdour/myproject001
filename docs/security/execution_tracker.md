@@ -340,3 +340,12 @@ Status: Complete (post-commit).
 - Tests: focused regression/demo tests passed; full security-layer tests passed.
 - Safety: no enforce mode enabled, no shadow-deny runtime mode enabled, no live blocking/filtering enabled, no application behavior changed, and no production-readiness claim.
 - Remote verification: remote/main verification unavailable because no `origin` remote is configured in this environment.
+
+## Step 29X Coolify Staging Evidence Bundle (2026-05-28)
+
+| Phase | Step | Workstream | Owner | Status | Branch | Commit | PR | Primary Artifacts | Evidence | External dependency status | Date | Runtime behavior | Notes |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Phase 5 | 29X | Coolify staging evidence bundle | AI Trust & Security Readiness Engineer | complete for repository preparation; live validation pending | coolify-staging-evidence-bundle | TBD | TBD | docs/security/coolify_staging_deployment_plan.md; docs/security/coolify_staging_checklist.md; docs/security/coolify_staging_env_template.md; docs/security/coolify_staging_smoke_test_plan.md; docs/security/coolify_staging_rollback_plan.md; docs/security/coolify_staging_go_no_go.md; backend/security_layer/staging/ | docs/security/evidence/coolify_staging_evidence_bundle/ | Real Coolify deployment not executed; live staging validation pending | 2026-05-28 | No enforce mode, no shadow-deny runtime mode, no live blocking/filtering, no application behavior change | Repository-only staging evidence preparation. No production-readiness claim. |
+
+- Focused staging tests passed: `PYTHONPATH=. python -m pytest backend/security_layer/tests/test_staging_models.py backend/security_layer/tests/test_staging_checklist.py -q`.
+- Full security-layer tests passed: `PYTHONPATH=. python -m pytest backend/security_layer/tests -q`.

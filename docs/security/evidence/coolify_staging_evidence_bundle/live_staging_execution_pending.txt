@@ -1,0 +1,3 @@
+Real Coolify deployment executed: no
+Live staging validation status: pending
+Reason: this repository change prepared staging documentation, isolated helper modules, tests, and evidence only. No real Coolify deployment or smoke validation was performed.

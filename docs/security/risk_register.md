@@ -256,3 +256,12 @@ Status: Initial risk catalog. No mitigation controls implemented in this step.
 | R-RDA-004 | Monitor-only behavior not validated under production load. | Load-related behavior preservation risks may remain. | Run controlled staging/load validation before broader rollout. | Open |
 | R-RDA-005 | Enforce/shadow simulation not equivalent to live enforcement. | Simulation could miss runtime side effects. | Keep enforce/shadow runtime disabled until explicit gates pass. | Open |
 | R-RDA-006 | Partner demo overclaims production readiness. | Misleading customer communication risk. | Use the non-claim and partner-demo boundary in demo materials. | Open |
+
+## Step 29X Coolify Staging Risks
+
+| Risk ID | Risk | Impact | Mitigation | Status |
+|---|---|---|---|---|
+| R-CS-001 | Real Coolify staging deployment has not been executed. | Live deployment issues may remain undiscovered. | Keep live staging validation pending and require separate approved deployment evidence. | Open |
+| R-CS-002 | Placeholder environment values are copied into a real deployment without secret-store replacement. | Staging deployment may fail or expose misconfiguration. | Use the environment template only as a category checklist; inject real values outside the repository. | Open |
+| R-CS-003 | Staging evidence is mistaken for production readiness. | Stakeholders may overclaim readiness. | Maintain explicit no-production-readiness statements in docs, evidence, and go/no-go output. | Open |
+| R-CS-004 | Runtime mode flags are accidentally enabled during staging. | Unexpected blocking/filtering or behavior changes could occur. | Checklist and smoke plan require enforce, shadow-deny runtime, live blocking, and live filtering to remain disabled. | Open |

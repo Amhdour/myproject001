@@ -492,3 +492,27 @@ Evidence bundle path: `docs/security/evidence/regression_demo_attack_bundle/`
 - remote_sync_limitation.txt
 
 Step 28X is isolated regression/demo evidence only. It adds synthetic fixtures, isolated scenario definitions, an isolated local runner, and isolated tests. It does not enable enforce mode, shadow-deny runtime mode, live blocking, live filtering, or production-readiness claims.
+
+## Step 29X Evidence Category: Coolify Staging Evidence Bundle
+
+Evidence bundle path: `docs/security/evidence/coolify_staging_evidence_bundle/`
+
+- prerequisite_check.txt
+- deployment_plan_summary.md
+- staging_checklist_summary.md
+- env_template_summary.md
+- smoke_test_plan_summary.md
+- rollback_plan_summary.md
+- go_no_go_summary.md
+- staging_helper_coverage.md
+- test_output.txt
+- test_exitcode.txt
+- live_staging_execution_pending.txt
+- remote_sync_limitation.txt
+
+Step 29X prepares Coolify staging documentation, isolated in-memory staging
+helper modules, focused tests, full security-layer test evidence, and sanitized
+summary artifacts. No real Coolify deployment was executed; live staging
+validation remains pending. This step does not enable enforce mode,
+shadow-deny runtime mode, live blocking, live filtering, or application behavior
+changes, and it makes no production-readiness claim.
