@@ -254,3 +254,10 @@ Step 24C is validation/documentation-only and does not enable enforce mode, shad
 ## Status Update
 - Step 25B completed: isolated simulation harness added.
 - Next: Step 25C validation and gated review.
+
+## Step 25C - Shadow-Deny Simulation Validation (2026-05-28)
+
+- Completed validation on branch `shadow-deny-simulation-validation`.
+- Evidence folder: `docs/security/evidence/shadow_deny_simulation_validation/`.
+- Focused and full security-layer test suites passed.
+- Confirmed simulation-only operation (no enforce mode, no live blocking/filtering, no application behavior change).

@@ -1,0 +1,4 @@
+Branch: shadow-deny-simulation-validation
+Commit: 2964112dc52c1939828b30c88c8f9a605daefbf2
+Date: 2026-05-28T13:08:38Z
+Prerequisites: verified existing shadow-deny docs and tests present.

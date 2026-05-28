@@ -1,0 +1,3 @@
+Remote branch `shadow-deny-simulation-validation` did not exist in this local clone at execution time.
+Work proceeded by creating the required local branch from current HEAD.
+No remote synchronization was performed in this environment.
