@@ -353,3 +353,11 @@ Validation cleanup is isolated-only. No enforce mode, no shadow-deny mode, and n
 - Production enforcement remains inactive.
 - Production readiness is not claimed.
 - Remote/main verification was limited because `origin` was not configured in this environment.
+
+## Step 27X Limited Monitor-Only Integration Limitations
+
+- The bundle is isolated helper scaffolding only and is not wired into live cache/application request paths.
+- The shared sink uses in-memory security-layer runtime helpers in tests; production telemetry sink reliability is not validated.
+- Remote branch synchronization could not be verified because no git remote is configured in this workspace.
+- Enforce mode and shadow-deny runtime activation remain outside Step 27X scope and inactive.
+- This step does not claim production readiness.

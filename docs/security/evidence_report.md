@@ -453,3 +453,22 @@ Evidence bundle path: `docs/security/evidence/cross_control_evidence_validation/
 - Evidence folder: `docs/security/evidence/enforce_mode_readiness_bundle/`.
 - Test evidence: focused enforce-mode tests passed; full security-layer tests passed.
 - Boundary: no enforce runtime activation, no shadow-deny runtime activation, no live blocking/filtering, and no production-readiness claim.
+
+## Step 27X Evidence Category: Limited Monitor-Only Integration Bundle
+
+Evidence bundle path: `docs/security/evidence/limited_monitor_only_integration_bundle/`
+
+- prerequisite_check.txt
+- candidate_selection_summary.md
+- integration_plan_summary.md
+- feature_flag_summary.md
+- shared_sink_coverage.md
+- cache_adapter_coverage.md
+- behavior_preservation_summary.md
+- no_live_blocking_validation.md
+- non_leakage_validation.md
+- test_output.txt
+- test_exitcode.txt
+- remote_sync_limitation.txt
+
+Step 27X remains monitor-only helper scaffolding only. It adds no broad live hook and makes no production-readiness claim.

@@ -1,0 +1,19 @@
+Step 27X prerequisite check
+Date: 2026-05-28
+Branch: limited-monitor-only-integration-bundle
+Starting commit: 98be2040f571b93fe75c365a90bc66237ccc47ec
+
+Verified existing prerequisite files:
+present: docs/security/README.md
+present: docs/security/evidence_report.md
+present: docs/security/execution_tracker.md
+present: docs/security/known_limitations.md
+present: docs/security/cross_control_monitor_only_boundary.md
+present: docs/security/cross_control_no_live_enforcement_attestation.md
+present: backend/security_layer/cache/models.py
+present: backend/security_layer/cache/validators.py
+present: backend/security_layer/runtime/audit.py
+present: backend/security_layer/runtime/findings.py
+present: backend/security_layer/runtime/metrics.py
+
+Remote check:

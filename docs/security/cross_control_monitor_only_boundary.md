@@ -65,3 +65,13 @@ No code path may remove, reorder, or rewrite payloads in monitor-only mode.
 6. artifact safety future monitor-only candidate
 7. secure ingestion future monitor-only candidate
 8. shared audit/finding/metric sink future candidate
+
+## Step 27X Boundary Update
+
+- Reviewed monitor-only candidates count: 8.
+- Selected monitor-only candidates count: 2.
+- Selected candidates: LMO-002 shared audit/finding/metric sink consolidation and LMO-004 cache monitor-only dry-run adapter.
+- New broad live hooks added: 0.
+- The cache adapter is isolated and not wired into live cache paths.
+- The shared sink is a helper for telemetry consolidation only.
+- Blocking, filtering, payload mutation, and return-value changes remain forbidden.
