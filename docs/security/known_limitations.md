@@ -361,3 +361,13 @@ Validation cleanup is isolated-only. No enforce mode, no shadow-deny mode, and n
 - Remote branch synchronization could not be verified because no git remote is configured in this workspace.
 - Enforce mode and shadow-deny runtime activation remain outside Step 27X scope and inactive.
 - This step does not claim production readiness.
+
+## Step 28X Regression + Demo Attack Bundle Limitations
+
+- The regression/demo attack bundle is isolated only.
+- Demo attacks use synthetic fixtures only.
+- No staging execution has occurred yet.
+- No live blocking/filtering is enabled.
+- No enforce runtime activation is enabled.
+- No shadow-deny runtime activation is enabled.
+- Production readiness is not claimed.

@@ -224,3 +224,17 @@ Mapped controls for R-RPATCH-001 through R-RPATCH-008.
 | EM-CTRL-007 Secure ingestion enforce readiness | SR-ING-001, SR-EVIDENCE-001 | R-ENF-001, R-ENF-006, R-ENF-008 | enforce_mode_readiness_plan.md | test_enforce_mode_controls.py | planned/simulated only |
 | EM-CTRL-008 Safe denial shared runtime readiness | SR-DLP-001, SR-AUDIT-001 | R-ENF-002, R-ENF-003, R-ENF-007 | enforce_mode_readiness_plan.md | test_enforce_mode_gates.py; test_enforce_mode_simulator.py | planned/simulated only |
 | EM-CTRL-009 Audit/finding/metric shared sink readiness | SR-AUDIT-001, SR-EVIDENCE-001 | R-ENF-008, R-ENF-009, R-ENF-010 | enforce_mode_gate_validation.md | test_enforce_mode_gates.py; validation_summary.md | planned/simulated only |
+
+## Step 28X Regression/Demo Attack Traceability Rows
+
+| Control ID | Requirement(s) | Risk(s) | Planned/Implemented Artifact | Tests/Evidence | Status |
+|---|---|---|---|---|---|
+| RDA-CTRL-001 Retrieval regression/demo coverage | SR-RET-001, SR-EVIDENCE-001 | R-RET-001, R-RET-002, R-RET-003, R-RET-004 | regression_demo_attack_plan.md; regression_demo_attack_matrix.md | test_regression_demo_runner.py; evidence/regression_demo_attack_bundle/ | implemented isolated only |
+| RDA-CTRL-002 Vector regression/demo coverage | SR-VEC-001, SR-EVIDENCE-001 | R-VEC-001, R-VEC-002 | regression/scenarios.py | test_regression_demo_scenarios.py | implemented isolated only |
+| RDA-CTRL-003 Cache regression/demo coverage | SR-CACHE-001, SR-EVIDENCE-001 | R-CACHE-001, R-CACHE-002 | regression/fixtures.py | test_regression_demo_fixtures.py | implemented isolated only |
+| RDA-CTRL-004 Tool and prompt-to-tool demo coverage | SR-TOOL-001, SR-DLP-001 | R-TOOL-001, R-TOOL-002, R-TOOL-003 | regression/scenarios.py | test_regression_demo_runner.py | implemented isolated only |
+| RDA-CTRL-005 MCP demo coverage | SR-MCP-001, SR-EVIDENCE-001 | R-MCP-001, R-MCP-002, R-MCP-003 | regression/fixtures.py | test_regression_demo_runner.py | implemented isolated only |
+| RDA-CTRL-006 Artifact demo coverage | SR-ART-001, SR-DLP-001 | R-ART-001, R-ART-002, R-ART-003 | regression/fixtures.py | test_regression_demo_fixtures.py | implemented isolated only |
+| RDA-CTRL-007 Monitor-only behavior preservation | SR-CI-001, SR-EVIDENCE-001 | R-MON-001, R-MON-002, R-RDA-006 | regression/runner.py | behavior_preservation_validation.md | implemented isolated only |
+| RDA-CTRL-008 Shadow-deny/enforce simulation boundary | SR-CI-001, SR-EVIDENCE-001 | R-SD-001, R-ENF-001, R-ENF-002, R-RDA-005 | regression/runner.py | no_live_blocking_validation.md | implemented isolated only |
+| RDA-CTRL-009 Safe denial and non-leakage | SR-DLP-001, SR-AUDIT-001 | R-SAFE-001, R-SAFE-002, R-AUD-001, R-RDA-003 | regression/non_leakage.py | test_regression_demo_non_leakage.py | implemented isolated only |

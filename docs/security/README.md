@@ -280,3 +280,20 @@ Step 27X adds isolated monitor-only helper scaffolding and evidence:
 - Evidence: `docs/security/evidence/limited_monitor_only_integration_bundle/`
 
 The bundle selects LMO-002 shared sink consolidation and LMO-004 cache dry-run adapter. It adds no broad live hook, enables no enforce mode, enables no shadow-deny runtime mode, and makes no production-readiness claim.
+
+## Step 28X — Regression + Demo Attack Bundle
+
+Status: complete as an isolated regression/demo bundle.
+
+Added artifacts:
+
+- `docs/security/regression_demo_attack_plan.md`
+- `docs/security/regression_demo_attack_matrix.md`
+- `docs/security/regression_demo_attack_evidence_standard.md`
+- `docs/security/evidence/regression_demo_attack_bundle/`
+- `backend/security_layer/regression/`
+- isolated regression/demo tests under `backend/security_layer/tests/`
+
+Boundary: synthetic fixtures only, no staging execution yet, no live blocking/filtering, no enforce runtime activation, no shadow-deny runtime activation, and no production-readiness claim.
+
+Next recommended step: separately approved staging-only demo attack execution using synthetic tenants and staging telemetry.

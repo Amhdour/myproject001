@@ -472,3 +472,23 @@ Evidence bundle path: `docs/security/evidence/limited_monitor_only_integration_b
 - remote_sync_limitation.txt
 
 Step 27X remains monitor-only helper scaffolding only. It adds no broad live hook and makes no production-readiness claim.
+
+## Step 28X Evidence Category: Regression + Demo Attack Bundle
+
+Evidence bundle path: `docs/security/evidence/regression_demo_attack_bundle/`
+
+- prerequisite_check.txt
+- plan_summary.md
+- scenario_matrix_summary.md
+- evidence_standard_summary.md
+- fixture_coverage.md
+- scenario_coverage.md
+- runner_coverage.md
+- non_leakage_validation.md
+- behavior_preservation_validation.md
+- no_live_blocking_validation.md
+- test_output.txt
+- test_exitcode.txt
+- remote_sync_limitation.txt
+
+Step 28X is isolated regression/demo evidence only. It adds synthetic fixtures, isolated scenario definitions, an isolated local runner, and isolated tests. It does not enable enforce mode, shadow-deny runtime mode, live blocking, live filtering, or production-readiness claims.
