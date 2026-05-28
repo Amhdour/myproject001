@@ -400,3 +400,14 @@ Validation cleanup is isolated-only. No enforce mode, no shadow-deny mode, and n
 - The final bundle does not include compliance certification; compliance certification is **NOT CLAIMED**.
 - The final bundle does not claim production readiness or enterprise production readiness; both remain **NO-GO**.
 - The final-review helper package is isolated and does not enable enforce mode, shadow-deny runtime mode, live blocking, live filtering, or application behavior changes.
+
+## Step 32X Real Coolify Staging Execution Limitations
+
+- Real Coolify deployment executed: **no**.
+- Live staging validation status remains **PENDING** until an approved operator performs and evidences a real staging-only deployment.
+- The operator runbook and evidence template intentionally omit real domains, IPs, credentials, tokens, SSH keys, API keys, private keys, and secrets.
+- Remote Coolify synchronization was not verified from this environment.
+- Production readiness and enterprise production readiness remain **NO-GO**.
+- External validation remains **PENDING**.
+- Compliance certification is **NOT CLAIMED**.
+- No enforce mode, shadow-deny runtime mode, live blocking, live filtering, or application behavior change is enabled.

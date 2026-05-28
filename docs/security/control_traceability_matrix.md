@@ -265,3 +265,12 @@ Mapped controls for R-RPATCH-001 through R-RPATCH-008.
 | FINAL-CTRL-002 Safe claim boundary | SR-EVIDENCE-001 | R-FINAL-001,R-FINAL-003 | `docs/security/final_claim_boundary.md`; `docs/security/evidence/final_pilot_partner_go_no_go_bundle/claim_boundary_summary.md` | `backend/security_layer/tests/test_final_review_models.py` | complete |
 | FINAL-CTRL-003 Open blocker visibility | SR-EVIDENCE-001 | R-FINAL-002,R-FINAL-003 | `docs/security/final_open_blockers.md`; `docs/security/evidence/final_pilot_partner_go_no_go_bundle/open_blocker_summary.md` | `backend/security_layer/tests/test_final_review_decision.py` | complete |
 | FINAL-CTRL-004 Runtime non-activation boundary | SR-CI-001 | R-FINAL-004 | `backend/security_layer/final_review/`; `docs/security/evidence/final_pilot_partner_go_no_go_bundle/final_review_helper_coverage.md` | `backend/security_layer/tests/test_final_review_models.py`; `backend/security_layer/tests/test_final_review_decision.py` | complete |
+
+## Step 32X Real Coolify Staging Execution Traceability
+
+| Control / Artifact | Requirement Link | Risk Link | Evidence | Tests | Status |
+|---|---|---|---|---|---|
+| RCSE-CTRL-001 Execution plan and prerequisite evidence | SR-EVIDENCE-001 | R-RCSE-001 | `docs/security/real_coolify_staging_execution_plan.md`; `docs/security/evidence/real_coolify_staging_execution_bundle/prerequisite_check.txt` | `backend/security_layer/tests/test_staging_execution.py` | complete |
+| RCSE-CTRL-002 Operator runbook and sanitized evidence template | SR-EVIDENCE-001 | R-RCSE-003 | `docs/security/real_coolify_staging_operator_runbook.md`; `docs/security/real_coolify_staging_evidence_capture_template.md` | `backend/security_layer/tests/test_staging_execution.py` | complete |
+| RCSE-CTRL-003 Pending live staging validation status | SR-EVIDENCE-001 | R-RCSE-001 | `docs/security/real_coolify_staging_smoke_validation.md`; `docs/security/evidence/real_coolify_staging_execution_bundle/live_execution_status.txt` | `backend/security_layer/tests/test_staging_execution.py` | complete |
+| RCSE-CTRL-004 Runtime and claim boundary | SR-CI-001 | R-RCSE-002,R-RCSE-004 | `docs/security/real_coolify_staging_go_no_go.md`; `backend/security_layer/staging/execution.py` | `backend/security_layer/tests/test_staging_execution.py` | complete |

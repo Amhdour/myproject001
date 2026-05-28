@@ -342,3 +342,19 @@ Step 31X adds the final partner-demo go/no-go bundle:
 - `final_partner_demo_readme.md`
 
 The bundle permits sanitized partner-demo evidence review (**GO**) while keeping production readiness and enterprise production readiness at **NO-GO**. Live staging validation and external validation remain **PENDING**, and compliance certification is **NOT CLAIMED**. The isolated helper package under `backend/security_layer/final_review/` is not wired into runtime application paths.
+
+## Step 32X — Real Coolify Staging Execution Bundle
+
+Status: repository preparation complete; real Coolify deployment not executed.
+
+Added artifacts:
+
+- `docs/security/real_coolify_staging_execution_plan.md`
+- `docs/security/real_coolify_staging_operator_runbook.md`
+- `docs/security/real_coolify_staging_evidence_capture_template.md`
+- `docs/security/real_coolify_staging_smoke_validation.md`
+- `docs/security/real_coolify_staging_go_no_go.md`
+- `backend/security_layer/staging/execution.py`
+- `docs/security/evidence/real_coolify_staging_execution_bundle/`
+
+Real Coolify deployment executed: **no**. Live staging validation status: **PENDING**. Partner-demo evidence review remains **GO**, while production readiness and enterprise production readiness remain **NO-GO**. External validation remains **PENDING** and compliance certification is **NOT CLAIMED**. The isolated helper is not wired into runtime application paths and does not enable enforce mode, shadow-deny runtime mode, live blocking, live filtering, or application behavior changes.
