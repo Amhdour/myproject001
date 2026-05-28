@@ -337,3 +337,12 @@ Added retrieval path patching design evidence category and bundle references.
 
 ## Step 19C Evidence Category (2026-05-27)
 - Added `docs/security/evidence/vector_db_security_validation/` with prerequisite verification, model/metadata/validator/control validation notes, non-leakage validation notes, and captured test output/exit codes.
+
+## Step 20A Evidence Category — Cache Security Design
+- Design artifacts:
+  - `docs/security/cache_security.md`
+  - `docs/security/cache_security_test_plan.md`
+  - `docs/security/cache_key_contract.md`
+- Evidence directory:
+  - `docs/security/evidence/cache_security_design/`
+- Scope note: design/test-planning only; no runtime enforcement activation.
