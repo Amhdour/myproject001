@@ -435,3 +435,6 @@ Evidence bundle path: `docs/security/evidence/cross_control_evidence_validation/
 - Planned schema: `docs/security/shadow_deny_decision_schema.md`
 - Planned rollout gates: `docs/security/shadow_deny_rollout_gates.md`
 - Evidence folder: `docs/security/evidence/shadow_deny_rollout_planning/`
+
+## Step 25B Evidence
+- Added isolated shadow-deny simulation harness evidence package.

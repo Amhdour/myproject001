@@ -26,3 +26,6 @@ Status: planned
 | feature_flag_state | evaluated flags snapshot | required | object | unregistered flags | keys subset of planned flags | SDP-001 | planned |
 | non_leakage_validated | leakage check result | required | boolean | null | true/false required | SDP-007 | planned |
 | created_at | record creation timestamp | required | RFC3339 datetime | non-parseable values | parseable UTC | SDP-004 | planned |
+
+## Step 25B Status
+- Isolated decision schema helpers implemented and validated.

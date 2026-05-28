@@ -250,3 +250,7 @@ Step 24C is validation/documentation-only and does not enable enforce mode, shad
 - Step 25A (Shadow-Deny Rollout Planning): complete as documentation/evidence-only deliverable.
 - Shadow-deny remains planned/inactive; enforce mode remains blocked/inactive.
 - Next step: Step 25B implementation remains gated on shadow-deny rollout gates and monitor-only evidence closure.
+
+## Status Update
+- Step 25B completed: isolated simulation harness added.
+- Next: Step 25C validation and gated review.

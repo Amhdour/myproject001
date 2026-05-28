@@ -18,3 +18,6 @@ Default for all flags: disabled
 | SHADOW_DENY_COMPARE_MONITOR_ONLY_ENABLED | comparison mode records | disabled | disabled/enabled | same | SD-1,SD-6 | set disabled | SDP-006 | planned only |
 | SHADOW_DENY_FAIL_OPEN_ENABLED | explicit fail-open safety control | disabled | disabled/enabled | same | SD-5 | set disabled | SDP-002,SDP-003 | planned only |
 | SHADOW_DENY_ROLLBACK_ENABLED | rollback operation toggle | disabled | disabled/enabled | same | SD-3 | set disabled after rollback complete | SDP-012 | planned only |
+
+## Step 25B Status
+- Isolated flag helpers implemented; all runtime flags remain disabled by default.
