@@ -296,3 +296,9 @@ Added retrieval-path patching references for design, tests, and evidence linkage
 - Cache security test plan: `docs/security/cache_security_test_plan.md`
 - Cache key contract: `docs/security/cache_key_contract.md`
 - Evidence bundle: `docs/security/evidence/cache_security_design/`
+
+## Step 21A Tool Authorization Design References
+- See `docs/security/tool_authorization.md` for staged authorization model.
+- See `docs/security/tool_registry_contract.md` for planned registry schema contract.
+- See `docs/security/tool_argument_security.md` for argument safety design.
+- See `docs/security/tool_authorization_test_plan.md` for planned validation coverage.

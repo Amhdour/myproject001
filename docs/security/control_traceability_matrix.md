@@ -168,3 +168,12 @@ Mapped controls for R-RPATCH-001 through R-RPATCH-008.
 | CTRL-CACHE-PROMPT-CONTEXT | SR-PROMPT-001 | R-CACHE-007,R-CACHE-008 | PP-PROMPT-01,PP-PROMPT-02 | cache_security.md + CACHE-014/015 | planned |
 | CTRL-CACHE-TOOL-BOUNDARY | SR-TOOL-001 | R-CACHE-009 | PP-TOOL-01 | cache_security.md + CACHE-016 | planned |
 | CTRL-CACHE-SAFE-METADATA | SR-DLP-001,SR-AUDIT-001 | R-CACHE-010 | PP-DLP-01,PP-AUDIT-01 | cache_key_contract.md + CACHE-019/027 | planned |
+
+## Step 21A Tool Authorization Traceability
+| Control | Requirement | Risk | Patch Point | Evidence |
+|---|---|---|---|---|
+| Tool registry default-deny | TOOL-REQ-001 | R-TOOL-001 | PP-TOOL-IDENTITY | tool_traceability_summary.md |
+| Identity and scope checks | TOOL-REQ-004..008 | R-TOOL-002,R-TOOL-003 | PP-CALLER-IDENTITY / PP-TENANT-SCOPE / PP-WORKSPACE-SCOPE | tool_traceability_summary.md |
+| Argument safety checks | TOOL-REQ-014 | R-TOOL-004,R-TOOL-005,R-TOOL-006,R-TOOL-010 | PP-ARG-CONTENT | tool_argument_security_summary.md |
+| Approval gates | TOOL-REQ-015 | R-TOOL-007 | PP-APPROVAL | tool_test_plan_summary.md |
+| Result safety checks | TOOL-REQ-018 | R-TOOL-009 | PP-RESULT-SAFETY | tool_stage_inventory.md |

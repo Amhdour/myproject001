@@ -249,3 +249,10 @@ This documentation set does not claim production readiness.
 - no real cache backend calls.
 - live cache/vector/retrieval blocking/filtering remains disabled.
 - production enforcement remains inactive.
+
+## Step 21A Tool Authorization Limitations
+- tool authorization is design-only.
+- no live tool enforcement wired.
+- no tool registry implementation yet.
+- no tool argument validation integrated into live flows.
+- production enforcement remains inactive.

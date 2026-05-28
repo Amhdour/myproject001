@@ -353,3 +353,6 @@ Added retrieval path patching design evidence category and bundle references.
 ## Step 20C Evidence Category (2026-05-28)
 - Added `docs/security/evidence/cache_security_validation/`.
 - Includes prerequisite check, model/key/validator/control validation notes, non-leakage notes, and test run artifacts.
+
+## Step 21A Evidence Category
+- `docs/security/evidence/tool_authorization_design/` contains prerequisite checks, stage inventory, registry contract summary, argument security summary, test plan summary, traceability summary, and remote limitation note.
