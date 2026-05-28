@@ -1,2 +1,31 @@
-# Step 22B Coverage
-Implemented isolated helpers and tests for this area.
+# MCP Control Coverage
+
+`backend/security_layer/mcp/controls.py` defines 27 concrete stage authorization functions:
+
+1. authorize_mcp_registry_loaded
+2. authorize_mcp_registry_validated
+3. authorize_mcp_request_received
+4. authorize_mcp_context_validated
+5. authorize_mcp_server_identity_resolved
+6. authorize_mcp_client_identity_resolved
+7. authorize_mcp_tool_identity_resolved
+8. authorize_mcp_resource_identity_resolved
+9. authorize_mcp_prompt_identity_resolved
+10. authorize_mcp_tenant_scope_validated
+11. authorize_mcp_workspace_scope_validated
+12. authorize_mcp_subject_permission_validated
+13. authorize_mcp_service_account_permission_validated
+14. authorize_mcp_delegated_credential_validated
+15. authorize_mcp_resource_acl_validated
+16. authorize_mcp_prompt_isolation_validated
+17. authorize_mcp_request_arguments_validated
+18. authorize_mcp_confused_deputy_checked
+19. authorize_mcp_egress_policy_checked
+20. authorize_mcp_request_signature_validated
+21. authorize_mcp_replay_protection_checked
+22. authorize_mcp_approval_requirement_evaluated
+23. authorize_mcp_execution_authorized
+24. authorize_mcp_response_received
+25. authorize_mcp_response_safety_validated
+26. authorize_mcp_audit_written
+27. authorize_mcp_finding_recorded_if_needed
