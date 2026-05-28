@@ -372,3 +372,10 @@ Design-only. No live vector write/read/delete/update enforcement wired in Step 1
 - Implemented isolated vector DB security helper controls under `backend/security_layer/vector/`.
 - Added isolated stages, metadata contract validation, validators, and control helpers.
 - No live vector DB/search/index/cache integration or enforcement was enabled.
+
+## Step 19C Validation Cleanup (2026-05-27)
+- Isolated vector security controls validated with expanded stage-level tests.
+- Metadata contract validation strengthened for all required fields, forbidden keys, and forbidden content patterns.
+- Namespace/ACL/provenance behavior validated with deny/filter-safe cases.
+- No live vector DB integration added.
+- Production enforcement remains inactive (no enforce mode; no shadow-deny).
