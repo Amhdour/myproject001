@@ -45,3 +45,5 @@
 
 ## Known limitations
 - Design-only; not integrated into live call path; no enforce-mode blocking.
+
+- Step 21B: isolated argument validators implemented in `backend/security_layer/tools/argument_validators.py`.

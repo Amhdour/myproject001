@@ -356,3 +356,6 @@ Added retrieval path patching design evidence category and bundle references.
 
 ## Step 21A Evidence Category
 - `docs/security/evidence/tool_authorization_design/` contains prerequisite checks, stage inventory, registry contract summary, argument security summary, test plan summary, traceability summary, and remote limitation note.
+
+## Step 21B Evidence Category
+- Added `docs/security/evidence/tool_authorization_minimal/` artifacts for isolated authorization controls.

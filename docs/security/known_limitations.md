@@ -256,3 +256,10 @@ This documentation set does not claim production readiness.
 - no tool registry implementation yet.
 - no tool argument validation integrated into live flows.
 - production enforcement remains inactive.
+
+## Step 21B Limitations
+- Isolated tool authorization controls only.
+- No live tool enforcement wired.
+- No real tool/MCP/network/filesystem/shell calls.
+- No tool argument validation integrated into live flows.
+- Production enforcement remains inactive.

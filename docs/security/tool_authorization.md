@@ -82,3 +82,8 @@ Store prerequisite checks, stage inventory, contract summaries, argument rules s
 
 ## Known Limitations
 Design-only; no live enforcement/wiring; no shadow-deny or enforce activation.
+
+## Step 21B Implementation Note (2026-05-28)
+- Minimal isolated tool authorization controls implemented under `backend/security_layer/tools/`.
+- No live tool/agent/MCP integration.
+- No production enforcement active.
