@@ -306,3 +306,13 @@ Validation cleanup is isolated-only. No enforce mode, no shadow-deny mode, and n
 - Cross-control integration remains documentation-first and monitor-only.
 - No enforce mode, no shadow-deny mode, and no live blocking/filtering were enabled.
 - Remote PR linkage may remain unavailable when remote sync is restricted.
+
+## Step 24B Additional Limitations (2026-05-28)
+- cross-control evidence hardening is documentation/evidence-only.
+- no new live enforcement wired.
+- no new live blocking/filtering enabled.
+- monitor-only remains limited.
+- shadow-deny remains blocked.
+- enforce mode remains blocked.
+- production readiness is not claimed.
+- remote/main verification remains limited when remote fetch is unavailable.

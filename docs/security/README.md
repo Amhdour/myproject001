@@ -233,3 +233,8 @@ Implemented minimal isolated MCP hardening helpers/tests only; no live MCP/tool/
 - `cross_control_test_strategy.md`
 - `production_readiness_gap_analysis.md`
 - Evidence: `docs/security/evidence/cross_control_integration_readiness/`
+
+## Step 24B Status (2026-05-28)
+- ✅ Cross-Control Evidence Hardening complete (documentation/evidence/test-verification only).
+- No live enforcement, blocking, or filtering added.
+- Next step: resolve documented evidence gaps (remote/main, CI, staging, telemetry sink, rollback/load drills) before any future monitor-only expansion.
