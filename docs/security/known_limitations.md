@@ -371,3 +371,15 @@ Validation cleanup is isolated-only. No enforce mode, no shadow-deny mode, and n
 - No enforce runtime activation is enabled.
 - No shadow-deny runtime activation is enabled.
 - Production readiness is not claimed.
+
+## Step 29X Coolify Staging Limitations
+
+- No real Coolify deployment was executed from this repository change.
+- Live staging smoke validation is pending until an approved operator deploys the
+  branch to a staging-only Coolify application and captures sanitized evidence.
+- The environment template contains placeholders only and is not a deployable
+  secret file.
+- Remote Coolify synchronization was not verified from this environment.
+- The staging helper package is isolated and does not validate real network,
+  routing, secret-store, or runtime service behavior.
+- No production-readiness claim is made.

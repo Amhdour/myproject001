@@ -1,0 +1,3 @@
+Remote sync verification limitation
+Status: applicable
+No remote Coolify synchronization or live staging deployment was executed from this environment. Validation is limited to repository files and local pytest execution.
