@@ -330,3 +330,13 @@ Status: Complete (post-commit).
 - No new live hooks were added.
 - Enforce mode remains inactive; shadow-deny runtime remains inactive; live blocking/filtering remains disabled.
 - No production-readiness claim is made.
+
+## Step 28X Status (2026-05-28)
+
+- Status: Complete after commit.
+- Branch: `regression-demo-attack-bundle`.
+- Scope: isolated regression/demo package, synthetic fixtures, local runner, isolated tests, documentation, and evidence only.
+- Evidence: `docs/security/evidence/regression_demo_attack_bundle/`.
+- Tests: focused regression/demo tests passed; full security-layer tests passed.
+- Safety: no enforce mode enabled, no shadow-deny runtime mode enabled, no live blocking/filtering enabled, no application behavior changed, and no production-readiness claim.
+- Remote verification: remote/main verification unavailable because no `origin` remote is configured in this environment.

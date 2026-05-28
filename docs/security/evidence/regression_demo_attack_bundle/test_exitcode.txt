@@ -1,0 +1,4 @@
+focused_command=PYTHONPATH=. python -m pytest backend/security_layer/tests/test_regression_demo_models.py backend/security_layer/tests/test_regression_demo_fixtures.py backend/security_layer/tests/test_regression_demo_scenarios.py backend/security_layer/tests/test_regression_demo_runner.py backend/security_layer/tests/test_regression_demo_non_leakage.py -q
+focused_exit_code=0
+full_command=PYTHONPATH=. python -m pytest backend/security_layer/tests -q
+full_exit_code=0

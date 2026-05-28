@@ -1,0 +1,3 @@
+# Step 28X Scenario Matrix Summary
+
+The matrix defines 26 implemented scenarios, RDA-001 through RDA-026, with mapped control families, mapped risks, expected results, test files, evidence files, and implementation status. Scenarios cover same-tenant allowed behavior, cross-tenant and stale/deleted ACL markers, vector metadata mismatch, cache tenant/ACL collisions, unauthorized tools, prompt-to-tool abuse, MCP confused-deputy and credential-boundary markers, artifact sensitive/document/prompt-injection markers, monitor-only no-block/no-filter behavior, shadow-deny simulated deny safety, enforce-mode gate blocking, safe denial non-leakage, audit/finding/metric evidence, and unchanged production behavior.

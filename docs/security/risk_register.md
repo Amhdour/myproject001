@@ -245,3 +245,14 @@ Status: Initial risk catalog. No mitigation controls implemented in this step.
 | R-ENF-008 | Telemetry gaps hide enforce impact | EM-7 and telemetry requirements block activation | Blocked |
 | R-ENF-009 | Incident response not ready | EM-11 blocks activation | Blocked |
 | R-ENF-010 | Enforce enabled before legal/compliance/owner approval | EM-12 and compliance review requirements block activation | Blocked |
+
+## Step 28X Regression/Demo Risks
+
+| Risk ID | Risk | Impact | Mitigation | Status |
+|---|---|---|---|---|
+| R-RDA-001 | Synthetic demo fixtures miss real-world attack complexity. | Partner-demo evidence may not reflect live adversarial variance. | Treat as isolated evidence and require later staging validation. | Open |
+| R-RDA-002 | Demo runner not connected to staging yet. | Runtime integration gaps may remain undiscovered. | Add a separately approved staging demo-attack execution step. | Open |
+| R-RDA-003 | Non-leakage evidence incomplete without live traces. | Live telemetry might expose issues not present in synthetic outputs. | Validate staging traces with synthetic tenants before production claims. | Open |
+| R-RDA-004 | Monitor-only behavior not validated under production load. | Load-related behavior preservation risks may remain. | Run controlled staging/load validation before broader rollout. | Open |
+| R-RDA-005 | Enforce/shadow simulation not equivalent to live enforcement. | Simulation could miss runtime side effects. | Keep enforce/shadow runtime disabled until explicit gates pass. | Open |
+| R-RDA-006 | Partner demo overclaims production readiness. | Misleading customer communication risk. | Use the non-claim and partner-demo boundary in demo materials. | Open |
