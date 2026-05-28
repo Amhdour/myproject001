@@ -1,0 +1,1 @@
+Remote sync limitation: PR URL and remote branch lineage are not verifiable in this environment.

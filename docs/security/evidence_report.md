@@ -394,3 +394,8 @@ Evidence bundle path: `docs/security/evidence/artifact_safety_design/`
 - Isolated artifact safety validation cleanup completed for controls/tests/docs/evidence only.
 - No live artifact/export/download/sandbox/tool/MCP/retrieval/vector/cache integration changed.
 - Enforce and shadow-deny remain inactive.
+
+## Step 24A — Cross-Control Integration Readiness
+- Evidence directory: `docs/security/evidence/cross_control_integration_readiness/`
+- Required artifacts: prerequisite check, family/candidate/gate/test/gap summaries, traceability summary, pytest output + exit code.
+- Result: documentation and isolated-test evidence complete; no enforce/shadow-deny/live blocking enabled.

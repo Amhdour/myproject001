@@ -194,3 +194,12 @@ Mapped controls for R-RPATCH-001 through R-RPATCH-008.
 | ART-METADATA-CONTRACT | SR-ART-001 | R-ART-003, R-ART-004, R-ART-009, R-ART-010 | PP-ART-01 | docs/security/artifact_metadata_contract.md | planned |
 | ART-CONTENT-SAFETY | SR-ART-001 | R-ART-001, R-ART-002, R-ART-005, R-ART-006, R-ART-007, R-ART-008, R-ART-011 | PP-ART-01 | docs/security/artifact_content_safety.md | planned |
 | ART-RELEASE-POLICY | SR-ART-001 | R-ART-009, R-ART-010, R-ART-012 | PP-ART-01 | docs/security/artifact_release_policy.md | planned |
+
+## Step 24A Cross-Control Traceability Additions
+| Control | Requirement(s) | Risk(s) | Artifact |
+|---|---|---|---|
+| CC-INT-01 Control family readiness review | SR-TRACEABILITY-001 | R-CC-001,R-CC-004 | cross_control_integration_readiness.md |
+| CC-INT-02 Live candidate review | SR-CI-001 | R-CC-003,R-CC-006 | live_integration_candidate_matrix.md |
+| CC-INT-03 Rollout gate definitions | SR-CI-001,SR-EVIDENCE-001 | R-CC-006,R-CC-007 | cross_control_rollout_gates.md |
+| CC-INT-04 Cross-control test strategy | SR-CI-001 | R-CC-002,R-CC-005 | cross_control_test_strategy.md |
+| CC-INT-05 Production gap analysis | SR-EVIDENCE-001 | R-CC-008 | production_readiness_gap_analysis.md |

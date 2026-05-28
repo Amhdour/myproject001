@@ -225,3 +225,11 @@ Implemented minimal isolated MCP hardening helpers/tests only; no live MCP/tool/
 - Isolated artifact safety validation cleanup completed for controls/tests/docs/evidence only.
 - No live artifact/export/download/sandbox/tool/MCP/retrieval/vector/cache integration changed.
 - Enforce and shadow-deny remain inactive.
+
+## Step 24A Additions
+- `cross_control_integration_readiness.md`
+- `live_integration_candidate_matrix.md`
+- `cross_control_rollout_gates.md`
+- `cross_control_test_strategy.md`
+- `production_readiness_gap_analysis.md`
+- Evidence: `docs/security/evidence/cross_control_integration_readiness/`
