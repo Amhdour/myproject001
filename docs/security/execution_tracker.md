@@ -247,3 +247,5 @@ Remote/main branch lineage and PR linkage may be incomplete from this environmen
 - No live cache/vector/retrieval blocking/filtering enabled.
 
 - Step 21A (Tool Authorization Design): complete (design-only docs and evidence added; no live enforcement enabled).
+
+- [x] Step 21B complete (isolated controls only; no live enforcement).

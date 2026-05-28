@@ -26,3 +26,5 @@
 | metric_required | Metric mandate | required | boolean | null | explicit true/false | TA-027 | planned |
 | default_effect | Default decision effect | required | enum string | allow-by-default | must be deny | TA-001 | planned |
 | metadata_schema_version | Registry schema version | required | string | unknown version | must equal supported contract version | TA-001 | planned |
+
+- Step 21B: isolated registry contract helpers implemented in `backend/security_layer/tools/registry_contract.py`.

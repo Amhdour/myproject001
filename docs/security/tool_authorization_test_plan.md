@@ -32,3 +32,5 @@ All tests below are planned only.
 | TA-026 | Finding emitted | TOOL-REQ-020 | R-TOOL-004/R-TOOL-009 | PP-FINDINGS | finding record present | finding evidence plan | planned |
 | TA-027 | Metric emitted | TOOL-REQ-023 | R-TOOL-004 | PP-AUDIT/PP-FINDINGS | expected metric increment | metric evidence plan | planned |
 | TA-028 | Safe denial hides secrets/internal details | TOOL-REQ-024 | R-TOOL-009 | PP-TOOL-CALL-REQUEST | denial response non-leaking | denial evidence plan | planned |
+
+- [x] Step 21B isolated tests implemented under `backend/security_layer/tests/test_tool_*.py`.

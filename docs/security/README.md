@@ -191,3 +191,7 @@ No production-readiness claim is made in this phase.
 ## Step 21A Update
 - **Step 21A status:** complete (design-only).
 - **Next step:** implementation planning for non-live scaffolding while shadow-deny/enforce remain blocked.
+
+## Status Update
+- Step 21B complete: isolated tool authorization controls and tests added.
+- Next step: integrate with non-production shadow wiring only when explicitly approved.
