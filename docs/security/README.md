@@ -317,3 +317,14 @@ Step 29X did not execute a real Coolify deployment. Live staging validation is
 pending. Enforce mode remains disabled, shadow-deny runtime mode remains
 disabled, live blocking/filtering remain disabled, and no production-readiness
 claim is made.
+
+## Step 30X Status (2026-05-28)
+
+- ✅ Step 30X (Partner Evidence Room Bundle) completed for partner evidence review.
+- Added nine partner-facing evidence documents and isolated evidence-room helper manifests/tests.
+- Partner evidence review decision: **GO**.
+- Production readiness decision: **NO-GO**.
+- Live staging validation status: **PENDING**.
+- External validation status: **PENDING**.
+- Compliance certification status: **NOT CLAIMED**.
+- Enforce mode, shadow-deny runtime mode, live blocking/filtering, and application behavior changes remain disabled/not introduced.
