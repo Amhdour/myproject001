@@ -219,3 +219,15 @@ Status: Initial risk catalog. No mitigation controls implemented in this step.
 | R-CC-006 | Rollout mode misconfiguration leading to unintended blocking | open |
 | R-CC-007 | Rollback incompleteness after partial integration deployment | open |
 | R-CC-008 | Production launch decision with unresolved cross-control gaps | open |
+
+## Step 25A Shadow-Deny Rollout Risks
+| Risk ID | Description | Status |
+|---|---|---|
+| R-SD-001 | shadow-deny accidentally blocks live response | planned |
+| R-SD-002 | shadow-deny filters live response | planned |
+| R-SD-003 | shadow-deny decision leaks sensitive context | planned |
+| R-SD-004 | shadow-deny false positives not reviewed | planned |
+| R-SD-005 | missing rollback disables safe recovery | planned |
+| R-SD-006 | feature flag misconfiguration | planned |
+| R-SD-007 | shadow-deny evidence not correlated with monitor-only | planned |
+| R-SD-008 | enforce enabled before shadow-deny gates pass | planned |

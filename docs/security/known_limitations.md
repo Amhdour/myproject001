@@ -321,3 +321,11 @@ Validation cleanup is isolated-only. No enforce mode, no shadow-deny mode, and n
 - Cross-control evidence validation is documentation/evidence consistency validation only.
 - Remote/mainline/PR linkage verification remains limited when no git remote is configured.
 - No live enforcement controls were enabled in this step.
+
+## Step 25A Shadow-Deny Planning Limitations
+- shadow-deny rollout is planning-only.
+- no shadow-deny runtime activation.
+- no live blocking/filtering enabled.
+- enforce mode remains blocked.
+- production enforcement remains inactive.
+- production readiness is not claimed.

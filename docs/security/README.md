@@ -245,3 +245,8 @@ Implemented minimal isolated MCP hardening helpers/tests only; no live MCP/tool/
 - `docs/security/evidence/cross_control_evidence_validation/`
 
 Step 24C is validation/documentation-only and does not enable enforce mode, shadow-deny mode, or live blocking/filtering.
+
+## Step 25A Status
+- Step 25A (Shadow-Deny Rollout Planning): complete as documentation/evidence-only deliverable.
+- Shadow-deny remains planned/inactive; enforce mode remains blocked/inactive.
+- Next step: Step 25B implementation remains gated on shadow-deny rollout gates and monitor-only evidence closure.
