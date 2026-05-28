@@ -346,3 +346,6 @@ Added retrieval path patching design evidence category and bundle references.
 - Evidence directory:
   - `docs/security/evidence/cache_security_design/`
 - Scope note: design/test-planning only; no runtime enforcement activation.
+
+## Step 20B Evidence
+- Added `docs/security/evidence/cache_security_minimal/` with prerequisite check, implementation summaries, control/key coverage, and test artifacts.
