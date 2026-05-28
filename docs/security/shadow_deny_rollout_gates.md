@@ -15,3 +15,10 @@
 
 ## Step 25B Gate Update
 - Activation gates remain not passed; runtime activation still blocked.
+
+## Step 25C - Shadow-Deny Simulation Validation (2026-05-28)
+
+- Completed validation on branch `shadow-deny-simulation-validation`.
+- Evidence folder: `docs/security/evidence/shadow_deny_simulation_validation/`.
+- Focused and full security-layer test suites passed.
+- Confirmed simulation-only operation (no enforce mode, no live blocking/filtering, no application behavior change).

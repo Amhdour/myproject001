@@ -138,3 +138,10 @@ Completion of this plan does not indicate production readiness.
 - No runtime shadow-deny activation.
 - No live blocking/filtering.
 - No production enforcement active.
+
+## Step 25C - Shadow-Deny Simulation Validation (2026-05-28)
+
+- Completed validation on branch `shadow-deny-simulation-validation`.
+- Evidence folder: `docs/security/evidence/shadow_deny_simulation_validation/`.
+- Focused and full security-layer test suites passed.
+- Confirmed simulation-only operation (no enforce mode, no live blocking/filtering, no application behavior change).
