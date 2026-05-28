@@ -1,0 +1,110 @@
+......                                                                   [100%]
+=============================== warnings summary ===============================
+../../root/.pyenv/versions/3.14.4/lib/python3.14/site-packages/_pytest/config/__init__.py:2191: 5 warnings
+security_layer/tests/test_final_review_models.py: 3 warnings
+security_layer/tests/test_final_review_decision.py: 3 warnings
+  /root/.pyenv/versions/3.14.4/lib/python3.14/site-packages/_pytest/config/__init__.py:2191: PytestConfigWarning: Failed to import filter module 'cryptography': ignore::cryptography.utils.CryptographyDeprecationWarning
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== warnings summary (final) ===========================
+../../root/.pyenv/versions/3.14.4/lib/python3.14/site-packages/_pytest/config/__init__.py:2191
+  /root/.pyenv/versions/3.14.4/lib/python3.14/site-packages/_pytest/config/__init__.py:2191: PytestConfigWarning: Failed to import filter module 'cryptography': ignore::cryptography.utils.CryptographyDeprecationWarning
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+6 passed, 12 warnings in 0.07s
+
+--- Full security-layer test run ---
+........................................................................ [ 27%]
+........................................................................ [ 54%]
+..........................ssssssss...................................... [ 82%]
+..............................................                           [100%]
+=============================== warnings summary ===============================
+../../root/.pyenv/versions/3.14.4/lib/python3.14/site-packages/_pytest/config/__init__.py:2191: 5 warnings
+security_layer/tests/test_artifact_content_scanners.py: 3 warnings
+security_layer/tests/test_artifact_controls.py: 2 warnings
+security_layer/tests/test_artifact_metadata_contract.py: 5 warnings
+security_layer/tests/test_artifact_models.py: 1 warning
+security_layer/tests/test_artifact_release_policy.py: 2 warnings
+security_layer/tests/test_artifact_validators.py: 3 warnings
+security_layer/tests/test_cache_controls.py: 2 warnings
+security_layer/tests/test_cache_key_contract.py: 7 warnings
+security_layer/tests/test_cache_models.py: 2 warnings
+security_layer/tests/test_cache_validators.py: 5 warnings
+security_layer/tests/test_enforce_mode_blast_radius.py: 5 warnings
+security_layer/tests/test_enforce_mode_controls.py: 11 warnings
+security_layer/tests/test_enforce_mode_feature_flags.py: 6 warnings
+security_layer/tests/test_enforce_mode_gates.py: 6 warnings
+security_layer/tests/test_enforce_mode_models.py: 3 warnings
+security_layer/tests/test_enforce_mode_simulator.py: 6 warnings
+security_layer/tests/test_evidence_room_index.py: 4 warnings
+security_layer/tests/test_evidence_room_models.py: 3 warnings
+security_layer/tests/test_final_review_decision.py: 3 warnings
+security_layer/tests/test_final_review_models.py: 3 warnings
+security_layer/tests/test_ingestion_controls.py: 6 warnings
+security_layer/tests/test_ingestion_models.py: 1 warning
+security_layer/tests/test_ingestion_validators.py: 2 warnings
+security_layer/tests/test_mcp_controls.py: 1 warning
+security_layer/tests/test_mcp_credential_isolation.py: 1 warning
+security_layer/tests/test_mcp_egress_policy.py: 1 warning
+security_layer/tests/test_mcp_models.py: 1 warning
+security_layer/tests/test_mcp_registry_contract.py: 1 warning
+security_layer/tests/test_mcp_request_validators.py: 1 warning
+security_layer/tests/test_mcp_signing_replay.py: 1 warning
+security_layer/tests/test_mcp_validators.py: 1 warning
+security_layer/tests/test_monitor_only_cache_adapter.py: 3 warnings
+security_layer/tests/test_monitor_only_feature_flags.py: 4 warnings
+security_layer/tests/test_monitor_only_models.py: 2 warnings
+security_layer/tests/test_monitor_only_shared_sink.py: 2 warnings
+security_layer/tests/test_policy_evaluator.py: 9 warnings
+security_layer/tests/test_policy_loader.py: 4 warnings
+security_layer/tests/test_policy_models.py: 1 warning
+security_layer/tests/test_policy_validator.py: 4 warnings
+security_layer/tests/test_regression_demo_fixtures.py: 3 warnings
+security_layer/tests/test_regression_demo_models.py: 2 warnings
+security_layer/tests/test_regression_demo_non_leakage.py: 2 warnings
+security_layer/tests/test_regression_demo_runner.py: 3 warnings
+security_layer/tests/test_regression_demo_scenarios.py: 2 warnings
+security_layer/tests/test_retrieval_context_builder.py: 3 warnings
+security_layer/tests/test_retrieval_controls.py: 5 warnings
+security_layer/tests/test_retrieval_integration_flags.py: 2 warnings
+security_layer/tests/test_retrieval_integration_hook.py: 2 warnings
+security_layer/tests/test_retrieval_live_monitor_only_integration.py: 11 warnings
+security_layer/tests/test_retrieval_models.py: 1 warning
+security_layer/tests/test_retrieval_security_fixtures.py: 6 warnings
+security_layer/tests/test_retrieval_security_future_modes.py: 9 warnings
+security_layer/tests/test_retrieval_security_monitor_only.py: 1 warning
+security_layer/tests/test_retrieval_security_negative_cases.py: 13 warnings
+security_layer/tests/test_retrieval_validators.py: 1 warning
+security_layer/tests/test_runtime_audit_findings_metrics.py: 1 warning
+security_layer/tests/test_runtime_contexts.py: 3 warnings
+security_layer/tests/test_runtime_denials.py: 7 warnings
+security_layer/tests/test_runtime_wrappers.py: 4 warnings
+security_layer/tests/test_shadow_deny_controls.py: 2 warnings
+security_layer/tests/test_shadow_deny_decision_schema.py: 2 warnings
+security_layer/tests/test_shadow_deny_feature_flags.py: 3 warnings
+security_layer/tests/test_shadow_deny_models.py: 1 warning
+security_layer/tests/test_shadow_deny_simulator.py: 2 warnings
+security_layer/tests/test_staging_checklist.py: 3 warnings
+security_layer/tests/test_staging_models.py: 3 warnings
+security_layer/tests/test_tool_argument_validators.py: 4 warnings
+security_layer/tests/test_tool_controls.py: 3 warnings
+security_layer/tests/test_tool_models.py: 1 warning
+security_layer/tests/test_tool_registry_contract.py: 7 warnings
+security_layer/tests/test_tool_validators.py: 6 warnings
+security_layer/tests/test_vector_controls.py: 3 warnings
+security_layer/tests/test_vector_metadata_contract.py: 7 warnings
+security_layer/tests/test_vector_models.py: 1 warning
+security_layer/tests/test_vector_validators.py: 5 warnings
+  /root/.pyenv/versions/3.14.4/lib/python3.14/site-packages/_pytest/config/__init__.py:2191: PytestConfigWarning: Failed to import filter module 'cryptography': ignore::cryptography.utils.CryptographyDeprecationWarning
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== warnings summary (final) ===========================
+../../root/.pyenv/versions/3.14.4/lib/python3.14/site-packages/_pytest/config/__init__.py:2191
+  /root/.pyenv/versions/3.14.4/lib/python3.14/site-packages/_pytest/config/__init__.py:2191: PytestConfigWarning: Failed to import filter module 'cryptography': ignore::cryptography.utils.CryptographyDeprecationWarning
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+254 passed, 8 skipped, 268 warnings in 1.10s

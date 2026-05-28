@@ -256,3 +256,12 @@ Mapped controls for R-RPATCH-001 through R-RPATCH-008.
 | PER-CTRL-002 Safe claims and non-claims | SR-EVIDENCE-001 | R-PER-001,R-PER-003 | partner_safe_claims.md; partner_go_no_go.md | test_evidence_room_models.py; safe_claims_summary.md | complete |
 | PER-CTRL-003 Pending live/external validation status | SR-EVIDENCE-001 | R-PER-002,R-PER-003 | partner_limitations_and_next_steps.md; partner_go_no_go.md | limitations_next_steps_summary.md; go_no_go_summary.md | complete |
 | PER-CTRL-004 Runtime non-activation boundary | SR-CI-001 | R-PER-001 | backend/security_layer/evidence_room/ | test_evidence_room_models.py; test_evidence_room_index.py | complete |
+
+## Step 31X Final Partner Go/No-Go Traceability
+
+| Control / Artifact | Requirement Link | Risk Link | Evidence | Tests | Status |
+|---|---|---|---|---|---|
+| FINAL-CTRL-001 Final go/no-go decisions | SR-EVIDENCE-001 | R-FINAL-001 | `docs/security/final_pilot_partner_go_no_go.md`; `docs/security/evidence/final_pilot_partner_go_no_go_bundle/go_no_go_summary.md` | `backend/security_layer/tests/test_final_review_decision.py` | complete |
+| FINAL-CTRL-002 Safe claim boundary | SR-EVIDENCE-001 | R-FINAL-001,R-FINAL-003 | `docs/security/final_claim_boundary.md`; `docs/security/evidence/final_pilot_partner_go_no_go_bundle/claim_boundary_summary.md` | `backend/security_layer/tests/test_final_review_models.py` | complete |
+| FINAL-CTRL-003 Open blocker visibility | SR-EVIDENCE-001 | R-FINAL-002,R-FINAL-003 | `docs/security/final_open_blockers.md`; `docs/security/evidence/final_pilot_partner_go_no_go_bundle/open_blocker_summary.md` | `backend/security_layer/tests/test_final_review_decision.py` | complete |
+| FINAL-CTRL-004 Runtime non-activation boundary | SR-CI-001 | R-FINAL-004 | `backend/security_layer/final_review/`; `docs/security/evidence/final_pilot_partner_go_no_go_bundle/final_review_helper_coverage.md` | `backend/security_layer/tests/test_final_review_models.py`; `backend/security_layer/tests/test_final_review_decision.py` | complete |

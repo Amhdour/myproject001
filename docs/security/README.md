@@ -328,3 +328,17 @@ claim is made.
 - External validation status: **PENDING**.
 - Compliance certification status: **NOT CLAIMED**.
 - Enforce mode, shadow-deny runtime mode, live blocking/filtering, and application behavior changes remain disabled/not introduced.
+
+## Step 31X Final Pilot Partner Go/No-Go Bundle
+
+Step 31X adds the final partner-demo go/no-go bundle:
+
+- `final_pilot_partner_go_no_go.md`
+- `final_partner_demo_checklist.md`
+- `final_claim_boundary.md`
+- `final_evidence_package_index.md`
+- `final_open_blockers.md`
+- `final_next_execution_plan.md`
+- `final_partner_demo_readme.md`
+
+The bundle permits sanitized partner-demo evidence review (**GO**) while keeping production readiness and enterprise production readiness at **NO-GO**. Live staging validation and external validation remain **PENDING**, and compliance certification is **NOT CLAIMED**. The isolated helper package under `backend/security_layer/final_review/` is not wired into runtime application paths.
