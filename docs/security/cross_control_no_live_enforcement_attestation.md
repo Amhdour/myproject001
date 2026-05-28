@@ -23,3 +23,13 @@
 | MCP hardening | isolated | not live-wired | disabled | disabled | disabled | docs/security/evidence/mcp_hardening_validation/ | connector/supply-chain risk persists live |
 | Artifact safety | isolated | not live-wired | disabled | disabled | disabled | docs/security/evidence/artifact_safety_validation/ | unsafe artifact handling risk persists live |
 | Cross-control readiness | documentation | planning only | disabled | disabled | disabled | docs/security/evidence/cross_control_integration_readiness/ | integration sequencing risk |
+
+## Step 27X Attestation Update
+
+- Enforce mode enabled: no.
+- Shadow-deny runtime mode enabled: no.
+- Live blocking/filtering enabled: no.
+- New live hooks added: 0.
+- Application behavior changed: no.
+- Production-readiness claim: no.
+- Evidence path: `docs/security/evidence/limited_monitor_only_integration_bundle/`.

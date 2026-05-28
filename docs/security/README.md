@@ -269,3 +269,14 @@ Step 24C is validation/documentation-only and does not enable enforce mode, shad
 - Shadow-deny runtime remains inactive.
 - No live blocking/filtering and no application behavior changes are enabled.
 - Next step: review the Step 26X PR evidence; real enforce activation remains blocked pending separate approvals and gates.
+
+## Step 27X Limited Monitor-Only Integration Bundle
+
+Step 27X adds isolated monitor-only helper scaffolding and evidence:
+
+- [Limited Monitor-Only Integration Plan](./limited_monitor_only_integration_plan.md)
+- [Limited Monitor-Only Test Plan](./limited_monitor_only_test_plan.md)
+- [Limited Monitor-Only Feature Flags](./limited_monitor_only_feature_flags.md)
+- Evidence: `docs/security/evidence/limited_monitor_only_integration_bundle/`
+
+The bundle selects LMO-002 shared sink consolidation and LMO-004 cache dry-run adapter. It adds no broad live hook, enables no enforce mode, enables no shadow-deny runtime mode, and makes no production-readiness claim.

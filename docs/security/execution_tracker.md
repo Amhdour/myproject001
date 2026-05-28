@@ -320,3 +320,13 @@ Status: Complete (post-commit).
 - No live blocking/filtering or application behavior change enabled.
 - Remote/main verification limitation: `origin` remote is unavailable in this environment.
 - Next step: PR review; any real enforce activation remains a separate blocked future step.
+
+## Step 27X Status (2026-05-28)
+
+- ✅ Step 27X (Limited Monitor-Only Integration Bundle) completed on branch `limited-monitor-only-integration-bundle`.
+- Reviewed 8 monitor-only candidates and selected 2: LMO-002 shared sink consolidation and LMO-004 cache dry-run adapter.
+- Added isolated monitor-only helper package under `backend/security_layer/monitor_only/`.
+- Added focused monitor-only tests and full security-layer test evidence.
+- No new live hooks were added.
+- Enforce mode remains inactive; shadow-deny runtime remains inactive; live blocking/filtering remains disabled.
+- No production-readiness claim is made.
