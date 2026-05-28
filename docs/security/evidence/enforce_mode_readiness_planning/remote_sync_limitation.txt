@@ -1,0 +1,1 @@
+Remote/main verification limitation: no git remote configured in this environment; continuing from local verified state.

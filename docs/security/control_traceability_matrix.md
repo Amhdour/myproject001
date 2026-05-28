@@ -211,3 +211,12 @@ Mapped controls for R-RPATCH-001 through R-RPATCH-008.
 | SD-CTRL-002 Safe non-leaking denial simulation | SR-DLP-001, SR-AUDIT-001 | R-SD-003 | shadow_deny_decision_schema.md | SDP-007 | planned |
 | SD-CTRL-003 Decision correlation with monitor-only | SR-EVIDENCE-001 | R-SD-007 | shadow_deny_rollout_plan.md | SDP-005, SDP-006 | planned |
 | SD-CTRL-004 Rollback and flag safety | SR-CI-001 | R-SD-005, R-SD-006, R-SD-008 | shadow_deny_feature_flags.md, shadow_deny_rollout_gates.md | SDP-001, SDP-012, SDP-020 | planned |
+
+## Step 26A Enforce-Mode Readiness Traceability Rows
+| Control ID | Requirement | Risk | Artifact | Status |
+|---|---|---|---|---|
+| ENF-READY-001 Global gate dependency | SR-CI-001, SR-EVIDENCE-001 | R-ENF-001, R-ENF-006 | enforce_mode_activation_gates.md | planned |
+| ENF-READY-002 Feature-flag safety defaults | SR-CI-001 | R-ENF-001, R-ENF-004 | enforce_mode_feature_flags.md | planned |
+| ENF-READY-003 Safe denial + non-leakage prerequisite | SR-DLP-001, SR-AUDIT-001 | R-ENF-003 | enforce_mode_readiness_plan.md, enforce_mode_test_plan.md | planned |
+| ENF-READY-004 Blast-radius and rollback limits | SR-CI-001 | R-ENF-005, R-ENF-004 | enforce_mode_blast_radius_plan.md, enforce_mode_rollback_plan.md | planned |
+| ENF-READY-005 Approval and operational readiness | SR-TRACEABILITY-001 | R-ENF-009, R-ENF-010 | enforce_mode_activation_gates.md, enforce_mode_readiness_plan.md | planned |
