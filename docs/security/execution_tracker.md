@@ -298,3 +298,6 @@ Status: Complete (post-commit).
 - Step 25A (Shadow-Deny Rollout Planning): complete on branch `shadow-deny-rollout-planning` after commit.
 - Scope: documentation/planning/evidence only under `docs/security/`.
 - Shadow-deny remains inactive/blocked; enforce mode remains inactive/blocked; no live blocking/filtering enabled.
+
+## Step 25B
+- Complete (post-commit).

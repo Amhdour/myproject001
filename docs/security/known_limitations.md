@@ -329,3 +329,11 @@ Validation cleanup is isolated-only. No enforce mode, no shadow-deny mode, and n
 - enforce mode remains blocked.
 - production enforcement remains inactive.
 - production readiness is not claimed.
+
+## Step 25B Limitations
+- Shadow-deny simulation harness is isolated only.
+- No runtime shadow-deny activation.
+- No live blocking/filtering enabled.
+- Enforce mode remains blocked.
+- Production enforcement remains inactive.
+- Production readiness is not claimed.

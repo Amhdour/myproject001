@@ -25,3 +25,6 @@ Status: planned
 | SDP-019 | ingestion shadow-deny simulation only | Secure ingestion | R-SD-002 | simulated deny, no live effect | family test report | planned |
 | SDP-020 | enforce mode remains disabled | shared runtime | R-SD-008 | enforce flag remains disabled | runtime flag snapshot | planned |
 | SDP-021 | production behavior remains unchanged | all families | R-SD-001,R-SD-002 | no behavior delta in production path | no-change attestation | planned |
+
+## Step 25B Status
+- Isolated simulation tests implemented under backend/security_layer/tests.

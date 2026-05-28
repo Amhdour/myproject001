@@ -12,3 +12,6 @@
 | SD-8 | staging dry-run complete | staging dry-run output | SDP-013..SDP-021 | staging report | all families dry-run with no live impact | live impact or incomplete run | planned | staging run pending |
 | SD-9 | false-positive review complete | divergence tickets | SDP-011 | FP review records | FP threshold met + approvals recorded | unresolved FP backlog | planned | review workflow pending |
 | SD-10 | approval to activate shadow-deny | SD-1..SD-9 pass + signoff | SDP-020,SDP-021 | approval artifact | formal approval recorded | missing gate pass or approval | planned | blocked from activation |
+
+## Step 25B Gate Update
+- Activation gates remain not passed; runtime activation still blocked.
