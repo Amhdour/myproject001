@@ -359,3 +359,7 @@ Added retrieval path patching design evidence category and bundle references.
 
 ## Step 21B Evidence Category
 - Added `docs/security/evidence/tool_authorization_minimal/` artifacts for isolated authorization controls.
+
+## Step 21C Evidence Category
+- Added: `docs/security/evidence/tool_authorization_validation/`
+- Includes prerequisite check, model/registry/argument/validator/control validation summaries, non-leakage summary, and test output artifacts.

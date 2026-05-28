@@ -87,3 +87,12 @@ Design-only; no live enforcement/wiring; no shadow-deny or enforce activation.
 - Minimal isolated tool authorization controls implemented under `backend/security_layer/tools/`.
 - No live tool/agent/MCP integration.
 - No production enforcement active.
+
+## Step 21C Validation Note (2026-05-28)
+- Isolated tool authorization controls validated.
+- Registry contract validated.
+- Argument security validated.
+- Permission/delegated credential/approval behavior validated.
+- Result safety behavior validated.
+- No live tool execution integration added.
+- Production enforcement remains inactive.

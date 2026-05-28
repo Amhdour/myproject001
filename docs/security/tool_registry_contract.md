@@ -28,3 +28,8 @@
 | metadata_schema_version | Registry schema version | required | string | unknown version | must equal supported contract version | TA-001 | planned |
 
 - Step 21B: isolated registry contract helpers implemented in `backend/security_layer/tools/registry_contract.py`.
+
+## Step 21C Registry Validation Status (2026-05-28)
+- Required 25-field contract validated in tests.
+- Forbidden fields and forbidden content patterns validated as reject paths.
+- Schema-version guard and sanitization behavior validated.

@@ -263,3 +263,11 @@ This documentation set does not claim production readiness.
 - No real tool/MCP/network/filesystem/shell calls.
 - No tool argument validation integrated into live flows.
 - Production enforcement remains inactive.
+
+## Step 21C Limitations Update (2026-05-28)
+- Isolated tool authorization controls validated only.
+- No live tool enforcement wired.
+- No real tool/MCP/network/filesystem/shell calls in this step scope.
+- Tool argument validation is not integrated into live request flows.
+- Live tool/cache/vector/retrieval blocking/filtering remains disabled.
+- Production enforcement remains inactive.

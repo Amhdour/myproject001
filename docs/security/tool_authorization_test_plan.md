@@ -34,3 +34,7 @@ All tests below are planned only.
 | TA-028 | Safe denial hides secrets/internal details | TOOL-REQ-024 | R-TOOL-009 | PP-TOOL-CALL-REQUEST | denial response non-leaking | denial evidence plan | planned |
 
 - [x] Step 21B isolated tests implemented under `backend/security_layer/tests/test_tool_*.py`.
+
+## Step 21C Coverage Status (2026-05-28)
+- Coverage expanded for 20 authorization stages, 25 registry fields, forbidden fields/content patterns, and non-leakage assertions.
+- Focused and full security-layer suites rerun with passing results captured in evidence.
