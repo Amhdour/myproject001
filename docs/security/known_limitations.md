@@ -271,3 +271,13 @@ This documentation set does not claim production readiness.
 - Tool argument validation is not integrated into live request flows.
 - Live tool/cache/vector/retrieval blocking/filtering remains disabled.
 - Production enforcement remains inactive.
+
+
+## Step 22A Additional Limitations
+- MCP hardening is design-only.
+- no live MCP enforcement wired.
+- no MCP registry implementation yet.
+- no MCP credential isolation implementation yet.
+- no MCP egress enforcement integrated into live flows.
+- no MCP request signing/replay protection integrated into live flows.
+- production enforcement remains inactive.

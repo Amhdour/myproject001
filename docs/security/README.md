@@ -199,3 +199,9 @@ No production-readiness claim is made in this phase.
 ## Step 21C Status (2026-05-28)
 - ✅ Step 21C (Tool Authorization Validation Cleanup) completed in isolated scope with expanded tests and evidence.
 - Next step: plan any future gated integration sequencing while keeping enforce/shadow-deny inactive.
+
+
+## Step 22A Status (2026-05-28)
+- ✅ MCP Hardening Design completed (design/test-planning artifacts only).
+- Enforcement modes remain inactive (no enforce, no shadow-deny).
+- Next step: Step 22B isolated non-live MCP control scaffolding plan.
