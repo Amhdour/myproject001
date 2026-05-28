@@ -205,3 +205,6 @@ No production-readiness claim is made in this phase.
 - ✅ MCP Hardening Design completed (design/test-planning artifacts only).
 - Enforcement modes remain inactive (no enforce, no shadow-deny).
 - Next step: Step 22B isolated non-live MCP control scaffolding plan.
+
+## Step 22B Update (2026-05-28)
+Implemented minimal isolated MCP hardening helpers/tests only; no live MCP/tool/agent integration and no production enforcement activation.

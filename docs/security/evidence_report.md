@@ -370,3 +370,6 @@ Added retrieval path patching design evidence category and bundle references.
 - Location: `docs/security/evidence/mcp_hardening_design/`
 - Required artifacts: prerequisite check, stage inventory, registry/request/credential/egress summaries, test-plan summary, traceability summary, remote sync limitation note (if applicable).
 - Status: planned/design evidence captured; no implementation claim.
+
+## Step 22B Update (2026-05-28)
+Implemented minimal isolated MCP hardening helpers/tests only; no live MCP/tool/agent integration and no production enforcement activation.

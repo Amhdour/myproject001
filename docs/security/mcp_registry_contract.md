@@ -349,3 +349,6 @@ Status: planned/design-only.
 - **Validation rule:** strict schema + enum/range checks + safe pattern checks.
 - **Mapped tests:** MCP-TP-001..MCP-TP-036 (as relevant).
 - **Implementation status:** planned
+
+## Step 22B Update (2026-05-28)
+Implemented minimal isolated MCP hardening helpers/tests only; no live MCP/tool/agent integration and no production enforcement activation.

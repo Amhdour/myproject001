@@ -12,3 +12,6 @@
 - credential audit expectations: credential class/handle usage events audited per request.
 - credential denial behavior: safe-denial without revealing secret material or internal keys.
 - known limitations: design-only, no live credential isolation implementation yet.
+
+## Step 22B Update (2026-05-28)
+Implemented minimal isolated MCP hardening helpers/tests only; no live MCP/tool/agent integration and no production enforcement activation.
