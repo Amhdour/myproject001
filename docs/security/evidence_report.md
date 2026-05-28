@@ -427,3 +427,11 @@ Evidence bundle path: `docs/security/evidence/cross_control_evidence_validation/
 - test_output.txt
 - test_exitcode.txt
 - remote_sync_limitation.txt (when remote verification is unavailable)
+
+## Step 25A - Shadow-Deny Rollout Planning Evidence Category
+- Primary plan: `docs/security/shadow_deny_rollout_plan.md`
+- Planned tests: `docs/security/shadow_deny_test_plan.md`
+- Planned flags: `docs/security/shadow_deny_feature_flags.md`
+- Planned schema: `docs/security/shadow_deny_decision_schema.md`
+- Planned rollout gates: `docs/security/shadow_deny_rollout_gates.md`
+- Evidence folder: `docs/security/evidence/shadow_deny_rollout_planning/`

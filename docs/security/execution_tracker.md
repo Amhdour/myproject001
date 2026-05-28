@@ -293,3 +293,8 @@ Status: Complete (post-commit).
 - `PYTHONPATH=. python -m pytest backend/security_layer/tests -q` passed and evidence captured in `docs/security/evidence/cross_control_evidence_validation/`.
 - Enforce mode remains disabled; shadow-deny remains disabled; no live blocking/filtering enabled.
 - No application behavior changes were made in this step.
+
+## Step 25A Progress Update
+- Step 25A (Shadow-Deny Rollout Planning): complete on branch `shadow-deny-rollout-planning` after commit.
+- Scope: documentation/planning/evidence only under `docs/security/`.
+- Shadow-deny remains inactive/blocked; enforce mode remains inactive/blocked; no live blocking/filtering enabled.

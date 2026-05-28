@@ -203,3 +203,11 @@ Mapped controls for R-RPATCH-001 through R-RPATCH-008.
 | CC-INT-03 Rollout gate definitions | SR-CI-001,SR-EVIDENCE-001 | R-CC-006,R-CC-007 | cross_control_rollout_gates.md |
 | CC-INT-04 Cross-control test strategy | SR-CI-001 | R-CC-002,R-CC-005 | cross_control_test_strategy.md |
 | CC-INT-05 Production gap analysis | SR-EVIDENCE-001 | R-CC-008 | production_readiness_gap_analysis.md |
+
+## Step 25A Shadow-Deny Rollout Traceability Rows
+| Control ID | Requirement(s) | Risk(s) | Planned Artifact | Planned Tests | Status |
+|---|---|---|---|---|---|
+| SD-CTRL-001 Shadow-deny non-blocking guarantee | SR-RET-001, SR-CI-001 | R-SD-001, R-SD-002 | shadow_deny_rollout_plan.md | SDP-002, SDP-003, SDP-021 | planned |
+| SD-CTRL-002 Safe non-leaking denial simulation | SR-DLP-001, SR-AUDIT-001 | R-SD-003 | shadow_deny_decision_schema.md | SDP-007 | planned |
+| SD-CTRL-003 Decision correlation with monitor-only | SR-EVIDENCE-001 | R-SD-007 | shadow_deny_rollout_plan.md | SDP-005, SDP-006 | planned |
+| SD-CTRL-004 Rollback and flag safety | SR-CI-001 | R-SD-005, R-SD-006, R-SD-008 | shadow_deny_feature_flags.md, shadow_deny_rollout_gates.md | SDP-001, SDP-012, SDP-020 | planned |
