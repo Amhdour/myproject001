@@ -472,3 +472,6 @@ Design-only; no live enforcement, registry runtime, credential isolation runtime
 - **Metric:** `metric.mcp.mcp_finding_recorded_if_needed.count`, outcome-labeled.
 - **Planned tests:** mapped in `docs/security/mcp_hardening_test_plan.md`.
 - **Implementation status:** planned
+
+## Step 22B Update (2026-05-28)
+Implemented minimal isolated MCP hardening helpers/tests only; no live MCP/tool/agent integration and no production enforcement activation.

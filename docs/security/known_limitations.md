@@ -281,3 +281,6 @@ This documentation set does not claim production readiness.
 - no MCP egress enforcement integrated into live flows.
 - no MCP request signing/replay protection integrated into live flows.
 - production enforcement remains inactive.
+
+## Step 22B Update (2026-05-28)
+Implemented minimal isolated MCP hardening helpers/tests only; no live MCP/tool/agent integration and no production enforcement activation.

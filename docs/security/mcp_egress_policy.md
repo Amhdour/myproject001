@@ -10,3 +10,6 @@
 - audit/finding/metric requirements: emit all three for denied/flagged egress attempts.
 - monitor-only / future enforce behavior: monitor-only now; enforce behavior planned and blocked until explicit approval.
 - known limitations: no live egress enforcement integrated into request paths.
+
+## Step 22B Update (2026-05-28)
+Implemented minimal isolated MCP hardening helpers/tests only; no live MCP/tool/agent integration and no production enforcement activation.

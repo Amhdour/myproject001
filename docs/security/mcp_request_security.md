@@ -23,3 +23,6 @@
 - redaction expectations: sanitize audits, denials, and findings for secrets/internal policy detail.
 - evidence expectations: audit + finding + metric + test artifact.
 - known limitations: design-only, no live enforcement wired.
+
+## Step 22B Update (2026-05-28)
+Implemented minimal isolated MCP hardening helpers/tests only; no live MCP/tool/agent integration and no production enforcement activation.

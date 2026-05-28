@@ -359,3 +359,6 @@ Status: planned/design-only.
 - **Expected result:** deny/flag/record according to monitor-only design and future enforce expectations.
 - **Planned evidence:** audit event, finding record (if triggered), metric sample, and test output.
 - **Implementation status:** planned
+
+## Step 22B Update (2026-05-28)
+Implemented minimal isolated MCP hardening helpers/tests only; no live MCP/tool/agent integration and no production enforcement activation.

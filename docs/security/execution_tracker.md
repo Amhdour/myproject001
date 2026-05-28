@@ -258,3 +258,7 @@ Remote/main branch lineage and PR linkage may be incomplete from this environmen
 - No live MCP or runtime enforcement behavior was changed.
 - Enforce and shadow-deny remain blocked/inactive.
 - Next step: plan isolated MCP scaffolding while keeping production behavior unchanged.
+
+## Step 22B
+Status: Complete (post-commit).
+
