@@ -231,3 +231,17 @@ Status: Initial risk catalog. No mitigation controls implemented in this step.
 | R-SD-006 | feature flag misconfiguration | planned |
 | R-SD-007 | shadow-deny evidence not correlated with monitor-only | planned |
 | R-SD-008 | enforce enabled before shadow-deny gates pass | planned |
+
+## Step 26X Enforce-Mode Readiness Risks
+| Risk ID | Risk | Mitigation | Current status |
+|---|---|---|---|
+| R-ENF-001 | Enforce mode activates before gates pass | Keep all flags default-disabled and require EM-1 through EM-12 evidence | Blocked |
+| R-ENF-002 | Enforce blocks valid user request | Require false-positive review, blast-radius limit, and rollback evidence | Blocked |
+| R-ENF-003 | Enforce denial leaks sensitive context | Require safe-denial and non-leakage tests | Blocked |
+| R-ENF-004 | Rollback or kill switch unavailable | Require rollback/kill-switch evidence before activation | Blocked |
+| R-ENF-005 | Blast radius too broad | Initial scope none; future allowlists and thresholds required | Blocked |
+| R-ENF-006 | CI/staging evidence missing | EM-8 and EM-9 block activation | Blocked |
+| R-ENF-007 | False-positive review incomplete | EM-10 blocks activation | Blocked |
+| R-ENF-008 | Telemetry gaps hide enforce impact | EM-7 and telemetry requirements block activation | Blocked |
+| R-ENF-009 | Incident response not ready | EM-11 blocks activation | Blocked |
+| R-ENF-010 | Enforce enabled before legal/compliance/owner approval | EM-12 and compliance review requirements block activation | Blocked |

@@ -211,3 +211,16 @@ Mapped controls for R-RPATCH-001 through R-RPATCH-008.
 | SD-CTRL-002 Safe non-leaking denial simulation | SR-DLP-001, SR-AUDIT-001 | R-SD-003 | shadow_deny_decision_schema.md | SDP-007 | planned |
 | SD-CTRL-003 Decision correlation with monitor-only | SR-EVIDENCE-001 | R-SD-007 | shadow_deny_rollout_plan.md | SDP-005, SDP-006 | planned |
 | SD-CTRL-004 Rollback and flag safety | SR-CI-001 | R-SD-005, R-SD-006, R-SD-008 | shadow_deny_feature_flags.md, shadow_deny_rollout_gates.md | SDP-001, SDP-012, SDP-020 | planned |
+
+## Step 26X Enforce-Mode Readiness Traceability Rows
+| Control ID | Requirement(s) | Risk(s) | Planned Artifact | Tests/Evidence | Status |
+|---|---|---|---|---|---|
+| EM-CTRL-001 Retrieval ACL enforce readiness | SR-RET-001, SR-EVIDENCE-001 | R-ENF-001, R-ENF-002, R-ENF-005 | enforce_mode_readiness_plan.md | test_enforce_mode_controls.py; evidence/enforce_mode_readiness_bundle/ | planned/simulated only |
+| EM-CTRL-002 Vector DB security enforce readiness | SR-VEC-001, SR-EVIDENCE-001 | R-ENF-001, R-ENF-005, R-ENF-006 | enforce_mode_readiness_plan.md | test_enforce_mode_controls.py; evidence/enforce_mode_readiness_bundle/ | planned/simulated only |
+| EM-CTRL-003 Cache security enforce readiness | SR-CACHE-001, SR-EVIDENCE-001 | R-ENF-001, R-ENF-002, R-ENF-008 | enforce_mode_readiness_plan.md | test_enforce_mode_feature_flags.py; test_enforce_mode_controls.py | planned/simulated only |
+| EM-CTRL-004 Tool authorization enforce readiness | SR-TOOL-001, SR-EVIDENCE-001 | R-ENF-001, R-ENF-002, R-ENF-010 | enforce_mode_readiness_plan.md | test_enforce_mode_controls.py | planned/simulated only |
+| EM-CTRL-005 MCP hardening enforce readiness | SR-MCP-001, SR-EVIDENCE-001 | R-ENF-001, R-ENF-004, R-ENF-009 | enforce_mode_readiness_plan.md | test_enforce_mode_controls.py | planned/simulated only |
+| EM-CTRL-006 Artifact safety enforce readiness | SR-ART-001, SR-DLP-001 | R-ENF-003, R-ENF-004, R-ENF-005 | enforce_mode_readiness_plan.md | test_enforce_mode_controls.py; non_leakage_validation.md | planned/simulated only |
+| EM-CTRL-007 Secure ingestion enforce readiness | SR-ING-001, SR-EVIDENCE-001 | R-ENF-001, R-ENF-006, R-ENF-008 | enforce_mode_readiness_plan.md | test_enforce_mode_controls.py | planned/simulated only |
+| EM-CTRL-008 Safe denial shared runtime readiness | SR-DLP-001, SR-AUDIT-001 | R-ENF-002, R-ENF-003, R-ENF-007 | enforce_mode_readiness_plan.md | test_enforce_mode_gates.py; test_enforce_mode_simulator.py | planned/simulated only |
+| EM-CTRL-009 Audit/finding/metric shared sink readiness | SR-AUDIT-001, SR-EVIDENCE-001 | R-ENF-008, R-ENF-009, R-ENF-010 | enforce_mode_gate_validation.md | test_enforce_mode_gates.py; validation_summary.md | planned/simulated only |
