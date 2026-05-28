@@ -273,3 +273,12 @@ Status: Initial risk catalog. No mitigation controls implemented in this step.
 | R-PER-001 | Partner readers may overinterpret repository evidence as production readiness. | Misstated readiness posture. | Safe claims, go/no-go, and limitations docs explicitly state production readiness is NO-GO. | mitigated for review |
 | R-PER-002 | Pending live staging validation may be confused with completed live evidence. | Incorrect live validation claim. | Partner docs and evidence summaries mark live staging validation as PENDING. | open |
 | R-PER-003 | External validation or certification may be implied without evidence. | Incorrect assurance claim. | Safe claims and go/no-go docs mark external validation PENDING and certification NOT CLAIMED. | mitigated for review |
+
+## Step 31X Final Partner Go/No-Go Risks
+
+| Risk ID | Risk | Status | Mitigation |
+|---|---|---|---|
+| R-FINAL-001 | Partner-demo materials could be interpreted as a production-readiness claim. | Active | Use `final_claim_boundary.md` and `final_pilot_partner_go_no_go.md` language in all partner discussions. |
+| R-FINAL-002 | Live staging validation may be assumed complete. | Active | Keep live staging validation status as **PENDING** until real evidence exists. |
+| R-FINAL-003 | External validation or compliance certification may be overstated. | Active | Keep external validation **PENDING** and compliance certification **NOT CLAIMED**. |
+| R-FINAL-004 | Runtime controls may be assumed active. | Active | State that no enforce mode, shadow-deny runtime mode, live blocking, or live filtering is enabled. |

@@ -392,3 +392,11 @@ Validation cleanup is isolated-only. No enforce mode, no shadow-deny mode, and n
 - Compliance certification is **NOT CLAIMED**.
 - No enforce mode, shadow-deny runtime mode, live blocking, or live filtering is enabled by this step.
 - No git remote is configured in this workspace, so remote synchronization could not be verified locally.
+
+## Step 31X Final Review Limitations
+
+- The final bundle does not include real live staging validation; live staging validation remains **PENDING**.
+- The final bundle does not include external validation; external validation remains **PENDING**.
+- The final bundle does not include compliance certification; compliance certification is **NOT CLAIMED**.
+- The final bundle does not claim production readiness or enterprise production readiness; both remain **NO-GO**.
+- The final-review helper package is isolated and does not enable enforce mode, shadow-deny runtime mode, live blocking, live filtering, or application behavior changes.
