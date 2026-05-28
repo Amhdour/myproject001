@@ -1,3 +1,4 @@
+# Step 22B: MCP hardening remains monitor-only (no enforcement side effects).
 from __future__ import annotations
 import re, time
 from .models import MCPCredentialContext
