@@ -399,3 +399,18 @@ Evidence bundle path: `docs/security/evidence/artifact_safety_design/`
 - Evidence directory: `docs/security/evidence/cross_control_integration_readiness/`
 - Required artifacts: prerequisite check, family/candidate/gate/test/gap summaries, traceability summary, pytest output + exit code.
 - Result: documentation and isolated-test evidence complete; no enforce/shadow-deny/live blocking enabled.
+
+## Step 24B: Cross-Control Evidence Hardening
+- Category: documentation/evidence/test-verification only.
+- Primary artifacts:
+  - docs/security/cross_control_evidence_index.md
+  - docs/security/cross_control_evidence_checklist.md
+  - docs/security/cross_control_no_live_enforcement_attestation.md
+  - docs/security/cross_control_monitor_only_boundary.md
+  - docs/security/cross_control_evidence_gap_register.md
+  - docs/security/evidence/cross_control_evidence_hardening/
+- Assertions:
+  - No enablement of enforce mode.
+  - No enablement of shadow-deny mode.
+  - No live blocking/filtering introduced.
+  - No application behavior changes claimed.

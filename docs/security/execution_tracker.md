@@ -281,3 +281,8 @@ Status: Complete (post-commit).
 - Step 24A (Cross-Control Integration Readiness): complete on branch `cross-control-integration-readiness`.
 - Scope: documentation/evidence + isolated test execution only.
 - Runtime enforcement remains intentionally inactive; no application behavior changes introduced.
+
+## Step 24B Progress Update (2026-05-28)
+- ✅ Step 24B (Cross-Control Evidence Hardening) completed as documentation/evidence/test-verification only.
+- No live retrieval/vector/cache/tool/MCP/artifact enforcement wiring added.
+- Enforce mode remains blocked/disabled; shadow-deny remains blocked/disabled.
