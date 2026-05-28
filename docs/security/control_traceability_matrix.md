@@ -157,3 +157,14 @@ Mapped controls for R-RPATCH-001 through R-RPATCH-008.
 | SR-VEC-001, SR-CACHE-001 | R-VEC-008 | vector cache interaction model | PP-CACHE-01, PP-VEC-02 | VEC-TST-017, VEC-TST-025 | docs/security/evidence/vector_db_security_design/vector_traceability_summary.md |
 | SR-VEC-001 | R-VEC-009 | re-embedding authorization continuity model | PP-VEC-01 | VEC-TST-019 | docs/security/evidence/vector_db_security_design/vector_stage_inventory.md |
 | SR-VEC-001, SR-AUDIT-001 | R-VEC-010 | safe metadata + safe denial + audit/finding model | PP-VEC-02, PP-AUDIT-01, PP-AUDIT-02 | VEC-TST-023, VEC-TST-026 | docs/security/evidence/vector_db_security_design/vector_traceability_summary.md |
+
+## Step 20A Cache Security Traceability Additions
+| Control ID | Requirement | Risk | Patch Point | Design/Test Reference | Status |
+|---|---|---|---|---|---|
+| CTRL-CACHE-KEY-BIND | SR-CACHE-001 | R-CACHE-001,R-CACHE-002 | PP-CACHE-01 | cache_security.md + cache_key_contract.md + CACHE-001/002 | planned |
+| CTRL-CACHE-ACL-BIND | SR-CACHE-001,SR-RET-001 | R-CACHE-003 | PP-CACHE-01,PP-RET-02 | cache_security.md + CACHE-003/009/013 | planned |
+| CTRL-CACHE-INVALIDATION | SR-CACHE-001 | R-CACHE-004,R-CACHE-005 | PP-CACHE-01 | cache_security.md + CACHE-010/011 | planned |
+| CTRL-CACHE-VECTOR-BOUNDARY | SR-VEC-001 | R-CACHE-006 | PP-VEC-01 | cache_security.md + CACHE-012 | planned |
+| CTRL-CACHE-PROMPT-CONTEXT | SR-PROMPT-001 | R-CACHE-007,R-CACHE-008 | PP-PROMPT-01,PP-PROMPT-02 | cache_security.md + CACHE-014/015 | planned |
+| CTRL-CACHE-TOOL-BOUNDARY | SR-TOOL-001 | R-CACHE-009 | PP-TOOL-01 | cache_security.md + CACHE-016 | planned |
+| CTRL-CACHE-SAFE-METADATA | SR-DLP-001,SR-AUDIT-001 | R-CACHE-010 | PP-DLP-01,PP-AUDIT-01 | cache_key_contract.md + CACHE-019/027 | planned |

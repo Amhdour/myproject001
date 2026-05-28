@@ -290,3 +290,9 @@ Added retrieval-path patching references for design, tests, and evidence linkage
 - Planned metadata contract: `docs/security/vector_db_metadata_contract.md`
 - Evidence bundle: `docs/security/evidence/vector_db_security_design/`
 - Requirement linkage: SR-VEC-001 remains draft/planned; Step 19A adds design depth only and does not activate runtime enforcement.
+
+## Step 20A Cache Security Design References
+- Cache security design: `docs/security/cache_security.md`
+- Cache security test plan: `docs/security/cache_security_test_plan.md`
+- Cache key contract: `docs/security/cache_key_contract.md`
+- Evidence bundle: `docs/security/evidence/cache_security_design/`

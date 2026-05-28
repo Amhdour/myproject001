@@ -174,3 +174,8 @@ No production-readiness claim is made in this phase.
 ## Step 19C Status (2026-05-27)
 - ✅ Vector DB Security Validation Cleanup complete in isolated scope.
 - Next step: plan any future controlled integration sequencing without enabling enforcement modes.
+
+## Step 20A Status (2026-05-28)
+- ✅ Step 20A (Cache Security Design) completed as design-only documentation.
+- Added cache security design, test plan, cache-key contract, and evidence summaries.
+- Next step: plan isolated implementation/validation phases while keeping live enforcement inactive.

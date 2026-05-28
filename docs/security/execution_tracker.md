@@ -229,3 +229,10 @@ Remote/main branch lineage and PR linkage may be incomplete from this environmen
 - Enforce mode remains no-go/inactive.
 - Shadow-deny remains blocked/inactive.
 - No live vector/retrieval blocking/filtering enabled.
+
+## Step 20A Status (2026-05-28)
+- ✅ Step 20A (Cache Security Design) completed as documentation/design/test-planning only.
+- No live cache/retrieval/vector blocking/filtering controls were added.
+- Enforce mode remains inactive/no-go.
+- Shadow-deny mode remains blocked/inactive.
+- Next step: future isolated cache control implementation planning, still non-live by default.

@@ -228,3 +228,10 @@ This documentation set does not claim production readiness.
 - no real vector DB/search/index/cache calls added.
 - live vector/retrieval blocking/filtering remains disabled.
 - production enforcement remains inactive.
+
+## Step 20A Additional Limitations (2026-05-28)
+- cache security is design-only.
+- no live cache enforcement wired.
+- no cache key contract implemented yet.
+- no cache read/write/invalidation controls integrated.
+- production enforcement remains inactive.
