@@ -12,3 +12,14 @@
 ## Current Decision Impact
 
 The above blockers do not block partner-demo evidence review, but they do block production readiness and enterprise production readiness claims.
+
+## Step 32X Additional Open Blockers
+
+- Real Coolify deployment executed: **no**.
+- Live staging validation status: **PENDING**.
+- External validation status: **PENDING**.
+- Compliance certification status: **NOT CLAIMED**.
+- Production readiness decision: **NO-GO**.
+- Enterprise production readiness decision: **NO-GO**.
+
+These blockers do not prevent partner-demo evidence review, but they continue to block production readiness and enterprise production readiness claims.
