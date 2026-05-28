@@ -31,3 +31,6 @@ Status: planned/design-only.
 | CACHE-025 | finding emitted | SR-EVIDENCE-001 | R-CACHE-003 | PP-EVIDENCE-01 | finding record exists | finding artifact | planned |
 | CACHE-026 | metric emitted | SR-AUDIT-001 | R-CACHE-010 | PP-AUDIT-01 | metric emitted with stage/risk tags | metric artifact | planned |
 | CACHE-027 | safe denial does not reveal cache key/document/chunk/source secret/tenant internals | SR-CACHE-001 | R-CACHE-010 | PP-CACHE-01 | denial redaction verified | safe denial transcript | planned |
+
+## Step 20B Test Status
+- Implemented isolated cache security tests: models, key contract, validators, controls.

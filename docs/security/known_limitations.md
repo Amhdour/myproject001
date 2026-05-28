@@ -235,3 +235,10 @@ This documentation set does not claim production readiness.
 - no cache key contract implemented yet.
 - no cache read/write/invalidation controls integrated.
 - production enforcement remains inactive.
+
+## Step 20B Limitations
+- Isolated cache security controls only.
+- No live cache enforcement wiring.
+- No real cache backend calls.
+- No cache read/write/invalidation controls integrated into live flows.
+- Production enforcement remains inactive.

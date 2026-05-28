@@ -179,3 +179,7 @@ No production-readiness claim is made in this phase.
 - ✅ Step 20A (Cache Security Design) completed as design-only documentation.
 - Added cache security design, test plan, cache-key contract, and evidence summaries.
 - Next step: plan isolated implementation/validation phases while keeping live enforcement inactive.
+
+## Status Update
+- Step 20B complete: isolated cache security minimal controls added.
+- Next step: integration planning only (no enforcement).

@@ -25,3 +25,6 @@ Status: planned/design-only.
 | cache_purpose | cache type purpose | required | string enum | unknown purpose | allowlist: retrieval/vector/prompt_context/answer/tool_result | CACHE-016 | planned |
 | cache_ttl_seconds | TTL policy | required | integer | negative/excessive TTL | >0 and <= policy max | CACHE-009,CACHE-010 | planned |
 | sensitivity_label_placeholder | safe sensitivity marker | optional | string enum | raw sensitive values | placeholder enum only | CACHE-019,CACHE-027 | planned |
+
+## Step 20B Contract Helper Status
+- Isolated cache-key contract helpers implemented (`build_safe_cache_key`, schema validation, forbidden-content validation, sanitization).

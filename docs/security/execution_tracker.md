@@ -236,3 +236,5 @@ Remote/main branch lineage and PR linkage may be incomplete from this environmen
 - Enforce mode remains inactive/no-go.
 - Shadow-deny mode remains blocked/inactive.
 - Next step: future isolated cache control implementation planning, still non-live by default.
+
+- [x] Step 20B: Cache security minimal isolated controls complete (post-commit verification).

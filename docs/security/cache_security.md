@@ -79,3 +79,8 @@ Each model is planned to require tenant/subject/ACL/provenance binding plus safe
 - No shadow-deny or enforce activation.
 - No live cache/retrieval/vector blocking/filtering.
 - No application behavior change in this step.
+
+## Step 20B Update (2026-05-28)
+- Implemented minimal isolated cache security controls under `backend/security_layer/cache/`.
+- No live cache/retrieval/vector/search integration added.
+- Production enforcement remains inactive.
