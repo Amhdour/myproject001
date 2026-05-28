@@ -238,3 +238,10 @@ Implemented minimal isolated MCP hardening helpers/tests only; no live MCP/tool/
 - ✅ Cross-Control Evidence Hardening complete (documentation/evidence/test-verification only).
 - No live enforcement, blocking, or filtering added.
 - Next step: resolve documented evidence gaps (remote/main, CI, staging, telemetry sink, rollback/load drills) before any future monitor-only expansion.
+
+## Step 24C Artifacts (Cross-Control Evidence Validation)
+- `docs/security/cross_control_evidence_validation.md`
+- `docs/security/evidence_consistency_matrix.md`
+- `docs/security/evidence/cross_control_evidence_validation/`
+
+Step 24C is validation/documentation-only and does not enable enforce mode, shadow-deny mode, or live blocking/filtering.

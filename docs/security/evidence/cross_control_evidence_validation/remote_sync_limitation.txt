@@ -1,0 +1,2 @@
+Remote sync limitation applies in this environment.
+`git remote -v` returned no configured remotes, so PR link/mainline sync evidence remains local-only.

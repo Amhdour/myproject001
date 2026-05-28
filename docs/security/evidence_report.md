@@ -414,3 +414,16 @@ Evidence bundle path: `docs/security/evidence/artifact_safety_design/`
   - No enablement of shadow-deny mode.
   - No live blocking/filtering introduced.
   - No application behavior changes claimed.
+
+## Step 24C Evidence Category: Cross-Control Evidence Validation
+Evidence bundle path: `docs/security/evidence/cross_control_evidence_validation/`
+- prerequisite_check.txt
+- evidence_index_validation.md
+- evidence_checklist_validation.md
+- no_live_enforcement_validation.md
+- monitor_only_boundary_validation.md
+- evidence_gap_validation.md
+- evidence_consistency_validation.md
+- test_output.txt
+- test_exitcode.txt
+- remote_sync_limitation.txt (when remote verification is unavailable)
