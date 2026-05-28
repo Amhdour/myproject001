@@ -1,0 +1,8 @@
+Step 30X prerequisite check
+Branch: partner-evidence-room-bundle
+Starting branch: work
+Starting commit: afdea30a78102d01c3147c3953f8da14a2265386
+Verified required security documentation area: docs/security/
+Verified required security-layer test area: backend/security_layer/tests/
+Verified required implementation area can be added without application-path wiring: backend/security_layer/evidence_room/
+Remote sync: no git remote is configured in this workspace; see remote_sync_limitation.txt.

@@ -265,3 +265,11 @@ Status: Initial risk catalog. No mitigation controls implemented in this step.
 | R-CS-002 | Placeholder environment values are copied into a real deployment without secret-store replacement. | Staging deployment may fail or expose misconfiguration. | Use the environment template only as a category checklist; inject real values outside the repository. | Open |
 | R-CS-003 | Staging evidence is mistaken for production readiness. | Stakeholders may overclaim readiness. | Maintain explicit no-production-readiness statements in docs, evidence, and go/no-go output. | Open |
 | R-CS-004 | Runtime mode flags are accidentally enabled during staging. | Unexpected blocking/filtering or behavior changes could occur. | Checklist and smoke plan require enforce, shadow-deny runtime, live blocking, and live filtering to remain disabled. | Open |
+
+## Step 30X Partner Evidence Room Risks
+
+| Risk ID | Risk | Impact | Mitigation | Status |
+|---|---|---|---|---|
+| R-PER-001 | Partner readers may overinterpret repository evidence as production readiness. | Misstated readiness posture. | Safe claims, go/no-go, and limitations docs explicitly state production readiness is NO-GO. | mitigated for review |
+| R-PER-002 | Pending live staging validation may be confused with completed live evidence. | Incorrect live validation claim. | Partner docs and evidence summaries mark live staging validation as PENDING. | open |
+| R-PER-003 | External validation or certification may be implied without evidence. | Incorrect assurance claim. | Safe claims and go/no-go docs mark external validation PENDING and certification NOT CLAIMED. | mitigated for review |

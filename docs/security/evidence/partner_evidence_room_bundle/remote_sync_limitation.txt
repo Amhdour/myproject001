@@ -1,0 +1,2 @@
+Remote sync limitation
+No git remote is configured in this workspace, so remote branch synchronization could not be verified from this environment. This limitation does not affect the local Step 30X evidence-room files or local test results.

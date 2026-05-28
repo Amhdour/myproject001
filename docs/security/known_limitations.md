@@ -383,3 +383,12 @@ Validation cleanup is isolated-only. No enforce mode, no shadow-deny mode, and n
 - The staging helper package is isolated and does not validate real network,
   routing, secret-store, or runtime service behavior.
 - No production-readiness claim is made.
+
+## Step 30X Partner Evidence Room Limitations
+
+- The partner evidence room is a sanitized repository-evidence bundle, not a production-readiness attestation.
+- Live staging validation remains **PENDING** unless real staging evidence is collected separately.
+- External validation remains **PENDING**.
+- Compliance certification is **NOT CLAIMED**.
+- No enforce mode, shadow-deny runtime mode, live blocking, or live filtering is enabled by this step.
+- No git remote is configured in this workspace, so remote synchronization could not be verified locally.

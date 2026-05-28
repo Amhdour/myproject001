@@ -247,3 +247,12 @@ Mapped controls for R-RPATCH-001 through R-RPATCH-008.
 | CS-CTRL-002 Placeholder environment template | SR-DLP-001, SR-CI-001 | R-CS-002 | coolify_staging_env_template.md | env_template_summary.md | implemented documentation only |
 | CS-CTRL-003 Staging smoke and rollback gates | SR-CI-001, SR-EVIDENCE-001 | R-CS-001, R-CS-004 | coolify_staging_smoke_test_plan.md; coolify_staging_rollback_plan.md; coolify_staging_go_no_go.md | smoke_test_plan_summary.md; rollback_plan_summary.md; go_no_go_summary.md | planned; live validation pending |
 | CS-CTRL-004 Isolated staging helper checklist | SR-EVIDENCE-001 | R-CS-003, R-CS-004 | backend/security_layer/staging/ | test_staging_models.py; test_staging_checklist.py; staging_helper_coverage.md | implemented isolated only |
+
+## Step 30X Partner Evidence Room Traceability Rows
+
+| Control ID | Requirement(s) | Risk(s) | Artifact | Tests/Evidence | Status |
+|---|---|---|---|---|---|
+| PER-CTRL-001 Partner evidence index completeness | SR-EVIDENCE-001 | R-PER-001 | partner_evidence_index.md; partner_evidence_room.md | test_evidence_room_index.py; evidence/partner_evidence_room_bundle/ | complete |
+| PER-CTRL-002 Safe claims and non-claims | SR-EVIDENCE-001 | R-PER-001,R-PER-003 | partner_safe_claims.md; partner_go_no_go.md | test_evidence_room_models.py; safe_claims_summary.md | complete |
+| PER-CTRL-003 Pending live/external validation status | SR-EVIDENCE-001 | R-PER-002,R-PER-003 | partner_limitations_and_next_steps.md; partner_go_no_go.md | limitations_next_steps_summary.md; go_no_go_summary.md | complete |
+| PER-CTRL-004 Runtime non-activation boundary | SR-CI-001 | R-PER-001 | backend/security_layer/evidence_room/ | test_evidence_room_models.py; test_evidence_room_index.py | complete |

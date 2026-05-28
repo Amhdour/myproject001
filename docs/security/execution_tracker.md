@@ -349,3 +349,16 @@ Status: Complete (post-commit).
 
 - Focused staging tests passed: `PYTHONPATH=. python -m pytest backend/security_layer/tests/test_staging_models.py backend/security_layer/tests/test_staging_checklist.py -q`.
 - Full security-layer tests passed: `PYTHONPATH=. python -m pytest backend/security_layer/tests -q`.
+
+## Step 30X Progress Update
+
+- Step 30X (Partner Evidence Room Bundle): complete on branch `partner-evidence-room-bundle`.
+- Scope: partner-facing documentation, sanitized evidence artifacts, and isolated evidence-room helper manifests/tests only.
+- Partner evidence review decision: GO.
+- Production readiness decision: NO-GO.
+- Live staging validation remains PENDING; external validation remains PENDING; compliance certification is NOT CLAIMED.
+- Runtime enforcement, shadow-deny runtime mode, live blocking, and live filtering remain disabled and not wired.
+
+| Phase | Step | Name | Owner | Status | Branch | Commit message | Docs | Evidence | Risk/Limitations | Date | Production readiness | External validation | Notes |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Partner Review | 30X | Partner evidence room bundle | AI Trust & Security Readiness Engineer | complete | partner-evidence-room-bundle | docs(security): add partner evidence room bundle | docs/security/partner_evidence_room.md; docs/security/partner_safe_claims.md; docs/security/partner_demo_walkthrough.md; docs/security/partner_control_coverage_summary.md; docs/security/partner_test_evidence_index.md; docs/security/partner_demo_attack_summary.md; docs/security/partner_limitations_and_next_steps.md; docs/security/partner_evidence_index.md; docs/security/partner_go_no_go.md | docs/security/evidence/partner_evidence_room_bundle/ | Live staging validation pending; no external validation/certification claimed | 2026-05-28 | NO-GO | PENDING | Partner evidence review GO only; no application behavior changed. |
