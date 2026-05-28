@@ -1,0 +1,5 @@
+COMMAND: PYTHONPATH=. python -m pytest backend/security_layer/tests/test_tool_models.py backend/security_layer/tests/test_tool_registry_contract.py backend/security_layer/tests/test_tool_argument_validators.py backend/security_layer/tests/test_tool_validators.py backend/security_layer/tests/test_tool_controls.py -q
+RESULT: 21 passed, 27 warnings in 0.11s
+
+COMMAND: PYTHONPATH=. python -m pytest backend/security_layer/tests -q
+RESULT: 141 passed, 8 skipped, 155 warnings in 0.56s

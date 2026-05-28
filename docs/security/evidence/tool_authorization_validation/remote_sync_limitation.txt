@@ -1,0 +1,2 @@
+Remote/main verification limitation: this step proceeded from local verified state.
+If remote fetch/lineage verification is blocked in this environment, confirm remote/main status in GitHub UI.

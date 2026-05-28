@@ -47,3 +47,7 @@
 - Design-only; not integrated into live call path; no enforce-mode blocking.
 
 - Step 21B: isolated argument validators implemented in `backend/security_layer/tools/argument_validators.py`.
+
+## Step 21C Argument Validation Status (2026-05-28)
+- Path traversal, SSRF URL, command injection, secret-value, and prompt-injection markers validated.
+- Sanitization redaction and no-live-side-effect assumptions validated via isolated tests.
