@@ -177,3 +177,11 @@ Mapped controls for R-RPATCH-001 through R-RPATCH-008.
 | Argument safety checks | TOOL-REQ-014 | R-TOOL-004,R-TOOL-005,R-TOOL-006,R-TOOL-010 | PP-ARG-CONTENT | tool_argument_security_summary.md |
 | Approval gates | TOOL-REQ-015 | R-TOOL-007 | PP-APPROVAL | tool_test_plan_summary.md |
 | Result safety checks | TOOL-REQ-018 | R-TOOL-009 | PP-RESULT-SAFETY | tool_stage_inventory.md |
+
+
+## Step 22A MCP Hardening Traceability (Planned)
+| Control | Requirement | Risks | Patch Points | Design/Test Artifacts | Status |
+|---|---|---|---|---|---|
+| MCP registry default-deny | SR-MCP-001 | R-MCP-001, R-MCP-002 | PP-MCP-01 | mcp_hardening.md, mcp_registry_contract.md, mcp_hardening_test_plan.md | planned |
+| MCP identity/scope/ACL controls | SR-MCP-001 | R-MCP-003..R-MCP-007 | PP-MCP-02 | mcp_hardening.md, mcp_request_security.md, mcp_credential_isolation.md | planned |
+| MCP request/response/egress integrity | SR-MCP-001 | R-MCP-008..R-MCP-012 | PP-MCP-03 | mcp_hardening.md, mcp_egress_policy.md, mcp_hardening_test_plan.md | planned |

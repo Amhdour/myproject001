@@ -302,3 +302,12 @@ Added retrieval-path patching references for design, tests, and evidence linkage
 - See `docs/security/tool_registry_contract.md` for planned registry schema contract.
 - See `docs/security/tool_argument_security.md` for argument safety design.
 - See `docs/security/tool_authorization_test_plan.md` for planned validation coverage.
+
+
+## Step 22A MCP Hardening Design References
+- MCP hardening design: `docs/security/mcp_hardening.md`
+- MCP hardening test plan: `docs/security/mcp_hardening_test_plan.md`
+- MCP registry contract: `docs/security/mcp_registry_contract.md`
+- MCP request security: `docs/security/mcp_request_security.md`
+- MCP credential isolation: `docs/security/mcp_credential_isolation.md`
+- MCP egress policy: `docs/security/mcp_egress_policy.md`

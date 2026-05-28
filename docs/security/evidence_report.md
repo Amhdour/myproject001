@@ -363,3 +363,10 @@ Added retrieval path patching design evidence category and bundle references.
 ## Step 21C Evidence Category
 - Added: `docs/security/evidence/tool_authorization_validation/`
 - Includes prerequisite check, model/registry/argument/validator/control validation summaries, non-leakage summary, and test output artifacts.
+
+
+## Step 22A MCP Hardening Design Evidence Category
+- Category: `mcp_hardening_design`
+- Location: `docs/security/evidence/mcp_hardening_design/`
+- Required artifacts: prerequisite check, stage inventory, registry/request/credential/egress summaries, test-plan summary, traceability summary, remote sync limitation note (if applicable).
+- Status: planned/design evidence captured; no implementation claim.

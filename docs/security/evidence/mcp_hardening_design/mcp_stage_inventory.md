@@ -1,0 +1,29 @@
+# MCP Stage Inventory
+
+- mcp_registry_loaded
+- mcp_registry_validated
+- mcp_request_received
+- mcp_context_validated
+- mcp_server_identity_resolved
+- mcp_client_identity_resolved
+- mcp_tool_identity_resolved
+- mcp_resource_identity_resolved
+- mcp_prompt_identity_resolved
+- mcp_tenant_scope_validated
+- mcp_workspace_scope_validated
+- mcp_subject_permission_validated
+- mcp_service_account_permission_validated
+- mcp_delegated_credential_validated
+- mcp_resource_acl_validated
+- mcp_prompt_isolation_validated
+- mcp_request_arguments_validated
+- mcp_confused_deputy_checked
+- mcp_egress_policy_checked
+- mcp_request_signature_validated
+- mcp_replay_protection_checked
+- mcp_approval_requirement_evaluated
+- mcp_execution_authorized
+- mcp_response_received
+- mcp_response_safety_validated
+- mcp_audit_written
+- mcp_finding_recorded_if_needed

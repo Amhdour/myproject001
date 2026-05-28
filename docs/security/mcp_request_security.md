@@ -1,0 +1,25 @@
+# MCP Request Security (Planned)
+
+- allowed MCP request types: tool_call, resource_read, prompt_get.
+- forbidden MCP argument names: password, token, secret, api_key, private_key (raw).
+- forbidden raw secret values: deny/flag known key/token signatures.
+- file path validation: normalize path, block traversal and absolute disallowed roots.
+- URL validation: allowlisted schemes/domains, deny loopback/internal/metadata endpoints.
+- domain allowlist/denylist model: policy-bound by egress_policy_id.
+- command argument handling: reject shell metacharacter payload patterns.
+- SQL-like input handling: flag unsafe SQL control sequences where not expected.
+- prompt-derived argument handling: treat untrusted; require schema checks and risk tiering.
+- resource identifier validation: must match registered resource IDs and format.
+- prompt identifier validation: must match registered prompt IDs and isolation policy.
+- path traversal detection: block ../, encoded traversal, mixed separator bypasses.
+- SSRF detection: block internal CIDRs, link-local, metadata hosts.
+- command injection detection: block command chaining/substitution operators.
+- credential/token/API-key pattern detection: detect known prefixes/patterns and redact.
+- max length checks: enforce per-argument and payload-size ceilings.
+- structured schema validation: strict schema per request type and tool/resource contract.
+- confused-deputy detection: require subject-target-credential scope alignment.
+- request signing expectations: required for configured risk tiers/servers.
+- replay protection expectations: nonce/timestamp/request-id uniqueness checks.
+- redaction expectations: sanitize audits, denials, and findings for secrets/internal policy detail.
+- evidence expectations: audit + finding + metric + test artifact.
+- known limitations: design-only, no live enforcement wired.
