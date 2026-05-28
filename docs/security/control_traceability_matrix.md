@@ -185,3 +185,12 @@ Mapped controls for R-RPATCH-001 through R-RPATCH-008.
 | MCP registry default-deny | SR-MCP-001 | R-MCP-001, R-MCP-002 | PP-MCP-01 | mcp_hardening.md, mcp_registry_contract.md, mcp_hardening_test_plan.md | planned |
 | MCP identity/scope/ACL controls | SR-MCP-001 | R-MCP-003..R-MCP-007 | PP-MCP-02 | mcp_hardening.md, mcp_request_security.md, mcp_credential_isolation.md | planned |
 | MCP request/response/egress integrity | SR-MCP-001 | R-MCP-008..R-MCP-012 | PP-MCP-03 | mcp_hardening.md, mcp_egress_policy.md, mcp_hardening_test_plan.md | planned |
+
+## Step 23A Artifact Safety Traceability Rows
+| Control ID | Requirement IDs | Risk IDs | Patch Points | Design/Test Artifacts | Status |
+|---|---|---|---|---|---|
+| ART-SAFETY-STAGE-MODEL | SR-ART-001 | R-ART-001..R-ART-012 | PP-ART-01 | docs/security/artifact_safety.md | planned |
+| ART-SAFETY-TEST-PLAN | SR-ART-001 | R-ART-001..R-ART-012 | PP-ART-01 | docs/security/artifact_safety_test_plan.md | planned |
+| ART-METADATA-CONTRACT | SR-ART-001 | R-ART-003, R-ART-004, R-ART-009, R-ART-010 | PP-ART-01 | docs/security/artifact_metadata_contract.md | planned |
+| ART-CONTENT-SAFETY | SR-ART-001 | R-ART-001, R-ART-002, R-ART-005, R-ART-006, R-ART-007, R-ART-008, R-ART-011 | PP-ART-01 | docs/security/artifact_content_safety.md | planned |
+| ART-RELEASE-POLICY | SR-ART-001 | R-ART-009, R-ART-010, R-ART-012 | PP-ART-01 | docs/security/artifact_release_policy.md | planned |

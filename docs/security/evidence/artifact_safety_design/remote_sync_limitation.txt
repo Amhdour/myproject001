@@ -1,0 +1,1 @@
+Remote/main verification limitation persists when origin fetch is unavailable; continued from current local verified state per instruction.

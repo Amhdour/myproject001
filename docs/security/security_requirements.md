@@ -311,3 +311,12 @@ Added retrieval-path patching references for design, tests, and evidence linkage
 - MCP request security: `docs/security/mcp_request_security.md`
 - MCP credential isolation: `docs/security/mcp_credential_isolation.md`
 - MCP egress policy: `docs/security/mcp_egress_policy.md`
+
+## Step 23A Artifact Safety Design References
+- Artifact safety design: `docs/security/artifact_safety.md`
+- Artifact safety test plan: `docs/security/artifact_safety_test_plan.md`
+- Artifact metadata contract: `docs/security/artifact_metadata_contract.md`
+- Artifact content safety rules: `docs/security/artifact_content_safety.md`
+- Artifact release policy: `docs/security/artifact_release_policy.md`
+- Evidence category: `docs/security/evidence/artifact_safety_design/`
+- Status: design-only; no live enforcement changes.

@@ -377,3 +377,14 @@ Implemented minimal isolated MCP hardening helpers/tests only; no live MCP/tool/
 ## Step 22C Evidence Category (2026-05-28)
 - Added: `docs/security/evidence/mcp_hardening_validation/`
 - Includes model/registry/request/credential/egress/signing-replay/validator/control/non-leakage validation summaries and test output artifacts.
+
+## Step 23A Evidence Category: Artifact Safety Design
+Evidence bundle path: `docs/security/evidence/artifact_safety_design/`
+- prerequisite_check.txt
+- artifact_stage_inventory.md
+- artifact_metadata_contract_summary.md
+- artifact_content_safety_summary.md
+- artifact_release_policy_summary.md
+- artifact_test_plan_summary.md
+- artifact_traceability_summary.md
+- remote_sync_limitation.txt (if remote verification remains unavailable)

@@ -287,3 +287,11 @@ Implemented minimal isolated MCP hardening helpers/tests only; no live MCP/tool/
 
 ## Step 22C Update (2026-05-28)
 Validation cleanup is isolated-only. No enforce mode, no shadow-deny mode, and no live MCP/tool/cache/vector/retrieval blocking/filtering enabled.
+
+## Step 23A Additional Limitations
+- artifact safety is design-only
+- no live artifact safety enforcement wired
+- no artifact metadata contract implementation yet
+- no artifact scan-before-release implementation yet
+- no artifact quarantine/redaction/download enforcement integrated into live flows
+- production enforcement remains inactive
