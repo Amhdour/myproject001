@@ -316,3 +316,8 @@ Validation cleanup is isolated-only. No enforce mode, no shadow-deny mode, and n
 - enforce mode remains blocked.
 - production readiness is not claimed.
 - remote/main verification remains limited when remote fetch is unavailable.
+
+## Step 24C Additional Limitations (2026-05-28)
+- Cross-control evidence validation is documentation/evidence consistency validation only.
+- Remote/mainline/PR linkage verification remains limited when no git remote is configured.
+- No live enforcement controls were enabled in this step.
