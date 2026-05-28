@@ -388,3 +388,9 @@ Evidence bundle path: `docs/security/evidence/artifact_safety_design/`
 - artifact_test_plan_summary.md
 - artifact_traceability_summary.md
 - remote_sync_limitation.txt (if remote verification remains unavailable)
+
+
+## Step 23C Update (2026-05-28)
+- Isolated artifact safety validation cleanup completed for controls/tests/docs/evidence only.
+- No live artifact/export/download/sandbox/tool/MCP/retrieval/vector/cache integration changed.
+- Enforce and shadow-deny remain inactive.
