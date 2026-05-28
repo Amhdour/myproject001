@@ -31,7 +31,22 @@ FORBIDDEN_CACHE_KEY_FIELDS = (
     "raw_query_text", "raw_prompt_text", "raw_document_text", "raw_chunk_text", "source_secret",
     "api_key", "token", "credential", "connector_url", "email", "raw_policy", "raw_cache_backend",
 )
-_FORBIDDEN_PATTERNS = [r"sk-[A-Za-z0-9]{10,}", r"api[_-]?key", r"token", r"credential", r"password", r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}", r"://[^\s]+:[^\s]+@"]
+_FORBIDDEN_PATTERNS = [
+    r"sk-[A-Za-z0-9]{10,}",
+    r"api[_-]?key",
+    r"token",
+    r"credential",
+    r"password",
+    r"source([_-]|\s)?secret",
+    r"raw([_-]|\s)?query([_-]|\s)?text",
+    r"raw([_-]|\s)?prompt([_-]|\s)?text",
+    r"raw([_-]|\s)?document([_-]|\s)?text",
+    r"raw([_-]|\s)?chunk([_-]|\s)?text",
+    r"raw([_-]|\s)?policy",
+    r"raw([_-]|\s)?cache([_-]|\s)?backend",
+    r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}",
+    r"://[^\s]+:[^\s]+@",
+]
 
 def build_safe_cache_key(**kwargs: object) -> dict[str, object]:
     key = {field: kwargs.get(field) for field in REQUIRED_CACHE_KEY_FIELDS}

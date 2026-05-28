@@ -84,3 +84,11 @@ Each model is planned to require tenant/subject/ACL/provenance binding plus safe
 - Implemented minimal isolated cache security controls under `backend/security_layer/cache/`.
 - No live cache/retrieval/vector/search integration added.
 - Production enforcement remains inactive.
+
+## Step 20C Validation Update (2026-05-28)
+- Isolated cache security controls validated.
+- Cache-key contract validated.
+- Tenant/subject/ACL/provenance validation behavior validated.
+- Stale ACL and deleted/stale invalidation behavior validated.
+- No live cache integration enabled.
+- No production enforcement active.

@@ -238,3 +238,10 @@ Remote/main branch lineage and PR linkage may be incomplete from this environmen
 - Next step: future isolated cache control implementation planning, still non-live by default.
 
 - [x] Step 20B: Cache security minimal isolated controls complete (post-commit verification).
+
+## Step 20C Status (2026-05-28)
+- ✅ Step 20C (Cache Security Validation Cleanup) completed in isolated scope.
+- Expanded isolated cache security validation tests and evidence artifacts captured.
+- Enforce mode remains inactive/no-go.
+- Shadow-deny mode remains inactive/blocked.
+- No live cache/vector/retrieval blocking/filtering enabled.

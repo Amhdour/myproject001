@@ -34,3 +34,8 @@ Status: planned/design-only.
 
 ## Step 20B Test Status
 - Implemented isolated cache security tests: models, key contract, validators, controls.
+
+## Step 20C Validation Coverage Status (2026-05-28)
+- Isolated cache models/key-contract/validator/control test coverage strengthened.
+- Coverage explicitly includes 19 cache stages, 21 cache-key fields, forbidden fields/patterns, and non-leakage checks.
+- Runtime behavior remains unchanged (no enforce/shadow-deny activation).

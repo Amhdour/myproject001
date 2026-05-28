@@ -1,0 +1,2 @@
+Step 20C prerequisite file check (2026-05-28): all required files present.
+Branch: cache-security-validation
