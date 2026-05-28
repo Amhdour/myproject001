@@ -1,0 +1,3 @@
+Real Coolify deployment executed: no
+Live staging validation status: PENDING
+Reason: required Coolify/VPS/remote/secret-injection/log access is unavailable in this environment.
