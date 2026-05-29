@@ -15,6 +15,15 @@ This index points reviewers to existing repository evidence and explains both wh
 | [`docs/security/evidence/step_34x_oracle_free_vps/go_no_go.md`](../docs/security/evidence/step_34x_oracle_free_vps/go_no_go.md) | Minimal staging evidence / claim-boundary evidence | Records scoped Step 34X Oracle/Coolify go/no-go status, including validated infrastructure steps and explicit NO-GO/PENDING statuses. | Does not prove full Onyx live staging, production readiness, enterprise readiness, external validation, compliance certification, or live enforcement. |
 | [`deployment/docker_compose/docker-compose.step34x-minimal.yml`](../deployment/docker_compose/docker-compose.step34x-minimal.yml) | Minimal staging evidence | Provides a minimal nginx health-check docker-compose artifact labeled as Step 34X minimal live-staging evidence with full Onyx marked resource-blocked. | Does not prove full Onyx deployment, application security, production monitoring, rollback, backup, or runtime blocking/filtering. |
 
+## CI Evidence Gates
+
+| Evidence link | Evidence type | What it proves | What it does NOT prove |
+|---|---|---|---|
+| [`.github/workflows/security-layer-tests.yml`](../.github/workflows/security-layer-tests.yml) | CI workflow | Runs the isolated security-layer pytest suite in GitHub Actions for pull requests and manual workflow dispatches. | Does not prove production security, live enforcement, live blocking, live filtering, full Onyx staging, enterprise readiness, or compliance certification. |
+| [`.github/workflows/portfolio-claim-boundary.yml`](../.github/workflows/portfolio-claim-boundary.yml) | CI workflow | Runs claim-boundary and fake-claim wording checks against reviewer-facing portfolio/security docs. | Does not prove external validation, compliance certification, production readiness, enterprise readiness, or runtime protection. |
+| [`.github/workflows/evidence-integrity.yml`](../.github/workflows/evidence-integrity.yml) | CI workflow | Verifies that required reviewer evidence files are present. | Does not validate that optional infrastructure exists, that Onyx is fully deployed, or that controls are active in live request paths. |
+| [`docs/security/evidence/ci_security_gates/README.md`](../docs/security/evidence/ci_security_gates/README.md) | CI evidence note | Explains the purpose, scope, workflows, and reviewer interpretation for the CI gates. | Does not create deployment evidence, external audit evidence, certification evidence, or production/enterprise readiness evidence. |
+
 ## Reviewer Interpretation Rules
 
 - Treat documentation evidence as scope, decision, and traceability evidence.

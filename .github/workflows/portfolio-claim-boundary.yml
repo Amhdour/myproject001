@@ -1,0 +1,23 @@
+name: Portfolio Claim Boundary
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  portfolio-claim-boundary:
+    name: Portfolio claim-boundary checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run claim-boundary checks
+        run: |
+          python scripts/portfolio/check_claim_boundary.py
+          python scripts/portfolio/check_no_fake_claims.py

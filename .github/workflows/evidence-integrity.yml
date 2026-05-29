@@ -1,0 +1,21 @@
+name: Evidence Integrity
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  evidence-integrity:
+    name: Reviewer evidence integrity
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Check reviewer evidence files
+        run: python scripts/portfolio/check_evidence_links.py
