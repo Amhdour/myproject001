@@ -379,3 +379,22 @@ No fake deployment evidence was created, no secrets were committed, and no enfor
 - Full Onyx live staging on the Oracle Free Tier Coolify VPS is **RESOURCE-BLOCKED / NO-GO**.
 - Minimal nginx live staging evidence target is **READY FOR REDEPLOY** using `deployment/docker_compose/docker-compose.step34x-minimal.yml`.
 - Production readiness remains **NO-GO**; enterprise readiness, external validation, and compliance certification are not claimed.
+
+## Step 37X — Backup Evidence Plan
+
+Status: backup plan complete / execution pending.
+
+Added artifacts:
+
+- `docs/security/evidence/step_37x_backup_evidence/README.md`
+- `docs/security/evidence/step_37x_backup_evidence/backup_scope.md`
+- `docs/security/evidence/step_37x_backup_evidence/backup_commands.md`
+- `docs/security/evidence/step_37x_backup_evidence/oracle_boot_volume_backup.md`
+- `docs/security/evidence/step_37x_backup_evidence/coolify_backup_plan.md`
+- `docs/security/evidence/step_37x_backup_evidence/restore_drill_plan.md`
+- `docs/security/evidence/step_37x_backup_evidence/backup_go_no_go.md`
+- `docs/security/evidence/step_37x_backup_evidence/evidence_checklist.md`
+- `docs/security/evidence/step_37x_backup_evidence/limitations.md`
+- `docs/security/evidence/step_37x_backup_evidence/final_status.md`
+
+Step 37X documents the backup scope and evidence plan for the minimal Oracle VPS + Coolify staging environment. Actual backup execution is **PENDING** and restore drill validation is **PENDING**. Full Onyx backup readiness is **NO-GO / RESOURCE-BLOCKED**. Production backup readiness, enterprise backup readiness, and disaster recovery readiness remain **NO-GO**. External validation remains **PENDING** and compliance certification is **NOT CLAIMED**.
