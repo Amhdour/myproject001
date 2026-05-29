@@ -397,3 +397,12 @@ Status: Complete (post-commit).
 - Real Coolify deployment executed: **no**.
 - Live staging validation status: **PENDING**.
 - Enforce mode remains disabled; shadow-deny runtime mode remains disabled; live blocking/filtering remain disabled.
+
+## Step 37X Backup Evidence Plan (2026-05-29)
+
+| Phase | Step | Workstream | Owner | Status | Branch | Commit | PR | Primary Artifacts | Evidence | External dependency status | Date | Runtime behavior | Notes |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Phase 5 | 37X | Oracle VPS + Coolify backup evidence plan | AI Trust & Security Readiness Engineer | backup plan complete / execution pending | work | TBD | TBD | docs/security/evidence/step_37x_backup_evidence/README.md; docs/security/evidence/step_37x_backup_evidence/backup_scope.md; docs/security/evidence/step_37x_backup_evidence/backup_commands.md; docs/security/evidence/step_37x_backup_evidence/oracle_boot_volume_backup.md; docs/security/evidence/step_37x_backup_evidence/coolify_backup_plan.md; docs/security/evidence/step_37x_backup_evidence/restore_drill_plan.md; docs/security/evidence/step_37x_backup_evidence/backup_go_no_go.md; docs/security/evidence/step_37x_backup_evidence/evidence_checklist.md; docs/security/evidence/step_37x_backup_evidence/limitations.md; docs/security/evidence/step_37x_backup_evidence/final_status.md | docs/security/evidence/step_37x_backup_evidence/ | actual backup execution PENDING; restore drill PENDING; Oracle boot volume backup proof PENDING | 2026-05-29 | no application behavior change | Minimal backup planning COMPLETE. Full Onyx backup readiness NO-GO / RESOURCE-BLOCKED. Production backup readiness NO-GO. Enterprise backup readiness NO-GO. Disaster recovery readiness NO-GO. External validation PENDING. Compliance certification NOT CLAIMED. |
+
+- Actual backup/restore was not validated in Step 37X.
+- Overall progress after backup plan completion: about 63%.
