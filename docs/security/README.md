@@ -379,3 +379,23 @@ No fake deployment evidence was created, no secrets were committed, and no enfor
 - Full Onyx live staging on the Oracle Free Tier Coolify VPS is **RESOURCE-BLOCKED / NO-GO**.
 - Minimal nginx live staging evidence target is **READY FOR REDEPLOY** using `deployment/docker_compose/docker-compose.step34x-minimal.yml`.
 - Production readiness remains **NO-GO**; enterprise readiness, external validation, and compliance certification are not claimed.
+
+## Step 38X — Monitoring Baseline Evidence Plan
+
+Status: **MONITORING PLAN COMPLETE / EXECUTION PENDING**.
+
+Step 38X adds the monitoring baseline evidence plan for the Oracle VPS + Coolify minimal staging environment:
+
+- `docs/security/evidence/step_38x_monitoring_baseline/README.md`
+- `docs/security/evidence/step_38x_monitoring_baseline/monitoring_scope.md`
+- `docs/security/evidence/step_38x_monitoring_baseline/monitoring_commands.md`
+- `docs/security/evidence/step_38x_monitoring_baseline/monitoring_execution.md`
+- `docs/security/evidence/step_38x_monitoring_baseline/alerting_status.md`
+- `docs/security/evidence/step_38x_monitoring_baseline/monitoring_go_no_go.md`
+- `docs/security/evidence/step_38x_monitoring_baseline/evidence_checklist.md`
+- `docs/security/evidence/step_38x_monitoring_baseline/limitations.md`
+- `docs/security/evidence/step_38x_monitoring_baseline/final_status.md`
+
+The plan targets basic host uptime, CPU/load, RAM/swap, disk, Docker container status, Docker stats, Coolify health/logs, minimal app health, optional public endpoint checks, and Step 37X backup/restore status. Monitoring execution remains **PENDING USER EXECUTION** because no real command output is included in this repository update.
+
+Production monitoring readiness: **NO-GO**. Enterprise observability readiness: **NO-GO**. Alerting readiness: **NO-GO**. SLO/SLA readiness: **NO-GO**. External validation: **PENDING**. Compliance certification: **NOT CLAIMED**.

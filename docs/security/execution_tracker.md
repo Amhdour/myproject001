@@ -397,3 +397,15 @@ Status: Complete (post-commit).
 - Real Coolify deployment executed: **no**.
 - Live staging validation status: **PENDING**.
 - Enforce mode remains disabled; shadow-deny runtime mode remains disabled; live blocking/filtering remain disabled.
+
+## Step 38X Monitoring Baseline Evidence Plan (2026-05-29)
+
+| Phase | Step | Workstream | Owner | Status | Branch | Commit | PR | Primary Artifacts | Evidence | External dependency status | Date | Runtime behavior | Notes |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Phase 5 | 38X | Oracle VPS + Coolify monitoring baseline | AI Trust & Security Readiness Engineer | monitoring plan complete; execution pending | work | TBD | TBD | docs/security/evidence/step_38x_monitoring_baseline/README.md; docs/security/evidence/step_38x_monitoring_baseline/monitoring_scope.md; docs/security/evidence/step_38x_monitoring_baseline/monitoring_commands.md; docs/security/evidence/step_38x_monitoring_baseline/monitoring_execution.md; docs/security/evidence/step_38x_monitoring_baseline/alerting_status.md; docs/security/evidence/step_38x_monitoring_baseline/monitoring_go_no_go.md; docs/security/evidence/step_38x_monitoring_baseline/evidence_checklist.md; docs/security/evidence/step_38x_monitoring_baseline/limitations.md; docs/security/evidence/step_38x_monitoring_baseline/final_status.md | docs/security/evidence/step_38x_monitoring_baseline/ | Monitoring command output, public endpoint evidence, Coolify screenshot/log evidence, and alerting evidence not captured | 2026-05-29 | no application behavior change | Monitoring execution remains PENDING USER EXECUTION; Production monitoring readiness NO-GO; Enterprise observability readiness NO-GO; Alerting readiness NO-GO; SLO/SLA readiness NO-GO; External validation PENDING; Compliance certification NOT CLAIMED. |
+
+- Step 38X creates a planning/evidence structure only for basic monitoring baseline capture on the Oracle VPS + Coolify minimal staging environment.
+- Required command evidence remains pending: `uptime`, `free -h`, `df -h`, `sudo docker ps`, `sudo docker stats --no-stream`, `curl -I http://localhost:8088`, and minimal app logs.
+- Optional public endpoint evidence remains pending: `curl -I http://84.8.223.251:8088`.
+- Alerting is **NOT CONFIGURED**; no email/SMS/Slack alerting, Prometheus/Grafana, uptime monitor, or SLO/SLA is validated.
+- Step 37X backup plan remains complete, but actual backup/restore execution remains pending.
