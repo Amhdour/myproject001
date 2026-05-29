@@ -24,6 +24,16 @@ This index points reviewers to existing repository evidence and explains both wh
 | [`.github/workflows/evidence-integrity.yml`](../.github/workflows/evidence-integrity.yml) | CI workflow | Verifies that required reviewer evidence files are present. | Does not validate that optional infrastructure exists, that Onyx is fully deployed, or that controls are active in live request paths. |
 | [`docs/security/evidence/ci_security_gates/README.md`](../docs/security/evidence/ci_security_gates/README.md) | CI evidence note | Explains the purpose, scope, workflows, and reviewer interpretation for the CI gates. | Does not create deployment evidence, external audit evidence, certification evidence, or production/enterprise readiness evidence. |
 
+## Demo Attack Evidence
+
+| Evidence link | Evidence type | What it proves | What it does NOT prove |
+|---|---|---|---|
+| [`demo_attacks/README.md`](../demo_attacks/README.md) | Demo documentation | Explains the purpose, scope, synthetic-data-only posture, run command, and claim boundary for demo attacks. | Does not prove production protection, live blocking, live filtering, live enforcement, external validation, compliance, or runtime integration. |
+| [`demo_attacks/attack_matrix.md`](../demo_attacks/attack_matrix.md) | Demo attack matrix | Maps five synthetic RAG and agent attack categories to deterministic expected outcomes and evidence. | Does not prove live controls, production readiness, enterprise readiness, compliance certification, or external validation. |
+| [`demo_attacks/run_demo_attacks.py`](../demo_attacks/run_demo_attacks.py) | Deterministic demo runner | Defines and evaluates five synthetic cases with expected `denied_or_flagged` outcomes using Python standard library only. | Does not call real tools, real MCP servers, network resources, secret stores, or application runtime paths. |
+| [`docs/security/evidence/demo_attack_runner/README.md`](../docs/security/evidence/demo_attack_runner/README.md) | Evidence interpretation note | Describes the command, expected result, interpretation, scope, and claim boundary for demo attack evidence. | Does not prove deployed protection, full live staging, external audit evidence, certification evidence, or security-control activation. |
+| [`docs/security/evidence/demo_attack_runner/expected_results.md`](../docs/security/evidence/demo_attack_runner/expected_results.md) | Expected synthetic results | Lists the five deterministic expected outcomes and explains that results are synthetic portfolio demo evidence. | Does not prove live blocking, live filtering, live enforcement, production protection, external validation, compliance certification, production readiness, or enterprise readiness. |
+
 ## Reviewer Interpretation Rules
 
 - Treat documentation evidence as scope, decision, and traceability evidence.
