@@ -2,6 +2,11 @@
 
 **RAG & Agent Security Readiness Portfolio** — an Onyx-based security-readiness, evidence-room, and launch-gate demonstration project.
 
+
+## Reviewer Portfolio Package
+
+A concise reviewer-facing package is available at [`portfolio/README.md`](portfolio/README.md). It summarizes the architecture, quickstart, demo script, claim boundary, and evidence index for professional review without changing the repository's NO-GO / PENDING / NOT CLAIMED production-readiness boundaries.
+
 ## Status
 
 - Portfolio status: In progress
