@@ -1,0 +1,31 @@
+name: Security Layer Tests
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  security-layer-tests:
+    name: Isolated security-layer tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install minimal test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          # Minimal dependencies for the isolated portfolio security-layer tests; pydantic is pinned from pyproject.toml.
+          # This intentionally does not stand up Onyx services and does not prove production security.
+          python -m pip install pytest "pydantic==2.11.7"
+
+      - name: Run isolated security-layer tests
+        run: |
+          # Passing tests prove isolated security-layer helper behavior only.
+          # Passing tests do NOT prove production security, live enforcement, or full Onyx staging.
+          python -m pytest backend/security_layer/tests -q
