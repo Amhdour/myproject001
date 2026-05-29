@@ -397,3 +397,18 @@ Status: Complete (post-commit).
 - Real Coolify deployment executed: **no**.
 - Live staging validation status: **PENDING**.
 - Enforce mode remains disabled; shadow-deny runtime mode remains disabled; live blocking/filtering remain disabled.
+
+## Step 36X Rollback/Redeploy Evidence Plan (2026-05-29)
+
+- Status: **PENDING USER EXECUTION**.
+- Branch: `work`.
+- Evidence: `docs/security/evidence/step_36x_rollback_redeploy/`.
+- Scope: minimal staging rollback/redeploy plan only for the Step 34X `step34x-health` nginx deployment.
+- Dependencies: Step 34X minimal live VPS staging evidence and Step 35X finalized evidence package.
+- Minimal rollback/redeploy readiness: **PENDING** until Coolify stop/redeploy logs, Docker state, and post-redeploy health check output are captured.
+- Full Onyx rollback: **NO-GO / RESOURCE-BLOCKED**.
+- Production rollback readiness: **NO-GO**.
+- Enterprise rollback readiness: **NO-GO**.
+- External validation: **PENDING**.
+- Compliance certification: **NOT CLAIMED**.
+- Execution statement: rollback/redeploy was not executed in this repository update.
