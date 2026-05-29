@@ -1,118 +1,157 @@
-<a name="readme-top"></a>
+# RAG & Agent Security Readiness Portfolio
 
-<h2 align="center">
-    <a href="https://www.onyx.app/?utm_source=onyx_repo&utm_medium=github&utm_campaign=readme"> <img width="50%" src="https://github.com/onyx-dot-app/onyx/blob/logo/OnyxLogoCropped.jpg?raw=true" /></a>
-</h2>
+**RAG & Agent Security Readiness Portfolio** — an Onyx-based security-readiness, evidence-room, and launch-gate demonstration project.
 
-<p align="center">
-    <a href="https://discord.gg/TDJ59cGV2X" target="_blank">
-        <img src="https://img.shields.io/badge/discord-join-blue.svg?logo=discord&logoColor=white" alt="Discord" />
-    </a>
-    <a href="https://docs.onyx.app/?utm_source=onyx_repo&utm_medium=github&utm_campaign=readme" target="_blank">
-        <img src="https://img.shields.io/badge/docs-view-blue" alt="Documentation" />
-    </a>
-    <a href="https://www.onyx.app/?utm_source=onyx_repo&utm_medium=github&utm_campaign=readme" target="_blank">
-        <img src="https://img.shields.io/website?url=https://www.onyx.app&up_message=visit&up_color=blue" alt="Documentation" />
-    </a>
-    <a href="https://github.com/onyx-dot-app/onyx/blob/main/LICENSE" target="_blank">
-        <img src="https://img.shields.io/static/v1?label=license&message=MIT&color=blue" alt="License" />
-    </a>
-</p>
+## Status
 
-<p align="center">
-  <a href="https://trendshift.io/repositories/12516" target="_blank">
-    <img src="https://trendshift.io/api/badge/repositories/12516" alt="onyx-dot-app/onyx | Trendshift" style="width: 250px; height: 55px;" />
-  </a>
-</p>
+- Portfolio status: In progress
+- Production-style portfolio readiness: 62%
+- Production readiness: NO-GO
+- Enterprise readiness: NO-GO
+- External validation: PENDING
+- Compliance certification: NOT CLAIMED
 
-# Onyx - The Open Source AI Platform
+## What This Project Is
 
-**[Onyx](https://www.onyx.app/?utm_source=onyx_repo&utm_medium=github&utm_campaign=readme)** is the application layer for LLMs - bringing a feature-rich interface that can be easily hosted by anyone.
-Onyx enables LLMs through advanced capabilities like RAG, web search, code execution, file creation, deep research and more.
+This repository is a production-style portfolio project built around an Onyx-based RAG and agent system. Its purpose is to demonstrate AI security readiness work: evidence discipline, risk and traceability artifacts, launch-gate decisioning, safe claim boundaries, and isolated security-layer helpers for RAG, agent, tool, MCP, ingestion, retrieval, cache, vector, and artifact-safety scenarios.
 
-Connect your applications with over 50+ indexing based connectors provided out of the box or via MCP.
+The portfolio value of this repository is the AI security-readiness layer and evidence package around an Onyx-based system, not a claim that the system is ready for production or enterprise deployment.
 
-> [!TIP]
-> Deploy with a single command:
-> ```
-> curl -fsSL https://onyx.app/install_onyx.sh | bash
-> ```
+## What This Project Is Not
 
-![Onyx Chat Silent Demo](https://github.com/onyx-dot-app/onyx/releases/download/v3.0.0/Onyx.gif)
+- Not production-ready.
+- Not enterprise-ready.
+- Not compliance-certified.
+- Not externally validated.
+- Not full live Onyx deployment.
+- Not proof of live enforce-mode security.
+- Not proof of live blocking/filtering in production.
 
----
+## Why This Project Exists
 
-## ⭐ Features
+This project exists to support the career objective of an **AI Trust & Security Readiness Engineer specializing in RAG and Autonomous Agents**. It is designed to show how a security-readiness engineer can turn an existing RAG/agent platform into a reviewable portfolio artifact with clear scope boundaries, evidence standards, launch gates, and honest readiness language.
 
-- **🔍 Agentic RAG:** Get best in class search and answer quality based on hybrid index + AI Agents for information retrieval
-  - Benchmark to release soon!
-- **🔬 Deep Research:** Get in depth reports with a multi-step research flow.
-  - Top of [leaderboard](https://github.com/onyx-dot-app/onyx_deep_research_bench) as of Feb 2026.
-- **🤖 Custom Agents:** Build AI Agents with unique instructions, knowledge, and actions.
-- **🌍 Web Search:** Browse the web to get up to date information.
-  - Supports Serper, Google PSE, Brave, SearXNG, and others.
-  - Comes with an in house web crawler and support for Firecrawl/Exa.
-- **📄 Artifacts:** Generate documents, graphics, and other downloadable artifacts.
-- **▶️ Actions & MCP:** Let Onyx agents interact with external applications, comes with flexible Auth options.
-- **💻 Code Execution:** Execute code in a sandbox to analyze data, render graphs, or modify files.
-- **🎙️ Voice Mode:** Chat with Onyx via text-to-speech and speech-to-text.
-- **🎨 Image Generation:** Generate images based on user prompts.
+## My Contribution
 
-Onyx supports all major LLM providers, both self-hosted (like Ollama, LiteLLM, vLLM, etc.) and proprietary (like Anthropic, OpenAI, Gemini, etc.).
+This repository is based on upstream [Onyx](https://github.com/onyx-dot-app/onyx), an open-source AI platform for RAG, agents, actions, connectors, and LLM workflows. Upstream Onyx provides the application foundation, product architecture, and core platform capabilities.
 
-To learn more - check out our [docs](https://docs.onyx.app/welcome?utm_source=onyx_repo&utm_medium=github&utm_campaign=readme)!
+My portfolio contribution is the security-readiness and evidence layer around that foundation. The work focuses on:
 
----
+- security-readiness documentation,
+- requirements/risk/traceability,
+- policy/control design,
+- isolated security-layer helpers,
+- tests and evidence bundles,
+- demo attack planning,
+- partner evidence room,
+- launch gate decisions,
+- Oracle/Coolify minimal staging evidence where available.
 
-## 🚀 Deployment Modes
+## Current Readiness Snapshot
 
-> Onyx supports deployments in Docker, Kubernetes, Helm/Terraform and provides guides for major cloud providers.
-> Detailed deployment guides found [here](https://docs.onyx.app/deployment/overview).
+- Production-style portfolio readiness: around 62%.
+- Enterprise production-candidate readiness: not claimed / NO-GO.
+- Production readiness: NO-GO.
+- External validation: PENDING.
+- Compliance certification: NOT CLAIMED.
 
-Onyx supports two separate deployment options: standard and lite.
+## What Is Already Strong
 
-#### Onyx Lite
+- Security documentation structure under `docs/security/`.
+- Evidence standard and evidence-reporting discipline.
+- Execution tracker for portfolio-hardening progress.
+- Risk and traceability artifacts.
+- Isolated security controls that can be reviewed without claiming live enforcement.
+- Security-layer tests for isolated helpers.
+- Partner evidence room and partner-safe claim language.
+- Safe claim boundaries that preserve NO-GO / PENDING / NOT CLAIMED status language.
+- Minimal Oracle/Coolify staging path evidence where repository artifacts support it.
 
-The Lite mode can be thought of as a lightweight Chat UI. It requires less resources (under 1GB memory) and runs a less complex stack.
-It is great for users who want to test out Onyx quickly or for teams who are only interested in the Chat UI and Agents functionalities.
+## What Is Still Missing
 
-#### Standard Onyx
+- Custom portfolio polish beyond this first README hardening step.
+- GitHub Actions CI gates for security-layer tests if not already present.
+- Full reviewer evidence package.
+- Screenshots/video walkthrough for reviewers.
+- Full Onyx live staging remains resource-blocked unless proven otherwise by real evidence.
+- External validation remains pending.
+- Compliance is not claimed.
+- Production and enterprise readiness remain NO-GO.
 
-The complete feature set of Onyx which is recommended for serious users and larger teams. Additional components not included in Lite mode:
-- Vector + Keyword index for RAG.
-- Background containers to run job queues and workers for syncing knowledge from connectors.
-- AI model inference servers to run deep learning models used during indexing and inference.
-- Performance optimizations for large scale use via in memory cache (Redis) and blob store (MinIO).
+## How To Review This Project
 
-> [!TIP]  
-> **To try Onyx for free without deploying, visit [Onyx Cloud](https://cloud.onyx.app/signup?utm_source=onyx_repo&utm_medium=github&utm_campaign=readme)**.
+Start with these security-readiness documents:
 
----
+- [`docs/security/README.md`](docs/security/README.md)
+- [`docs/security/execution_tracker.md`](docs/security/execution_tracker.md)
+- [`docs/security/evidence_report.md`](docs/security/evidence_report.md)
+- [`docs/security/known_limitations.md`](docs/security/known_limitations.md)
+- [`docs/security/partner_safe_claims.md`](docs/security/partner_safe_claims.md)
+- [`docs/security/final_claim_boundary.md`](docs/security/final_claim_boundary.md)
+- [`docs/security/final_evidence_package_index.md`](docs/security/final_evidence_package_index.md)
 
-## 🏢 Onyx for Enterprise
+Recommended reviewer path:
 
-Onyx is built for teams of all sizes, from individual users to the largest global enterprises:
-- 👥 Collaboration: Share chats and agents with other members of your organization.
-- 🔐 Single Sign On: SSO via Google OAuth, OIDC, or SAML. Group syncing and user provisioning via SCIM.
-- 🛡️ Role Based Access Control: RBAC for sensitive resources like access to agents, actions, etc.
-- 📊 Analytics: Usage graphs broken down by teams, LLMs, or agents.
-- 🕵️ Query History: Audit usage to ensure safe adoption of AI in your organization.
-- 💻 Custom code: Run custom code to remove PII, reject sensitive queries, or to run custom analysis.
-- 🎨 Whitelabeling: Customize the look and feel of Onyx with custom naming, icons, banners, and more.
+1. Read the final claim boundary before evaluating readiness claims.
+2. Review the evidence report and execution tracker.
+3. Inspect known limitations and partner-safe claim language.
+4. Run the local security-layer tests if dependencies are available.
+5. Treat staging artifacts as scoped evidence only, not as proof of full Onyx live production readiness.
 
-## 📚 Licensing
+## How To Run Local Security-Layer Tests
 
-There are two editions of Onyx:
+Run the isolated security-layer test suite from the repository root:
 
-- Onyx Community Edition (CE) is available freely under the MIT license and covers all of the core features for Chat, RAG, Agents, and Actions.
-- Onyx Enterprise Edition (EE) includes extra features that are primarily useful for larger organizations.
+```bash
+PYTHONPATH=. python -m pytest backend/security_layer/tests -q
+```
 
-For feature details, check out [our website](https://www.onyx.app/pricing?utm_source=onyx_repo&utm_medium=github&utm_campaign=readme).
+If dependencies are missing, treat that as a local execution blocker and document the exact failure. Do not mark tests passed unless this command actually passes in the current environment.
 
-## 👪 Community
+## Deployment / Staging Status
 
-Join our open source community on **[Discord](https://discord.gg/TDJ59cGV2X)**!
+- Oracle/Coolify minimal staging path exists where repository evidence supports it.
+- Full Onyx live staging is resource-blocked / NO-GO unless evidence proves otherwise.
+- Minimal nginx/health-check staging is not equivalent to full production deployment.
+- Production readiness remains NO-GO.
+- Enterprise readiness remains NO-GO.
+- No live enforce-mode, shadow-deny runtime mode, live blocking, or live filtering is claimed by this README.
 
-## 💡 Contributing
+## Safe Claims
 
-Looking to contribute? Please check out the [Contribution Guide](CONTRIBUTING.md) for more details.
+- Portfolio security-readiness project.
+- Partner-demo evidence room.
+- Isolated security-control helpers and tests.
+- Launch-gate and claim-boundary discipline.
+- Production-style demo, not enterprise deployment.
+
+## Forbidden Claims
+
+- Production-ready.
+- Enterprise-ready.
+- Compliance-certified.
+- Externally validated.
+- Live enforce-mode protection.
+- Live shadow-deny runtime.
+- Live blocking/filtering.
+- Full Onyx production deployment.
+
+## Next Accelerated Steps
+
+1. Add portfolio/ reviewer package.
+2. Add GitHub Actions CI for security-layer tests.
+3. Add evidence validation script.
+4. Add demo attack runner/evidence index.
+5. Add Oracle/Coolify minimal staging evidence package.
+
+## Upstream Onyx References
+
+This portfolio is built on top of upstream Onyx. Reviewers who want to understand the base platform can consult:
+
+- Upstream Onyx repository: <https://github.com/onyx-dot-app/onyx>
+- Upstream Onyx documentation: <https://docs.onyx.app/>
+- Upstream Onyx community: <https://discord.gg/TDJ59cGV2X>
+- Upstream Onyx license reference: <https://github.com/onyx-dot-app/onyx/blob/main/LICENSE>
+- This repository's contribution guide, if contributing code: [`CONTRIBUTING.md`](CONTRIBUTING.md)
+
+The upstream links describe Onyx as a platform. This repository's portfolio value is the security-readiness documentation, evidence room, isolated helper layer, and launch-gate/claim-boundary discipline around an Onyx-based RAG and agent system.
