@@ -379,3 +379,13 @@ No fake deployment evidence was created, no secrets were committed, and no enfor
 - Full Onyx live staging on the Oracle Free Tier Coolify VPS is **RESOURCE-BLOCKED / NO-GO**.
 - Minimal nginx live staging evidence target is **READY FOR REDEPLOY** using `deployment/docker_compose/docker-compose.step34x-minimal.yml`.
 - Production readiness remains **NO-GO**; enterprise readiness, external validation, and compliance certification are not claimed.
+
+## Step 36X Status (2026-05-29)
+
+- Minimal `step34x-health` rollback/redeploy on `rag-agent-security-staging-v2` is **VALIDATED** for the minimal nginx scope only.
+- Evidence includes the running `nginx:alpine` container with `0.0.0.0:8088->80/tcp`, local `HTTP/1.1 200 OK` before stop, no `step34x-health` container output and `Couldn't connect to server` after stop, and redeployed container `be0db257c549` returning `HTTP/1.1 200 OK`.
+- Full Onyx rollback remains **NO-GO / RESOURCE-BLOCKED**.
+- Production rollback readiness remains **NO-GO**.
+- Enterprise rollback readiness remains **NO-GO**.
+- External validation remains **PENDING**.
+- Compliance certification remains **NOT CLAIMED**.

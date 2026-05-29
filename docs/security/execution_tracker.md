@@ -397,3 +397,14 @@ Status: Complete (post-commit).
 - Real Coolify deployment executed: **no**.
 - Live staging validation status: **PENDING**.
 - Enforce mode remains disabled; shadow-deny runtime mode remains disabled; live blocking/filtering remain disabled.
+
+## Step 36X Minimal Rollback/Redeploy Validation (2026-05-29)
+
+| Phase | Step | Workstream | Owner | Status | Branch | Commit | PR | Primary Artifacts | Evidence | External dependency status | Date | Runtime behavior | Notes |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Phase 5 | 36X | Minimal rollback/redeploy validation | AI Trust & Security Readiness Engineer | VALIDATED for minimal `step34x-health` rollback/redeploy only | work | TBD | TBD | docs/security/evidence/step_36x_rollback_redeploy/ | docs/security/evidence/step_36x_rollback_redeploy/ | Real Coolify/VPS evidence provided for minimal nginx stop and redeploy; public curl evidence not provided; external validation PENDING | 2026-05-29 | no application behavior change | Minimal rollback/redeploy VALIDATED; Full Onyx rollback NO-GO / RESOURCE-BLOCKED; Production rollback readiness NO-GO; Enterprise rollback readiness NO-GO; Compliance certification NOT CLAIMED. |
+
+- Before stop: `nginx:alpine` minimal app container with `step34x-health` prefix was running on `0.0.0.0:8088->80/tcp`, and local health returned `HTTP/1.1 200 OK`.
+- After Coolify stop: `sudo docker ps -a | grep step34x-health || true` returned no `step34x-health` output, and local health returned `Couldn't connect to server`.
+- After Coolify redeploy: `sudo docker ps` included `be0db257c549`, `nginx:alpine`, `Up`, `0.0.0.0:8088->80/tcp`, and `step34x-health-pdegb9g6obvbmmayzijiifjt-155959540822`; local health returned `HTTP/1.1 200 OK`.
+- Validation applies only to minimal `step34x-health` rollback/redeploy. Full Onyx rollback, database rollback, production rollback readiness, and enterprise rollback readiness are not validated.
