@@ -5,15 +5,15 @@
 | Field | Value |
 |---|---|
 | Repository | `Amhdour/myproject001` |
-| Intended deployment branch during blocked run | `main` |
-| Blocked commit | `353ee0127ed826e8b139aa4f264e3477143b007c` |
-| Coolify compose path during blocked run | `deployment/docker_compose/docker-compose.yml` |
-| Corrected compose path for next staging run | `deployment/docker_compose/docker-compose.coolify-staging.yml` |
+| Coolify project | `rag-agent-security-minimal-staging` |
+| Failed resource | `myproject001:main-lu8fgylyjp4so3adpxep8ixb` |
+| Commit imported during failed full-stack attempt | `a4012826cf06a2ecb859b932a9a14d2b7c44bbf1` |
+| New minimal compose path | `deployment/docker_compose/docker-compose.step34x-minimal.yml` |
 
 ## Remote import status
 
-Repository import in Coolify was **VALIDATED** before the deployment blocker occurred. The blocker was not repository authentication or GitHub App installation; it was Docker Compose context resolution during deployment preparation.
+Repository import in Coolify is **VALIDATED**. The latest documented blocker is not GitHub authentication or repository import; it is that the previous deployment attempted the full Onyx stack on a resource-constrained Oracle Free Tier VPS.
 
 ## Branch note
 
-This repository fix is prepared on branch `step-34x-coolify-staging-compose-fix`. After review and merge, the Coolify staging application should be pointed at the corrected compose file for the next deployment attempt.
+This repository update is prepared on branch `step-34x-minimal-live-staging`. After review and merge, the exact next Coolify action is to set the compose path to `deployment/docker_compose/docker-compose.step34x-minimal.yml` and deploy.

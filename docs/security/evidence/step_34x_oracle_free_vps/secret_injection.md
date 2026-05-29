@@ -2,12 +2,11 @@
 
 ## Secret handling status
 
-No secrets were added to git for Step 34X. This repository change does not create real `.env` values and does not document sensitive credentials.
-
-## Expected staging secret path
-
-Coolify staging secrets should be injected through the Coolify environment/secret-management UI or another approved out-of-git secret store. The repository compose file keeps safe variable references and defaults only.
+- No real secrets were committed to git.
+- The minimal nginx deployment does not require secrets.
+- If future app secrets are needed, use Coolify environment variables only.
+- Do not screenshot secret values.
 
 ## Evidence boundary
 
-The blocked deployment did not validate application-level secret correctness because Docker Compose failed during context preparation before service startup.
+This minimal deployment target intentionally avoids application secrets. Any future secret validation must use sanitized evidence that proves injection paths without exposing secret values.

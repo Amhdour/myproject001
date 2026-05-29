@@ -373,3 +373,9 @@ Added artifacts:
 Step 33X did not execute a real Coolify deployment because Coolify dashboard/API access, VPS access, repository remote access, a remotely verifiable staging branch target, an out-of-git secret injection path, and deployment-log access were unavailable in this environment. Live staging validation remains **PENDING**. Partner-demo evidence review remains **GO**. Production readiness and enterprise production readiness remain **NO-GO**. External validation remains **PENDING** and compliance certification is **NOT CLAIMED**.
 
 No fake deployment evidence was created, no secrets were committed, and no enforce mode, shadow-deny runtime mode, live blocking, live filtering, or application behavior change was introduced.
+
+## Step 34X Status (2026-05-29)
+
+- Full Onyx live staging on the Oracle Free Tier Coolify VPS is **RESOURCE-BLOCKED / NO-GO**.
+- Minimal nginx live staging evidence target is **READY FOR REDEPLOY** using `deployment/docker_compose/docker-compose.step34x-minimal.yml`.
+- Production readiness remains **NO-GO**; enterprise readiness, external validation, and compliance certification are not claimed.

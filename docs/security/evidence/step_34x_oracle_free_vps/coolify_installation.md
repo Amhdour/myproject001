@@ -1,19 +1,14 @@
 # Step 34X Coolify Installation Evidence
 
-## Installation and access status
+## Installation and integration status
 
-| Check | Status |
-|---|---|
-| Oracle Free VPS access | **VALIDATED** |
-| Coolify installation | **VALIDATED** |
-| Coolify dashboard access | **VALIDATED** |
-| GitHub App integration | **VALIDATED** |
-| Repository import | **VALIDATED** |
+| Check | Status | Notes |
+|---|---|---|
+| Coolify installed | **VALIDATED** | Operator confirmed Coolify was installed on the Oracle Free Tier VPS. |
+| Coolify accessible | **VALIDATED** | Operator confirmed the Coolify dashboard was reachable. |
+| GitHub App integration | **VALIDATED** | Operator confirmed GitHub App integration works. |
+| Repository import | **VALIDATED** | Operator confirmed `Amhdour/myproject001` import works. |
 
-## Deployment blocker boundary
+## Deployment boundary
 
-The staging deployment reached Docker Compose preparation and was blocked by a compose-file build-context issue. This evidence does not claim that application containers started successfully, that health checks passed, or that smoke tests were executed.
-
-## Next operator action
-
-Use the Coolify-specific compose file `deployment/docker_compose/docker-compose.coolify-staging.yml` for the next staging deployment attempt.
+The Coolify platform path is validated, but the full Onyx application deployment is resource-blocked on this host. The minimal compose target is prepared for a future operator redeploy and is not marked validated in this repository update.
