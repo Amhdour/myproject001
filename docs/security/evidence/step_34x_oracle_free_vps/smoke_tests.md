@@ -1,20 +1,21 @@
 # Step 34X Smoke Tests
 
-## Smoke-test status
+## Planned commands
 
-| Smoke-test area | Status | Notes |
-|---|---|---|
-| Deployment startup | **BLOCKED** | Docker Compose failed during context preparation. |
-| Frontend availability | **PENDING** | Requires successful redeploy with the Coolify staging compose file. |
-| API health | **PENDING** | Requires successful redeploy with the Coolify staging compose file. |
-| Authentication path | **PENDING** | Requires successful redeploy and approved test credentials. |
-| Read-only page load | **PENDING** | Requires successful redeploy. |
-| Runtime boundary review | **PENDING** | Requires live staging logs and configuration evidence. |
+Run these commands on the VPS after setting the Coolify compose path to `deployment/docker_compose/docker-compose.step34x-minimal.yml` and deploying:
 
-## Blocked-run error
+```bash
+sudo docker ps
+curl -I http://localhost:8088
+curl -I http://84.8.223.251:8088
+```
 
-`unable to prepare context: path "/backend" not found`
+## Expected result
 
-## Next validation step
+- `sudo docker ps` should show the `step34x-health` container running.
+- `curl -I http://localhost:8088` should return an nginx HTTP response.
+- `curl -I http://84.8.223.251:8088` should return an nginx HTTP response if host firewall, cloud firewall, and Coolify deployment routing allow public access.
 
-After redeploying with `deployment/docker_compose/docker-compose.coolify-staging.yml`, capture sanitized evidence for service health, frontend access, login/authentication, read-only application navigation, and relevant Coolify deployment logs.
+## Current status
+
+**PENDING** until the user redeploys through Coolify and captures live command output. Codex did not run these VPS smoke tests in this repository update.

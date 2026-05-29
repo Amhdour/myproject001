@@ -2,7 +2,12 @@
 
 | Decision area | Status |
 |---|---|
-| Live VPS staging | **BLOCKED pending compose fix redeploy** |
+| VPS access | **VALIDATED** |
+| Coolify installation | **VALIDATED** |
+| GitHub App integration | **VALIDATED** |
+| Repository import | **VALIDATED** |
+| Full Onyx live staging | **RESOURCE-BLOCKED / NO-GO** |
+| Minimal live staging | **PENDING until redeploy** |
 | Partner-demo evidence review | **CONDITIONAL** |
 | Production readiness | **NO-GO** |
 | Enterprise production readiness | **NO-GO** |
@@ -11,4 +16,4 @@
 
 ## Rationale
 
-The Oracle Free VPS and Coolify setup reached repository import and deployment preparation, but the deployment was blocked by Docker Compose build context resolution. No production or enterprise readiness claim can be made until a successful redeploy and smoke-test evidence are captured.
+The Oracle Free Tier VPS and Coolify path are validated enough to prepare a minimal deployment target. The full Onyx stack is resource-blocked on this VPS class, and the minimal nginx target is not validated until an operator redeploys it through Coolify and records smoke-test evidence.

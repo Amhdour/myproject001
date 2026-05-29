@@ -1,0 +1,11 @@
+services:
+  step34x-health:
+    image: nginx:alpine
+    container_name: step34x-health
+    ports:
+      - "8088:80"
+    restart: unless-stopped
+    labels:
+      - "step=34x"
+      - "purpose=minimal-live-staging-evidence"
+      - "full_onyx_status=resource_blocked"
