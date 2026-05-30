@@ -103,3 +103,25 @@
 | Live staging/cloud validation after Step 46X | PENDING | No real cloud/VPS/staging deployment validation was added. |
 | External validation after Step 46X | PENDING | No independent external validation was performed. |
 | Compliance certification after Step 46X | NOT CLAIMED | No certification is claimed. |
+
+## Step 47X Docker Local Compose Staging Update
+
+Step 47X classification: `DOCKER_STAGING_BLOCKED`.
+
+Docker/local staging readiness was evaluated from this workspace. Docker was not installed, Docker Compose was unavailable, compose config validation could not run, and no local Docker staging stack started. The repository does contain deployment compose files, and the selected safest local path was inspected:
+
+- `deployment/docker_compose/docker-compose.yml`
+- `deployment/docker_compose/docker-compose.onyx-lite.yml`
+- `deployment/docker_compose/docker-compose.dev.yml`
+
+Readiness status after Step 47X:
+
+- Production-style portfolio readiness: 87%.
+- Enterprise production-candidate readiness: NO-GO / 5%.
+- Local Docker staging evidence: BLOCKED.
+- Live staging/cloud validation: PENDING.
+- CI Actions evidence: BLOCKED from Step 46X.
+- External validation: PENDING.
+- Compliance certification: NOT CLAIMED.
+
+This update does not claim local Docker staging success, production readiness, enterprise production readiness, live cloud/VPS staging validation, external validation, compliance certification, full Onyx-wide enforcement, customer deployment, or CI pass.

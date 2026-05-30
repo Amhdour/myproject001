@@ -151,3 +151,20 @@ Claim boundary: Step 43X does not prove GitHub CI success, remote sync resolutio
 | Step 46X checker | `scripts/portfolio/check_step_46x_ci_evidence.py` | local checker | Verifies required evidence files and prevents unsupported CI-pass, staging, enterprise, external-validation, and compliance claims. |
 
 Claim boundary: Step 46X does not prove GitHub Actions success, live staging/cloud validation, production readiness, enterprise production readiness, external validation, compliance certification, customer deployment, or full Onyx-wide enforcement. CI Actions evidence remains **BLOCKED**.
+
+## Step 47X Docker Local Compose Staging Evidence
+
+| Evidence item | Path | Status |
+|---|---|---|
+| Step 47X evidence package | `docs/security/evidence/step_47x_docker_local_compose_staging_proof/` | Complete evidence package with `DOCKER_STAGING_BLOCKED` classification. |
+| Environment check | `docs/security/evidence/step_47x_docker_local_compose_staging_proof/environment_check.md` | Captures starting branch, commit, tool versions, and working context. |
+| Docker availability | `docs/security/evidence/step_47x_docker_local_compose_staging_proof/docker_availability.md` | Docker missing; daemon and Compose unavailable. |
+| Deployment inventory | `docs/security/evidence/step_47x_docker_local_compose_staging_proof/deployment_file_inventory.md` | Compose files discovered and selected files inspected. |
+| Compose config validation | `docs/security/evidence/step_47x_docker_local_compose_staging_proof/compose_config_validation.md` | Blocked because Docker/Compose were missing. |
+| Local staging attempt | `docs/security/evidence/step_47x_docker_local_compose_staging_proof/local_staging_attempt.md` | Path C — Docker blocked evidence. |
+| Health checks | `docs/security/evidence/step_47x_docker_local_compose_staging_proof/health_check_results.md` | Not proven; no service started. |
+| Runtime enforcement mode | `docs/security/evidence/step_47x_docker_local_compose_staging_proof/runtime_enforcement_mode.md` | Step 39X default remains disabled; controlled tests pass. |
+| Logs and rollback | `docs/security/evidence/step_47x_docker_local_compose_staging_proof/log_capture.md`; `docs/security/evidence/step_47x_docker_local_compose_staging_proof/rollback_evidence.md` | No runtime logs; rollback not needed because no containers started. |
+| Step 47X checker | `scripts/portfolio/check_step_47x_docker_staging_evidence.py` | Verifies evidence completeness and claim boundaries. |
+
+Step 47X does not prove local Docker staging success, live cloud/VPS staging validation, production readiness, enterprise production readiness, external validation, compliance certification, full Onyx-wide enforcement, customer deployment, or CI pass. Production-style portfolio readiness remains 87%; enterprise production-candidate readiness remains NO-GO / 5%.

@@ -668,3 +668,36 @@ Readiness remains bounded: production-style portfolio readiness remains **87%**,
 | PR #107 visibility | `docs/security/evidence/step_46x_github_actions_ci_run_trigger_verification_gate/pr_107_visibility.md` | LOCAL MERGE TEXT ONLY | GitHub PR metadata and merged state are not claimed. |
 | Local verification | `docs/security/evidence/step_46x_github_actions_ci_run_trigger_verification_gate/local_verification_results.md` | PASS | Required local commands passed; this does not substitute for GitHub Actions evidence. |
 | Secret hygiene | `docs/security/evidence/step_46x_github_actions_ci_run_trigger_verification_gate/secret_hygiene.md` | PASS | Manual review found no real secrets in the requested scan scope. |
+
+## Step 47X Docker Local Compose Staging Proof
+
+Step 47X evaluated Docker availability and the safest local Docker Compose staging path from the workspace. The selected compose path was `deployment/docker_compose/docker-compose.yml` plus `deployment/docker_compose/docker-compose.onyx-lite.yml` plus `deployment/docker_compose/docker-compose.dev.yml` because the lite overlay minimizes optional services and the dev overlay exposes local ports for probes.
+
+Result: `DOCKER_STAGING_BLOCKED`.
+
+Evidence summary:
+
+- Docker was missing: `docker` command not found.
+- Docker daemon status could not be evaluated because the Docker binary was missing.
+- Docker Compose was unavailable: both `docker compose` and `docker-compose` failed.
+- Compose files were present and inspected.
+- Compose config validation could not run.
+- Local Docker staging did not start.
+- Health/reachability was not proven; localhost probes failed because no service started.
+- No runtime container logs were available.
+- Rollback was not needed because no containers started; Docker rollback/status commands could not run.
+- Step 39X runtime enforcement tests and portfolio claim-boundary/evidence checks passed locally.
+
+Evidence files are under `docs/security/evidence/step_47x_docker_local_compose_staging_proof/`. The Step 47X checker is `scripts/portfolio/check_step_47x_docker_staging_evidence.py`.
+
+Readiness impact after Step 47X:
+
+- Production-style portfolio readiness: 87%.
+- Enterprise production-candidate readiness: NO-GO / 5%.
+- Local Docker staging evidence: BLOCKED.
+- Live staging/cloud validation: PENDING.
+- CI Actions evidence: BLOCKED from Step 46X; not reverified in Step 47X.
+- External validation: PENDING.
+- Compliance certification: NOT CLAIMED.
+
+Claim boundary: Step 47X does not prove local Docker staging success, live cloud/VPS staging validation, production readiness, enterprise production readiness, external validation, compliance certification, full Onyx-wide enforcement, customer deployment, or CI pass.

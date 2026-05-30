@@ -498,3 +498,32 @@ Status: Complete (post-commit).
 | Live staging/cloud validation after Step 46X | PENDING | Step 46X did not add live staging/cloud deployment evidence. |
 | External validation after Step 46X | PENDING | No independent external validation was performed. |
 | Compliance certification after Step 46X | NOT CLAIMED | No certification is claimed. |
+
+## Step 47X Docker Availability + Local Compose Staging Proof Update
+
+| Field | Value |
+|---|---|
+| Step | 47X — Docker Availability + Local Compose Staging Proof |
+| Branch | `step-47x-docker-local-compose-staging-proof` |
+| Starting branch | `work` |
+| Starting commit | `d49b704b9e6da7f95fe2656305cd7ae4218165a0` |
+| Classification | `DOCKER_STAGING_BLOCKED` |
+| Docker state | `DOCKER_MISSING`; `docker` command not found. |
+| Docker Compose state | unavailable; both `docker compose` and `docker-compose` commands were unavailable. |
+| Compose files inspected | `deployment/docker_compose/docker-compose.yml`; `deployment/docker_compose/docker-compose.onyx-lite.yml`; `deployment/docker_compose/docker-compose.dev.yml`. |
+| Compose config result | Not run because Docker/Compose were missing in the workspace. |
+| Local staging attempt path | Path C — Docker blocked evidence. |
+| Health check result | Not proven; localhost probes on ports 3000, 8080, and 8000 failed because no service started. |
+| Logs captured | No runtime logs available; no containers started. |
+| Rollback | No container rollback needed; Docker rollback/status commands could not run because Docker was missing. |
+| Evidence package | `docs/security/evidence/step_47x_docker_local_compose_staging_proof/` |
+| Helper checker | `scripts/portfolio/check_step_47x_docker_staging_evidence.py` |
+| Production-style portfolio readiness after Step 47X | 87% / GO for portfolio review only. |
+| Enterprise production-candidate readiness after Step 47X | NO-GO / 5%. |
+| Local Docker staging evidence after Step 47X | BLOCKED. |
+| Live staging/cloud validation after Step 47X | PENDING. |
+| CI Actions evidence after Step 47X | BLOCKED from Step 46X; not reverified in Step 47X. |
+| External validation after Step 47X | PENDING. |
+| Compliance certification after Step 47X | NOT CLAIMED. |
+
+Step 47X does not claim local Docker staging success, live cloud/VPS staging validation, production readiness, enterprise production readiness, external validation, compliance certification, full Onyx-wide enforcement, customer deployment, or CI pass.
