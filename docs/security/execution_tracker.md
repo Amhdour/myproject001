@@ -420,3 +420,16 @@ Status: Complete (post-commit).
 | Phase | Step | Workstream | Owner | Status | Branch | Commit | PR | Primary Artifacts | Evidence | External dependency status | Date | Runtime behavior | Notes |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Phase 4 | 40X | Runtime enforcement PR review and merge gate | Senior AI Trust & Security Readiness Engineer | complete after narrow review-gate fixes | work | TBD | #102 | backend/onyx/context/search/retrieval/search_runner.py; backend/security_layer/runtime_enforcement/; backend/security_layer/tests/test_step_39x_runtime_enforcement.py | docs/security/evidence/step_40x_runtime_enforcement_pr_review_merge_gate/ | No cloud, VPS, K3s, Rancher, Coolify, network, external validation, or compliance certification was used or claimed | 2026-05-30 | narrow Step 39X retrieval-facing proof only; default disabled | GO after review. Step 40X does not prove production readiness, enterprise production readiness, external validation, compliance certification, live staging/cloud deployment, or full Onyx-wide enforcement. |
+
+## Step 42X Actual Live Staging Deployment Evidence (2026-05-30)
+
+| Phase | Step | Workstream | Owner | Status | Branch | Commit | PR | Primary Artifacts | Evidence | External dependency status | Date | Runtime behavior | Notes |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Phase 5 | 42X | Actual live staging deployment evidence | AI Trust & Security Readiness Engineer | DEPLOYMENT_BLOCKED; evidence package complete | step-42x-live-staging-deployment-evidence | TBD | TBD | docs/security/evidence/step_42x_live_staging_deployment_evidence/; scripts/portfolio/check_step_42x_staging_evidence.py | docs/security/evidence/step_42x_live_staging_deployment_evidence/ | No origin remote, no cloud/VPS/Coolify/OCI target, Docker missing, Docker Compose missing, local app not reachable | 2026-05-30 | no application behavior change; Step 39X mode default remains disabled | Live staging validation PENDING; local staging validation PENDING; production readiness NO-GO; enterprise production-candidate readiness NO-GO / 5%; external validation PENDING; compliance certification NOT CLAIMED. |
+
+- Chosen deployment path: **C — Deployment blocked evidence**.
+- Deployment command attempted: `docker compose -f deployment/docker_compose/docker-compose.yml -f deployment/docker_compose/docker-compose.onyx-lite.yml -f deployment/docker_compose/docker-compose.dev.yml up -d --wait`.
+- Exact blocker: `docker: command not found` with exit `127`.
+- Health check result: blocked; `curl -sS -i http://localhost:3000/api/health` failed to connect with exit `7`.
+- Security/portfolio checks: Step 39X test passed (`6 passed`), full security-layer tests passed (`274 passed, 8 skipped`), demo attacks passed, claim-boundary/no-fake-claims/evidence-links/release-candidate checks passed before final documentation edits.
+- Production-style portfolio readiness after Step 42X: **87%**. This is a portfolio-evidence estimate only, not production readiness.

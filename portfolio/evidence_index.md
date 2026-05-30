@@ -96,3 +96,12 @@ This index points reviewers to existing repository evidence and explains both wh
 | [`docs/security/evidence/release_candidate/README.md`](../docs/security/evidence/release_candidate/README.md) | Evidence-side release-candidate scope | Records the evidence category and release-candidate proof boundary. | Does not add runtime behavior or live deployment evidence. |
 | [`docs/security/evidence/release_candidate/final_evidence_map.md`](../docs/security/evidence/release_candidate/final_evidence_map.md) | Final release-candidate evidence map | Maps final evidence categories to links, proof statements, non-proof statements, and evidence type. | Does not certify the project or make public sharing unconditional. |
 | [`docs/security/evidence/step_40x_runtime_enforcement_pr_review_merge_gate/README.md`](../docs/security/evidence/step_40x_runtime_enforcement_pr_review_merge_gate/README.md) | Step 40X runtime enforcement PR review and merge gate | Documents strict review of the Step 39X runtime-facing retrieval enforcement proof, narrow fixes, command gates, and merge decision. | Does not prove production readiness, enterprise production readiness, external validation, compliance certification, live staging/cloud deployment, full Onyx-wide enforcement, or real customer deployment. |
+
+## Step 42X Actual Live Staging Deployment Evidence
+
+| Evidence | Path | Status | Notes |
+|---|---|---|---|
+| Step 42X evidence package | `docs/security/evidence/step_42x_live_staging_deployment_evidence/` | DEPLOYMENT_BLOCKED | Records environment checks, attempted Docker Compose deployment commands, blocked health checks, runtime mode verification, smoke-test results, log-capture blocker, rollback notes, go/no-go classification, limitations, and blockers. |
+| Step 42X checker | `scripts/portfolio/check_step_42x_staging_evidence.py` | local checker | Verifies the required Step 42X evidence files and blocked-deployment claim-boundary phrases. |
+
+Claim boundary: Step 42X does not prove live cloud staging, local staging success, production readiness, enterprise production readiness, external validation, compliance certification, customer deployment, public URL availability, or full Onyx-wide enforcement. Live staging validation remains **PENDING**.

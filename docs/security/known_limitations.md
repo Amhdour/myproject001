@@ -450,3 +450,16 @@ Validation cleanup is isolated-only. No enforce mode, no shadow-deny mode, and n
 - Step 40X does not prove live staging/cloud deployment.
 - Production readiness remains **NO-GO**.
 - Enterprise production-candidate readiness remains **NO-GO**.
+
+## Step 42X Actual Live Staging Deployment Evidence Limitations
+
+- Step 42X produced an honest blocked-deployment evidence package, not a successful staging deployment.
+- Live staging/cloud validation remains **PENDING**.
+- Local staging validation remains **PENDING** because Docker/Docker Compose were unavailable and no existing local app endpoint was reachable.
+- No public URL, cloud/VPS host, Coolify deployment, OCI deployment, customer deployment, or externally validated staging target was available.
+- No runtime app logs were captured because no container or process started.
+- The Step 39X runtime-enforcement mode remained effectively `disabled` by default; controlled tests passed, but public/live enforce mode was not enabled.
+- Production readiness remains **NO-GO**.
+- Enterprise production-candidate readiness remains **NO-GO / 5%**.
+- External validation remains **PENDING**.
+- Compliance certification is **NOT CLAIMED**.
