@@ -463,3 +463,24 @@ Status: Complete (post-commit).
 - Origin/main recovery remains blocked from this workspace because the starting remote was missing and the recovered origin fetch failed with `CONNECT tunnel failed, response 403`.
 - GitHub CLI was unavailable, so GitHub PR metadata and CI status remain unverified.
 - Production-style portfolio readiness remains **87%**; enterprise production-candidate readiness remains **NO-GO / 5%**; live staging/cloud validation remains **PENDING**; external validation remains **PENDING**; compliance certification remains **NOT CLAIMED**.
+
+## Step 45X GitHub PR Chain + CI Actions Verification Update
+
+| Field | Value |
+|---|---|
+| Step | 45X — GitHub PR Chain Reconciliation + CI Actions Verification |
+| Branch | `step-45x-github-pr-chain-ci-actions-verification` |
+| Starting branch | `work` |
+| Starting commit | `45d1e02f496a09979870a5fa4c5f82c210689c11` |
+| GitHub CLI status | UNAVAILABLE: `gh` command not found |
+| GitHub API fallback | BLOCKED: `curl` to GitHub API failed with `CONNECT tunnel failed, response 403` |
+| Local PR chain | PARTIALLY VERIFIED: local merge commits are present for PR #102, #103, #104, #105, and #106 |
+| GitHub PR metadata | UNVERIFIED |
+| Main branch evidence | UNVERIFIED: local `main` checkout failed and no `origin` remote is configured |
+| GitHub Actions CI | Workflow files present locally; Actions runs/conclusions unavailable |
+| Local verification | PASS with default Python; venv pytest unavailable |
+| Secret hygiene | PASS after manual review |
+| Classification | PR_CHAIN_PARTIALLY_VERIFIED |
+| Evidence | `docs/security/evidence/step_45x_github_pr_chain_ci_actions_verification/` |
+| Readiness impact | Production-style portfolio readiness remains **87%**; enterprise production-candidate readiness remains **NO-GO / 5%**; live staging/cloud validation remains **PENDING**; external validation remains **PENDING**; compliance certification remains **NOT CLAIMED**. |
+| Claim boundary | Does not prove GitHub PR metadata, GitHub Actions success, `main` containment, live staging/cloud validation, production readiness, enterprise production readiness, external validation, compliance certification, full Onyx-wide enforcement, customer deployment, or real cloud deployment. |

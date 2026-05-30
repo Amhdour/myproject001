@@ -487,3 +487,12 @@ Validation cleanup is isolated-only. No enforce mode, no shadow-deny mode, and n
 - Live staging/cloud validation remains **PENDING**.
 - External validation remains **PENDING**.
 - Compliance certification remains **NOT CLAIMED**.
+
+## Step 45X GitHub PR Chain + CI Actions Limitations
+
+- Step 45X classifies the PR chain as **PR_CHAIN_PARTIALLY_VERIFIED** from local merge commits only.
+- GitHub CLI verification is unavailable because `gh` is not installed in this workspace.
+- GitHub API fallback is blocked by HTTP CONNECT 403, so GitHub repository accessibility, default branch, PR metadata, merged states, merge timestamps, PR URLs, and Actions runs remain unverified.
+- The workspace has no configured `origin` remote and no local `main` branch; `git checkout main` and `git pull origin main` failed.
+- Local workflow files are present, but GitHub Actions run status/conclusion is **PENDING / UNAVAILABLE** and must not be described as successful.
+- Production readiness remains **NO-GO**; enterprise production-candidate readiness remains **NO-GO / 5%**; live staging/cloud validation remains **PENDING**; external validation remains **PENDING**; compliance certification remains **NOT CLAIMED**.
