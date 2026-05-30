@@ -7,7 +7,7 @@ This reviewer package summarizes an Onyx-based RAG/agent security-readiness port
 | Area | Status |
 |---|---|
 | Portfolio status | In progress |
-| Production-style portfolio readiness | 90% portfolio presentation readiness, not production-system readiness |
+| Production-style portfolio readiness | 97% portfolio presentation readiness after release-candidate package and checks pass, not production-system readiness |
 | Production readiness | NO-GO |
 | Enterprise readiness | NO-GO |
 | External validation | PENDING |
@@ -54,6 +54,17 @@ The seventh accelerated portfolio-hardening step adds a public-sharing audit pac
 - [`../docs/security/evidence/public_sharing_audit/public_sharing_go_no_go.md`](../docs/security/evidence/public_sharing_audit/public_sharing_go_no_go.md)
 
 This package is documentation and validation-script support only. It does not add production readiness, enterprise readiness, external validation, compliance certification, full Onyx live staging, live enforcement, live blocking, or live filtering claims.
+
+## Release Candidate
+
+The final accelerated portfolio-release-candidate step adds a `v0.1.0-portfolio-review` documentation package for professional review:
+
+- [`release_candidate/README.md`](release_candidate/README.md)
+- [`release_candidate/v0.1.0_portfolio_review.md`](release_candidate/v0.1.0_portfolio_review.md)
+- [`release_candidate/final_go_no_go.md`](release_candidate/final_go_no_go.md)
+- [`../docs/security/evidence/release_candidate/final_evidence_map.md`](../docs/security/evidence/release_candidate/final_evidence_map.md)
+
+This release candidate is documentation, reviewer navigation, checklist, and validation-script support only. It does not prove production readiness, enterprise readiness, external validation, compliance certification, full Onyx live staging, live enforcement, live blocking, or live filtering.
 
 ## Reviewer Navigation
 

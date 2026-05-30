@@ -53,7 +53,7 @@ This index points reviewers to existing repository evidence and explains both wh
 | [`CLAIM_BOUNDARY.md`](../CLAIM_BOUNDARY.md) | Root claim boundary | Summarizes safe claims, forbidden claims, current status, and links to detailed boundaries. | Does not remediate the listed NO-GO/PENDING/NOT CLAIMED gaps. |
 | [`docs/security/evidence/final_portfolio_package/README.md`](../docs/security/evidence/final_portfolio_package/README.md) | Final evidence package index | Bundles the final evidence summary, readiness score, checklist, and remaining gaps. | Does not create runtime enforcement, production deployment, or compliance certification. |
 | [`docs/security/evidence/final_portfolio_package/evidence_summary.md`](../docs/security/evidence/final_portfolio_package/evidence_summary.md) | Evidence summary | Maps final evidence categories to links, proof statements, and limitations. | Does not convert isolated tests into live application enforcement. |
-| [`docs/security/evidence/final_portfolio_package/readiness_score.md`](../docs/security/evidence/final_portfolio_package/readiness_score.md) | Readiness score | Explains the 80% production-style portfolio-readiness score. | Does not mean the system is 80% ready for production. |
+| [`docs/security/evidence/final_portfolio_package/readiness_score.md`](../docs/security/evidence/final_portfolio_package/readiness_score.md) | Readiness score | Explains the 97% production-style portfolio-readiness score after release-candidate package and checks pass. | Does not mean the system is 97% ready for production. |
 | [`docs/security/evidence/final_portfolio_package/reviewer_checklist.md`](../docs/security/evidence/final_portfolio_package/reviewer_checklist.md) | Reviewer checklist | Gives reviewers a concise checklist and local commands. | Does not replace independent validation or production acceptance testing. |
 | [`docs/security/evidence/final_portfolio_package/remaining_gaps.md`](../docs/security/evidence/final_portfolio_package/remaining_gaps.md) | Remaining gaps | Lists unresolved gaps and final boundaries. | Does not show those gaps are remediated. |
 
@@ -85,3 +85,12 @@ This index points reviewers to existing repository evidence and explains both wh
 | [`scripts/portfolio/check_public_sharing_readiness.py`](../scripts/portfolio/check_public_sharing_readiness.py) | Lightweight validation script | Checks required public-sharing, claim-boundary, and CI files exist. | Does not scan secrets, validate deployment, or prove runtime security. |
 | [`docs/security/evidence/public_sharing_audit/README.md`](../docs/security/evidence/public_sharing_audit/README.md) | Evidence note | Records the evidence category, scope, proof statements, non-proof statements, and claim boundary. | Does not add runtime behavior or live enforcement evidence. |
 | [`docs/security/evidence/public_sharing_audit/public_sharing_go_no_go.md`](../docs/security/evidence/public_sharing_audit/public_sharing_go_no_go.md) | Public-sharing GO/NO-GO matrix | Records GO/NO-GO/PENDING/NOT CLAIMED status for public sharing decisions. | Does not approve production use, enterprise use, certification, or live protection claims. |
+
+
+## Release Candidate Evidence
+
+| Artifact | Purpose | What it proves | What it does not prove |
+|---|---|---|---|
+| [`portfolio/release_candidate/README.md`](release_candidate/README.md) | Release-candidate overview | Shows the final reviewer package scope, commands, manual review requirements, and claim boundary. | Does not prove production readiness, enterprise readiness, external validation, certification, live staging, or live enforcement. |
+| [`docs/security/evidence/release_candidate/README.md`](../docs/security/evidence/release_candidate/README.md) | Evidence-side release-candidate scope | Records the evidence category and release-candidate proof boundary. | Does not add runtime behavior or live deployment evidence. |
+| [`docs/security/evidence/release_candidate/final_evidence_map.md`](../docs/security/evidence/release_candidate/final_evidence_map.md) | Final release-candidate evidence map | Maps final evidence categories to links, proof statements, non-proof statements, and evidence type. | Does not certify the project or make public sharing unconditional. |

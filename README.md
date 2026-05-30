@@ -3,6 +3,16 @@
 **RAG & Agent Security Readiness Portfolio** — an Onyx-based security-readiness, evidence-room, and launch-gate demonstration project.
 
 
+## Portfolio Release Candidate
+
+The final accelerated portfolio-release-candidate package for `v0.1.0-portfolio-review` is available here:
+
+- [`portfolio/release_candidate/README.md`](portfolio/release_candidate/README.md)
+- [`portfolio/release_candidate/v0.1.0_portfolio_review.md`](portfolio/release_candidate/v0.1.0_portfolio_review.md)
+- [`portfolio/release_candidate/final_go_no_go.md`](portfolio/release_candidate/final_go_no_go.md)
+
+This release candidate prepares the portfolio for professional review. It does not prove production readiness, enterprise readiness, external validation, compliance certification, full Onyx staging, live enforcement, live blocking, or live filtering.
+
 
 ## Final Portfolio Case Study
 
@@ -41,7 +51,7 @@ This audit prepares the repository for professional sharing. It does not prove p
 ## Status
 
 - Portfolio status: In progress
-- Production-style portfolio readiness: 90% portfolio presentation readiness, not production-system readiness
+- Production-style portfolio readiness: 97% portfolio presentation readiness after release-candidate package and checks pass, not production-system readiness
 - Production readiness: NO-GO
 - Enterprise readiness: NO-GO
 - External validation: PENDING
@@ -85,7 +95,7 @@ My portfolio contribution is the security-readiness and evidence layer around th
 
 ## Current Readiness Snapshot
 
-- Production-style portfolio readiness: 90% as a portfolio presentation artifact, not as production-system readiness.
+- Production-style portfolio readiness: 97% as a portfolio presentation artifact after release-candidate package and checks pass, not as production-system readiness.
 - Enterprise production-candidate readiness: not claimed / NO-GO.
 - Production readiness: NO-GO.
 - External validation: PENDING.
