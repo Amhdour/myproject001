@@ -114,3 +114,16 @@ Claim boundary: Step 42X does not prove live cloud staging, local staging succes
 | Step 43X checker | `scripts/portfolio/check_step_43x_github_sync_evidence.py` | local checker | Verifies required Step 43X evidence files and blocked/unavailable PR/CI claim boundaries. |
 
 Claim boundary: Step 43X does not prove GitHub CI success, remote sync resolution, live staging/cloud validation, production readiness, enterprise production readiness, external validation, compliance certification, customer deployment, or full Onyx-wide enforcement. GitHub remote/PR/CI evidence remains **BLOCKED**.
+
+## Step 44X Repository Recovery and Commit Integrity Evidence
+
+| Evidence | Location | Status | Claim boundary |
+|---|---|---|---|
+| Step 44X evidence package | `docs/security/evidence/step_44x_local_repository_recovery_branch_commit_integrity_gate/` | REPOSITORY_RECOVERY_BLOCKED | Local evidence chain is documented, but GitHub/main recovery remains blocked. |
+| Codespaces environment | `docs/security/evidence/step_44x_local_repository_recovery_branch_commit_integrity_gate/codespaces_environment.md` | Captured | Starting branch, commit, remote state, and GitHub CLI unavailability are recorded. |
+| Remote/origin status | `docs/security/evidence/step_44x_local_repository_recovery_branch_commit_integrity_gate/remote_origin_check.md` | BLOCKED | Origin recovery attempt failed to fetch due to HTTP CONNECT 403. |
+| Branch inventory | `docs/security/evidence/step_44x_local_repository_recovery_branch_commit_integrity_gate/branch_inventory.md` | PARTIAL LOCAL ONLY | Local branches are visible; remote branches and `main` are unavailable. |
+| Commit integrity map | `docs/security/evidence/step_44x_local_repository_recovery_branch_commit_integrity_gate/commit_integrity_map.md` | PARTIAL LOCAL ONLY | Old sandbox SHAs are missing; local Step evidence commits and merge commits are visible. |
+| PR chain verification | `docs/security/evidence/step_44x_local_repository_recovery_branch_commit_integrity_gate/pr_chain_verification.md` | LOCAL MERGE EVIDENCE ONLY | PR #102-#105 local merge messages are visible; GitHub PR metadata is unavailable. |
+| CI visibility | `docs/security/evidence/step_44x_local_repository_recovery_branch_commit_integrity_gate/ci_visibility.md` | UNAVAILABLE | Local workflow files exist, but GitHub Actions status is not claimed. |
+| Local verification | `docs/security/evidence/step_44x_local_repository_recovery_branch_commit_integrity_gate/local_verification_results.md` | PASS | Local checks passed; this does not prove CI, staging, production, external validation, or certification. |
