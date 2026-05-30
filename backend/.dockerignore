@@ -10,12 +10,21 @@ env/
 *.log
 log/
 .env
+*.env
 secrets.yaml
 build/
 dist/
 .coverage
 htmlcov/
 model_server/legacy/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*private*.pem
+*private*.key
+id_rsa
+id_ed25519
 
 # Craft: demo_data directory should be unzipped at container startup, not copied
 **/demo_data/
