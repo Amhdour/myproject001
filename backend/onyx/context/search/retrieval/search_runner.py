@@ -238,7 +238,15 @@ def _apply_step_39x_runtime_enforcement_hook(
     session_id: str | None,
     chunks: list[InferenceChunk],
 ) -> list[InferenceChunk]:
-    config = get_runtime_enforcement_config()
+    try:
+        config = get_runtime_enforcement_config()
+    except ValueError:
+        logger.warning(
+            "Step 39X retrieval runtime enforcement mode is invalid; preserving retrieval response",
+            exc_info=True,
+        )
+        return chunks
+
     if config.mode == RuntimeEnforcementMode.DISABLED:
         return chunks
 
@@ -254,9 +262,11 @@ def _apply_step_39x_runtime_enforcement_hook(
         )
     except Exception:
         logger.warning(
-            "Step 39X retrieval runtime enforcement hook failed open; preserving retrieval response",
+            "Step 39X retrieval runtime enforcement hook failed; preserving monitor-only response or blocking enforce response",
             exc_info=True,
         )
+        if config.mode == RuntimeEnforcementMode.ENFORCE:
+            return []
         return chunks
 
     if config.mode == RuntimeEnforcementMode.ENFORCE:

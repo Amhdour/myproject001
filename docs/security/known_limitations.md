@@ -439,3 +439,14 @@ Validation cleanup is isolated-only. No enforce mode, no shadow-deny mode, and n
 - Compliance certification remains **NOT CLAIMED**.
 - Live staging/cloud validation remains **PENDING** because this step did not execute cloud, VPS, K3s, Rancher, Coolify, or real customer deployment validation.
 - Enterprise production-candidate readiness remains **NO-GO**.
+
+## Step 40X Runtime Enforcement PR Review and Merge Gate Limitations
+
+- Step 40X is a PR review and merge-gate evidence package for the Step 39X runtime-facing retrieval proof only.
+- Step 40X does not add broad enforcement and does not prove full Onyx-wide enforcement.
+- Step 40X does not prove enterprise production readiness.
+- Step 40X does not prove external validation.
+- Step 40X does not prove compliance certification.
+- Step 40X does not prove live staging/cloud deployment.
+- Production readiness remains **NO-GO**.
+- Enterprise production-candidate readiness remains **NO-GO**.
