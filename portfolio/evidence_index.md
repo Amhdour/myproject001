@@ -140,3 +140,14 @@ Claim boundary: Step 43X does not prove GitHub CI success, remote sync resolutio
 | CI Actions verification | `docs/security/evidence/step_45x_github_pr_chain_ci_actions_verification/ci_actions_verification.md` | PENDING / UNAVAILABLE | Workflow files exist locally; Actions run conclusions are not claimed. |
 | Local verification results | `docs/security/evidence/step_45x_github_pr_chain_ci_actions_verification/local_verification_results.md` | PASS | Local checks passed; not a substitute for GitHub Actions evidence. |
 | Secret hygiene | `docs/security/evidence/step_45x_github_pr_chain_ci_actions_verification/secret_hygiene.md` | PASS | No real secrets found in manual review. |
+
+## Step 46X GitHub Actions CI Run Trigger + Verification Gate
+
+| Evidence | Location | Status | Notes |
+|---|---|---|---|
+| Step 46X evidence package | `docs/security/evidence/step_46x_github_actions_ci_run_trigger_verification_gate/` | CI_ACTIONS_BLOCKED | Documents workflow inventory, PR #107 local-only visibility, CI trigger/query blockers, local verification, secret hygiene, and remaining limitations. |
+| Workflow inventory | `docs/security/evidence/step_46x_github_actions_ci_run_trigger_verification_gate/workflow_inventory.md` | PRESENT LOCALLY | `Evidence Integrity`, `Portfolio Claim Boundary`, and `Security Layer Tests` are configured for `pull_request` and `workflow_dispatch`; no `push` trigger is configured. |
+| CI run results | `docs/security/evidence/step_46x_github_actions_ci_run_trigger_verification_gate/ci_run_results.md` | BLOCKED / UNAVAILABLE | No run IDs, workflow names from GitHub, job names from GitHub, status/conclusion values, or logs are available. |
+| Step 46X checker | `scripts/portfolio/check_step_46x_ci_evidence.py` | local checker | Verifies required evidence files and prevents unsupported CI-pass, staging, enterprise, external-validation, and compliance claims. |
+
+Claim boundary: Step 46X does not prove GitHub Actions success, live staging/cloud validation, production readiness, enterprise production readiness, external validation, compliance certification, customer deployment, or full Onyx-wide enforcement. CI Actions evidence remains **BLOCKED**.

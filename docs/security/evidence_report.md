@@ -656,3 +656,15 @@ Local workflow files are present under `.github/workflows/`, but GitHub Actions 
 Local verification passed with the default Python environment: Step 39X runtime-enforcement tests, full `backend/security_layer/tests`, demo attacks, claim-boundary checks, fake-claim checks, evidence-link checks, release-candidate checks, Step 42X/43X/44X evidence checks, the Step 45X helper check, and `git diff --check` passed. The repository virtual environment was tried first for pytest and lacked pytest, so the exact pytest commands were rerun with the default Python environment.
 
 Readiness remains bounded: production-style portfolio readiness remains **87%**, enterprise production-candidate readiness remains **NO-GO / 5%**, live staging/cloud validation remains **PENDING**, external validation remains **PENDING**, and compliance certification remains **NOT CLAIMED**.
+
+## Step 46X GitHub Actions CI Run Trigger + Verification Gate
+
+| Evidence | Location | Status | Claim boundary |
+|---|---|---|---|
+| Step 46X evidence package | `docs/security/evidence/step_46x_github_actions_ci_run_trigger_verification_gate/` | CI_ACTIONS_BLOCKED | Documents local workflow inventory, CI trigger/query blockers, PR #107 visibility limits, local verification, and secret hygiene without claiming CI pass/fail. |
+| Workflow inventory | `docs/security/evidence/step_46x_github_actions_ci_run_trigger_verification_gate/workflow_inventory.md` | PRESENT LOCALLY | Three workflows exist locally: `Evidence Integrity`, `Portfolio Claim Boundary`, and `Security Layer Tests`; each uses `pull_request` and `workflow_dispatch`, not `push`. |
+| CI trigger attempt | `docs/security/evidence/step_46x_github_actions_ci_run_trigger_verification_gate/ci_trigger_attempt.md` | BLOCKED | No branch push, PR creation, workflow dispatch, or run observation could be completed from this workspace. |
+| CI run results | `docs/security/evidence/step_46x_github_actions_ci_run_trigger_verification_gate/ci_run_results.md` | UNAVAILABLE | No run IDs, workflow run URLs, job conclusions, or logs were reachable. |
+| PR #107 visibility | `docs/security/evidence/step_46x_github_actions_ci_run_trigger_verification_gate/pr_107_visibility.md` | LOCAL MERGE TEXT ONLY | GitHub PR metadata and merged state are not claimed. |
+| Local verification | `docs/security/evidence/step_46x_github_actions_ci_run_trigger_verification_gate/local_verification_results.md` | PASS | Required local commands passed; this does not substitute for GitHub Actions evidence. |
+| Secret hygiene | `docs/security/evidence/step_46x_github_actions_ci_run_trigger_verification_gate/secret_hygiene.md` | PASS | Manual review found no real secrets in the requested scan scope. |

@@ -496,3 +496,9 @@ Validation cleanup is isolated-only. No enforce mode, no shadow-deny mode, and n
 - The workspace has no configured `origin` remote and no local `main` branch; `git checkout main` and `git pull origin main` failed.
 - Local workflow files are present, but GitHub Actions run status/conclusion is **PENDING / UNAVAILABLE** and must not be described as successful.
 - Production readiness remains **NO-GO**; enterprise production-candidate readiness remains **NO-GO / 5%**; live staging/cloud validation remains **PENDING**; external validation remains **PENDING**; compliance certification remains **NOT CLAIMED**.
+
+## Step 46X CI Actions Evidence Limitation
+
+Step 46X classifies GitHub Actions evidence as `CI_ACTIONS_BLOCKED`. The workspace has local workflow files, but it cannot trigger or query real GitHub Actions because `gh` is not installed, no `origin` remote is configured, and GitHub API requests fail with HTTP CONNECT 403. As a result, PR #107 metadata, Step 46X PR metadata, Actions run IDs, workflow run URLs, job conclusions, failed-step logs, and main-branch CI results remain unverified.
+
+This limitation preserves the existing claim boundaries: live staging/cloud validation remains **PENDING**, external validation remains **PENDING**, compliance certification remains **NOT CLAIMED**, production readiness remains **NO-GO**, and enterprise production-candidate readiness remains **NO-GO / 5%**.
