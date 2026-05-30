@@ -614,3 +614,26 @@ Step 47X does not claim local Docker staging success, live cloud/VPS staging val
 | Compliance certification after Step 58X | NOT CLAIMED. |
 
 Step 58X does not claim reviewer approval, external validation completion, third-party validation, production readiness, enterprise production-candidate readiness, compliance certification, or closed reviewer findings. Findings may only be added and closed after a real reviewer response and objective closure evidence exist.
+
+## Step 62X Durable Coolify/Compose Deployment Architecture Update
+
+| Field | Value |
+|---|---|
+| Step | 62X — Durable Coolify/Compose Deployment Architecture |
+| Branch | `step-62x-durable-coolify-compose-deployment-architecture` |
+| Starting branch | `work` |
+| Starting commit | `34ee071b1e91f2ac90e699810a7089f814542f7a` |
+| Classification | `DURABLE_DEPLOYMENT_ARCHITECTURE_READY_RETEST_PENDING` |
+| Simulated finding addressed | `SIM-F-004`: diagnostic deployment not durable. |
+| Architecture option | Option B — dedicated Compose override. |
+| Compose/Coolify change | Added `deployment/docker_compose/docker-compose.oracle-staging.override.yml` for Oracle staging backend image, MinIO, file-store variables, and network alias configuration. |
+| MinIO strategy | Durable Compose/Coolify service `minio`, bucket `onyx-file-store-bucket`, endpoint `http://minio:9000`, volume `minio_data:/data`, no real credentials in repo. |
+| Custom backend image strategy | `api_server` and `background` use the same `ONYX_BACKEND_IMAGE`; Oracle staging example remains `rag-agent-security-onyx-backend:step53x-b77bee6`. |
+| Step 61X healthcheck preservation | Preserved; `WEB_HEALTHCHECK_HOST` override and `require('os').hostname()` default remain in the base compose healthcheck. |
+| Oracle VPS redeploy/retest | `PENDING_USER_EXECUTION`; Step 62X does not claim VPS verification. |
+| Evidence package | `docs/security/evidence/step_62x_durable_coolify_compose_deployment_architecture/` |
+| Production-style portfolio readiness after Step 62X | 92%. |
+| Enterprise production-candidate readiness after Step 62X | NO-GO / 7–9%. |
+| External validation | simulated response only / real validation pending. |
+| Compliance certification | NOT CLAIMED. |
+| Claim boundary | Does not claim production readiness, enterprise production-candidate readiness, real external validation, compliance certification, durable VPS verification, full staging GO, customer deployment, or independent red-team report. |

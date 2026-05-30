@@ -226,3 +226,14 @@ Readiness after Step 50X: production-style portfolio readiness is 90%; enterpris
 | Compliance certification | NOT CLAIMED. |
 
 Step 58X creates the reviewer response intake system only. It does not claim external validation completion, reviewer approval, third-party validation, production readiness, enterprise production-candidate readiness, compliance certification, or closed findings.
+
+## Step 62X — Durable Coolify/Compose Deployment Architecture
+
+| Item | Value |
+|---|---|
+| Classification | `DURABLE_DEPLOYMENT_ARCHITECTURE_READY_RETEST_PENDING` |
+| Evidence package | `docs/security/evidence/step_62x_durable_coolify_compose_deployment_architecture/` |
+| Architecture doc | `docs/security/oracle_staging_durable_deployment_architecture.md` |
+| Compose/Coolify file | `deployment/docker_compose/docker-compose.oracle-staging.override.yml` |
+| Simulated finding addressed | `SIM-F-004`: diagnostic deployment not durable. |
+| Claim boundary | Architecture/configuration readiness only; Oracle VPS redeploy/retest pending; production readiness NO-GO; enterprise production-candidate NO-GO / 7–9%; external validation simulated/pending; compliance certification NOT CLAIMED. |
