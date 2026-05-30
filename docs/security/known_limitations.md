@@ -534,3 +534,21 @@ The Step 47X blocker does not change the claim boundary: production-style portfo
 Step 52X did not build or deploy a custom Onyx backend image from this workspace. Docker and Docker Compose are unavailable locally, and SSH hostname resolution for `rag-agent-security-staging-v2` failed. As a result, Oracle deployed-container evidence for `/app/backend/security_layer/runtime_enforcement` and `_apply_step_39x_runtime_enforcement_hook` remains `NOT VERIFIED`.
 
 This limitation preserves the claim boundary: Oracle runtime enforcement must not be described as deployed or active until a deployed API container is inspected and proves the Step 39X runtime enforcement package and hook exist.
+
+## Step 57X Independent Reviewer Package Limitations
+
+Step 57X preserves the following limitations:
+
+- No actual external reviewer response yet.
+- No third-party approval yet.
+- No compliance certification.
+- No enterprise production-candidate readiness; status remains NO-GO / 7–9%.
+- Production readiness remains NO-GO.
+- Web Docker healthcheck mismatch remains.
+- Manual diagnostic MinIO and custom container replacement are not durable production architecture.
+- CI Actions evidence remains blocked/unverified unless later resolved.
+- No full domain/TLS app route proof.
+- No customer deployment.
+- No independent red-team report yet.
+
+Step 57X changes external-validation status from pending evidence preparation to request package ready / not yet completed. It does not claim the review has happened.

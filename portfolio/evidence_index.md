@@ -193,3 +193,18 @@ Readiness after Step 50X: production-style portfolio readiness is 90%; enterpris
 - Build result: BLOCKED; Docker/Compose unavailable in workspace.
 - Deployment result: BLOCKED/PENDING_USER_EXECUTION; Oracle SSH hostname did not resolve from workspace.
 - Claim boundary: no production readiness, enterprise readiness, active Oracle runtime enforcement, safe-denial runtime behavior, external validation, or compliance certification is claimed.
+
+## Step 57X — Independent Reviewer Package + Review Request
+
+| Field | Value |
+|---|---|
+| Evidence package | `docs/security/evidence/step_57x_independent_reviewer_package_request/` |
+| Classification | `INDEPENDENT_REVIEW_PACKAGE_READY_EXTERNAL_VALIDATION_REQUEST_PENDING` |
+| Prior package | `docs/security/evidence/step_56x_external_validation_staging_review/` |
+| Reviewer package contents | Summary, evidence map, claims to validate, claims not made, reviewer questions, checklist, reproduction guide, review-request email, response template, GO/NO-GO decision, remaining limitations, and redaction note. |
+| Claims to validate | 92% production-style portfolio readiness; Oracle staging PARTIAL GO; runtime enforcement behavior PARTIAL GO; custom backend image Step 39X runtime code evidence; Step 39X hook presence in diagnostic custom API container evidence; pytest smoke behavior; host/proxy staging evidence; redaction and claim-boundary discipline; honest known limitations. |
+| Claims not made | Production readiness, enterprise production-candidate readiness, external validation completion, compliance certification, full Onyx-wide enforcement, customer deployment, complete CI verification, full domain/TLS app route, full web health GO, durable production architecture for diagnostic MinIO/container replacement, or security certification. |
+| External validation | REQUEST PACKAGE READY / NOT YET COMPLETED. |
+| Production-style portfolio readiness | 92%. |
+| Enterprise production-candidate readiness | NO-GO / 7–9%. |
+| Compliance certification | NOT CLAIMED. |

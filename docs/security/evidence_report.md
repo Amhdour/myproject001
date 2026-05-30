@@ -743,3 +743,23 @@ Key evidence boundaries:
 - No Oracle deployment is claimed because `rag-agent-security-staging-v2` could not be resolved over SSH from this workspace.
 - Deployed Oracle API image, runtime directory, runtime hook, and health-after-deploy remain `NOT VERIFIED`.
 - Production-style portfolio readiness remains 90%; enterprise production-candidate readiness remains NO-GO / 6-8%; external validation remains PENDING; compliance certification remains NOT CLAIMED.
+
+## Step 57X Evidence Category: Independent Reviewer Package + Review Request
+
+Evidence bundle path: `docs/security/evidence/step_57x_independent_reviewer_package_request/`
+
+Step 57X creates a reviewer-facing request package for independent assessment of the portfolio evidence. The package includes a reviewer summary, evidence map, claims to validate, claims not made, reviewer questions, checklist, reproduction guide, review-request email, response template, GO/NO-GO decision, remaining limitations, and redaction note.
+
+Classification: `INDEPENDENT_REVIEW_PACKAGE_READY_EXTERNAL_VALIDATION_REQUEST_PENDING`.
+
+Readiness and claim boundaries after Step 57X:
+
+- Production-style portfolio readiness: 92%.
+- Production readiness: NO-GO.
+- Enterprise production-candidate readiness: NO-GO / 7–9%.
+- Oracle staging evidence: PARTIAL GO.
+- Runtime enforcement behavior: PARTIAL GO.
+- External validation: REQUEST PACKAGE READY / NOT YET COMPLETED.
+- Compliance certification: NOT CLAIMED.
+
+This evidence category does not record an actual reviewer response or third-party approval. It is limited to request-package readiness.
