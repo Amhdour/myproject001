@@ -214,3 +214,13 @@ Production-style portfolio readiness remains **87%** because CI evidence is bloc
 Step 47X added a Docker/local compose staging evidence package. The result was intentionally conservative: `DOCKER_STAGING_BLOCKED`. Docker was not installed in the workspace, so Docker Compose config validation and local stack startup could not run. The selected compose path was inspected (`deployment/docker_compose/docker-compose.yml`, `deployment/docker_compose/docker-compose.onyx-lite.yml`, and `deployment/docker_compose/docker-compose.dev.yml`), but local Docker staging was not proven.
 
 Readiness after Step 47X remains bounded: production-style portfolio readiness is 87%; enterprise production-candidate readiness is NO-GO / 5%; local Docker staging evidence is BLOCKED; live staging/cloud validation is PENDING; CI Actions evidence remains BLOCKED from Step 46X; external validation is PENDING; compliance certification is NOT CLAIMED.
+
+## Step 50X Oracle Staging Evidence Addendum
+
+Step 50X adds a claim-bounded Oracle VPS staging evidence package. The Oracle VPS evidence shows SSH access, Ubuntu 24.04.4 LTS on ARM64, Docker `29.5.2`, Docker Compose `v5.1.4`, Coolify, and Traefik/Coolify proxy readiness. It also records a real Onyx staging blocker: the API expected MinIO at `http://minio:9000`, but MinIO was missing.
+
+A manual staging diagnostic MinIO container was added to the Onyx Docker network with alias `minio`, the `onyx-file-store-bucket` bucket was created, and the API became healthy after service restart. This is documented as staging diagnostic evidence, not durable production architecture.
+
+The web service remains Docker-unhealthy because its healthcheck targets `http://127.0.0.1:3000/`, while manual probes showed `127.0.0.1:3000` returned `ECONNREFUSED` and container hostname/IP probes returned HTTP `200`. Host/proxy curl evidence shows the host layer responds: port `8000` redirects to `/login`, port `8088` returns nginx `200 OK`, and port `80` returns `404` because no matching route/domain is configured.
+
+The Step 50X classification is `ORACLE_ONYX_STAGING_PARTIAL_GO`. Production-style portfolio readiness is now 90%, enterprise production-candidate readiness remains NO-GO / 6-8%, Oracle staging evidence is PARTIAL GO, live full app GO is NOT CLAIMED, external validation is PENDING, and compliance certification is NOT CLAIMED.

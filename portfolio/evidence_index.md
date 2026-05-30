@@ -168,3 +168,19 @@ Claim boundary: Step 46X does not prove GitHub Actions success, live staging/clo
 | Step 47X checker | `scripts/portfolio/check_step_47x_docker_staging_evidence.py` | Verifies evidence completeness and claim boundaries. |
 
 Step 47X does not prove local Docker staging success, live cloud/VPS staging validation, production readiness, enterprise production readiness, external validation, compliance certification, full Onyx-wide enforcement, customer deployment, or CI pass. Production-style portfolio readiness remains 87%; enterprise production-candidate readiness remains NO-GO / 5%.
+
+## Step 50X Oracle Staging Evidence + Healthcheck Decision
+
+| Evidence | Path | Status |
+|---|---|---|
+| Step 50X evidence package | `docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/` | `ORACLE_ONYX_STAGING_PARTIAL_GO` |
+| Oracle VPS environment | `docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/oracle_vps_environment.md` | SSH, OS, architecture, and hostname documented. |
+| Docker/Coolify readiness | `docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/docker_compose_readiness.md` | `ORACLE_VPS_DOCKER_READY`; Docker `29.5.2`, Compose `v5.1.4`, Coolify/proxy present. |
+| Container inventory | `docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/container_inventory.md` | API healthy, web running but Docker-unhealthy, supporting services running/healthy as observed. |
+| MinIO file-store fix | `docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/minio_file_store_fix.md` | Staging diagnostic MinIO fix documented. |
+| API health recovery | `docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/api_health_recovery.md` | API recovered after MinIO fix and restart. |
+| Web healthcheck mismatch | `docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/web_healthcheck_mismatch.md` | Healthcheck target mismatch documented; not patched in Step 50X. |
+| Host/proxy curl results | `docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/host_proxy_curl_results.md` | Host/proxy responds; app route/domain on port `80` not configured. |
+| Logs and rollback | `docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/log_summary.md`; `docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/rollback_notes.md` | Redacted log summary and rollback notes documented. |
+
+Readiness after Step 50X: production-style portfolio readiness is 90%; enterprise production-candidate readiness remains NO-GO / 6-8%; Oracle staging evidence is PARTIAL GO; live full app GO is NOT CLAIMED; external validation is PENDING; compliance certification is NOT CLAIMED.

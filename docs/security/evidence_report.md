@@ -701,3 +701,30 @@ Readiness impact after Step 47X:
 - Compliance certification: NOT CLAIMED.
 
 Claim boundary: Step 47X does not prove local Docker staging success, live cloud/VPS staging validation, production readiness, enterprise production readiness, external validation, compliance certification, full Onyx-wide enforcement, customer deployment, or CI pass.
+
+## Step 50X Oracle Staging Evidence + Healthcheck Decision
+
+Step 50X packages real Oracle Cloud VPS staging evidence gathered after Step 47X. Evidence files are under `docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/`.
+
+Result: `ORACLE_ONYX_STAGING_PARTIAL_GO`.
+
+Evidence summary:
+
+- Oracle VPS SSH access works for host `rag-agent-security-staging-v2` running Ubuntu 24.04.4 LTS on `aarch64` / ARM64.
+- Docker is verified with version `29.5.2`; Docker Compose is verified with version `v5.1.4`; Coolify and the Traefik/Coolify proxy are running.
+- Onyx was deployed/attempted through Coolify; Postgres is healthy, Redis is running, OpenSearch is running, model servers are healthy, and background services are running.
+- The API initially failed because MinIO was missing while the API expected `http://minio:9000/onyx-file-store-bucket`.
+- A manual staging diagnostic MinIO container was added to the Onyx Docker network with alias `minio`, the `onyx-file-store-bucket` bucket was created, and `api_server` became healthy after restart.
+- `web_server` remains Docker-unhealthy because its healthcheck targets `http://127.0.0.1:3000/`; manual probes show `127.0.0.1:3000` returned `ECONNREFUSED`, while container hostname and container IP probes returned HTTP `200`.
+- Host/proxy curl evidence shows `localhost` and `127.0.0.1` on port `80` returning `404`, port `8000` redirecting to `/login`, and port `8088` returning nginx `200 OK`.
+
+Readiness impact after Step 50X:
+
+- Production-style portfolio readiness: 90%.
+- Enterprise production-candidate readiness: NO-GO / 6-8%.
+- Oracle staging evidence: PARTIAL GO.
+- Live full app GO: NOT CLAIMED.
+- External validation: PENDING.
+- Compliance certification: NOT CLAIMED.
+
+Claim boundary: Step 50X does not claim production readiness, enterprise production-candidate readiness, external validation, compliance certification, a configured domain/TLS application route, full live app GO, durable production file-store architecture, or full Onyx-wide runtime enforcement on Oracle VPS.

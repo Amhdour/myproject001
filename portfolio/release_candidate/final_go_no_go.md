@@ -125,3 +125,21 @@ Readiness status after Step 47X:
 - Compliance certification: NOT CLAIMED.
 
 This update does not claim local Docker staging success, production readiness, enterprise production readiness, live cloud/VPS staging validation, external validation, compliance certification, full Onyx-wide enforcement, customer deployment, or CI pass.
+
+## Step 50X Oracle Staging Evidence Addendum
+
+Classification: `ORACLE_ONYX_STAGING_PARTIAL_GO`.
+
+- Oracle Docker readiness: GO.
+- MinIO file-store blocker: FIXED for staging diagnostic.
+- API health: GO.
+- Web app internal reachability: GO by hostname/IP.
+- Web Docker health status: NOT GO due to healthcheck mismatch.
+- Host/proxy evidence: PARTIAL GO.
+- Full live app staging: PARTIAL GO, not full GO.
+- Production readiness: NO-GO.
+- Enterprise production-candidate: NO-GO.
+- External validation: PENDING.
+- Compliance certification: NOT CLAIMED.
+
+Readiness impact: production-style portfolio readiness is 90%; enterprise production-candidate readiness remains NO-GO / 6-8%; Oracle staging evidence is PARTIAL GO; live full app GO is NOT CLAIMED.

@@ -514,3 +514,17 @@ Step 47X classified local Docker staging as `DOCKER_STAGING_BLOCKED` because Doc
 Because Docker and Docker Compose were unavailable, compose config validation, container startup, container health status, runtime logs, and Docker rollback could not be proven. Localhost probes on ports 3000, 8080, and 8000 failed because no service started.
 
 The Step 47X blocker does not change the claim boundary: production-style portfolio readiness remains 87%; enterprise production-candidate readiness remains NO-GO / 5%; local Docker staging evidence is BLOCKED; live staging/cloud validation is PENDING; CI Actions evidence remains BLOCKED from Step 46X; external validation is PENDING; compliance certification is NOT CLAIMED.
+
+## Step 50X Oracle Staging Limitations
+
+- Web Docker healthcheck remains unhealthy on the Oracle VPS.
+- The web healthcheck target mismatch is documented but not patched in Step 50X.
+- The manual MinIO container is a staging diagnostic fix, not durable production architecture.
+- No domain/TLS application route is proven for the Onyx app.
+- No runtime enforcement smoke test has been run on the Oracle VPS.
+- Host/proxy evidence is PARTIAL GO only: port `8000` redirects to `/login`, port `8088` returns nginx `200 OK`, and port `80` returns `404` without a matching route/domain.
+- Production readiness remains NO-GO.
+- Enterprise production-candidate readiness remains NO-GO / 6-8%.
+- External validation remains PENDING.
+- Compliance certification is NOT CLAIMED.
+- Full Onyx-wide enforcement is NOT CLAIMED.

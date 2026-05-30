@@ -527,3 +527,22 @@ Status: Complete (post-commit).
 | Compliance certification after Step 47X | NOT CLAIMED. |
 
 Step 47X does not claim local Docker staging success, live cloud/VPS staging validation, production readiness, enterprise production readiness, external validation, compliance certification, full Onyx-wide enforcement, customer deployment, or CI pass.
+
+## Step 50X Oracle Staging Evidence + Healthcheck Decision Update
+
+| Field | Value |
+|---|---|
+| Step | 50X — Oracle Staging Evidence Package + Healthcheck Mismatch Decision |
+| Branch | `step-50x-oracle-staging-evidence-healthcheck-decision` |
+| Starting branch | `work` |
+| Starting commit | `b1a82fc0deaa950f25c0c97e19d3b4c4cf218219` |
+| Classification | `ORACLE_ONYX_STAGING_PARTIAL_GO` |
+| Oracle VPS Docker readiness | GO; Docker `29.5.2` and Docker Compose `v5.1.4` verified on Ubuntu 24.04.4 LTS ARM64 VPS `rag-agent-security-staging-v2`. |
+| Coolify/proxy readiness | Coolify and Traefik/Coolify proxy are running. |
+| MinIO file-store blocker | FIXED for staging diagnostic; MinIO was manually added with alias `minio`, bucket `onyx-file-store-bucket` was created, and API health recovered. |
+| API health | GO after MinIO fix and service restart. |
+| Web reachability | GO by container hostname/IP; Docker health remains NOT GO because healthcheck targets `127.0.0.1:3000` and receives `ECONNREFUSED`. |
+| Host/proxy evidence | PARTIAL GO; port `8000` redirects to `/login`, port `8088` returns nginx `200 OK`, and port `80` returns `404` due to no matching route/domain. |
+| Evidence package | `docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/` |
+| Readiness impact | Production-style portfolio readiness is **90%**; enterprise production-candidate readiness remains **NO-GO / 6-8%**; Oracle staging evidence is **PARTIAL GO**; live full app GO is **NOT CLAIMED**; external validation remains **PENDING**; compliance certification remains **NOT CLAIMED**. |
+| Claim boundary | Does not claim production readiness, enterprise production-candidate readiness, external validation, compliance certification, full live app GO, durable production MinIO architecture, domain/TLS app route, or full Onyx-wide runtime enforcement on Oracle VPS. |
