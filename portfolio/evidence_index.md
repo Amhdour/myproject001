@@ -105,3 +105,12 @@ This index points reviewers to existing repository evidence and explains both wh
 | Step 42X checker | `scripts/portfolio/check_step_42x_staging_evidence.py` | local checker | Verifies the required Step 42X evidence files and blocked-deployment claim-boundary phrases. |
 
 Claim boundary: Step 42X does not prove live cloud staging, local staging success, production readiness, enterprise production readiness, external validation, compliance certification, customer deployment, public URL availability, or full Onyx-wide enforcement. Live staging validation remains **PENDING**.
+
+## Step 43X GitHub Remote PR CI Verification Gate
+
+| Evidence | Path | Status | Notes |
+|---|---|---|---|
+| Step 43X evidence package | `docs/security/evidence/step_43x_github_remote_pr_ci_verification_gate/` | REMOTE_SYNC_BLOCKED | Records origin setup, remote HTTP CONNECT 403, missing GitHub CLI, missing local Step 42X branch, unavailable Step 42X PR metadata, unavailable GitHub Actions run status, local verification results, secret hygiene review, and blockers. |
+| Step 43X checker | `scripts/portfolio/check_step_43x_github_sync_evidence.py` | local checker | Verifies required Step 43X evidence files and blocked/unavailable PR/CI claim boundaries. |
+
+Claim boundary: Step 43X does not prove GitHub CI success, remote sync resolution, live staging/cloud validation, production readiness, enterprise production readiness, external validation, compliance certification, customer deployment, or full Onyx-wide enforcement. GitHub remote/PR/CI evidence remains **BLOCKED**.
