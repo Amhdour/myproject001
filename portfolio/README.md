@@ -7,11 +7,25 @@ This reviewer package summarizes an Onyx-based RAG/agent security-readiness port
 | Area | Status |
 |---|---|
 | Portfolio status | In progress |
-| Production-style portfolio readiness | 65% |
+| Production-style portfolio readiness | 80% |
 | Production readiness | NO-GO |
 | Enterprise readiness | NO-GO |
 | External validation | PENDING |
 | Compliance certification | NOT CLAIMED |
+
+
+## Final Review Package
+
+The fifth accelerated portfolio-hardening step adds a final reviewer-facing package:
+
+- [`../PORTFOLIO_CASE_STUDY.md`](../PORTFOLIO_CASE_STUDY.md)
+- [`../CLIENT_README.md`](../CLIENT_README.md)
+- [`../EMPLOYER_README.md`](../EMPLOYER_README.md)
+- [`../PARTNER_DEMO_README.md`](../PARTNER_DEMO_README.md)
+- [`../CLAIM_BOUNDARY.md`](../CLAIM_BOUNDARY.md)
+- [`../docs/security/evidence/final_portfolio_package/README.md`](../docs/security/evidence/final_portfolio_package/README.md)
+
+This final package summarizes the project for agencies, clients, partners, and employers while preserving the existing NO-GO / PENDING / NOT CLAIMED boundaries.
 
 ## Reviewer Navigation
 

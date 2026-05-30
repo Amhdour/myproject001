@@ -3,6 +3,17 @@
 **RAG & Agent Security Readiness Portfolio** — an Onyx-based security-readiness, evidence-room, and launch-gate demonstration project.
 
 
+
+## Final Portfolio Case Study
+
+The final reviewer-facing case study and audience-specific guides are available here:
+
+- [`PORTFOLIO_CASE_STUDY.md`](PORTFOLIO_CASE_STUDY.md)
+- [`CLIENT_README.md`](CLIENT_README.md)
+- [`EMPLOYER_README.md`](EMPLOYER_README.md)
+- [`PARTNER_DEMO_README.md`](PARTNER_DEMO_README.md)
+- [`CLAIM_BOUNDARY.md`](CLAIM_BOUNDARY.md)
+
 ## Reviewer Portfolio Package
 
 A concise reviewer-facing package is available at [`portfolio/README.md`](portfolio/README.md). It summarizes the architecture, quickstart, demo script, claim boundary, and evidence index for professional review without changing the repository's NO-GO / PENDING / NOT CLAIMED production-readiness boundaries.
@@ -10,7 +21,7 @@ A concise reviewer-facing package is available at [`portfolio/README.md`](portfo
 ## Status
 
 - Portfolio status: In progress
-- Production-style portfolio readiness: 62%
+- Production-style portfolio readiness: 80%
 - Production readiness: NO-GO
 - Enterprise readiness: NO-GO
 - External validation: PENDING
@@ -54,7 +65,7 @@ My portfolio contribution is the security-readiness and evidence layer around th
 
 ## Current Readiness Snapshot
 
-- Production-style portfolio readiness: around 62%.
+- Production-style portfolio readiness: 80% as a portfolio artifact.
 - Enterprise production-candidate readiness: not claimed / NO-GO.
 - Production readiness: NO-GO.
 - External validation: PENDING.
