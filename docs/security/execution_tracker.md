@@ -433,3 +433,21 @@ Status: Complete (post-commit).
 - Health check result: blocked; `curl -sS -i http://localhost:3000/api/health` failed to connect with exit `7`.
 - Security/portfolio checks: Step 39X test passed (`6 passed`), full security-layer tests passed (`274 passed, 8 skipped`), demo attacks passed, claim-boundary/no-fake-claims/evidence-links/release-candidate checks passed before final documentation edits.
 - Production-style portfolio readiness after Step 42X: **87%**. This is a portfolio-evidence estimate only, not production readiness.
+
+## Step 43X GitHub Remote PR CI Verification Gate
+
+| Field | Value |
+|---|---|
+| Step | 43X — GitHub Remote + PR Sync + CI Verification Gate |
+| Branch | `step-43x-github-remote-pr-ci-verification-gate` |
+| Starting branch | `work` |
+| Starting commit | `d03aca0d5f6a5c09518e3187d21cf62654ee214f` |
+| Remote status | Origin configured locally, remote reachability blocked by HTTP CONNECT tunnel 403 |
+| Step 42X branch push | BLOCKED_LOCAL_AUTH_OR_REMOTE |
+| Step 42X PR | UNVERIFIED; no PR number or URL claimed |
+| GitHub Actions CI | Workflow files present locally; remote runs unavailable/unverified |
+| Local verification | PASS |
+| Secret hygiene | PASS after manual review |
+| Classification | REMOTE_SYNC_BLOCKED |
+| Evidence | `docs/security/evidence/step_43x_github_remote_pr_ci_verification_gate/` |
+| Claim boundary | Does not prove CI success, remote sync resolution, live staging/cloud validation, production readiness, enterprise production readiness, external validation, compliance certification, full Onyx-wide enforcement, or customer deployment. |

@@ -463,3 +463,12 @@ Validation cleanup is isolated-only. No enforce mode, no shadow-deny mode, and n
 - Enterprise production-candidate readiness remains **NO-GO / 5%**.
 - External validation remains **PENDING**.
 - Compliance certification is **NOT CLAIMED**.
+
+## Step 43X GitHub Remote PR CI Verification Limitations
+
+- Origin was configured locally to `https://github.com/Amhdour/myproject001.git`, but `git ls-remote --heads origin` failed with HTTP CONNECT tunnel 403 from the sandbox.
+- GitHub CLI was not installed, so repository metadata, authentication status, PR lists, PR checks, and Actions run lists could not be queried.
+- The requested Step 42X branch `step-42x-live-staging-deployment-evidence` was not present locally.
+- The requested Step 42X final commit SHA `996de94418aef94ce41b039d9e1f96a0a8d47fe4` was not present in the local object database.
+- Step 42X branch push, Step 42X PR number/URL, Step 43X branch push, Step 43X PR, and GitHub Actions run status remain unverified.
+- Step 43X therefore does not prove remote sync resolution or CI success.
