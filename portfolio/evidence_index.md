@@ -184,3 +184,12 @@ Step 47X does not prove local Docker staging success, live cloud/VPS staging val
 | Logs and rollback | `docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/log_summary.md`; `docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/rollback_notes.md` | Redacted log summary and rollback notes documented. |
 
 Readiness after Step 50X: production-style portfolio readiness is 90%; enterprise production-candidate readiness remains NO-GO / 6-8%; Oracle staging evidence is PARTIAL GO; live full app GO is NOT CLAIMED; external validation is PENDING; compliance certification is NOT CLAIMED.
+
+## Step 52X — Custom Onyx Image Runtime Enforcement Deploy Evidence
+
+- Evidence package: `docs/security/evidence/step_52x_custom_onyx_image_runtime_enforcement_deploy/`
+- Classification: `ORACLE_CUSTOM_IMAGE_BUILD_BLOCKED`
+- Source verification: FOUND locally.
+- Build result: BLOCKED; Docker/Compose unavailable in workspace.
+- Deployment result: BLOCKED/PENDING_USER_EXECUTION; Oracle SSH hostname did not resolve from workspace.
+- Claim boundary: no production readiness, enterprise readiness, active Oracle runtime enforcement, safe-denial runtime behavior, external validation, or compliance certification is claimed.

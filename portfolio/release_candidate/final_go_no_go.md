@@ -143,3 +143,20 @@ Classification: `ORACLE_ONYX_STAGING_PARTIAL_GO`.
 - Compliance certification: NOT CLAIMED.
 
 Readiness impact: production-style portfolio readiness is 90%; enterprise production-candidate readiness remains NO-GO / 6-8%; Oracle staging evidence is PARTIAL GO; live full app GO is NOT CLAIMED.
+
+## Step 52X Addendum — Custom Onyx Image Runtime Enforcement Deploy
+
+| Area | Status | Notes |
+|---|---|---|
+| Step 52X classification | `ORACLE_CUSTOM_IMAGE_BUILD_BLOCKED` | Step 39X source exists locally, but Docker is unavailable and Oracle SSH hostname resolution failed. |
+| Custom backend image | NOT BUILT | Reserved tag: `rag-agent-security-onyx-backend:step52x-bf7212c`. |
+| Deployed Oracle API image | NOT VERIFIED | Assume upstream remains until VPS evidence proves the custom image is deployed. |
+| Step 39X runtime directory in deployed API | NOT VERIFIED | No deployed-container `docker exec` evidence exists for Step 52X. |
+| Step 39X hook in deployed API | NOT VERIFIED | Source hook exists, but deployed-container hook evidence is blocked. |
+| Production-style portfolio readiness | 90% | Remains unchanged because build/deploy evidence is blocked. |
+| Enterprise production-candidate readiness | NO-GO / 6-8% | No enterprise production-candidate readiness is claimed. |
+| Runtime enforcement behavior smoke test | NOT EXECUTED | No safe-denial or live enforcement behavior is claimed. |
+| External validation | PENDING | No independent external validation was performed. |
+| Compliance certification | NOT CLAIMED | No certification is claimed. |
+
+Step 52X does not claim production readiness, enterprise readiness, active Oracle runtime enforcement, full Onyx-wide enforcement, customer deployment, external validation, compliance certification, or CI pass.

@@ -546,3 +546,29 @@ Step 47X does not claim local Docker staging success, live cloud/VPS staging val
 | Evidence package | `docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/` |
 | Readiness impact | Production-style portfolio readiness is **90%**; enterprise production-candidate readiness remains **NO-GO / 6-8%**; Oracle staging evidence is **PARTIAL GO**; live full app GO is **NOT CLAIMED**; external validation remains **PENDING**; compliance certification remains **NOT CLAIMED**. |
 | Claim boundary | Does not claim production readiness, enterprise production-candidate readiness, external validation, compliance certification, full live app GO, durable production MinIO architecture, domain/TLS app route, or full Onyx-wide runtime enforcement on Oracle VPS. |
+
+## Step 52X Custom Onyx Image Runtime Enforcement Deploy Update
+
+| Field | Value |
+|---|---|
+| Step | 52X — Custom Onyx Image Runtime Enforcement Deploy |
+| Branch | `step-52x-custom-onyx-image-runtime-enforcement-deploy` |
+| Starting branch | `work` |
+| Starting commit | `bf7212c3a8d5509dd5aba1e16aa36126ba8c3aa4` |
+| Classification | `ORACLE_CUSTOM_IMAGE_BUILD_BLOCKED` |
+| Source verification | Step 39X source directory, hook, modules, and targeted test file are present locally. |
+| Build strategy | Path D for this execution: build blocked because Docker/Compose are unavailable in the workspace. |
+| Dockerfile update | `backend/Dockerfile` now copies `backend/security_layer` into `/app/backend/security_layer` for future backend image builds. |
+| Custom image tag | `rag-agent-security-onyx-backend:step52x-bf7212c` reserved; not built. |
+| Deployment attempt | Blocked; SSH hostname `rag-agent-security-staging-v2` did not resolve from this workspace. |
+| Deployed API image | NOT VERIFIED; assume upstream remains until VPS evidence proves custom image deployment. |
+| Runtime directory in deployed API | NOT VERIFIED. |
+| Runtime hook in deployed API | NOT VERIFIED. |
+| Health after deploy | NOT VERIFIED; no deploy occurred. |
+| Evidence package | `docs/security/evidence/step_52x_custom_onyx_image_runtime_enforcement_deploy/` |
+| Helper checker | `scripts/portfolio/check_step_52x_custom_image_evidence.py` |
+| Production-style portfolio readiness after Step 52X | remains **90%**. |
+| Enterprise production-candidate readiness after Step 52X | remains **NO-GO / 6-8%**. |
+| External validation | PENDING. |
+| Compliance certification | NOT CLAIMED. |
+| Claim boundary | Does not claim production readiness, enterprise readiness, active Oracle runtime enforcement, safe-denial runtime behavior, full Onyx-wide enforcement, customer deployment, external validation, compliance certification, or CI pass. |

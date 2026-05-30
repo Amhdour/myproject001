@@ -528,3 +528,9 @@ The Step 47X blocker does not change the claim boundary: production-style portfo
 - External validation remains PENDING.
 - Compliance certification is NOT CLAIMED.
 - Full Onyx-wide enforcement is NOT CLAIMED.
+
+## Step 52X Custom Image Build/Deploy Limitation
+
+Step 52X did not build or deploy a custom Onyx backend image from this workspace. Docker and Docker Compose are unavailable locally, and SSH hostname resolution for `rag-agent-security-staging-v2` failed. As a result, Oracle deployed-container evidence for `/app/backend/security_layer/runtime_enforcement` and `_apply_step_39x_runtime_enforcement_hook` remains `NOT VERIFIED`.
+
+This limitation preserves the claim boundary: Oracle runtime enforcement must not be described as deployed or active until a deployed API container is inspected and proves the Step 39X runtime enforcement package and hook exist.

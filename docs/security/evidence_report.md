@@ -728,3 +728,18 @@ Readiness impact after Step 50X:
 - Compliance certification: NOT CLAIMED.
 
 Claim boundary: Step 50X does not claim production readiness, enterprise production-candidate readiness, external validation, compliance certification, a configured domain/TLS application route, full live app GO, durable production file-store architecture, or full Onyx-wide runtime enforcement on Oracle VPS.
+
+## Step 52X — Custom Onyx Image Runtime Enforcement Deploy Evidence
+
+Step 52X attempted to build and deploy a custom Onyx backend image containing Step 39X runtime enforcement code. The result is `ORACLE_CUSTOM_IMAGE_BUILD_BLOCKED`.
+
+Evidence package: `docs/security/evidence/step_52x_custom_onyx_image_runtime_enforcement_deploy/`.
+
+Key evidence boundaries:
+
+- Step 39X source exists locally and tests pass with default Python.
+- `backend/Dockerfile` was updated to copy `backend/security_layer` into `/app/backend/security_layer` for future backend image builds.
+- No custom image build is claimed because `docker` and `docker compose` are unavailable in this workspace.
+- No Oracle deployment is claimed because `rag-agent-security-staging-v2` could not be resolved over SSH from this workspace.
+- Deployed Oracle API image, runtime directory, runtime hook, and health-after-deploy remain `NOT VERIFIED`.
+- Production-style portfolio readiness remains 90%; enterprise production-candidate readiness remains NO-GO / 6-8%; external validation remains PENDING; compliance certification remains NOT CLAIMED.

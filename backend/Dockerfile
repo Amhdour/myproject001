@@ -150,6 +150,10 @@ COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Set up application files
 COPY --chown=onyx:onyx ./onyx /app/onyx
+# Step 52X: include repository-local security-layer runtime proof modules used by
+# the Step 39X retrieval hook. This copies source code only; secrets remain
+# excluded by the root .dockerignore and are not embedded in the image.
+COPY --chown=onyx:onyx ./security_layer /app/backend/security_layer
 COPY --chown=onyx:onyx ./shared_configs /app/shared_configs
 COPY --chown=onyx:onyx ./alembic /app/alembic
 COPY --chown=onyx:onyx ./alembic_tenants /app/alembic_tenants

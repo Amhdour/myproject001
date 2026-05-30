@@ -224,3 +224,11 @@ A manual staging diagnostic MinIO container was added to the Onyx Docker network
 The web service remains Docker-unhealthy because its healthcheck targets `http://127.0.0.1:3000/`, while manual probes showed `127.0.0.1:3000` returned `ECONNREFUSED` and container hostname/IP probes returned HTTP `200`. Host/proxy curl evidence shows the host layer responds: port `8000` redirects to `/login`, port `8088` returns nginx `200 OK`, and port `80` returns `404` because no matching route/domain is configured.
 
 The Step 50X classification is `ORACLE_ONYX_STAGING_PARTIAL_GO`. Production-style portfolio readiness is now 90%, enterprise production-candidate readiness remains NO-GO / 6-8%, Oracle staging evidence is PARTIAL GO, live full app GO is NOT CLAIMED, external validation is PENDING, and compliance certification is NOT CLAIMED.
+
+## Step 52X Addendum — Custom Onyx Backend Image Runtime-Code Deployment Attempt
+
+Step 52X attempted to move from source-level Step 39X runtime enforcement evidence toward a custom Onyx backend image deployment. The repository contains the Step 39X runtime enforcement package and retrieval hook, and `backend/Dockerfile` now copies `backend/security_layer` into `/app/backend/security_layer` so future backend images built from the repository can include the runtime enforcement package expected at `/app/backend/security_layer/runtime_enforcement`.
+
+The execution result is intentionally bounded: `ORACLE_CUSTOM_IMAGE_BUILD_BLOCKED`. Docker and Docker Compose are unavailable in this workspace, so no custom image was built or runtime-checked. SSH hostname resolution for `rag-agent-security-staging-v2` also failed, so no Oracle VPS deployment or deployed-container verification occurred. The project therefore does not claim Oracle runtime enforcement is deployed or active.
+
+Readiness impact after Step 52X: production-style portfolio readiness remains 90%; enterprise production-candidate readiness remains NO-GO / 6-8%; runtime enforcement behavior smoke testing remains NOT EXECUTED; external validation remains PENDING; compliance certification remains NOT CLAIMED.
