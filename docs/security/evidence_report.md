@@ -604,3 +604,17 @@ Claim boundary: Step 39X proves one minimal retrieval-facing runtime enforcement
 - Gate result: GO after narrow Step 40X hardening for enforce-mode hook exception behavior, invalid mode test coverage, and safe-denial non-leakage assertions.
 - Commands passed after fixes: focused Step 39X runtime tests, full `backend/security_layer/tests`, demo attack runner, claim-boundary check, fake-claim check, evidence-link check, release-candidate check, and `git diff --check`.
 - Claim boundary: Step 40X does not add broad enforcement and does not prove full Onyx-wide enforcement, enterprise production readiness, external validation, compliance certification, or live staging/cloud deployment.
+
+## Step 42X Actual Live Staging Deployment Evidence
+
+- Evidence directory: `docs/security/evidence/step_42x_live_staging_deployment_evidence/`.
+- Helper checker: `scripts/portfolio/check_step_42x_staging_evidence.py`.
+- Chosen deployment path: **C — Deployment blocked evidence**.
+- Deployment status: **DEPLOYMENT_BLOCKED**.
+- Target used: none; Docker Compose local staging was selected after cloud/VPS access was unavailable, but Docker was not installed.
+- Health check result: blocked; localhost frontend health probe failed to connect because no app started.
+- Smoke test result: app-start and health smoke tests blocked; Step 39X runtime-enforcement test, full security-layer tests, demo attacks, claim-boundary, no-fake-claims, evidence-links, and release-candidate checks passed in the local environment before final docs were added.
+- Runtime enforcement mode: `disabled` by default because `STEP_39X_RUNTIME_ENFORCEMENT_MODE` was missing.
+- Logs captured: no runtime application logs; deployment/log commands were captured with `docker: command not found` evidence.
+- Rollback notes: documented in `rollback_notes.md`; no running deployment existed to stop.
+- Claim boundary: live staging/cloud validation remains **PENDING**; local staging validation remains **PENDING**; external validation remains **PENDING**; compliance certification is **NOT CLAIMED**; production readiness and enterprise production-candidate readiness remain **NO-GO**.

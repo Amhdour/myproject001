@@ -182,3 +182,9 @@ This addendum is intentionally scoped: it demonstrates one minimal allow/deny en
 Step 40X reviewed the Step 39X runtime-facing retrieval enforcement proof and preserved its narrow claim boundary. The review gate added evidence under `docs/security/evidence/step_40x_runtime_enforcement_pr_review_merge_gate/`, fixed narrow runtime-safety/test hardening issues, and re-ran the required local gates.
 
 The Step 40X status remains intentionally bounded: production readiness is **NO-GO**, enterprise production-candidate readiness is **NO-GO / 5%**, external validation is **PENDING**, compliance certification is **NOT CLAIMED**, live staging/cloud validation is **PENDING**, and full Onyx-wide enforcement is **NOT CLAIMED**.
+
+## Step 42X Actual Live Staging Deployment Evidence Addendum
+
+Step 42X attempted the first actual staging-deployment evidence step and recorded the result honestly. Real cloud/VPS staging was unavailable because this checkout had no origin remote, no staging host, no Coolify target, no OCI configuration, and no deployment access markers. Docker Compose local staging was then selected as the fallback path, but it was blocked because Docker and Docker Compose were not installed in the execution environment.
+
+The Step 42X status is **DEPLOYMENT_BLOCKED**. Live staging/cloud validation remains **PENDING**, local staging validation remains **PENDING**, external validation remains **PENDING**, compliance certification is **NOT CLAIMED**, and enterprise production-candidate readiness remains **NO-GO / 5%**. Production-style portfolio readiness is estimated at **87%** after Step 42X because the project now includes an honest deployment-readiness evidence package and blocker register, but this score remains a portfolio-evidence estimate only and does not indicate production readiness.
