@@ -127,3 +127,16 @@ Claim boundary: Step 43X does not prove GitHub CI success, remote sync resolutio
 | PR chain verification | `docs/security/evidence/step_44x_local_repository_recovery_branch_commit_integrity_gate/pr_chain_verification.md` | LOCAL MERGE EVIDENCE ONLY | PR #102-#105 local merge messages are visible; GitHub PR metadata is unavailable. |
 | CI visibility | `docs/security/evidence/step_44x_local_repository_recovery_branch_commit_integrity_gate/ci_visibility.md` | UNAVAILABLE | Local workflow files exist, but GitHub Actions status is not claimed. |
 | Local verification | `docs/security/evidence/step_44x_local_repository_recovery_branch_commit_integrity_gate/local_verification_results.md` | PASS | Local checks passed; this does not prove CI, staging, production, external validation, or certification. |
+
+## Step 45X GitHub PR Chain + CI Actions Verification Evidence
+
+| Evidence | Location | Status | Claim boundary |
+|---|---|---|---|
+| Step 45X evidence package | `docs/security/evidence/step_45x_github_pr_chain_ci_actions_verification/` | PR_CHAIN_PARTIALLY_VERIFIED | Local PR merge commits are mapped, but GitHub PR metadata, main containment, and Actions runs remain unverified. |
+| Reconciliation summary | `docs/security/evidence/step_45x_github_pr_chain_ci_actions_verification/reconciliation_summary.md` | Captured | Records `gh` unavailability, GitHub API HTTP CONNECT 403, and partial local supersession of Step 44X. |
+| PR chain verification | `docs/security/evidence/step_45x_github_pr_chain_ci_actions_verification/pr_chain_verification.md` | PARTIAL LOCAL ONLY | PR #102-#106 local merge messages are visible; GitHub PR metadata is not claimed. |
+| Merge commit map | `docs/security/evidence/step_45x_github_pr_chain_ci_actions_verification/merge_commit_map.md` | LOCAL OBJECTS VERIFIED | Local merge commits resolve as commit objects; GitHub merge metadata remains unavailable. |
+| Main branch evidence | `docs/security/evidence/step_45x_github_pr_chain_ci_actions_verification/main_branch_evidence.md` | UNVERIFIED FOR MAIN | Current branch contains prior evidence folders, but `main` checkout failed. |
+| CI Actions verification | `docs/security/evidence/step_45x_github_pr_chain_ci_actions_verification/ci_actions_verification.md` | PENDING / UNAVAILABLE | Workflow files exist locally; Actions run conclusions are not claimed. |
+| Local verification results | `docs/security/evidence/step_45x_github_pr_chain_ci_actions_verification/local_verification_results.md` | PASS | Local checks passed; not a substitute for GitHub Actions evidence. |
+| Secret hygiene | `docs/security/evidence/step_45x_github_pr_chain_ci_actions_verification/secret_hygiene.md` | PASS | No real secrets found in manual review. |
