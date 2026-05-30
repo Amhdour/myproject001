@@ -27,6 +27,21 @@ The fifth accelerated portfolio-hardening step adds a final reviewer-facing pack
 
 This final package summarizes the project for agencies, clients, partners, and employers while preserving the existing NO-GO / PENDING / NOT CLAIMED boundaries.
 
+## Release Preparation
+
+The sixth accelerated portfolio-hardening step adds a release-prep folder for reviewer delivery and public-sharing readiness:
+
+- [`release_prep/README.md`](release_prep/README.md)
+- [`release_prep/screenshot_checklist.md`](release_prep/screenshot_checklist.md)
+- [`release_prep/video_walkthrough_script.md`](release_prep/video_walkthrough_script.md)
+- [`release_prep/github_release_notes_draft.md`](release_prep/github_release_notes_draft.md)
+- [`release_prep/final_reviewer_checklist.md`](release_prep/final_reviewer_checklist.md)
+- [`release_prep/publication_readiness_checklist.md`](release_prep/publication_readiness_checklist.md)
+- [`release_prep/sanitization_checklist.md`](release_prep/sanitization_checklist.md)
+- [`../docs/security/evidence/release_prep/release_go_no_go.md`](../docs/security/evidence/release_prep/release_go_no_go.md)
+
+The release-prep package is documentation-only and preserves the existing NO-GO / PENDING / NOT CLAIMED claim boundary. It does not create screenshots, video evidence, live deployment evidence, or runtime enforcement.
+
 ## Reviewer Navigation
 
 - **Start here:** this file explains the package scope and claim boundary.

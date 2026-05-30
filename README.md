@@ -18,6 +18,16 @@ The final reviewer-facing case study and audience-specific guides are available 
 
 A concise reviewer-facing package is available at [`portfolio/README.md`](portfolio/README.md). It summarizes the architecture, quickstart, demo script, claim boundary, and evidence index for professional review without changing the repository's NO-GO / PENDING / NOT CLAIMED production-readiness boundaries.
 
+## Release Preparation
+
+The sixth accelerated portfolio-hardening step adds a documentation-only release-preparation package for professional review and public-sharing readiness:
+
+- [`portfolio/release_prep/README.md`](portfolio/release_prep/README.md)
+- [`portfolio/release_prep/github_release_notes_draft.md`](portfolio/release_prep/github_release_notes_draft.md)
+- [`docs/security/evidence/release_prep/release_go_no_go.md`](docs/security/evidence/release_prep/release_go_no_go.md)
+
+This release-prep package does not add production readiness, enterprise readiness, external validation, compliance certification, full Onyx live staging, live enforcement, live blocking, or live filtering claims.
+
 ## Status
 
 - Portfolio status: In progress
