@@ -781,3 +781,13 @@ Step 58X adds a structured response intake and finding-tracking package at `docs
 | Compliance certification after Step 58X | NOT CLAIMED |
 
 Step 58X is not an external-validation completion event. It does not claim reviewer approval, third-party validation, compliance certification, production readiness, enterprise production-candidate readiness, or closure of any reviewer finding.
+
+## Step 62X Evidence Category: Durable Coolify/Compose Deployment Architecture
+
+Evidence bundle path: `docs/security/evidence/step_62x_durable_coolify_compose_deployment_architecture/`.
+
+Step 62X records architecture/configuration readiness for simulated finding `SIM-F-004`: diagnostic deployment not durable. The package selects Option B, a dedicated Compose override, and documents durable MinIO, custom backend image selection, Step 61X web healthcheck preservation, Oracle VPS redeploy commands, rollback, retest checklist, redaction boundaries, remaining limitations, and GO/NO-GO classification.
+
+Classification: `DURABLE_DEPLOYMENT_ARCHITECTURE_READY_RETEST_PENDING`.
+
+Readiness boundaries remain unchanged: production-style portfolio readiness is 92%; enterprise production-candidate is NO-GO / 7–9%; external validation is simulated response only / real validation pending; compliance certification is NOT CLAIMED.

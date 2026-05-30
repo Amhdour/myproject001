@@ -191,3 +191,21 @@ Step 57X must not be described as an independent-review completion event, extern
 | Compliance certification after Step 58X | NOT CLAIMED | No certification is claimed. |
 
 Step 58X must not be described as reviewer approval, third-party validation, external-validation completion, production readiness, enterprise production-candidate readiness, compliance certification, independent red-team completion, customer deployment, or closure of reviewer findings.
+
+## Step 62X Addendum — Durable Coolify/Compose Deployment Architecture
+
+Step 62X adds durable Oracle staging architecture/configuration readiness for simulated finding `SIM-F-004` through a dedicated Compose override and evidence package.
+
+| Gate | Status |
+|---|---|
+| Step 62X classification | `DURABLE_DEPLOYMENT_ARCHITECTURE_READY_RETEST_PENDING` |
+| Durable architecture package | GO |
+| Compose/Coolify config readiness | GO if files are prepared |
+| Oracle VPS redeploy/retest | PENDING_USER_EXECUTION |
+| Full staging GO | NOT CLAIMED |
+| Production readiness | NO-GO |
+| Enterprise production-candidate | NO-GO / 7–9% |
+| External validation | simulated response only / real validation pending |
+| Compliance certification | NOT CLAIMED |
+
+This addendum does not change the final release-candidate boundary: the portfolio remains suitable for bounded review, not production deployment or compliance certification.

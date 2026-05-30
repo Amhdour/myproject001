@@ -248,3 +248,11 @@ Step 58X adds a structured external reviewer response intake and finding tracker
 The Step 58X classification is `EXTERNAL_REVIEW_INTAKE_READY_NO_RESPONSE_YET`. This means the intake system and finding tracker are ready, not that a reviewer response has been received or external validation is complete. No reviewer approval, third-party validation, production readiness, enterprise production-candidate readiness, compliance certification, independent red-team report, or finding closure is claimed.
 
 Readiness after Step 58X remains bounded: production-style portfolio readiness is 92%; enterprise production-candidate readiness is NO-GO / 7–9%; external validation is REQUEST PACKAGE READY / NO RESPONSE YET; compliance certification is NOT CLAIMED. The finding tracker remains empty until a real reviewer response is received.
+
+## Step 62X Addendum — Durable Coolify/Compose Deployment Architecture
+
+Step 62X addresses simulated finding `SIM-F-004`, which identified that the prior Oracle staging deployment was diagnostic rather than durable. The selected remediation is Option B: a dedicated Oracle staging Compose override at `deployment/docker_compose/docker-compose.oracle-staging.override.yml`.
+
+The override documents/configures the custom backend image path for both `api_server` and `background`, durable MinIO service wiring, the required `onyx-file-store-bucket`, explicit S3 file-store variables, and service-local MinIO discovery through `http://minio:9000`. It preserves the Step 61X web healthcheck patch by keeping the `WEB_HEALTHCHECK_HOST` override and hostname-compatible default in the base compose files.
+
+Step 62X is classified as `DURABLE_DEPLOYMENT_ARCHITECTURE_READY_RETEST_PENDING`. It does not claim Oracle VPS verification, full staging GO, production readiness, enterprise production-candidate readiness, real external validation, customer deployment, independent red-team completion, or compliance certification. Production-style portfolio readiness remains 92%; enterprise production-candidate remains NO-GO / 7–9%; external validation remains simulated response only / real validation pending; compliance certification is NOT CLAIMED.

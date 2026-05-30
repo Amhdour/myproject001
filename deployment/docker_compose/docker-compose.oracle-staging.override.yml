@@ -1,0 +1,97 @@
+# =============================================================================
+# ORACLE STAGING DURABLE OVERRIDE (STEP 62X)
+# =============================================================================
+# Use with the base compose file to make the previously diagnostic Oracle VPS
+# staging deployment reproducible through Compose/Coolify configuration:
+#
+#   ONYX_BACKEND_IMAGE=rag-agent-security-onyx-backend:step53x-b77bee6 \
+#   docker compose \
+#     -f deployment/docker_compose/docker-compose.yml \
+#     -f deployment/docker_compose/docker-compose.oracle-staging.override.yml \
+#     --profile s3-filestore up -d
+#
+# This file intentionally uses placeholders/defaults only. Override secrets in
+# the deployment environment; do not commit real credentials.
+# =============================================================================
+
+name: ${ONYX_COMPOSE_PROJECT_NAME:-onyx}
+
+services:
+  api_server:
+    image: ${ONYX_BACKEND_IMAGE:-onyxdotapp/onyx-backend:${IMAGE_TAG:-latest}}
+    depends_on:
+      relational_db:
+        condition: service_started
+      opensearch:
+        condition: service_started
+      cache:
+        condition: service_started
+      inference_model_server:
+        condition: service_started
+      minio:
+        condition: service_started
+        required: true
+    environment:
+      FILE_STORE_BACKEND: ${FILE_STORE_BACKEND:-s3}
+      SERVICE_NAME_MINIO: ${SERVICE_NAME_MINIO:-minio}
+      S3_ENDPOINT_URL: ${S3_ENDPOINT_URL:-http://minio:9000}
+      S3_FILE_STORE_BUCKET_NAME: ${S3_FILE_STORE_BUCKET_NAME:-onyx-file-store-bucket}
+      S3_AWS_ACCESS_KEY_ID: ${S3_AWS_ACCESS_KEY_ID:-CHANGE_ME_MINIO_ACCESS_KEY}
+      S3_AWS_SECRET_ACCESS_KEY: ${S3_AWS_SECRET_ACCESS_KEY:-CHANGE_ME_MINIO_SECRET_KEY}
+
+  background:
+    image: ${ONYX_BACKEND_IMAGE:-onyxdotapp/onyx-backend:${IMAGE_TAG:-latest}}
+    depends_on:
+      relational_db:
+        condition: service_started
+      opensearch:
+        condition: service_started
+      cache:
+        condition: service_started
+      inference_model_server:
+        condition: service_started
+      indexing_model_server:
+        condition: service_started
+      minio:
+        condition: service_started
+        required: true
+    environment:
+      FILE_STORE_BACKEND: ${FILE_STORE_BACKEND:-s3}
+      SERVICE_NAME_MINIO: ${SERVICE_NAME_MINIO:-minio}
+      S3_ENDPOINT_URL: ${S3_ENDPOINT_URL:-http://minio:9000}
+      S3_FILE_STORE_BUCKET_NAME: ${S3_FILE_STORE_BUCKET_NAME:-onyx-file-store-bucket}
+      S3_AWS_ACCESS_KEY_ID: ${S3_AWS_ACCESS_KEY_ID:-CHANGE_ME_MINIO_ACCESS_KEY}
+      S3_AWS_SECRET_ACCESS_KEY: ${S3_AWS_SECRET_ACCESS_KEY:-CHANGE_ME_MINIO_SECRET_KEY}
+
+  web_server:
+    environment:
+      WEB_HEALTHCHECK_HOST: ${WEB_HEALTHCHECK_HOST:-}
+
+  minio:
+    image: minio/minio:RELEASE.2025-07-23T15-54-02Z-cpuv1
+    restart: unless-stopped
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:-CHANGE_ME_MINIO_ACCESS_KEY}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-CHANGE_ME_MINIO_SECRET_KEY}
+      MINIO_DEFAULT_BUCKETS: ${S3_FILE_STORE_BUCKET_NAME:-onyx-file-store-bucket}
+    volumes:
+      - minio_data:/data
+    command: server /data --console-address ":9001"
+    healthcheck:
+      test: ["CMD", "mc", "ready", "local"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+    networks:
+      default:
+        aliases:
+          - minio
+
+networks:
+  default:
+    name: ${ONYX_COMPOSE_NETWORK_NAME:-onyx_default}
+
+volumes:
+  db_volume:
+  minio_data:
+  opensearch-data:

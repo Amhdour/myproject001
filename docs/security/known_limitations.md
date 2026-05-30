@@ -565,3 +565,14 @@ Step 57X changes external-validation status from pending evidence preparation to
 - CI Actions remain blocked/unverified unless later resolved.
 - Web healthcheck mismatch remains a known limitation.
 - Diagnostic MinIO/custom container replacement remains non-durable production architecture.
+
+## Step 62X Durable Deployment Architecture Limitations
+
+- Step 62X prepares durable Coolify/Compose architecture for Oracle staging but does not claim an Oracle VPS redeploy/retest was executed.
+- The durable MinIO service, `onyx-file-store-bucket`, and `ONYX_BACKEND_IMAGE` override are configuration-ready, not VPS-verified in this step.
+- The Step 61X web healthcheck patch is preserved but remains pending Oracle VPS verification unless a later retest records evidence.
+- Simulated finding `SIM-F-004` is addressed at architecture/configuration readiness only; the reviewer response remains simulated.
+- Production readiness remains NO-GO.
+- Enterprise production-candidate readiness remains NO-GO / 7–9%.
+- Real external validation remains pending.
+- Compliance certification is NOT CLAIMED.
