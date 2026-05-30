@@ -202,3 +202,9 @@ Step 45X reconciled the earlier Step 44X repository-recovery blocker with the lo
 The Step 45X classification is **PR_CHAIN_PARTIALLY_VERIFIED**. This partially supersedes Step 44X for local PR-chain visibility, but it does not resolve GitHub-side verification. GitHub CLI is unavailable, direct GitHub API access is blocked by HTTP CONNECT 403, local `main` checkout fails, no `origin` remote is configured, and GitHub Actions runs/conclusions remain unavailable.
 
 Production-style portfolio readiness remains **87%**, enterprise production-candidate readiness remains **NO-GO / 5%**, live staging/cloud validation remains **PENDING**, external validation remains **PENDING**, and compliance certification remains **NOT CLAIMED**. Step 45X does not claim GitHub Actions success, production readiness, enterprise readiness, customer deployment, external validation, certification, real cloud deployment, or full Onyx-wide enforcement.
+
+## Step 46X CI Evidence Update
+
+Step 46X added a GitHub Actions CI run trigger and verification evidence package. The local workflow inventory confirms three workflows are present and configured for `pull_request` plus `workflow_dispatch`, but this environment could not trigger or query real GitHub Actions because `gh` is unavailable, no `origin` remote is configured, and GitHub API access fails with HTTP CONNECT 403. The Step 46X classification is `CI_ACTIONS_BLOCKED`.
+
+Production-style portfolio readiness remains **87%** because CI evidence is blocked rather than verified pass. Enterprise production-candidate readiness remains **NO-GO / 5%**. Live staging/cloud validation remains **PENDING**, external validation remains **PENDING**, and compliance certification remains **NOT CLAIMED**.
