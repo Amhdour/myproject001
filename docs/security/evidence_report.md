@@ -582,3 +582,16 @@ Evidence folder: `docs/security/evidence/actual_coolify_staging_execution/`
 Real Coolify deployment executed: **no**. Live staging validation status: **PENDING**. The run stopped at access verification because Coolify dashboard/API access, VPS access, repository remote access, a remotely verifiable staging branch target, an out-of-git secret injection path, and deployment-log access were unavailable in this environment.
 
 No fake deployment evidence was created. No enforce mode, shadow-deny runtime mode, live blocking, live filtering, application behavior change, production-readiness claim, enterprise production-readiness claim, external-validation claim, or compliance-certification claim is introduced.
+
+## Step 39X Evidence Category: Real Runtime Enforcement Proof
+
+Evidence bundle path: `docs/security/evidence/step_39x_runtime_enforcement_proof/`
+
+Included artifacts:
+- `README.md`
+- `runtime_enforcement_results.md`
+- `audit_event_sample.json`
+- `go_no_go.md`
+- `known_limitations.md`
+
+Claim boundary: Step 39X proves one minimal retrieval-facing runtime enforcement path with deterministic local tests. It does not claim enterprise production readiness, external validation, compliance certification, live staging/cloud deployment, real customer deployment, full Onyx-wide enforcement, or complete RAG/agent security coverage.

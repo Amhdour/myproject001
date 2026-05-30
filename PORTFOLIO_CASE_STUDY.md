@@ -169,3 +169,9 @@ Required final non-claims:
 - Compliance certification: **NOT CLAIMED**.
 - Live enforcement/blocking/filtering: **NOT CLAIMED**.
 - Full Onyx live staging: **NOT CLAIMED** unless future repository evidence proves otherwise.
+
+## Step 39X Runtime Enforcement Proof Addendum
+
+Step 39X adds a narrow real runtime-facing retrieval enforcement proof. The hook is placed after retrieval candidates are produced in the backend search runner and before chunks are returned from that runtime path. It supports `disabled`, `monitor_only`, and `enforce` modes, with `disabled` as the safe default.
+
+This addendum is intentionally scoped: it demonstrates one minimal allow/deny enforcement path with structured audit evidence and safe denial behavior. It does not claim enterprise production readiness, external validation, compliance certification, live staging/cloud validation, real customer deployment, full Onyx-wide enforcement, or complete RAG/agent security coverage.

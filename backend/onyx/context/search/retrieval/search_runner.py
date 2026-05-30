@@ -23,6 +23,10 @@ from onyx.security_layer.retrieval_guard.guard import apply_retrieval_acl_guard
 from onyx.utils.logger import setup_logger
 from onyx.utils.threadpool_concurrency import run_functions_tuples_in_parallel
 from backend.security_layer.retrieval.integration_flags import default_retrieval_integration_config
+from backend.security_layer.runtime_enforcement.config import get_runtime_enforcement_config
+from backend.security_layer.runtime_enforcement.config import RuntimeEnforcementMode
+from backend.security_layer.runtime_enforcement.context import RuntimeRetrievalContext
+from backend.security_layer.runtime_enforcement.retrieval_adapter import enforce_retrieval_runtime
 from backend.security_layer.retrieval.integration_flags import is_monitor_only
 from backend.security_layer.retrieval.live_monitor_adapter import (
     monitor_only_live_retrieval_check,
@@ -177,11 +181,17 @@ def search_chunks(
         session_id=session_id,
     )
 
-    return _apply_monitor_only_live_acl_hook(
+    monitored_chunks = _apply_monitor_only_live_acl_hook(
         query_request=query_request,
         user_id=user_id,
         session_id=session_id,
         chunks=guard_result.allowed_chunks,
+    )
+    return _apply_step_39x_runtime_enforcement_hook(
+        query_request=query_request,
+        user_id=user_id,
+        session_id=session_id,
+        chunks=monitored_chunks,
     )
 
 
@@ -219,6 +229,38 @@ def _apply_monitor_only_live_acl_hook(
             "retrieval monitor-only hook failed open; preserving retrieval response",
             exc_info=True,
         )
+    return chunks
+
+
+def _apply_step_39x_runtime_enforcement_hook(
+    query_request: ChunkIndexRequest,
+    user_id: UUID | None,
+    session_id: str | None,
+    chunks: list[InferenceChunk],
+) -> list[InferenceChunk]:
+    config = get_runtime_enforcement_config()
+    if config.mode == RuntimeEnforcementMode.DISABLED:
+        return chunks
+
+    try:
+        result = enforce_retrieval_runtime(
+            config=config,
+            context=RuntimeRetrievalContext(
+                request_id=session_id or "step-39x-retrieval-runtime",
+                subject_id=str(user_id) if user_id is not None else None,
+                tenant_id=query_request.filters.tenant_id,
+            ),
+            chunks=chunks,
+        )
+    except Exception:
+        logger.warning(
+            "Step 39X retrieval runtime enforcement hook failed open; preserving retrieval response",
+            exc_info=True,
+        )
+        return chunks
+
+    if config.mode == RuntimeEnforcementMode.ENFORCE:
+        return list(result.allowed_chunks)
     return chunks
 
 

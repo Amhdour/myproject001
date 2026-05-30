@@ -1,0 +1,14 @@
+{
+  "event_type": "step_39x_runtime_retrieval_authorization",
+  "decision_id": "step39x:00000000-0000-0000-0000-000000000039",
+  "request_id": "req-step-39x",
+  "mode": "enforce",
+  "action": "retrieve",
+  "resource_type": "chunk",
+  "tenant_id": "tenant-a",
+  "subject_id": "user-1",
+  "decision": "allow",
+  "reason_code": "retrieval_authorized",
+  "timestamp": "2026-05-30T00:00:00+00:00",
+  "enforcement_result": "allowed"
+}

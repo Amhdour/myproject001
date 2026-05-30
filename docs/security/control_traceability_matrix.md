@@ -274,3 +274,9 @@ Mapped controls for R-RPATCH-001 through R-RPATCH-008.
 | RCSE-CTRL-002 Operator runbook and sanitized evidence template | SR-EVIDENCE-001 | R-RCSE-003 | `docs/security/real_coolify_staging_operator_runbook.md`; `docs/security/real_coolify_staging_evidence_capture_template.md` | `backend/security_layer/tests/test_staging_execution.py` | complete |
 | RCSE-CTRL-003 Pending live staging validation status | SR-EVIDENCE-001 | R-RCSE-001 | `docs/security/real_coolify_staging_smoke_validation.md`; `docs/security/evidence/real_coolify_staging_execution_bundle/live_execution_status.txt` | `backend/security_layer/tests/test_staging_execution.py` | complete |
 | RCSE-CTRL-004 Runtime and claim boundary | SR-CI-001 | R-RCSE-002,R-RCSE-004 | `docs/security/real_coolify_staging_go_no_go.md`; `backend/security_layer/staging/execution.py` | `backend/security_layer/tests/test_staging_execution.py` | complete |
+
+## Step 39X Runtime Enforcement Proof Traceability
+
+| Control ID | Requirement(s) | Risk(s) | Runtime hook | Test evidence | Evidence artifact | Status |
+|---|---|---|---|---|---|---|
+| STEP39X-RET-001 | SR-RET-001, SR-AUDIT-001, SR-DLP-001 | Cross-tenant retrieval, missing subject context, unsafe denial leakage | `backend/onyx/context/search/retrieval/search_runner.py` Step 39X hook + `backend/security_layer/runtime_enforcement/retrieval_adapter.py` | `backend/security_layer/tests/test_step_39x_runtime_enforcement.py` | `docs/security/evidence/step_39x_runtime_enforcement_proof/` | Minimal runtime-facing proof only; enterprise production readiness remains NO-GO. |

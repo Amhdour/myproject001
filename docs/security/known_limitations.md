@@ -427,3 +427,15 @@ Validation cleanup is isolated-only. No enforce mode, no shadow-deny mode, and n
 - External validation remains **PENDING**.
 - Compliance certification is **NOT CLAIMED**.
 - No enforce mode, shadow-deny runtime mode, live blocking, live filtering, or application behavior change is enabled.
+
+## Step 39X Runtime Enforcement Proof Limitations
+
+- Step 39X adds one minimal retrieval-facing runtime hook, not full Onyx-wide enforcement.
+- Default behavior remains safe because `STEP_39X_RUNTIME_ENFORCEMENT_MODE` defaults to `disabled`.
+- Enforce mode is deterministic in the proof path, but it is not evidence of full production traffic coverage.
+- The adapter uses minimal request/chunk metadata for tenant and subject checks; enterprise ACL completeness is not claimed.
+- Structured audit evidence is in-process proof evidence, not a production SIEM or external audit integration.
+- External validation remains **PENDING**.
+- Compliance certification remains **NOT CLAIMED**.
+- Live staging/cloud validation remains **PENDING** because this step did not execute cloud, VPS, K3s, Rancher, Coolify, or real customer deployment validation.
+- Enterprise production-candidate readiness remains **NO-GO**.
