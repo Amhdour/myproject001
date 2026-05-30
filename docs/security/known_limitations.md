@@ -502,3 +502,15 @@ Validation cleanup is isolated-only. No enforce mode, no shadow-deny mode, and n
 Step 46X classifies GitHub Actions evidence as `CI_ACTIONS_BLOCKED`. The workspace has local workflow files, but it cannot trigger or query real GitHub Actions because `gh` is not installed, no `origin` remote is configured, and GitHub API requests fail with HTTP CONNECT 403. As a result, PR #107 metadata, Step 46X PR metadata, Actions run IDs, workflow run URLs, job conclusions, failed-step logs, and main-branch CI results remain unverified.
 
 This limitation preserves the existing claim boundaries: live staging/cloud validation remains **PENDING**, external validation remains **PENDING**, compliance certification remains **NOT CLAIMED**, production readiness remains **NO-GO**, and enterprise production-candidate readiness remains **NO-GO / 5%**.
+
+## Step 47X Docker Local Compose Staging Limitation
+
+Step 47X classified local Docker staging as `DOCKER_STAGING_BLOCKED` because Docker was not installed in the workspace. The selected safest compose path was inspected but not executed:
+
+- `deployment/docker_compose/docker-compose.yml`
+- `deployment/docker_compose/docker-compose.onyx-lite.yml`
+- `deployment/docker_compose/docker-compose.dev.yml`
+
+Because Docker and Docker Compose were unavailable, compose config validation, container startup, container health status, runtime logs, and Docker rollback could not be proven. Localhost probes on ports 3000, 8080, and 8000 failed because no service started.
+
+The Step 47X blocker does not change the claim boundary: production-style portfolio readiness remains 87%; enterprise production-candidate readiness remains NO-GO / 5%; local Docker staging evidence is BLOCKED; live staging/cloud validation is PENDING; CI Actions evidence remains BLOCKED from Step 46X; external validation is PENDING; compliance certification is NOT CLAIMED.

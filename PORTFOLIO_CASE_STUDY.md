@@ -208,3 +208,9 @@ Production-style portfolio readiness remains **87%**, enterprise production-cand
 Step 46X added a GitHub Actions CI run trigger and verification evidence package. The local workflow inventory confirms three workflows are present and configured for `pull_request` plus `workflow_dispatch`, but this environment could not trigger or query real GitHub Actions because `gh` is unavailable, no `origin` remote is configured, and GitHub API access fails with HTTP CONNECT 403. The Step 46X classification is `CI_ACTIONS_BLOCKED`.
 
 Production-style portfolio readiness remains **87%** because CI evidence is blocked rather than verified pass. Enterprise production-candidate readiness remains **NO-GO / 5%**. Live staging/cloud validation remains **PENDING**, external validation remains **PENDING**, and compliance certification remains **NOT CLAIMED**.
+
+## Step 47X Docker Local Compose Staging Proof
+
+Step 47X added a Docker/local compose staging evidence package. The result was intentionally conservative: `DOCKER_STAGING_BLOCKED`. Docker was not installed in the workspace, so Docker Compose config validation and local stack startup could not run. The selected compose path was inspected (`deployment/docker_compose/docker-compose.yml`, `deployment/docker_compose/docker-compose.onyx-lite.yml`, and `deployment/docker_compose/docker-compose.dev.yml`), but local Docker staging was not proven.
+
+Readiness after Step 47X remains bounded: production-style portfolio readiness is 87%; enterprise production-candidate readiness is NO-GO / 5%; local Docker staging evidence is BLOCKED; live staging/cloud validation is PENDING; CI Actions evidence remains BLOCKED from Step 46X; external validation is PENDING; compliance certification is NOT CLAIMED.
