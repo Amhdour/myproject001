@@ -33,7 +33,7 @@ The project must not be described as:
 |---|---|---|
 | Portfolio package review | GO | The reviewer-facing package exists for professional review. |
 | Partner-demo evidence review | GO / CONDITIONAL | Evidence can support a scoped partner-demo conversation, subject to known limitations. |
-| Production-style portfolio readiness | In progress, 65% | Portfolio maturity signal only; not production readiness. |
+| Production-style portfolio readiness | In progress, 80% | Portfolio maturity signal only; not production readiness. |
 | Production readiness | NO-GO | Do not claim production readiness. |
 | Enterprise readiness | NO-GO | Do not claim enterprise deployment readiness. |
 | Full Onyx live staging | NO-GO unless proven by repository evidence | Minimal artifacts are not full live staging. |

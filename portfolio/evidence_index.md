@@ -41,3 +41,18 @@ This index points reviewers to existing repository evidence and explains both wh
 - Treat minimal staging evidence as narrow deployment-path evidence only.
 - Treat claim-boundary evidence as authoritative for what must not be claimed.
 - Do not infer production readiness, enterprise readiness, compliance certification, external validation, full live staging, live enforce-mode protection, live shadow-deny runtime, live blocking, or live filtering from this package.
+
+## Final Portfolio Package
+
+| Evidence link | Evidence type | What it proves | What it does NOT prove |
+|---|---|---|---|
+| [`PORTFOLIO_CASE_STUDY.md`](../PORTFOLIO_CASE_STUDY.md) | Final case study | Provides the final professional narrative for agencies, clients, partners, and employers. | Does not prove production readiness, enterprise readiness, external validation, compliance certification, full live staging, or live enforcement. |
+| [`CLIENT_README.md`](../CLIENT_README.md) | Client-facing guide | Explains safe service offers and portfolio/demo scope for clients or small AI agencies. | Does not provide a managed production security guarantee. |
+| [`EMPLOYER_README.md`](../EMPLOYER_README.md) | Employer-facing guide | Maps the repository to AI Trust & Security Readiness Engineer skills and interview topics. | Does not prove live production operations or external assessment. |
+| [`PARTNER_DEMO_README.md`](../PARTNER_DEMO_README.md) | Partner/demo guide | Gives a five-minute demo flow, commands, PASS interpretation, and status matrix. | Does not prove full Onyx live staging or live blocking/filtering. |
+| [`CLAIM_BOUNDARY.md`](../CLAIM_BOUNDARY.md) | Root claim boundary | Summarizes safe claims, forbidden claims, current status, and links to detailed boundaries. | Does not remediate the listed NO-GO/PENDING/NOT CLAIMED gaps. |
+| [`docs/security/evidence/final_portfolio_package/README.md`](../docs/security/evidence/final_portfolio_package/README.md) | Final evidence package index | Bundles the final evidence summary, readiness score, checklist, and remaining gaps. | Does not create runtime enforcement, production deployment, or compliance certification. |
+| [`docs/security/evidence/final_portfolio_package/evidence_summary.md`](../docs/security/evidence/final_portfolio_package/evidence_summary.md) | Evidence summary | Maps final evidence categories to links, proof statements, and limitations. | Does not convert isolated tests into live application enforcement. |
+| [`docs/security/evidence/final_portfolio_package/readiness_score.md`](../docs/security/evidence/final_portfolio_package/readiness_score.md) | Readiness score | Explains the 80% production-style portfolio-readiness score. | Does not mean the system is 80% ready for production. |
+| [`docs/security/evidence/final_portfolio_package/reviewer_checklist.md`](../docs/security/evidence/final_portfolio_package/reviewer_checklist.md) | Reviewer checklist | Gives reviewers a concise checklist and local commands. | Does not replace independent validation or production acceptance testing. |
+| [`docs/security/evidence/final_portfolio_package/remaining_gaps.md`](../docs/security/evidence/final_portfolio_package/remaining_gaps.md) | Remaining gaps | Lists unresolved gaps and final boundaries. | Does not show those gaps are remediated. |
