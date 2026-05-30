@@ -129,9 +129,13 @@ This portfolio does not prove:
 
 ## 12. Current readiness score
 
-Production-style portfolio readiness is estimated at **80%**.
+Production-style portfolio readiness is estimated at **97%** after the release-candidate package and checks pass.
 
-This score means the project is strong as a portfolio artifact: it has positioning, evidence packages, demo attacks, CI gates, claim boundaries, and reviewer-specific documents. It does not mean the application is 80% ready for production. Production readiness remains **NO-GO**. Enterprise production-candidate readiness is **NOT CLAIMED / NO-GO**.
+This score means the project is strong as a portfolio artifact: it has positioning, evidence packages, demo attacks, CI gates, claim boundaries, and reviewer-specific documents. It does not mean the application is 97% ready for production. Production readiness remains **NO-GO**. Enterprise production-candidate readiness is **NOT CLAIMED / NO-GO**.
+
+## Release Candidate Status
+
+`v0.1.0-portfolio-review` is a portfolio review release candidate. It is not a production release. It is not an enterprise readiness attestation. It is not externally validated. It is not compliance certified.
 
 ## 13. Remaining gaps
 
