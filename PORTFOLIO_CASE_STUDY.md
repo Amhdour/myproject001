@@ -129,9 +129,9 @@ This portfolio does not prove:
 
 ## 12. Current readiness score
 
-Production-style portfolio readiness is estimated at **97%** after the release-candidate package and checks pass.
+Production-style portfolio readiness is estimated at **86%** after the Step 40X runtime-enforcement PR review gate and checks pass.
 
-This score means the project is strong as a portfolio artifact: it has positioning, evidence packages, demo attacks, CI gates, claim boundaries, and reviewer-specific documents. It does not mean the application is 97% ready for production. Production readiness remains **NO-GO**. Enterprise production-candidate readiness is **NOT CLAIMED / NO-GO**.
+This score means the project is strong as a portfolio artifact: it has positioning, evidence packages, demo attacks, CI gates, claim boundaries, and reviewer-specific documents. It does not mean the application is 86% ready for production. Production readiness remains **NO-GO**. Enterprise production-candidate readiness is **NOT CLAIMED / NO-GO**.
 
 ## Release Candidate Status
 
@@ -175,3 +175,10 @@ Required final non-claims:
 Step 39X adds a narrow real runtime-facing retrieval enforcement proof. The hook is placed after retrieval candidates are produced in the backend search runner and before chunks are returned from that runtime path. It supports `disabled`, `monitor_only`, and `enforce` modes, with `disabled` as the safe default.
 
 This addendum is intentionally scoped: it demonstrates one minimal allow/deny enforcement path with structured audit evidence and safe denial behavior. It does not claim enterprise production readiness, external validation, compliance certification, live staging/cloud validation, real customer deployment, full Onyx-wide enforcement, or complete RAG/agent security coverage.
+
+
+## Step 40X Runtime Enforcement PR Review Gate Addendum
+
+Step 40X reviewed the Step 39X runtime-facing retrieval enforcement proof and preserved its narrow claim boundary. The review gate added evidence under `docs/security/evidence/step_40x_runtime_enforcement_pr_review_merge_gate/`, fixed narrow runtime-safety/test hardening issues, and re-ran the required local gates.
+
+The Step 40X status remains intentionally bounded: production readiness is **NO-GO**, enterprise production-candidate readiness is **NO-GO / 5%**, external validation is **PENDING**, compliance certification is **NOT CLAIMED**, live staging/cloud validation is **PENDING**, and full Onyx-wide enforcement is **NOT CLAIMED**.

@@ -595,3 +595,12 @@ Included artifacts:
 - `known_limitations.md`
 
 Claim boundary: Step 39X proves one minimal retrieval-facing runtime enforcement path with deterministic local tests. It does not claim enterprise production readiness, external validation, compliance certification, live staging/cloud deployment, real customer deployment, full Onyx-wide enforcement, or complete RAG/agent security coverage.
+
+## Step 40X Runtime Enforcement PR Review and Merge Gate
+
+- Evidence folder: `docs/security/evidence/step_40x_runtime_enforcement_pr_review_merge_gate/`
+- Reviewed PR: #102, `Add Step 39X real runtime enforcement proof`.
+- Runtime hook reviewed: `_apply_step_39x_runtime_enforcement_hook()` in `backend/onyx/context/search/retrieval/search_runner.py`.
+- Gate result: GO after narrow Step 40X hardening for enforce-mode hook exception behavior, invalid mode test coverage, and safe-denial non-leakage assertions.
+- Commands passed after fixes: focused Step 39X runtime tests, full `backend/security_layer/tests`, demo attack runner, claim-boundary check, fake-claim check, evidence-link check, release-candidate check, and `git diff --check`.
+- Claim boundary: Step 40X does not add broad enforcement and does not prove full Onyx-wide enforcement, enterprise production readiness, external validation, compliance certification, or live staging/cloud deployment.

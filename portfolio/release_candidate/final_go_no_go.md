@@ -29,3 +29,16 @@
 | External validation after Step 39X | PENDING | No independent external validation was performed. |
 | Compliance certification after Step 39X | NOT CLAIMED | No certification is claimed. |
 | Live staging/cloud validation after Step 39X | PENDING | No cloud, VPS, K3s, Rancher, Coolify, or real customer deployment validation was performed. |
+
+## Step 40X Update
+
+| Area | Status | Notes |
+|---|---|---|
+| Step 40X runtime enforcement PR review gate | GO | Step 39X PR #102 was reviewed, narrow runtime-safety/test hardening was added, and required gates passed locally. |
+| Production-style portfolio readiness after Step 40X | 86% / GO for portfolio review | This percentage is a portfolio-evidence estimate only, not production readiness. |
+| Production readiness after Step 40X | NO-GO | Step 40X does not prove production deployment readiness. |
+| Enterprise production-candidate readiness after Step 40X | NO-GO / 5% | Step 40X does not prove enterprise deployment readiness. |
+| External validation after Step 40X | PENDING | No independent external validation was performed. |
+| Compliance certification after Step 40X | NOT CLAIMED | No certification is claimed. |
+| Live staging/cloud validation after Step 40X | PENDING | No cloud, VPS, K3s, Rancher, Coolify, or real customer deployment validation was performed. |
+| Full Onyx-wide enforcement after Step 40X | NOT CLAIMED | The proof remains limited to one retrieval-facing hook. |

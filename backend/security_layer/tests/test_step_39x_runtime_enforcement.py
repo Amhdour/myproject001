@@ -6,6 +6,7 @@ from backend.security_layer.runtime_enforcement.audit import clear_runtime_audit
 from backend.security_layer.runtime_enforcement.audit import get_runtime_audit_events
 from backend.security_layer.runtime_enforcement.config import RuntimeEnforcementConfig
 from backend.security_layer.runtime_enforcement.config import RuntimeEnforcementMode
+from backend.security_layer.runtime_enforcement.config import parse_runtime_enforcement_mode
 from backend.security_layer.runtime_enforcement.context import RuntimeRetrievalContext
 from backend.security_layer.runtime_enforcement.retrieval_adapter import enforce_retrieval_runtime
 
@@ -40,6 +41,17 @@ def _context(
         tenant_id=tenant_id,
     )
 
+
+def test_step_39x_invalid_mode_is_rejected_without_enabling_enforce() -> None:
+    try:
+        parse_runtime_enforcement_mode("enfroce")
+    except ValueError as exc:
+        message = str(exc)
+    else:
+        raise AssertionError("invalid Step 39X mode unexpectedly parsed")
+
+    assert "Invalid Step 39X runtime enforcement mode" in message
+    assert RuntimeEnforcementMode.ENFORCE.value in message
 
 def test_step_39x_disabled_mode_preserves_chunks_and_does_not_audit() -> None:
     clear_runtime_audit_events()
@@ -157,6 +169,11 @@ def test_step_39x_enforce_blocks_cross_tenant_retrieval_with_safe_denial() -> No
     assert "tenant-b" not in denial_text
     assert "user-2" not in denial_text
     assert "allowed_subject_ids" not in denial_text
+    assert "source" not in denial_text
+    assert "chunk content" not in denial_text
+    assert "policy_engine_rule_42" not in denial_text
+    assert "Traceback" not in denial_text
+    assert "secret" not in denial_text
 
     audit_events = get_runtime_audit_events()
     assert len(audit_events) == 1
