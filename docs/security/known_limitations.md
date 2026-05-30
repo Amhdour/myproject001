@@ -552,3 +552,16 @@ Step 57X preserves the following limitations:
 - No independent red-team report yet.
 
 Step 57X changes external-validation status from pending evidence preparation to request package ready / not yet completed. It does not claim the review has happened.
+
+## Step 58X Additional Limitations
+
+- No reviewer response yet.
+- No external validation completed.
+- No findings yet.
+- No third-party approval.
+- No compliance certification.
+- No independent red-team report.
+- No enterprise production-candidate.
+- CI Actions remain blocked/unverified unless later resolved.
+- Web healthcheck mismatch remains a known limitation.
+- Diagnostic MinIO/custom container replacement remains non-durable production architecture.

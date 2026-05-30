@@ -240,3 +240,11 @@ Step 57X adds a clean reviewer-facing package at `docs/security/evidence/step_57
 The Step 57X classification is `INDEPENDENT_REVIEW_PACKAGE_READY_EXTERNAL_VALIDATION_REQUEST_PENDING`. This means the request package is ready, not that external validation is complete. No independent reviewer response, third-party approval, production readiness, enterprise production-candidate readiness, compliance certification, full Onyx-wide enforcement, customer deployment, complete CI verification, full domain/TLS route, full web health GO, or security certification is claimed.
 
 Readiness after Step 57X remains bounded: production-style portfolio readiness is 92%; enterprise production-candidate readiness is NO-GO / 7–9%; Oracle staging evidence is PARTIAL GO; runtime enforcement behavior is PARTIAL GO; external validation is REQUEST PACKAGE READY / NOT YET COMPLETED; compliance certification is NOT CLAIMED.
+
+## Step 58X Addendum — External Reviewer Response Intake + Finding Tracker
+
+Step 58X adds a structured external reviewer response intake and finding tracker package at `docs/security/evidence/step_58x_external_reviewer_response_intake_finding_tracker/`. The package prepares templates and process controls for future reviewer feedback, severity assignment, evidence mapping, remediation planning, retest evidence, and closure decisions.
+
+The Step 58X classification is `EXTERNAL_REVIEW_INTAKE_READY_NO_RESPONSE_YET`. This means the intake system and finding tracker are ready, not that a reviewer response has been received or external validation is complete. No reviewer approval, third-party validation, production readiness, enterprise production-candidate readiness, compliance certification, independent red-team report, or finding closure is claimed.
+
+Readiness after Step 58X remains bounded: production-style portfolio readiness is 92%; enterprise production-candidate readiness is NO-GO / 7–9%; external validation is REQUEST PACKAGE READY / NO RESPONSE YET; compliance certification is NOT CLAIMED. The finding tracker remains empty until a real reviewer response is received.
