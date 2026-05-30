@@ -7,7 +7,7 @@ This reviewer package summarizes an Onyx-based RAG/agent security-readiness port
 | Area | Status |
 |---|---|
 | Portfolio status | In progress |
-| Production-style portfolio readiness | 80% |
+| Production-style portfolio readiness | 90% portfolio presentation readiness, not production-system readiness |
 | Production readiness | NO-GO |
 | Enterprise readiness | NO-GO |
 | External validation | PENDING |
@@ -41,6 +41,19 @@ The sixth accelerated portfolio-hardening step adds a release-prep folder for re
 - [`../docs/security/evidence/release_prep/release_go_no_go.md`](../docs/security/evidence/release_prep/release_go_no_go.md)
 
 The release-prep package is documentation-only and preserves the existing NO-GO / PENDING / NOT CLAIMED claim boundary. It does not create screenshots, video evidence, live deployment evidence, or runtime enforcement.
+
+## Public Sharing Audit
+
+The seventh accelerated portfolio-hardening step adds a public-sharing audit package for final repository hygiene and safe reviewer distribution:
+
+- [`public_sharing_audit/README.md`](public_sharing_audit/README.md)
+- [`public_sharing_audit/repo_hygiene_checklist.md`](public_sharing_audit/repo_hygiene_checklist.md)
+- [`public_sharing_audit/public_review_path.md`](public_sharing_audit/public_review_path.md)
+- [`public_sharing_audit/final_safe_claims.md`](public_sharing_audit/final_safe_claims.md)
+- [`public_sharing_audit/final_forbidden_claims.md`](public_sharing_audit/final_forbidden_claims.md)
+- [`../docs/security/evidence/public_sharing_audit/public_sharing_go_no_go.md`](../docs/security/evidence/public_sharing_audit/public_sharing_go_no_go.md)
+
+This package is documentation and validation-script support only. It does not add production readiness, enterprise readiness, external validation, compliance certification, full Onyx live staging, live enforcement, live blocking, or live filtering claims.
 
 ## Reviewer Navigation
 

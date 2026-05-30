@@ -28,10 +28,20 @@ The sixth accelerated portfolio-hardening step adds a documentation-only release
 
 This release-prep package does not add production readiness, enterprise readiness, external validation, compliance certification, full Onyx live staging, live enforcement, live blocking, or live filtering claims.
 
+## Public Sharing Audit
+
+The seventh accelerated portfolio-hardening step adds a final public-sharing audit and repository hygiene package for professional sharing preparation:
+
+- [`portfolio/public_sharing_audit/README.md`](portfolio/public_sharing_audit/README.md)
+- [`portfolio/public_sharing_audit/public_review_path.md`](portfolio/public_sharing_audit/public_review_path.md)
+- [`docs/security/evidence/public_sharing_audit/public_sharing_go_no_go.md`](docs/security/evidence/public_sharing_audit/public_sharing_go_no_go.md)
+
+This audit prepares the repository for professional sharing. It does not prove production readiness, enterprise readiness, external validation, compliance certification, full Onyx staging, live enforcement, live blocking, or live filtering.
+
 ## Status
 
 - Portfolio status: In progress
-- Production-style portfolio readiness: 80%
+- Production-style portfolio readiness: 90% portfolio presentation readiness, not production-system readiness
 - Production readiness: NO-GO
 - Enterprise readiness: NO-GO
 - External validation: PENDING
@@ -75,7 +85,7 @@ My portfolio contribution is the security-readiness and evidence layer around th
 
 ## Current Readiness Snapshot
 
-- Production-style portfolio readiness: 80% as a portfolio artifact.
+- Production-style portfolio readiness: 90% as a portfolio presentation artifact, not as production-system readiness.
 - Enterprise production-candidate readiness: not claimed / NO-GO.
 - Production readiness: NO-GO.
 - External validation: PENDING.
