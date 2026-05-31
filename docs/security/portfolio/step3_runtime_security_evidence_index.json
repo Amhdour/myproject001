@@ -1,0 +1,63 @@
+{
+  "package": "phase_4_portfolio_consolidation",
+  "source_package": "~/rag-agent-security-staging-evidence/step-03k-final-runtime-security-package/",
+  "source_package_note": "Public-safe consolidation derived from the Step 3 runtime-security evidence package request and repository evidence artifacts. Raw staging secrets, hostnames, tokens, credentials, and environment-specific values are intentionally excluded.",
+  "project_positioning": "Production-style AI Trust & Security Readiness portfolio for RAG and autonomous agent systems.",
+  "step_3_result": "PASS_WITH_LIMITATIONS",
+  "readiness_estimate": "~99% production-style portfolio coverage",
+  "claim_boundaries": {
+    "enterprise_production_readiness": "NOT_CLAIMED",
+    "external_validation": "NOT_CLAIMED",
+    "full_authenticated_rbac": "NOT_CLAIMED",
+    "full_real_user_tenant_isolation": "NOT_CLAIMED",
+    "full_real_tool_execution_blocking": "NOT_CLAIMED",
+    "full_real_mcp_server_blocking": "NOT_CLAIMED",
+    "production_deployment_attestation": "NOT_CLAIMED"
+  },
+  "public_safe_files": [
+    {
+      "path": "docs/security/portfolio/README.md",
+      "purpose": "Reviewer entry point, claim boundary, evidence map, and usage guidance."
+    },
+    {
+      "path": "docs/security/portfolio/STEP3_RUNTIME_SECURITY_EVIDENCE_REPORT.md",
+      "purpose": "Public-safe Step 3 runtime-security evidence report with PASS_WITH_LIMITATIONS result."
+    },
+    {
+      "path": "docs/security/portfolio/PORTFOLIO_RUNTIME_SECURITY_CLAIMS.md",
+      "purpose": "Allowed and forbidden runtime-security claims for portfolio review."
+    },
+    {
+      "path": "docs/security/portfolio/CASE_STUDY.md",
+      "purpose": "Narrative case study for AI trust and security readiness work."
+    },
+    {
+      "path": "docs/security/portfolio/DEMO_WALKTHROUGH.md",
+      "purpose": "Safe demo walkthrough for reviewers without implying live production enforcement."
+    },
+    {
+      "path": "docs/security/portfolio/FINAL_PORTFOLIO_GO_NO_GO.md",
+      "purpose": "Final go/no-go matrix and remaining limitations."
+    }
+  ],
+  "evidence_categories": [
+    "claim-boundary governance",
+    "runtime-security readiness documentation",
+    "controlled runtime enforcement proof points",
+    "safe-denial and audit-event expectations",
+    "RAG retrieval and tenant-boundary risk analysis",
+    "tool authorization and MCP risk analysis",
+    "staging evidence with documented limitations",
+    "reviewer-ready demo and portfolio materials"
+  ],
+  "remaining_work": [
+    "host/reverse-proxy route polish",
+    "authenticated RBAC tests",
+    "seeded real-document retrieval tests",
+    "real configured tool execution tests",
+    "real MCP server execution tests",
+    "external validation",
+    "backup/restore and incident drills"
+  ],
+  "last_updated": "2026-05-31"
+}
