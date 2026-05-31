@@ -28,7 +28,7 @@ The consolidated runtime-security evidence covers:
 
 The evidence is strong enough to support a production-style portfolio narrative because it is organized, bounded, reviewable, and explicit about what remains unproven.
 
-The evidence is not strong enough to support enterprise production readiness because several live, authenticated, seeded, and externally validated paths remain incomplete.
+The evidence is not strong enough to support enterprise production readiness because several live, authenticated, seeded, and independent validation paths remain incomplete.
 
 ## PASS_WITH_LIMITATIONS Rationale
 
