@@ -12,6 +12,7 @@ from backend.security_layer.runtime_enforcement.config import RuntimeEnforcement
 from backend.security_layer.runtime_enforcement.context import RetrievalChunkLike
 from backend.security_layer.runtime_enforcement.context import RuntimeRetrievalContext
 from backend.security_layer.runtime_enforcement.decision import authorize_runtime_retrieval
+from backend.security_layer.runtime_enforcement.telemetry import record_runtime_retrieval_acl_metric
 
 
 @dataclass(frozen=True)
@@ -59,6 +60,12 @@ def enforce_retrieval_runtime(
         enforcement_result=enforcement_result,
     )
     write_runtime_audit_event(audit_event)
+    record_runtime_retrieval_acl_metric(
+        mode=config.mode,
+        decision=decision.decision,
+        enforcement_result=enforcement_result,
+        denied_chunk_count=decision.denied_chunk_count,
+    )
 
     if config.mode == RuntimeEnforcementMode.MONITOR_ONLY:
         return RuntimeRetrievalEnforcementResult(
