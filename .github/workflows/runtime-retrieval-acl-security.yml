@@ -1,0 +1,35 @@
+name: Runtime Retrieval ACL Security Gate
+
+on:
+  pull_request:
+    paths:
+      - "backend/security_layer/runtime_enforcement/**"
+      - "backend/tests/security_layer/test_runtime_retrieval_acl_step_63x.py"
+      - "demo_attacks/runtime_retrieval_acl_cross_tenant_attack.py"
+      - ".github/workflows/runtime-retrieval-acl-security.yml"
+      - "docs/security/evidence/step_63x_runtime_retrieval_acl_review_package/**"
+  workflow_dispatch:
+
+jobs:
+  runtime-retrieval-acl-security:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install focused test dependency
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pytest
+
+      - name: Run Step 63X runtime retrieval ACL tests
+        run: |
+          python -m pytest backend/tests/security_layer/test_runtime_retrieval_acl_step_63x.py -q
+
+      - name: Run Step 63X cross-tenant retrieval demo attack
+        run: |
+          python demo_attacks/runtime_retrieval_acl_cross_tenant_attack.py
