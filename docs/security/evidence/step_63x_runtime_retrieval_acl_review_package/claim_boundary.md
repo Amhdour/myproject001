@@ -18,4 +18,4 @@ Step 63X adds one bounded runtime retrieval ACL proof around the existing runtim
 
 Use: `bounded runtime retrieval ACL proof`.
 
-Do not use: `production-ready retrieval security`, `enterprise-ready RAG security`, `certified secure`, or `full Onyx enforcement`.
+Avoid stronger marketing language that implies production protection, enterprise status, security certification, or complete Onyx-wide enforcement.
