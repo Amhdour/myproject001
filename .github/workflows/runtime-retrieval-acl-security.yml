@@ -26,10 +26,10 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install pytest
 
-      - name: Run Step 63X runtime retrieval ACL tests
+      - name: Run Step 63X isolated runtime retrieval ACL tests
         run: |
-          python -m pytest backend/tests/security_layer/test_runtime_retrieval_acl_step_63x.py -q
+          PYTHONPATH=. python -m pytest backend/security_layer/runtime_enforcement/test_step63x_runtime_retrieval_acl_isolated.py -q
 
       - name: Run Step 63X cross-tenant retrieval demo attack
         run: |
-          python demo_attacks/runtime_retrieval_acl_cross_tenant_attack.py
+          PYTHONPATH=. python demo_attacks/runtime_retrieval_acl_cross_tenant_attack.py
