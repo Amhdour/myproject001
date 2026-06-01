@@ -1,6 +1,26 @@
 # Audit Log Sample
 
-## Expected audit event
+## Oracle VPS verification
+
+- Host: `rag-agent-security-staging-v2`
+- Path: `~/step63x-verify/myproject001`
+- Branch: `step-63x-runtime-retrieval-acl-proof`
+- Commit SHA: `1eb6f5391dde968e7d6c0a033cf077122a8a3a44`
+- Status: `ORACLE_STEP63X_DEMO_ATTACK_PASS`
+
+## Command run
+
+```bash
+PYTHONPATH=. python demo_attacks/runtime_retrieval_acl_cross_tenant_attack.py
+```
+
+## Observed audit evidence from command output
+
+```text
+audit_event=retrieval_authorization_failed
+```
+
+## Expected audit event shape
 
 ```json
 {
@@ -21,8 +41,13 @@
 
 The sample intentionally excludes retrieved content and unauthorized document content.
 
-## Current status
+## Result
 
-`EXPECTED_SAMPLE_ONLY_PENDING_EXECUTION`
+`PASS_FOR_DEMO_ATTACK_OUTPUT`
 
-Update this file with real redacted output from local, CI, or staging execution.
+## Limitations
+
+- This is redacted demo-output evidence, not a production audit sink.
+- It does not prove audit retention, tamper-evidence, centralized logging, or SIEM integration.
+- Focused pytest remains blocked by repo-wide `backend/tests/conftest.py` dependency loading for `fastapi_users` in the minimal Oracle verification venv.
+- Production readiness, enterprise readiness, full Onyx-wide enforcement, full staging GO, external validation, and compliance certification are not claimed.
