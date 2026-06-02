@@ -6,7 +6,15 @@ set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 DEPLOY_DIR="${ROOT_DIR}/deploy/oracle-vps"
+TEMP_ENV_FILE="${DEPLOY_DIR}/.env.staging"
 EXIT_CODE=0
+
+cleanup() {
+  if [[ -f "${TEMP_ENV_FILE}" && "${MYPROJECT001_CREATED_TEMP_ENV:-0}" == "1" ]]; then
+    rm -f "${TEMP_ENV_FILE}"
+  fi
+}
+trap cleanup EXIT
 
 required_files=(
   "${DEPLOY_DIR}/README.md"
@@ -51,6 +59,10 @@ fi
 
 if command -v docker >/dev/null 2>&1 && docker compose version >/dev/null 2>&1; then
   echo "INFO docker compose available; validating compose skeleton syntax"
+  if [[ ! -f "${TEMP_ENV_FILE}" ]]; then
+    cp "${DEPLOY_DIR}/.env.staging.example" "${TEMP_ENV_FILE}"
+    MYPROJECT001_CREATED_TEMP_ENV=1
+  fi
   if docker compose --env-file "${DEPLOY_DIR}/.env.staging.example" -f "${DEPLOY_DIR}/compose.staging.example.yml" config >/tmp/myproject001-compose-config.txt; then
     echo "PASS compose skeleton renders with example env"
   else
