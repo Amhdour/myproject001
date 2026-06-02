@@ -15,6 +15,14 @@ required_files=(
   "${DEPLOY_DIR}/.env.staging.example"
   "${DEPLOY_DIR}/Caddyfile.example"
   "${DEPLOY_DIR}/security_boundary.md"
+  "${DEPLOY_DIR}/security_scan_staging_prep.sh"
+  "${DEPLOY_DIR}/smoke_test_staging.sh"
+  "${DEPLOY_DIR}/rollback_staging.sh"
+)
+
+grep_excludes=(
+  --exclude="validate_staging_prep.sh"
+  --exclude="security_scan_staging_prep.sh"
 )
 
 echo "== Oracle VPS staging prep validation =="
@@ -28,14 +36,14 @@ for file in "${required_files[@]}"; do
   fi
 done
 
-if grep -RInE "(BEGIN (RSA|OPENSSH|EC|DSA) PRIVATE KEY|AKIA[0-9A-Z]{16}|ghp_[A-Za-z0-9_]{36,}|xox[baprs]-|sk-[A-Za-z0-9_-]{20,})" "${DEPLOY_DIR}"; then
+if grep -RInE "${grep_excludes[@]}" "(BEGIN (RSA|OPENSSH|EC|DSA) PRIVATE KEY|AKIA[0-9A-Z]{16}|ghp_[A-Za-z0-9_]{36,}|xox[baprs]-|sk-[A-Za-z0-9_-]{20,})" "${DEPLOY_DIR}"; then
   echo "FAIL possible secret-like value found in deploy/oracle-vps"
   EXIT_CODE=1
 else
   echo "PASS no common private-key/API-token patterns found in deploy/oracle-vps"
 fi
 
-if grep -RInE "([0-9]{1,3}\.){3}[0-9]{1,3}" "${DEPLOY_DIR}"; then
+if grep -RInE "${grep_excludes[@]}" "([0-9]{1,3}\.){3}[0-9]{1,3}" "${DEPLOY_DIR}"; then
   echo "WARN IPv4-like value found; verify it is not a live public IP"
 else
   echo "PASS no IPv4-like values found in deploy/oracle-vps"
