@@ -31,6 +31,9 @@ jobs:
       - name: Validate staging-prep file consistency
         run: bash deploy/oracle-vps/validate_staging_prep.sh
 
+      - name: Run staging-prep security scan
+        run: bash deploy/oracle-vps/security_scan_staging_prep.sh
+
       - name: Render Docker Compose config
         run: |
           docker compose \
@@ -44,5 +47,6 @@ jobs:
           name: oracle-vps-staging-prep-evidence
           path: |
             /tmp/oracle-vps-compose-rendered.yml
+            docs/security/evidence/oracle_vps_staging_foundation/raw_scan_outputs/**
           if-no-files-found: error
           retention-days: 14
