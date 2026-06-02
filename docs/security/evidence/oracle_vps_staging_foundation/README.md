@@ -17,6 +17,7 @@ Draft. This bundle supports staging preparation only and does not claim enterpri
 | EVID-ORACLE-VPS-STACK | `open_source_stack_decision.md` | Record selected open-source stack and deferred stack | draft |
 | EVID-ORACLE-VPS-BOUNDARY | `security_boundary_checklist.md` | Track security boundary requirements | draft |
 | EVID-ORACLE-VPS-STAGING-PREP-VALIDATION | `staging_prep_validation.md` | Record validation command, output, and exit code | draft |
+| EVID-ORACLE-VPS-SMOKE-TEST | `staging_smoke_test.md` | Record runtime foundation smoke-test output and exit code | draft |
 | EVID-ORACLE-VPS-GNG | `go_no_go.md` | Record staging foundation go/no-go decision | draft |
 
 ## Required Execution Before GO
@@ -25,7 +26,9 @@ Draft. This bundle supports staging preparation only and does not claim enterpri
 2. Paste redacted output into `staging_prep_validation.md`.
 3. Record VPS details in `vps_inventory.md` without secrets.
 4. Complete `security_boundary_checklist.md`.
-5. Complete `go_no_go.md`.
+5. After staging services are copied and started on the VPS, run `bash smoke_test_staging.sh` from the staging directory.
+6. Paste redacted output into `staging_smoke_test.md`.
+7. Complete `go_no_go.md`.
 
 ## Non-Claim Statement
 
