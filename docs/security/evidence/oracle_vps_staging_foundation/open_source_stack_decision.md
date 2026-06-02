@@ -42,7 +42,7 @@ Use Docker Compose before K3s for the first Oracle VPS staging foundation.
 
 - Stack choice is documented.
 - Deferred components are explicitly listed.
-- No component is presented as production-ready before deployment and validation evidence exists.
+- Deployment and validation evidence must exist before any readiness claim is reviewed.
 - The first implementation path remains Docker Compose first, K3s later.
 
 ## Notes
