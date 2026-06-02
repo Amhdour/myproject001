@@ -105,10 +105,8 @@ This step is complete when:
 - No secrets are committed.
 - The result remains a planning/foundation step with no unsupported readiness claim.
 
-## Current Readiness Impact
+## Staging Progress Impact
 
-Estimated Enterprise production-candidate readiness before this step: 35-40%.
-
-Estimated impact after completing this foundation step: +3-5 percentage points, assuming the VPS is reachable and evidence is complete.
+This foundation step can improve staging-package completeness after the VPS is reachable and evidence is complete.
 
 This does not by itself activate live security enforcement.
