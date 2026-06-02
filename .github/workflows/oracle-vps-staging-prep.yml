@@ -36,10 +36,12 @@ jobs:
 
       - name: Render Docker Compose config
         run: |
+          cp deploy/oracle-vps/.env.staging.example deploy/oracle-vps/.env.staging
           docker compose \
             --env-file deploy/oracle-vps/.env.staging.example \
             -f deploy/oracle-vps/compose.staging.example.yml \
             config > /tmp/oracle-vps-compose-rendered.yml
+          rm -f deploy/oracle-vps/.env.staging
 
       - name: Upload rendered compose evidence
         uses: actions/upload-artifact@v4
