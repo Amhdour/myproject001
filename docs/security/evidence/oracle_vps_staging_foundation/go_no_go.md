@@ -96,7 +96,7 @@ Mark NO-GO if:
 
 - Before this staging foundation package: 35-40% Enterprise production-candidate readiness.
 - After documentation, CI validation, security scan, smoke test, and rollback evidence are complete: estimated 50-55% Enterprise production-candidate readiness.
-- This estimate remains below enterprise-ready because live runtime enforcement, attack tests, telemetry, audit trails, incident response, and external validation are still required.
+- This estimate remains below an enterprise production-candidate threshold because live runtime enforcement, attack tests, telemetry, audit trails, incident response, and external validation are still required.
 
 ## Non-Claim Statement
 
