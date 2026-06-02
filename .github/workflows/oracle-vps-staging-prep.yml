@@ -1,0 +1,48 @@
+name: Oracle VPS Staging Prep Validation
+
+on:
+  pull_request:
+    paths:
+      - "deploy/oracle-vps/**"
+      - "docs/security/evidence/oracle_vps_staging_foundation/**"
+      - ".github/workflows/oracle-vps-staging-prep.yml"
+  push:
+    branches:
+      - oracle-vps-staging-foundation
+    paths:
+      - "deploy/oracle-vps/**"
+      - "docs/security/evidence/oracle_vps_staging_foundation/**"
+      - ".github/workflows/oracle-vps-staging-prep.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-staging-prep:
+    name: Validate Oracle VPS staging-prep files
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate staging-prep file consistency
+        run: bash deploy/oracle-vps/validate_staging_prep.sh
+
+      - name: Render Docker Compose config
+        run: |
+          docker compose \
+            --env-file deploy/oracle-vps/.env.staging.example \
+            -f deploy/oracle-vps/compose.staging.example.yml \
+            config > /tmp/oracle-vps-compose-rendered.yml
+
+      - name: Upload rendered compose evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: oracle-vps-staging-prep-evidence
+          path: |
+            /tmp/oracle-vps-compose-rendered.yml
+          if-no-files-found: error
+          retention-days: 14
