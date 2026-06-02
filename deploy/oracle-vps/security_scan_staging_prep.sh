@@ -11,6 +11,11 @@ OUT_DIR="${OUT_DIR:-${ROOT_DIR}/docs/security/evidence/oracle_vps_staging_founda
 TIMESTAMP="$(date -u +%Y%m%dT%H%M%SZ)"
 EXIT_CODE=0
 
+grep_excludes=(
+  --exclude="validate_staging_prep.sh"
+  --exclude="security_scan_staging_prep.sh"
+)
+
 log_pass() { echo "PASS $*"; }
 log_fail() { echo "FAIL $*"; EXIT_CODE=1; }
 log_info() { echo "INFO $*"; }
@@ -24,7 +29,7 @@ log_info "Output directory: ${OUT_DIR}"
 
 # Lightweight built-in secret-pattern scan.
 SECRET_SCAN_FILE="${OUT_DIR}/secret_pattern_scan_${TIMESTAMP}.txt"
-if grep -RInE "(BEGIN (RSA|OPENSSH|EC|DSA) PRIVATE KEY|AKIA[0-9A-Z]{16}|ghp_[A-Za-z0-9_]{36,}|github_pat_[A-Za-z0-9_]{22,}|xox[baprs]-|sk-[A-Za-z0-9_-]{20,}|-----BEGIN CERTIFICATE-----)" "${DEPLOY_DIR}" > "${SECRET_SCAN_FILE}"; then
+if grep -RInE "${grep_excludes[@]}" "(BEGIN (RSA|OPENSSH|EC|DSA) PRIVATE KEY|AKIA[0-9A-Z]{16}|ghp_[A-Za-z0-9_]{36,}|github_pat_[A-Za-z0-9_]{22,}|xox[baprs]-|sk-[A-Za-z0-9_-]{20,}|-----BEGIN CERTIFICATE-----)" "${DEPLOY_DIR}" > "${SECRET_SCAN_FILE}"; then
   log_fail "possible secret-like pattern found; review ${SECRET_SCAN_FILE}"
 else
   log_pass "built-in secret-pattern scan found no common private-key/API-token patterns"
