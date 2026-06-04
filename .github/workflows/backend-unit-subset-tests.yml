@@ -1,0 +1,58 @@
+name: Backend Unit Subset Tests
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  backend-unit-subset-tests:
+    name: Backend LLM secret-scrub unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Create artifact directory
+        run: mkdir -p .artifacts/backend-unit-subset-tests
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Install repository dependencies
+        run: uv sync --frozen
+
+      - name: Record backend unit subset environment
+        run: |
+          source .venv/bin/activate
+          {
+            echo "Python version: $(python --version)"
+            echo "Python path: $(which python)"
+            echo "uv version: $(uv --version)"
+            echo "pytest CLI version: $(python -m pytest --version)"
+            echo "pytest module version: $(python -c 'import pytest; print(pytest.__version__)')"
+            echo "Working directory: $(pwd)"
+            echo "Commit SHA: ${GITHUB_SHA}"
+            echo "Branch/ref: ${GITHUB_REF}"
+            echo "Command executed: python -m pytest backend/tests/unit/onyx/llm/test_llm_utils_scrub.py -q -ra"
+          } | tee .artifacts/backend-unit-subset-tests/environment.txt
+
+      - name: Run backend LLM secret-scrub unit tests
+        run: |
+          source .venv/bin/activate
+          set -o pipefail
+          python -m pytest backend/tests/unit/onyx/llm/test_llm_utils_scrub.py -q -ra 2>&1 | tee .artifacts/backend-unit-subset-tests/backend-llm-secret-scrub-tests.log
+
+      - name: Upload backend unit subset test evidence
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: backend-unit-subset-test-evidence
+          path: |
+            .artifacts/backend-unit-subset-tests/backend-llm-secret-scrub-tests.log
+            .artifacts/backend-unit-subset-tests/environment.txt
+          if-no-files-found: error
