@@ -1,0 +1,59 @@
+name: Retrieval ACL Shadow Integration Tests
+
+on:
+  pull_request:
+    paths:
+      - "backend/security_layer/retrieval_acl/**"
+      - "backend/security_layer/tests/test_retrieval_acl_shadow_integration.py"
+      - "docs/security/evidence/bundle_f_retrieval_acl_shadow_integration_proof.md"
+      - ".github/workflows/retrieval-acl-shadow-integration-tests.yml"
+  workflow_dispatch:
+
+jobs:
+  retrieval-acl-shadow-integration-tests:
+    name: Isolated retrieval ACL shadow integration proof tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install focused test dependency
+        run: |
+          python -m pip install --upgrade pip
+          # Minimal dependency for isolated Bundle F tests only.
+          # Passing tests do NOT prove production readiness, enterprise readiness,
+          # live Onyx retrieval enforcement, live blocking, or live filtering.
+          python -m pip install pytest
+
+      - name: Capture environment metadata
+        run: |
+          mkdir -p retrieval-acl-shadow-integration-artifacts
+          {
+            echo "claim_boundary=isolated shadow integration proof only"
+            echo "production_readiness=NO-GO"
+            echo "enterprise_readiness=NO-GO"
+            echo "live_enforcement_claimed=false"
+            echo "feature_flag=ONYX_SECURITY_RETRIEVAL_ACL_MODE"
+            echo "default_mode=off"
+            echo "python_version=$(python --version)"
+            echo "pytest_version=$(python -m pytest --version)"
+            echo "test_command=PYTHONPATH=. python -m pytest backend/security_layer/tests/test_retrieval_acl_shadow_integration.py -q"
+          } > retrieval-acl-shadow-integration-artifacts/environment_metadata.txt
+
+      - name: Run focused retrieval ACL shadow integration tests
+        run: |
+          set -o pipefail
+          PYTHONPATH=. python -m pytest backend/security_layer/tests/test_retrieval_acl_shadow_integration.py -q \
+            2>&1 | tee retrieval-acl-shadow-integration-artifacts/test.log
+
+      - name: Upload retrieval ACL shadow integration evidence artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: retrieval-acl-shadow-integration-test-evidence
+          path: retrieval-acl-shadow-integration-artifacts/
