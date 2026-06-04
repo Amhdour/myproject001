@@ -92,3 +92,9 @@ The workflow is expected to remain red if pytest collection still fails. This ch
 ## Next step
 
 Run GitHub Actions for the updated workflow, download or inspect `python-backend-test-collection-log`, and use `.artifacts/python-test-collection/backend-unit-collection.log` to identify the exact pytest collection failure.
+
+## Step 07 follow-up
+
+The Step 06 artifact successfully exposed the pytest collection root cause: `NameError: name 'SearchSettings' is not defined` from `backend/onyx/context/search/models.py`.
+
+The observability goal was achieved because the collection log identified the exact module and runtime annotation failure. The next validation is the GitHub Actions backend collection run after the Step 07 fix.
