@@ -1,0 +1,2667 @@
+# Step 01 Reproducibility Gate Evidence
+
+## Scope and claim boundary
+
+This document records a reproducibility and baseline verification gate only. It does not add application behavior, security controls, enterprise functionality, live enforcement, or production readiness claims.
+
+## Metadata
+
+- Date/time (UTC): `2026-06-04T10:16:50Z`
+- Branch name: `step-01-reproducibility-gate`
+- Current commit SHA at evidence creation: `e52e7a0014a06626d4dd183734d6835a049bda0e`
+- Repository path: `/workspace/myproject001`
+
+## Environment details
+
+```text
+## environment
+2026-06-04T10:15:38Z
+Linux e33aa23f49a4 6.12.47 #1 SMP Mon Oct 27 10:01:15 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
+Python 3.14.4
+v24.15.0
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+11.4.2
+/root/.local/bin/uv
+/root/.pyenv/shims/pytest
+/bin/bash: line 2: docker: command not found
+/bin/bash: line 2: docker: command not found
+/root/.nvm/versions/node/v24.15.0/bin/pnpm
+/root/.nvm/versions/node/v24.15.0/bin/yarn
+```
+
+## Repository root inspection
+
+### Root files and directories
+
+```text
+.devcontainer
+.git
+.git-blame-ignore-revs
+.github
+.gitignore
+.greptile
+.kanban.toml
+.mcp.json
+.oxfmtrc.json
+.pre-commit-config.yaml
+.secretsignore
+.venv
+.vscode
+AGENTS.md
+BASELINE_COMMIT.md
+CHANGELOG.md
+CLAIM_BOUNDARY.md
+CLAUDE.md
+CLIENT_README.md
+CONTRIBUTING.md
+EMPLOYER_README.md
+LICENSE
+PARTNER_DEMO_README.md
+PORTFOLIO_CASE_STUDY.md
+README.md
+README.zh-CN.md
+SECURITY.md
+backend
+cli
+contributor_ip_assignment
+ct.yaml
+cubic.yaml
+demo
+demo_attacks
+deployment
+desktop
+docker-bake.hcl
+docs
+examples
+extensions
+portfolio
+profiling
+pyproject.toml
+scripts
+skills
+tools
+uv.lock
+web
+widget
+```
+
+### Backend directory: `backend/`
+
+```text
+.dockerignore
+.gitignore
+.trivyignore
+Dockerfile
+Dockerfile.model_server
+alembic
+alembic.ini
+alembic_tenants
+assets
+ee
+keys
+model_server
+onyx
+pytest.ini
+requirements
+scripts
+security_layer
+shared_configs
+slackbot_images
+static
+supervisord.conf
+tests
+uv.lock
+```
+
+### Frontend directory: `web/`
+
+```text
+.dockerignore
+.gitignore
+.oxlintrc.json
+.storybook
+@types
+AGENTS.md
+CLAUDE.md
+Dockerfile
+README.md
+bun.lock
+components.json
+jest.config.js
+lib
+next.config.js
+node_modules
+package.json
+playwright.config.ts
+postcss.config.js
+public
+sentry.edge.config.ts
+sentry.server.config.ts
+src
+tailwind-themes
+tailwind.config.js
+tests
+tsconfig.json
+tsconfig.types.json
+types
+```
+
+### Test directories observed
+
+```text
+./backend/security_layer/tests
+./backend/tests
+./docs/craft/tests
+./web/tests
+./web/tests/e2e
+```
+
+### GitHub workflows
+
+```text
+.github/workflows/evidence-integrity.yml
+.github/workflows/portfolio-claim-boundary.yml
+.github/workflows/runtime-retrieval-acl-security.yml
+.github/workflows/security-layer-tests.yml
+```
+
+### Docker / Docker Compose files observed
+
+```text
+./.devcontainer/Dockerfile
+./backend/Dockerfile
+./backend/Dockerfile.model_server
+./backend/tests/integration/Dockerfile
+./cli/Dockerfile
+./deployment/docker_compose/docker-compose.coolify-staging.yml
+./deployment/docker_compose/docker-compose.craft.yml
+./deployment/docker_compose/docker-compose.dev.yml
+./deployment/docker_compose/docker-compose.mcp-api-key-test.yml
+./deployment/docker_compose/docker-compose.mcp-oauth-test.yml
+./deployment/docker_compose/docker-compose.mcp-per-user-key-test.yml
+./deployment/docker_compose/docker-compose.multitenant-dev.yml
+./deployment/docker_compose/docker-compose.onyx-lite.yml
+./deployment/docker_compose/docker-compose.oracle-staging.override.yml
+./deployment/docker_compose/docker-compose.prod-cloud.yml
+./deployment/docker_compose/docker-compose.prod-no-letsencrypt.yml
+./deployment/docker_compose/docker-compose.prod.yml
+./deployment/docker_compose/docker-compose.resources.yml
+./deployment/docker_compose/docker-compose.search-testing.yml
+./deployment/docker_compose/docker-compose.step34x-minimal.yml
+./deployment/docker_compose/docker-compose.yml
+./docker-bake.hcl
+./profiling/docker-compose.yml
+./web/Dockerfile
+./web/node_modules/ts-unused-exports/Dockerfile
+```
+
+### Portfolio docs observed
+
+```text
+portfolio/README.md
+portfolio/architecture.md
+portfolio/claim_boundary.md
+portfolio/demo_script.md
+portfolio/evidence_index.md
+portfolio/public_sharing_audit/README.md
+portfolio/public_sharing_audit/attribution_and_license_check.md
+portfolio/public_sharing_audit/final_forbidden_claims.md
+portfolio/public_sharing_audit/final_safe_claims.md
+portfolio/public_sharing_audit/public_review_path.md
+portfolio/public_sharing_audit/repo_hygiene_checklist.md
+portfolio/public_sharing_audit/share_with_agencies_message.md
+portfolio/public_sharing_audit/share_with_employers_message.md
+portfolio/release_candidate/README.md
+portfolio/release_candidate/final_commands.md
+portfolio/release_candidate/final_go_no_go.md
+portfolio/release_candidate/final_manual_review_checklist.md
+portfolio/release_candidate/final_outreach_pack.md
+portfolio/release_candidate/final_reviewer_path.md
+portfolio/release_candidate/final_status_badges.md
+portfolio/release_candidate/v0.1.0_portfolio_review.md
+portfolio/release_prep/README.md
+portfolio/release_prep/final_reviewer_checklist.md
+portfolio/release_prep/github_release_notes_draft.md
+portfolio/release_prep/publication_readiness_checklist.md
+portfolio/release_prep/sanitization_checklist.md
+portfolio/release_prep/screenshot_checklist.md
+portfolio/release_prep/video_walkthrough_script.md
+portfolio/reviewer_quickstart.md
+```
+
+### Security docs observed (`docs/security`, max depth 2)
+
+```text
+docs/security/README.md
+docs/security/admin_security.md
+docs/security/ai_bom.md
+docs/security/ai_system_card.md
+docs/security/approval_workflow.md
+docs/security/architecture_discovery.md
+docs/security/artifact_content_safety.md
+docs/security/artifact_metadata_contract.md
+docs/security/artifact_release_policy.md
+docs/security/artifact_safety.md
+docs/security/artifact_safety_test_plan.md
+docs/security/auditability.md
+docs/security/baseline_validation.md
+docs/security/cache_key_contract.md
+docs/security/cache_security.md
+docs/security/cache_security_test_plan.md
+docs/security/compliance_mapping.md
+docs/security/control_traceability_matrix.md
+docs/security/coolify_staging_checklist.md
+docs/security/coolify_staging_deployment_plan.md
+docs/security/coolify_staging_env_template.md
+docs/security/coolify_staging_go_no_go.md
+docs/security/coolify_staging_rollback_plan.md
+docs/security/coolify_staging_smoke_test_plan.md
+docs/security/cross_control_evidence_checklist.md
+docs/security/cross_control_evidence_gap_register.md
+docs/security/cross_control_evidence_index.md
+docs/security/cross_control_evidence_validation.md
+docs/security/cross_control_integration_readiness.md
+docs/security/cross_control_monitor_only_boundary.md
+docs/security/cross_control_no_live_enforcement_attestation.md
+docs/security/cross_control_rollout_gates.md
+docs/security/cross_control_test_strategy.md
+docs/security/customer_security_claims.md
+docs/security/demo_attacks.md
+docs/security/enforce_mode_activation_gates.md
+docs/security/enforce_mode_blast_radius_plan.md
+docs/security/enforce_mode_feature_flags.md
+docs/security/enforce_mode_gate_validation.md
+docs/security/enforce_mode_readiness_plan.md
+docs/security/enforce_mode_rollback_plan.md
+docs/security/enforce_mode_test_plan.md
+docs/security/evidence/README.md
+docs/security/evidence/baseline_env_checks.txt
+docs/security/evidence/baseline_repo_snapshot.txt
+docs/security/evidence/baseline_stack_detection.txt
+docs/security/evidence/step2_codespace_verification.md
+docs/security/evidence/unit_collect_only.exitcode
+docs/security/evidence/unit_collect_only.txt
+docs/security/evidence_consistency_matrix.md
+docs/security/evidence_report.md
+docs/security/evidence_standard.md
+docs/security/execution_tracker.md
+docs/security/final_claim_boundary.md
+docs/security/final_evidence_package_index.md
+docs/security/final_next_execution_plan.md
+docs/security/final_open_blockers.md
+docs/security/final_partner_demo_checklist.md
+docs/security/final_partner_demo_readme.md
+docs/security/final_pilot_partner_go_no_go.md
+docs/security/incident_response.md
+docs/security/known_limitations.md
+docs/security/launch_gate.md
+docs/security/limited_monitor_only_feature_flags.md
+docs/security/limited_monitor_only_integration_plan.md
+docs/security/limited_monitor_only_test_plan.md
+docs/security/live_integration_candidate_matrix.md
+docs/security/mcp_credential_isolation.md
+docs/security/mcp_egress_policy.md
+docs/security/mcp_hardening.md
+docs/security/mcp_hardening_test_plan.md
+docs/security/mcp_registry_contract.md
+docs/security/mcp_request_security.md
+docs/security/migration_safety.md
+docs/security/model_provider_inventory.md
+docs/security/oracle_staging_durable_deployment_architecture.md
+docs/security/partner_control_coverage_summary.md
+docs/security/partner_demo_attack_summary.md
+docs/security/partner_demo_walkthrough.md
+docs/security/partner_evidence_index.md
+docs/security/partner_evidence_room.md
+docs/security/partner_go_no_go.md
+docs/security/partner_limitations_and_next_steps.md
+docs/security/partner_safe_claims.md
+docs/security/partner_test_evidence_index.md
+docs/security/patch_points.md
+docs/security/policies/admin_policy.yaml
+docs/security/policies/approvals_policy.yaml
+docs/security/policies/artifacts_policy.yaml
+docs/security/policies/audit_policy.yaml
+docs/security/policies/cache_policy.yaml
+docs/security/policies/default_deny_policy.yaml
+docs/security/policies/dlp_policy.yaml
+docs/security/policies/ingestion_policy.yaml
+docs/security/policies/launch_gate_policy.yaml
+docs/security/policies/mcp_policy.yaml
+docs/security/policies/model_provider_policy.yaml
+docs/security/policies/prompt_policy.yaml
+docs/security/policies/retrieval_policy.yaml
+docs/security/policies/sandbox_policy.yaml
+docs/security/policies/tools_policy.yaml
+docs/security/policies/vector_db_policy.yaml
+docs/security/policy_engine.md
+docs/security/policy_engine_test_plan.md
+docs/security/policy_model.md
+docs/security/policy_schema.md
+docs/security/privacy_review.md
+docs/security/production_readiness.md
+docs/security/production_readiness_gap_analysis.md
+docs/security/raci.md
+docs/security/real_coolify_staging_evidence_capture_template.md
+docs/security/real_coolify_staging_execution_plan.md
+docs/security/real_coolify_staging_go_no_go.md
+docs/security/real_coolify_staging_operator_runbook.md
+docs/security/real_coolify_staging_smoke_validation.md
+docs/security/red_team_regression.md
+docs/security/regression_demo_attack_evidence_standard.md
+docs/security/regression_demo_attack_matrix.md
+docs/security/regression_demo_attack_plan.md
+docs/security/repository_workflow_protection.md
+docs/security/retrieval_acl.md
+docs/security/retrieval_acl_test_plan.md
+docs/security/retrieval_path_integration_checklist.md
+docs/security/retrieval_path_integration_plan.md
+docs/security/retrieval_path_integration_test_plan.md
+docs/security/retrieval_path_live_patch_file_targets.md
+docs/security/retrieval_path_live_patch_go_no_go.md
+docs/security/retrieval_path_patching.md
+docs/security/retrieval_path_patching_test_plan.md
+docs/security/retrieval_path_readiness_review.md
+docs/security/retrieval_security_test_fixtures.md
+docs/security/retrieval_security_test_matrix.md
+docs/security/retrieval_security_tests.md
+docs/security/risk_register.md
+docs/security/rollback_plan.md
+docs/security/runtime_context_wrappers.md
+docs/security/runtime_context_wrappers_test_plan.md
+docs/security/safe_denial_behavior.md
+docs/security/safe_denial_behavior_test_plan.md
+docs/security/sandbox_safety.md
+docs/security/secure_ingestion.md
+docs/security/secure_ingestion_test_plan.md
+docs/security/security_architecture.md
+docs/security/security_requirements.md
+docs/security/shadow_deny_decision_schema.md
+docs/security/shadow_deny_feature_flags.md
+docs/security/shadow_deny_rollout_gates.md
+docs/security/shadow_deny_rollout_plan.md
+docs/security/shadow_deny_test_plan.md
+docs/security/staging_validation.md
+docs/security/test_data_factories.md
+docs/security/threat_model.md
+docs/security/tool_argument_security.md
+docs/security/tool_authorization.md
+docs/security/tool_authorization_test_plan.md
+docs/security/tool_registry_contract.md
+docs/security/vector_db_metadata_contract.md
+docs/security/vector_db_security.md
+docs/security/vector_db_security_test_plan.md
+docs/security/vector_security.md
+docs/security/vendor_risk_register.md
+```
+
+### Evidence docs observed (`docs/security/evidence`, max depth 2)
+
+```text
+docs/security/evidence/README.md
+docs/security/evidence/actual_coolify_staging_execution/access_blocker_report.md
+docs/security/evidence/actual_coolify_staging_execution/access_check.txt
+docs/security/evidence/actual_coolify_staging_execution/live_execution_status.txt
+docs/security/evidence/actual_coolify_staging_execution/staging_go_no_go_summary.md
+docs/security/evidence/architecture_discovery/authz_surface_map.txt
+docs/security/evidence/architecture_discovery/db_model_index.txt
+docs/security/evidence/architecture_discovery/deployment_index.txt
+docs/security/evidence/architecture_discovery/frontend_entrypoints.txt
+docs/security/evidence/architecture_discovery/pipeline_surface_map.txt
+docs/security/evidence/architecture_discovery/repo_topology.txt
+docs/security/evidence/architecture_discovery/runtime_entrypoints.txt
+docs/security/evidence/artifact_safety_design/artifact_content_safety_summary.md
+docs/security/evidence/artifact_safety_design/artifact_metadata_contract_summary.md
+docs/security/evidence/artifact_safety_design/artifact_release_policy_summary.md
+docs/security/evidence/artifact_safety_design/artifact_stage_inventory.md
+docs/security/evidence/artifact_safety_design/artifact_test_plan_summary.md
+docs/security/evidence/artifact_safety_design/artifact_traceability_summary.md
+docs/security/evidence/artifact_safety_design/prerequisite_check.txt
+docs/security/evidence/artifact_safety_design/remote_sync_limitation.txt
+docs/security/evidence/artifact_safety_minimal/artifact_control_coverage.md
+docs/security/evidence/artifact_safety_minimal/content_scanner_coverage.md
+docs/security/evidence/artifact_safety_minimal/implementation_summary.md
+docs/security/evidence/artifact_safety_minimal/metadata_contract_coverage.md
+docs/security/evidence/artifact_safety_minimal/prerequisite_check.txt
+docs/security/evidence/artifact_safety_minimal/release_policy_coverage.md
+docs/security/evidence/artifact_safety_minimal/test_exitcode.txt
+docs/security/evidence/artifact_safety_minimal/test_output.txt
+docs/security/evidence/artifact_safety_validation/artifact_control_validation.md
+docs/security/evidence/artifact_safety_validation/artifact_model_validation.md
+docs/security/evidence/artifact_safety_validation/artifact_validator_validation.md
+docs/security/evidence/artifact_safety_validation/content_scanner_validation.md
+docs/security/evidence/artifact_safety_validation/metadata_contract_validation.md
+docs/security/evidence/artifact_safety_validation/non_leakage_validation.md
+docs/security/evidence/artifact_safety_validation/prerequisite_check.txt
+docs/security/evidence/artifact_safety_validation/release_policy_validation.md
+docs/security/evidence/artifact_safety_validation/remote_sync_limitation.txt
+docs/security/evidence/artifact_safety_validation/test_exitcode.txt
+docs/security/evidence/artifact_safety_validation/test_output.txt
+docs/security/evidence/baseline/baseline_env_checks.txt
+docs/security/evidence/baseline/baseline_repo_snapshot.txt
+docs/security/evidence/baseline/baseline_stack_detection.txt
+docs/security/evidence/baseline/unit_collect_only.exitcode
+docs/security/evidence/baseline/unit_collect_only.txt
+docs/security/evidence/baseline_env_checks.txt
+docs/security/evidence/baseline_repo_snapshot.txt
+docs/security/evidence/baseline_stack_detection.txt
+docs/security/evidence/cache_security_design/cache_key_contract_summary.md
+docs/security/evidence/cache_security_design/cache_stage_inventory.md
+docs/security/evidence/cache_security_design/cache_test_plan_summary.md
+docs/security/evidence/cache_security_design/cache_traceability_summary.md
+docs/security/evidence/cache_security_design/prerequisite_check.txt
+docs/security/evidence/cache_security_design/remote_sync_limitation.txt
+docs/security/evidence/cache_security_minimal/cache_control_coverage.md
+docs/security/evidence/cache_security_minimal/cache_key_contract_coverage.md
+docs/security/evidence/cache_security_minimal/implementation_summary.md
+docs/security/evidence/cache_security_minimal/prerequisite_check.txt
+docs/security/evidence/cache_security_minimal/remote_sync_limitation.txt
+docs/security/evidence/cache_security_minimal/test_exitcode.txt
+docs/security/evidence/cache_security_minimal/test_output.txt
+docs/security/evidence/cache_security_validation/cache_control_validation.md
+docs/security/evidence/cache_security_validation/cache_key_contract_validation.md
+docs/security/evidence/cache_security_validation/cache_model_validation.md
+docs/security/evidence/cache_security_validation/cache_validator_validation.md
+docs/security/evidence/cache_security_validation/non_leakage_validation.md
+docs/security/evidence/cache_security_validation/prerequisite_check.txt
+docs/security/evidence/cache_security_validation/remote_sync_limitation.txt
+docs/security/evidence/cache_security_validation/test_exitcode.txt
+docs/security/evidence/cache_security_validation/test_output.txt
+docs/security/evidence/ci_security_gates/README.md
+docs/security/evidence/coolify_staging_evidence_bundle/deployment_plan_summary.md
+docs/security/evidence/coolify_staging_evidence_bundle/env_template_summary.md
+docs/security/evidence/coolify_staging_evidence_bundle/go_no_go_summary.md
+docs/security/evidence/coolify_staging_evidence_bundle/live_staging_execution_pending.txt
+docs/security/evidence/coolify_staging_evidence_bundle/prerequisite_check.txt
+docs/security/evidence/coolify_staging_evidence_bundle/remote_sync_limitation.txt
+docs/security/evidence/coolify_staging_evidence_bundle/rollback_plan_summary.md
+docs/security/evidence/coolify_staging_evidence_bundle/smoke_test_plan_summary.md
+docs/security/evidence/coolify_staging_evidence_bundle/staging_checklist_summary.md
+docs/security/evidence/coolify_staging_evidence_bundle/staging_helper_coverage.md
+docs/security/evidence/coolify_staging_evidence_bundle/test_exitcode.txt
+docs/security/evidence/coolify_staging_evidence_bundle/test_output.txt
+docs/security/evidence/cross_control_evidence_hardening/evidence_checklist_summary.md
+docs/security/evidence/cross_control_evidence_hardening/evidence_gap_summary.md
+docs/security/evidence/cross_control_evidence_hardening/evidence_inventory_summary.md
+docs/security/evidence/cross_control_evidence_hardening/monitor_only_boundary_summary.md
+docs/security/evidence/cross_control_evidence_hardening/no_live_enforcement_attestation_summary.md
+docs/security/evidence/cross_control_evidence_hardening/prerequisite_check.txt
+docs/security/evidence/cross_control_evidence_hardening/remote_sync_limitation.txt
+docs/security/evidence/cross_control_evidence_hardening/test_exitcode.txt
+docs/security/evidence/cross_control_evidence_hardening/test_output.txt
+docs/security/evidence/cross_control_evidence_validation/evidence_checklist_validation.md
+docs/security/evidence/cross_control_evidence_validation/evidence_consistency_validation.md
+docs/security/evidence/cross_control_evidence_validation/evidence_gap_validation.md
+docs/security/evidence/cross_control_evidence_validation/evidence_index_validation.md
+docs/security/evidence/cross_control_evidence_validation/monitor_only_boundary_validation.md
+docs/security/evidence/cross_control_evidence_validation/no_live_enforcement_validation.md
+docs/security/evidence/cross_control_evidence_validation/prerequisite_check.txt
+docs/security/evidence/cross_control_evidence_validation/remote_sync_limitation.txt
+docs/security/evidence/cross_control_evidence_validation/test_exitcode.txt
+docs/security/evidence/cross_control_evidence_validation/test_output.txt
+docs/security/evidence/cross_control_integration_readiness/control_family_readiness_summary.md
+docs/security/evidence/cross_control_integration_readiness/cross_control_test_strategy_summary.md
+docs/security/evidence/cross_control_integration_readiness/live_candidate_summary.md
+docs/security/evidence/cross_control_integration_readiness/prerequisite_check.txt
+docs/security/evidence/cross_control_integration_readiness/production_gap_summary.md
+docs/security/evidence/cross_control_integration_readiness/remote_sync_limitation.txt
+docs/security/evidence/cross_control_integration_readiness/rollout_gate_summary.md
+docs/security/evidence/cross_control_integration_readiness/test_exitcode.txt
+docs/security/evidence/cross_control_integration_readiness/test_output.txt
+docs/security/evidence/cross_control_integration_readiness/traceability_summary.md
+docs/security/evidence/demo_attack_runner/README.md
+docs/security/evidence/demo_attack_runner/expected_results.md
+docs/security/evidence/enforce_mode_readiness_bundle/activation_gate_summary.md
+docs/security/evidence/enforce_mode_readiness_bundle/blast_radius_coverage.md
+docs/security/evidence/enforce_mode_readiness_bundle/blast_radius_summary.md
+docs/security/evidence/enforce_mode_readiness_bundle/feature_flag_coverage.md
+docs/security/evidence/enforce_mode_readiness_bundle/feature_flag_summary.md
+docs/security/evidence/enforce_mode_readiness_bundle/gate_coverage.md
+docs/security/evidence/enforce_mode_readiness_bundle/implementation_summary.md
+docs/security/evidence/enforce_mode_readiness_bundle/no_live_blocking_validation.md
+docs/security/evidence/enforce_mode_readiness_bundle/non_leakage_validation.md
+docs/security/evidence/enforce_mode_readiness_bundle/prerequisite_check.txt
+docs/security/evidence/enforce_mode_readiness_bundle/readiness_plan_summary.md
+docs/security/evidence/enforce_mode_readiness_bundle/remote_sync_limitation.txt
+docs/security/evidence/enforce_mode_readiness_bundle/rollback_plan_summary.md
+docs/security/evidence/enforce_mode_readiness_bundle/simulation_control_coverage.md
+docs/security/evidence/enforce_mode_readiness_bundle/test_exitcode.txt
+docs/security/evidence/enforce_mode_readiness_bundle/test_output.txt
+docs/security/evidence/enforce_mode_readiness_bundle/test_plan_summary.md
+docs/security/evidence/enforce_mode_readiness_bundle/validation_summary.md
+docs/security/evidence/evidence_standardization/evidence_directory_inventory.txt
+docs/security/evidence/evidence_standardization/evidence_standard_summary.md
+docs/security/evidence/evidence_standardization/evidence_template_inventory.txt
+docs/security/evidence/evidence_standardization/prerequisite_check.txt
+docs/security/evidence/evidence_standardization/remote_sync_limitation.txt
+docs/security/evidence/execution_tracker/prerequisite_check.txt
+docs/security/evidence/execution_tracker/remote_sync_limitation.txt
+docs/security/evidence/execution_tracker/tracker_summary.md
+docs/security/evidence/final_pilot_partner_go_no_go_bundle/claim_boundary_summary.md
+docs/security/evidence/final_pilot_partner_go_no_go_bundle/evidence_package_index_summary.md
+docs/security/evidence/final_pilot_partner_go_no_go_bundle/final_review_helper_coverage.md
+docs/security/evidence/final_pilot_partner_go_no_go_bundle/go_no_go_summary.md
+docs/security/evidence/final_pilot_partner_go_no_go_bundle/next_execution_plan_summary.md
+docs/security/evidence/final_pilot_partner_go_no_go_bundle/open_blocker_summary.md
+docs/security/evidence/final_pilot_partner_go_no_go_bundle/partner_demo_checklist_summary.md
+docs/security/evidence/final_pilot_partner_go_no_go_bundle/partner_demo_readme_summary.md
+docs/security/evidence/final_pilot_partner_go_no_go_bundle/prerequisite_check.txt
+docs/security/evidence/final_pilot_partner_go_no_go_bundle/remote_sync_limitation.txt
+docs/security/evidence/final_pilot_partner_go_no_go_bundle/test_exitcode.txt
+docs/security/evidence/final_pilot_partner_go_no_go_bundle/test_output.txt
+docs/security/evidence/final_portfolio_package/README.md
+docs/security/evidence/final_portfolio_package/evidence_summary.md
+docs/security/evidence/final_portfolio_package/readiness_score.md
+docs/security/evidence/final_portfolio_package/remaining_gaps.md
+docs/security/evidence/final_portfolio_package/reviewer_checklist.md
+docs/security/evidence/limited_monitor_only_integration_bundle/behavior_preservation_summary.md
+docs/security/evidence/limited_monitor_only_integration_bundle/cache_adapter_coverage.md
+docs/security/evidence/limited_monitor_only_integration_bundle/candidate_selection_summary.md
+docs/security/evidence/limited_monitor_only_integration_bundle/feature_flag_summary.md
+docs/security/evidence/limited_monitor_only_integration_bundle/integration_plan_summary.md
+docs/security/evidence/limited_monitor_only_integration_bundle/no_live_blocking_validation.md
+docs/security/evidence/limited_monitor_only_integration_bundle/non_leakage_validation.md
+docs/security/evidence/limited_monitor_only_integration_bundle/prerequisite_check.txt
+docs/security/evidence/limited_monitor_only_integration_bundle/remote_sync_limitation.txt
+docs/security/evidence/limited_monitor_only_integration_bundle/shared_sink_coverage.md
+docs/security/evidence/limited_monitor_only_integration_bundle/test_exitcode.txt
+docs/security/evidence/limited_monitor_only_integration_bundle/test_output.txt
+docs/security/evidence/mcp_hardening_design/mcp_credential_isolation_summary.md
+docs/security/evidence/mcp_hardening_design/mcp_egress_policy_summary.md
+docs/security/evidence/mcp_hardening_design/mcp_registry_contract_summary.md
+docs/security/evidence/mcp_hardening_design/mcp_request_security_summary.md
+docs/security/evidence/mcp_hardening_design/mcp_stage_inventory.md
+docs/security/evidence/mcp_hardening_design/mcp_test_plan_summary.md
+docs/security/evidence/mcp_hardening_design/mcp_traceability_summary.md
+docs/security/evidence/mcp_hardening_design/prerequisite_check.txt
+docs/security/evidence/mcp_hardening_design/remote_sync_limitation.txt
+docs/security/evidence/mcp_hardening_minimal/credential_isolation_coverage.md
+docs/security/evidence/mcp_hardening_minimal/egress_policy_coverage.md
+docs/security/evidence/mcp_hardening_minimal/implementation_summary.md
+docs/security/evidence/mcp_hardening_minimal/mcp_control_coverage.md
+docs/security/evidence/mcp_hardening_minimal/prerequisite_check.txt
+docs/security/evidence/mcp_hardening_minimal/registry_contract_coverage.md
+docs/security/evidence/mcp_hardening_minimal/remote_sync_limitation.txt
+docs/security/evidence/mcp_hardening_minimal/request_validator_coverage.md
+docs/security/evidence/mcp_hardening_minimal/signing_replay_coverage.md
+docs/security/evidence/mcp_hardening_minimal/test_exitcode.txt
+docs/security/evidence/mcp_hardening_minimal/test_output.txt
+docs/security/evidence/mcp_hardening_validation/credential_isolation_validation.md
+docs/security/evidence/mcp_hardening_validation/egress_policy_validation.md
+docs/security/evidence/mcp_hardening_validation/mcp_control_validation.md
+docs/security/evidence/mcp_hardening_validation/mcp_model_validation.md
+docs/security/evidence/mcp_hardening_validation/mcp_validator_validation.md
+docs/security/evidence/mcp_hardening_validation/non_leakage_validation.md
+docs/security/evidence/mcp_hardening_validation/registry_contract_validation.md
+docs/security/evidence/mcp_hardening_validation/request_validator_validation.md
+docs/security/evidence/mcp_hardening_validation/signing_replay_validation.md
+docs/security/evidence/mcp_hardening_validation/test_exitcode.txt
+docs/security/evidence/mcp_hardening_validation/test_output.txt
+docs/security/evidence/migration_safety/migration_risk_traceability.md
+docs/security/evidence/migration_safety/migration_safety_plan_summary.md
+docs/security/evidence/migration_safety/prerequisite_check.txt
+docs/security/evidence/migration_safety/remote_sync_limitation.txt
+docs/security/evidence/partner_evidence_room_bundle/control_coverage_summary.md
+docs/security/evidence/partner_evidence_room_bundle/demo_attack_summary.md
+docs/security/evidence/partner_evidence_room_bundle/demo_walkthrough_summary.md
+docs/security/evidence/partner_evidence_room_bundle/evidence_room_helper_coverage.md
+docs/security/evidence/partner_evidence_room_bundle/evidence_room_summary.md
+docs/security/evidence/partner_evidence_room_bundle/go_no_go_summary.md
+docs/security/evidence/partner_evidence_room_bundle/limitations_next_steps_summary.md
+docs/security/evidence/partner_evidence_room_bundle/prerequisite_check.txt
+docs/security/evidence/partner_evidence_room_bundle/remote_sync_limitation.txt
+docs/security/evidence/partner_evidence_room_bundle/safe_claims_summary.md
+docs/security/evidence/partner_evidence_room_bundle/test_evidence_index_summary.md
+docs/security/evidence/partner_evidence_room_bundle/test_exitcode.txt
+docs/security/evidence/partner_evidence_room_bundle/test_output.txt
+docs/security/evidence/patch_points/high_confidence_patch_points.txt
+docs/security/evidence/patch_points/low_confidence_unknowns.txt
+docs/security/evidence/policy_engine_design/policy_engine_design_summary.md
+docs/security/evidence/policy_engine_design/policy_engine_test_plan_summary.md
+docs/security/evidence/policy_engine_design/policy_engine_traceability_summary.md
+docs/security/evidence/policy_engine_design/prerequisite_check.txt
+docs/security/evidence/policy_engine_design/remote_sync_limitation.txt
+docs/security/evidence/policy_engine_minimal/implementation_summary.md
+docs/security/evidence/policy_engine_minimal/prerequisite_check.txt
+docs/security/evidence/policy_engine_minimal/remote_sync_limitation.txt
+docs/security/evidence/policy_engine_minimal/test_exitcode.txt
+docs/security/evidence/policy_engine_minimal/test_output.txt
+docs/security/evidence/policy_engine_validation/isolation_check.txt
+docs/security/evidence/policy_engine_validation/isolation_refs_raw.txt
+docs/security/evidence/policy_engine_validation/prerequisite_check.txt
+docs/security/evidence/policy_engine_validation/remote_sync_limitation.txt
+docs/security/evidence/policy_engine_validation/test_coverage_summary.md
+docs/security/evidence/policy_engine_validation/test_exitcode.txt
+docs/security/evidence/policy_engine_validation/test_output.txt
+docs/security/evidence/policy_schema/policy_file_inventory.md
+docs/security/evidence/policy_schema/policy_schema_summary.md
+docs/security/evidence/policy_schema/policy_traceability_summary.md
+docs/security/evidence/policy_schema/prerequisite_check.txt
+docs/security/evidence/policy_schema/remote_sync_limitation.txt
+docs/security/evidence/public_sharing_audit/README.md
+docs/security/evidence/public_sharing_audit/public_sharing_go_no_go.md
+docs/security/evidence/real_coolify_staging_execution_bundle/evidence_capture_template_summary.md
+docs/security/evidence/real_coolify_staging_execution_bundle/feasibility_summary.md
+docs/security/evidence/real_coolify_staging_execution_bundle/go_no_go_summary.md
+docs/security/evidence/real_coolify_staging_execution_bundle/live_execution_status.txt
+docs/security/evidence/real_coolify_staging_execution_bundle/operator_runbook_summary.md
+docs/security/evidence/real_coolify_staging_execution_bundle/prerequisite_check.txt
+docs/security/evidence/real_coolify_staging_execution_bundle/remote_sync_limitation.txt
+docs/security/evidence/real_coolify_staging_execution_bundle/smoke_validation_summary.md
+docs/security/evidence/real_coolify_staging_execution_bundle/staging_execution_helper_coverage.md
+docs/security/evidence/real_coolify_staging_execution_bundle/test_exitcode.txt
+docs/security/evidence/real_coolify_staging_execution_bundle/test_output.txt
+docs/security/evidence/regression_demo_attack_bundle/behavior_preservation_validation.md
+docs/security/evidence/regression_demo_attack_bundle/evidence_standard_summary.md
+docs/security/evidence/regression_demo_attack_bundle/fixture_coverage.md
+docs/security/evidence/regression_demo_attack_bundle/no_live_blocking_validation.md
+docs/security/evidence/regression_demo_attack_bundle/non_leakage_validation.md
+docs/security/evidence/regression_demo_attack_bundle/plan_summary.md
+docs/security/evidence/regression_demo_attack_bundle/prerequisite_check.txt
+docs/security/evidence/regression_demo_attack_bundle/remote_sync_limitation.txt
+docs/security/evidence/regression_demo_attack_bundle/runner_coverage.md
+docs/security/evidence/regression_demo_attack_bundle/scenario_coverage.md
+docs/security/evidence/regression_demo_attack_bundle/scenario_matrix_summary.md
+docs/security/evidence/regression_demo_attack_bundle/test_exitcode.txt
+docs/security/evidence/regression_demo_attack_bundle/test_output.txt
+docs/security/evidence/release_candidate/README.md
+docs/security/evidence/release_candidate/final_evidence_map.md
+docs/security/evidence/release_candidate/release_candidate_go_no_go.md
+docs/security/evidence/release_prep/README.md
+docs/security/evidence/release_prep/release_go_no_go.md
+docs/security/evidence/requirements_risk_traceability/prerequisite_check.txt
+docs/security/evidence/requirements_risk_traceability/remote_sync_limitation.txt
+docs/security/evidence/requirements_risk_traceability/requirements_index.md
+docs/security/evidence/requirements_risk_traceability/risk_index.md
+docs/security/evidence/requirements_risk_traceability/traceability_summary.md
+docs/security/evidence/retrieval_acl_design/prerequisite_check.txt
+docs/security/evidence/retrieval_acl_design/remote_sync_limitation.txt
+docs/security/evidence/retrieval_acl_design/retrieval_acl_stage_inventory.md
+docs/security/evidence/retrieval_acl_design/retrieval_acl_test_plan_summary.md
+docs/security/evidence/retrieval_acl_design/retrieval_acl_traceability_summary.md
+docs/security/evidence/retrieval_acl_minimal/implementation_summary.md
+docs/security/evidence/retrieval_acl_minimal/prerequisite_check.txt
+docs/security/evidence/retrieval_acl_minimal/remote_sync_limitation.txt
+docs/security/evidence/retrieval_acl_minimal/retrieval_acl_control_coverage.md
+docs/security/evidence/retrieval_acl_minimal/test_exitcode.txt
+docs/security/evidence/retrieval_acl_minimal/test_output.txt
+docs/security/evidence/retrieval_acl_validation/isolation_check.txt
+docs/security/evidence/retrieval_acl_validation/non_leakage_validation_summary.md
+docs/security/evidence/retrieval_acl_validation/prerequisite_check.txt
+docs/security/evidence/retrieval_acl_validation/remote_sync_limitation.txt
+docs/security/evidence/retrieval_acl_validation/retrieval_acl_coverage_summary.md
+docs/security/evidence/retrieval_acl_validation/test_exitcode.txt
+docs/security/evidence/retrieval_acl_validation/test_output.txt
+docs/security/evidence/retrieval_context_builder_isolated/context_builder_summary.md
+docs/security/evidence/retrieval_context_builder_isolated/feature_flag_summary.md
+docs/security/evidence/retrieval_context_builder_isolated/implementation_summary.md
+docs/security/evidence/retrieval_context_builder_isolated/integration_hook_summary.md
+docs/security/evidence/retrieval_context_builder_isolated/prerequisite_check.txt
+docs/security/evidence/retrieval_context_builder_isolated/remote_sync_limitation.txt
+docs/security/evidence/retrieval_context_builder_isolated/test_exitcode.txt
+docs/security/evidence/retrieval_context_builder_isolated/test_output.txt
+docs/security/evidence/retrieval_integration_readiness/go_no_go_summary.md
+docs/security/evidence/retrieval_integration_readiness/live_patch_target_inventory.md
+docs/security/evidence/retrieval_integration_readiness/prerequisite_check.txt
+docs/security/evidence/retrieval_integration_readiness/readiness_review_summary.md
+docs/security/evidence/retrieval_integration_readiness/remote_sync_limitation.txt
+docs/security/evidence/retrieval_integration_readiness/test_exitcode.txt
+docs/security/evidence/retrieval_integration_readiness/test_output.txt
+docs/security/evidence/retrieval_integration_readiness/test_readiness_summary.md
+docs/security/evidence/retrieval_monitor_only_integration/behavior_preservation_summary.md
+docs/security/evidence/retrieval_monitor_only_integration/implementation_summary.md
+docs/security/evidence/retrieval_monitor_only_integration/monitor_only_test_summary.md
+docs/security/evidence/retrieval_monitor_only_integration/prerequisite_check.txt
+docs/security/evidence/retrieval_monitor_only_integration/selected_patch_target.md
+docs/security/evidence/retrieval_monitor_only_integration/test_exitcode.txt
+docs/security/evidence/retrieval_monitor_only_integration/test_output.txt
+docs/security/evidence/retrieval_monitor_only_validation/behavior_preservation_validation.md
+docs/security/evidence/retrieval_monitor_only_validation/live_hook_inspection.md
+docs/security/evidence/retrieval_monitor_only_validation/non_enforcement_validation.md
+docs/security/evidence/retrieval_monitor_only_validation/prerequisite_check.txt
+docs/security/evidence/retrieval_monitor_only_validation/safe_metadata_validation.md
+docs/security/evidence/retrieval_monitor_only_validation/test_exitcode.txt
+docs/security/evidence/retrieval_monitor_only_validation/test_output.txt
+docs/security/evidence/retrieval_path_integration_plan/integration_checklist_summary.md
+docs/security/evidence/retrieval_path_integration_plan/integration_phase_inventory.md
+docs/security/evidence/retrieval_path_integration_plan/integration_test_plan_summary.md
+docs/security/evidence/retrieval_path_integration_plan/integration_traceability_summary.md
+docs/security/evidence/retrieval_path_integration_plan/prerequisite_check.txt
+docs/security/evidence/retrieval_path_integration_plan/remote_sync_limitation.txt
+docs/security/evidence/retrieval_path_patching_design/patch_candidate_inventory.md
+docs/security/evidence/retrieval_path_patching_design/prerequisite_check.txt
+docs/security/evidence/retrieval_path_patching_design/remote_sync_limitation.txt
+docs/security/evidence/retrieval_path_patching_design/retrieval_path_inventory.md
+docs/security/evidence/retrieval_path_patching_design/retrieval_path_test_plan_summary.md
+docs/security/evidence/retrieval_path_patching_design/retrieval_path_traceability_summary.md
+docs/security/evidence/retrieval_security_negative_tests/future_mode_blocker_summary.md
+docs/security/evidence/retrieval_security_negative_tests/monitor_only_negative_behavior_summary.md
+docs/security/evidence/retrieval_security_negative_tests/negative_test_coverage_summary.md
+docs/security/evidence/retrieval_security_negative_tests/non_leakage_negative_test_summary.md
+docs/security/evidence/retrieval_security_negative_tests/test_exitcode.txt
+docs/security/evidence/retrieval_security_negative_tests/test_output.txt
+docs/security/evidence/retrieval_security_negative_validation/future_mode_blocker_validation.md
+docs/security/evidence/retrieval_security_negative_validation/monitor_only_preservation_validation.md
+docs/security/evidence/retrieval_security_negative_validation/negative_test_quality_validation.md
+docs/security/evidence/retrieval_security_negative_validation/non_leakage_validation.md
+docs/security/evidence/retrieval_security_negative_validation/prerequisite_check.txt
+docs/security/evidence/retrieval_security_negative_validation/remote_sync_limitation.txt
+docs/security/evidence/retrieval_security_negative_validation/test_exitcode.txt
+docs/security/evidence/retrieval_security_negative_validation/test_output.txt
+docs/security/evidence/retrieval_security_test_skeletons/fixture_implementation_summary.md
+docs/security/evidence/retrieval_security_test_skeletons/future_mode_test_summary.md
+docs/security/evidence/retrieval_security_test_skeletons/monitor_only_test_summary.md
+docs/security/evidence/retrieval_security_test_skeletons/prerequisite_check.txt
+docs/security/evidence/retrieval_security_test_skeletons/remote_sync_limitation.txt
+docs/security/evidence/retrieval_security_test_skeletons/test_exitcode.txt
+docs/security/evidence/retrieval_security_test_skeletons/test_output.txt
+docs/security/evidence/retrieval_security_test_validation/fixture_quality_validation.md
+docs/security/evidence/retrieval_security_test_validation/future_mode_skip_validation.md
+docs/security/evidence/retrieval_security_test_validation/monitor_only_validation.md
+docs/security/evidence/retrieval_security_test_validation/non_leakage_fixture_validation.md
+docs/security/evidence/retrieval_security_test_validation/prerequisite_check.txt
+docs/security/evidence/retrieval_security_test_validation/remote_sync_limitation.txt
+docs/security/evidence/retrieval_security_test_validation/test_exitcode.txt
+docs/security/evidence/retrieval_security_test_validation/test_output.txt
+docs/security/evidence/retrieval_security_tests_design/fixture_inventory.md
+docs/security/evidence/retrieval_security_tests_design/prerequisite_check.txt
+docs/security/evidence/retrieval_security_tests_design/remote_sync_limitation.txt
+docs/security/evidence/retrieval_security_tests_design/test_group_inventory.md
+docs/security/evidence/retrieval_security_tests_design/test_matrix_summary.md
+docs/security/evidence/retrieval_security_tests_design/traceability_summary.md
+docs/security/evidence/runtime_context_wrappers_design/prerequisite_check.txt
+docs/security/evidence/runtime_context_wrappers_design/remote_sync_limitation.txt
+docs/security/evidence/runtime_context_wrappers_design/runtime_context_model_summary.md
+docs/security/evidence/runtime_context_wrappers_design/wrapper_inventory.md
+docs/security/evidence/runtime_context_wrappers_design/wrapper_test_plan_summary.md
+docs/security/evidence/runtime_context_wrappers_design/wrapper_traceability_summary.md
+docs/security/evidence/runtime_context_wrappers_minimal/implementation_summary.md
+docs/security/evidence/runtime_context_wrappers_minimal/isolation_check.txt
+docs/security/evidence/runtime_context_wrappers_minimal/prerequisite_check.txt
+docs/security/evidence/runtime_context_wrappers_minimal/remote_sync_limitation.txt
+docs/security/evidence/runtime_context_wrappers_minimal/test_exitcode.txt
+docs/security/evidence/runtime_context_wrappers_minimal/test_output.txt
+docs/security/evidence/runtime_wrapper_validation/isolation_check.txt
+docs/security/evidence/runtime_wrapper_validation/prerequisite_check.txt
+docs/security/evidence/runtime_wrapper_validation/remote_sync_limitation.txt
+docs/security/evidence/runtime_wrapper_validation/test_exitcode.txt
+docs/security/evidence/runtime_wrapper_validation/test_output.txt
+docs/security/evidence/runtime_wrapper_validation/wrapper_coverage_summary.md
+docs/security/evidence/safe_denial_behavior_design/denial_category_inventory.md
+docs/security/evidence/safe_denial_behavior_design/prerequisite_check.txt
+docs/security/evidence/safe_denial_behavior_design/remote_sync_limitation.txt
+docs/security/evidence/safe_denial_behavior_design/safe_denial_test_plan_summary.md
+docs/security/evidence/safe_denial_behavior_design/safe_denial_traceability_summary.md
+docs/security/evidence/safe_denial_behavior_minimal/denial_category_coverage.md
+docs/security/evidence/safe_denial_behavior_minimal/implementation_summary.md
+docs/security/evidence/safe_denial_behavior_minimal/non_leakage_test_summary.md
+docs/security/evidence/safe_denial_behavior_minimal/prerequisite_check.txt
+docs/security/evidence/safe_denial_behavior_minimal/remote_sync_limitation.txt
+docs/security/evidence/safe_denial_behavior_minimal/test_exitcode.txt
+docs/security/evidence/safe_denial_behavior_minimal/test_output.txt
+docs/security/evidence/safe_denial_validation/denial_coverage_summary.md
+docs/security/evidence/safe_denial_validation/isolation_check.txt
+docs/security/evidence/safe_denial_validation/non_leakage_validation_summary.md
+docs/security/evidence/safe_denial_validation/prerequisite_check.txt
+docs/security/evidence/safe_denial_validation/remote_sync_limitation.txt
+docs/security/evidence/safe_denial_validation/test_exitcode.txt
+docs/security/evidence/safe_denial_validation/test_output.txt
+docs/security/evidence/secure_ingestion_design/ingestion_stage_inventory.md
+docs/security/evidence/secure_ingestion_design/prerequisite_check.txt
+docs/security/evidence/secure_ingestion_design/remote_sync_limitation.txt
+docs/security/evidence/secure_ingestion_design/secure_ingestion_test_plan_summary.md
+docs/security/evidence/secure_ingestion_design/secure_ingestion_traceability_summary.md
+docs/security/evidence/secure_ingestion_minimal/implementation_summary.md
+docs/security/evidence/secure_ingestion_minimal/ingestion_control_coverage.md
+docs/security/evidence/secure_ingestion_minimal/prerequisite_check.txt
+docs/security/evidence/secure_ingestion_minimal/remote_sync_limitation.txt
+docs/security/evidence/secure_ingestion_minimal/test_exitcode.txt
+docs/security/evidence/secure_ingestion_minimal/test_output.txt
+docs/security/evidence/secure_ingestion_validation/ingestion_coverage_summary.md
+docs/security/evidence/secure_ingestion_validation/isolation_check.txt
+docs/security/evidence/secure_ingestion_validation/non_leakage_validation_summary.md
+docs/security/evidence/secure_ingestion_validation/prerequisite_check.txt
+docs/security/evidence/secure_ingestion_validation/remote_sync_limitation.txt
+docs/security/evidence/secure_ingestion_validation/test_exitcode.txt
+docs/security/evidence/secure_ingestion_validation/test_output.txt
+docs/security/evidence/shadow_deny_rollout_planning/decision_schema_summary.md
+docs/security/evidence/shadow_deny_rollout_planning/feature_flag_summary.md
+docs/security/evidence/shadow_deny_rollout_planning/prerequisite_check.txt
+docs/security/evidence/shadow_deny_rollout_planning/remote_sync_limitation.txt
+docs/security/evidence/shadow_deny_rollout_planning/rollout_gate_summary.md
+docs/security/evidence/shadow_deny_rollout_planning/rollout_plan_summary.md
+docs/security/evidence/shadow_deny_rollout_planning/test_exitcode.txt
+docs/security/evidence/shadow_deny_rollout_planning/test_output.txt
+docs/security/evidence/shadow_deny_rollout_planning/test_plan_summary.md
+docs/security/evidence/shadow_deny_rollout_planning/traceability_summary.md
+docs/security/evidence/shadow_deny_simulation_harness/decision_schema_coverage.md
+docs/security/evidence/shadow_deny_simulation_harness/feature_flag_coverage.md
+docs/security/evidence/shadow_deny_simulation_harness/implementation_summary.md
+docs/security/evidence/shadow_deny_simulation_harness/monitor_only_comparison_summary.md
+docs/security/evidence/shadow_deny_simulation_harness/no_live_blocking_validation.md
+docs/security/evidence/shadow_deny_simulation_harness/prerequisite_check.txt
+docs/security/evidence/shadow_deny_simulation_harness/remote_sync_limitation.txt
+docs/security/evidence/shadow_deny_simulation_harness/simulation_control_coverage.md
+docs/security/evidence/shadow_deny_simulation_harness/test_exitcode.txt
+docs/security/evidence/shadow_deny_simulation_harness/test_output.txt
+docs/security/evidence/shadow_deny_simulation_validation/control_validation.md
+docs/security/evidence/shadow_deny_simulation_validation/decision_schema_validation.md
+docs/security/evidence/shadow_deny_simulation_validation/feature_flag_validation.md
+docs/security/evidence/shadow_deny_simulation_validation/model_validation.md
+docs/security/evidence/shadow_deny_simulation_validation/monitor_only_comparison_validation.md
+docs/security/evidence/shadow_deny_simulation_validation/no_live_blocking_validation.md
+docs/security/evidence/shadow_deny_simulation_validation/non_leakage_validation.md
+docs/security/evidence/shadow_deny_simulation_validation/prerequisite_check.txt
+docs/security/evidence/shadow_deny_simulation_validation/remote_sync_limitation.txt
+docs/security/evidence/shadow_deny_simulation_validation/simulator_validation.md
+docs/security/evidence/shadow_deny_simulation_validation/test_exitcode.txt
+docs/security/evidence/shadow_deny_simulation_validation/test_output.txt
+docs/security/evidence/step2_codespace_verification.md
+docs/security/evidence/step_34x_oracle_free_vps/README.md
+docs/security/evidence/step_34x_oracle_free_vps/access_check.md
+docs/security/evidence/step_34x_oracle_free_vps/coolify_installation.md
+docs/security/evidence/step_34x_oracle_free_vps/deployment_run.md
+docs/security/evidence/step_34x_oracle_free_vps/full_onyx_resource_blocker.md
+docs/security/evidence/step_34x_oracle_free_vps/go_no_go.md
+docs/security/evidence/step_34x_oracle_free_vps/limitations.md
+docs/security/evidence/step_34x_oracle_free_vps/minimal_staging_deployment.md
+docs/security/evidence/step_34x_oracle_free_vps/repository_remote.md
+docs/security/evidence/step_34x_oracle_free_vps/secret_injection.md
+docs/security/evidence/step_34x_oracle_free_vps/smoke_tests.md
+docs/security/evidence/step_34x_oracle_free_vps/vps_environment.md
+docs/security/evidence/step_36x_rollback_redeploy/README.md
+docs/security/evidence/step_36x_rollback_redeploy/evidence_checklist.md
+docs/security/evidence/step_36x_rollback_redeploy/final_status.md
+docs/security/evidence/step_36x_rollback_redeploy/limitations.md
+docs/security/evidence/step_36x_rollback_redeploy/rollback_commands.md
+docs/security/evidence/step_36x_rollback_redeploy/rollback_execution.md
+docs/security/evidence/step_36x_rollback_redeploy/rollback_go_no_go.md
+docs/security/evidence/step_39x_runtime_enforcement_proof/README.md
+docs/security/evidence/step_39x_runtime_enforcement_proof/audit_event_sample.json
+docs/security/evidence/step_39x_runtime_enforcement_proof/go_no_go.md
+docs/security/evidence/step_39x_runtime_enforcement_proof/known_limitations.md
+docs/security/evidence/step_39x_runtime_enforcement_proof/runtime_enforcement_results.md
+docs/security/evidence/step_40x_runtime_enforcement_pr_review_merge_gate/README.md
+docs/security/evidence/step_40x_runtime_enforcement_pr_review_merge_gate/command_results.md
+docs/security/evidence/step_40x_runtime_enforcement_pr_review_merge_gate/merge_decision.md
+docs/security/evidence/step_40x_runtime_enforcement_pr_review_merge_gate/remaining_limitations.md
+docs/security/evidence/step_40x_runtime_enforcement_pr_review_merge_gate/review_checklist.md
+docs/security/evidence/step_42x_live_staging_deployment_evidence/README.md
+docs/security/evidence/step_42x_live_staging_deployment_evidence/blockers.md
+docs/security/evidence/step_42x_live_staging_deployment_evidence/deployment_attempt.md
+docs/security/evidence/step_42x_live_staging_deployment_evidence/environment_check.md
+docs/security/evidence/step_42x_live_staging_deployment_evidence/go_no_go.md
+docs/security/evidence/step_42x_live_staging_deployment_evidence/health_check_results.md
+docs/security/evidence/step_42x_live_staging_deployment_evidence/log_capture.md
+docs/security/evidence/step_42x_live_staging_deployment_evidence/remaining_limitations.md
+docs/security/evidence/step_42x_live_staging_deployment_evidence/rollback_notes.md
+docs/security/evidence/step_42x_live_staging_deployment_evidence/runtime_enforcement_mode.md
+docs/security/evidence/step_42x_live_staging_deployment_evidence/smoke_test_results.md
+docs/security/evidence/step_43x_github_remote_pr_ci_verification_gate/README.md
+docs/security/evidence/step_43x_github_remote_pr_ci_verification_gate/blockers.md
+docs/security/evidence/step_43x_github_remote_pr_ci_verification_gate/branch_sync.md
+docs/security/evidence/step_43x_github_remote_pr_ci_verification_gate/ci_verification.md
+docs/security/evidence/step_43x_github_remote_pr_ci_verification_gate/go_no_go.md
+docs/security/evidence/step_43x_github_remote_pr_ci_verification_gate/local_verification_results.md
+docs/security/evidence/step_43x_github_remote_pr_ci_verification_gate/pr_verification.md
+docs/security/evidence/step_43x_github_remote_pr_ci_verification_gate/remaining_limitations.md
+docs/security/evidence/step_43x_github_remote_pr_ci_verification_gate/remote_check.md
+docs/security/evidence/step_43x_github_remote_pr_ci_verification_gate/secret_hygiene.md
+docs/security/evidence/step_44x_local_repository_recovery_branch_commit_integrity_gate/README.md
+docs/security/evidence/step_44x_local_repository_recovery_branch_commit_integrity_gate/branch_inventory.md
+docs/security/evidence/step_44x_local_repository_recovery_branch_commit_integrity_gate/ci_visibility.md
+docs/security/evidence/step_44x_local_repository_recovery_branch_commit_integrity_gate/codespaces_environment.md
+docs/security/evidence/step_44x_local_repository_recovery_branch_commit_integrity_gate/commit_integrity_map.md
+docs/security/evidence/step_44x_local_repository_recovery_branch_commit_integrity_gate/evidence_folder_inventory.md
+docs/security/evidence/step_44x_local_repository_recovery_branch_commit_integrity_gate/go_no_go.md
+docs/security/evidence/step_44x_local_repository_recovery_branch_commit_integrity_gate/local_verification_results.md
+docs/security/evidence/step_44x_local_repository_recovery_branch_commit_integrity_gate/pr_chain_verification.md
+docs/security/evidence/step_44x_local_repository_recovery_branch_commit_integrity_gate/recovery_gaps.md
+docs/security/evidence/step_44x_local_repository_recovery_branch_commit_integrity_gate/remaining_limitations.md
+docs/security/evidence/step_44x_local_repository_recovery_branch_commit_integrity_gate/remote_origin_check.md
+docs/security/evidence/step_44x_local_repository_recovery_branch_commit_integrity_gate/secret_hygiene.md
+docs/security/evidence/step_45x_github_pr_chain_ci_actions_verification/README.md
+docs/security/evidence/step_45x_github_pr_chain_ci_actions_verification/ci_actions_verification.md
+docs/security/evidence/step_45x_github_pr_chain_ci_actions_verification/go_no_go.md
+docs/security/evidence/step_45x_github_pr_chain_ci_actions_verification/local_verification_results.md
+docs/security/evidence/step_45x_github_pr_chain_ci_actions_verification/main_branch_evidence.md
+docs/security/evidence/step_45x_github_pr_chain_ci_actions_verification/merge_commit_map.md
+docs/security/evidence/step_45x_github_pr_chain_ci_actions_verification/pr_chain_verification.md
+docs/security/evidence/step_45x_github_pr_chain_ci_actions_verification/reconciliation_summary.md
+docs/security/evidence/step_45x_github_pr_chain_ci_actions_verification/remaining_limitations.md
+docs/security/evidence/step_45x_github_pr_chain_ci_actions_verification/secret_hygiene.md
+docs/security/evidence/step_45x_github_pr_chain_ci_actions_verification/unresolved_gaps.md
+docs/security/evidence/step_46x_github_actions_ci_run_trigger_verification_gate/README.md
+docs/security/evidence/step_46x_github_actions_ci_run_trigger_verification_gate/ci_blockers.md
+docs/security/evidence/step_46x_github_actions_ci_run_trigger_verification_gate/ci_run_results.md
+docs/security/evidence/step_46x_github_actions_ci_run_trigger_verification_gate/ci_trigger_attempt.md
+docs/security/evidence/step_46x_github_actions_ci_run_trigger_verification_gate/go_no_go.md
+docs/security/evidence/step_46x_github_actions_ci_run_trigger_verification_gate/local_verification_results.md
+docs/security/evidence/step_46x_github_actions_ci_run_trigger_verification_gate/pr_107_visibility.md
+docs/security/evidence/step_46x_github_actions_ci_run_trigger_verification_gate/remaining_limitations.md
+docs/security/evidence/step_46x_github_actions_ci_run_trigger_verification_gate/secret_hygiene.md
+docs/security/evidence/step_46x_github_actions_ci_run_trigger_verification_gate/workflow_inventory.md
+docs/security/evidence/step_47x_docker_local_compose_staging_proof/README.md
+docs/security/evidence/step_47x_docker_local_compose_staging_proof/blockers.md
+docs/security/evidence/step_47x_docker_local_compose_staging_proof/compose_config_validation.md
+docs/security/evidence/step_47x_docker_local_compose_staging_proof/deployment_file_inventory.md
+docs/security/evidence/step_47x_docker_local_compose_staging_proof/docker_availability.md
+docs/security/evidence/step_47x_docker_local_compose_staging_proof/environment_check.md
+docs/security/evidence/step_47x_docker_local_compose_staging_proof/go_no_go.md
+docs/security/evidence/step_47x_docker_local_compose_staging_proof/health_check_results.md
+docs/security/evidence/step_47x_docker_local_compose_staging_proof/local_staging_attempt.md
+docs/security/evidence/step_47x_docker_local_compose_staging_proof/log_capture.md
+docs/security/evidence/step_47x_docker_local_compose_staging_proof/remaining_limitations.md
+docs/security/evidence/step_47x_docker_local_compose_staging_proof/rollback_evidence.md
+docs/security/evidence/step_47x_docker_local_compose_staging_proof/runtime_enforcement_mode.md
+docs/security/evidence/step_47x_docker_local_compose_staging_proof/secret_hygiene.md
+docs/security/evidence/step_47x_docker_local_compose_staging_proof/smoke_test_results.md
+docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/README.md
+docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/api_health_recovery.md
+docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/container_inventory.md
+docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/decision_record.md
+docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/docker_compose_readiness.md
+docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/go_no_go.md
+docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/host_proxy_curl_results.md
+docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/log_summary.md
+docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/minio_file_store_fix.md
+docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/oracle_vps_environment.md
+docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/redaction_note.md
+docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/remaining_limitations.md
+docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/rollback_notes.md
+docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/web_healthcheck_mismatch.md
+docs/security/evidence/step_52x_custom_onyx_image_runtime_enforcement_deploy/README.md
+docs/security/evidence/step_52x_custom_onyx_image_runtime_enforcement_deploy/blockers.md
+docs/security/evidence/step_52x_custom_onyx_image_runtime_enforcement_deploy/build_results.md
+docs/security/evidence/step_52x_custom_onyx_image_runtime_enforcement_deploy/build_strategy.md
+docs/security/evidence/step_52x_custom_onyx_image_runtime_enforcement_deploy/deployed_container_verification.md
+docs/security/evidence/step_52x_custom_onyx_image_runtime_enforcement_deploy/deployment_attempt.md
+docs/security/evidence/step_52x_custom_onyx_image_runtime_enforcement_deploy/go_no_go.md
+docs/security/evidence/step_52x_custom_onyx_image_runtime_enforcement_deploy/health_after_deploy.md
+docs/security/evidence/step_52x_custom_onyx_image_runtime_enforcement_deploy/image_runtime_code_check.md
+docs/security/evidence/step_52x_custom_onyx_image_runtime_enforcement_deploy/redaction_note.md
+docs/security/evidence/step_52x_custom_onyx_image_runtime_enforcement_deploy/remaining_limitations.md
+docs/security/evidence/step_52x_custom_onyx_image_runtime_enforcement_deploy/rollback_notes.md
+docs/security/evidence/step_52x_custom_onyx_image_runtime_enforcement_deploy/runtime_hook_verification.md
+docs/security/evidence/step_52x_custom_onyx_image_runtime_enforcement_deploy/source_verification.md
+docs/security/evidence/step_56x_external_validation_staging_review/README.md
+docs/security/evidence/step_56x_external_validation_staging_review/external_validation_request.md
+docs/security/evidence/step_56x_external_validation_staging_review/go_no_go.md
+docs/security/evidence/step_56x_external_validation_staging_review/known_limitations_for_review.md
+docs/security/evidence/step_56x_external_validation_staging_review/oracle_staging_status.md
+docs/security/evidence/step_56x_external_validation_staging_review/redaction_and_public_safety_review.md
+docs/security/evidence/step_56x_external_validation_staging_review/remaining_limitations.md
+docs/security/evidence/step_56x_external_validation_staging_review/reviewer_checklist.md
+docs/security/evidence/step_56x_external_validation_staging_review/runtime_enforcement_review.md
+docs/security/evidence/step_56x_external_validation_staging_review/staging_review_summary.md
+docs/security/evidence/step_56x_external_validation_staging_review/step_55x_behavior_summary.md
+docs/security/evidence/step_57x_independent_reviewer_package_request/README.md
+docs/security/evidence/step_57x_independent_reviewer_package_request/claims_not_made.md
+docs/security/evidence/step_57x_independent_reviewer_package_request/claims_to_validate.md
+docs/security/evidence/step_57x_independent_reviewer_package_request/evidence_map_for_reviewer.md
+docs/security/evidence/step_57x_independent_reviewer_package_request/go_no_go.md
+docs/security/evidence/step_57x_independent_reviewer_package_request/redaction_note.md
+docs/security/evidence/step_57x_independent_reviewer_package_request/remaining_limitations.md
+docs/security/evidence/step_57x_independent_reviewer_package_request/reproduction_guide.md
+docs/security/evidence/step_57x_independent_reviewer_package_request/review_request_email.md
+docs/security/evidence/step_57x_independent_reviewer_package_request/reviewer_checklist.md
+docs/security/evidence/step_57x_independent_reviewer_package_request/reviewer_package_summary.md
+docs/security/evidence/step_57x_independent_reviewer_package_request/reviewer_questions.md
+docs/security/evidence/step_57x_independent_reviewer_package_request/reviewer_response_template.md
+docs/security/evidence/step_58x_external_reviewer_response_intake_finding_tracker/README.md
+docs/security/evidence/step_58x_external_reviewer_response_intake_finding_tracker/closure_criteria.md
+docs/security/evidence/step_58x_external_reviewer_response_intake_finding_tracker/evidence_mapping_template.md
+docs/security/evidence/step_58x_external_reviewer_response_intake_finding_tracker/finding_severity_model.md
+docs/security/evidence/step_58x_external_reviewer_response_intake_finding_tracker/finding_tracker.md
+docs/security/evidence/step_58x_external_reviewer_response_intake_finding_tracker/go_no_go.md
+docs/security/evidence/step_58x_external_reviewer_response_intake_finding_tracker/intake_process.md
+docs/security/evidence/step_58x_external_reviewer_response_intake_finding_tracker/redaction_note.md
+docs/security/evidence/step_58x_external_reviewer_response_intake_finding_tracker/remaining_limitations.md
+docs/security/evidence/step_58x_external_reviewer_response_intake_finding_tracker/remediation_plan_template.md
+docs/security/evidence/step_58x_external_reviewer_response_intake_finding_tracker/reviewer_decision_record_template.md
+docs/security/evidence/step_58x_external_reviewer_response_intake_finding_tracker/reviewer_response_intake_form.md
+docs/security/evidence/step_61x_patch_web_healthcheck_mismatch/README.md
+docs/security/evidence/step_61x_patch_web_healthcheck_mismatch/go_no_go.md
+docs/security/evidence/step_61x_patch_web_healthcheck_mismatch/healthcheck_patch.md
+docs/security/evidence/step_61x_patch_web_healthcheck_mismatch/oracle_vps_test_plan.md
+docs/security/evidence/step_61x_patch_web_healthcheck_mismatch/patch_decision.md
+docs/security/evidence/step_61x_patch_web_healthcheck_mismatch/redaction_note.md
+docs/security/evidence/step_61x_patch_web_healthcheck_mismatch/remaining_limitations.md
+docs/security/evidence/step_61x_patch_web_healthcheck_mismatch/rollback_plan.md
+docs/security/evidence/step_61x_patch_web_healthcheck_mismatch/root_cause.md
+docs/security/evidence/step_61x_patch_web_healthcheck_mismatch/test_results.md
+docs/security/evidence/step_62x_durable_coolify_compose_deployment_architecture/README.md
+docs/security/evidence/step_62x_durable_coolify_compose_deployment_architecture/architecture_decision.md
+docs/security/evidence/step_62x_durable_coolify_compose_deployment_architecture/compose_changes.md
+docs/security/evidence/step_62x_durable_coolify_compose_deployment_architecture/current_diagnostic_gap.md
+docs/security/evidence/step_62x_durable_coolify_compose_deployment_architecture/custom_backend_image_strategy.md
+docs/security/evidence/step_62x_durable_coolify_compose_deployment_architecture/go_no_go.md
+docs/security/evidence/step_62x_durable_coolify_compose_deployment_architecture/minio_durable_service.md
+docs/security/evidence/step_62x_durable_coolify_compose_deployment_architecture/oracle_vps_redeploy_plan.md
+docs/security/evidence/step_62x_durable_coolify_compose_deployment_architecture/redaction_note.md
+docs/security/evidence/step_62x_durable_coolify_compose_deployment_architecture/remaining_limitations.md
+docs/security/evidence/step_62x_durable_coolify_compose_deployment_architecture/retest_checklist.md
+docs/security/evidence/step_62x_durable_coolify_compose_deployment_architecture/rollback_plan.md
+docs/security/evidence/step_62x_durable_coolify_compose_deployment_architecture/web_healthcheck_preservation.md
+docs/security/evidence/step_63x_runtime_retrieval_acl_review_package/README.md
+docs/security/evidence/step_63x_runtime_retrieval_acl_review_package/audit_log_sample.md
+docs/security/evidence/step_63x_runtime_retrieval_acl_review_package/ci_gate_results.md
+docs/security/evidence/step_63x_runtime_retrieval_acl_review_package/claim_boundary.md
+docs/security/evidence/step_63x_runtime_retrieval_acl_review_package/control_summary.md
+docs/security/evidence/step_63x_runtime_retrieval_acl_review_package/demo_attack_results.md
+docs/security/evidence/step_63x_runtime_retrieval_acl_review_package/evidence_report_addendum.md
+docs/security/evidence/step_63x_runtime_retrieval_acl_review_package/known_limitations.md
+docs/security/evidence/step_63x_runtime_retrieval_acl_review_package/reviewer_questions.md
+docs/security/evidence/step_63x_runtime_retrieval_acl_review_package/staging_retest_results.md
+docs/security/evidence/step_63x_runtime_retrieval_acl_review_package/telemetry_sample.md
+docs/security/evidence/templates/command_evidence_template.md
+docs/security/evidence/templates/demo_attack_evidence_template.md
+docs/security/evidence/templates/incident_drill_evidence_template.md
+docs/security/evidence/templates/launch_gate_evidence_template.md
+docs/security/evidence/templates/review_signoff_template.md
+docs/security/evidence/templates/rollback_evidence_template.md
+docs/security/evidence/templates/staging_validation_evidence_template.md
+docs/security/evidence/templates/test_evidence_template.md
+docs/security/evidence/test_data_factories/fixture_inventory.md
+docs/security/evidence/test_data_factories/fixture_traceability_summary.md
+docs/security/evidence/test_data_factories/prerequisite_check.txt
+docs/security/evidence/test_data_factories/remote_sync_limitation.txt
+docs/security/evidence/tool_authorization_design/prerequisite_check.txt
+docs/security/evidence/tool_authorization_design/remote_sync_limitation.txt
+docs/security/evidence/tool_authorization_design/tool_argument_security_summary.md
+docs/security/evidence/tool_authorization_design/tool_registry_contract_summary.md
+docs/security/evidence/tool_authorization_design/tool_stage_inventory.md
+docs/security/evidence/tool_authorization_design/tool_test_plan_summary.md
+docs/security/evidence/tool_authorization_design/tool_traceability_summary.md
+docs/security/evidence/tool_authorization_minimal/argument_validator_coverage.md
+docs/security/evidence/tool_authorization_minimal/implementation_summary.md
+docs/security/evidence/tool_authorization_minimal/prerequisite_check.txt
+docs/security/evidence/tool_authorization_minimal/registry_contract_coverage.md
+docs/security/evidence/tool_authorization_minimal/remote_sync_limitation.txt
+docs/security/evidence/tool_authorization_minimal/test_exitcode.txt
+docs/security/evidence/tool_authorization_minimal/test_output.txt
+docs/security/evidence/tool_authorization_minimal/tool_control_coverage.md
+docs/security/evidence/tool_authorization_validation/argument_validator_validation.md
+docs/security/evidence/tool_authorization_validation/non_leakage_validation.md
+docs/security/evidence/tool_authorization_validation/prerequisite_check.txt
+docs/security/evidence/tool_authorization_validation/registry_contract_validation.md
+docs/security/evidence/tool_authorization_validation/remote_sync_limitation.txt
+docs/security/evidence/tool_authorization_validation/test_exitcode.txt
+docs/security/evidence/tool_authorization_validation/test_output.txt
+docs/security/evidence/tool_authorization_validation/tool_control_validation.md
+docs/security/evidence/tool_authorization_validation/tool_model_validation.md
+docs/security/evidence/tool_authorization_validation/tool_validator_validation.md
+docs/security/evidence/unit_collect_only.exitcode
+docs/security/evidence/unit_collect_only.txt
+docs/security/evidence/vector_db_security_design/prerequisite_check.txt
+docs/security/evidence/vector_db_security_design/remote_sync_limitation.txt
+docs/security/evidence/vector_db_security_design/vector_metadata_contract_summary.md
+docs/security/evidence/vector_db_security_design/vector_stage_inventory.md
+docs/security/evidence/vector_db_security_design/vector_test_plan_summary.md
+docs/security/evidence/vector_db_security_design/vector_traceability_summary.md
+docs/security/evidence/vector_db_security_minimal/implementation_summary.md
+docs/security/evidence/vector_db_security_minimal/metadata_contract_coverage.md
+docs/security/evidence/vector_db_security_minimal/prerequisite_check.txt
+docs/security/evidence/vector_db_security_minimal/remote_sync_limitation.txt
+docs/security/evidence/vector_db_security_minimal/test_exitcode.txt
+docs/security/evidence/vector_db_security_minimal/test_output.txt
+docs/security/evidence/vector_db_security_minimal/vector_control_coverage.md
+docs/security/evidence/vector_db_security_validation/metadata_contract_validation.md
+docs/security/evidence/vector_db_security_validation/non_leakage_validation.md
+docs/security/evidence/vector_db_security_validation/prerequisite_check.txt
+docs/security/evidence/vector_db_security_validation/remote_sync_limitation.txt
+docs/security/evidence/vector_db_security_validation/test_exitcode.txt
+docs/security/evidence/vector_db_security_validation/test_output.txt
+docs/security/evidence/vector_db_security_validation/vector_control_validation.md
+docs/security/evidence/vector_db_security_validation/vector_model_validation.md
+docs/security/evidence/vector_db_security_validation/vector_validator_validation.md
+```
+
+## Dependency and package command discovery from files only
+
+### Dependency-related files found
+
+```text
+./backend/uv.lock
+./cli/pyproject.toml
+./deployment/docker_compose/docker-compose.yml
+./desktop/package.json
+./examples/widget/package.json
+./profiling/docker-compose.yml
+./pyproject.toml
+./tools/ods/pyproject.toml
+./uv.lock
+./web/package.json
+./widget/package.json
+```
+
+### Python dependency/test/lint indicators
+
+- Root `pyproject.toml` declares Python >=3.11, uv dependency groups, pytest/ruff/ty dev tools, and backend package discovery.
+- No root `Makefile`, `Taskfile.yml`, `requirements.txt`, `poetry.lock`, `package.json`, `pnpm-lock.yaml`, or `yarn.lock` was found by the inspected max-depth command.
+- `uv.lock` is present at the repository root.
+
+### JavaScript package scripts discovered from `package.json` files
+
+```text
+desktop/package.json: scripts=['build', 'build:dmg', 'build:linux', 'build:windows', 'debug', 'dev', 'tauri']
+examples/widget/package.json: scripts=['build', 'dev', 'lint', 'start']
+web/package.json: scripts=['build', 'dev', 'dev:profile', 'format', 'format:check', 'lint', 'lint:fix', 'playwright', 'start', 'storybook', 'storybook:build', 'test', 'test:changed', 'test:ci', 'test:coverage', 'test:debug', 'test:diff', 'test:verbose', 'test:watch', 'types:check']
+widget/package.json: scripts=['build', 'build:cloud', 'build:self-hosted', 'dev', 'preview', 'type-check']
+```
+
+## Required commands attempted
+
+```text
+## git status
+On branch step-01-reproducibility-gate
+nothing to commit, working tree clean
+## git branch --show-current
+step-01-reproducibility-gate
+## git rev-parse HEAD
+e52e7a0014a06626d4dd183734d6835a049bda0e
+## git remote -v
+## ls
+AGENTS.md
+BASELINE_COMMIT.md
+CHANGELOG.md
+CLAIM_BOUNDARY.md
+CLAUDE.md
+CLIENT_README.md
+CONTRIBUTING.md
+EMPLOYER_README.md
+LICENSE
+PARTNER_DEMO_README.md
+PORTFOLIO_CASE_STUDY.md
+README.md
+README.zh-CN.md
+SECURITY.md
+backend
+cli
+contributor_ip_assignment
+ct.yaml
+cubic.yaml
+demo
+demo_attacks
+deployment
+desktop
+docker-bake.hcl
+docs
+examples
+extensions
+portfolio
+profiling
+pyproject.toml
+scripts
+skills
+tools
+uv.lock
+web
+widget
+## find .github
+.github/workflows/evidence-integrity.yml
+.github/workflows/portfolio-claim-boundary.yml
+.github/workflows/runtime-retrieval-acl-security.yml
+.github/workflows/security-layer-tests.yml
+## find docs/security
+docs/security/README.md
+docs/security/admin_security.md
+docs/security/ai_bom.md
+docs/security/ai_system_card.md
+docs/security/approval_workflow.md
+docs/security/architecture_discovery.md
+docs/security/artifact_content_safety.md
+docs/security/artifact_metadata_contract.md
+docs/security/artifact_release_policy.md
+docs/security/artifact_safety.md
+docs/security/artifact_safety_test_plan.md
+docs/security/auditability.md
+docs/security/baseline_validation.md
+docs/security/cache_key_contract.md
+docs/security/cache_security.md
+docs/security/cache_security_test_plan.md
+docs/security/compliance_mapping.md
+docs/security/control_traceability_matrix.md
+docs/security/coolify_staging_checklist.md
+docs/security/coolify_staging_deployment_plan.md
+docs/security/coolify_staging_env_template.md
+docs/security/coolify_staging_go_no_go.md
+docs/security/coolify_staging_rollback_plan.md
+docs/security/coolify_staging_smoke_test_plan.md
+docs/security/cross_control_evidence_checklist.md
+docs/security/cross_control_evidence_gap_register.md
+docs/security/cross_control_evidence_index.md
+docs/security/cross_control_evidence_validation.md
+docs/security/cross_control_integration_readiness.md
+docs/security/cross_control_monitor_only_boundary.md
+docs/security/cross_control_no_live_enforcement_attestation.md
+docs/security/cross_control_rollout_gates.md
+docs/security/cross_control_test_strategy.md
+docs/security/customer_security_claims.md
+docs/security/demo_attacks.md
+docs/security/enforce_mode_activation_gates.md
+docs/security/enforce_mode_blast_radius_plan.md
+docs/security/enforce_mode_feature_flags.md
+docs/security/enforce_mode_gate_validation.md
+docs/security/enforce_mode_readiness_plan.md
+docs/security/enforce_mode_rollback_plan.md
+docs/security/enforce_mode_test_plan.md
+docs/security/evidence/README.md
+docs/security/evidence/actual_coolify_staging_execution/access_blocker_report.md
+docs/security/evidence/actual_coolify_staging_execution/access_check.txt
+docs/security/evidence/actual_coolify_staging_execution/live_execution_status.txt
+docs/security/evidence/actual_coolify_staging_execution/staging_go_no_go_summary.md
+docs/security/evidence/architecture_discovery/authz_surface_map.txt
+docs/security/evidence/architecture_discovery/db_model_index.txt
+docs/security/evidence/architecture_discovery/deployment_index.txt
+docs/security/evidence/architecture_discovery/frontend_entrypoints.txt
+docs/security/evidence/architecture_discovery/pipeline_surface_map.txt
+docs/security/evidence/architecture_discovery/repo_topology.txt
+docs/security/evidence/architecture_discovery/runtime_entrypoints.txt
+docs/security/evidence/artifact_safety_design/artifact_content_safety_summary.md
+docs/security/evidence/artifact_safety_design/artifact_metadata_contract_summary.md
+docs/security/evidence/artifact_safety_design/artifact_release_policy_summary.md
+docs/security/evidence/artifact_safety_design/artifact_stage_inventory.md
+docs/security/evidence/artifact_safety_design/artifact_test_plan_summary.md
+docs/security/evidence/artifact_safety_design/artifact_traceability_summary.md
+docs/security/evidence/artifact_safety_design/prerequisite_check.txt
+docs/security/evidence/artifact_safety_design/remote_sync_limitation.txt
+docs/security/evidence/artifact_safety_minimal/artifact_control_coverage.md
+docs/security/evidence/artifact_safety_minimal/content_scanner_coverage.md
+docs/security/evidence/artifact_safety_minimal/implementation_summary.md
+docs/security/evidence/artifact_safety_minimal/metadata_contract_coverage.md
+docs/security/evidence/artifact_safety_minimal/prerequisite_check.txt
+docs/security/evidence/artifact_safety_minimal/release_policy_coverage.md
+docs/security/evidence/artifact_safety_minimal/test_exitcode.txt
+docs/security/evidence/artifact_safety_minimal/test_output.txt
+docs/security/evidence/artifact_safety_validation/artifact_control_validation.md
+docs/security/evidence/artifact_safety_validation/artifact_model_validation.md
+docs/security/evidence/artifact_safety_validation/artifact_validator_validation.md
+docs/security/evidence/artifact_safety_validation/content_scanner_validation.md
+docs/security/evidence/artifact_safety_validation/metadata_contract_validation.md
+docs/security/evidence/artifact_safety_validation/non_leakage_validation.md
+docs/security/evidence/artifact_safety_validation/prerequisite_check.txt
+docs/security/evidence/artifact_safety_validation/release_policy_validation.md
+docs/security/evidence/artifact_safety_validation/remote_sync_limitation.txt
+docs/security/evidence/artifact_safety_validation/test_exitcode.txt
+docs/security/evidence/artifact_safety_validation/test_output.txt
+docs/security/evidence/baseline/baseline_env_checks.txt
+docs/security/evidence/baseline/baseline_repo_snapshot.txt
+docs/security/evidence/baseline/baseline_stack_detection.txt
+docs/security/evidence/baseline/unit_collect_only.exitcode
+docs/security/evidence/baseline/unit_collect_only.txt
+docs/security/evidence/baseline_env_checks.txt
+docs/security/evidence/baseline_repo_snapshot.txt
+docs/security/evidence/baseline_stack_detection.txt
+docs/security/evidence/cache_security_design/cache_key_contract_summary.md
+docs/security/evidence/cache_security_design/cache_stage_inventory.md
+docs/security/evidence/cache_security_design/cache_test_plan_summary.md
+docs/security/evidence/cache_security_design/cache_traceability_summary.md
+docs/security/evidence/cache_security_design/prerequisite_check.txt
+docs/security/evidence/cache_security_design/remote_sync_limitation.txt
+docs/security/evidence/cache_security_minimal/cache_control_coverage.md
+docs/security/evidence/cache_security_minimal/cache_key_contract_coverage.md
+docs/security/evidence/cache_security_minimal/implementation_summary.md
+docs/security/evidence/cache_security_minimal/prerequisite_check.txt
+docs/security/evidence/cache_security_minimal/remote_sync_limitation.txt
+docs/security/evidence/cache_security_minimal/test_exitcode.txt
+docs/security/evidence/cache_security_minimal/test_output.txt
+docs/security/evidence/cache_security_validation/cache_control_validation.md
+docs/security/evidence/cache_security_validation/cache_key_contract_validation.md
+docs/security/evidence/cache_security_validation/cache_model_validation.md
+docs/security/evidence/cache_security_validation/cache_validator_validation.md
+docs/security/evidence/cache_security_validation/non_leakage_validation.md
+docs/security/evidence/cache_security_validation/prerequisite_check.txt
+docs/security/evidence/cache_security_validation/remote_sync_limitation.txt
+docs/security/evidence/cache_security_validation/test_exitcode.txt
+docs/security/evidence/cache_security_validation/test_output.txt
+docs/security/evidence/ci_security_gates/README.md
+docs/security/evidence/coolify_staging_evidence_bundle/deployment_plan_summary.md
+docs/security/evidence/coolify_staging_evidence_bundle/env_template_summary.md
+docs/security/evidence/coolify_staging_evidence_bundle/go_no_go_summary.md
+docs/security/evidence/coolify_staging_evidence_bundle/live_staging_execution_pending.txt
+docs/security/evidence/coolify_staging_evidence_bundle/prerequisite_check.txt
+docs/security/evidence/coolify_staging_evidence_bundle/remote_sync_limitation.txt
+docs/security/evidence/coolify_staging_evidence_bundle/rollback_plan_summary.md
+docs/security/evidence/coolify_staging_evidence_bundle/smoke_test_plan_summary.md
+docs/security/evidence/coolify_staging_evidence_bundle/staging_checklist_summary.md
+docs/security/evidence/coolify_staging_evidence_bundle/staging_helper_coverage.md
+docs/security/evidence/coolify_staging_evidence_bundle/test_exitcode.txt
+docs/security/evidence/coolify_staging_evidence_bundle/test_output.txt
+docs/security/evidence/cross_control_evidence_hardening/evidence_checklist_summary.md
+docs/security/evidence/cross_control_evidence_hardening/evidence_gap_summary.md
+docs/security/evidence/cross_control_evidence_hardening/evidence_inventory_summary.md
+docs/security/evidence/cross_control_evidence_hardening/monitor_only_boundary_summary.md
+docs/security/evidence/cross_control_evidence_hardening/no_live_enforcement_attestation_summary.md
+docs/security/evidence/cross_control_evidence_hardening/prerequisite_check.txt
+docs/security/evidence/cross_control_evidence_hardening/remote_sync_limitation.txt
+docs/security/evidence/cross_control_evidence_hardening/test_exitcode.txt
+docs/security/evidence/cross_control_evidence_hardening/test_output.txt
+docs/security/evidence/cross_control_evidence_validation/evidence_checklist_validation.md
+docs/security/evidence/cross_control_evidence_validation/evidence_consistency_validation.md
+docs/security/evidence/cross_control_evidence_validation/evidence_gap_validation.md
+docs/security/evidence/cross_control_evidence_validation/evidence_index_validation.md
+docs/security/evidence/cross_control_evidence_validation/monitor_only_boundary_validation.md
+docs/security/evidence/cross_control_evidence_validation/no_live_enforcement_validation.md
+docs/security/evidence/cross_control_evidence_validation/prerequisite_check.txt
+docs/security/evidence/cross_control_evidence_validation/remote_sync_limitation.txt
+docs/security/evidence/cross_control_evidence_validation/test_exitcode.txt
+docs/security/evidence/cross_control_evidence_validation/test_output.txt
+docs/security/evidence/cross_control_integration_readiness/control_family_readiness_summary.md
+docs/security/evidence/cross_control_integration_readiness/cross_control_test_strategy_summary.md
+docs/security/evidence/cross_control_integration_readiness/live_candidate_summary.md
+docs/security/evidence/cross_control_integration_readiness/prerequisite_check.txt
+docs/security/evidence/cross_control_integration_readiness/production_gap_summary.md
+docs/security/evidence/cross_control_integration_readiness/remote_sync_limitation.txt
+docs/security/evidence/cross_control_integration_readiness/rollout_gate_summary.md
+docs/security/evidence/cross_control_integration_readiness/test_exitcode.txt
+docs/security/evidence/cross_control_integration_readiness/test_output.txt
+docs/security/evidence/cross_control_integration_readiness/traceability_summary.md
+docs/security/evidence/demo_attack_runner/README.md
+docs/security/evidence/demo_attack_runner/expected_results.md
+docs/security/evidence/enforce_mode_readiness_bundle/activation_gate_summary.md
+docs/security/evidence/enforce_mode_readiness_bundle/blast_radius_coverage.md
+docs/security/evidence/enforce_mode_readiness_bundle/blast_radius_summary.md
+docs/security/evidence/enforce_mode_readiness_bundle/feature_flag_coverage.md
+docs/security/evidence/enforce_mode_readiness_bundle/feature_flag_summary.md
+docs/security/evidence/enforce_mode_readiness_bundle/gate_coverage.md
+docs/security/evidence/enforce_mode_readiness_bundle/implementation_summary.md
+docs/security/evidence/enforce_mode_readiness_bundle/no_live_blocking_validation.md
+docs/security/evidence/enforce_mode_readiness_bundle/non_leakage_validation.md
+docs/security/evidence/enforce_mode_readiness_bundle/prerequisite_check.txt
+docs/security/evidence/enforce_mode_readiness_bundle/readiness_plan_summary.md
+docs/security/evidence/enforce_mode_readiness_bundle/remote_sync_limitation.txt
+docs/security/evidence/enforce_mode_readiness_bundle/rollback_plan_summary.md
+docs/security/evidence/enforce_mode_readiness_bundle/simulation_control_coverage.md
+docs/security/evidence/enforce_mode_readiness_bundle/test_exitcode.txt
+docs/security/evidence/enforce_mode_readiness_bundle/test_output.txt
+docs/security/evidence/enforce_mode_readiness_bundle/test_plan_summary.md
+docs/security/evidence/enforce_mode_readiness_bundle/validation_summary.md
+docs/security/evidence/evidence_standardization/evidence_directory_inventory.txt
+docs/security/evidence/evidence_standardization/evidence_standard_summary.md
+docs/security/evidence/evidence_standardization/evidence_template_inventory.txt
+docs/security/evidence/evidence_standardization/prerequisite_check.txt
+docs/security/evidence/evidence_standardization/remote_sync_limitation.txt
+docs/security/evidence/execution_tracker/prerequisite_check.txt
+docs/security/evidence/execution_tracker/remote_sync_limitation.txt
+docs/security/evidence/execution_tracker/tracker_summary.md
+docs/security/evidence/final_pilot_partner_go_no_go_bundle/claim_boundary_summary.md
+docs/security/evidence/final_pilot_partner_go_no_go_bundle/evidence_package_index_summary.md
+docs/security/evidence/final_pilot_partner_go_no_go_bundle/final_review_helper_coverage.md
+docs/security/evidence/final_pilot_partner_go_no_go_bundle/go_no_go_summary.md
+docs/security/evidence/final_pilot_partner_go_no_go_bundle/next_execution_plan_summary.md
+docs/security/evidence/final_pilot_partner_go_no_go_bundle/open_blocker_summary.md
+docs/security/evidence/final_pilot_partner_go_no_go_bundle/partner_demo_checklist_summary.md
+docs/security/evidence/final_pilot_partner_go_no_go_bundle/partner_demo_readme_summary.md
+docs/security/evidence/final_pilot_partner_go_no_go_bundle/prerequisite_check.txt
+docs/security/evidence/final_pilot_partner_go_no_go_bundle/remote_sync_limitation.txt
+docs/security/evidence/final_pilot_partner_go_no_go_bundle/test_exitcode.txt
+docs/security/evidence/final_pilot_partner_go_no_go_bundle/test_output.txt
+docs/security/evidence/final_portfolio_package/README.md
+docs/security/evidence/final_portfolio_package/evidence_summary.md
+docs/security/evidence/final_portfolio_package/readiness_score.md
+docs/security/evidence/final_portfolio_package/remaining_gaps.md
+docs/security/evidence/final_portfolio_package/reviewer_checklist.md
+docs/security/evidence/limited_monitor_only_integration_bundle/behavior_preservation_summary.md
+docs/security/evidence/limited_monitor_only_integration_bundle/cache_adapter_coverage.md
+docs/security/evidence/limited_monitor_only_integration_bundle/candidate_selection_summary.md
+docs/security/evidence/limited_monitor_only_integration_bundle/feature_flag_summary.md
+docs/security/evidence/limited_monitor_only_integration_bundle/integration_plan_summary.md
+docs/security/evidence/limited_monitor_only_integration_bundle/no_live_blocking_validation.md
+docs/security/evidence/limited_monitor_only_integration_bundle/non_leakage_validation.md
+docs/security/evidence/limited_monitor_only_integration_bundle/prerequisite_check.txt
+docs/security/evidence/limited_monitor_only_integration_bundle/remote_sync_limitation.txt
+docs/security/evidence/limited_monitor_only_integration_bundle/shared_sink_coverage.md
+docs/security/evidence/limited_monitor_only_integration_bundle/test_exitcode.txt
+docs/security/evidence/limited_monitor_only_integration_bundle/test_output.txt
+docs/security/evidence/mcp_hardening_design/mcp_credential_isolation_summary.md
+docs/security/evidence/mcp_hardening_design/mcp_egress_policy_summary.md
+docs/security/evidence/mcp_hardening_design/mcp_registry_contract_summary.md
+docs/security/evidence/mcp_hardening_design/mcp_request_security_summary.md
+docs/security/evidence/mcp_hardening_design/mcp_stage_inventory.md
+docs/security/evidence/mcp_hardening_design/mcp_test_plan_summary.md
+docs/security/evidence/mcp_hardening_design/mcp_traceability_summary.md
+docs/security/evidence/mcp_hardening_design/prerequisite_check.txt
+docs/security/evidence/mcp_hardening_design/remote_sync_limitation.txt
+docs/security/evidence/mcp_hardening_minimal/credential_isolation_coverage.md
+docs/security/evidence/mcp_hardening_minimal/egress_policy_coverage.md
+docs/security/evidence/mcp_hardening_minimal/implementation_summary.md
+docs/security/evidence/mcp_hardening_minimal/mcp_control_coverage.md
+docs/security/evidence/mcp_hardening_minimal/prerequisite_check.txt
+docs/security/evidence/mcp_hardening_minimal/registry_contract_coverage.md
+docs/security/evidence/mcp_hardening_minimal/remote_sync_limitation.txt
+docs/security/evidence/mcp_hardening_minimal/request_validator_coverage.md
+docs/security/evidence/mcp_hardening_minimal/signing_replay_coverage.md
+docs/security/evidence/mcp_hardening_minimal/test_exitcode.txt
+docs/security/evidence/mcp_hardening_minimal/test_output.txt
+docs/security/evidence/mcp_hardening_validation/credential_isolation_validation.md
+docs/security/evidence/mcp_hardening_validation/egress_policy_validation.md
+docs/security/evidence/mcp_hardening_validation/mcp_control_validation.md
+docs/security/evidence/mcp_hardening_validation/mcp_model_validation.md
+docs/security/evidence/mcp_hardening_validation/mcp_validator_validation.md
+docs/security/evidence/mcp_hardening_validation/non_leakage_validation.md
+docs/security/evidence/mcp_hardening_validation/registry_contract_validation.md
+docs/security/evidence/mcp_hardening_validation/request_validator_validation.md
+docs/security/evidence/mcp_hardening_validation/signing_replay_validation.md
+docs/security/evidence/mcp_hardening_validation/test_exitcode.txt
+docs/security/evidence/mcp_hardening_validation/test_output.txt
+docs/security/evidence/migration_safety/migration_risk_traceability.md
+docs/security/evidence/migration_safety/migration_safety_plan_summary.md
+docs/security/evidence/migration_safety/prerequisite_check.txt
+docs/security/evidence/migration_safety/remote_sync_limitation.txt
+docs/security/evidence/partner_evidence_room_bundle/control_coverage_summary.md
+docs/security/evidence/partner_evidence_room_bundle/demo_attack_summary.md
+docs/security/evidence/partner_evidence_room_bundle/demo_walkthrough_summary.md
+docs/security/evidence/partner_evidence_room_bundle/evidence_room_helper_coverage.md
+docs/security/evidence/partner_evidence_room_bundle/evidence_room_summary.md
+docs/security/evidence/partner_evidence_room_bundle/go_no_go_summary.md
+docs/security/evidence/partner_evidence_room_bundle/limitations_next_steps_summary.md
+docs/security/evidence/partner_evidence_room_bundle/prerequisite_check.txt
+docs/security/evidence/partner_evidence_room_bundle/remote_sync_limitation.txt
+docs/security/evidence/partner_evidence_room_bundle/safe_claims_summary.md
+docs/security/evidence/partner_evidence_room_bundle/test_evidence_index_summary.md
+docs/security/evidence/partner_evidence_room_bundle/test_exitcode.txt
+docs/security/evidence/partner_evidence_room_bundle/test_output.txt
+docs/security/evidence/patch_points/high_confidence_patch_points.txt
+docs/security/evidence/patch_points/low_confidence_unknowns.txt
+docs/security/evidence/policy_engine_design/policy_engine_design_summary.md
+docs/security/evidence/policy_engine_design/policy_engine_test_plan_summary.md
+docs/security/evidence/policy_engine_design/policy_engine_traceability_summary.md
+docs/security/evidence/policy_engine_design/prerequisite_check.txt
+docs/security/evidence/policy_engine_design/remote_sync_limitation.txt
+docs/security/evidence/policy_engine_minimal/implementation_summary.md
+docs/security/evidence/policy_engine_minimal/prerequisite_check.txt
+docs/security/evidence/policy_engine_minimal/remote_sync_limitation.txt
+docs/security/evidence/policy_engine_minimal/test_exitcode.txt
+docs/security/evidence/policy_engine_minimal/test_output.txt
+docs/security/evidence/policy_engine_validation/isolation_check.txt
+docs/security/evidence/policy_engine_validation/isolation_refs_raw.txt
+docs/security/evidence/policy_engine_validation/prerequisite_check.txt
+docs/security/evidence/policy_engine_validation/remote_sync_limitation.txt
+docs/security/evidence/policy_engine_validation/test_coverage_summary.md
+docs/security/evidence/policy_engine_validation/test_exitcode.txt
+docs/security/evidence/policy_engine_validation/test_output.txt
+docs/security/evidence/policy_schema/policy_file_inventory.md
+docs/security/evidence/policy_schema/policy_schema_summary.md
+docs/security/evidence/policy_schema/policy_traceability_summary.md
+docs/security/evidence/policy_schema/prerequisite_check.txt
+docs/security/evidence/policy_schema/remote_sync_limitation.txt
+docs/security/evidence/public_sharing_audit/README.md
+docs/security/evidence/public_sharing_audit/public_sharing_go_no_go.md
+docs/security/evidence/real_coolify_staging_execution_bundle/evidence_capture_template_summary.md
+docs/security/evidence/real_coolify_staging_execution_bundle/feasibility_summary.md
+docs/security/evidence/real_coolify_staging_execution_bundle/go_no_go_summary.md
+docs/security/evidence/real_coolify_staging_execution_bundle/live_execution_status.txt
+docs/security/evidence/real_coolify_staging_execution_bundle/operator_runbook_summary.md
+docs/security/evidence/real_coolify_staging_execution_bundle/prerequisite_check.txt
+docs/security/evidence/real_coolify_staging_execution_bundle/remote_sync_limitation.txt
+docs/security/evidence/real_coolify_staging_execution_bundle/smoke_validation_summary.md
+docs/security/evidence/real_coolify_staging_execution_bundle/staging_execution_helper_coverage.md
+docs/security/evidence/real_coolify_staging_execution_bundle/test_exitcode.txt
+docs/security/evidence/real_coolify_staging_execution_bundle/test_output.txt
+docs/security/evidence/regression_demo_attack_bundle/behavior_preservation_validation.md
+docs/security/evidence/regression_demo_attack_bundle/evidence_standard_summary.md
+docs/security/evidence/regression_demo_attack_bundle/fixture_coverage.md
+docs/security/evidence/regression_demo_attack_bundle/no_live_blocking_validation.md
+docs/security/evidence/regression_demo_attack_bundle/non_leakage_validation.md
+docs/security/evidence/regression_demo_attack_bundle/plan_summary.md
+docs/security/evidence/regression_demo_attack_bundle/prerequisite_check.txt
+docs/security/evidence/regression_demo_attack_bundle/remote_sync_limitation.txt
+docs/security/evidence/regression_demo_attack_bundle/runner_coverage.md
+docs/security/evidence/regression_demo_attack_bundle/scenario_coverage.md
+docs/security/evidence/regression_demo_attack_bundle/scenario_matrix_summary.md
+docs/security/evidence/regression_demo_attack_bundle/test_exitcode.txt
+docs/security/evidence/regression_demo_attack_bundle/test_output.txt
+docs/security/evidence/release_candidate/README.md
+docs/security/evidence/release_candidate/final_evidence_map.md
+docs/security/evidence/release_candidate/release_candidate_go_no_go.md
+docs/security/evidence/release_prep/README.md
+docs/security/evidence/release_prep/release_go_no_go.md
+docs/security/evidence/requirements_risk_traceability/prerequisite_check.txt
+docs/security/evidence/requirements_risk_traceability/remote_sync_limitation.txt
+docs/security/evidence/requirements_risk_traceability/requirements_index.md
+docs/security/evidence/requirements_risk_traceability/risk_index.md
+docs/security/evidence/requirements_risk_traceability/traceability_summary.md
+docs/security/evidence/retrieval_acl_design/prerequisite_check.txt
+docs/security/evidence/retrieval_acl_design/remote_sync_limitation.txt
+docs/security/evidence/retrieval_acl_design/retrieval_acl_stage_inventory.md
+docs/security/evidence/retrieval_acl_design/retrieval_acl_test_plan_summary.md
+docs/security/evidence/retrieval_acl_design/retrieval_acl_traceability_summary.md
+docs/security/evidence/retrieval_acl_minimal/implementation_summary.md
+docs/security/evidence/retrieval_acl_minimal/prerequisite_check.txt
+docs/security/evidence/retrieval_acl_minimal/remote_sync_limitation.txt
+docs/security/evidence/retrieval_acl_minimal/retrieval_acl_control_coverage.md
+docs/security/evidence/retrieval_acl_minimal/test_exitcode.txt
+docs/security/evidence/retrieval_acl_minimal/test_output.txt
+docs/security/evidence/retrieval_acl_validation/isolation_check.txt
+docs/security/evidence/retrieval_acl_validation/non_leakage_validation_summary.md
+docs/security/evidence/retrieval_acl_validation/prerequisite_check.txt
+docs/security/evidence/retrieval_acl_validation/remote_sync_limitation.txt
+docs/security/evidence/retrieval_acl_validation/retrieval_acl_coverage_summary.md
+docs/security/evidence/retrieval_acl_validation/test_exitcode.txt
+docs/security/evidence/retrieval_acl_validation/test_output.txt
+docs/security/evidence/retrieval_context_builder_isolated/context_builder_summary.md
+docs/security/evidence/retrieval_context_builder_isolated/feature_flag_summary.md
+docs/security/evidence/retrieval_context_builder_isolated/implementation_summary.md
+docs/security/evidence/retrieval_context_builder_isolated/integration_hook_summary.md
+docs/security/evidence/retrieval_context_builder_isolated/prerequisite_check.txt
+docs/security/evidence/retrieval_context_builder_isolated/remote_sync_limitation.txt
+docs/security/evidence/retrieval_context_builder_isolated/test_exitcode.txt
+docs/security/evidence/retrieval_context_builder_isolated/test_output.txt
+docs/security/evidence/retrieval_integration_readiness/go_no_go_summary.md
+docs/security/evidence/retrieval_integration_readiness/live_patch_target_inventory.md
+docs/security/evidence/retrieval_integration_readiness/prerequisite_check.txt
+docs/security/evidence/retrieval_integration_readiness/readiness_review_summary.md
+docs/security/evidence/retrieval_integration_readiness/remote_sync_limitation.txt
+docs/security/evidence/retrieval_integration_readiness/test_exitcode.txt
+docs/security/evidence/retrieval_integration_readiness/test_output.txt
+docs/security/evidence/retrieval_integration_readiness/test_readiness_summary.md
+docs/security/evidence/retrieval_monitor_only_integration/behavior_preservation_summary.md
+docs/security/evidence/retrieval_monitor_only_integration/implementation_summary.md
+docs/security/evidence/retrieval_monitor_only_integration/monitor_only_test_summary.md
+docs/security/evidence/retrieval_monitor_only_integration/prerequisite_check.txt
+docs/security/evidence/retrieval_monitor_only_integration/selected_patch_target.md
+docs/security/evidence/retrieval_monitor_only_integration/test_exitcode.txt
+docs/security/evidence/retrieval_monitor_only_integration/test_output.txt
+docs/security/evidence/retrieval_monitor_only_validation/behavior_preservation_validation.md
+docs/security/evidence/retrieval_monitor_only_validation/live_hook_inspection.md
+docs/security/evidence/retrieval_monitor_only_validation/non_enforcement_validation.md
+docs/security/evidence/retrieval_monitor_only_validation/prerequisite_check.txt
+docs/security/evidence/retrieval_monitor_only_validation/safe_metadata_validation.md
+docs/security/evidence/retrieval_monitor_only_validation/test_exitcode.txt
+docs/security/evidence/retrieval_monitor_only_validation/test_output.txt
+docs/security/evidence/retrieval_path_integration_plan/integration_checklist_summary.md
+docs/security/evidence/retrieval_path_integration_plan/integration_phase_inventory.md
+docs/security/evidence/retrieval_path_integration_plan/integration_test_plan_summary.md
+docs/security/evidence/retrieval_path_integration_plan/integration_traceability_summary.md
+docs/security/evidence/retrieval_path_integration_plan/prerequisite_check.txt
+docs/security/evidence/retrieval_path_integration_plan/remote_sync_limitation.txt
+docs/security/evidence/retrieval_path_patching_design/patch_candidate_inventory.md
+docs/security/evidence/retrieval_path_patching_design/prerequisite_check.txt
+docs/security/evidence/retrieval_path_patching_design/remote_sync_limitation.txt
+docs/security/evidence/retrieval_path_patching_design/retrieval_path_inventory.md
+docs/security/evidence/retrieval_path_patching_design/retrieval_path_test_plan_summary.md
+docs/security/evidence/retrieval_path_patching_design/retrieval_path_traceability_summary.md
+docs/security/evidence/retrieval_security_negative_tests/future_mode_blocker_summary.md
+docs/security/evidence/retrieval_security_negative_tests/monitor_only_negative_behavior_summary.md
+docs/security/evidence/retrieval_security_negative_tests/negative_test_coverage_summary.md
+docs/security/evidence/retrieval_security_negative_tests/non_leakage_negative_test_summary.md
+docs/security/evidence/retrieval_security_negative_tests/test_exitcode.txt
+docs/security/evidence/retrieval_security_negative_tests/test_output.txt
+docs/security/evidence/retrieval_security_negative_validation/future_mode_blocker_validation.md
+docs/security/evidence/retrieval_security_negative_validation/monitor_only_preservation_validation.md
+docs/security/evidence/retrieval_security_negative_validation/negative_test_quality_validation.md
+docs/security/evidence/retrieval_security_negative_validation/non_leakage_validation.md
+docs/security/evidence/retrieval_security_negative_validation/prerequisite_check.txt
+docs/security/evidence/retrieval_security_negative_validation/remote_sync_limitation.txt
+docs/security/evidence/retrieval_security_negative_validation/test_exitcode.txt
+docs/security/evidence/retrieval_security_negative_validation/test_output.txt
+docs/security/evidence/retrieval_security_test_skeletons/fixture_implementation_summary.md
+docs/security/evidence/retrieval_security_test_skeletons/future_mode_test_summary.md
+docs/security/evidence/retrieval_security_test_skeletons/monitor_only_test_summary.md
+docs/security/evidence/retrieval_security_test_skeletons/prerequisite_check.txt
+docs/security/evidence/retrieval_security_test_skeletons/remote_sync_limitation.txt
+docs/security/evidence/retrieval_security_test_skeletons/test_exitcode.txt
+docs/security/evidence/retrieval_security_test_skeletons/test_output.txt
+docs/security/evidence/retrieval_security_test_validation/fixture_quality_validation.md
+docs/security/evidence/retrieval_security_test_validation/future_mode_skip_validation.md
+docs/security/evidence/retrieval_security_test_validation/monitor_only_validation.md
+docs/security/evidence/retrieval_security_test_validation/non_leakage_fixture_validation.md
+docs/security/evidence/retrieval_security_test_validation/prerequisite_check.txt
+docs/security/evidence/retrieval_security_test_validation/remote_sync_limitation.txt
+docs/security/evidence/retrieval_security_test_validation/test_exitcode.txt
+docs/security/evidence/retrieval_security_test_validation/test_output.txt
+docs/security/evidence/retrieval_security_tests_design/fixture_inventory.md
+docs/security/evidence/retrieval_security_tests_design/prerequisite_check.txt
+docs/security/evidence/retrieval_security_tests_design/remote_sync_limitation.txt
+docs/security/evidence/retrieval_security_tests_design/test_group_inventory.md
+docs/security/evidence/retrieval_security_tests_design/test_matrix_summary.md
+docs/security/evidence/retrieval_security_tests_design/traceability_summary.md
+docs/security/evidence/runtime_context_wrappers_design/prerequisite_check.txt
+docs/security/evidence/runtime_context_wrappers_design/remote_sync_limitation.txt
+docs/security/evidence/runtime_context_wrappers_design/runtime_context_model_summary.md
+docs/security/evidence/runtime_context_wrappers_design/wrapper_inventory.md
+docs/security/evidence/runtime_context_wrappers_design/wrapper_test_plan_summary.md
+docs/security/evidence/runtime_context_wrappers_design/wrapper_traceability_summary.md
+docs/security/evidence/runtime_context_wrappers_minimal/implementation_summary.md
+docs/security/evidence/runtime_context_wrappers_minimal/isolation_check.txt
+docs/security/evidence/runtime_context_wrappers_minimal/prerequisite_check.txt
+docs/security/evidence/runtime_context_wrappers_minimal/remote_sync_limitation.txt
+docs/security/evidence/runtime_context_wrappers_minimal/test_exitcode.txt
+docs/security/evidence/runtime_context_wrappers_minimal/test_output.txt
+docs/security/evidence/runtime_wrapper_validation/isolation_check.txt
+docs/security/evidence/runtime_wrapper_validation/prerequisite_check.txt
+docs/security/evidence/runtime_wrapper_validation/remote_sync_limitation.txt
+docs/security/evidence/runtime_wrapper_validation/test_exitcode.txt
+docs/security/evidence/runtime_wrapper_validation/test_output.txt
+docs/security/evidence/runtime_wrapper_validation/wrapper_coverage_summary.md
+docs/security/evidence/safe_denial_behavior_design/denial_category_inventory.md
+docs/security/evidence/safe_denial_behavior_design/prerequisite_check.txt
+docs/security/evidence/safe_denial_behavior_design/remote_sync_limitation.txt
+docs/security/evidence/safe_denial_behavior_design/safe_denial_test_plan_summary.md
+docs/security/evidence/safe_denial_behavior_design/safe_denial_traceability_summary.md
+docs/security/evidence/safe_denial_behavior_minimal/denial_category_coverage.md
+docs/security/evidence/safe_denial_behavior_minimal/implementation_summary.md
+docs/security/evidence/safe_denial_behavior_minimal/non_leakage_test_summary.md
+docs/security/evidence/safe_denial_behavior_minimal/prerequisite_check.txt
+docs/security/evidence/safe_denial_behavior_minimal/remote_sync_limitation.txt
+docs/security/evidence/safe_denial_behavior_minimal/test_exitcode.txt
+docs/security/evidence/safe_denial_behavior_minimal/test_output.txt
+docs/security/evidence/safe_denial_validation/denial_coverage_summary.md
+docs/security/evidence/safe_denial_validation/isolation_check.txt
+docs/security/evidence/safe_denial_validation/non_leakage_validation_summary.md
+docs/security/evidence/safe_denial_validation/prerequisite_check.txt
+docs/security/evidence/safe_denial_validation/remote_sync_limitation.txt
+docs/security/evidence/safe_denial_validation/test_exitcode.txt
+docs/security/evidence/safe_denial_validation/test_output.txt
+docs/security/evidence/secure_ingestion_design/ingestion_stage_inventory.md
+docs/security/evidence/secure_ingestion_design/prerequisite_check.txt
+docs/security/evidence/secure_ingestion_design/remote_sync_limitation.txt
+docs/security/evidence/secure_ingestion_design/secure_ingestion_test_plan_summary.md
+docs/security/evidence/secure_ingestion_design/secure_ingestion_traceability_summary.md
+docs/security/evidence/secure_ingestion_minimal/implementation_summary.md
+docs/security/evidence/secure_ingestion_minimal/ingestion_control_coverage.md
+docs/security/evidence/secure_ingestion_minimal/prerequisite_check.txt
+docs/security/evidence/secure_ingestion_minimal/remote_sync_limitation.txt
+docs/security/evidence/secure_ingestion_minimal/test_exitcode.txt
+docs/security/evidence/secure_ingestion_minimal/test_output.txt
+docs/security/evidence/secure_ingestion_validation/ingestion_coverage_summary.md
+docs/security/evidence/secure_ingestion_validation/isolation_check.txt
+docs/security/evidence/secure_ingestion_validation/non_leakage_validation_summary.md
+docs/security/evidence/secure_ingestion_validation/prerequisite_check.txt
+docs/security/evidence/secure_ingestion_validation/remote_sync_limitation.txt
+docs/security/evidence/secure_ingestion_validation/test_exitcode.txt
+docs/security/evidence/secure_ingestion_validation/test_output.txt
+docs/security/evidence/shadow_deny_rollout_planning/decision_schema_summary.md
+docs/security/evidence/shadow_deny_rollout_planning/feature_flag_summary.md
+docs/security/evidence/shadow_deny_rollout_planning/prerequisite_check.txt
+docs/security/evidence/shadow_deny_rollout_planning/remote_sync_limitation.txt
+docs/security/evidence/shadow_deny_rollout_planning/rollout_gate_summary.md
+docs/security/evidence/shadow_deny_rollout_planning/rollout_plan_summary.md
+docs/security/evidence/shadow_deny_rollout_planning/test_exitcode.txt
+docs/security/evidence/shadow_deny_rollout_planning/test_output.txt
+docs/security/evidence/shadow_deny_rollout_planning/test_plan_summary.md
+docs/security/evidence/shadow_deny_rollout_planning/traceability_summary.md
+docs/security/evidence/shadow_deny_simulation_harness/decision_schema_coverage.md
+docs/security/evidence/shadow_deny_simulation_harness/feature_flag_coverage.md
+docs/security/evidence/shadow_deny_simulation_harness/implementation_summary.md
+docs/security/evidence/shadow_deny_simulation_harness/monitor_only_comparison_summary.md
+docs/security/evidence/shadow_deny_simulation_harness/no_live_blocking_validation.md
+docs/security/evidence/shadow_deny_simulation_harness/prerequisite_check.txt
+docs/security/evidence/shadow_deny_simulation_harness/remote_sync_limitation.txt
+docs/security/evidence/shadow_deny_simulation_harness/simulation_control_coverage.md
+docs/security/evidence/shadow_deny_simulation_harness/test_exitcode.txt
+docs/security/evidence/shadow_deny_simulation_harness/test_output.txt
+docs/security/evidence/shadow_deny_simulation_validation/control_validation.md
+docs/security/evidence/shadow_deny_simulation_validation/decision_schema_validation.md
+docs/security/evidence/shadow_deny_simulation_validation/feature_flag_validation.md
+docs/security/evidence/shadow_deny_simulation_validation/model_validation.md
+docs/security/evidence/shadow_deny_simulation_validation/monitor_only_comparison_validation.md
+docs/security/evidence/shadow_deny_simulation_validation/no_live_blocking_validation.md
+docs/security/evidence/shadow_deny_simulation_validation/non_leakage_validation.md
+docs/security/evidence/shadow_deny_simulation_validation/prerequisite_check.txt
+docs/security/evidence/shadow_deny_simulation_validation/remote_sync_limitation.txt
+docs/security/evidence/shadow_deny_simulation_validation/simulator_validation.md
+docs/security/evidence/shadow_deny_simulation_validation/test_exitcode.txt
+docs/security/evidence/shadow_deny_simulation_validation/test_output.txt
+docs/security/evidence/step2_codespace_verification.md
+docs/security/evidence/step_34x_oracle_free_vps/README.md
+docs/security/evidence/step_34x_oracle_free_vps/access_check.md
+docs/security/evidence/step_34x_oracle_free_vps/coolify_installation.md
+docs/security/evidence/step_34x_oracle_free_vps/deployment_run.md
+docs/security/evidence/step_34x_oracle_free_vps/full_onyx_resource_blocker.md
+docs/security/evidence/step_34x_oracle_free_vps/go_no_go.md
+docs/security/evidence/step_34x_oracle_free_vps/limitations.md
+docs/security/evidence/step_34x_oracle_free_vps/minimal_staging_deployment.md
+docs/security/evidence/step_34x_oracle_free_vps/repository_remote.md
+docs/security/evidence/step_34x_oracle_free_vps/secret_injection.md
+docs/security/evidence/step_34x_oracle_free_vps/smoke_tests.md
+docs/security/evidence/step_34x_oracle_free_vps/vps_environment.md
+docs/security/evidence/step_36x_rollback_redeploy/README.md
+docs/security/evidence/step_36x_rollback_redeploy/evidence_checklist.md
+docs/security/evidence/step_36x_rollback_redeploy/final_status.md
+docs/security/evidence/step_36x_rollback_redeploy/limitations.md
+docs/security/evidence/step_36x_rollback_redeploy/rollback_commands.md
+docs/security/evidence/step_36x_rollback_redeploy/rollback_execution.md
+docs/security/evidence/step_36x_rollback_redeploy/rollback_go_no_go.md
+docs/security/evidence/step_39x_runtime_enforcement_proof/README.md
+docs/security/evidence/step_39x_runtime_enforcement_proof/audit_event_sample.json
+docs/security/evidence/step_39x_runtime_enforcement_proof/go_no_go.md
+docs/security/evidence/step_39x_runtime_enforcement_proof/known_limitations.md
+docs/security/evidence/step_39x_runtime_enforcement_proof/runtime_enforcement_results.md
+docs/security/evidence/step_40x_runtime_enforcement_pr_review_merge_gate/README.md
+docs/security/evidence/step_40x_runtime_enforcement_pr_review_merge_gate/command_results.md
+docs/security/evidence/step_40x_runtime_enforcement_pr_review_merge_gate/merge_decision.md
+docs/security/evidence/step_40x_runtime_enforcement_pr_review_merge_gate/remaining_limitations.md
+docs/security/evidence/step_40x_runtime_enforcement_pr_review_merge_gate/review_checklist.md
+docs/security/evidence/step_42x_live_staging_deployment_evidence/README.md
+docs/security/evidence/step_42x_live_staging_deployment_evidence/blockers.md
+docs/security/evidence/step_42x_live_staging_deployment_evidence/deployment_attempt.md
+docs/security/evidence/step_42x_live_staging_deployment_evidence/environment_check.md
+docs/security/evidence/step_42x_live_staging_deployment_evidence/go_no_go.md
+docs/security/evidence/step_42x_live_staging_deployment_evidence/health_check_results.md
+docs/security/evidence/step_42x_live_staging_deployment_evidence/log_capture.md
+docs/security/evidence/step_42x_live_staging_deployment_evidence/remaining_limitations.md
+docs/security/evidence/step_42x_live_staging_deployment_evidence/rollback_notes.md
+docs/security/evidence/step_42x_live_staging_deployment_evidence/runtime_enforcement_mode.md
+docs/security/evidence/step_42x_live_staging_deployment_evidence/smoke_test_results.md
+docs/security/evidence/step_43x_github_remote_pr_ci_verification_gate/README.md
+docs/security/evidence/step_43x_github_remote_pr_ci_verification_gate/blockers.md
+docs/security/evidence/step_43x_github_remote_pr_ci_verification_gate/branch_sync.md
+docs/security/evidence/step_43x_github_remote_pr_ci_verification_gate/ci_verification.md
+docs/security/evidence/step_43x_github_remote_pr_ci_verification_gate/go_no_go.md
+docs/security/evidence/step_43x_github_remote_pr_ci_verification_gate/local_verification_results.md
+docs/security/evidence/step_43x_github_remote_pr_ci_verification_gate/pr_verification.md
+docs/security/evidence/step_43x_github_remote_pr_ci_verification_gate/remaining_limitations.md
+docs/security/evidence/step_43x_github_remote_pr_ci_verification_gate/remote_check.md
+docs/security/evidence/step_43x_github_remote_pr_ci_verification_gate/secret_hygiene.md
+docs/security/evidence/step_44x_local_repository_recovery_branch_commit_integrity_gate/README.md
+docs/security/evidence/step_44x_local_repository_recovery_branch_commit_integrity_gate/branch_inventory.md
+docs/security/evidence/step_44x_local_repository_recovery_branch_commit_integrity_gate/ci_visibility.md
+docs/security/evidence/step_44x_local_repository_recovery_branch_commit_integrity_gate/codespaces_environment.md
+docs/security/evidence/step_44x_local_repository_recovery_branch_commit_integrity_gate/commit_integrity_map.md
+docs/security/evidence/step_44x_local_repository_recovery_branch_commit_integrity_gate/evidence_folder_inventory.md
+docs/security/evidence/step_44x_local_repository_recovery_branch_commit_integrity_gate/go_no_go.md
+docs/security/evidence/step_44x_local_repository_recovery_branch_commit_integrity_gate/local_verification_results.md
+docs/security/evidence/step_44x_local_repository_recovery_branch_commit_integrity_gate/pr_chain_verification.md
+docs/security/evidence/step_44x_local_repository_recovery_branch_commit_integrity_gate/recovery_gaps.md
+docs/security/evidence/step_44x_local_repository_recovery_branch_commit_integrity_gate/remaining_limitations.md
+docs/security/evidence/step_44x_local_repository_recovery_branch_commit_integrity_gate/remote_origin_check.md
+docs/security/evidence/step_44x_local_repository_recovery_branch_commit_integrity_gate/secret_hygiene.md
+docs/security/evidence/step_45x_github_pr_chain_ci_actions_verification/README.md
+docs/security/evidence/step_45x_github_pr_chain_ci_actions_verification/ci_actions_verification.md
+docs/security/evidence/step_45x_github_pr_chain_ci_actions_verification/go_no_go.md
+docs/security/evidence/step_45x_github_pr_chain_ci_actions_verification/local_verification_results.md
+docs/security/evidence/step_45x_github_pr_chain_ci_actions_verification/main_branch_evidence.md
+docs/security/evidence/step_45x_github_pr_chain_ci_actions_verification/merge_commit_map.md
+docs/security/evidence/step_45x_github_pr_chain_ci_actions_verification/pr_chain_verification.md
+docs/security/evidence/step_45x_github_pr_chain_ci_actions_verification/reconciliation_summary.md
+docs/security/evidence/step_45x_github_pr_chain_ci_actions_verification/remaining_limitations.md
+docs/security/evidence/step_45x_github_pr_chain_ci_actions_verification/secret_hygiene.md
+docs/security/evidence/step_45x_github_pr_chain_ci_actions_verification/unresolved_gaps.md
+docs/security/evidence/step_46x_github_actions_ci_run_trigger_verification_gate/README.md
+docs/security/evidence/step_46x_github_actions_ci_run_trigger_verification_gate/ci_blockers.md
+docs/security/evidence/step_46x_github_actions_ci_run_trigger_verification_gate/ci_run_results.md
+docs/security/evidence/step_46x_github_actions_ci_run_trigger_verification_gate/ci_trigger_attempt.md
+docs/security/evidence/step_46x_github_actions_ci_run_trigger_verification_gate/go_no_go.md
+docs/security/evidence/step_46x_github_actions_ci_run_trigger_verification_gate/local_verification_results.md
+docs/security/evidence/step_46x_github_actions_ci_run_trigger_verification_gate/pr_107_visibility.md
+docs/security/evidence/step_46x_github_actions_ci_run_trigger_verification_gate/remaining_limitations.md
+docs/security/evidence/step_46x_github_actions_ci_run_trigger_verification_gate/secret_hygiene.md
+docs/security/evidence/step_46x_github_actions_ci_run_trigger_verification_gate/workflow_inventory.md
+docs/security/evidence/step_47x_docker_local_compose_staging_proof/README.md
+docs/security/evidence/step_47x_docker_local_compose_staging_proof/blockers.md
+docs/security/evidence/step_47x_docker_local_compose_staging_proof/compose_config_validation.md
+docs/security/evidence/step_47x_docker_local_compose_staging_proof/deployment_file_inventory.md
+docs/security/evidence/step_47x_docker_local_compose_staging_proof/docker_availability.md
+docs/security/evidence/step_47x_docker_local_compose_staging_proof/environment_check.md
+docs/security/evidence/step_47x_docker_local_compose_staging_proof/go_no_go.md
+docs/security/evidence/step_47x_docker_local_compose_staging_proof/health_check_results.md
+docs/security/evidence/step_47x_docker_local_compose_staging_proof/local_staging_attempt.md
+docs/security/evidence/step_47x_docker_local_compose_staging_proof/log_capture.md
+docs/security/evidence/step_47x_docker_local_compose_staging_proof/remaining_limitations.md
+docs/security/evidence/step_47x_docker_local_compose_staging_proof/rollback_evidence.md
+docs/security/evidence/step_47x_docker_local_compose_staging_proof/runtime_enforcement_mode.md
+docs/security/evidence/step_47x_docker_local_compose_staging_proof/secret_hygiene.md
+docs/security/evidence/step_47x_docker_local_compose_staging_proof/smoke_test_results.md
+docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/README.md
+docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/api_health_recovery.md
+docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/container_inventory.md
+docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/decision_record.md
+docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/docker_compose_readiness.md
+docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/go_no_go.md
+docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/host_proxy_curl_results.md
+docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/log_summary.md
+docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/minio_file_store_fix.md
+docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/oracle_vps_environment.md
+docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/redaction_note.md
+docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/remaining_limitations.md
+docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/rollback_notes.md
+docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/web_healthcheck_mismatch.md
+docs/security/evidence/step_52x_custom_onyx_image_runtime_enforcement_deploy/README.md
+docs/security/evidence/step_52x_custom_onyx_image_runtime_enforcement_deploy/blockers.md
+docs/security/evidence/step_52x_custom_onyx_image_runtime_enforcement_deploy/build_results.md
+docs/security/evidence/step_52x_custom_onyx_image_runtime_enforcement_deploy/build_strategy.md
+docs/security/evidence/step_52x_custom_onyx_image_runtime_enforcement_deploy/deployed_container_verification.md
+docs/security/evidence/step_52x_custom_onyx_image_runtime_enforcement_deploy/deployment_attempt.md
+docs/security/evidence/step_52x_custom_onyx_image_runtime_enforcement_deploy/go_no_go.md
+docs/security/evidence/step_52x_custom_onyx_image_runtime_enforcement_deploy/health_after_deploy.md
+docs/security/evidence/step_52x_custom_onyx_image_runtime_enforcement_deploy/image_runtime_code_check.md
+docs/security/evidence/step_52x_custom_onyx_image_runtime_enforcement_deploy/redaction_note.md
+docs/security/evidence/step_52x_custom_onyx_image_runtime_enforcement_deploy/remaining_limitations.md
+docs/security/evidence/step_52x_custom_onyx_image_runtime_enforcement_deploy/rollback_notes.md
+docs/security/evidence/step_52x_custom_onyx_image_runtime_enforcement_deploy/runtime_hook_verification.md
+docs/security/evidence/step_52x_custom_onyx_image_runtime_enforcement_deploy/source_verification.md
+docs/security/evidence/step_56x_external_validation_staging_review/README.md
+docs/security/evidence/step_56x_external_validation_staging_review/external_validation_request.md
+docs/security/evidence/step_56x_external_validation_staging_review/go_no_go.md
+docs/security/evidence/step_56x_external_validation_staging_review/known_limitations_for_review.md
+docs/security/evidence/step_56x_external_validation_staging_review/oracle_staging_status.md
+docs/security/evidence/step_56x_external_validation_staging_review/redaction_and_public_safety_review.md
+docs/security/evidence/step_56x_external_validation_staging_review/remaining_limitations.md
+docs/security/evidence/step_56x_external_validation_staging_review/reviewer_checklist.md
+docs/security/evidence/step_56x_external_validation_staging_review/runtime_enforcement_review.md
+docs/security/evidence/step_56x_external_validation_staging_review/staging_review_summary.md
+docs/security/evidence/step_56x_external_validation_staging_review/step_55x_behavior_summary.md
+docs/security/evidence/step_57x_independent_reviewer_package_request/README.md
+docs/security/evidence/step_57x_independent_reviewer_package_request/claims_not_made.md
+docs/security/evidence/step_57x_independent_reviewer_package_request/claims_to_validate.md
+docs/security/evidence/step_57x_independent_reviewer_package_request/evidence_map_for_reviewer.md
+docs/security/evidence/step_57x_independent_reviewer_package_request/go_no_go.md
+docs/security/evidence/step_57x_independent_reviewer_package_request/redaction_note.md
+docs/security/evidence/step_57x_independent_reviewer_package_request/remaining_limitations.md
+docs/security/evidence/step_57x_independent_reviewer_package_request/reproduction_guide.md
+docs/security/evidence/step_57x_independent_reviewer_package_request/review_request_email.md
+docs/security/evidence/step_57x_independent_reviewer_package_request/reviewer_checklist.md
+docs/security/evidence/step_57x_independent_reviewer_package_request/reviewer_package_summary.md
+docs/security/evidence/step_57x_independent_reviewer_package_request/reviewer_questions.md
+docs/security/evidence/step_57x_independent_reviewer_package_request/reviewer_response_template.md
+docs/security/evidence/step_58x_external_reviewer_response_intake_finding_tracker/README.md
+docs/security/evidence/step_58x_external_reviewer_response_intake_finding_tracker/closure_criteria.md
+docs/security/evidence/step_58x_external_reviewer_response_intake_finding_tracker/evidence_mapping_template.md
+docs/security/evidence/step_58x_external_reviewer_response_intake_finding_tracker/finding_severity_model.md
+docs/security/evidence/step_58x_external_reviewer_response_intake_finding_tracker/finding_tracker.md
+docs/security/evidence/step_58x_external_reviewer_response_intake_finding_tracker/go_no_go.md
+docs/security/evidence/step_58x_external_reviewer_response_intake_finding_tracker/intake_process.md
+docs/security/evidence/step_58x_external_reviewer_response_intake_finding_tracker/redaction_note.md
+docs/security/evidence/step_58x_external_reviewer_response_intake_finding_tracker/remaining_limitations.md
+docs/security/evidence/step_58x_external_reviewer_response_intake_finding_tracker/remediation_plan_template.md
+docs/security/evidence/step_58x_external_reviewer_response_intake_finding_tracker/reviewer_decision_record_template.md
+docs/security/evidence/step_58x_external_reviewer_response_intake_finding_tracker/reviewer_response_intake_form.md
+docs/security/evidence/step_61x_patch_web_healthcheck_mismatch/README.md
+docs/security/evidence/step_61x_patch_web_healthcheck_mismatch/go_no_go.md
+docs/security/evidence/step_61x_patch_web_healthcheck_mismatch/healthcheck_patch.md
+docs/security/evidence/step_61x_patch_web_healthcheck_mismatch/oracle_vps_test_plan.md
+docs/security/evidence/step_61x_patch_web_healthcheck_mismatch/patch_decision.md
+docs/security/evidence/step_61x_patch_web_healthcheck_mismatch/redaction_note.md
+docs/security/evidence/step_61x_patch_web_healthcheck_mismatch/remaining_limitations.md
+docs/security/evidence/step_61x_patch_web_healthcheck_mismatch/rollback_plan.md
+docs/security/evidence/step_61x_patch_web_healthcheck_mismatch/root_cause.md
+docs/security/evidence/step_61x_patch_web_healthcheck_mismatch/test_results.md
+docs/security/evidence/step_62x_durable_coolify_compose_deployment_architecture/README.md
+docs/security/evidence/step_62x_durable_coolify_compose_deployment_architecture/architecture_decision.md
+docs/security/evidence/step_62x_durable_coolify_compose_deployment_architecture/compose_changes.md
+docs/security/evidence/step_62x_durable_coolify_compose_deployment_architecture/current_diagnostic_gap.md
+docs/security/evidence/step_62x_durable_coolify_compose_deployment_architecture/custom_backend_image_strategy.md
+docs/security/evidence/step_62x_durable_coolify_compose_deployment_architecture/go_no_go.md
+docs/security/evidence/step_62x_durable_coolify_compose_deployment_architecture/minio_durable_service.md
+docs/security/evidence/step_62x_durable_coolify_compose_deployment_architecture/oracle_vps_redeploy_plan.md
+docs/security/evidence/step_62x_durable_coolify_compose_deployment_architecture/redaction_note.md
+docs/security/evidence/step_62x_durable_coolify_compose_deployment_architecture/remaining_limitations.md
+docs/security/evidence/step_62x_durable_coolify_compose_deployment_architecture/retest_checklist.md
+docs/security/evidence/step_62x_durable_coolify_compose_deployment_architecture/rollback_plan.md
+docs/security/evidence/step_62x_durable_coolify_compose_deployment_architecture/web_healthcheck_preservation.md
+docs/security/evidence/step_63x_runtime_retrieval_acl_review_package/README.md
+docs/security/evidence/step_63x_runtime_retrieval_acl_review_package/audit_log_sample.md
+docs/security/evidence/step_63x_runtime_retrieval_acl_review_package/ci_gate_results.md
+docs/security/evidence/step_63x_runtime_retrieval_acl_review_package/claim_boundary.md
+docs/security/evidence/step_63x_runtime_retrieval_acl_review_package/control_summary.md
+docs/security/evidence/step_63x_runtime_retrieval_acl_review_package/demo_attack_results.md
+docs/security/evidence/step_63x_runtime_retrieval_acl_review_package/evidence_report_addendum.md
+docs/security/evidence/step_63x_runtime_retrieval_acl_review_package/known_limitations.md
+docs/security/evidence/step_63x_runtime_retrieval_acl_review_package/reviewer_questions.md
+docs/security/evidence/step_63x_runtime_retrieval_acl_review_package/staging_retest_results.md
+docs/security/evidence/step_63x_runtime_retrieval_acl_review_package/telemetry_sample.md
+docs/security/evidence/templates/command_evidence_template.md
+docs/security/evidence/templates/demo_attack_evidence_template.md
+docs/security/evidence/templates/incident_drill_evidence_template.md
+docs/security/evidence/templates/launch_gate_evidence_template.md
+docs/security/evidence/templates/review_signoff_template.md
+docs/security/evidence/templates/rollback_evidence_template.md
+docs/security/evidence/templates/staging_validation_evidence_template.md
+docs/security/evidence/templates/test_evidence_template.md
+docs/security/evidence/test_data_factories/fixture_inventory.md
+docs/security/evidence/test_data_factories/fixture_traceability_summary.md
+docs/security/evidence/test_data_factories/prerequisite_check.txt
+docs/security/evidence/test_data_factories/remote_sync_limitation.txt
+docs/security/evidence/tool_authorization_design/prerequisite_check.txt
+docs/security/evidence/tool_authorization_design/remote_sync_limitation.txt
+docs/security/evidence/tool_authorization_design/tool_argument_security_summary.md
+docs/security/evidence/tool_authorization_design/tool_registry_contract_summary.md
+docs/security/evidence/tool_authorization_design/tool_stage_inventory.md
+docs/security/evidence/tool_authorization_design/tool_test_plan_summary.md
+docs/security/evidence/tool_authorization_design/tool_traceability_summary.md
+docs/security/evidence/tool_authorization_minimal/argument_validator_coverage.md
+docs/security/evidence/tool_authorization_minimal/implementation_summary.md
+docs/security/evidence/tool_authorization_minimal/prerequisite_check.txt
+docs/security/evidence/tool_authorization_minimal/registry_contract_coverage.md
+docs/security/evidence/tool_authorization_minimal/remote_sync_limitation.txt
+docs/security/evidence/tool_authorization_minimal/test_exitcode.txt
+docs/security/evidence/tool_authorization_minimal/test_output.txt
+docs/security/evidence/tool_authorization_minimal/tool_control_coverage.md
+docs/security/evidence/tool_authorization_validation/argument_validator_validation.md
+docs/security/evidence/tool_authorization_validation/non_leakage_validation.md
+docs/security/evidence/tool_authorization_validation/prerequisite_check.txt
+docs/security/evidence/tool_authorization_validation/registry_contract_validation.md
+docs/security/evidence/tool_authorization_validation/remote_sync_limitation.txt
+docs/security/evidence/tool_authorization_validation/test_exitcode.txt
+docs/security/evidence/tool_authorization_validation/test_output.txt
+docs/security/evidence/tool_authorization_validation/tool_control_validation.md
+docs/security/evidence/tool_authorization_validation/tool_model_validation.md
+docs/security/evidence/tool_authorization_validation/tool_validator_validation.md
+docs/security/evidence/unit_collect_only.exitcode
+docs/security/evidence/unit_collect_only.txt
+docs/security/evidence/vector_db_security_design/prerequisite_check.txt
+docs/security/evidence/vector_db_security_design/remote_sync_limitation.txt
+docs/security/evidence/vector_db_security_design/vector_metadata_contract_summary.md
+docs/security/evidence/vector_db_security_design/vector_stage_inventory.md
+docs/security/evidence/vector_db_security_design/vector_test_plan_summary.md
+docs/security/evidence/vector_db_security_design/vector_traceability_summary.md
+docs/security/evidence/vector_db_security_minimal/implementation_summary.md
+docs/security/evidence/vector_db_security_minimal/metadata_contract_coverage.md
+docs/security/evidence/vector_db_security_minimal/prerequisite_check.txt
+docs/security/evidence/vector_db_security_minimal/remote_sync_limitation.txt
+docs/security/evidence/vector_db_security_minimal/test_exitcode.txt
+docs/security/evidence/vector_db_security_minimal/test_output.txt
+docs/security/evidence/vector_db_security_minimal/vector_control_coverage.md
+docs/security/evidence/vector_db_security_validation/metadata_contract_validation.md
+docs/security/evidence/vector_db_security_validation/non_leakage_validation.md
+docs/security/evidence/vector_db_security_validation/prerequisite_check.txt
+docs/security/evidence/vector_db_security_validation/remote_sync_limitation.txt
+docs/security/evidence/vector_db_security_validation/test_exitcode.txt
+docs/security/evidence/vector_db_security_validation/test_output.txt
+docs/security/evidence/vector_db_security_validation/vector_control_validation.md
+docs/security/evidence/vector_db_security_validation/vector_model_validation.md
+docs/security/evidence/vector_db_security_validation/vector_validator_validation.md
+docs/security/evidence_consistency_matrix.md
+docs/security/evidence_report.md
+docs/security/evidence_standard.md
+docs/security/execution_tracker.md
+docs/security/final_claim_boundary.md
+docs/security/final_evidence_package_index.md
+docs/security/final_next_execution_plan.md
+docs/security/final_open_blockers.md
+docs/security/final_partner_demo_checklist.md
+docs/security/final_partner_demo_readme.md
+docs/security/final_pilot_partner_go_no_go.md
+docs/security/incident_response.md
+docs/security/known_limitations.md
+docs/security/launch_gate.md
+docs/security/limited_monitor_only_feature_flags.md
+docs/security/limited_monitor_only_integration_plan.md
+docs/security/limited_monitor_only_test_plan.md
+docs/security/live_integration_candidate_matrix.md
+docs/security/mcp_credential_isolation.md
+docs/security/mcp_egress_policy.md
+docs/security/mcp_hardening.md
+docs/security/mcp_hardening_test_plan.md
+docs/security/mcp_registry_contract.md
+docs/security/mcp_request_security.md
+docs/security/migration_safety.md
+docs/security/model_provider_inventory.md
+docs/security/oracle_staging_durable_deployment_architecture.md
+docs/security/partner_control_coverage_summary.md
+docs/security/partner_demo_attack_summary.md
+docs/security/partner_demo_walkthrough.md
+docs/security/partner_evidence_index.md
+docs/security/partner_evidence_room.md
+docs/security/partner_go_no_go.md
+docs/security/partner_limitations_and_next_steps.md
+docs/security/partner_safe_claims.md
+docs/security/partner_test_evidence_index.md
+docs/security/patch_points.md
+docs/security/policies/admin_policy.yaml
+docs/security/policies/approvals_policy.yaml
+docs/security/policies/artifacts_policy.yaml
+docs/security/policies/audit_policy.yaml
+docs/security/policies/cache_policy.yaml
+docs/security/policies/default_deny_policy.yaml
+docs/security/policies/dlp_policy.yaml
+docs/security/policies/ingestion_policy.yaml
+docs/security/policies/launch_gate_policy.yaml
+docs/security/policies/mcp_policy.yaml
+docs/security/policies/model_provider_policy.yaml
+docs/security/policies/prompt_policy.yaml
+docs/security/policies/retrieval_policy.yaml
+docs/security/policies/sandbox_policy.yaml
+docs/security/policies/tools_policy.yaml
+docs/security/policies/vector_db_policy.yaml
+docs/security/policy_engine.md
+docs/security/policy_engine_test_plan.md
+docs/security/policy_model.md
+docs/security/policy_schema.md
+docs/security/privacy_review.md
+docs/security/production_readiness.md
+docs/security/production_readiness_gap_analysis.md
+docs/security/raci.md
+docs/security/real_coolify_staging_evidence_capture_template.md
+docs/security/real_coolify_staging_execution_plan.md
+docs/security/real_coolify_staging_go_no_go.md
+docs/security/real_coolify_staging_operator_runbook.md
+docs/security/real_coolify_staging_smoke_validation.md
+docs/security/red_team_regression.md
+docs/security/regression_demo_attack_evidence_standard.md
+docs/security/regression_demo_attack_matrix.md
+docs/security/regression_demo_attack_plan.md
+docs/security/repository_workflow_protection.md
+docs/security/retrieval_acl.md
+docs/security/retrieval_acl_test_plan.md
+docs/security/retrieval_path_integration_checklist.md
+docs/security/retrieval_path_integration_plan.md
+docs/security/retrieval_path_integration_test_plan.md
+docs/security/retrieval_path_live_patch_file_targets.md
+docs/security/retrieval_path_live_patch_go_no_go.md
+docs/security/retrieval_path_patching.md
+docs/security/retrieval_path_patching_test_plan.md
+docs/security/retrieval_path_readiness_review.md
+docs/security/retrieval_security_test_fixtures.md
+docs/security/retrieval_security_test_matrix.md
+docs/security/retrieval_security_tests.md
+docs/security/risk_register.md
+docs/security/rollback_plan.md
+docs/security/runtime_context_wrappers.md
+docs/security/runtime_context_wrappers_test_plan.md
+docs/security/safe_denial_behavior.md
+docs/security/safe_denial_behavior_test_plan.md
+docs/security/sandbox_safety.md
+docs/security/secure_ingestion.md
+docs/security/secure_ingestion_test_plan.md
+docs/security/security_architecture.md
+docs/security/security_requirements.md
+docs/security/shadow_deny_decision_schema.md
+docs/security/shadow_deny_feature_flags.md
+docs/security/shadow_deny_rollout_gates.md
+docs/security/shadow_deny_rollout_plan.md
+docs/security/shadow_deny_test_plan.md
+docs/security/staging_validation.md
+docs/security/test_data_factories.md
+docs/security/threat_model.md
+docs/security/tool_argument_security.md
+docs/security/tool_authorization.md
+docs/security/tool_authorization_test_plan.md
+docs/security/tool_registry_contract.md
+docs/security/vector_db_metadata_contract.md
+docs/security/vector_db_security.md
+docs/security/vector_db_security_test_plan.md
+docs/security/vector_security.md
+docs/security/vendor_risk_register.md
+## find portfolio
+portfolio/README.md
+portfolio/architecture.md
+portfolio/claim_boundary.md
+portfolio/demo_script.md
+portfolio/evidence_index.md
+portfolio/public_sharing_audit/README.md
+portfolio/public_sharing_audit/attribution_and_license_check.md
+portfolio/public_sharing_audit/final_forbidden_claims.md
+portfolio/public_sharing_audit/final_safe_claims.md
+portfolio/public_sharing_audit/public_review_path.md
+portfolio/public_sharing_audit/repo_hygiene_checklist.md
+portfolio/public_sharing_audit/share_with_agencies_message.md
+portfolio/public_sharing_audit/share_with_employers_message.md
+portfolio/release_candidate/README.md
+portfolio/release_candidate/final_commands.md
+portfolio/release_candidate/final_go_no_go.md
+portfolio/release_candidate/final_manual_review_checklist.md
+portfolio/release_candidate/final_outreach_pack.md
+portfolio/release_candidate/final_reviewer_path.md
+portfolio/release_candidate/final_status_badges.md
+portfolio/release_candidate/v0.1.0_portfolio_review.md
+portfolio/release_prep/README.md
+portfolio/release_prep/final_reviewer_checklist.md
+portfolio/release_prep/github_release_notes_draft.md
+portfolio/release_prep/publication_readiness_checklist.md
+portfolio/release_prep/sanitization_checklist.md
+portfolio/release_prep/screenshot_checklist.md
+portfolio/release_prep/video_walkthrough_script.md
+portfolio/reviewer_quickstart.md
+## find deployment
+deployment/.gitignore
+deployment/README.md
+deployment/aws_ecs_fargate/cloudformation/README.md
+deployment/aws_ecs_fargate/cloudformation/deploy.sh
+deployment/aws_ecs_fargate/cloudformation/onyx_acm_template.yaml
+deployment/aws_ecs_fargate/cloudformation/onyx_cluster_template.yaml
+deployment/aws_ecs_fargate/cloudformation/onyx_config.jsonl
+deployment/aws_ecs_fargate/cloudformation/onyx_efs_template.yaml
+deployment/aws_ecs_fargate/cloudformation/services/onyx_backend_api_server_service_template.yaml
+deployment/aws_ecs_fargate/cloudformation/services/onyx_backend_background_server_service_template.yaml
+deployment/aws_ecs_fargate/cloudformation/services/onyx_model_server_indexing_service_template.yaml
+deployment/aws_ecs_fargate/cloudformation/services/onyx_model_server_inference_service_template.yaml
+deployment/aws_ecs_fargate/cloudformation/services/onyx_nginx_service_template.yaml
+deployment/aws_ecs_fargate/cloudformation/services/onyx_postgres_service_template.yaml
+deployment/aws_ecs_fargate/cloudformation/services/onyx_redis_service_template.yaml
+deployment/aws_ecs_fargate/cloudformation/services/onyx_vespaengine_service_template.yaml
+deployment/aws_ecs_fargate/cloudformation/services/onyx_web_server_service_template.yaml
+deployment/aws_ecs_fargate/cloudformation/uninstall.sh
+deployment/data/nginx/app.conf.template
+deployment/data/nginx/app.conf.template.no-letsencrypt
+deployment/data/nginx/app.conf.template.prod
+deployment/data/nginx/mcp.conf.inc.template
+deployment/data/nginx/mcp_upstream.conf.inc.template
+deployment/data/nginx/run-nginx.sh
+deployment/docker_compose/README.md
+deployment/docker_compose/README.step34x-minimal.md
+deployment/docker_compose/docker-compose.coolify-staging.yml
+deployment/docker_compose/docker-compose.craft.yml
+deployment/docker_compose/docker-compose.dev.yml
+deployment/docker_compose/docker-compose.mcp-api-key-test.yml
+deployment/docker_compose/docker-compose.mcp-oauth-test.yml
+deployment/docker_compose/docker-compose.mcp-per-user-key-test.yml
+deployment/docker_compose/docker-compose.multitenant-dev.yml
+deployment/docker_compose/docker-compose.onyx-lite.yml
+deployment/docker_compose/docker-compose.oracle-staging.override.yml
+deployment/docker_compose/docker-compose.prod-cloud.yml
+deployment/docker_compose/docker-compose.prod-no-letsencrypt.yml
+deployment/docker_compose/docker-compose.prod.yml
+deployment/docker_compose/docker-compose.resources.yml
+deployment/docker_compose/docker-compose.search-testing.yml
+deployment/docker_compose/docker-compose.step34x-minimal.yml
+deployment/docker_compose/docker-compose.yml
+deployment/docker_compose/env.nginx.template
+deployment/docker_compose/env.prod.template
+deployment/docker_compose/env.template
+deployment/docker_compose/init-letsencrypt.sh
+deployment/docker_compose/install.ps1
+deployment/docker_compose/install.sh
+deployment/helm/README.md
+deployment/helm/charts/onyx/.gitignore
+deployment/helm/charts/onyx/.helmignore
+deployment/helm/charts/onyx/Chart.lock
+deployment/helm/charts/onyx/Chart.yaml
+deployment/helm/charts/onyx/values-ci.yaml
+deployment/helm/charts/onyx/values-lite.yaml
+deployment/helm/charts/onyx/values-localdev.yaml
+deployment/helm/charts/onyx/values.yaml
+deployment/helm/dev/k8s-down.sh
+deployment/helm/dev/k8s-up.sh
+deployment/terraform/modules/aws/README.md
+```
+
+## Dependency inspection command output
+
+```text
+## dependency files present
+./cli/pyproject.toml
+./deployment/docker_compose/docker-compose.yml
+./desktop/package.json
+./examples/widget/package.json
+./profiling/docker-compose.yml
+./pyproject.toml
+./tools/ods/pyproject.toml
+./web/package.json
+./widget/package.json
+## root pyproject relevant
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "onyx"
+version = "0.0.0"
+requires-python = ">=3.11"
+# Shared dependencies between backend and model_server
+dependencies = [
+    "aioboto3==15.1.0",
+    "cohere==5.6.1",
+    "fastapi==0.133.1",
+    "google-genai==1.52.0",
+    "litellm[google]==1.83.14",
+    "openai==2.14.0",
+    "pydantic==2.11.7",
+    "prometheus_client>=0.21.1",
+    "prometheus_fastapi_instrumentator==7.1.0",
+    "retry==0.9.2",                             # This pulls in py which is in CVE-2022-42969, must remove py from image
+    "sentry-sdk==2.14.0",
+    "uvicorn==0.35.0",
+    "voyageai==0.2.3",
+    "brotli>=1.2.0",
+    "claude-agent-sdk>=0.1.19",
+    "agent-client-protocol>=0.7.1",
+    "discord-py==2.4.0",
+    "kubernetes>=31.0.0",
+]
+
+[dependency-groups]
+backend = [
+    "aiohttp==3.13.4",
+    "alembic==1.18.4",
+    "asyncpg==0.30.0",
+    "atlassian-python-api==3.41.16",
+    "azure-cognitiveservices-speech==1.38.0",
+    "beautifulsoup4==4.12.3",
+    "boto3==1.39.11",
+    "boto3-stubs[s3]==1.39.11",
+    "celery==5.5.1",
+    "chardet==5.2.0",
+    "chonkie==1.0.10",
+    "croniter==6.2.2",
+    "cron-descriptor==2.0.8",
+    "dask==2026.1.1",
+    "discord.py==2.4.0",
+    "distributed==2026.1.1",
+    "fastapi-users==15.0.4",
+    "fastapi-users-db-sqlalchemy==7.0.0",
+    "fastapi-limiter==0.1.6",
+    "fastmcp==3.2.0",
+    "filelock==3.20.3",
+    "google-api-python-client==2.86.0",
+    "google-auth-httplib2==0.1.0",
+    "google-auth-oauthlib==1.0.0",
+    "google-cloud-storage>=3.0.0,<4.0.0",
+    # GPT4All library has issues running on Macs and python:3.11.4-slim-bookworm
+    # will reintroduce this when library version catches up
+    # "gpt4all==2.0.2",
+    "docker==7.1.0",
+    "httpcore==1.0.9",
+    "httpx[http2]==0.28.1",
+    "httpx-oauth==0.15.1",
+    "inflection==0.5.1",
+    "jira==3.10.5",
+    "jsonref==1.1.0",
+    "kubernetes==31.0.0",
+    "trafilatura==1.12.2",
+    "langchain-core==1.3.3",
+    "lazy_imports==1.0.1",
+    "lxml==6.1.0",
+    "Mako==1.3.12",
+    # NOTE: Do not update without understanding the patching behavior in
+    # get_markitdown_converter in
+    # backend/onyx/file_processing/extract_file_text.py and what impacts
+    # updating might have on this behavior.
+    "markitdown[pdf, docx, pptx, xlsx, xls]==0.1.2",
+    "mcp[cli]==1.27.0",
+    "msal==1.34.0",
+    "msoffcrypto-tool==5.4.2",
+    "Office365-REST-Python-Client==2.6.2",
+    "oauthlib==3.2.2",
+    # NOTE: This is frozen to avoid https://foss.heptapod.net/openpyxl/openpyxl/-/issues/2147
+    "openpyxl==3.0.10",
+    "opensearch-py==3.0.0",
+    "passlib==1.7.4",
+    "playwright==1.58.0",
+    "psutil==7.1.3",
+    "psycopg2-binary==2.9.9",
+    "puremagic==1.28",
+    "pyairtable==3.0.1",
+    "pycryptodome==3.19.1",
+    "PyGithub==2.5.0",
+    "pympler==1.1",
+    "python-dateutil==2.9.0.post0",
+    "python-gitlab==5.6.0",
+    "python-pptx==0.6.23",
+    "pypandoc_binary==1.16.2",
+    "pypdf==6.10.2",
+    "pytest-mock==3.12.0",
+    "pytest-playwright==0.7.2",
+    "python-docx==1.1.2",
+    "python-dotenv==1.2.2",
+    "python-multipart==0.0.27",
+    "pywikibot==9.0.0",
+    "redis==5.0.8",
+    "requests==2.33.0",
+    "requests-oauthlib==1.3.1",
+    "rfc3986==1.5.0",
+    "simple-salesforce==1.12.6",
+    "slack-sdk==3.20.2",
+    "SQLAlchemy==2.0.15",
+    "starlette==0.49.3",
+    "supervisor==4.3.0",
+    "RapidFuzz==3.14.5",
+    "tiktoken==0.7.0",
+    "timeago==1.0.16",
+    "types-docker==7.1.0.20260518",
+    "types-openpyxl==3.0.4.7",
+    "unstructured==0.18.27",
+    "unstructured-client==0.42.6",
+    "zulip==0.8.2",
+    "hubspot-api-client==11.1.0",
+    "asana==5.0.8",
+    "dropbox==12.0.2",
+    "shapely==2.0.6",
+    "stripe==10.12.0",
+    "urllib3==2.7.0",
+    "mistune==3.2.1",
+    "sendgrid==6.12.5",
+    "exa_py==1.15.4",
+    "braintrust==0.3.9",
+    "langfuse==3.10.0",
+    "nest_asyncio==1.6.0",
+    "openinference-instrumentation==0.1.42",
+    "opentelemetry-proto>=1.39.0",
+    "python3-saml==1.15.0",
+    "xmlsec==1.3.17",
+]
+
+# Dev tools
+dev = [
+    "celery-types==0.19.0",
+    "faker==40.1.2",
+    "hatchling==1.28.0",
+    "ipykernel==6.29.5",
+    "manygo==0.2.0",
+    "matplotlib==3.10.8",
+    "ty==0.0.31",
+    "onyx-devtools==0.7.7",
+    "openapi-generator-cli==7.17.0",
+    "pandas-stubs~=2.3.3",
+    "pre-commit==3.2.2",
+    "pytest-alembic==0.12.1",
+    "pytest-asyncio==1.3.0",
+    "pytest-dotenv==0.5.2",
+    "pytest-repeat==0.9.4",
+    "pytest-xdist==3.8.0",
+    "pytest==9.0.3",
+    "release-tag==0.5.2",
+    "ruff==0.12.0",
+    "types-beautifulsoup4==4.12.0.3",
+    "types-html5lib==1.1.11.13",
+    "types-oauthlib==3.2.0.9",
+    "types-passlib==1.7.7.20240106",
+    "types-Pillow==10.2.0.20240822",
+    "types-psutil==7.1.3.20251125",
+    "types-psycopg2==2.9.21.10",
+    "types-python-dateutil==2.8.19.13",
+    "types-PyYAML==6.0.12.11",
+    "types-pytz==2023.3.1.1",
+    "types-regex==2023.3.23.1",
+    "types-requests==2.32.0.20250328",
+    "types-retry==0.9.9.3",
+    "types-setuptools==68.0.0.3",
+    "zizmor==1.18.0",
+]
+
+# Enterprise Edition features
+ee = ["posthog==3.7.4"]
+
+# Model server specific dependencies (ML packages)
+model_server = [
+    "accelerate==1.6.0",
+    "einops==0.8.1",
+    "numpy==2.4.1",
+    "safetensors==0.5.3",
+    "sentence-transformers==5.4.1",
+    "torch==2.9.1",
+    "transformers==5.5.4",
+    "sentry-sdk[fastapi,celery,starlette]==2.14.0",
+]
+
+[tool.uv]
+default-groups = ["backend", "dev", "ee", "model_server"]
+
+# litellm >=1.83.x switched from loose ranges to exact `==` pins on its
+# transitive dependencies (see https://github.com/BerriAI/litellm/issues/25280),
+# which forces downgrades of packages we already pin to newer versions and
+# regressions on transitively resolved packages. Replace those exact pins with
+# the loose ranges litellm declared prior to 1.83.1 so that uv's resolver is
+# free to pick versions consistent with our top-level pins (or newer).
+override-dependencies = [
+    "aiohttp>=3.10",
+    "click",
+    "fastuuid>=0.13.0",
+    "httpx[http2]>=0.23.0",
+    "importlib-metadata>=6.8.0",
+    "jinja2>=3.1.2,<4.0.0",
+    "jsonschema>=4.23.0,<5.0.0",
+    "openai",
+    "pydantic",
+    "python-dotenv",
+    "tiktoken",
+    "tokenizers",
+    "google-cloud-aiplatform>=1.38.0",
+]
+
+[tool.ty.environment]
+## web package scripts
+### desktop/package.json
+{
+  "build": "tauri build",
+  "build:dmg": "tauri build --target universal-apple-darwin",
+  "build:linux": "tauri build --bundles deb,rpm",
+  "build:windows": "tauri build --runner cargo-xwin --target x86_64-pc-windows-msvc",
+  "debug": "tauri dev -- -- --debug",
+  "dev": "tauri dev",
+  "tauri": "tauri"
+}
+### examples/widget/package.json
+{
+  "build": "next build",
+  "dev": "next dev",
+  "lint": "next lint",
+  "start": "next start"
+}
+### web/package.json
+{
+  "build": "next build",
+  "dev": "next dev",
+  "dev:profile": "NEXT_PUBLIC_ENABLE_STATS=true next dev",
+  "format": "oxfmt src",
+  "format:check": "oxfmt --check src",
+  "lint": "oxlint",
+  "lint:fix": "oxlint --fix",
+  "playwright": "playwright test",
+  "start": "next start",
+  "storybook": "storybook dev -p 6006",
+  "storybook:build": "storybook build -o storybook-static",
+  "test": "jest",
+  "test:changed": "jest --onlyChanged",
+  "test:ci": "jest --ci --maxWorkers=2 --silent --bail",
+  "test:coverage": "jest --coverage",
+  "test:debug": "node --inspect-brk node_modules/.bin/jest --runInBand",
+  "test:diff": "jest --changedSince=main",
+  "test:verbose": "jest --verbose",
+  "test:watch": "jest --watch",
+  "types:check": "tsgo --noEmit --project tsconfig.types.json"
+}
+### widget/package.json
+{
+  "build": "vite build",
+  "build:cloud": "vite build --mode production",
+  "build:self-hosted": "vite build --mode self-hosted",
+  "dev": "vite",
+  "preview": "vite preview",
+  "type-check": "tsc --noEmit"
+}
+## Makefiles
+## docker compose files
+./deployment/docker_compose/docker-compose.coolify-staging.yml
+./deployment/docker_compose/docker-compose.craft.yml
+./deployment/docker_compose/docker-compose.dev.yml
+./deployment/docker_compose/docker-compose.mcp-api-key-test.yml
+./deployment/docker_compose/docker-compose.mcp-oauth-test.yml
+./deployment/docker_compose/docker-compose.mcp-per-user-key-test.yml
+./deployment/docker_compose/docker-compose.multitenant-dev.yml
+./deployment/docker_compose/docker-compose.onyx-lite.yml
+./deployment/docker_compose/docker-compose.oracle-staging.override.yml
+./deployment/docker_compose/docker-compose.prod-cloud.yml
+./deployment/docker_compose/docker-compose.prod-no-letsencrypt.yml
+./deployment/docker_compose/docker-compose.prod.yml
+./deployment/docker_compose/docker-compose.resources.yml
+./deployment/docker_compose/docker-compose.search-testing.yml
+./deployment/docker_compose/docker-compose.step34x-minimal.yml
+./deployment/docker_compose/docker-compose.yml
+./profiling/docker-compose.yml
+```
+
+## Validation commands attempted and results
+
+### `source .venv/bin/activate && python -m pytest --collect-only backend/tests/unit -q`
+
+- Exit code: `1`
+- Result: `FAIL`
+
+```text
+## validation: source .venv && python -m pytest --collect-only backend/tests/unit -q
+/workspace/myproject001/.venv/bin/python: No module named pytest
+```
+
+### `docker compose -f deployment/docker_compose/docker-compose.yml config`
+
+- Exit code: `127`
+- Result: `FAIL`
+
+```text
+## validation: docker compose -f deployment/docker_compose/docker-compose.yml config
+/bin/bash: line 12: docker: command not found
+```
+
+### `cd web && npm run lint -- --help`
+
+- Exit code: `0`
+- Result: `PASS`
+
+```text
+## validation: cd web && npm run lint -- --help
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> web@1.0.0-dev lint
+> oxlint --help
+
+Usage: [-c=<./.oxlintrc.json>] [PATH]...
+
+Basic Configuration
+    -c, --config=<./.oxlintrc.json>  Oxlint configuration file
+                              * `.json` and `.jsonc` config files are supported in all runtimes
+                              * JavaScript/TypeScript config files are experimental and require
+                              running via Node.js
+                              * you can use comments in configuration files.
+                              * tries to be compatible with ESLint v8's format
+        --tsconfig=<./tsconfig.json>  Override the TypeScript config used for import resolution.
+                              Oxlint automatically discovers the relevant `tsconfig.json` for each
+                              file. Use this only when your project uses a non-standard tsconfig
+                              name or location.
+        --init                Initialize oxlint configuration with default values
+
+Allowing / Denying Multiple Lints
+   Accumulate rules and categories from left to right on the command-line.
+   For example `-D correctness -A no-debugger` or `-A all -D no-debugger`.
+   The categories are:
+   * `correctness` - Code that is outright wrong or useless (default)
+   * `suspicious`  - Code that is most likely wrong or useless
+   * `pedantic`    - Lints which are rather strict or have occasional false positives
+   * `perf`        - Code that could be written in a more performant way
+   * `style`       - Code that should be written in a more idiomatic way
+   * `restriction` - Lints which prevent the use of language and library features
+   * `nursery`     - New lints that are still under development
+   * `all`         - All categories listed above except `nursery`. Does not enable plugins
+  automatically.
+    -A, --allow=NAME          Allow the rule or category (suppress the lint)
+    -W, --warn=NAME           Deny the rule or category (emit a warning)
+    -D, --deny=NAME           Deny the rule or category (emit an error)
+
+Enable/Disable Plugins
+        --disable-unicorn-plugin  Disable unicorn plugin, which is turned on by default
+        --disable-oxc-plugin  Disable oxc unique rules, which is turned on by default
+        --disable-typescript-plugin  Disable TypeScript plugin, which is turned on by default
+        --import-plugin       Enable import plugin and detect ESM problems.
+        --react-plugin        Enable react plugin, which is turned off by default
+        --jsdoc-plugin        Enable jsdoc plugin and detect JSDoc problems
+        --jest-plugin         Enable the Jest plugin and detect test problems
+        --vitest-plugin       Enable the Vitest plugin and detect test problems
+        --jsx-a11y-plugin     Enable the JSX-a11y plugin and detect accessibility problems
+        --nextjs-plugin       Enable the Next.js plugin and detect Next.js problems
+        --react-perf-plugin   Enable the React performance plugin and detect rendering performance
+                              problems
+        --promise-plugin      Enable the promise plugin and detect promise usage problems
+        --node-plugin         Enable the node plugin and detect node usage problems
+        --vue-plugin          Enable the vue plugin and detect vue usage problems
+
+Fix Problems
+        --fix                 Fix as many issues as possible. Only unfixed issues are reported in
+                              the output.
+        --fix-suggestions     Apply auto-fixable suggestions. May change program behavior.
+        --fix-dangerously     Apply dangerous fixes and suggestions
+
+Ignore Files
+        --ignore-path=PATH    Specify the file to use as your `.eslintignore`
+        --ignore-pattern=PAT  Specify patterns of files to ignore (in addition to those in
+                              `.eslintignore`)
+        --no-ignore           Disable excluding files from `.eslintignore` files, --ignore-path
+                              flags and --ignore-pattern flags
+
+Handle Warnings
+        --quiet               Disable reporting on warnings, only errors are reported
+        --deny-warnings       Ensure warnings produce a non-zero exit code
+        --max-warnings=INT    Specify a warning threshold, which can be used to force exit with an
+                              error status if there are too many warning-level rule violations in
+                              your project
+
+Output
+    -f, --format=ARG          Use a specific output format. Possible values: `checkstyle`,
+                              `default`, `agent`, `github`, `gitlab`, `json`, `junit`, `sarif`,
+                              `stylish`, `unix`
+        --debug=OPTIONS       Enable debug output options. Options are comma-separated. Possible
+                              values:
+                               * `files` - Print the list of files that will be linted, then exit.
+                               * `timings` - Enable per-rule timing information.
+
+Miscellaneous
+        --silent              Do not display any diagnostics
+        --no-error-on-unmatched-pattern  Do not exit with an error when no files are selected for
+                              linting (for example, after applying ignore patterns)
+        --threads=INT         Number of threads to use. Set to 1 for using only 1 CPU core.
+        --print-config        This option outputs the configuration to be used. When present, no
+                              linting is performed and only config-related options are valid.
+
+Inline Configuration Comments
+        --report-unused-disable-directives  Report directive comments like `// oxlint-disable-line`,
+                              when no errors would have been reported on that line anyway
+        --report-unused-disable-directives-severity=SEVERITY  Same as
+                              `--report-unused-disable-directives`, but allows you to specify the
+                              severity level of the reported errors. Only one of these two options
+                              can be used at a time.
+
+Available positional items:
+    PATH                      Single file, single path or list of paths
+
+Available options:
+        --rules               List all the rules that are currently registered
+        --lsp                 Start the language server
+        --disable-nested-config  Disable the automatic loading of nested configuration files
+        --type-aware          Enable rules that require type information
+        --type-check          Enable experimental type checking (includes TypeScript compiler
+                              diagnostics)
+    -h, --help                Prints help information
+    -V, --version             Prints version information
+```
+
+### `cd web && npm run lint`
+
+- Exit code: `0`
+- Result: `PASS`
+
+```text
+## validation: cd web && npm run lint
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> web@1.0.0-dev lint
+> oxlint
+```
+
+## Failed commands
+
+- `source .venv/bin/activate && python -m pytest --collect-only backend/tests/unit -q` failed with exit code `1` because `.venv/bin/python` reported `No module named pytest`.
+- `docker compose -f deployment/docker_compose/docker-compose.yml config` failed with exit code `127` because `docker` was not found.
+
+## Missing tools / unavailable capabilities
+
+- `docker` command was not available in this environment: `DOCKER_STAGING_BLOCKED`.
+- GitHub Actions execution was not performed from this local environment: `CI_ACTIONS_UNVERIFIED`.
+- Python unit-test collection could not run in the project virtual environment because `pytest` was missing: `TEST_EXECUTION_BLOCKED`.
+
+## Blockers
+
+- `DOCKER_STAGING_BLOCKED`: Docker Compose configuration validation and staging-style Docker checks cannot be completed until Docker is available.
+- `TEST_EXECUTION_BLOCKED`: Python test collection cannot be completed until the virtual environment includes the required test dependencies.
+- `CI_ACTIONS_UNVERIFIED`: Workflow files were inventoried, but GitHub Actions execution status was not verified by this evidence step.
+
+## Safe claims
+
+- A reproducibility gate evidence document was created for Step 01.
+- Repository inventory commands were attempted and their outputs recorded.
+- Dependency and package command discovery was based on repository files only.
+- One frontend lint command completed successfully in this local environment.
+- Docker-based validation and Python test collection are blocked in this environment for the recorded reasons.
+
+## Forbidden claims
+
+- Do not claim production readiness.
+- Do not claim enterprise readiness.
+- Do not claim live enforcement.
+- Do not claim complete CI verification.
+- Do not claim complete test coverage or full test pass.
+- Do not claim Docker staging validation passed.
+
+## Next step
+
+Resolve the recorded environment blockers, then rerun the reproducibility gate with Docker available, Python test dependencies installed in the project virtual environment, and CI workflow execution evidence captured from GitHub Actions.
