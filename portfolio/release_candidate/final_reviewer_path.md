@@ -30,31 +30,37 @@
 - **What it proves:** Evidence is indexed and bounded.
 - **What it does not prove:** Evidence is externally validated or sufficient for compliance.
 
-## 6. [`demo_attacks/README.md`](../../demo_attacks/README.md)
+## 6. [`docs/security/evidence/reviewer_ci_proof_chain.md`](../../docs/security/evidence/reviewer_ci_proof_chain.md)
+
+- **Why read it:** Consolidates the recent CI-backed portfolio proof chain in one reviewer-facing file.
+- **What it proves:** Backend test collection recovery, isolated security-layer test execution, selected backend unit-test subset execution, and deterministic synthetic demo attack runner execution are indexed as bounded CI evidence.
+- **What it does not prove:** Full backend test success, production readiness, enterprise readiness, live enforcement, full Onyx staging, external validation, or compliance certification.
+
+## 7. [`demo_attacks/README.md`](../../demo_attacks/README.md)
 
 - **Why read it:** Explains the synthetic demo attack package.
 - **What it proves:** The project includes repeatable, reviewer-safe security scenarios.
 - **What it does not prove:** The live application blocks attacks in production.
 
-## 7. [`portfolio/release_prep/README.md`](../release_prep/README.md)
+## 8. [`portfolio/release_prep/README.md`](../release_prep/README.md)
 
 - **Why read it:** Describes draft release-prep artifacts and delivery checklists.
 - **What it proves:** The project has professional release-prep discipline.
 - **What it does not prove:** A real release, deployment, screenshot, video, or production launch occurred.
 
-## 8. [`portfolio/public_sharing_audit/README.md`](../public_sharing_audit/README.md)
+## 9. [`portfolio/public_sharing_audit/README.md`](../public_sharing_audit/README.md)
 
 - **Why read it:** Documents public-sharing readiness and repository hygiene requirements.
 - **What it proves:** Public sharing is gated by sanitization and manual review.
 - **What it does not prove:** The repository is automatically safe to publish without review.
 
-## 9. [`portfolio/release_candidate/README.md`](README.md)
+## 10. [`portfolio/release_candidate/README.md`](README.md)
 
 - **Why read it:** Summarizes the final release-candidate package.
 - **What it proves:** The portfolio is organized for `v0.1.0-portfolio-review` professional review.
 - **What it does not prove:** Production readiness, enterprise readiness, certification, or external validation.
 
-## 10. [`docs/security/known_limitations.md`](../../docs/security/known_limitations.md)
+## 11. [`docs/security/known_limitations.md`](../../docs/security/known_limitations.md)
 
 - **Why read it:** Lists remaining gaps and constraints.
 - **What it proves:** The project keeps limitations visible.
