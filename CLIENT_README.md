@@ -4,6 +4,14 @@
 
 This document is for a potential client or small AI agency evaluating whether I can help with RAG and autonomous-agent security-readiness work.
 
+## Fast reviewer status
+
+For the shortest current proof-state summary, review:
+
+- [`docs/security/evidence/final_reviewer_status_snapshot.md`](docs/security/evidence/final_reviewer_status_snapshot.md)
+
+This snapshot separates CI-backed portfolio evidence from what remains `NO-GO`, `PENDING`, or `NOT CLAIMED`. It does not prove production readiness, enterprise readiness, external validation, compliance certification, full Onyx live staging, live enforcement, live blocking, or live filtering.
+
 ## What I can help with now
 
 I can help teams prepare AI systems for responsible review by creating clear readiness gates, evidence packages, demo attack coverage, and claim boundaries. The strongest fit is pre-launch or pre-partner-review work where the team needs an honest view of risks, evidence, and gaps before making stronger claims.
@@ -43,4 +51,4 @@ This repo is portfolio/demo evidence. It is not a managed production security gu
 
 ## How to use this repo in a client discussion
 
-Start with the case study and claim boundary, then run the demo commands in the partner demo guide. Treat PASS results as evidence of local checks and portfolio discipline, not as a production security guarantee.
+Start with the final reviewer status snapshot, case study, and claim boundary, then run the demo commands in the partner demo guide. Treat PASS results as evidence of local checks and portfolio discipline, not as a production security guarantee.
