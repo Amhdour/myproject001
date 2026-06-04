@@ -1,0 +1,68 @@
+name: Python Backend Test Collection
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  backend-unit-test-collection:
+    name: Backend unit-test collection
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Create artifact directory
+        run: mkdir -p .artifacts/python-test-collection
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Install dependencies
+        run: uv sync --frozen
+
+      - name: Record environment metadata
+        run: |
+          source .venv/bin/activate
+          {
+            echo "Python version: $(python --version)"
+            echo "Python path: $(which python)"
+            echo "uv version: $(uv --version)"
+            echo "pytest module version: $(python -c 'import pytest; print(pytest.__version__)')"
+            echo "pytest CLI version: $(python -m pytest --version)"
+            echo "Working directory: $(pwd)"
+            echo "Commit SHA: ${GITHUB_SHA}"
+            echo "Branch/ref: ${GITHUB_REF}"
+            echo "Command executed: python -m pytest --collect-only backend/tests/unit -q -ra"
+          } | tee .artifacts/python-test-collection/environment.txt
+
+      - name: Print diagnostic versions
+        run: |
+          source .venv/bin/activate
+          python --version
+          which python
+          python -m pytest --version
+          python -c "import pytest; print(pytest.__version__)"
+          uv --version
+          uv pip list
+
+      - name: Collect backend unit tests
+        run: |
+          source .venv/bin/activate
+          set -o pipefail
+          python -m pytest --collect-only backend/tests/unit -q -ra 2>&1 | tee .artifacts/python-test-collection/backend-unit-collection.log
+
+      - name: Upload backend unit-test collection log
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: python-backend-test-collection-log
+          path: |
+            .artifacts/python-test-collection/backend-unit-collection.log
+            .artifacts/python-test-collection/environment.txt
+          if-no-files-found: warn
