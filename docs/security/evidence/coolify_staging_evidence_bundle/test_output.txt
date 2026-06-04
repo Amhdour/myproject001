@@ -87,4 +87,4 @@ security_layer/tests/test_vector_validators.py: 5 warnings
     warnings.warn(
 
 -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
-241 passed, 8 skipped, 255 warnings in 1.90s
+241 passed, 8 skipped, 255 warnings in 0.77s
