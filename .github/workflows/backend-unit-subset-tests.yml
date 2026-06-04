@@ -6,7 +6,7 @@ on:
 
 jobs:
   backend-unit-subset-tests:
-    name: Backend LLM secret-scrub unit tests
+    name: Backend security-relevant unit subset
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -38,14 +38,21 @@ jobs:
             echo "Working directory: $(pwd)"
             echo "Commit SHA: ${GITHUB_SHA}"
             echo "Branch/ref: ${GITHUB_REF}"
-            echo "Command executed: python -m pytest backend/tests/unit/onyx/llm/test_llm_utils_scrub.py -q -ra"
+            echo "Command executed: python -m pytest backend/tests/unit/onyx/llm/test_llm_utils_scrub.py backend/tests/unit/onyx/utils/test_sensitive.py backend/tests/unit/onyx/auth/test_permissions.py -q -ra"
+            echo "Scope: selected backend security-relevant unit subset only"
+            echo "Production readiness claimed: no"
+            echo "Enterprise readiness claimed: no"
           } | tee .artifacts/backend-unit-subset-tests/environment.txt
 
-      - name: Run backend LLM secret-scrub unit tests
+      - name: Run backend security-relevant unit subset
         run: |
           source .venv/bin/activate
           set -o pipefail
-          python -m pytest backend/tests/unit/onyx/llm/test_llm_utils_scrub.py -q -ra 2>&1 | tee .artifacts/backend-unit-subset-tests/backend-llm-secret-scrub-tests.log
+          python -m pytest \
+            backend/tests/unit/onyx/llm/test_llm_utils_scrub.py \
+            backend/tests/unit/onyx/utils/test_sensitive.py \
+            backend/tests/unit/onyx/auth/test_permissions.py \
+            -q -ra 2>&1 | tee .artifacts/backend-unit-subset-tests/backend-security-unit-subset-tests.log
 
       - name: Upload backend unit subset test evidence
         uses: actions/upload-artifact@v4
@@ -53,6 +60,6 @@ jobs:
         with:
           name: backend-unit-subset-test-evidence
           path: |
-            .artifacts/backend-unit-subset-tests/backend-llm-secret-scrub-tests.log
+            .artifacts/backend-unit-subset-tests/backend-security-unit-subset-tests.log
             .artifacts/backend-unit-subset-tests/environment.txt
           if-no-files-found: error
