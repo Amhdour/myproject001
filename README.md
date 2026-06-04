@@ -14,6 +14,15 @@ The final accelerated portfolio-release-candidate package for `v0.1.0-portfolio-
 This release candidate prepares the portfolio for professional review. It does not prove production readiness, enterprise readiness, external validation, compliance certification, full Onyx staging, live enforcement, live blocking, or live filtering.
 
 
+## Final Reviewer Status Snapshot
+
+For reviewers who want the shortest current status view, start here:
+
+- [`docs/security/evidence/final_reviewer_status_snapshot.md`](docs/security/evidence/final_reviewer_status_snapshot.md)
+
+This snapshot summarizes what is CI-backed and what remains `NO-GO`, `PENDING`, or `NOT CLAIMED`. It is portfolio evidence only and does not prove production readiness, enterprise readiness, live enforcement, live blocking, live filtering, full Onyx staging, external validation, or compliance certification.
+
+
 ## Reviewer CI Proof Chain
 
 For reviewers who want the fastest path to recent CI-backed portfolio evidence, start here:
@@ -144,16 +153,18 @@ Start with these security-readiness documents:
 - [`docs/security/partner_safe_claims.md`](docs/security/partner_safe_claims.md)
 - [`docs/security/final_claim_boundary.md`](docs/security/final_claim_boundary.md)
 - [`docs/security/final_evidence_package_index.md`](docs/security/final_evidence_package_index.md)
+- [`docs/security/evidence/final_reviewer_status_snapshot.md`](docs/security/evidence/final_reviewer_status_snapshot.md)
 - [`docs/security/evidence/reviewer_ci_proof_chain.md`](docs/security/evidence/reviewer_ci_proof_chain.md)
 
 Recommended reviewer path:
 
 1. Read the final claim boundary before evaluating readiness claims.
-2. Review the evidence report and execution tracker.
-3. Inspect known limitations and partner-safe claim language.
-4. Inspect the reviewer CI proof chain for recent CI-backed portfolio evidence.
-5. Run the local security-layer tests if dependencies are available.
-6. Treat staging artifacts as scoped evidence only, not as proof of full Onyx live production readiness.
+2. Review the final reviewer status snapshot for the current proof state and remaining NO-GO boundaries.
+3. Review the evidence report and execution tracker.
+4. Inspect known limitations and partner-safe claim language.
+5. Inspect the reviewer CI proof chain for recent CI-backed portfolio evidence.
+6. Run the local security-layer tests if dependencies are available.
+7. Treat staging artifacts as scoped evidence only, not as proof of full Onyx live production readiness.
 
 ## How To Run Local Security-Layer Tests
 
