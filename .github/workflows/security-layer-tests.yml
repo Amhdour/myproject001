@@ -12,6 +12,9 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      - name: Create artifact directory
+        run: mkdir -p .artifacts/security-layer-tests
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -24,8 +27,32 @@ jobs:
           # This intentionally does not stand up Onyx services and does not prove production security.
           python -m pip install pytest "pydantic==2.11.7"
 
+      - name: Record security-layer test environment
+        run: |
+          {
+            echo "Python version: $(python --version)"
+            echo "Python path: $(which python)"
+            echo "pytest CLI version: $(python -m pytest --version)"
+            echo "pytest module version: $(python -c 'import pytest; print(pytest.__version__)')"
+            echo "Working directory: $(pwd)"
+            echo "Commit SHA: ${GITHUB_SHA}"
+            echo "Branch/ref: ${GITHUB_REF}"
+            echo "Command executed: python -m pytest backend/security_layer/tests -q -ra"
+          } | tee .artifacts/security-layer-tests/environment.txt
+
       - name: Run isolated security-layer tests
         run: |
           # Passing tests prove isolated security-layer helper behavior only.
           # Passing tests do NOT prove production security, live enforcement, or full Onyx staging.
-          python -m pytest backend/security_layer/tests -q
+          set -o pipefail
+          python -m pytest backend/security_layer/tests -q -ra 2>&1 | tee .artifacts/security-layer-tests/security-layer-tests.log
+
+      - name: Upload isolated security-layer test evidence
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: isolated-security-layer-test-evidence
+          path: |
+            .artifacts/security-layer-tests/security-layer-tests.log
+            .artifacts/security-layer-tests/environment.txt
+          if-no-files-found: error
