@@ -1,0 +1,56 @@
+name: Retrieval ACL Adapter Tests
+
+on:
+  pull_request:
+    paths:
+      - "backend/security_layer/retrieval_acl/**"
+      - "backend/security_layer/tests/test_retrieval_acl_adapter.py"
+      - "docs/security/evidence/step_23_retrieval_acl_adapter_proof.md"
+      - ".github/workflows/retrieval-acl-adapter-tests.yml"
+  workflow_dispatch:
+
+jobs:
+  retrieval-acl-adapter-tests:
+    name: Isolated retrieval ACL adapter proof tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install focused test dependency
+        run: |
+          python -m pip install --upgrade pip
+          # Minimal dependency for the isolated Step 23 adapter tests only.
+          # Passing tests do NOT prove production readiness, enterprise readiness,
+          # or full Onyx live retrieval enforcement.
+          python -m pip install pytest
+
+      - name: Capture environment metadata
+        run: |
+          mkdir -p retrieval-acl-adapter-artifacts
+          {
+            echo "claim_boundary=isolated adapter proof only"
+            echo "production_readiness=NO-GO"
+            echo "enterprise_readiness=NO-GO"
+            echo "python_version=$(python --version)"
+            echo "pytest_version=$(python -m pytest --version)"
+            echo "test_command=PYTHONPATH=. python -m pytest backend/security_layer/tests/test_retrieval_acl_adapter.py -q"
+          } > retrieval-acl-adapter-artifacts/environment_metadata.txt
+
+      - name: Run focused retrieval ACL adapter tests
+        run: |
+          set -o pipefail
+          PYTHONPATH=. python -m pytest backend/security_layer/tests/test_retrieval_acl_adapter.py -q \
+            2>&1 | tee retrieval-acl-adapter-artifacts/test.log
+
+      - name: Upload retrieval ACL adapter evidence artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: retrieval-acl-adapter-test-evidence
+          path: retrieval-acl-adapter-artifacts/
