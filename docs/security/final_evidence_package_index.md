@@ -28,6 +28,14 @@
 - `docs/security/final_next_execution_plan.md`
 - `docs/security/final_partner_demo_readme.md`
 
+## Reviewer Status / CI Proof Documents
+
+- `docs/security/evidence/final_reviewer_status_snapshot.md`
+- `docs/security/evidence/reviewer_ci_proof_chain.md`
+- `docs/security/evidence/release_candidate/final_evidence_map.md`
+
+These documents make the recent CI-backed portfolio proof chain discoverable from the broader final evidence package index. They do not claim production readiness, enterprise readiness, live enforcement, live blocking, live filtering, full Onyx staging, external validation, or compliance certification.
+
 ## Helper Package
 
 - `backend/security_layer/final_review/models.py`
