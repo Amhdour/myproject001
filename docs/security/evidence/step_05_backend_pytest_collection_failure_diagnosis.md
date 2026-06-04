@@ -57,3 +57,11 @@ Do not claim backend test collection is recovered, production readiness is achie
 | Backend unit-test collection | `TEST_COLLECTION_FAILED_IN_CI` |
 | Production readiness | `NO-GO` |
 | Enterprise readiness | `NO-GO` |
+
+## Step 07 root-cause confirmation
+
+The Step 06 CI artifact showed the repeated pytest collection error `NameError: name 'SearchSettings' is not defined`. The failure came from `backend/onyx/context/search/models.py`.
+
+The root cause is confirmed: `SearchSettings` was imported only under `TYPE_CHECKING`, while the module referenced `SearchSettings` in annotations that were evaluated at runtime during pytest collection.
+
+Step 07 applies the minimal fix by postponing annotation evaluation in `backend/onyx/context/search/models.py` with `from __future__ import annotations`, preserving the type-checking-only import and avoiding a new runtime import from `onyx.db.models`.
