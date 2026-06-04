@@ -8,6 +8,7 @@
 | Branch name | `step-07-fix-searchsettings-runtime-annotation` |
 | Base branch | `step-63x-runtime-retrieval-acl-proof` |
 | Commit SHA before fix | `cbde6208299c3efdb0d16afb8e9a291394037094` |
+| Merge SHA | `d21a3e0af98edf96bb06d7976cf6f9eb1f027c6b` |
 
 ## Confirmed CI artifact failure
 
@@ -66,26 +67,35 @@ ruby -e 'require "yaml"; Dir[".github/workflows/*.yml"].each { |f| YAML.load_fil
 - `python scripts/portfolio/check_no_fake_claims.py`: passed.
 - `ruby -e 'require "yaml"; Dir[".github/workflows/*.yml"].each { |f| YAML.load_file(f) }; puts "YAML parse passed"'`: passed.
 
-## Expected CI result
+## CI validation result
 
-The Python Backend Test Collection workflow should rerun against this branch. If the only collection blocker was runtime evaluation of `SearchSettings` annotations in `backend/onyx/context/search/models.py`, backend unit-test collection is expected to proceed past this specific `NameError`.
+After PR #133, the GitHub Actions workflow `Python Backend Test Collection` completed successfully for the Step 07 head commit.
+
+Safe classification:
+
+```text
+TEST_COLLECTION_RECOVERED_BY_CI
+```
+
+This proves backend unit-test collection recovery in CI only. It does not prove full backend test execution, full application staging, production readiness, enterprise readiness, or live enforcement.
 
 ## Safe claims
 
 - The CI artifact exposed a concrete pytest collection root cause.
 - The root cause was a runtime-evaluated annotation referencing a `TYPE_CHECKING`-only import.
 - Step 07 applies the minimal annotation postponement fix to the failing module.
+- Backend unit-test collection is recovered by CI after the Step 07 fix.
 - Production readiness remains `NO-GO`.
 - Enterprise readiness remains `NO-GO`.
 
 ## Forbidden claims
 
-- Do not claim backend test collection is fully recovered until CI proves the collection command passes.
+- Do not claim full backend test success.
 - Do not claim production readiness.
 - Do not claim enterprise readiness.
-- Do not claim full backend test success.
-- Do not claim the branch is safe to merge solely from this local fix.
+- Do not claim live enforcement.
+- Do not claim full Onyx staging.
 
 ## Next step
 
-Run GitHub Actions for the Python Backend Test Collection workflow and classify the result as either `TEST_COLLECTION_RECOVERED_BY_CI` if backend collection passes or `TEST_COLLECTION_FAILED_IN_CI_NEXT_BLOCKER` if collection fails with a new traceback.
+Proceed to Step 08: add a stronger CI evidence gate for actual isolated security-layer test execution artifacts, separate from full backend unit-test collection.
