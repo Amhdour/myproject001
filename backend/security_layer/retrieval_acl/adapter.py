@@ -65,10 +65,8 @@ def adapt_onyx_like_chunk_to_retrieval_acl_chunk(
 
     Required metadata keys:
     - `tenant_id`
-    - `allowed_subject_ids`
-
-    Optional metadata key:
-    - `allowed_group_ids`
+    - at least one ACL subject or ACL group via `allowed_subject_ids` or
+      `allowed_group_ids`
 
     Missing or malformed metadata intentionally produces a malformed object for
     the Step 21 enforcer, which then fails closed instead of silently allowing.
@@ -81,7 +79,7 @@ def adapt_onyx_like_chunk_to_retrieval_acl_chunk(
     allowed_subject_ids = _metadata_string_set(chunk.metadata, "allowed_subject_ids")
     allowed_group_ids = _metadata_string_set(chunk.metadata, "allowed_group_ids")
 
-    if tenant_id is None or not allowed_subject_ids:
+    if tenant_id is None or (not allowed_subject_ids and not allowed_group_ids):
         return object()
 
     chunk_id = str(chunk.chunk_id)
