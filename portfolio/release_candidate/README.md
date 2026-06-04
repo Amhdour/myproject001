@@ -47,6 +47,7 @@ This release candidate does not mean:
 - [`portfolio/README.md`](../README.md) for reviewer navigation.
 - [`portfolio/evidence_index.md`](../evidence_index.md) for evidence mapping.
 - [`final_reviewer_path.md`](final_reviewer_path.md) for the final review order.
+- [`docs/security/evidence/reviewer_ci_proof_chain.md`](../../docs/security/evidence/reviewer_ci_proof_chain.md) for recent CI-backed portfolio proof chain evidence.
 - [`docs/security/evidence/release_candidate/final_evidence_map.md`](../../docs/security/evidence/release_candidate/final_evidence_map.md) for evidence-side mapping.
 
 ## Required commands
