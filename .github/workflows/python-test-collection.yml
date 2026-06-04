@@ -1,0 +1,33 @@
+name: Python Backend Test Collection
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  python-backend-test-collection:
+    name: Python Backend Test Collection
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install uv
+        run: |
+          python -m pip install --upgrade pip uv
+
+      - name: Sync dependencies
+        env:
+          UV_PYTHON_DOWNLOADS: never
+        run: |
+          uv sync --frozen
+
+      - name: Collect backend unit tests
+        run: |
+          source .venv/bin/activate
+          python -m pytest --collect-only backend/tests/unit -q
