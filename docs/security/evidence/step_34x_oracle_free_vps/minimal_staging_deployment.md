@@ -1,23 +1,47 @@
 # Step 34X Minimal Staging Deployment
 
-## Target
+## Deployment target and result
 
 | Field | Value |
 |---|---|
 | Target compose file | `deployment/docker_compose/docker-compose.step34x-minimal.yml` |
 | Coolify project | `rag-agent-security-minimal-staging` |
-| Expected container | `step34x-health` |
-| Expected port | `8088` |
-| Expected public URL | `http://84.8.223.251:8088` |
+| Deployment status | **VALIDATED** |
+| Container name | `step34x-health` |
+| Container image | `nginx:alpine` |
+| Container binding | `0.0.0.0:8088->80/tcp` |
+| Local health URL | `http://localhost:8088` |
+| Public URL | `http://84.8.223.251:8088` |
 
-## Expected health check
+## Health evidence
 
-HTTP 200 or HTTP 301/302/304 is acceptable from the nginx root depending on response headers.
+The local health check was validated with:
 
-## Deployment result
+```bash
+curl -I http://localhost:8088
+```
 
-**PENDING** until the user redeploys through Coolify.
+Recorded result:
 
-## Evidence boundary
+```text
+HTTP/1.1 200 OK
+Server: nginx/1.31.1
+```
 
-Codex prepared the repository-side minimal compose target only. Codex did not execute or validate a live Coolify redeploy in this update.
+Public mobile browser access to `http://84.8.223.251:8088` also worked, but was slow.
+
+## What this proves
+
+- The Oracle Ubuntu 22.04 ARM64 VPS can run Coolify.
+- Coolify can import the GitHub repository.
+- Coolify can run the minimal `nginx:alpine` deployment.
+- The minimal health container can bind `8088` publicly on the host.
+- The host can serve a basic HTTP health response from the minimal container.
+
+## What this does not prove
+
+- It does not prove full Onyx runtime readiness.
+- It does not prove production readiness.
+- It does not prove enterprise readiness.
+- It does not prove compliance certification.
+- It does not prove independent external validation beyond the reported public mobile browser access.

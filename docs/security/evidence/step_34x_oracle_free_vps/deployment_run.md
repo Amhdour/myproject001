@@ -30,6 +30,6 @@ Coolify ran Docker Compose with the repository root as the project directory whi
 
 A Coolify-specific staging compose file was added at `deployment/docker_compose/docker-compose.coolify-staging.yml`. It is based on the existing compose file but removes service-level `build:` blocks so Coolify uses the declared prebuilt images instead of attempting local image builds from relative contexts.
 
-## Live redeploy status
+## Follow-up minimal deployment status
 
-No live redeploy was executed by Codex as part of this repository change. A future approved operator should redeploy using `deployment/docker_compose/docker-compose.coolify-staging.yml` and capture sanitized deployment and smoke-test evidence.
+A later Step 34X minimal deployment was validated separately with `deployment/docker_compose/docker-compose.step34x-minimal.yml`, the `nginx:alpine` `step34x-health` container, binding `0.0.0.0:8088->80/tcp`, and a local `HTTP/1.1 200 OK` nginx health response. This earlier deployment-run record is retained to document the original full-stack blocker and does not claim that the full Onyx stack became production-ready.
