@@ -1,0 +1,57 @@
+name: Tool Authorization Runtime Tests
+
+on:
+  pull_request:
+    paths:
+      - "backend/security_layer/tool_authorization/**"
+      - "backend/security_layer/tests/test_tool_authorization_runtime.py"
+      - "docs/security/evidence/bundle_d_tool_authorization_runtime_proof.md"
+      - ".github/workflows/tool-authorization-runtime-tests.yml"
+  workflow_dispatch:
+
+jobs:
+  tool-authorization-runtime-tests:
+    name: Isolated tool authorization runtime proof tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install focused test dependency
+        run: |
+          python -m pip install --upgrade pip
+          # Minimal dependency for isolated Bundle D tests only.
+          # Passing tests do NOT prove production readiness, enterprise readiness,
+          # live agent/tool runtime enforcement, live blocking, or live filtering.
+          python -m pip install pytest
+
+      - name: Capture environment metadata
+        run: |
+          mkdir -p tool-authorization-runtime-artifacts
+          {
+            echo "claim_boundary=isolated tool authorization proof only"
+            echo "production_readiness=NO-GO"
+            echo "enterprise_readiness=NO-GO"
+            echo "live_enforcement_claimed=false"
+            echo "python_version=$(python --version)"
+            echo "pytest_version=$(python -m pytest --version)"
+            echo "test_command=PYTHONPATH=. python -m pytest backend/security_layer/tests/test_tool_authorization_runtime.py -q"
+          } > tool-authorization-runtime-artifacts/environment_metadata.txt
+
+      - name: Run focused tool authorization runtime tests
+        run: |
+          set -o pipefail
+          PYTHONPATH=. python -m pytest backend/security_layer/tests/test_tool_authorization_runtime.py -q \
+            2>&1 | tee tool-authorization-runtime-artifacts/test.log
+
+      - name: Upload tool authorization runtime evidence artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tool-authorization-runtime-test-evidence
+          path: tool-authorization-runtime-artifacts/
