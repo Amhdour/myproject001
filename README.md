@@ -14,6 +14,15 @@ The final accelerated portfolio-release-candidate package for `v0.1.0-portfolio-
 This release candidate prepares the portfolio for professional review. It does not prove production readiness, enterprise readiness, external validation, compliance certification, full Onyx staging, live enforcement, live blocking, or live filtering.
 
 
+## Reviewer CI Proof Chain
+
+For reviewers who want the fastest path to recent CI-backed portfolio evidence, start here:
+
+- [`docs/security/evidence/reviewer_ci_proof_chain.md`](docs/security/evidence/reviewer_ci_proof_chain.md)
+
+This proof chain links backend test collection recovery, isolated security-layer test execution, a selected backend unit-test subset, and the deterministic synthetic demo attack runner. It is portfolio evidence only and does not prove production readiness, enterprise readiness, live enforcement, live blocking, live filtering, full Onyx staging, external validation, or compliance certification.
+
+
 ## Final Portfolio Case Study
 
 The final reviewer-facing case study and audience-specific guides are available here:
@@ -118,86 +127,3 @@ My portfolio contribution is the security-readiness and evidence layer around th
 - Custom portfolio polish beyond this first README hardening step.
 - GitHub Actions CI gates for security-layer tests if not already present.
 - Full reviewer evidence package.
-- Screenshots/video walkthrough for reviewers.
-- Full Onyx live staging remains resource-blocked unless proven otherwise by real evidence.
-- External validation remains pending.
-- Compliance is not claimed.
-- Production and enterprise readiness remain NO-GO.
-
-## How To Review This Project
-
-Start with these security-readiness documents:
-
-- [`docs/security/README.md`](docs/security/README.md)
-- [`docs/security/execution_tracker.md`](docs/security/execution_tracker.md)
-- [`docs/security/evidence_report.md`](docs/security/evidence_report.md)
-- [`docs/security/known_limitations.md`](docs/security/known_limitations.md)
-- [`docs/security/partner_safe_claims.md`](docs/security/partner_safe_claims.md)
-- [`docs/security/final_claim_boundary.md`](docs/security/final_claim_boundary.md)
-- [`docs/security/final_evidence_package_index.md`](docs/security/final_evidence_package_index.md)
-
-Recommended reviewer path:
-
-1. Read the final claim boundary before evaluating readiness claims.
-2. Review the evidence report and execution tracker.
-3. Inspect known limitations and partner-safe claim language.
-4. Run the local security-layer tests if dependencies are available.
-5. Treat staging artifacts as scoped evidence only, not as proof of full Onyx live production readiness.
-
-## How To Run Local Security-Layer Tests
-
-Run the isolated security-layer test suite from the repository root:
-
-```bash
-PYTHONPATH=. python -m pytest backend/security_layer/tests -q
-```
-
-If dependencies are missing, treat that as a local execution blocker and document the exact failure. Do not mark tests passed unless this command actually passes in the current environment.
-
-## Deployment / Staging Status
-
-- Oracle/Coolify minimal staging path exists where repository evidence supports it.
-- Full Onyx live staging is resource-blocked / NO-GO unless evidence proves otherwise.
-- Minimal nginx/health-check staging is not equivalent to full production deployment.
-- Production readiness remains NO-GO.
-- Enterprise readiness remains NO-GO.
-- No live enforce-mode, shadow-deny runtime mode, live blocking, or live filtering is claimed by this README.
-
-## Safe Claims
-
-- Portfolio security-readiness project.
-- Partner-demo evidence room.
-- Isolated security-control helpers and tests.
-- Launch-gate and claim-boundary discipline.
-- Production-style demo, not enterprise deployment.
-
-## Forbidden Claims
-
-- Production-ready.
-- Enterprise-ready.
-- Compliance-certified.
-- Externally validated.
-- Live enforce-mode protection.
-- Live shadow-deny runtime.
-- Live blocking/filtering.
-- Full Onyx production deployment.
-
-## Next Accelerated Steps
-
-1. Add portfolio/ reviewer package.
-2. Add GitHub Actions CI for security-layer tests.
-3. Add evidence validation script.
-4. Add demo attack runner/evidence index.
-5. Add Oracle/Coolify minimal staging evidence package.
-
-## Upstream Onyx References
-
-This portfolio is built on top of upstream Onyx. Reviewers who want to understand the base platform can consult:
-
-- Upstream Onyx repository: <https://github.com/onyx-dot-app/onyx>
-- Upstream Onyx documentation: <https://docs.onyx.app/>
-- Upstream Onyx community: <https://discord.gg/TDJ59cGV2X>
-- Upstream Onyx license reference: <https://github.com/onyx-dot-app/onyx/blob/main/LICENSE>
-- This repository's contribution guide, if contributing code: [`CONTRIBUTING.md`](CONTRIBUTING.md)
-
-The upstream links describe Onyx as a platform. This repository's portfolio value is the security-readiness documentation, evidence room, isolated helper layer, and launch-gate/claim-boundary discipline around an Onyx-based RAG and agent system.
