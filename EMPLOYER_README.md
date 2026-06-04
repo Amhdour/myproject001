@@ -4,6 +4,14 @@
 
 **AI Trust & Security Readiness Engineer specializing in RAG and Autonomous Agents.**
 
+## Fast reviewer status
+
+For the shortest current proof-state summary, review:
+
+- [`docs/security/evidence/final_reviewer_status_snapshot.md`](docs/security/evidence/final_reviewer_status_snapshot.md)
+
+This snapshot separates CI-backed portfolio evidence from what remains `NO-GO`, `PENDING`, or `NOT CLAIMED`. It does not prove production readiness, enterprise readiness, external validation, compliance certification, full Onyx live staging, live enforcement, live blocking, or live filtering.
+
 ## What skills this repo demonstrates
 
 This repository is intended to demonstrate:
