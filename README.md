@@ -14,6 +14,15 @@ The final accelerated portfolio-release-candidate package for `v0.1.0-portfolio-
 This release candidate prepares the portfolio for professional review. It does not prove production readiness, enterprise readiness, external validation, compliance certification, full Onyx staging, live enforcement, live blocking, or live filtering.
 
 
+## Reviewer CI Proof Chain
+
+For reviewers who want the fastest path to recent CI-backed portfolio evidence, start here:
+
+- [`docs/security/evidence/reviewer_ci_proof_chain.md`](docs/security/evidence/reviewer_ci_proof_chain.md)
+
+This proof chain links backend test collection recovery, isolated security-layer test execution, a selected backend unit-test subset, and the deterministic synthetic demo attack runner. It is portfolio evidence only and does not prove production readiness, enterprise readiness, live enforcement, live blocking, live filtering, full Onyx staging, external validation, or compliance certification.
+
+
 ## Final Portfolio Case Study
 
 The final reviewer-facing case study and audience-specific guides are available here:
@@ -135,14 +144,16 @@ Start with these security-readiness documents:
 - [`docs/security/partner_safe_claims.md`](docs/security/partner_safe_claims.md)
 - [`docs/security/final_claim_boundary.md`](docs/security/final_claim_boundary.md)
 - [`docs/security/final_evidence_package_index.md`](docs/security/final_evidence_package_index.md)
+- [`docs/security/evidence/reviewer_ci_proof_chain.md`](docs/security/evidence/reviewer_ci_proof_chain.md)
 
 Recommended reviewer path:
 
 1. Read the final claim boundary before evaluating readiness claims.
 2. Review the evidence report and execution tracker.
 3. Inspect known limitations and partner-safe claim language.
-4. Run the local security-layer tests if dependencies are available.
-5. Treat staging artifacts as scoped evidence only, not as proof of full Onyx live production readiness.
+4. Inspect the reviewer CI proof chain for recent CI-backed portfolio evidence.
+5. Run the local security-layer tests if dependencies are available.
+6. Treat staging artifacts as scoped evidence only, not as proof of full Onyx live production readiness.
 
 ## How To Run Local Security-Layer Tests
 
