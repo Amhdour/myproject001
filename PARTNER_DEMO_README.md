@@ -4,17 +4,27 @@
 
 This document is for a partner or demo reviewer who wants a fast, safe walkthrough of the portfolio without interpreting it as a production attestation.
 
+## Fast reviewer status
+
+For the shortest current proof-state summary, review:
+
+- [`docs/security/evidence/final_reviewer_status_snapshot.md`](docs/security/evidence/final_reviewer_status_snapshot.md)
+
+This snapshot separates CI-backed portfolio evidence from what remains `NO-GO`, `PENDING`, or `NOT CLAIMED`. It does not prove production readiness, enterprise readiness, external validation, compliance certification, full Onyx live staging, live enforcement, live blocking, or live filtering.
+
 ## 5-minute demo flow
 
 1. Open the root `README.md` and confirm the NO-GO / PENDING / NOT CLAIMED status language.
-2. Open `PORTFOLIO_CASE_STUDY.md` for the final narrative.
-3. Open `CLAIM_BOUNDARY.md` before reviewing any readiness claim.
-4. Open `portfolio/evidence_index.md` and the final evidence package.
-5. Run the local demo and portfolio checks listed below.
+2. Open `docs/security/evidence/final_reviewer_status_snapshot.md` for the shortest current proof-state summary.
+3. Open `PORTFOLIO_CASE_STUDY.md` for the final narrative.
+4. Open `CLAIM_BOUNDARY.md` before reviewing any readiness claim.
+5. Open `portfolio/evidence_index.md` and the final evidence package.
+6. Run the local demo and portfolio checks listed below.
 
 ## Where to click/read
 
 - Root orientation: `README.md`.
+- Final reviewer status snapshot: `docs/security/evidence/final_reviewer_status_snapshot.md`.
 - Final case study: `PORTFOLIO_CASE_STUDY.md`.
 - Client view: `CLIENT_README.md`.
 - Employer view: `EMPLOYER_README.md`.
