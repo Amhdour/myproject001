@@ -1,0 +1,57 @@
+name: Search Pipeline Seam Tests
+
+on:
+  pull_request:
+    paths:
+      - "backend/onyx/context/search/pipeline.py"
+      - "backend/security_layer/tests/test_retrieval_acl_search_pipeline_seam.py"
+      - "docs/security/evidence/step_41_search_pipeline_seam_tests.md"
+      - ".github/workflows/search-pipeline-seam-tests.yml"
+  workflow_dispatch:
+
+jobs:
+  search-pipeline-seam-tests:
+    name: Source-level search pipeline seam tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install focused test dependency
+        run: |
+          python -m pip install --upgrade pip
+          # Minimal dependency for Step 41 seam tests only.
+          # Passing tests do NOT prove live Onyx retrieval enforcement,
+          # production readiness, enterprise readiness, live blocking, or live filtering.
+          python -m pip install pytest
+
+      - name: Capture environment metadata
+        run: |
+          mkdir -p search-pipeline-seam-artifacts
+          {
+            echo "claim_boundary=source-level seam proof only"
+            echo "production_readiness=NO-GO"
+            echo "enterprise_readiness=NO-GO"
+            echo "live_enforcement_claimed=false"
+            echo "python_version=$(python --version)"
+            echo "pytest_version=$(python -m pytest --version)"
+            echo "test_command=PYTHONPATH=. python -m pytest backend/security_layer/tests/test_retrieval_acl_search_pipeline_seam.py -q"
+          } > search-pipeline-seam-artifacts/environment_metadata.txt
+
+      - name: Run focused search pipeline seam tests
+        run: |
+          set -o pipefail
+          PYTHONPATH=. python -m pytest backend/security_layer/tests/test_retrieval_acl_search_pipeline_seam.py -q \
+            2>&1 | tee search-pipeline-seam-artifacts/test.log
+
+      - name: Upload search pipeline seam evidence artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: search-pipeline-seam-test-evidence
+          path: search-pipeline-seam-artifacts/
