@@ -1,0 +1,50 @@
+name: Demo Attack Runner
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  demo-attack-runner:
+    name: Synthetic demo attack execution
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Create artifact directory
+        run: mkdir -p .artifacts/demo-attack-runner
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Record demo attack environment
+        run: |
+          {
+            echo "Python version: $(python --version)"
+            echo "Python path: $(which python)"
+            echo "Working directory: $(pwd)"
+            echo "Commit SHA: ${GITHUB_SHA}"
+            echo "Branch/ref: ${GITHUB_REF}"
+            echo "Command executed: python demo_attacks/run_demo_attacks.py"
+            echo "Scope: deterministic synthetic portfolio demo only"
+            echo "Network/tool/MCP calls expected: no"
+            echo "Runtime behavior modification expected: no"
+          } | tee .artifacts/demo-attack-runner/environment.txt
+
+      - name: Run synthetic demo attacks
+        run: |
+          set -o pipefail
+          python demo_attacks/run_demo_attacks.py 2>&1 | tee .artifacts/demo-attack-runner/demo-attack-runner.log
+
+      - name: Upload demo attack runner evidence
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: demo-attack-runner-evidence
+          path: |
+            .artifacts/demo-attack-runner/demo-attack-runner.log
+            .artifacts/demo-attack-runner/environment.txt
+          if-no-files-found: error
