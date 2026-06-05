@@ -576,3 +576,19 @@ Step 57X changes external-validation status from pending evidence preparation to
 - Enterprise production-candidate readiness remains NO-GO / 7–9%.
 - Real external validation remains pending.
 - Compliance certification is NOT CLAIMED.
+
+---
+
+# Known Limitations Addendum — Security Readiness MVP (2026-06-05)
+
+- This MVP is not production-ready or enterprise-ready.
+- No external audit was performed.
+- No compliance certification is claimed or implied.
+- GitHub Actions was configured but not executed from this environment.
+- Staging and live deployed route validation were not performed.
+- Full backend tests were blocked by missing local dependencies / Python platform constraints.
+- The MVP retrieval hook is patched into the real retrieval search runner, but the added service-level tests do not exercise a live API route.
+- Generic `tool.execute`, `artifact.download`, and `sandbox.execute` policy categories exist, but this PR does not wire the enforcer into every production tool, artifact, or sandbox path.
+- Prompt-injection scanning of retrieved content is not implemented by this MVP. The demo test records this as an allow/limitation, not a blocked result.
+- Audit and telemetry implementations are in-memory/sample emitters suitable for deterministic tests and portfolio evidence; they are not production observability integrations.
+- Next work should wire the enforcer into selected tool/sandbox/artifact executors, add live route tests, run GitHub Actions, and produce staging evidence.

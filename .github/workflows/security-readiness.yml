@@ -1,0 +1,30 @@
+name: Security Readiness MVP
+
+on:
+  pull_request:
+    paths:
+      - "backend/security/**"
+      - "backend/tests/security/**"
+      - "docs/security/**"
+      - "scripts/security/**"
+      - ".github/workflows/security-readiness.yml"
+  push:
+    branches:
+      - portfolio-readiness-mvp
+
+jobs:
+  security-readiness:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install minimal test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pytest pydantic
+      - name: Run security unit and demo attack tests
+        run: PYTHONPATH=. pytest -q --confcutdir=backend/tests/security backend/tests/security
+      - name: Validate security evidence files
+        run: python scripts/security/validate_security_evidence.py

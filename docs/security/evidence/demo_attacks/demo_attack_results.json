@@ -1,0 +1,42 @@
+[
+  {
+    "attack_name": "cross-tenant retrieval attempt",
+    "threat": "tenant isolation bypass via retrieved chunk metadata",
+    "expected_blocked_behavior": "deny",
+    "actual_decision": "deny",
+    "evidence": "backend/tests/security/demo_attacks/test_cross_tenant_retrieval_attack.py",
+    "limitation": "service-level demo plus retrieval hook patch; not a live deployed route test"
+  },
+  {
+    "attack_name": "missing-tenant retrieval attempt",
+    "threat": "retrieval without tenant context",
+    "expected_blocked_behavior": "deny",
+    "actual_decision": "deny",
+    "evidence": "backend/tests/security/demo_attacks/test_missing_tenant_retrieval_attack.py",
+    "limitation": "service-level demo; live API deployment not exercised"
+  },
+  {
+    "attack_name": "high-risk tool execution without approval",
+    "threat": "unsafe autonomous tool action",
+    "expected_blocked_behavior": "approval_required",
+    "actual_decision": "approval_required",
+    "evidence": "backend/tests/security/demo_attacks/test_high_risk_tool_without_approval.py",
+    "limitation": "generic tool policy path; not wired to every production tool executor"
+  },
+  {
+    "attack_name": "prompt injection in retrieved content",
+    "threat": "malicious retrieved text attempts instruction override",
+    "expected_blocked_behavior": "not implemented",
+    "actual_decision": "allow",
+    "evidence": "backend/tests/security/demo_attacks/test_prompt_injection_retrieval_attack.py",
+    "limitation": "content scanning for prompt injection is documented as not yet implemented by this MVP"
+  },
+  {
+    "attack_name": "unsafe sandbox action",
+    "threat": "critical sandbox command execution",
+    "expected_blocked_behavior": "approval_required",
+    "actual_decision": "approval_required",
+    "evidence": "backend/tests/security/demo_attacks/test_unsafe_artifact_or_sandbox_action.py",
+    "limitation": "policy decision tested; not wired to every sandbox launch path"
+  }
+]

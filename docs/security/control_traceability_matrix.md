@@ -280,3 +280,16 @@ Mapped controls for R-RPATCH-001 through R-RPATCH-008.
 | Control ID | Requirement(s) | Risk(s) | Runtime hook | Test evidence | Evidence artifact | Status |
 |---|---|---|---|---|---|---|
 | STEP39X-RET-001 | SR-RET-001, SR-AUDIT-001, SR-DLP-001 | Cross-tenant retrieval, missing subject context, unsafe denial leakage | `backend/onyx/context/search/retrieval/search_runner.py` Step 39X hook + `backend/security_layer/runtime_enforcement/retrieval_adapter.py` | `backend/security_layer/tests/test_step_39x_runtime_enforcement.py` | `docs/security/evidence/step_39x_runtime_enforcement_proof/` | Minimal runtime-facing proof only; enterprise production readiness remains NO-GO. |
+
+---
+
+# Control Traceability Matrix Addendum — Security Readiness MVP (2026-06-05)
+
+| Control | Threat | Policy rule | Enforcement file | Test file | Demo attack | Audit evidence | Telemetry evidence | CI gate | Limitation |
+|---|---|---|---|---|---|---|---|---|---|
+| Missing user default-deny | Anonymous/ambiguous actor retrieves data | `missing_user_id_default_deny` | `backend/security/enforcement/security_enforcer.py` | `backend/tests/security/test_policy_decision.py` | Missing user covered in service-level tests | `docs/security/evidence/audit/sample_security_audit_events.jsonl` | `docs/security/evidence/telemetry/sample_security_metrics.json` | `.github/workflows/security-readiness.yml` | Live route not exercised. |
+| Missing tenant default-deny | Tenantless request bypasses isolation | `missing_tenant_id_default_deny` | `backend/security/enforcement/security_enforcer.py` | `backend/tests/security/test_policy_decision.py` | `test_missing_tenant_retrieval_attack.py` | Audit sample | Telemetry sample | Security readiness workflow | Live route not exercised. |
+| Cross-tenant deny | Tenant isolation bypass | `cross_tenant_access_default_deny` | `backend/security/enforcement/security_enforcer.py`; retrieval hook in `search_runner.py` | `test_security_enforcement_integration.py` | `test_cross_tenant_retrieval_attack.py` | Audit sample | Telemetry sample | Security readiness workflow | Retrieval hook patched; broader route validation pending. |
+| Unknown action deny | Policy bypass via unsupported action | `unknown_action_default_deny` | `backend/security/policy/security_policy.py` | `test_policy_decision.py` | Not a standalone demo attack | Audit capable | Telemetry capable | Security readiness workflow | Not wired to every possible app action. |
+| High-risk tool/sandbox approval | Autonomous unsafe action executes without approval | `high_risk_action_requires_approval` | `backend/security/enforcement/security_enforcer.py` | `test_security_enforcer.py` | `test_high_risk_tool_without_approval.py`; `test_unsafe_artifact_or_sandbox_action.py` | Audit sample | Telemetry sample | Security readiness workflow | Generic MVP control; not wired to every production tool/sandbox path. |
+| Monitor-only logging | Observed risky behavior lacks evidence | `monitor_only_mode_observed` | `backend/security/enforcement/security_enforcer.py` | `test_security_enforcer.py` | Not a blocking attack | Audit sample | Telemetry sample | Security readiness workflow | Monitor-only is evidence-only and intentionally does not block. |

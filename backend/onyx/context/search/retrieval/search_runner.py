@@ -20,6 +20,7 @@ from onyx.federated_connectors.federated_retrieval import (
 )
 from onyx.natural_language_processing.search_nlp_models import EmbeddingModel
 from onyx.security_layer.retrieval_guard.guard import apply_retrieval_acl_guard
+from backend.security.enforcement.security_enforcer import SecurityEnforcer
 from onyx.utils.logger import setup_logger
 from onyx.utils.threadpool_concurrency import run_functions_tuples_in_parallel
 from backend.security_layer.retrieval.integration_flags import default_retrieval_integration_config
@@ -174,6 +175,13 @@ def search_chunks(
             query_request.filters,
         )
 
+    top_chunks = _apply_portfolio_readiness_retrieval_enforcement(
+        query_request=query_request,
+        user_id=user_id,
+        session_id=session_id,
+        chunks=top_chunks,
+    )
+
     guard_result = apply_retrieval_acl_guard(
         top_chunks,
         tenant_id=query_request.filters.tenant_id,
@@ -193,6 +201,53 @@ def search_chunks(
         session_id=session_id,
         chunks=monitored_chunks,
     )
+
+
+def _apply_portfolio_readiness_retrieval_enforcement(
+    query_request: ChunkIndexRequest,
+    user_id: UUID | None,
+    session_id: str | None,
+    chunks: list[InferenceChunk],
+) -> list[InferenceChunk]:
+    """MVP portfolio-readiness runtime gate for the real retrieval path.
+
+    This gate is intentionally narrow: it validates user/tenant context and
+    filters cross-tenant retrieval chunks before legacy retrieval ACL handling.
+    It uses in-memory audit/telemetry hooks so unit and CI tests do not require
+    production monitoring or database services.
+    """
+    allowed_chunks: list[InferenceChunk] = []
+    enforcer = SecurityEnforcer()
+    for chunk in chunks:
+        resource_tenant_id = chunk.metadata.get("tenant_id")
+        if isinstance(resource_tenant_id, list):
+            resource_tenant_id = resource_tenant_id[0] if resource_tenant_id else None
+        result = enforcer.evaluate(
+            {
+                "user_id": str(user_id) if user_id is not None else None,
+                "tenant_id": query_request.filters.tenant_id,
+                "resource_type": "retrieval_chunk",
+                "resource_id": f"{chunk.document_id}:{chunk.chunk_id}",
+                "action": "retrieval.read",
+                "source": "search_runner",
+                "risk_level": "medium",
+                "correlation_id": session_id or "retrieval-search-runner",
+                "resource_tenant_id": (
+                    str(resource_tenant_id)
+                    if resource_tenant_id is not None
+                    else query_request.filters.tenant_id
+                ),
+            },
+            enforcement_point="onyx.context.search.retrieval.search_runner",
+            details={
+                "document_id": chunk.document_id,
+                "chunk_id": chunk.chunk_id,
+                "secret_token": "redaction-check",
+            },
+        )
+        if not result.blocked:
+            allowed_chunks.append(chunk)
+    return allowed_chunks
 
 
 def _apply_monitor_only_live_acl_hook(

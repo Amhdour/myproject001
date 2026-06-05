@@ -791,3 +791,73 @@ Step 62X records architecture/configuration readiness for simulated finding `SIM
 Classification: `DURABLE_DEPLOYMENT_ARCHITECTURE_READY_RETEST_PENDING`.
 
 Readiness boundaries remain unchanged: production-style portfolio readiness is 92%; enterprise production-candidate is NO-GO / 7–9%; external validation is simulated response only / real validation pending; compliance certification is NOT CLAIMED.
+
+---
+
+# Security Evidence Report Addendum — Portfolio Readiness MVP (2026-06-05)
+
+## Scope
+
+This MVP implements a minimal runtime security-readiness layer for selected RAG/agent control points: policy-as-code, security context validation, default-deny decisions, runtime enforcement, audit logging, telemetry samples, negative tests, demo attacks, and evidence validation.
+
+## MVP controls implemented
+
+- Default-deny for missing `user_id`, missing `tenant_id`, unknown action, and cross-tenant access.
+- `approval_required` for high-risk `tool.execute` and `sandbox.execute` actions unless approved.
+- `monitor_only` decision that logs and records telemetry without blocking.
+- Policy version included in every decision.
+- Retrieval path hook added before legacy ACL guard in `backend/onyx/context/search/retrieval/search_runner.py`.
+
+## Exact files changed
+
+Primary implementation files are under `backend/security/`, tests under `backend/tests/security/`, evidence under `docs/security/evidence/`, and CI under `.github/workflows/security-readiness.yml`.
+
+## Tests added
+
+- `backend/tests/security/test_policy_decision.py`
+- `backend/tests/security/test_security_enforcer.py`
+- `backend/tests/security/test_security_audit_logger.py`
+- `backend/tests/security/test_security_metrics.py`
+- `backend/tests/security/test_security_enforcement_integration.py`
+
+## Demo attacks added
+
+- Cross-tenant retrieval attempt.
+- Missing-tenant retrieval attempt.
+- High-risk tool execution without approval.
+- Prompt-injection-in-retrieved-content limitation test.
+- Unsafe sandbox action requiring approval.
+
+## Audit and telemetry evidence
+
+- Audit: `docs/security/evidence/audit/sample_security_audit_events.jsonl`
+- Telemetry: `docs/security/evidence/telemetry/sample_security_metrics.json`
+- Demo attack results: `docs/security/evidence/demo_attacks/demo_attack_results.md` and `.json`
+
+## CI gate
+
+Added `.github/workflows/security-readiness.yml`. It installs minimal dependencies, runs `PYTHONPATH=. pytest -q --confcutdir=backend/tests/security backend/tests/security`, and validates evidence files.
+
+## What passed locally
+
+- `PYTHONPATH=. pytest -q --confcutdir=backend/tests/security backend/tests/security` — passed, 25 tests.
+- `PYTHONPATH=. pytest -q --confcutdir=backend/tests/security backend/tests/security/demo_attacks` — passed, 5 tests.
+- `python scripts/security/validate_security_evidence.py` — passed.
+
+## What was not run
+
+- GitHub Actions was not run from this container.
+- Full backend test suite was not run successfully because this container lacks full backend dependencies.
+- Staging/live route tests were not run.
+
+## Safe portfolio claims
+
+This repository demonstrates an MVP security-readiness layer for selected RAG/agent control points, including policy-as-code decisions, runtime enforcement, deny/approval behavior, audit logging, telemetry samples, negative tests, demo attacks, CI configuration, and evidence reporting.
+
+## Unsafe claims to avoid
+
+Do not claim production-ready, enterprise-ready, fully secure, externally audited, certified, compliance-ready, or deployed/staging-validated.
+
+## Readiness percentage after implementation
+
+Final portfolio readiness: **85%**, capped because CI was configured but not run in GitHub Actions.
