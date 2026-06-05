@@ -1,9 +1,11 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from typing import TYPE_CHECKING
 from typing import Final
 
-from backend.security_layer.retrieval_acl.enforce_hook import RetrievalACLDecision
+if TYPE_CHECKING:
+    from backend.security_layer.retrieval_acl.enforce_hook import RetrievalACLDecision
 
 RETRIEVAL_ACL_AUDIT_EVENT_TYPE: Final[str] = "retrieval_acl.decision"
 RETRIEVAL_ACL_CONTROL_ID: Final[str] = "retrieval-acl-enforcement-v1"
