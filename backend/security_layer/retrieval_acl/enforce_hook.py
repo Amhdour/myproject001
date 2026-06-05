@@ -16,6 +16,9 @@ from backend.security_layer.retrieval_acl.metadata_adapter import (
 from backend.security_layer.retrieval_acl.noop_seam_hook import (
     apply_retrieval_acl_search_pipeline_noop_hook,
 )
+from backend.security_layer.retrieval_acl.telemetry_counters import (
+    record_retrieval_acl_telemetry_decision,
+)
 
 ChunkT = TypeVar("ChunkT")
 
@@ -128,6 +131,10 @@ def apply_retrieval_acl_enforcement_hook(
             mode=resolved_config.mode,
         )
         decisions.append(decision)
+        record_retrieval_acl_telemetry_decision(
+            allowed=decision.allowed,
+            reason=decision.reason,
+        )
 
         if decision.allowed:
             returned_chunks.append(chunk)
