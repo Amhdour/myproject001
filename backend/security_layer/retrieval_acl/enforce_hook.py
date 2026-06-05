@@ -11,6 +11,9 @@ from backend.security_layer.retrieval_acl.integration_config import (
 from backend.security_layer.retrieval_acl.integration_config import (
     RetrievalACLIntegrationConfig,
 )
+from backend.security_layer.retrieval_acl.noop_seam_hook import (
+    apply_retrieval_acl_search_pipeline_noop_hook,
+)
 
 ChunkT = TypeVar("ChunkT")
 
@@ -142,3 +145,35 @@ def apply_retrieval_acl_enforcement_hook(
         returned_chunk_count=len(returned_chunks),
         behavior_changed=len(returned_chunks) != len(chunks),
     )
+
+
+def apply_retrieval_acl_real_path_enforcement_hook(
+    *,
+    chunks: list[ChunkT],
+    user_tenant_id: str | None,
+    env: dict[str, str] | None = None,
+    config: RetrievalACLIntegrationConfig | None = None,
+) -> list[ChunkT]:
+    """Apply the real search-pipeline ACL hook at the post-censoring seam.
+
+    Off and shadow modes deliberately delegate to the existing no-op seam hook so
+    prior behavior and reviewer-safe shadow observations are preserved. Enforce
+    mode delegates to Retrieval ACL Enforcement v1 and returns only allowed
+    chunks. Missing tenant/document metadata remains fail-closed inside the
+    enforcement helper.
+    """
+
+    resolved_config = config or get_retrieval_acl_integration_config(env=env)
+
+    if not resolved_config.is_enforce:
+        return apply_retrieval_acl_search_pipeline_noop_hook(
+            chunks=chunks,
+            env=env,
+            config=resolved_config,
+        )
+
+    return apply_retrieval_acl_enforcement_hook(
+        chunks=chunks,
+        user_tenant_id=user_tenant_id,
+        config=resolved_config,
+    ).returned_chunks

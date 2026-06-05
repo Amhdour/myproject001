@@ -12,18 +12,18 @@ def _pipeline_source() -> str:
     return PIPELINE_PATH.read_text(encoding="utf-8")
 
 
-def test_real_search_pipeline_imports_noop_hook() -> None:
+def test_real_search_pipeline_imports_real_path_enforcement_hook() -> None:
     source = _pipeline_source()
 
-    assert "from backend.security_layer.retrieval_acl.noop_seam_hook import (" in source
-    assert "apply_retrieval_acl_search_pipeline_noop_hook," in source
+    assert "from backend.security_layer.retrieval_acl.enforce_hook import (" in source
+    assert "apply_retrieval_acl_real_path_enforcement_hook," in source
 
 
-def test_real_search_pipeline_return_path_uses_noop_hook() -> None:
+def test_real_search_pipeline_return_path_uses_real_path_hook() -> None:
     source = _pipeline_source()
 
     assert "censored_chunks: list[InferenceChunk] = fetch_ee_implementation_or_noop(" in source
-    assert "return apply_retrieval_acl_search_pipeline_noop_hook(chunks=censored_chunks)" in source
+    assert "return apply_retrieval_acl_real_path_enforcement_hook(" in source
     assert "return censored_chunks" not in source
 
 

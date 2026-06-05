@@ -4,7 +4,7 @@ from pathlib import Path
 
 
 PIPELINE_PATH = Path("backend/onyx/context/search/pipeline.py")
-NOOP_HOOK_RETURN = "return apply_retrieval_acl_search_pipeline_noop_hook(chunks=censored_chunks)"
+REAL_PATH_HOOK_RETURN = "return apply_retrieval_acl_real_path_enforcement_hook("
 
 
 def _pipeline_source() -> str:
@@ -33,7 +33,7 @@ def test_post_retrieval_censoring_and_return_path_are_stable() -> None:
     assert '"onyx.external_permissions.post_query_censoring"' in source
     assert '"_post_query_chunk_censoring"' in source
     assert "chunks=retrieved_chunks" in source
-    assert NOOP_HOOK_RETURN in source
+    assert REAL_PATH_HOOK_RETURN in source
 
 
 def test_real_seam_is_documented_as_observation_only_or_noop_hook_boundary() -> None:
