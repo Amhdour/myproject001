@@ -1,0 +1,42 @@
+{
+  "demo_attack_blocked_total": 2,
+  "enforcement_fail_closed_total": 0,
+  "policy_evaluation_latency_ms": {
+    "avg": 0.0561,
+    "count": 4,
+    "samples": [
+      {
+        "action": "retrieval.read",
+        "correlation_id": "corr-security-test",
+        "decision": "allow",
+        "metric_name": "policy_evaluation_latency_ms",
+        "value": 0.1591
+      },
+      {
+        "action": "retrieval.read",
+        "correlation_id": "corr-security-test",
+        "decision": "deny",
+        "metric_name": "policy_evaluation_latency_ms",
+        "value": 0.0297
+      },
+      {
+        "action": "tool.execute",
+        "correlation_id": "corr-security-test",
+        "decision": "approval_required",
+        "metric_name": "policy_evaluation_latency_ms",
+        "value": 0.0207
+      },
+      {
+        "action": "retrieval.read",
+        "correlation_id": "corr-security-test",
+        "decision": "monitor_only",
+        "metric_name": "policy_evaluation_latency_ms",
+        "value": 0.015
+      }
+    ]
+  },
+  "security_approval_required_total": 1,
+  "security_decision_total": 4,
+  "security_denied_total": 1,
+  "security_monitor_only_total": 1
+}

@@ -1,0 +1,32 @@
+policy_version: portfolio-readiness-mvp-v1
+default_behavior: deny
+supported_actions:
+  - retrieval.read
+  - document.access
+  - tool.execute
+  - artifact.download
+  - sandbox.execute
+risk_levels:
+  - low
+  - medium
+  - high
+  - critical
+rules:
+  - id: missing-user
+    decision: deny
+    reason: missing_user_id_default_deny
+  - id: missing-tenant
+    decision: deny
+    reason: missing_tenant_id_default_deny
+  - id: unknown-action
+    decision: deny
+    reason: unknown_action_default_deny
+  - id: cross-tenant
+    decision: deny
+    reason: cross_tenant_access_default_deny
+  - id: high-risk-tool-or-sandbox
+    decision: approval_required
+    reason: high_risk_action_requires_approval
+  - id: monitor-only
+    decision: monitor_only
+    reason: monitor_only_mode_observed
