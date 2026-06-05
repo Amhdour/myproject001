@@ -1,0 +1,60 @@
+name: Retrieval ACL Live-Adjacent Seam Tests
+
+on:
+  pull_request:
+    paths:
+      - "backend/security_layer/retrieval_acl/**"
+      - "backend/security_layer/tests/test_retrieval_acl_live_adjacent_seam.py"
+      - "docs/security/evidence/bundle_h_retrieval_acl_live_adjacent_seam_proof.md"
+      - ".github/workflows/retrieval-acl-live-adjacent-seam-tests.yml"
+  workflow_dispatch:
+
+jobs:
+  retrieval-acl-live-adjacent-seam-tests:
+    name: Default-off live-adjacent seam observation proof tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install focused test dependency
+        run: |
+          python -m pip install --upgrade pip
+          # Minimal dependency for isolated Bundle H tests only.
+          # Passing tests do NOT prove production readiness, enterprise readiness,
+          # live Onyx integration, live enforcement, live blocking, or live filtering.
+          python -m pip install pytest
+
+      - name: Capture environment metadata
+        run: |
+          mkdir -p retrieval-acl-live-adjacent-seam-artifacts
+          {
+            echo "claim_boundary=default-off live-adjacent seam observation proof only"
+            echo "production_readiness=NO-GO"
+            echo "enterprise_readiness=NO-GO"
+            echo "live_integration_claimed=false"
+            echo "live_enforcement_claimed=false"
+            echo "feature_flag=ONYX_SECURITY_RETRIEVAL_ACL_MODE"
+            echo "default_mode=off"
+            echo "python_version=$(python --version)"
+            echo "pytest_version=$(python -m pytest --version)"
+            echo "test_command=PYTHONPATH=. python -m pytest backend/security_layer/tests/test_retrieval_acl_live_adjacent_seam.py -q"
+          } > retrieval-acl-live-adjacent-seam-artifacts/environment_metadata.txt
+
+      - name: Run focused retrieval ACL live-adjacent seam tests
+        run: |
+          set -o pipefail
+          PYTHONPATH=. python -m pytest backend/security_layer/tests/test_retrieval_acl_live_adjacent_seam.py -q \
+            2>&1 | tee retrieval-acl-live-adjacent-seam-artifacts/test.log
+
+      - name: Upload retrieval ACL live-adjacent seam evidence artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: retrieval-acl-live-adjacent-seam-test-evidence
+          path: retrieval-acl-live-adjacent-seam-artifacts/
