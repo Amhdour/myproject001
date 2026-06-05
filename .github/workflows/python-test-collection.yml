@@ -1,0 +1,35 @@
+name: Python Backend Test Collection
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  backend-test-collection:
+    name: Backend unit-test collection proof
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
+      - name: Install repository dependencies
+        run: |
+          # Repository-supported path comes from pyproject.toml / uv.lock.
+          # This step is allowed to fail honestly if dependency resolution or import errors exist.
+          uv sync --frozen
+
+      - name: Collect backend unit tests
+        run: |
+          # This is a collection gate only. It does not prove production readiness,
+          # enterprise readiness, staging readiness, or live security enforcement.
+          uv run python -m pytest --collect-only backend/tests/unit -q
