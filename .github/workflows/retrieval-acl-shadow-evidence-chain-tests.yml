@@ -1,0 +1,37 @@
+name: Retrieval ACL Shadow Evidence Chain Verification Tests
+
+on:
+  pull_request:
+    paths:
+      - "docs/security/evidence/bundle_*.md"
+      - ".github/workflows/retrieval-acl-shadow-evidence-chain-tests.yml"
+  workflow_dispatch:
+
+jobs:
+  retrieval-acl-shadow-evidence-chain-tests:
+    name: Verify shadow observation evidence chain integrity
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Verify all evidence files exist in order
+        run: |
+          set -e
+          files=(
+            docs/security/evidence/bundle_k_real_search_pipeline_noop_hook.md
+            docs/security/evidence/bundle_l_real_path_shadow_observation.md
+            docs/security/evidence/bundle_m_shadow_observation_evidence_export.md
+            docs/security/evidence/bundle_n_shadow_observation_audit_adapter.md
+            docs/security/evidence/bundle_o_shadow_observation_retention_policy.md
+            docs/security/evidence/bundle_p_shadow_observation_evidence_chain_summary.md
+          )
+
+          for f in "${files[@]}"; do
+            if [ ! -f "$f" ]; then
+              echo "Evidence file missing: $f" >&2
+              exit 1
+            fi
+          done
+
+          echo "All evidence files present in correct order."
