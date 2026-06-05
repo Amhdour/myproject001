@@ -90,4 +90,4 @@ def test_real_path_enforce_mode_is_still_noop_in_bundle_l() -> None:
     assert result.behavior_changed is False
     assert result.shadow_observation_recorded is False
     assert result.live_enforcement_claimed is False
-    assert get_retrieval_acl_real_path_shadow_observations() == []
+    assert get_retrieval_acl_real_path_shadow_observations() == ()
