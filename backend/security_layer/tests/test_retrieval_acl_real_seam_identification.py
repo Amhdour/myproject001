@@ -4,6 +4,7 @@ from pathlib import Path
 
 
 PIPELINE_PATH = Path("backend/onyx/context/search/pipeline.py")
+NOOP_HOOK_RETURN = "return apply_retrieval_acl_search_pipeline_noop_hook(chunks=censored_chunks)"
 
 
 def _pipeline_source() -> str:
@@ -32,20 +33,26 @@ def test_post_retrieval_censoring_and_return_path_are_stable() -> None:
     assert '"onyx.external_permissions.post_query_censoring"' in source
     assert '"_post_query_chunk_censoring"' in source
     assert "chunks=retrieved_chunks" in source
-    assert "return censored_chunks" in source
+    assert NOOP_HOOK_RETURN in source
 
 
-def test_real_seam_is_documented_as_observation_only_not_live_patch() -> None:
-    evidence = Path(
+def test_real_seam_is_documented_as_observation_only_or_noop_hook_boundary() -> None:
+    bundle_i_evidence = Path(
         "docs/security/evidence/bundle_i_real_retrieval_seam_identification.md"
     )
-    assert evidence.exists(), "Expected Bundle I seam evidence file to exist"
-    content = evidence.read_text(encoding="utf-8")
+    bundle_k_evidence = Path(
+        "docs/security/evidence/bundle_k_real_search_pipeline_noop_hook.md"
+    )
+    assert bundle_i_evidence.exists(), "Expected Bundle I seam evidence file to exist"
+    assert bundle_k_evidence.exists(), "Expected Bundle K no-op hook evidence file to exist"
+    bundle_i_content = bundle_i_evidence.read_text(encoding="utf-8")
+    bundle_k_content = bundle_k_evidence.read_text(encoding="utf-8")
 
-    assert "backend/onyx/context/search/pipeline.py" in content
-    assert "search_pipeline" in content
-    assert "retrieved_chunks = search_chunks(" in content
-    assert "return censored_chunks" in content
-    assert "does not modify live Onyx" in content
-    assert "Production readiness remains `NO-GO`" in content
-    assert "Enterprise readiness remains `NO-GO`" in content
+    assert "backend/onyx/context/search/pipeline.py" in bundle_i_content
+    assert "search_pipeline" in bundle_i_content
+    assert "retrieved_chunks = search_chunks(" in bundle_i_content
+    assert "return censored_chunks" in bundle_i_content
+    assert "backend/onyx/context/search/pipeline.py" in bundle_k_content
+    assert "apply_retrieval_acl_search_pipeline_noop_hook" in bundle_k_content
+    assert "Production readiness remains `NO-GO`" in bundle_k_content
+    assert "Enterprise readiness remains `NO-GO`" in bundle_k_content
