@@ -1,0 +1,61 @@
+name: Retrieval ACL Enforce Harness Tests
+
+on:
+  pull_request:
+    paths:
+      - "backend/security_layer/retrieval_acl/**"
+      - "backend/security_layer/tests/test_retrieval_acl_enforce_harness.py"
+      - "docs/security/evidence/bundle_g_retrieval_acl_enforce_harness_rollback_proof.md"
+      - "docs/security/runbooks/retrieval_acl_enforce_mode_rollback.md"
+      - ".github/workflows/retrieval-acl-enforce-harness-tests.yml"
+  workflow_dispatch:
+
+jobs:
+  retrieval-acl-enforce-harness-tests:
+    name: Isolated retrieval ACL enforce harness and rollback proof tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install focused test dependency
+        run: |
+          python -m pip install --upgrade pip
+          # Minimal dependency for isolated Bundle G tests only.
+          # Passing tests do NOT prove production readiness, enterprise readiness,
+          # live Onyx retrieval enforcement, live blocking, or live rollback.
+          python -m pip install pytest
+
+      - name: Capture environment metadata
+        run: |
+          mkdir -p retrieval-acl-enforce-harness-artifacts
+          {
+            echo "claim_boundary=isolated enforce harness and rollback proof only"
+            echo "production_readiness=NO-GO"
+            echo "enterprise_readiness=NO-GO"
+            echo "live_enforcement_claimed=false"
+            echo "live_rollback_claimed=false"
+            echo "feature_flag=ONYX_SECURITY_RETRIEVAL_ACL_MODE"
+            echo "safe_rollback_value=off"
+            echo "python_version=$(python --version)"
+            echo "pytest_version=$(python -m pytest --version)"
+            echo "test_command=PYTHONPATH=. python -m pytest backend/security_layer/tests/test_retrieval_acl_enforce_harness.py -q"
+          } > retrieval-acl-enforce-harness-artifacts/environment_metadata.txt
+
+      - name: Run focused retrieval ACL enforce harness tests
+        run: |
+          set -o pipefail
+          PYTHONPATH=. python -m pytest backend/security_layer/tests/test_retrieval_acl_enforce_harness.py -q \
+            2>&1 | tee retrieval-acl-enforce-harness-artifacts/test.log
+
+      - name: Upload retrieval ACL enforce harness evidence artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: retrieval-acl-enforce-harness-test-evidence
+          path: retrieval-acl-enforce-harness-artifacts/
