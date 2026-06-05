@@ -1,0 +1,67 @@
+name: Retrieval ACL No-Op Seam Hook Tests
+
+on:
+  pull_request:
+    paths:
+      - "backend/security_layer/retrieval_acl/noop_seam_hook.py"
+      - "backend/security_layer/tests/test_retrieval_acl_noop_seam_hook.py"
+      - "backend/security_layer/tests/test_retrieval_acl_noop_seam_hook_proposal.py"
+      - "backend/onyx/context/search/pipeline.py"
+      - "docs/security/evidence/bundle_j_default_off_noop_seam_hook.md"
+      - ".github/workflows/retrieval-acl-noop-seam-hook-tests.yml"
+  workflow_dispatch:
+
+jobs:
+  retrieval-acl-noop-seam-hook-tests:
+    name: Default-off no-op seam hook proposal proof tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install focused test dependency
+        run: |
+          python -m pip install --upgrade pip
+          # Minimal dependency for Bundle J tests only.
+          # Passing tests do NOT prove live Onyx integration, enforcement,
+          # production readiness, enterprise readiness, or compliance readiness.
+          python -m pip install pytest
+
+      - name: Capture environment metadata
+        run: |
+          mkdir -p retrieval-acl-noop-seam-hook-artifacts
+          {
+            echo "claim_boundary=default-off no-op seam hook proposal proof only"
+            echo "production_readiness=NO-GO"
+            echo "enterprise_readiness=NO-GO"
+            echo "live_integration_claimed=false"
+            echo "live_enforcement_claimed=false"
+            echo "live_filtering_claimed=false"
+            echo "live_blocking_claimed=false"
+            echo "candidate_file=backend/onyx/context/search/pipeline.py"
+            echo "candidate_function=search_pipeline"
+            echo "future_patch=return apply_retrieval_acl_search_pipeline_noop_hook(chunks=censored_chunks)"
+            echo "python_version=$(python --version)"
+            echo "pytest_version=$(python -m pytest --version)"
+            echo "test_command=PYTHONPATH=. python -m pytest backend/security_layer/tests/test_retrieval_acl_noop_seam_hook.py backend/security_layer/tests/test_retrieval_acl_noop_seam_hook_proposal.py -q"
+          } > retrieval-acl-noop-seam-hook-artifacts/environment_metadata.txt
+
+      - name: Run focused retrieval ACL no-op seam hook tests
+        run: |
+          set -o pipefail
+          PYTHONPATH=. python -m pytest \
+            backend/security_layer/tests/test_retrieval_acl_noop_seam_hook.py \
+            backend/security_layer/tests/test_retrieval_acl_noop_seam_hook_proposal.py \
+            -q 2>&1 | tee retrieval-acl-noop-seam-hook-artifacts/test.log
+
+      - name: Upload retrieval ACL no-op seam hook evidence artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: retrieval-acl-noop-seam-hook-test-evidence
+          path: retrieval-acl-noop-seam-hook-artifacts/
