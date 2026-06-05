@@ -215,3 +215,146 @@ def test_real_path_does_not_claim_production_or_enterprise_readiness() -> None:
     assert result.enterprise_readiness == "NO-GO"
     assert result.decisions[0].production_readiness == "NO-GO"
     assert result.decisions[0].enterprise_readiness == "NO-GO"
+
+
+@dataclass
+class RealisticInferenceChunkLike:
+    document_id: str | None
+    metadata: dict[str, str | list[str]]
+    content: str = "secret chunk body must not enter decision records"
+    blurb: str = "secret chunk blurb must not enter decision records"
+    chunk_context: str = "secret chunk context must not enter decision records"
+
+
+def test_metadata_adapter_extracts_document_id_from_realistic_chunk() -> None:
+    from backend.security_layer.retrieval_acl.metadata_adapter import (
+        extract_retrieval_acl_metadata,
+    )
+
+    metadata = extract_retrieval_acl_metadata(
+        chunk=RealisticInferenceChunkLike(
+            document_id="customer-private-document-12345",
+            metadata={"tenant_id": "tenant-a"},
+        ),
+        user_tenant_id="tenant-a",
+    )
+
+    assert metadata.document_ref == "redacted:cust...2345"
+    assert metadata.metadata_present is True
+
+
+def test_metadata_adapter_extracts_tenant_id_when_available() -> None:
+    from backend.security_layer.retrieval_acl.metadata_adapter import (
+        extract_retrieval_acl_metadata,
+    )
+
+    metadata = extract_retrieval_acl_metadata(
+        chunk=RealisticInferenceChunkLike(
+            document_id="doc-a",
+            metadata={"tenant_id": "tenant-a"},
+        ),
+        user_tenant_id="tenant-a",
+    )
+
+    assert metadata.chunk_tenant_id == "tenant-a"
+    assert metadata.user_tenant_id == "tenant-a"
+    assert metadata.reason is None
+
+
+def test_metadata_adapter_marks_missing_tenant_metadata() -> None:
+    from backend.security_layer.retrieval_acl.metadata_adapter import (
+        extract_retrieval_acl_metadata,
+    )
+
+    metadata = extract_retrieval_acl_metadata(
+        chunk=RealisticInferenceChunkLike(
+            document_id="doc-a",
+            metadata={},
+        ),
+        user_tenant_id="tenant-a",
+    )
+
+    assert metadata.metadata_present is False
+    assert metadata.reason == "missing_chunk_tenant_id"
+    assert metadata.document_ref == "redacted"
+
+
+def test_enforce_mode_fails_closed_for_realistic_chunk_without_tenant_metadata() -> None:
+    chunks = [
+        RealisticInferenceChunkLike(
+            document_id="doc-a",
+            metadata={},
+        )
+    ]
+
+    result = apply_retrieval_acl_enforcement_hook(
+        chunks=chunks,
+        user_tenant_id="tenant-a",
+        env={"ONYX_SECURITY_RETRIEVAL_ACL_MODE": "enforce"},
+    )
+
+    assert result.returned_chunks == []
+    assert result.decisions[0].allowed is False
+    assert result.decisions[0].reason == "missing_acl_metadata"
+    assert result.decisions[0].metadata_present is False
+    assert result.decisions[0].metadata_reason == "missing_chunk_tenant_id"
+
+
+def test_enforce_mode_allows_realistic_chunk_with_matching_tenant_metadata() -> None:
+    chunk = RealisticInferenceChunkLike(
+        document_id="doc-a",
+        metadata={"tenant_id": "tenant-a"},
+    )
+
+    result = apply_retrieval_acl_enforcement_hook(
+        chunks=[chunk],
+        user_tenant_id="tenant-a",
+        env={"ONYX_SECURITY_RETRIEVAL_ACL_MODE": "enforce"},
+    )
+
+    assert result.returned_chunks == [chunk]
+    assert result.decisions[0].allowed is True
+    assert result.decisions[0].reason == "allowed"
+    assert result.decisions[0].metadata_present is True
+
+
+def test_enforce_mode_denies_realistic_chunk_with_cross_tenant_metadata() -> None:
+    chunk = RealisticInferenceChunkLike(
+        document_id="doc-b",
+        metadata={"tenant_id": "tenant-b"},
+    )
+
+    result = apply_retrieval_acl_enforcement_hook(
+        chunks=[chunk],
+        user_tenant_id="tenant-a",
+        env={"ONYX_SECURITY_RETRIEVAL_ACL_MODE": "enforce"},
+    )
+
+    assert result.returned_chunks == []
+    assert result.decisions[0].allowed is False
+    assert result.decisions[0].reason == "tenant_mismatch"
+    assert result.decisions[0].metadata_present is True
+
+
+def test_decision_records_do_not_include_chunk_text() -> None:
+    secret_text = "secret chunk body must not enter decision records"
+    chunk = RealisticInferenceChunkLike(
+        document_id="customer-private-document-12345",
+        metadata={"tenant_id": "tenant-b"},
+        content=secret_text,
+        blurb="secret chunk blurb must not enter decision records",
+        chunk_context="secret chunk context must not enter decision records",
+    )
+
+    result = apply_retrieval_acl_enforcement_hook(
+        chunks=[chunk],
+        user_tenant_id="tenant-a",
+        env={"ONYX_SECURITY_RETRIEVAL_ACL_MODE": "enforce"},
+    )
+
+    decision_text = str(result.decisions[0])
+    assert secret_text not in decision_text
+    assert "secret chunk blurb" not in decision_text
+    assert "secret chunk context" not in decision_text
+    assert "customer-private-document-12345" not in decision_text
+    assert result.decisions[0].document_ref == "redacted:cust...2345"

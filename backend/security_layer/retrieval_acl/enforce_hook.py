@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Any
 from typing import Generic
 from typing import TypeVar
 
@@ -10,6 +9,9 @@ from backend.security_layer.retrieval_acl.integration_config import (
 )
 from backend.security_layer.retrieval_acl.integration_config import (
     RetrievalACLIntegrationConfig,
+)
+from backend.security_layer.retrieval_acl.metadata_adapter import (
+    extract_retrieval_acl_metadata,
 )
 from backend.security_layer.retrieval_acl.noop_seam_hook import (
     apply_retrieval_acl_search_pipeline_noop_hook,
@@ -26,6 +28,8 @@ class RetrievalACLDecision:
     user_tenant_id: str
     chunk_tenant_id: str
     document_ref: str
+    metadata_present: bool
+    metadata_reason: str | None = None
     policy_version: str = "retrieval-acl-v1"
     production_readiness: str = "NO-GO"
     enterprise_readiness: str = "NO-GO"
@@ -43,57 +47,48 @@ class RetrievalACLEnforcementResult(Generic[ChunkT]):
     enterprise_readiness: str = "NO-GO"
 
 
-def _read_attr_or_key(value: Any, name: str) -> Any:
-    if isinstance(value, dict):
-        return value.get(name)
-    return getattr(value, name, None)
-
-
-def _redact_document_ref(document_id: Any) -> str:
-    if not document_id:
-        return "missing"
-    text = str(document_id)
-    if len(text) <= 8:
-        return "redacted"
-    return f"redacted:{text[:4]}...{text[-4:]}"
-
-
 def evaluate_retrieval_acl_chunk(
     *,
     chunk: ChunkT,
     user_tenant_id: str | None,
     mode: str,
 ) -> RetrievalACLDecision:
-    chunk_tenant_id = _read_attr_or_key(chunk, "tenant_id")
-    document_id = _read_attr_or_key(chunk, "document_id")
+    metadata = extract_retrieval_acl_metadata(
+        chunk=chunk,
+        user_tenant_id=user_tenant_id,
+    )
 
-    if not user_tenant_id or not chunk_tenant_id or not document_id:
+    if not metadata.metadata_present:
         return RetrievalACLDecision(
             allowed=False,
             reason="missing_acl_metadata",
             mode=mode,
-            user_tenant_id=user_tenant_id or "missing",
-            chunk_tenant_id=chunk_tenant_id or "missing",
-            document_ref=_redact_document_ref(document_id),
+            user_tenant_id=metadata.user_tenant_id or "missing",
+            chunk_tenant_id=metadata.chunk_tenant_id or "missing",
+            document_ref=metadata.document_ref,
+            metadata_present=False,
+            metadata_reason=metadata.reason,
         )
 
-    if str(chunk_tenant_id) != str(user_tenant_id):
+    if metadata.chunk_tenant_id != metadata.user_tenant_id:
         return RetrievalACLDecision(
             allowed=False,
             reason="tenant_mismatch",
             mode=mode,
-            user_tenant_id=str(user_tenant_id),
-            chunk_tenant_id=str(chunk_tenant_id),
-            document_ref=_redact_document_ref(document_id),
+            user_tenant_id=metadata.user_tenant_id,
+            chunk_tenant_id=metadata.chunk_tenant_id,
+            document_ref=metadata.document_ref,
+            metadata_present=True,
         )
 
     return RetrievalACLDecision(
         allowed=True,
         reason="allowed",
         mode=mode,
-        user_tenant_id=str(user_tenant_id),
-        chunk_tenant_id=str(chunk_tenant_id),
-        document_ref=_redact_document_ref(document_id),
+        user_tenant_id=metadata.user_tenant_id,
+        chunk_tenant_id=metadata.chunk_tenant_id,
+        document_ref=metadata.document_ref,
+        metadata_present=True,
     )
 
 
