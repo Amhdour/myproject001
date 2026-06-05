@@ -1,4 +1,4 @@
-name: Retrieval ACL Real-Path Shadow Observation Tests
+name: Retrieval ACL Real-Path CI Proof Tests
 
 on:
   pull_request:
@@ -7,18 +7,24 @@ on:
       - "backend/security_layer/retrieval_acl/enforce_hook.py"
       - "backend/onyx/context/search/pipeline.py"
       - "backend/security_layer/tests/test_retrieval_acl_real_path_shadow_observation.py"
+      - "backend/security_layer/tests/test_retrieval_acl_real_path_mapped_metadata.py"
+      - "backend/security_layer/tests/test_retrieval_acl_enforce_hook.py"
       - "backend/security_layer/tests/test_retrieval_acl_noop_seam_hook.py"
       - "backend/security_layer/tests/test_retrieval_acl_real_search_pipeline_noop_hook.py"
       - "docs/security/evidence/bundle_l_real_path_shadow_observation.md"
       - "docs/security/evidence/step_05_real_path_retrieval_acl_enforcement.md"
       - "docs/security/evidence/step_05_real_path_retrieval_acl_enforcement_summary.md"
+      - "docs/security/evidence/step_07_real_path_enforce_mapped_metadata.md"
+      - "docs/security/evidence/step_07_real_path_enforce_mapped_metadata_summary.md"
+      - "docs/security/evidence/step_08_ci_mapped_metadata_enforcement_proof.md"
+      - "docs/security/evidence/step_08_ci_mapped_metadata_enforcement_proof_summary.md"
       - "docs/security/runbooks/retrieval_acl_real_path_enforcement_runbook.md"
       - ".github/workflows/retrieval-acl-real-path-shadow-observation-tests.yml"
   workflow_dispatch:
 
 jobs:
-  retrieval-acl-real-path-shadow-observation-tests:
-    name: Real-path shadow observation proof tests
+  retrieval-acl-real-path-ci-proof-tests:
+    name: Real-path mapped metadata enforcement proof tests
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -32,41 +38,58 @@ jobs:
       - name: Install focused test dependency
         run: |
           python -m pip install --upgrade pip
-          # Minimal dependency for Bundle L tests only.
-          # Passing tests do NOT prove live retrieval enforcement, filtering,
-          # blocking, production readiness, enterprise readiness, or compliance readiness.
+          # Minimal dependency for focused retrieval ACL proof tests only.
+          # Passing tests do NOT prove live retrieval enforcement, live filtering,
+          # live blocking, production readiness, enterprise readiness, or compliance readiness.
           python -m pip install pytest
 
       - name: Capture environment metadata
         run: |
           mkdir -p retrieval-acl-real-path-shadow-observation-artifacts
           {
-            echo "claim_boundary=real-path shadow observation proof only"
+            echo "claim_boundary=real-path mapped metadata enforcement proof tests only"
             echo "production_readiness=NO-GO"
             echo "enterprise_readiness=NO-GO"
+            echo "staging_validation_claimed=false"
             echo "live_enforcement_claimed=false"
             echo "live_filtering_claimed=false"
             echo "live_blocking_claimed=false"
+            echo "full_onyx_wide_enforcement_claimed=false"
             echo "feature_flag=ONYX_SECURITY_RETRIEVAL_ACL_MODE"
+            echo "off_behavior=preserve_chunks"
             echo "shadow_behavior=observe_only_preserve_chunks"
+            echo "enforce_behavior=opt_in_only"
             echo "python_version=$(python --version)"
             echo "pytest_version=$(python -m pytest --version)"
-            echo "test_command=PYTHONPATH=. python -m pytest backend/security_layer/tests/test_retrieval_acl_real_path_shadow_observation.py backend/security_layer/tests/test_retrieval_acl_noop_seam_hook.py backend/security_layer/tests/test_retrieval_acl_real_search_pipeline_noop_hook.py backend/security_layer/tests/test_retrieval_acl_enforce_hook.py -q"
+            echo "test_command_1=PYTHONPATH=. python -m pytest backend/security_layer/tests/test_retrieval_acl_real_path_mapped_metadata.py -q"
+            echo "test_command_2=PYTHONPATH=. python -m pytest backend/security_layer/tests/test_retrieval_acl_enforce_hook.py -q"
+            echo "test_command_3=PYTHONPATH=. python -m pytest backend/security_layer/tests/test_retrieval_acl_real_path_shadow_observation.py -q"
+            echo "claim_boundary_command=python scripts/portfolio/check_claim_boundary.py"
           } > retrieval-acl-real-path-shadow-observation-artifacts/environment_metadata.txt
 
-      - name: Run focused retrieval ACL real-path shadow observation tests
+      - name: Run mapped metadata enforcement proof test
         run: |
           set -o pipefail
-          PYTHONPATH=. python -m pytest \
-            backend/security_layer/tests/test_retrieval_acl_real_path_shadow_observation.py \
-            backend/security_layer/tests/test_retrieval_acl_noop_seam_hook.py \
-            backend/security_layer/tests/test_retrieval_acl_real_search_pipeline_noop_hook.py \
-            backend/security_layer/tests/test_retrieval_acl_enforce_hook.py \
-            -q 2>&1 | tee retrieval-acl-real-path-shadow-observation-artifacts/test.log
+          PYTHONPATH=. python -m pytest backend/security_layer/tests/test_retrieval_acl_real_path_mapped_metadata.py -q 2>&1 | tee retrieval-acl-real-path-shadow-observation-artifacts/mapped-metadata-test.log
 
-      - name: Upload retrieval ACL real-path shadow observation evidence artifact
+      - name: Run enforcement hook proof test
+        run: |
+          set -o pipefail
+          PYTHONPATH=. python -m pytest backend/security_layer/tests/test_retrieval_acl_enforce_hook.py -q 2>&1 | tee retrieval-acl-real-path-shadow-observation-artifacts/enforce-hook-test.log
+
+      - name: Run real-path shadow observation proof test
+        run: |
+          set -o pipefail
+          PYTHONPATH=. python -m pytest backend/security_layer/tests/test_retrieval_acl_real_path_shadow_observation.py -q 2>&1 | tee retrieval-acl-real-path-shadow-observation-artifacts/shadow-observation-test.log
+
+      - name: Run claim-boundary validation
+        run: |
+          set -o pipefail
+          python scripts/portfolio/check_claim_boundary.py 2>&1 | tee retrieval-acl-real-path-shadow-observation-artifacts/claim-boundary.log
+
+      - name: Upload retrieval ACL real-path CI proof evidence artifact
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: retrieval-acl-real-path-shadow-observation-test-evidence
+          name: retrieval-acl-real-path-ci-proof-test-evidence
           path: retrieval-acl-real-path-shadow-observation-artifacts/
