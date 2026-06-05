@@ -1,0 +1,62 @@
+name: Retrieval ACL Real Seam Identification Tests
+
+on:
+  pull_request:
+    paths:
+      - "backend/onyx/context/search/pipeline.py"
+      - "backend/security_layer/tests/test_retrieval_acl_real_seam_identification.py"
+      - "docs/security/evidence/bundle_i_real_retrieval_seam_identification.md"
+      - ".github/workflows/retrieval-acl-real-seam-identification-tests.yml"
+  workflow_dispatch:
+
+jobs:
+  retrieval-acl-real-seam-identification-tests:
+    name: Real Onyx retrieval seam identification proof tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install focused test dependency
+        run: |
+          python -m pip install --upgrade pip
+          # Minimal dependency for Bundle I seam identification tests only.
+          # Passing tests do NOT prove live Onyx integration, enforcement,
+          # production readiness, enterprise readiness, or compliance readiness.
+          python -m pip install pytest
+
+      - name: Capture environment metadata
+        run: |
+          mkdir -p retrieval-acl-real-seam-identification-artifacts
+          {
+            echo "claim_boundary=real retrieval seam identification proof only"
+            echo "production_readiness=NO-GO"
+            echo "enterprise_readiness=NO-GO"
+            echo "live_integration_claimed=false"
+            echo "live_enforcement_claimed=false"
+            echo "candidate_file=backend/onyx/context/search/pipeline.py"
+            echo "candidate_function=search_pipeline"
+            echo "candidate_call=retrieved_chunks = search_chunks("
+            echo "candidate_return=return censored_chunks"
+            echo "python_version=$(python --version)"
+            echo "pytest_version=$(python -m pytest --version)"
+            echo "test_command=PYTHONPATH=. python -m pytest backend/security_layer/tests/test_retrieval_acl_real_seam_identification.py -q"
+          } > retrieval-acl-real-seam-identification-artifacts/environment_metadata.txt
+
+      - name: Run focused retrieval ACL real seam identification tests
+        run: |
+          set -o pipefail
+          PYTHONPATH=. python -m pytest backend/security_layer/tests/test_retrieval_acl_real_seam_identification.py -q \
+            2>&1 | tee retrieval-acl-real-seam-identification-artifacts/test.log
+
+      - name: Upload retrieval ACL real seam identification evidence artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: retrieval-acl-real-seam-identification-test-evidence
+          path: retrieval-acl-real-seam-identification-artifacts/
