@@ -1,0 +1,67 @@
+name: Retrieval ACL Shadow Observation Audit Tests
+
+on:
+  pull_request:
+    paths:
+      - "backend/security_layer/retrieval_acl/shadow_observation_audit.py"
+      - "backend/security_layer/retrieval_acl/shadow_observation_export.py"
+      - "backend/security_layer/tests/test_retrieval_acl_shadow_observation_audit.py"
+      - "backend/security_layer/tests/test_retrieval_acl_shadow_observation_export.py"
+      - "docs/security/evidence/bundle_n_shadow_observation_audit_adapter.md"
+      - ".github/workflows/retrieval-acl-shadow-observation-audit-tests.yml"
+  workflow_dispatch:
+
+jobs:
+  retrieval-acl-shadow-observation-audit-tests:
+    name: Redacted shadow observation audit proof tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install focused test dependency
+        run: |
+          python -m pip install --upgrade pip
+          # Minimal dependency for Bundle N tests only.
+          # Passing tests do NOT prove live retrieval enforcement, filtering,
+          # blocking, production readiness, enterprise readiness, or compliance readiness.
+          python -m pip install pytest
+
+      - name: Capture environment metadata
+        run: |
+          mkdir -p retrieval-acl-shadow-observation-audit-artifacts
+          {
+            echo "claim_boundary=redacted shadow observation audit proof only"
+            echo "production_readiness=NO-GO"
+            echo "enterprise_readiness=NO-GO"
+            echo "live_enforcement_claimed=false"
+            echo "live_filtering_claimed=false"
+            echo "live_blocking_claimed=false"
+            echo "redacted=true"
+            echo "contains_document_content=false"
+            echo "contains_document_ids=false"
+            echo "contains_user_prompt=false"
+            echo "python_version=$(python --version)"
+            echo "pytest_version=$(python -m pytest --version)"
+            echo "test_command=PYTHONPATH=. python -m pytest backend/security_layer/tests/test_retrieval_acl_shadow_observation_audit.py backend/security_layer/tests/test_retrieval_acl_shadow_observation_export.py -q"
+          } > retrieval-acl-shadow-observation-audit-artifacts/environment_metadata.txt
+
+      - name: Run focused retrieval ACL shadow observation audit tests
+        run: |
+          set -o pipefail
+          PYTHONPATH=. python -m pytest \
+            backend/security_layer/tests/test_retrieval_acl_shadow_observation_audit.py \
+            backend/security_layer/tests/test_retrieval_acl_shadow_observation_export.py \
+            -q 2>&1 | tee retrieval-acl-shadow-observation-audit-artifacts/test.log
+
+      - name: Upload retrieval ACL shadow observation audit evidence artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: retrieval-acl-shadow-observation-audit-test-evidence
+          path: retrieval-acl-shadow-observation-audit-artifacts/
