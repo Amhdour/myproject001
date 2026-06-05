@@ -4,10 +4,15 @@ on:
   pull_request:
     paths:
       - "backend/security_layer/retrieval_acl/noop_seam_hook.py"
+      - "backend/security_layer/retrieval_acl/enforce_hook.py"
+      - "backend/onyx/context/search/pipeline.py"
       - "backend/security_layer/tests/test_retrieval_acl_real_path_shadow_observation.py"
       - "backend/security_layer/tests/test_retrieval_acl_noop_seam_hook.py"
       - "backend/security_layer/tests/test_retrieval_acl_real_search_pipeline_noop_hook.py"
       - "docs/security/evidence/bundle_l_real_path_shadow_observation.md"
+      - "docs/security/evidence/step_05_real_path_retrieval_acl_enforcement.md"
+      - "docs/security/evidence/step_05_real_path_retrieval_acl_enforcement_summary.md"
+      - "docs/security/runbooks/retrieval_acl_real_path_enforcement_runbook.md"
       - ".github/workflows/retrieval-acl-real-path-shadow-observation-tests.yml"
   workflow_dispatch:
 
@@ -46,7 +51,7 @@ jobs:
             echo "shadow_behavior=observe_only_preserve_chunks"
             echo "python_version=$(python --version)"
             echo "pytest_version=$(python -m pytest --version)"
-            echo "test_command=PYTHONPATH=. python -m pytest backend/security_layer/tests/test_retrieval_acl_real_path_shadow_observation.py backend/security_layer/tests/test_retrieval_acl_noop_seam_hook.py backend/security_layer/tests/test_retrieval_acl_real_search_pipeline_noop_hook.py -q"
+            echo "test_command=PYTHONPATH=. python -m pytest backend/security_layer/tests/test_retrieval_acl_real_path_shadow_observation.py backend/security_layer/tests/test_retrieval_acl_noop_seam_hook.py backend/security_layer/tests/test_retrieval_acl_real_search_pipeline_noop_hook.py backend/security_layer/tests/test_retrieval_acl_enforce_hook.py -q"
           } > retrieval-acl-real-path-shadow-observation-artifacts/environment_metadata.txt
 
       - name: Run focused retrieval ACL real-path shadow observation tests
@@ -56,6 +61,7 @@ jobs:
             backend/security_layer/tests/test_retrieval_acl_real_path_shadow_observation.py \
             backend/security_layer/tests/test_retrieval_acl_noop_seam_hook.py \
             backend/security_layer/tests/test_retrieval_acl_real_search_pipeline_noop_hook.py \
+            backend/security_layer/tests/test_retrieval_acl_enforce_hook.py \
             -q 2>&1 | tee retrieval-acl-real-path-shadow-observation-artifacts/test.log
 
       - name: Upload retrieval ACL real-path shadow observation evidence artifact

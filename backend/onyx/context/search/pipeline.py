@@ -3,8 +3,8 @@ from datetime import datetime
 
 from sqlalchemy.orm import Session
 
-from backend.security_layer.retrieval_acl.noop_seam_hook import (
-    apply_retrieval_acl_search_pipeline_noop_hook,
+from backend.security_layer.retrieval_acl.enforce_hook import (
+    apply_retrieval_acl_real_path_enforcement_hook,
 )
 from onyx.context.search.models import BaseFilters
 from onyx.context.search.models import ChunkIndexRequest
@@ -355,4 +355,7 @@ def search_pipeline(
         user=user,
     )
 
-    return apply_retrieval_acl_search_pipeline_noop_hook(chunks=censored_chunks)
+    return apply_retrieval_acl_real_path_enforcement_hook(
+        chunks=censored_chunks,
+        user_tenant_id=get_current_tenant_id() if MULTI_TENANT else None,
+    )
