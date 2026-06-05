@@ -126,6 +126,7 @@ def test_audit_sink_records_and_returns_events() -> None:
         ),
         user_tenant_id="tenant-a",
     )
+    clear_retrieval_acl_audit_events()
     event = build_retrieval_acl_audit_event(decision)
 
     record_retrieval_acl_audit_event(event)
@@ -166,9 +167,7 @@ def test_demo_attack_denial_produces_redacted_audit_event() -> None:
     assert result.returned_chunks == []
     assert result.decisions[0].allowed is False
 
-    event = build_retrieval_acl_audit_event(result.decisions[0])
-    record_retrieval_acl_audit_event(event)
-
+    event = get_retrieval_acl_audit_events()[0]
     serialized_event = str(asdict(event))
     assert event.event_type == "retrieval_acl.decision"
     assert event.decision == "denied"
