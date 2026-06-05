@@ -29,3 +29,22 @@ Real `InferenceChunk` tenant metadata remains incomplete as a guarantee. Step 06
 - Staging validation: not claimed.
 - Full Onyx-wide authorization: not claimed.
 - This is evidence for the Retrieval ACL Enforcement v1 test slice only.
+
+## CI follow-up
+
+Step 08 adds CI coverage for this Step 07 mapped-metadata proof in the focused retrieval ACL workflow. The CI status is `PENDING_CI` until GitHub Actions runs on the Step 08 branch or pull request; no CI pass is claimed here.
+
+- Workflow name: `Retrieval ACL Real-Path CI Proof Tests`.
+- Workflow path: `.github/workflows/retrieval-acl-real-path-shadow-observation-tests.yml`.
+- Included tests: `backend/security_layer/tests/test_retrieval_acl_real_path_mapped_metadata.py`, `backend/security_layer/tests/test_retrieval_acl_enforce_hook.py`, and `backend/security_layer/tests/test_retrieval_acl_real_path_shadow_observation.py`.
+- Claim-boundary command: `python scripts/portfolio/check_claim_boundary.py`.
+
+## Updated readiness percentages
+
+These percentages are reviewer-facing portfolio estimates only, not production-system readiness claims.
+
+- Production-style portfolio coverage: remains about `99%` as a reviewer artifact only.
+- Retrieval ACL mapped-metadata CI proof: `PENDING_CI`.
+- Production readiness: `NO-GO / 0%`.
+- Enterprise production-candidate readiness: `NO-GO / 7–9%`.
+- Staging validation for this step: not claimed / `0%`.
