@@ -1,10 +1,10 @@
 from __future__ import annotations
 
-from collections.abc import Mapping
-from collections.abc import Sequence
 import importlib
 import importlib.util
 import re
+from collections.abc import Mapping
+from collections.abc import Sequence
 from typing import Any
 
 _REDACTED = "[REDACTED]"
@@ -17,6 +17,13 @@ _SAFE_METADATA_KEYS = frozenset(
         "policy_package",
         "fallback_used",
         "enforcement_enabled",
+        "contains_pii",
+        "contains_secret",
+        "restricted_data",
+        "route_target",
+        "data_classification",
+        "model_provider",
+        "requested_model",
     }
 )
 

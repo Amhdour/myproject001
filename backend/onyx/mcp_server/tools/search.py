@@ -1,7 +1,9 @@
 """Search tools for MCP server - document and web search."""
 
 from datetime import datetime
+from pathlib import Path
 from typing import Any
+from uuid import uuid4
 
 import httpx
 from fastmcp.server.auth.auth import AccessToken
@@ -9,7 +11,6 @@ from pydantic import BaseModel
 from pydantic import TypeAdapter
 from pydantic import ValidationError
 
-from pathlib import Path
 from onyx.configs import app_configs
 from onyx.configs.constants import DocumentSource
 from onyx.mcp_server.api import mcp_server
@@ -19,9 +20,13 @@ from onyx.mcp_server.utils import require_access_token
 from onyx.security_layer.audit.service import AuditService
 from onyx.security_layer.findings.service import FindingService
 from onyx.security_layer.mcp_authorizer.audit import MCPAuditLogger
-from onyx.security_layer.mcp_authorizer.authorizer import MCPAuthorizer
 from onyx.security_layer.mcp_authorizer.authorizer import is_mcp_auth_enabled
+from onyx.security_layer.mcp_authorizer.authorizer import MCPAuthorizer
 from onyx.security_layer.mcp_authorizer.session import MCPSession
+from onyx.security_layer.mcp_governance.enforcement import (
+    evaluate_mcp_governance_at_invocation_seam,
+)
+from onyx.security_layer.mcp_governance.enforcement import should_block_mcp_invocation
 from onyx.security_layer.policy.engine import PolicyEngine
 from onyx.server.features.search.models import SearchRequest
 from onyx.server.features.search.models import SearchResponse
@@ -116,6 +121,10 @@ def _error_payload(error: str) -> dict[str, Any]:
     return {"error": error, "results": []}
 
 
+def _mcp_governance_error_payload(decision: str) -> dict[str, Any]:
+    return _error_payload(f"MCP governance blocked action: {decision}")
+
+
 _TIME_CUTOFF_ADAPTER: TypeAdapter[datetime | None] = TypeAdapter(datetime | None)
 
 
@@ -178,6 +187,22 @@ async def search_indexed_documents(
 
     # Get authenticated user from FastMCP's access token
     access_token = require_access_token()
+    governance_result = evaluate_mcp_governance_at_invocation_seam(
+        access_token=access_token,
+        mcp_tool_name="search_indexed_documents",
+        mcp_resource_id="indexed_documents",
+        correlation_id=f"mcp-search-indexed-documents-{uuid4()}",
+        raw_mcp_payload={
+            "query": query,
+            "source_types": source_types,
+            "document_set_names": document_set_names,
+            "time_cutoff": time_cutoff,
+            "skip_query_expansion": skip_query_expansion,
+        },
+        audit_service=AuditService(),
+    )
+    if should_block_mcp_invocation(governance_result):
+        return _mcp_governance_error_payload(governance_result.decision.value)
     if auth_error := _authorize_mcp_call(access_token, "search_indexed_documents"):
         return auth_error
 
@@ -273,6 +298,21 @@ async def search_web(
     logger.info("Onyx MCP Server: Web search: query='%s', limit=%s", query, limit)
 
     access_token = require_access_token()
+    governance_result = evaluate_mcp_governance_at_invocation_seam(
+        access_token=access_token,
+        mcp_tool_name="search_web",
+        mcp_resource_id="public_web",
+        resource_tenant_id=None,
+        correlation_id=f"mcp-search-web-{uuid4()}",
+        raw_mcp_payload={"query": query, "limit": limit},
+        audit_service=AuditService(),
+    )
+    if should_block_mcp_invocation(governance_result):
+        return {
+            "error": f"MCP governance blocked action: {governance_result.decision.value}",
+            "results": [],
+            "query": query,
+        }
     if auth_error := _authorize_mcp_call(access_token, "search_web"):
         return {"error": auth_error["error"], "results": [], "query": query}
 
@@ -325,6 +365,17 @@ async def open_urls(
     logger.info("Onyx MCP Server: Open URL: fetching %s URLs", len(urls))
 
     access_token = require_access_token()
+    governance_result = evaluate_mcp_governance_at_invocation_seam(
+        access_token=access_token,
+        mcp_tool_name="open_urls",
+        mcp_resource_id="urls",
+        resource_tenant_id=None,
+        correlation_id=f"mcp-open-urls-{uuid4()}",
+        raw_mcp_payload={"urls": urls},
+        audit_service=AuditService(),
+    )
+    if should_block_mcp_invocation(governance_result):
+        return _mcp_governance_error_payload(governance_result.decision.value)
 
     try:
         response = await _post_model(
