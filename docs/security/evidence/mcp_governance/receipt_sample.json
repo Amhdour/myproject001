@@ -1,0 +1,14 @@
+{
+  "receipt_id": "00000000-0000-4000-8000-000000000000",
+  "previous_receipt_hash": null,
+  "receipt_hash": "sample_sha256_receipt_hash_generated_at_runtime",
+  "user_id": "demo-user",
+  "tenant_id": "tenant-a",
+  "mcp_server_id": "enterprise-search",
+  "mcp_tool_name": "read_document",
+  "mcp_resource_id": "tenant-b-secret-doc",
+  "decision": "deny",
+  "reason": "Cross-tenant MCP resource access denied",
+  "correlation_id": "demo-mcp-scope-bypass",
+  "created_at": "2026-06-07T00:00:00Z"
+}
