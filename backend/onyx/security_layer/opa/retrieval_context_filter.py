@@ -12,6 +12,9 @@ from onyx.security_layer.opa.decision_mapper import OPADecisionValue
 from onyx.security_layer.opa.input_builder import build_retrieval_acl_input
 from onyx.security_layer.opa.opa_client import evaluate_retrieval_acl_with_fallback
 from onyx.security_layer.opa.opa_client import OPAClient
+from onyx.security_layer.langfuse_evidence import (
+    emit_opa_retrieval_acl_langfuse_evidence,
+)
 from onyx.security_layer.tracing import security_span
 from onyx.security_layer.tracing import set_security_span_attributes
 
@@ -199,7 +202,9 @@ def _evaluate_chunk(
             decision = evaluate_retrieval_acl_with_fallback(opa_client, opa_input)
         else:
             decision = opa_client.evaluate_retrieval_acl(opa_input)
-        set_security_span_attributes(span, _opa_decision_security_attributes(decision))
+        decision_attributes = _opa_decision_security_attributes(decision)
+        set_security_span_attributes(span, decision_attributes)
+        emit_opa_retrieval_acl_langfuse_evidence(decision_attributes)
         return decision
 
 

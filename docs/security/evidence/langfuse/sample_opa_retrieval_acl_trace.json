@@ -1,0 +1,17 @@
+{
+  "name": "security.opa.retrieval_acl.decision",
+  "as_type": "span",
+  "metadata": {
+    "correlation_id": "opa-demo-cross-tenant-001:tenant-b-doc:0",
+    "subject_user_id": "tenant-a-user",
+    "subject_tenant_id": "tenant-a",
+    "resource_document_id": "tenant-b-doc",
+    "resource_chunk_id": "0",
+    "resource_tenant_id": "tenant-b",
+    "policy_package": "onyx.security.retrieval_acl",
+    "decision": "deny",
+    "reason": "cross-tenant resource",
+    "fallback_used": false,
+    "enforcement_enabled": true
+  }
+}

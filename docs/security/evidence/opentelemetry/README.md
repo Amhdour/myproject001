@@ -9,7 +9,7 @@ This evidence bundle documents the OpenTelemetry span instrumentation added for 
 - Decision metadata source: `backend/onyx/security_layer/opa/decision_mapper.py`
 - OPA evidence linkage: `docs/security/evidence/opa/`
 
-This bundle does not add Langfuse-specific tracing, Presidio, new scanners, alerting, dashboards, SIEM integration, or a production-readiness claim.
+Langfuse evidence linkage for this same safe OPA Retrieval ACL metadata path is documented in `docs/security/evidence/langfuse/`. This OpenTelemetry bundle does not add Presidio, new scanners, alerting, dashboards, SIEM integration, or a production-readiness claim.
 
 ## Spans
 
@@ -23,3 +23,7 @@ If the OpenTelemetry API dependency is unavailable, the helper degrades to a no-
 ## Data handling invariant
 
 Span attributes use identifiers and decision metadata only. Raw prompt text, chunk text, combined retrieved context, and document content are not recorded by this instrumentation.
+
+## Langfuse linkage
+
+The Langfuse evidence bridge emits the same safe per-decision metadata as a Langfuse span named `security.opa.retrieval_acl.decision` when Langfuse is configured. The bridge is safe-disabled when the Langfuse SDK or runtime configuration is unavailable and does not export raw RAG content.
