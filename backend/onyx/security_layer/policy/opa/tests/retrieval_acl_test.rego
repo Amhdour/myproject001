@@ -29,35 +29,48 @@ test_same_tenant_allowed_user_allow if {
 }
 
 test_same_tenant_allowed_group_allow if {
-	test_input := object.union(default_input, {"resource": object.union(default_input.resource, {"allowed_users": [], "allowed_groups": ["group-a"]})})
+	test_input := object.union(default_input, {
+		"resource": object.union(default_input.resource, {
+			"allowed_users": [],
+			"allowed_groups": ["group-a"],
+		}),
+	})
 	result := decision with input as test_input
 	result.decision == "allow"
 	result.reason == "same tenant allowed group"
 }
 
 test_cross_tenant_deny if {
-	test_input := object.union(default_input, {"resource": object.union(default_input.resource, {"tenant_id": "tenant-b"})})
+	test_input := object.union(default_input, {
+		"resource": object.union(default_input.resource, {"tenant_id": "tenant-b"}),
+	})
 	result := decision with input as test_input
 	result.decision == "deny"
 	result.reason == "cross-tenant resource"
 }
 
 test_deleted_document_deny if {
-	test_input := object.union(default_input, {"resource": object.union(default_input.resource, {"deleted": true})})
+	test_input := object.union(default_input, {
+		"resource": object.union(default_input.resource, {"deleted": true}),
+	})
 	result := decision with input as test_input
 	result.decision == "deny"
 	result.reason == "deleted document"
 }
 
 test_missing_tenant_metadata_deny if {
-	test_input := object.union(default_input, {"resource": object.union(default_input.resource, {"tenant_id": null})})
+	test_input := object.union(default_input, {
+		"resource": object.union(default_input.resource, {"tenant_id": null}),
+	})
 	result := decision with input as test_input
 	result.decision == "deny"
 	result.reason == "missing tenant metadata"
 }
 
 test_missing_permission_metadata_deny if {
-	test_input := object.union(default_input, {"resource": object.union(default_input.resource, {"permission_version": null})})
+	test_input := object.union(default_input, {
+		"resource": object.union(default_input.resource, {"permission_version": null}),
+	})
 	result := decision with input as test_input
 	result.decision == "deny"
 	result.reason == "missing permission metadata"

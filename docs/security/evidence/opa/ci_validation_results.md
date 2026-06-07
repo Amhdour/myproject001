@@ -1,8 +1,8 @@
 # OPA CI Validation Results
 
-This page records the observed GitHub Actions result for the Retrieval ACL OPA policy validation workflow. It documents only the CI result that was visible for the referenced run; it does not modify OPA policy behavior and does not claim production readiness.
+This page records observed validation evidence for the Retrieval ACL OPA policy validation workflow. It does not claim production readiness and it does not claim that OPA validation proves live RAG runtime enforcement.
 
-## GitHub Actions run
+## GitHub Actions run previously observed
 
 - Workflow name: `OPA Policy Checks`
 - Job name: `Validate Retrieval ACL OPA policy`
@@ -15,13 +15,22 @@ This page records the observed GitHub Actions result for the Retrieval ACL OPA p
 - Observed job duration: 5 seconds
 - Result: failed
 
-## OPA CLI version
+## New local validation attempt after formatting patch
 
-The workflow pins `OPA_VERSION` to `v1.17.0` and installs the Linux static OPA binary before validation. The public GitHub Actions page requires sign-in to view full logs, so this evidence records the pinned CLI version from the workflow definition rather than claiming a verbatim `opa version` log line.
+- Observation date: June 7, 2026
+- Branch scope: current working branch for this change
+- Local OPA CLI version: not observed because `opa` is not installed in this agent environment
+- Local result: not runnable in this environment; this is **not** evidence of pass or fail for the policy
+- Environment blocker: `/bin/bash: line 1: opa: command not found`
+- Follow-up install attempt: public OPA release downloads were blocked locally with `curl: (56) CONNECT tunnel failed, response 403`
+
+## OPA CLI version expected in CI
+
+The workflow pins `OPA_VERSION` to `v1.17.0` and installs the Linux static OPA binary before validation. The public GitHub Actions page requires sign-in to view full logs, so the prior failed-run evidence records the pinned CLI version from the workflow definition rather than claiming a verbatim `opa version` log line.
 
 ## Validation commands
 
-The workflow defines these OPA validation commands:
+The workflow defines and should run these OPA validation commands:
 
 ```bash
 opa fmt --check backend/onyx/security_layer/policy/opa/
@@ -29,7 +38,7 @@ opa check backend/onyx/security_layer/policy/opa/
 opa test backend/onyx/security_layer/policy/opa/
 ```
 
-Observed execution for the referenced run:
+Observed execution for the previously referenced failed run:
 
 | Command | Observed status |
 | --- | --- |
@@ -37,13 +46,22 @@ Observed execution for the referenced run:
 | `opa check backend/onyx/security_layer/policy/opa/` | Defined in the workflow, but not observed as executed because the preceding formatting step failed. |
 | `opa test backend/onyx/security_layer/policy/opa/` | Defined in the workflow, but not observed as executed because the preceding formatting step failed. |
 
-## Failure reason
+Observed local execution after this patch:
 
-The GitHub Actions run failed in the `Check Rego formatting` step. The public run page shows `Process completed with exit code 1` for that step. Full step logs were not available without signing in, so this document does not claim a more specific formatter diff or file-level failure reason.
+| Command | Observed status |
+| --- | --- |
+| `opa fmt --check backend/onyx/security_layer/policy/opa/` | Not runnable locally because `opa` is not installed. |
+| `opa check backend/onyx/security_layer/policy/opa/` | Not runnable locally because `opa` is not installed. |
+| `opa test backend/onyx/security_layer/policy/opa/` | Not runnable locally because `opa` is not installed. |
+
+## Failure reason for the prior CI run
+
+The previously referenced GitHub Actions run failed in the `Check Rego formatting` step. The public run page shows `Process completed with exit code 1` for that step. Full step logs were not available without signing in, so this document does not claim a more specific formatter diff or file-level failure reason.
 
 ## Limitations
 
 - CI OPA validation does not prove live RAG runtime enforcement.
 - CI OPA validation does not prove production readiness.
-- This result is evidence for the referenced GitHub Actions run only; it is not evidence that future runs pass or fail.
-- Because the run failed at formatting, this run is not evidence that `opa check` or `opa test` completed successfully.
+- The previous failed run is evidence for the referenced GitHub Actions run only; it is not evidence that future runs pass or fail.
+- Because the previous run failed at formatting, that run is not evidence that `opa check` or `opa test` completed successfully.
+- The local agent environment could not run OPA validation after the formatting patch because OPA was not installed and public downloads were blocked.

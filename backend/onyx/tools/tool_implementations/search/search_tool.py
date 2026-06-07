@@ -120,6 +120,7 @@ from onyx.utils.timing import log_function_time
 from shared_configs.configs import DOC_EMBEDDING_CONTEXT_SIZE
 from shared_configs.configs import MODEL_SERVER_HOST
 from shared_configs.configs import MODEL_SERVER_PORT
+from shared_configs.contextvars import get_current_tenant_id
 
 logger = setup_logger()
 
@@ -977,6 +978,10 @@ class SearchTool(Tool[SearchToolOverrideKwargs]):
             limit=override_kwargs.max_llm_chunks,
             include_document_id=False,
             include_link=override_kwargs.include_link,
+            opa_subject_user_id=str(self.user.id) if self.user else None,
+            opa_subject_tenant_id=get_current_tenant_id(),
+            opa_subject_groups=None,
+            opa_correlation_id=f"search-tool:{placement.turn_index}:{placement.tab_index}",
         )
 
         # End overall timing
