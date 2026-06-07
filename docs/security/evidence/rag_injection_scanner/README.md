@@ -24,6 +24,7 @@ Scanner provider selection is controlled by:
 ```bash
 SECURITY_RAG_SCANNER_PROVIDER=heuristic        # default
 SECURITY_RAG_SCANNER_PROVIDER=llamafirewall    # optional runtime-loaded adapter
+SECURITY_RAG_SCANNER_PROVIDER=agentshield      # optional runtime-loaded adapter
 SECURITY_RAG_SCANNER_FALLBACK_PROVIDER=heuristic  # default when optional backend is unavailable
 SECURITY_RAG_SCANNER_FALLBACK_PROVIDER=monitor
 SECURITY_RAG_SCANNER_FALLBACK_PROVIDER=deny
@@ -75,6 +76,7 @@ Langfuse-safe evidence metadata is allowlisted to:
 - `scanner_decision`
 - `risk_type`
 - `risk_score`
+- `drift_score` when provided by an optional backend
 - `sanitized`
 - `resource_chunk_id`
 - `correlation_id`
@@ -84,4 +86,4 @@ Raw retrieved chunk text is not exported. Evidence payloads go through the secur
 
 ## Adapter boundary
 
-This implementation is a local heuristic scanner first, and that heuristic path is proven by the targeted tests and demo. The LlamaFirewall/PurpleLlama adapter path is optional and runtime-loaded only; real backend behavior is not proven unless a compatible dependency is installed and the tests/demos are run in that environment. AgentShield is not added. No PyRIT, garak, promptfoo, Ragas, Authensor, OpenGuardrails, or full external project is vendored here.
+This implementation is a local heuristic scanner first, and that heuristic path is proven by the targeted tests and demo. The LlamaFirewall/PurpleLlama adapter path is optional and runtime-loaded only. The AgentShield adapter path is optional and runtime-loaded only. Real LlamaFirewall or AgentShield backend behavior is not proven unless a compatible dependency is installed and the tests/demos are rerun in that environment. No PyRIT, garak, promptfoo, Ragas, Authensor, OpenGuardrails, or full external project is vendored here.

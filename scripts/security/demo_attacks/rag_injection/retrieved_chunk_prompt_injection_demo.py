@@ -115,7 +115,7 @@ def _section(*, document_id: str, content: str) -> DemoSection:
 
 
 def _render(
-    *, scanner_enabled: bool, scanner_mode: str, scanner_provider: str = "heuristic"
+    *, scanner_enabled: bool, scanner_mode: str, scanner_provider: str
 ) -> tuple[str, dict[int, str]]:
     os.environ["SECURITY_OPA_RETRIEVAL_ACL_CONTEXT_ENFORCEMENT"] = "true"
     os.environ["SECURITY_RAG_INJECTION_SCANNER_ENABLED"] = (
@@ -146,22 +146,25 @@ def _render(
 
 
 def main() -> None:
-    disabled_context, disabled_citations = _render(
-        scanner_enabled=False, scanner_mode="deny"
-    )
-    deny_context, deny_citations = _render(scanner_enabled=True, scanner_mode="deny")
-    sanitize_context, sanitize_citations = _render(
-        scanner_enabled=True, scanner_mode="sanitize"
-    )
     provider = os.getenv("SECURITY_RAG_SCANNER_PROVIDER", "heuristic")
     fallback_provider = os.getenv("SECURITY_RAG_SCANNER_FALLBACK_PROVIDER", "heuristic")
+    disabled_context, disabled_citations = _render(
+        scanner_enabled=False, scanner_mode="deny", scanner_provider=provider
+    )
+    deny_context, deny_citations = _render(
+        scanner_enabled=True, scanner_mode="deny", scanner_provider=provider
+    )
+    sanitize_context, sanitize_citations = _render(
+        scanner_enabled=True, scanner_mode="sanitize", scanner_provider=provider
+    )
 
     report: dict[str, Any] = {
         "claim_boundary": (
             "Local heuristic scanner demo only. The local heuristic scanner is "
-            "proven by this demo; the LlamaFirewall/PurpleLlama adapter path is "
-            "optional and real backend behavior is not proven unless the "
-            "dependency is installed and tests/demos run. This is not a "
+            "proven by this demo; the LlamaFirewall/PurpleLlama and "
+            "AgentShield adapter paths are optional and real backend behavior "
+            "is not proven unless the selected dependency is installed and "
+            "tests/demos run. This is not a "
             "production-readiness claim."
         ),
         "scanner_provider": provider,
