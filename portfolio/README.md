@@ -6,12 +6,19 @@ This reviewer package summarizes an Onyx-based RAG/agent security-readiness port
 
 | Area | Status |
 |---|---|
-| Portfolio status | In progress |
-| Production-style portfolio readiness | 97% portfolio presentation readiness after release-candidate package and checks pass, not production-system readiness |
+| Portfolio status | In progress / bounded reviewer-ready package |
+| Portfolio presentation readiness | 94% |
+| Technical portfolio proof readiness | 88% |
+| Client demo readiness | 85% |
+| Production-style runtime proof readiness | 70% for bounded retrieval/context hook proof only |
+| Enterprise production-candidate readiness | 20% / NO-GO |
+| Real production readiness | 8% / NO-GO |
 | Production readiness | NO-GO |
 | Enterprise readiness | NO-GO |
 | External validation | PENDING |
 | Compliance certification | NOT CLAIMED |
+
+Current aggregate readiness uses the separated categories above. Historical step-specific percentages in evidence files are retained only as dated snapshots.
 
 
 ## Final Review Package
@@ -84,9 +91,10 @@ This repository is built around an Onyx-based RAG and agent system, but the revi
 - claim-boundary controls that preserve NO-GO / PENDING / NOT CLAIMED status,
 - isolated helper modules and tests for security-layer behavior,
 - demo-attack and readiness narratives for professional review,
+- retrieved-content prompt-injection detection with focused tests and bounded demo evidence,
 - minimal staging evidence only where repository artifacts support it.
 
-Many controls remain isolated, documentation-only, or monitor-only unless existing repository evidence proves otherwise. This package does not claim production readiness, enterprise readiness, compliance certification, external validation, full Onyx live staging, live enforce-mode protection, live shadow-deny runtime, live blocking, or live filtering.
+Many controls remain isolated, documentation-only, or monitor-only unless existing repository evidence proves otherwise. Retrieved-content prompt-injection detection is implemented only to the extent covered by focused tests and demo evidence. This package does not claim production readiness, enterprise readiness, compliance certification, external validation, full Onyx live staging, live enforce-mode protection, live shadow-deny runtime, live blocking, or live filtering.
 
 ## How Reviewers Should Use This Package
 

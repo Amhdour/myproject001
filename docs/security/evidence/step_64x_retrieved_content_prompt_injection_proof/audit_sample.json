@@ -1,0 +1,40 @@
+{
+  "command_run": "PYTHONPATH=. python - <<PY ... apply_retrieved_content_prompt_injection_hook(..., mode=enforce) ... PY",
+  "date": "2026-06-07",
+  "exit_code": 0,
+  "limitation": "Process-local proof sample only; not durable production audit persistence and not live staging evidence.",
+  "result": "PASS: redacted audit sample generated for an enforce-mode retrieved-content prompt-injection detection decision.",
+  "safe_claim_supported": "Redacted audit event fields capture user, tenant, source, document/chunk IDs, policy, decision, reason, and correlation ID without raw malicious content.",
+  "sample_event": {
+    "chunk_ids": [
+      "1",
+      "2"
+    ],
+    "correlation_id": "evidence-session-001",
+    "decision": "quarantine",
+    "decision_id": "rcpi:c786d6ac-a922-42e2-919a-6feb7a658e97",
+    "document_ids": [
+      "doc-malicious",
+      "doc-safe"
+    ],
+    "event_type": "retrieved_content_prompt_injection.decision",
+    "matched_pattern_names": [
+      "exfiltration_request",
+      "instruction_override",
+      "role_override"
+    ],
+    "mode": "enforce",
+    "policy_id": "retrieved_content_prompt_injection_v1",
+    "quarantined_chunk_ids": [
+      "2"
+    ],
+    "reason": "retrieved-content prompt injection signals quarantined in enforce mode",
+    "request_id": "evidence-rcpi-001",
+    "source_types": [
+      "connector"
+    ],
+    "tenant_id": "tenant-a",
+    "timestamp": "2026-06-07T19:57:16.855536+00:00",
+    "user_id": "user-alpha"
+  }
+}

@@ -1,34 +1,40 @@
 # Demo Attacks
 
 ## Purpose
-Define the intended structure and future evidence model for demo attacks.
+
+Define the intended structure and evidence model for synthetic demo attacks.
 
 ## Scope
-Documentation-only placeholder for security-readiness planning and traceability. No runtime or application behavior changes are introduced.
 
-## Status
-draft
+Demo attacks are reviewer-facing portfolio evidence. They do not modify application runtime behavior, call live tools, call MCP servers, access network resources, access secret stores, or prove live production protection.
 
-## Owner
-AI Trust & Security Readiness Engineer
+## Current status
 
-## Evidence Required
-- Control design and implementation records (future).
-- Test/validation outputs mapped to this document.
-- Review approvals and sign-off artifacts.
+Status: bounded synthetic demo bundle with local runner and tests.
 
-## Related Links
-- [Baseline Commit](../../BASELINE_COMMIT.md)
-- [Baseline Validation](./baseline_validation.md)
-- [Architecture Discovery](./architecture_discovery.md)
-- [Patch Points](./patch_points.md)
-- [Known Limitations](./known_limitations.md)
+## Implemented synthetic cases
 
+- Direct prompt injection.
+- Retrieved-content prompt injection.
+- Retrieval cross-tenant leakage.
+- Unsafe tool call.
+- MCP confused deputy.
+- Sensitive data exposure.
 
-## TODO Future Implementation Evidence
-- [ ] Add control-specific evidence after implementation.
-- [ ] Link validation tests and outcomes.
-- [ ] Add approval metadata (reviewer, date, decision).
+## Commands
+
+```bash
+python demo_attacks/run_demo_attacks.py
+PYTHONPATH=. pytest backend/security_layer/tests/test_demo_attack_runner.py -q
+```
+
+## Evidence
+
+- `demo_attacks/run_demo_attacks.py`
+- `demo_attacks/attack_matrix.md`
+- `backend/security_layer/tests/test_demo_attack_runner.py`
+- `docs/security/evidence/step_64x_retrieved_content_prompt_injection_proof/demo_attack_result.md`
 
 ## Non-Claim Statement
-This draft is a documentation scaffold only and does **not** claim implementation completeness, control effectiveness, compliance, or production readiness.
+
+The demo bundle supports portfolio-level evaluation coverage only. It does **not** claim implementation completeness, full prompt-injection defense, live blocking/filtering, production readiness, enterprise readiness, external validation, compliance certification, or live Onyx staging proof.

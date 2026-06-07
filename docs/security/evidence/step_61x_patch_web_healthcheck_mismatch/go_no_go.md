@@ -12,8 +12,8 @@
 | Repository patch prepared | GO | The healthcheck now defaults to `require('os').hostname()` with optional `WEB_HEALTHCHECK_HOST` override. |
 | Oracle VPS retest | PENDING_USER_EXECUTION | Codex cannot access the Oracle VPS from this environment. |
 | Oracle staging | PARTIAL GO | Full staging GO is not claimed without VPS retest evidence. |
-| Production-style portfolio readiness | 92% | Bounded portfolio-readiness claim only. |
-| Enterprise production-candidate | NO-GO / 7–9% | Enterprise readiness is not claimed. |
+| Production-style portfolio readiness | historical readiness snapshot | Bounded portfolio-readiness claim only. |
+| Enterprise production-candidate | NO-GO | Enterprise readiness is not claimed. |
 | External validation | simulated response only / real validation pending | The SIM-F-003 input is simulated, not a real reviewer validation. |
 | Compliance certification | NOT CLAIMED | No certification is claimed. |
 

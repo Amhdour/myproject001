@@ -1,5 +1,9 @@
 # Portfolio Readiness Assessment — Security Readiness MVP
 
+## Current claim-boundary note
+
+This file preserves an earlier MVP assessment. Its percentages are historical snapshots and are not current aggregate readiness claims. Use `CLAIM_BOUNDARY.md`, `portfolio/claim_boundary.md`, and `docs/security/final_readiness_scorecard.md` for current public-facing readiness wording.
+
 ## Confirmed repository state before implementation
 
 Repository-visible inspection confirmed an Onyx-based backend with FastAPI/server modules under `backend/onyx/server`, RAG/search retrieval code under `backend/onyx/context/search`, existing security-layer packages under both `backend/onyx/security_layer` and `backend/security_layer`, security tests under `backend/tests/security_layer`, and many existing GitHub Actions workflows under `.github/workflows`.

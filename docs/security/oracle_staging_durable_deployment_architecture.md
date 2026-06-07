@@ -21,4 +21,4 @@ The selected pattern is Option B: a dedicated Compose override at `deployment/do
 
 ## Claim Boundary
 
-This architecture is ready for retest but is not claimed as verified on Oracle VPS in Step 62X. Production readiness is NO-GO, enterprise production-candidate readiness is NO-GO / 7–9%, external validation is simulated response only / real validation pending, and compliance certification is NOT CLAIMED.
+This architecture is ready for retest but is not claimed as verified on Oracle VPS in Step 62X. Production readiness is NO-GO, enterprise production-candidate readiness is NO-GO, external validation is simulated response only / real validation pending, and compliance certification is NOT CLAIMED.

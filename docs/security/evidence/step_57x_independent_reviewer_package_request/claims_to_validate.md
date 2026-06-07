@@ -2,7 +2,7 @@
 
 Please validate whether the evidence supports the following bounded claims:
 
-1. Production-style portfolio readiness at 92%.
+1. Production-style portfolio readiness at historical readiness snapshot.
 2. Oracle staging evidence being PARTIAL GO.
 3. Runtime enforcement behavior being PARTIAL GO.
 4. Custom backend image evidence showing inclusion of Step 39X runtime code.

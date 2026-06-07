@@ -113,6 +113,6 @@ Do not claim:
 
 - Step status: focused technical proof implemented locally.
 - Production readiness: `NO-GO / 0%`.
-- Enterprise readiness: `NO-GO / 7–9%` as a portfolio-review estimate only.
+- Enterprise readiness: `NO-GO` as a portfolio-review estimate only.
 - Staging validation: not claimed / `0%`.
 - Audit persistence durability: in-memory only / not durable.

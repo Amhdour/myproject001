@@ -45,7 +45,7 @@ The Step 3 runtime-security evidence result is:
 
 The Phase 4 portfolio consolidation supports:
 
-`~99% production-style portfolio coverage`
+`94% portfolio presentation readiness` and `88% technical portfolio proof readiness`
 
 This means the portfolio is highly complete as a review artifact. It does not mean enterprise production readiness.
 

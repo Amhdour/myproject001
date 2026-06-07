@@ -26,8 +26,8 @@ Step 44X checks repository recovery and evidence-chain integrity from the curren
 This classification is used because origin/main recovery and live GitHub PR/CI metadata remain blocked from this workspace even though local merge commits and evidence folders show a recoverable local chain.
 
 ## Readiness Impact
-- Production-style portfolio readiness after Step 44X: **87%**.
-- Enterprise production-candidate readiness after Step 44X: **NO-GO / 5%**.
+- Production-style portfolio readiness after Step 44X: **historical readiness snapshot**.
+- Enterprise production-candidate readiness after Step 44X: **NO-GO**.
 - Live staging/cloud validation: **PENDING**.
 - External validation: **PENDING**.
 - Compliance certification: **NOT CLAIMED**.

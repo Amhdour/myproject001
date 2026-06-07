@@ -4,7 +4,7 @@
 
 I finished a production-style AI Trust & Security Readiness portfolio for RAG and autonomous agent systems, built around an Onyx-based project.
 
-The final result is `PASS_WITH_LIMITATIONS` with `~99% production-style portfolio coverage` — meaning the portfolio evidence package is nearly complete as a reviewer/career artifact, not that the system has 99% production security coverage.
+The final result is `PASS_WITH_LIMITATIONS` with `94% portfolio presentation readiness` and `88% technical portfolio proof readiness` — meaning the portfolio evidence package is nearly complete as a reviewer/career artifact, not that the system has production security coverage.
 
 What it demonstrates:
 
@@ -28,9 +28,9 @@ The final Step 3 result is:
 
 The readiness estimate is:
 
-`~99% production-style portfolio coverage`
+`94% portfolio presentation readiness` and `88% technical portfolio proof readiness`
 
-Important clarification: the 99% estimate refers to portfolio coverage — evidence organization, reviewer readiness, and narrative completeness. It does not mean 99% production security coverage, enterprise deployment readiness, compliance coverage, or operational approval.
+Important clarification: the readiness estimates refer to portfolio/proof coverage — evidence organization, reviewer readiness, and narrative completeness. It does not mean production security coverage, enterprise deployment readiness, compliance coverage, or operational approval.
 
 The portfolio includes:
 
@@ -68,18 +68,18 @@ That claim boundary is part of the point. AI security work should make the diffe
 
 ## GitHub Pinned Repo Description
 
-Production-style AI Trust & Security Readiness portfolio for RAG and autonomous agent systems. Result: `PASS_WITH_LIMITATIONS`; readiness: `~99% production-style portfolio coverage` — portfolio coverage only, not production security coverage.
+Production-style AI Trust & Security Readiness portfolio for RAG and autonomous agent systems. Result: `PASS_WITH_LIMITATIONS`; readiness: `94% portfolio presentation readiness` and `88% technical portfolio proof readiness` — portfolio coverage only, not production security coverage.
 
 ## GitHub About Section
 
-This Onyx-based repository packages a public-safe AI Trust & Security Readiness portfolio for RAG and autonomous agent systems. It documents runtime-security evidence, claim boundaries, demo narratives, and remaining validation work for reviewer use. The final Step 3 result is `PASS_WITH_LIMITATIONS`, and the readiness estimate is `~99% production-style portfolio coverage`. That percentage describes portfolio completeness, not production security coverage, compliance certification, external validation, or enterprise deployment approval.
+This Onyx-based repository packages a public-safe AI Trust & Security Readiness portfolio for RAG and autonomous agent systems. It documents runtime-security evidence, claim boundaries, demo narratives, and remaining validation work for reviewer use. The final Step 3 result is `PASS_WITH_LIMITATIONS`, and the readiness estimate is `94% portfolio presentation readiness` and `88% technical portfolio proof readiness`. That percentage describes portfolio completeness, not production security coverage, compliance certification, external validation, or enterprise deployment approval.
 
 ## Short X/Twitter Post
 
 Finished my Onyx-based RAG Agent Security Readiness portfolio.
 
 Result: `PASS_WITH_LIMITATIONS`.
-Readiness: `~99% production-style portfolio coverage` — portfolio coverage only, not production security coverage.
+Readiness: `94% portfolio presentation readiness` and `88% technical portfolio proof readiness` — portfolio coverage only, not production security coverage.
 
 Focus: RAG/agent risks, evidence packaging, and honest AI security claim boundaries.
 
@@ -87,8 +87,8 @@ Focus: RAG/agent risks, evidence packaging, and honest AI security claim boundar
 
 أنهيت حزمة عرض مهنية لمشروع Onyx-based RAG Agent Security Readiness.
 
-النتيجة النهائية هي `PASS_WITH_LIMITATIONS`، وتقدير الجاهزية هو `~99% production-style portfolio coverage`.
+النتيجة النهائية هي `PASS_WITH_LIMITATIONS`، وتقدير الجاهزية هو `94% portfolio presentation readiness` and `88% technical portfolio proof readiness`.
 
-توضيح مهم: نسبة 99% تعني اكتمال ملف العرض والأدلة كمشروع Portfolio، ولا تعني تغطية أمنية إنتاجية بنسبة 99% أو جاهزية مؤسسية أو اعتماد امتثال أو تحقق خارجي.
+توضيح مهم: تقديرات الجاهزية تعني اكتمال ملف العرض والأدلة كمشروع Portfolio، ولا تعني تغطية أمنية إنتاجية بتقديرات الجاهزية أو جاهزية مؤسسية أو اعتماد امتثال أو تحقق خارجي.
 
 يركز المشروع على مخاطر أنظمة RAG والوكلاء الذكيين مثل prompt injection، مخاطر الاسترجاع، البيانات الحساسة، استخدام الأدوات، تكاملات MCP، وحدود الادعاءات الأمنية.

@@ -8,7 +8,7 @@
 
 1. **External validation is pending.** This package prepares evidence for reviewers; it is not itself external validation.
 2. **No production deployment was performed.** The package must not be used to claim production launch.
-3. **Enterprise production-candidate remains NO-GO / 7–9%.** Controls are not complete enough for enterprise production-candidate status.
+3. **Enterprise production-candidate remains NO-GO.** Controls are not complete enough for enterprise production-candidate status.
 4. **Oracle staging remains PARTIAL GO.** Step 50X showed service recovery and partial host/proxy reachability, but also a web Docker healthcheck mismatch.
 5. **Custom-image deployment proof is incomplete in this repository.** Step 52X was build/deploy blocked from the workspace; no standalone Step 53X or Step 54Y evidence folder is present.
 6. **Runtime behavior remains PARTIAL GO.** Targeted tests pass locally, but independent Oracle container smoke evidence is still required.

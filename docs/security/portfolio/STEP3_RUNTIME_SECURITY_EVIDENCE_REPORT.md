@@ -6,7 +6,7 @@ Step 3 consolidated runtime-security evidence for an Onyx-based RAG and autonomo
 
 **Result:** `PASS_WITH_LIMITATIONS`
 
-**Portfolio-readiness estimate:** `~99% production-style portfolio coverage`
+**Portfolio-readiness estimate:** `94% portfolio presentation readiness` and `88% technical portfolio proof readiness`
 
 This is a portfolio-readiness result, not a production-readiness result.
 
@@ -82,4 +82,4 @@ The remaining work is:
 
 ## Conclusion
 
-Step 3 is suitable for Phase 4 portfolio consolidation. The honest final posture is `PASS_WITH_LIMITATIONS` with approximately `~99% production-style portfolio coverage`, bounded by the remaining work listed above.
+Step 3 is suitable for Phase 4 portfolio consolidation. The honest final posture is `PASS_WITH_LIMITATIONS` with approximately `94% portfolio presentation readiness` and `88% technical portfolio proof readiness`, bounded by the remaining work listed above.

@@ -33,8 +33,8 @@
 
 ## Decision Checks
 
-- [ ] Preserve production-style portfolio readiness at 92% unless new evidence justifies a change.
-- [ ] Preserve enterprise production-candidate as NO-GO / 7–9%.
+- [ ] Preserve production-style portfolio readiness at historical readiness snapshot unless new evidence justifies a change.
+- [ ] Preserve enterprise production-candidate as NO-GO.
 - [ ] Preserve Oracle staging evidence as PARTIAL GO.
 - [ ] Preserve runtime enforcement behavior as PARTIAL GO until deployed Oracle smoke logs are independently reviewed.
 - [ ] Preserve external validation as PENDING until this checklist is completed by an independent reviewer.

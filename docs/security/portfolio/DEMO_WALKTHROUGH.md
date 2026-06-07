@@ -10,7 +10,7 @@ Use this walkthrough to demonstrate evidence organization, claim boundaries, and
 
 Start the demo with this disclaimer:
 
-> This is a production-style AI Trust & Security Readiness portfolio for RAG and autonomous agent systems. Step 3 is `PASS_WITH_LIMITATIONS`, and the portfolio is approximately `~99%` complete as a portfolio artifact. This is not an enterprise production-readiness claim, external validation claim, full authenticated RBAC claim, full real-user tenant-isolation claim, full real tool-blocking claim, or full real MCP server-blocking claim.
+> This is a production-style AI Trust & Security Readiness portfolio for RAG and autonomous agent systems. Step 3 is `PASS_WITH_LIMITATIONS`, and the portfolio is approximately `94% portfolio presentation readiness` and `88% technical portfolio proof readiness`. This is not an enterprise production-readiness claim, external validation claim, full authenticated RBAC claim, full real-user tenant-isolation claim, full real tool-blocking claim, or full real MCP server-blocking claim.
 
 ## Suggested Demo Flow
 
@@ -61,7 +61,7 @@ Open `docs/security/portfolio/FINAL_PORTFOLIO_GO_NO_GO.md` and close with the fi
 ## Demo Do's
 
 - Say `PASS_WITH_LIMITATIONS` exactly.
-- Say `~99% production-style portfolio coverage` exactly.
+- Say `94% portfolio presentation readiness` and `88% technical portfolio proof readiness` exactly.
 - Say the package is public-safe and reviewer-ready.
 - Say remaining work is clearly documented.
 
@@ -79,4 +79,4 @@ Do not say:
 
 ## Closing Script
 
-> The portfolio is ready for reviewer presentation as a production-style AI Trust & Security Readiness package. The honest status is `PASS_WITH_LIMITATIONS` with `~99% production-style portfolio coverage`. The remaining work is host/reverse-proxy route polish, authenticated RBAC tests, seeded real-document retrieval tests, real configured tool execution tests, real MCP server execution tests, external validation, and backup/restore plus incident drills.
+> The portfolio is ready for reviewer presentation as a production-style AI Trust & Security Readiness package. The honest status is `PASS_WITH_LIMITATIONS` with `94% portfolio presentation readiness` and `88% technical portfolio proof readiness`. The remaining work is host/reverse-proxy route polish, authenticated RBAC tests, seeded real-document retrieval tests, real configured tool execution tests, real MCP server execution tests, external validation, and backup/restore plus incident drills.

@@ -20,3 +20,10 @@ Step 36X evidence is stored under:
 - `docs/security/evidence/step_36x_rollback_redeploy/`
 
 This bundle records real Coolify/VPS rollback and redeploy evidence for the minimal `step34x-health` nginx deployment on `rag-agent-security-staging-v2`. The minimal rollback/redeploy path is **VALIDATED** based on before-stop, after-stop, and after-redeploy local evidence. Full Onyx rollback is **NO-GO / RESOURCE-BLOCKED**, production rollback readiness is **NO-GO**, enterprise rollback readiness is **NO-GO**, external validation remains **PENDING**, and compliance certification is **NOT CLAIMED**.
+
+## Step 64X Retrieved-Content Prompt-Injection Proof
+
+Step 64X evidence is stored under:
+- `docs/security/evidence/step_64x_retrieved_content_prompt_injection_proof/`
+
+This bundle records focused detector tests, bounded real search-runner hook wiring proof, synthetic demo attack output, redacted audit sample, telemetry sample, reviewer command output, CI workflow-definition status, and limitations. It supports only retrieved-content prompt-injection detection/protection claims covered by tests and demo evidence. It does not claim full prompt-injection defense, live blocking/filtering, production readiness, enterprise readiness, external validation, or compliance certification.

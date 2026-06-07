@@ -18,7 +18,7 @@
 | Host/proxy sanity | PARTIAL GO | Step 50X host/proxy checks are credible but not a configured app-domain/TLS proof. |
 | Audit/safe-denial source symbols | GO for source-level review | Runtime audit and safe-denial source/tests are present. |
 | Production deployment | NO-GO | Not performed and not requested. |
-| Enterprise production-candidate | NO-GO / 7–9% | Significant validation and production hardening gaps remain. |
+| Enterprise production-candidate | NO-GO | Significant validation and production hardening gaps remain. |
 | External validation | PENDING | This package is ready for review but has not been independently validated. |
 | Compliance certification | NOT CLAIMED | No certification audit or attestation is included. |
 

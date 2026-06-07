@@ -27,6 +27,7 @@ This document is for a partner or demo reviewer who wants a fast, safe walkthrou
 
 ```bash
 python demo_attacks/run_demo_attacks.py
+PYTHONPATH=. pytest backend/security_layer/tests/test_retrieved_content_prompt_injection.py -q
 python scripts/portfolio/check_claim_boundary.py
 python scripts/portfolio/check_no_fake_claims.py
 python scripts/portfolio/check_evidence_links.py
@@ -35,7 +36,7 @@ python -m pytest backend/security_layer/tests -q
 
 ## What PASS means
 
-PASS means the local synthetic demo attacks, claim-boundary checks, fake-claim checks, evidence-link presence checks, and isolated security-layer tests completed successfully in the current environment.
+PASS means the local synthetic demo attacks, retrieved-content prompt-injection detector tests, claim-boundary checks, fake-claim checks, evidence-link presence checks, and isolated security-layer tests completed successfully in the current environment.
 
 ## What PASS does not mean
 
@@ -45,7 +46,12 @@ PASS does not mean production readiness, enterprise readiness, compliance certif
 
 | Area | Status |
 |---|---|
-| Production-style portfolio readiness | 80% |
+| Portfolio presentation readiness | 94% |
+| Technical portfolio proof readiness | 88% |
+| Client demo readiness | 85% |
+| Production-style runtime proof readiness | 70% for bounded retrieval/context hook proof only |
+| Enterprise production-candidate readiness | 20% / NO-GO |
+| Real production readiness | 8% / NO-GO |
 | Production readiness | NO-GO |
 | Enterprise readiness | NO-GO |
 | External validation | PENDING |

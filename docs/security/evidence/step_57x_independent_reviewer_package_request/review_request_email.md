@@ -20,7 +20,7 @@ Key supporting evidence:
 
 Could you please answer the reviewer questions in `reviewer_questions.md` and, if possible, complete `reviewer_response_template.md`? I am especially looking for your judgment on whether the evidence supports:
 
-- 92% production-style portfolio readiness.
+- historical readiness snapshot production-style portfolio readiness.
 - Oracle staging evidence classified as PARTIAL GO.
 - Runtime enforcement behavior classified as PARTIAL GO.
 - The stated claim boundaries and remaining limitations.

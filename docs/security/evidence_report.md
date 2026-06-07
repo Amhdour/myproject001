@@ -629,7 +629,7 @@ Classification: **REMOTE_SYNC_BLOCKED**.
 
 Local workflow files exist under `.github/workflows/`, and local verification commands passed. GitHub Actions remote runs, PR checks, run IDs, job names, conclusions, and log URLs were unavailable and are not claimed.
 
-Readiness remains bounded: production-style portfolio readiness remains **87%**, enterprise production-candidate readiness remains **NO-GO / 5%**, live staging/cloud validation remains **PENDING**, external validation remains **PENDING**, and compliance certification remains **NOT CLAIMED**.
+Readiness remains bounded: production-style portfolio readiness remains **historical readiness snapshot**, enterprise production-candidate readiness remains **NO-GO**, live staging/cloud validation remains **PENDING**, external validation remains **PENDING**, and compliance certification remains **NOT CLAIMED**.
 
 ## Step 44X Local Repository Recovery + Branch/Commit Integrity Gate
 
@@ -643,7 +643,7 @@ Local positive evidence remains bounded: Step 39X, Step 40X, Step 42X, and Step 
 
 CI status is not claimed. Local workflow files are present, but GitHub Actions run status and PR checks could not be queried.
 
-Readiness remains bounded: production-style portfolio readiness remains **87%**, enterprise production-candidate readiness remains **NO-GO / 5%**, live staging/cloud validation remains **PENDING**, external validation remains **PENDING**, and compliance certification remains **NOT CLAIMED**.
+Readiness remains bounded: production-style portfolio readiness remains **historical readiness snapshot**, enterprise production-candidate readiness remains **NO-GO**, live staging/cloud validation remains **PENDING**, external validation remains **PENDING**, and compliance certification remains **NOT CLAIMED**.
 
 ## Step 45X GitHub PR Chain Reconciliation + CI Actions Verification
 
@@ -655,7 +655,7 @@ Local workflow files are present under `.github/workflows/`, but GitHub Actions 
 
 Local verification passed with the default Python environment: Step 39X runtime-enforcement tests, full `backend/security_layer/tests`, demo attacks, claim-boundary checks, fake-claim checks, evidence-link checks, release-candidate checks, Step 42X/43X/44X evidence checks, the Step 45X helper check, and `git diff --check` passed. The repository virtual environment was tried first for pytest and lacked pytest, so the exact pytest commands were rerun with the default Python environment.
 
-Readiness remains bounded: production-style portfolio readiness remains **87%**, enterprise production-candidate readiness remains **NO-GO / 5%**, live staging/cloud validation remains **PENDING**, external validation remains **PENDING**, and compliance certification remains **NOT CLAIMED**.
+Readiness remains bounded: production-style portfolio readiness remains **historical readiness snapshot**, enterprise production-candidate readiness remains **NO-GO**, live staging/cloud validation remains **PENDING**, external validation remains **PENDING**, and compliance certification remains **NOT CLAIMED**.
 
 ## Step 46X GitHub Actions CI Run Trigger + Verification Gate
 
@@ -692,8 +692,8 @@ Evidence files are under `docs/security/evidence/step_47x_docker_local_compose_s
 
 Readiness impact after Step 47X:
 
-- Production-style portfolio readiness: 87%.
-- Enterprise production-candidate readiness: NO-GO / 5%.
+- Production-style portfolio readiness: historical readiness snapshot.
+- Enterprise production-candidate readiness: NO-GO.
 - Local Docker staging evidence: BLOCKED.
 - Live staging/cloud validation: PENDING.
 - CI Actions evidence: BLOCKED from Step 46X; not reverified in Step 47X.
@@ -720,8 +720,8 @@ Evidence summary:
 
 Readiness impact after Step 50X:
 
-- Production-style portfolio readiness: 90%.
-- Enterprise production-candidate readiness: NO-GO / 6-8%.
+- Production-style portfolio readiness: historical readiness snapshot.
+- Enterprise production-candidate readiness: NO-GO.
 - Oracle staging evidence: PARTIAL GO.
 - Live full app GO: NOT CLAIMED.
 - External validation: PENDING.
@@ -742,7 +742,7 @@ Key evidence boundaries:
 - No custom image build is claimed because `docker` and `docker compose` are unavailable in this workspace.
 - No Oracle deployment is claimed because `rag-agent-security-staging-v2` could not be resolved over SSH from this workspace.
 - Deployed Oracle API image, runtime directory, runtime hook, and health-after-deploy remain `NOT VERIFIED`.
-- Production-style portfolio readiness remains 90%; enterprise production-candidate readiness remains NO-GO / 6-8%; external validation remains PENDING; compliance certification remains NOT CLAIMED.
+- Production-style portfolio readiness remains historical readiness snapshot; enterprise production-candidate readiness remains NO-GO; external validation remains PENDING; compliance certification remains NOT CLAIMED.
 
 ## Step 57X Evidence Category: Independent Reviewer Package + Review Request
 
@@ -754,9 +754,9 @@ Classification: `INDEPENDENT_REVIEW_PACKAGE_READY_EXTERNAL_VALIDATION_REQUEST_PE
 
 Readiness and claim boundaries after Step 57X:
 
-- Production-style portfolio readiness: 92%.
+- Production-style portfolio readiness: historical readiness snapshot.
 - Production readiness: NO-GO.
-- Enterprise production-candidate readiness: NO-GO / 7–9%.
+- Enterprise production-candidate readiness: NO-GO.
 - Oracle staging evidence: PARTIAL GO.
 - Runtime enforcement behavior: PARTIAL GO.
 - External validation: REQUEST PACKAGE READY / NOT YET COMPLETED.
@@ -777,7 +777,7 @@ Step 58X adds a structured response intake and finding-tracking package at `docs
 | Reviewer response status | NO RESPONSE YET |
 | External validation status | REQUEST PACKAGE READY / NO RESPONSE YET |
 | Production readiness after Step 58X | NO-GO |
-| Enterprise production-candidate readiness after Step 58X | NO-GO / 7–9% |
+| Enterprise production-candidate readiness after Step 58X | NO-GO |
 | Compliance certification after Step 58X | NOT CLAIMED |
 
 Step 58X is not an external-validation completion event. It does not claim reviewer approval, third-party validation, compliance certification, production readiness, enterprise production-candidate readiness, or closure of any reviewer finding.
@@ -790,7 +790,7 @@ Step 62X records architecture/configuration readiness for simulated finding `SIM
 
 Classification: `DURABLE_DEPLOYMENT_ARCHITECTURE_READY_RETEST_PENDING`.
 
-Readiness boundaries remain unchanged: production-style portfolio readiness is 92%; enterprise production-candidate is NO-GO / 7–9%; external validation is simulated response only / real validation pending; compliance certification is NOT CLAIMED.
+Readiness boundaries remain unchanged: production-style portfolio readiness is historical readiness snapshot; enterprise production-candidate is NO-GO; external validation is simulated response only / real validation pending; compliance certification is NOT CLAIMED.
 
 ---
 
@@ -861,3 +861,12 @@ Do not claim production-ready, enterprise-ready, fully secure, externally audite
 ## Readiness percentage after implementation
 
 Final portfolio readiness: **85%**, capped because CI was configured but not run in GitHub Actions.
+
+## Step 64X Retrieved-Content Prompt-Injection Evidence
+
+- Evidence package: `docs/security/evidence/step_64x_retrieved_content_prompt_injection_proof/`.
+- Implemented control: bounded retrieved-content prompt-injection detector and hook.
+- Tested proof: focused detector/mode tests and source-level real search-runner hook-wiring proof.
+- Demo proof: synthetic demo runner includes a retrieved-content prompt-injection case.
+- Audit/telemetry proof: redacted audit sample and process-local telemetry sample are included.
+- Claim boundary: full prompt-injection defense, production readiness, enterprise readiness, staging proof, external validation, and compliance certification are not claimed.

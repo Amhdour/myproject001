@@ -53,8 +53,8 @@ Do not claim production readiness, enterprise readiness, staging validation, ful
 
 These percentages are portfolio-review estimates only, not production readiness claims.
 
-- Production-style portfolio coverage: remains about `99%` as a reviewer artifact only.
+- Production-style portfolio coverage: remains about `current separated readiness matrix` as a reviewer artifact only.
 - Retrieval ACL mapped-metadata CI proof: `PENDING_CI`.
 - Production readiness: `NO-GO / 0%`.
-- Enterprise production-candidate readiness: `NO-GO / 7–9%`.
+- Enterprise production-candidate readiness: `NO-GO`.
 - Staging validation for this step: not claimed / `0%`.

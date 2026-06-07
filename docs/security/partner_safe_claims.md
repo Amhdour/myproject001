@@ -23,3 +23,9 @@ The project must not claim:
 - Live staging validation status: **PENDING**.
 - External validation status: **PENDING**.
 - Compliance certification status: **NOT CLAIMED**.
+
+## Step 64X Retrieved-Content Prompt-Injection Safe Claim
+
+Safe wording: "The portfolio includes bounded retrieved-content prompt-injection detection covered by focused tests, redacted audit/telemetry samples, and synthetic demo evidence."
+
+Do not expand this into claims of full prompt-injection defense, live blocking, live filtering, production readiness, enterprise readiness, external validation, staging proof, or compliance certification.

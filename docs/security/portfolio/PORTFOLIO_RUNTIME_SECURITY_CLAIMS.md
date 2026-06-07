@@ -19,11 +19,16 @@ When describing Step 3, use the exact result:
 
 `PASS_WITH_LIMITATIONS`
 
-When describing readiness, use:
+When describing readiness, use the separated current wording:
 
-`~99% production-style portfolio coverage`
+- `94% portfolio presentation readiness`
+- `88% technical portfolio proof readiness`
+- `85% client demo readiness`
+- `70% production-style runtime proof readiness` for bounded retrieval/context hook proof only
+- `20% / NO-GO enterprise production-candidate readiness`
+- `8% / NO-GO real production readiness`
 
-Always clarify that this is portfolio coverage, not production security coverage.
+Always clarify that these are portfolio/proof estimates, not production security coverage.
 
 ## Safe Claims
 
@@ -34,7 +39,7 @@ The portfolio can claim that it:
 - demonstrates claim-boundary discipline;
 - identifies remaining operational validation work;
 - separates portfolio readiness from production readiness;
-- provides a demo narrative for prompt injection, retrieval, tool, MCP, and sensitive-data scenarios.
+- provides a demo narrative for direct prompt injection, retrieved-content prompt injection, retrieval, tool, MCP, and sensitive-data scenarios.
 
 ## Forbidden Claims
 
@@ -49,6 +54,7 @@ Do **not** claim:
 - production deployment approval;
 - compliance certification;
 - full live enforce-mode coverage;
+- full prompt-injection defense;
 - that all Onyx request paths are protected;
 - that all real user, document, tool, MCP, backup, restore, and incident-response paths have been validated.
 
@@ -64,9 +70,14 @@ Use language like:
 |---|---|
 | Portfolio consolidation | GO |
 | Step 3 runtime-security evidence | PASS_WITH_LIMITATIONS |
-| Production-style portfolio coverage | ~99% |
-| Enterprise production readiness | NOT CLAIMED |
-| External validation | NOT CLAIMED |
+| Portfolio presentation readiness | 94% |
+| Technical portfolio proof readiness | 88% |
+| Client demo readiness | 85% |
+| Production-style runtime proof readiness | 70% |
+| Enterprise production-candidate readiness | 20% / NO-GO |
+| Enterprise production readiness | NO-GO |
+| Production readiness | NO-GO |
+| External validation | PENDING |
 | Full authenticated RBAC | NOT CLAIMED |
 | Full real-user tenant isolation | NOT CLAIMED |
 | Full real tool execution blocking | NOT CLAIMED |

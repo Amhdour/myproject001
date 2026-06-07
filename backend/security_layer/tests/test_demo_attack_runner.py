@@ -14,6 +14,7 @@ RUNNER_PATH = ROOT / "demo_attacks" / "run_demo_attacks.py"
 EXPECTED_CASE_IDS = {
     "prompt_injection",
     "retrieval_cross_tenant_leakage",
+    "retrieved_context_prompt_injection",
     "unsafe_tool_call",
     "mcp_confused_deputy",
     "sensitive_data_exposure",
@@ -30,13 +31,13 @@ def load_runner_module() -> ModuleType:
     return module
 
 
-def test_all_five_demo_attack_cases_exist() -> None:
+def test_all_six_demo_attack_cases_exist() -> None:
     runner = load_runner_module()
 
     cases = runner.get_demo_attack_cases()
 
     assert {case.case_id for case in cases} == EXPECTED_CASE_IDS
-    assert len(cases) == 5
+    assert len(cases) == 6
 
 
 @pytest.mark.parametrize("case_id", sorted(EXPECTED_CASE_IDS))

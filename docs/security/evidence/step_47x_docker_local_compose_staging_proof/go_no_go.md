@@ -19,8 +19,8 @@
 
 ## Readiness impact
 
-- Production-style portfolio readiness after Step 47X: 87%.
-- Enterprise production-candidate readiness after Step 47X: NO-GO / 5%.
+- Production-style portfolio readiness after Step 47X: historical readiness snapshot.
+- Enterprise production-candidate readiness after Step 47X: NO-GO.
 - Local Docker staging evidence: BLOCKED.
 - Live staging/cloud validation: PENDING.
 - CI Actions evidence: BLOCKED.
@@ -33,8 +33,8 @@ This Step 47X evidence does not claim live cloud/VPS staging validation, product
 
 ## Readiness status after Step 47X
 
-- Production-style portfolio readiness: 87%.
-- Enterprise production-candidate readiness: NO-GO / 5%.
+- Production-style portfolio readiness: historical readiness snapshot.
+- Enterprise production-candidate readiness: NO-GO.
 - Local Docker staging evidence: BLOCKED.
 - Live staging/cloud validation: PENDING.
 - CI Actions evidence: BLOCKED.

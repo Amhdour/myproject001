@@ -6,7 +6,11 @@
 
 **Step 3 runtime-security evidence:** PASS_WITH_LIMITATIONS
 
-**Production-style portfolio coverage:** ~99%
+**Portfolio presentation readiness:** 94%
+
+**Technical portfolio proof readiness:** 88%
+
+**Production-style runtime proof readiness:** 70% for bounded hook/test proof only
 
 This is a GO for reviewer-facing portfolio consolidation. It is not a GO for enterprise production readiness.
 
@@ -16,7 +20,9 @@ This is a GO for reviewer-facing portfolio consolidation. It is not a GO for ent
 |---|---|---|
 | Public-safe portfolio package | GO | Files are consolidated under `docs/security/portfolio/`. |
 | Step 3 runtime-security evidence | PASS_WITH_LIMITATIONS | Evidence is strong for portfolio review, with documented limitations. |
-| Production-style portfolio coverage | ~99% | Portfolio coverage only; not production security coverage. |
+| Portfolio presentation readiness | 94% | Portfolio presentation only; not production security coverage. |
+| Technical portfolio proof readiness | 88% | Focused tests/evidence only; not production security coverage. |
+| Production-style runtime proof readiness | 70% | Bounded real-path hook/test proof only; not full live coverage. |
 | Enterprise production readiness | NO-GO / NOT CLAIMED | Requires additional operational and external validation. |
 | External validation | NO-GO / NOT CLAIMED | Independent review remains future work. |
 | Full authenticated RBAC | NO-GO / NOT CLAIMED | Authenticated RBAC tests remain future work. |
@@ -32,7 +38,9 @@ Phase 4 consolidates Step 3 runtime-security evidence into a public-safe portfol
 The correct final posture is:
 
 - `PASS_WITH_LIMITATIONS`;
-- `~99% production-style portfolio coverage`;
+- `94% portfolio presentation readiness`;
+- `88% technical portfolio proof readiness`;
+- `70% production-style runtime proof readiness` for bounded hook/test proof only;
 - no enterprise production-readiness claim;
 - no external-validation claim;
 - no full authenticated RBAC claim;

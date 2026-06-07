@@ -5,7 +5,7 @@
 You may say:
 
 - I built a portfolio-grade AI Trust & Security Readiness evidence package for an Onyx-based RAG and agent stack.
-- I implemented and tested security controls for retrieval ACLs, tracing, redaction, RAG injection scanning, tool governance, MCP governance, gateway governance, evaluation, and red-team evidence mapping.
+- I implemented and tested bounded controls for retrieval ACLs, tracing, redaction, retrieved-content prompt-injection detection, tool governance, MCP governance, gateway governance, evaluation, and red-team evidence mapping.
 - I created a reviewer-friendly evidence index, demo script, claim boundary, and limitations package.
 - I separated implemented controls from optional or dependency-backed paths.
 - I documented safe-denial behavior and evidence hygiene so sensitive content does not leak into the portfolio artifacts.
@@ -14,7 +14,8 @@ You may say:
 ## Safe phrasing examples
 
 - “portfolio-grade security evidence package”
-- “implemented and tested controls”
+- “implemented and tested bounded controls”
+- “retrieved-content prompt-injection detection covered by focused tests and demo evidence”
 - “reviewer-ready evidence index”
 - “bounded claim boundary”
 - “fixture-backed evaluation and red-team foundation”
@@ -24,9 +25,9 @@ You may say:
 
 Do **not** say:
 
-- production ready;
-- enterprise ready;
-- externally validated;
+- production readiness is proven;
+- enterprise readiness is proven;
+- external validation completed;
 - certified;
 - audit complete;
 - live-enforce-mode proven in production;
@@ -37,8 +38,9 @@ Do **not** say:
 - full real MCP blocking across every MCP server;
 - real PyRIT or garak execution unless dependency-backed runs actually occurred;
 - real Ragas or promptfoo execution unless dependency-backed runs actually occurred;
-- real LlamaFirewall or AgentShield backend behavior unless dependency-backed runs actually occurred.
+- real LlamaFirewall or AgentShield backend behavior unless dependency-backed runs actually occurred;
+- full prompt-injection defense or live prompt-injection blocking.
 
 ## Short safe one-liner
 
-> I shipped a portfolio-grade AI Trust & Security Readiness evidence package with implemented, tested, demoed, and evidence-backed controls, plus explicit limitations and claim boundaries.
+> I built an Onyx-based AI security-readiness portfolio focused on RAG and agent runtime controls, including policy-as-code structure, retrieval ACL testing, retrieved-content prompt-injection detection, tool authorization, MCP governance, sandbox/artifact safety checks, audit/evidence reporting, demo attacks, CI workflow definitions, and strict claim-boundary documentation.

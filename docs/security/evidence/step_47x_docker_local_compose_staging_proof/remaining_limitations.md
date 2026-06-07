@@ -10,7 +10,7 @@
 - CI Actions evidence remains BLOCKED from Step 46X unless verified separately in GitHub.
 - External validation remains PENDING.
 - Compliance certification remains NOT CLAIMED.
-- Enterprise production-candidate readiness remains NO-GO / 5%.
+- Enterprise production-candidate readiness remains NO-GO.
 
 ## Claim boundaries
 
@@ -18,8 +18,8 @@ This Step 47X evidence does not claim live cloud/VPS staging validation, product
 
 ## Readiness status after Step 47X
 
-- Production-style portfolio readiness: 87%.
-- Enterprise production-candidate readiness: NO-GO / 5%.
+- Production-style portfolio readiness: historical readiness snapshot.
+- Enterprise production-candidate readiness: NO-GO.
 - Local Docker staging evidence: BLOCKED.
 - Live staging/cloud validation: PENDING.
 - CI Actions evidence: BLOCKED.

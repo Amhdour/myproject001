@@ -24,8 +24,8 @@ Step 43X is a repository synchronization and evidence-integrity gate. It verifie
 This classification is used because remote connectivity and GitHub authentication were not available from the sandbox, Step 42X branch push and PR verification could not be completed, local verification passed, and the evidence package records the open remote-backed verification gap.
 
 ## Readiness Impact
-- Production-style portfolio readiness after Step 43X: **87%**.
-- Enterprise production-candidate readiness after Step 43X: **NO-GO / 5%**.
+- Production-style portfolio readiness after Step 43X: **historical readiness snapshot**.
+- Enterprise production-candidate readiness after Step 43X: **NO-GO**.
 - Live staging/cloud validation: **PENDING**.
 - External validation: **PENDING**.
 - Compliance certification: **NOT CLAIMED**.

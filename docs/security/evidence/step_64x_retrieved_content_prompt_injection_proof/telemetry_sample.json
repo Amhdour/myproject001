@@ -1,0 +1,17 @@
+{
+  "command_run": "PYTHONPATH=. python - <<PY ... apply_retrieved_content_prompt_injection_hook(..., mode=enforce) ... PY",
+  "date": "2026-06-07",
+  "exit_code": 0,
+  "limitation": "Telemetry is an in-memory proof counter; it is not production monitoring, SLO evidence, or staging telemetry.",
+  "result": "PASS: process-local telemetry sample generated for retrieved-content prompt-injection detection.",
+  "safe_claim_supported": "Focused telemetry counter records checked, detected, quarantined, mode, and decision values for retrieved-content prompt-injection detection tests.",
+  "sample_metric": {
+    "checked_count": 2,
+    "decision": "quarantine",
+    "detected_count": 1,
+    "metric_name": "retrieved_content_prompt_injection_decision_total",
+    "mode": "enforce",
+    "quarantined_count": 1,
+    "timestamp": "2026-06-07T19:57:16.855465+00:00"
+  }
+}

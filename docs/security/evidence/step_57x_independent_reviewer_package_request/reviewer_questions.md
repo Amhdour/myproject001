@@ -1,6 +1,6 @@
 # Reviewer Questions
 
-1. Does the evidence support the stated 92% production-style portfolio readiness?
+1. Does the evidence support the stated historical readiness snapshot production-style portfolio readiness?
 2. Are the claim boundaries honest?
 3. Is the Oracle staging PARTIAL GO classification justified?
 4. Is the runtime enforcement PARTIAL GO classification justified?

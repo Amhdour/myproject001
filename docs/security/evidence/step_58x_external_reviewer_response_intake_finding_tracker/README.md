@@ -22,8 +22,8 @@ Step 58X builds on the Step 57X independent reviewer package and review request:
 
 | Area | Status |
 |---|---|
-| Production-style portfolio readiness | 92% |
-| Enterprise production-candidate | NO-GO / 7–9% |
+| Production-style portfolio readiness | historical readiness snapshot |
+| Enterprise production-candidate | NO-GO |
 | External validation | REQUEST PACKAGE READY / NO RESPONSE YET |
 | Compliance certification | NOT CLAIMED |
 

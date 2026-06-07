@@ -460,7 +460,7 @@ Validation cleanup is isolated-only. No enforce mode, no shadow-deny mode, and n
 - No runtime app logs were captured because no container or process started.
 - The Step 39X runtime-enforcement mode remained effectively `disabled` by default; controlled tests passed, but public/live enforce mode was not enabled.
 - Production readiness remains **NO-GO**.
-- Enterprise production-candidate readiness remains **NO-GO / 5%**.
+- Enterprise production-candidate readiness remains **NO-GO**.
 - External validation remains **PENDING**.
 - Compliance certification is **NOT CLAIMED**.
 
@@ -482,8 +482,8 @@ Validation cleanup is isolated-only. No enforce mode, no shadow-deny mode, and n
 - GitHub CLI is unavailable, so GitHub authentication, PR #102-#105 metadata, PR checks, and GitHub Actions runs remain unverified.
 - Old sandbox commit SHAs requested for Step 44X are missing from the local object database.
 - Local merge messages for PR #102-#105 are visible, but GitHub-side metadata is not independently verified from this workspace.
-- Production-style portfolio readiness remains **87%**.
-- Enterprise production-candidate readiness remains **NO-GO / 5%**.
+- Production-style portfolio readiness remains **historical readiness snapshot**.
+- Enterprise production-candidate readiness remains **NO-GO**.
 - Live staging/cloud validation remains **PENDING**.
 - External validation remains **PENDING**.
 - Compliance certification remains **NOT CLAIMED**.
@@ -495,13 +495,13 @@ Validation cleanup is isolated-only. No enforce mode, no shadow-deny mode, and n
 - GitHub API fallback is blocked by HTTP CONNECT 403, so GitHub repository accessibility, default branch, PR metadata, merged states, merge timestamps, PR URLs, and Actions runs remain unverified.
 - The workspace has no configured `origin` remote and no local `main` branch; `git checkout main` and `git pull origin main` failed.
 - Local workflow files are present, but GitHub Actions run status/conclusion is **PENDING / UNAVAILABLE** and must not be described as successful.
-- Production readiness remains **NO-GO**; enterprise production-candidate readiness remains **NO-GO / 5%**; live staging/cloud validation remains **PENDING**; external validation remains **PENDING**; compliance certification remains **NOT CLAIMED**.
+- Production readiness remains **NO-GO**; enterprise production-candidate readiness remains **NO-GO**; live staging/cloud validation remains **PENDING**; external validation remains **PENDING**; compliance certification remains **NOT CLAIMED**.
 
 ## Step 46X CI Actions Evidence Limitation
 
 Step 46X classifies GitHub Actions evidence as `CI_ACTIONS_BLOCKED`. The workspace has local workflow files, but it cannot trigger or query real GitHub Actions because `gh` is not installed, no `origin` remote is configured, and GitHub API requests fail with HTTP CONNECT 403. As a result, PR #107 metadata, Step 46X PR metadata, Actions run IDs, workflow run URLs, job conclusions, failed-step logs, and main-branch CI results remain unverified.
 
-This limitation preserves the existing claim boundaries: live staging/cloud validation remains **PENDING**, external validation remains **PENDING**, compliance certification remains **NOT CLAIMED**, production readiness remains **NO-GO**, and enterprise production-candidate readiness remains **NO-GO / 5%**.
+This limitation preserves the existing claim boundaries: live staging/cloud validation remains **PENDING**, external validation remains **PENDING**, compliance certification remains **NOT CLAIMED**, production readiness remains **NO-GO**, and enterprise production-candidate readiness remains **NO-GO**.
 
 ## Step 47X Docker Local Compose Staging Limitation
 
@@ -513,7 +513,7 @@ Step 47X classified local Docker staging as `DOCKER_STAGING_BLOCKED` because Doc
 
 Because Docker and Docker Compose were unavailable, compose config validation, container startup, container health status, runtime logs, and Docker rollback could not be proven. Localhost probes on ports 3000, 8080, and 8000 failed because no service started.
 
-The Step 47X blocker does not change the claim boundary: production-style portfolio readiness remains 87%; enterprise production-candidate readiness remains NO-GO / 5%; local Docker staging evidence is BLOCKED; live staging/cloud validation is PENDING; CI Actions evidence remains BLOCKED from Step 46X; external validation is PENDING; compliance certification is NOT CLAIMED.
+The Step 47X blocker does not change the claim boundary: production-style portfolio readiness remains historical readiness snapshot; enterprise production-candidate readiness remains NO-GO; local Docker staging evidence is BLOCKED; live staging/cloud validation is PENDING; CI Actions evidence remains BLOCKED from Step 46X; external validation is PENDING; compliance certification is NOT CLAIMED.
 
 ## Step 50X Oracle Staging Limitations
 
@@ -524,7 +524,7 @@ The Step 47X blocker does not change the claim boundary: production-style portfo
 - No runtime enforcement smoke test has been run on the Oracle VPS.
 - Host/proxy evidence is PARTIAL GO only: port `8000` redirects to `/login`, port `8088` returns nginx `200 OK`, and port `80` returns `404` without a matching route/domain.
 - Production readiness remains NO-GO.
-- Enterprise production-candidate readiness remains NO-GO / 6-8%.
+- Enterprise production-candidate readiness remains NO-GO.
 - External validation remains PENDING.
 - Compliance certification is NOT CLAIMED.
 - Full Onyx-wide enforcement is NOT CLAIMED.
@@ -542,7 +542,7 @@ Step 57X preserves the following limitations:
 - No actual external reviewer response yet.
 - No third-party approval yet.
 - No compliance certification.
-- No enterprise production-candidate readiness; status remains NO-GO / 7–9%.
+- No enterprise production-candidate readiness; status remains NO-GO.
 - Production readiness remains NO-GO.
 - Web Docker healthcheck mismatch remains.
 - Manual diagnostic MinIO and custom container replacement are not durable production architecture.
@@ -573,7 +573,7 @@ Step 57X changes external-validation status from pending evidence preparation to
 - The Step 61X web healthcheck patch is preserved but remains pending Oracle VPS verification unless a later retest records evidence.
 - Simulated finding `SIM-F-004` is addressed at architecture/configuration readiness only; the reviewer response remains simulated.
 - Production readiness remains NO-GO.
-- Enterprise production-candidate readiness remains NO-GO / 7–9%.
+- Enterprise production-candidate readiness remains NO-GO.
 - Real external validation remains pending.
 - Compliance certification is NOT CLAIMED.
 
@@ -592,3 +592,11 @@ Step 57X changes external-validation status from pending evidence preparation to
 - Prompt-injection scanning of retrieved content is not implemented by this MVP. The demo test records this as an allow/limitation, not a blocked result.
 - Audit and telemetry implementations are in-memory/sample emitters suitable for deterministic tests and portfolio evidence; they are not production observability integrations.
 - Next work should wire the enforcer into selected tool/sandbox/artifact executors, add live route tests, run GitHub Actions, and produce staging evidence.
+
+## Step 64X Retrieved-Content Prompt-Injection Limitation
+
+- Retrieved-content prompt-injection detection is deterministic and pattern-based; it is not a complete prompt-injection defense.
+- The Step 64X hook records redacted process-local audit/telemetry proof signals only; it is not durable production monitoring.
+- Monitor, shadow-deny, and enforce behavior are covered by focused helper tests and synthetic demo evidence, not live production or staging proof.
+- CI workflow definitions exist, but GitHub Actions pass is not claimed without a real run URL/evidence.
+- Production readiness remains NO-GO; enterprise readiness remains NO-GO; external validation remains PENDING; compliance certification remains NOT CLAIMED.

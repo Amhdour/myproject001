@@ -11,6 +11,6 @@
 - No runtime application logs were captured because no app started.
 - The Step 39X runtime-enforcement proof remains narrow to one retrieval-facing hook and controlled tests; it is not full Onyx-wide enforcement.
 - Production readiness remains **NO-GO**.
-- Enterprise production-candidate readiness remains **NO-GO / 5%**.
+- Enterprise production-candidate readiness remains **NO-GO**.
 - External validation remains **PENDING**.
 - Compliance certification is **NOT CLAIMED**.
