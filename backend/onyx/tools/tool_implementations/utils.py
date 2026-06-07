@@ -2,6 +2,13 @@ import json
 
 from onyx.context.search.models import InferenceSection
 from onyx.context.search.utils import sandbox_filename_for_document
+from onyx.security_layer.opa.retrieval_context_filter import (
+    filter_sections_for_opa_retrieval_acl_context,
+)
+from onyx.security_layer.opa.retrieval_context_filter import (
+    opa_retrieval_acl_context_enforcement_enabled,
+)
+from onyx.security_layer.opa.retrieval_context_filter import RetrievalACLEvaluator
 from onyx.utils.logger import setup_logger
 
 logger = setup_logger()
@@ -33,6 +40,11 @@ def convert_inference_sections_to_llm_string(
     include_source_type: bool = True,
     include_link: bool = False,
     include_document_id: bool = False,
+    opa_subject_user_id: str | None = None,
+    opa_subject_tenant_id: str | None = None,
+    opa_subject_groups: list[str] | tuple[str, ...] | set[str] | None = None,
+    opa_correlation_id: str = "rag-context",
+    opa_client: RetrievalACLEvaluator | None = None,
 ) -> tuple[str, dict[int, str]]:
     """Convert InferenceSection objects to a JSON string for LLM.
 
@@ -41,6 +53,17 @@ def convert_inference_sections_to_llm_string(
     # Apply limit if specified
     if limit is not None:
         top_sections = top_sections[:limit]
+
+    if opa_retrieval_acl_context_enforcement_enabled():
+        filter_result = filter_sections_for_opa_retrieval_acl_context(
+            sections=top_sections,
+            subject_user_id=opa_subject_user_id,
+            subject_tenant_id=opa_subject_tenant_id,
+            subject_groups=opa_subject_groups,
+            correlation_id=opa_correlation_id,
+            opa_client=opa_client,
+        )
+        top_sections = filter_result.sections
 
     # Group sections by document_id to assign same citation_id to sections from same document
     document_id_to_citation_id: dict[str, int] = {}

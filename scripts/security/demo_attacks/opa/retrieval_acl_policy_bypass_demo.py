@@ -72,7 +72,11 @@ def _decision(decision: str, reason: str) -> dict[str, str]:
 def run_demo() -> dict[str, Any]:
     opa_input = _build_demo_input()
     policy_result = _simulated_opa_policy_result(opa_input)
-    chunk_excluded = policy_result["decision"] != "allow"
+    tenant_b_chunk = "TENANT_B_CONFIDENTIAL_CONTEXT"
+    final_context_chunks = (
+        [] if policy_result["decision"] != "allow" else [tenant_b_chunk]
+    )
+    chunk_excluded = tenant_b_chunk not in final_context_chunks
     evidence = {
         "event_type": EVENT_TYPE,
         "decision": policy_result["decision"],
@@ -86,10 +90,16 @@ def run_demo() -> dict[str, Any]:
         "correlation_id": opa_input["correlation_id"],
         "fallback_used": False,
         "demo_attack": "Tenant A user receives Tenant B chunk",
+        "tenant_a_received_tenant_b_chunk": True,
+        "opa_denied_cross_tenant_chunk": policy_result["decision"] == "deny",
         "chunk_excluded_from_rag_context": chunk_excluded,
+        "final_context_contains_tenant_b_chunk": tenant_b_chunk in final_context_chunks,
+        "audit_evidence_path": str(EVIDENCE_PATH),
     }
     EVIDENCE_PATH.parent.mkdir(parents=True, exist_ok=True)
-    EVIDENCE_PATH.write_text(json.dumps(evidence, sort_keys=True) + "\n", encoding="utf-8")
+    EVIDENCE_PATH.write_text(
+        json.dumps(evidence, sort_keys=True) + "\n", encoding="utf-8"
+    )
     return evidence
 
 
