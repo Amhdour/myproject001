@@ -30,3 +30,9 @@ OPA Retrieval ACL decision evidence uses:
 - `resource_tenant_id`
 - `correlation_id`
 - `fallback_used`
+
+## Evidence documents
+
+- [CI validation results](ci_validation_results.md) records the observed GitHub Actions result for the OPA policy validation workflow.
+- [Reproduction commands](reproduction_commands.md) lists local commands for reproducing OPA CLI validation.
+- [Limitations](limitations.md) documents known scope boundaries and environment limitations.
