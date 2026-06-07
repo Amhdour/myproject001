@@ -65,6 +65,9 @@ class RAGInjectionScanResult:
     sanitized_content: str | None = None
     reason: str | None = None
     fallback_used: bool = False
+    scanner_provider: str | None = None
+    scanner_backend_available: bool | None = None
+    scanner_backend_version: str | None = None
 
 
 class RAGInjectionScanner(Protocol):

@@ -17,7 +17,17 @@ The scanner is gated by:
 SECURITY_RAG_INJECTION_SCANNER_ENABLED=true
 ```
 
-When enabled, the default local heuristic scanner checks each already-authorized retrieved chunk for obvious prompt-injection phrases, including requests to ignore previous instructions, reveal the system prompt, override security policy, exfiltrate hidden documents, or call unauthorized tools.
+When enabled, the default and proven local heuristic scanner checks each already-authorized retrieved chunk for obvious prompt-injection phrases, including requests to ignore previous instructions, reveal the system prompt, override security policy, exfiltrate hidden documents, or call unauthorized tools.
+
+Scanner provider selection is controlled by:
+
+```bash
+SECURITY_RAG_SCANNER_PROVIDER=heuristic        # default
+SECURITY_RAG_SCANNER_PROVIDER=llamafirewall    # optional runtime-loaded adapter
+SECURITY_RAG_SCANNER_FALLBACK_PROVIDER=heuristic  # default when optional backend is unavailable
+SECURITY_RAG_SCANNER_FALLBACK_PROVIDER=monitor
+SECURITY_RAG_SCANNER_FALLBACK_PROVIDER=deny
+```
 
 Configured scanner action is controlled by:
 
@@ -59,6 +69,9 @@ security.rag_injection.scan
 Langfuse-safe evidence metadata is allowlisted to:
 
 - `scanner_name`
+- `scanner_provider`
+- `scanner_backend_available`
+- `scanner_backend_version`
 - `scanner_decision`
 - `risk_type`
 - `risk_score`
@@ -71,4 +84,4 @@ Raw retrieved chunk text is not exported. Evidence payloads go through the secur
 
 ## Adapter boundary
 
-This implementation is a local heuristic scanner first. LlamaFirewall/PurpleLlama and AgentShield classes are extension-point adapters only; they are not implemented or proven in this change. No PyRIT, garak, promptfoo, Ragas, Authensor, OpenGuardrails, or full external project is vendored here.
+This implementation is a local heuristic scanner first, and that heuristic path is proven by the targeted tests and demo. The LlamaFirewall/PurpleLlama adapter path is optional and runtime-loaded only; real backend behavior is not proven unless a compatible dependency is installed and the tests/demos are run in that environment. AgentShield is not added. No PyRIT, garak, promptfoo, Ragas, Authensor, OpenGuardrails, or full external project is vendored here.

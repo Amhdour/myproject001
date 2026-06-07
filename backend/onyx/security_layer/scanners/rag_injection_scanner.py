@@ -10,6 +10,11 @@ from onyx.security_layer.langfuse_evidence import emit_rag_injection_langfuse_ev
 from onyx.security_layer.redaction import safe_metadata
 from onyx.security_layer.scanners.decision_mapper import map_failure_to_decision
 from onyx.security_layer.scanners.decision_mapper import map_risk_to_decision
+from onyx.security_layer.scanners.llamafirewall_adapter import (
+    configured_rag_scanner_provider,
+)
+from onyx.security_layer.scanners.llamafirewall_adapter import HEURISTIC_PROVIDER
+from onyx.security_layer.scanners.llamafirewall_adapter import LLAMAFIREWALL_PROVIDER
 from onyx.security_layer.scanners.models import RAGInjectionRiskType
 from onyx.security_layer.scanners.models import RAGInjectionScanner
 from onyx.security_layer.scanners.models import RAGInjectionScannerDecision
@@ -83,6 +88,9 @@ class HeuristicRAGInjectionScanner:
         if not matched_patterns:
             return RAGInjectionScanResult(
                 scanner_name=self.scanner_name,
+                scanner_provider=HEURISTIC_PROVIDER,
+                scanner_backend_available=True,
+                scanner_backend_version=None,
                 scanner_decision=RAGInjectionScannerDecision.ALLOW,
                 risk_type=RAGInjectionRiskType.NONE,
                 risk_score=0.0,
@@ -104,6 +112,9 @@ class HeuristicRAGInjectionScanner:
 
         return RAGInjectionScanResult(
             scanner_name=self.scanner_name,
+            scanner_provider=HEURISTIC_PROVIDER,
+            scanner_backend_available=True,
+            scanner_backend_version=None,
             scanner_decision=decision,
             risk_type=RAGInjectionRiskType.PROMPT_INJECTION,
             risk_score=risk_score,
@@ -112,17 +123,6 @@ class HeuristicRAGInjectionScanner:
             correlation_id=request.correlation_id,
             sanitized_content=sanitized_content,
             reason=",".join(matched_names),
-        )
-
-
-class LlamaFirewallRAGInjectionScannerAdapter:
-    @property
-    def scanner_name(self) -> str:
-        return "llamafirewall_adapter_unimplemented"
-
-    def scan(self, request: RAGInjectionScanRequest) -> RAGInjectionScanResult:
-        raise NotImplementedError(
-            "LlamaFirewall/PurpleLlama adapter is a planned extension point and is not implemented yet."
         )
 
 
@@ -143,6 +143,9 @@ def _scan_evidence_attributes(
     return safe_metadata(
         {
             "scanner_name": result.scanner_name,
+            "scanner_provider": result.scanner_provider or result.scanner_name,
+            "scanner_backend_available": result.scanner_backend_available,
+            "scanner_backend_version": result.scanner_backend_version,
             "scanner_decision": result.scanner_decision.value,
             "risk_type": result.risk_type.value,
             "risk_score": result.risk_score,
@@ -162,6 +165,9 @@ def _failure_result(
     decision = map_failure_to_decision()
     return RAGInjectionScanResult(
         scanner_name=scanner_name,
+        scanner_provider=scanner_name,
+        scanner_backend_available=False,
+        scanner_backend_version=None,
         scanner_decision=decision,
         risk_type=RAGInjectionRiskType.SCANNER_FAILURE,
         risk_score=1.0 if decision == RAGInjectionScannerDecision.DENY else 0.0,
@@ -251,13 +257,24 @@ def _apply_scan_result(
     return chunk
 
 
+def configured_rag_injection_scanner() -> RAGInjectionScanner:
+    provider = configured_rag_scanner_provider()
+    if provider == LLAMAFIREWALL_PROVIDER:
+        from onyx.security_layer.scanners.llamafirewall_adapter import (
+            LlamaFirewallRAGInjectionScannerAdapter,
+        )
+
+        return LlamaFirewallRAGInjectionScannerAdapter()
+    return HeuristicRAGInjectionScanner()
+
+
 def scan_sections_for_rag_injection(
     *,
     sections: list[RetrievedSection],
     correlation_id: str,
     scanner: RAGInjectionScanner | None = None,
 ) -> tuple[list[RetrievedSection], tuple[RAGInjectionScanResult, ...]]:
-    resolved_scanner = scanner or HeuristicRAGInjectionScanner()
+    resolved_scanner = scanner or configured_rag_injection_scanner()
     scanned_sections: list[RetrievedSection] = []
     results: list[RAGInjectionScanResult] = []
 

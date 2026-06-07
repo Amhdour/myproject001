@@ -114,12 +114,15 @@ def _section(*, document_id: str, content: str) -> DemoSection:
     )
 
 
-def _render(*, scanner_enabled: bool, scanner_mode: str) -> tuple[str, dict[int, str]]:
+def _render(
+    *, scanner_enabled: bool, scanner_mode: str, scanner_provider: str = "heuristic"
+) -> tuple[str, dict[int, str]]:
     os.environ["SECURITY_OPA_RETRIEVAL_ACL_CONTEXT_ENFORCEMENT"] = "true"
     os.environ["SECURITY_RAG_INJECTION_SCANNER_ENABLED"] = (
         "true" if scanner_enabled else "false"
     )
     os.environ["SECURITY_RAG_INJECTION_SCANNER_MODE"] = scanner_mode
+    os.environ["SECURITY_RAG_SCANNER_PROVIDER"] = scanner_provider
     return convert_inference_sections_to_llm_string(
         [
             _section(
@@ -150,12 +153,19 @@ def main() -> None:
     sanitize_context, sanitize_citations = _render(
         scanner_enabled=True, scanner_mode="sanitize"
     )
+    provider = os.getenv("SECURITY_RAG_SCANNER_PROVIDER", "heuristic")
+    fallback_provider = os.getenv("SECURITY_RAG_SCANNER_FALLBACK_PROVIDER", "heuristic")
 
     report: dict[str, Any] = {
         "claim_boundary": (
-            "Local heuristic scanner demo only; LlamaFirewall/PurpleLlama and "
-            "AgentShield are planned adapters and this is not a production-readiness claim."
+            "Local heuristic scanner demo only. The local heuristic scanner is "
+            "proven by this demo; the LlamaFirewall/PurpleLlama adapter path is "
+            "optional and real backend behavior is not proven unless the "
+            "dependency is installed and tests/demos run. This is not a "
+            "production-readiness claim."
         ),
+        "scanner_provider": provider,
+        "scanner_fallback_provider": fallback_provider,
         "disabled_contains_attack": "Ignore previous instructions" in disabled_context,
         "deny_contains_attack": "Ignore previous instructions" in deny_context,
         "sanitize_contains_attack_phrase": "Ignore previous instructions"
