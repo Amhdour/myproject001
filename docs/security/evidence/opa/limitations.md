@@ -13,6 +13,7 @@
 - Local validation on 2026-06-07 found that the project Python environment was missing dependencies required by existing security-layer imports; without the virtual environment, `sqlalchemy` was missing, and with `source .venv/bin/activate`, `pydantic` was missing.
 - `pytest backend/onyx/security_layer -q` returned exit code 5 because no tests were collected from the source directory path.
 - `pytest backend/tests/security_layer/test_opa_retrieval_acl.py -q` could not load the repository test `conftest.py` because `fastapi_users` is missing. The same blocker occurred after `source .venv/bin/activate`.
+- OpenTelemetry trace linkage is documented separately under `docs/security/evidence/opentelemetry/`; trace export depends on deployment tracer-provider/exporter configuration and does not prove production readiness.
 - CI OPA validation does not prove live RAG runtime enforcement.
 - CI OPA validation does not prove production readiness.
 - The previously referenced GitHub Actions OPA validation run failed at the formatting step; it is not evidence that `opa check` or `opa test` completed successfully.

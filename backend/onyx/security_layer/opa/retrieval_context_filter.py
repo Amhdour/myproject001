@@ -12,6 +12,8 @@ from onyx.security_layer.opa.decision_mapper import OPADecisionValue
 from onyx.security_layer.opa.input_builder import build_retrieval_acl_input
 from onyx.security_layer.opa.opa_client import evaluate_retrieval_acl_with_fallback
 from onyx.security_layer.opa.opa_client import OPAClient
+from onyx.security_layer.tracing import security_span
+from onyx.security_layer.tracing import set_security_span_attributes
 
 OPA_RETRIEVAL_ACL_CONTEXT_ENFORCEMENT_ENV = (
     "SECURITY_OPA_RETRIEVAL_ACL_CONTEXT_ENFORCEMENT"
@@ -137,6 +139,42 @@ def build_chunk_context_opa_input(
     )
 
 
+def _opa_input_security_attributes(
+    opa_input: dict[str, Any],
+) -> dict[str, object | None]:
+    subject = opa_input.get("subject", {})
+    resource = opa_input.get("resource", {})
+    subject_attributes = subject if isinstance(subject, dict) else {}
+    resource_attributes = resource if isinstance(resource, dict) else {}
+    return {
+        "correlation_id": opa_input.get("correlation_id"),
+        "subject_user_id": subject_attributes.get("user_id"),
+        "subject_tenant_id": subject_attributes.get("tenant_id"),
+        "resource_document_id": resource_attributes.get("document_id"),
+        "resource_chunk_id": resource_attributes.get("chunk_id"),
+        "resource_tenant_id": resource_attributes.get("tenant_id"),
+        "enforcement_enabled": opa_retrieval_acl_context_enforcement_enabled(),
+    }
+
+
+def _opa_decision_security_attributes(
+    decision: OPADecision,
+) -> dict[str, object | None]:
+    return {
+        "correlation_id": decision.correlation_id,
+        "subject_user_id": decision.subject_user_id,
+        "subject_tenant_id": decision.subject_tenant_id,
+        "resource_document_id": decision.resource_document_id,
+        "resource_chunk_id": decision.resource_chunk_id,
+        "resource_tenant_id": decision.resource_tenant_id,
+        "policy_package": decision.policy_package,
+        "decision": decision.decision.value,
+        "reason": decision.reason,
+        "fallback_used": decision.fallback_used,
+        "enforcement_enabled": opa_retrieval_acl_context_enforcement_enabled(),
+    }
+
+
 def _evaluate_chunk(
     *,
     chunk: InferenceChunk,
@@ -153,9 +191,16 @@ def _evaluate_chunk(
         subject_groups=subject_groups,
         correlation_id=correlation_id,
     )
-    if isinstance(opa_client, OPAClient):
-        return evaluate_retrieval_acl_with_fallback(opa_client, opa_input)
-    return opa_client.evaluate_retrieval_acl(opa_input)
+    with security_span(
+        "security.opa.retrieval_acl.decision",
+        _opa_input_security_attributes(opa_input),
+    ) as span:
+        if isinstance(opa_client, OPAClient):
+            decision = evaluate_retrieval_acl_with_fallback(opa_client, opa_input)
+        else:
+            decision = opa_client.evaluate_retrieval_acl(opa_input)
+        set_security_span_attributes(span, _opa_decision_security_attributes(decision))
+        return decision
 
 
 def _section_with_allowed_chunks(
@@ -197,24 +242,41 @@ def filter_sections_for_opa_retrieval_acl_context(
     filtered_sections: list[InferenceSection] = []
     decisions: list[OPADecision] = []
 
-    for section in sections:
-        allowed_chunks: list[InferenceChunk] = []
-        for chunk in section.chunks:
-            decision = _evaluate_chunk(
-                chunk=chunk,
-                subject_user_id=subject_user_id,
-                subject_tenant_id=subject_tenant_id,
-                subject_groups=subject_groups,
-                correlation_id=f"{correlation_id}:{chunk.document_id}:{chunk.chunk_id}",
-                opa_client=resolved_client,
-            )
-            decisions.append(decision)
-            if decision.decision == OPADecisionValue.ALLOW:
-                allowed_chunks.append(chunk)
+    with security_span(
+        "security.opa.retrieval_context_filter",
+        {
+            "correlation_id": correlation_id,
+            "subject_user_id": subject_user_id,
+            "subject_tenant_id": subject_tenant_id,
+            "enforcement_enabled": opa_retrieval_acl_context_enforcement_enabled(),
+        },
+    ) as span:
+        for section in sections:
+            allowed_chunks: list[InferenceChunk] = []
+            for chunk in section.chunks:
+                decision = _evaluate_chunk(
+                    chunk=chunk,
+                    subject_user_id=subject_user_id,
+                    subject_tenant_id=subject_tenant_id,
+                    subject_groups=subject_groups,
+                    correlation_id=f"{correlation_id}:{chunk.document_id}:{chunk.chunk_id}",
+                    opa_client=resolved_client,
+                )
+                decisions.append(decision)
+                if decision.decision == OPADecisionValue.ALLOW:
+                    allowed_chunks.append(chunk)
 
-        filtered_section = _section_with_allowed_chunks(section, allowed_chunks)
-        if filtered_section is not None:
-            filtered_sections.append(filtered_section)
+            filtered_section = _section_with_allowed_chunks(section, allowed_chunks)
+            if filtered_section is not None:
+                filtered_sections.append(filtered_section)
+
+        set_security_span_attributes(
+            span,
+            {
+                "decision_count": len(decisions),
+                "allowed_section_count": len(filtered_sections),
+            },
+        )
 
     return RetrievalContextOPAFilterResult(
         sections=filtered_sections,

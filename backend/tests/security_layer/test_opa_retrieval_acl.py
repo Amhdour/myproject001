@@ -59,6 +59,7 @@ def test_map_opa_result_supports_decision_values_and_audit_details() -> None:
     assert decision.audit_details["event_type"] == "security.opa.retrieval_acl.decision"
     assert decision.audit_details["subject_user_id"] == "user-a"
     assert decision.audit_details["resource_document_id"] == "doc-a"
+    assert decision.audit_details["resource_chunk_id"] == "1"
 
 
 def test_fallback_denies_high_risk_retrieval_decision() -> None:

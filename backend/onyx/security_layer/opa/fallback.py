@@ -8,7 +8,15 @@ from onyx.security_layer.opa.decision_mapper import OPADecision
 from onyx.security_layer.opa.decision_mapper import OPADecisionValue
 
 
-def deny_high_risk_retrieval_fallback(opa_input: dict[str, Any], reason: str) -> OPADecision:
+def _optional_string(value: object) -> str | None:
+    if value is None:
+        return None
+    return str(value)
+
+
+def deny_high_risk_retrieval_fallback(
+    opa_input: dict[str, Any], reason: str
+) -> OPADecision:
     """Deny context inclusion when OPA is unavailable for a high-risk retrieval decision."""
 
     subject = opa_input.get("subject", {})
@@ -20,8 +28,29 @@ def deny_high_risk_retrieval_fallback(opa_input: dict[str, Any], reason: str) ->
         policy_version=OPA_RETRIEVAL_ACL_POLICY_VERSION,
         fallback_used=True,
         correlation_id=str(opa_input.get("correlation_id", "missing:correlation")),
-        subject_user_id=subject.get("user_id") if isinstance(subject, dict) else None,
-        subject_tenant_id=subject.get("tenant_id") if isinstance(subject, dict) else None,
-        resource_document_id=resource.get("document_id") if isinstance(resource, dict) else None,
-        resource_tenant_id=resource.get("tenant_id") if isinstance(resource, dict) else None,
+        subject_user_id=(
+            _optional_string(subject.get("user_id"))
+            if isinstance(subject, dict)
+            else None
+        ),
+        subject_tenant_id=(
+            _optional_string(subject.get("tenant_id"))
+            if isinstance(subject, dict)
+            else None
+        ),
+        resource_document_id=(
+            _optional_string(resource.get("document_id"))
+            if isinstance(resource, dict)
+            else None
+        ),
+        resource_chunk_id=(
+            _optional_string(resource.get("chunk_id"))
+            if isinstance(resource, dict)
+            else None
+        ),
+        resource_tenant_id=(
+            _optional_string(resource.get("tenant_id"))
+            if isinstance(resource, dict)
+            else None
+        ),
     )
