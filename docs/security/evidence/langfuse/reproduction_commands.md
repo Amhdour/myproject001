@@ -12,15 +12,15 @@ git diff --check
 
 ```bash
 source .venv/bin/activate
-python -m py_compile backend/onyx/security_layer/langfuse_evidence.py backend/onyx/security_layer/opa/retrieval_context_filter.py backend/tests/security_layer/test_langfuse_evidence.py
+python -m py_compile backend/onyx/security_layer/redaction.py backend/onyx/security_layer/langfuse_evidence.py backend/onyx/security_layer/opa/retrieval_context_filter.py backend/tests/security_layer/test_langfuse_evidence.py
 ```
 
 ## Direct import and no-config smoke
 
 ```bash
-PYTHONPATH=backend/onyx/security_layer python - <<'PY'
-from langfuse_evidence import emit_opa_retrieval_acl_langfuse_evidence
-from langfuse_evidence import safe_opa_retrieval_acl_langfuse_payload
+PYTHONPATH=backend python - <<'PY'
+from onyx.security_layer.langfuse_evidence import emit_opa_retrieval_acl_langfuse_evidence
+from onyx.security_layer.langfuse_evidence import safe_opa_retrieval_acl_langfuse_payload
 
 metadata = {
     "correlation_id": "corr-1",

@@ -1,0 +1,32 @@
+{
+  "input": {
+    "correlation_id": "corr-admin@example.com",
+    "reviewer_email": "reviewer@example.com",
+    "headers": {
+      "Authorization": "Bearer abc.def.ghi"
+    },
+    "api_key": "sk-test-12345678901234567890",
+    "nested": {
+      "phone": "+1 (415) 555-1234"
+    },
+    "decision": "deny",
+    "policy_package": "onyx.security.retrieval_acl",
+    "fallback_used": false,
+    "enforcement_enabled": true
+  },
+  "safe_metadata_output": {
+    "correlation_id": "corr-admin@example.com",
+    "reviewer_email": "[REDACTED]",
+    "headers": {
+      "Authorization": "[REDACTED]"
+    },
+    "api_key": "[REDACTED]",
+    "nested": {
+      "phone": "[REDACTED]"
+    },
+    "decision": "deny",
+    "policy_package": "onyx.security.retrieval_acl",
+    "fallback_used": false,
+    "enforcement_enabled": true
+  }
+}

@@ -75,6 +75,22 @@ def test_langfuse_evidence_adapter_ignores_unsafe_raw_content_fields() -> None:
     assert "token" not in serialized_payload
 
 
+def test_langfuse_evidence_adapter_redacts_selected_metadata_defense_in_depth() -> None:
+    payload = safe_opa_retrieval_acl_langfuse_payload(
+        {
+            **_safe_metadata(),
+            "reason": "upstream note included admin@example.com",
+        }
+    )
+
+    assert payload["reason"] == "upstream note included [REDACTED]"
+    assert payload["correlation_id"] == "corr-1"
+    assert payload["decision"] == "allow"
+    assert payload["policy_package"] == "onyx.security.retrieval_acl"
+    assert payload["fallback_used"] is False
+    assert payload["enforcement_enabled"] is True
+
+
 def test_langfuse_evidence_adapter_noops_without_runtime_config(monkeypatch) -> None:
     monkeypatch.delenv("LANGFUSE_PUBLIC_KEY", raising=False)
     monkeypatch.delenv("LANGFUSE_SECRET_KEY", raising=False)
