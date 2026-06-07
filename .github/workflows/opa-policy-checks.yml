@@ -1,0 +1,36 @@
+name: OPA Policy Checks
+
+on:
+  pull_request:
+    paths:
+      - "backend/onyx/security_layer/policy/opa/**"
+      - "docs/security/evidence/opa/**"
+      - ".github/workflows/opa-policy-checks.yml"
+  workflow_dispatch:
+
+jobs:
+  opa-policy-checks:
+    name: Validate Retrieval ACL OPA policy
+    runs-on: ubuntu-latest
+    env:
+      OPA_VERSION: "v1.17.0"
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install OPA CLI
+        run: |
+          set -euo pipefail
+          curl -L -o opa "https://openpolicyagent.org/downloads/${OPA_VERSION}/opa_linux_amd64_static"
+          chmod +x opa
+          sudo mv opa /usr/local/bin/opa
+          opa version
+
+      - name: Check Rego formatting
+        run: opa fmt --check backend/onyx/security_layer/policy/opa/
+
+      - name: Check Rego policy and tests
+        run: opa check backend/onyx/security_layer/policy/opa/
+
+      - name: Run Rego tests
+        run: opa test backend/onyx/security_layer/policy/opa/
