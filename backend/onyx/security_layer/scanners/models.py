@@ -2,7 +2,33 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from enum import Enum
+from typing import Any
 from typing import Protocol
+
+
+class RetrievedSourceType(Protocol):
+    value: str
+
+
+class RetrievedChunk(Protocol):
+    document_id: str
+    chunk_id: int
+    blurb: str
+    content: str
+    metadata: dict[str, Any]
+    source_type: RetrievedSourceType
+    semantic_identifier: str
+    updated_at: Any | None
+    primary_owners: list[str] | None
+    secondary_owners: list[str] | None
+    source_links: dict[int, str] | None
+    file_id: str | None
+
+
+class RetrievedSection(Protocol):
+    center_chunk: RetrievedChunk
+    chunks: list[RetrievedChunk]
+    combined_content: str
 
 
 class RAGInjectionScannerDecision(str, Enum):

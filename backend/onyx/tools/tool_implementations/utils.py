@@ -1,7 +1,8 @@
 import json
+import os
+import re
+from typing import Final
 
-from onyx.context.search.models import InferenceSection
-from onyx.context.search.utils import sandbox_filename_for_document
 from onyx.security_layer.opa.retrieval_context_filter import (
     filter_sections_for_opa_retrieval_acl_context,
 )
@@ -10,6 +11,7 @@ from onyx.security_layer.opa.retrieval_context_filter import (
 )
 from onyx.security_layer.opa.retrieval_context_filter import RetrievalACLEvaluator
 from onyx.security_layer.scanners.models import RAGInjectionScanner
+from onyx.security_layer.scanners.models import RetrievedSection
 from onyx.security_layer.scanners.rag_injection_scanner import (
     rag_injection_scanner_enabled,
 )
@@ -19,6 +21,20 @@ from onyx.security_layer.scanners.rag_injection_scanner import (
 from onyx.utils.logger import setup_logger
 
 logger = setup_logger()
+
+_SANDBOX_FILENAME_MAX_LENGTH: Final[int] = 255
+_UNSAFE_CHARS_RE: Final[re.Pattern[str]] = re.compile(r"[^A-Za-z0-9._-]+")
+
+
+def sandbox_filename_for_document(title: str, file_id: str) -> str:
+    """Sanitize a document title for sandbox use without importing search utils."""
+    sanitized = _UNSAFE_CHARS_RE.sub("_", title).strip().strip(".")
+    base, ext = os.path.splitext(sanitized)
+    if not base:
+        base = "document"
+    suffix = f"_{file_id}{ext}"
+    max_base_len = max(1, _SANDBOX_FILENAME_MAX_LENGTH - len(suffix))
+    return f"{base[:max_base_len]}{suffix}"
 
 
 def truncate_output(output: str, max_length: int, label: str = "output") -> str:
@@ -41,7 +57,7 @@ FILE_ASSOCIATED_GUIDANCE = (
 
 
 def convert_inference_sections_to_llm_string(
-    top_sections: list[InferenceSection],
+    top_sections: list[RetrievedSection],
     citation_start: int = 1,
     limit: int | None = None,
     include_source_type: bool = True,

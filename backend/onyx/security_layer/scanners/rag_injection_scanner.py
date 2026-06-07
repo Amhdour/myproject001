@@ -2,10 +2,10 @@ from __future__ import annotations
 
 import os
 import re
+from dataclasses import is_dataclass
+from dataclasses import replace
 from typing import Final
 
-from onyx.context.search.models import InferenceChunk
-from onyx.context.search.models import InferenceSection
 from onyx.security_layer.langfuse_evidence import emit_rag_injection_langfuse_evidence
 from onyx.security_layer.redaction import safe_metadata
 from onyx.security_layer.scanners.decision_mapper import map_failure_to_decision
@@ -15,6 +15,8 @@ from onyx.security_layer.scanners.models import RAGInjectionScanner
 from onyx.security_layer.scanners.models import RAGInjectionScannerDecision
 from onyx.security_layer.scanners.models import RAGInjectionScanRequest
 from onyx.security_layer.scanners.models import RAGInjectionScanResult
+from onyx.security_layer.scanners.models import RetrievedChunk
+from onyx.security_layer.scanners.models import RetrievedSection
 from onyx.security_layer.tracing import security_span
 from onyx.security_layer.tracing import set_security_span_attributes
 
@@ -173,7 +175,7 @@ def _failure_result(
 
 def _scan_chunk(
     *,
-    chunk: InferenceChunk,
+    chunk: RetrievedChunk,
     correlation_id: str,
     scanner: RAGInjectionScanner,
 ) -> RAGInjectionScanResult:
@@ -202,16 +204,44 @@ def _scan_chunk(
 
 
 def _chunk_with_sanitized_content(
-    chunk: InferenceChunk, sanitized_content: str
-) -> InferenceChunk:
-    return chunk.model_copy(
-        update={"content": sanitized_content, "blurb": sanitized_content}
-    )
+    chunk: RetrievedChunk, sanitized_content: str
+) -> RetrievedChunk:
+    update = {"content": sanitized_content, "blurb": sanitized_content}
+    model_copy = getattr(chunk, "model_copy", None)
+    if callable(model_copy):
+        copied_chunk = model_copy(update=update)
+        return copied_chunk
+    if is_dataclass(chunk) and not isinstance(chunk, type):
+        return replace(chunk, **update)
+    chunk_attributes = dict(getattr(chunk, "__dict__", {}))
+    chunk_attributes.update(update)
+    return chunk.__class__(**chunk_attributes)
+
+
+def _section_with_scanned_chunks(
+    section: RetrievedSection,
+    center_chunk: RetrievedChunk,
+    scanned_chunks: list[RetrievedChunk],
+) -> RetrievedSection:
+    update = {
+        "center_chunk": center_chunk,
+        "chunks": scanned_chunks,
+        "combined_content": "\n".join(chunk.content for chunk in scanned_chunks),
+    }
+    model_copy = getattr(section, "model_copy", None)
+    if callable(model_copy):
+        copied_section = model_copy(update=update)
+        return copied_section
+    if is_dataclass(section) and not isinstance(section, type):
+        return replace(section, **update)
+    section_attributes = dict(getattr(section, "__dict__", {}))
+    section_attributes.update(update)
+    return section.__class__(**section_attributes)
 
 
 def _apply_scan_result(
-    *, chunk: InferenceChunk, result: RAGInjectionScanResult
-) -> InferenceChunk | None:
+    *, chunk: RetrievedChunk, result: RAGInjectionScanResult
+) -> RetrievedChunk | None:
     if result.scanner_decision == RAGInjectionScannerDecision.DENY:
         return None
     if result.scanner_decision == RAGInjectionScannerDecision.SANITIZE:
@@ -223,16 +253,16 @@ def _apply_scan_result(
 
 def scan_sections_for_rag_injection(
     *,
-    sections: list[InferenceSection],
+    sections: list[RetrievedSection],
     correlation_id: str,
     scanner: RAGInjectionScanner | None = None,
-) -> tuple[list[InferenceSection], tuple[RAGInjectionScanResult, ...]]:
+) -> tuple[list[RetrievedSection], tuple[RAGInjectionScanResult, ...]]:
     resolved_scanner = scanner or HeuristicRAGInjectionScanner()
-    scanned_sections: list[InferenceSection] = []
+    scanned_sections: list[RetrievedSection] = []
     results: list[RAGInjectionScanResult] = []
 
     for section in sections:
-        scanned_chunks: list[InferenceChunk] = []
+        scanned_chunks: list[RetrievedChunk] = []
         for chunk in section.chunks:
             result = _scan_chunk(
                 chunk=chunk,
@@ -250,12 +280,10 @@ def scan_sections_for_rag_injection(
                 scanned_chunks[0],
             )
             scanned_sections.append(
-                InferenceSection(
+                _section_with_scanned_chunks(
+                    section=section,
                     center_chunk=center_chunk,
-                    chunks=scanned_chunks,
-                    combined_content="\n".join(
-                        chunk.content for chunk in scanned_chunks
-                    ),
+                    scanned_chunks=scanned_chunks,
                 )
             )
 

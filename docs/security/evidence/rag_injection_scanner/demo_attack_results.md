@@ -18,12 +18,24 @@ Example command:
 python scripts/security/demo_attacks/rag_injection/retrieved_chunk_prompt_injection_demo.py
 ```
 
-Example expected JSON fields:
+Observed result on 2026-06-07:
 
 ```json
 {
-  "disabled_contains_attack": true,
+  "claim_boundary": "Local heuristic scanner demo only; LlamaFirewall/PurpleLlama and AgentShield are planned adapters and this is not a production-readiness claim.",
+  "deny_citations": {
+    "1": "clean-doc"
+  },
   "deny_contains_attack": false,
+  "disabled_citations": {
+    "1": "clean-doc",
+    "2": "attack-doc"
+  },
+  "disabled_contains_attack": true,
+  "sanitize_citations": {
+    "1": "clean-doc",
+    "2": "attack-doc"
+  },
   "sanitize_contains_attack_phrase": false,
   "sanitize_contains_placeholder": true
 }
