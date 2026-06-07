@@ -7,6 +7,20 @@ from onyx.chat.models import ChatMessageSimple
 from onyx.configs.constants import MessageType
 from onyx.context.search.models import SearchDocsResponse
 from onyx.db.memory import UserMemoryContext
+from onyx.security_layer.audit.models import AuditEvent
+from onyx.security_layer.audit.service import AuditService
+from onyx.security_layer.decisions.models import DecisionType
+from onyx.security_layer.tool_authorizer.integration import run_tool_authorization_gate
+from onyx.security_layer.tool_governance.enforcement import (
+    evaluate_tool_governance_at_execution_seam,
+)
+from onyx.security_layer.tool_governance.enforcement import (
+    is_selected_tool_for_governance,
+)
+from onyx.security_layer.tool_governance.enforcement import (
+    is_tool_governance_enforcement_enabled,
+)
+from onyx.security_layer.tool_governance.enforcement import should_block_tool_execution
 from onyx.server.query_and_chat.streaming_models import Packet
 from onyx.server.query_and_chat.streaming_models import PacketException
 from onyx.server.query_and_chat.streaming_models import SectionEnd
@@ -34,10 +48,6 @@ from onyx.tools.tool_implementations.open_url.open_url_tool import OpenURLTool
 from onyx.tools.tool_implementations.python.python_tool import PythonTool
 from onyx.tools.tool_implementations.search.search_tool import SearchTool
 from onyx.tools.tool_implementations.web_search.web_search_tool import WebSearchTool
-from onyx.security_layer.audit.models import AuditEvent
-from onyx.security_layer.audit.service import AuditService
-from onyx.security_layer.decisions.models import DecisionType
-from onyx.security_layer.tool_authorizer.integration import run_tool_authorization_gate
 from onyx.tracing.framework.create import function_span
 from onyx.tracing.framework.spans import SpanError
 from onyx.utils.logger import setup_logger
@@ -137,7 +147,16 @@ def _safe_run_single_tool(
     tool_response: ToolResponse | None = None
 
     with function_span(tool.name) as span_fn:
-        span_fn.span_data.input = str(tool_call.tool_args)
+        if (
+            is_tool_governance_enforcement_enabled()
+            and is_selected_tool_for_governance(tool.name)
+        ):
+            span_fn.span_data.input = (
+                "governed tool arguments excluded "
+                f"for tool_call_id={tool_call.tool_call_id}"
+            )
+        else:
+            span_fn.span_data.input = str(tool_call.tool_args)
         try:
             tool_response = tool.run(
                 placement=tool_call.placement,
@@ -364,8 +383,33 @@ def run_tool_calls(
             continue
         authorized_tool_calls.append(tool_call)
 
+    resolved_user_id = user_id or (
+        str(user_memory_context.user_id)
+        if user_memory_context and user_memory_context.user_id
+        else "missing:user"
+    )
+    resolved_session_id = session_id or "missing:session"
+    resolved_tenant_id = tenant_id or get_current_tenant_id() or "missing:tenant"
+
     for tool_call in authorized_tool_calls:
         tool = tools_by_name[tool_call.tool_name]
+
+        governance_result = evaluate_tool_governance_at_execution_seam(
+            tool_name=tool_call.tool_name,
+            tool_args=tool_call.tool_args,
+            user_id=resolved_user_id,
+            tenant_id=resolved_tenant_id,
+            session_id=resolved_session_id,
+            correlation_id=tool_call.tool_call_id,
+            audit_service=audit_service,
+        )
+        if should_block_tool_execution(governance_result):
+            logger.warning(
+                "Tool call blocked by governance decision %s: %s",
+                governance_result.decision.value if governance_result else "unknown",
+                tool_call.tool_name,
+            )
+            continue
 
         # Emit the tool start packet before running the tool
         tool.emit_start(placement=tool_call.placement)
