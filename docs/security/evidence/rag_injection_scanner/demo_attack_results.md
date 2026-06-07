@@ -22,7 +22,7 @@ Observed result on 2026-06-07:
 
 ```json
 {
-  "claim_boundary": "Local heuristic scanner demo only; LlamaFirewall/PurpleLlama and AgentShield are planned adapters and this is not a production-readiness claim.",
+  "claim_boundary": "Local heuristic scanner demo only. The local heuristic scanner is proven by this demo; the LlamaFirewall/PurpleLlama and AgentShield adapter paths are optional and real backend behavior is not proven unless the selected dependency is installed and tests/demos run. This is not a production-readiness claim.",
   "deny_citations": {
     "1": "clean-doc"
   },

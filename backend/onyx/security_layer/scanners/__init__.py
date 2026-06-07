@@ -1,3 +1,6 @@
+from onyx.security_layer.scanners.agentshield_adapter import (
+    AgentShieldRAGInjectionScannerAdapter,
+)
 from onyx.security_layer.scanners.llamafirewall_adapter import (
     LlamaFirewallRAGInjectionScannerAdapter,
 )
@@ -6,9 +9,6 @@ from onyx.security_layer.scanners.models import RAGInjectionScanner
 from onyx.security_layer.scanners.models import RAGInjectionScannerDecision
 from onyx.security_layer.scanners.models import RAGInjectionScanRequest
 from onyx.security_layer.scanners.models import RAGInjectionScanResult
-from onyx.security_layer.scanners.rag_injection_scanner import (
-    AgentShieldRAGInjectionScannerAdapter,
-)
 from onyx.security_layer.scanners.rag_injection_scanner import (
     configured_rag_injection_scanner,
 )

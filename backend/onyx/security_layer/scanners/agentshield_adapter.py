@@ -3,67 +3,39 @@ from __future__ import annotations
 import importlib
 import importlib.metadata
 import importlib.util
-import os
 from dataclasses import replace
 from typing import Any
 from typing import Final
 from typing import NamedTuple
 
 from onyx.security_layer.scanners.decision_mapper import map_risk_to_decision
+from onyx.security_layer.scanners.llamafirewall_adapter import AGENTSHIELD_PROVIDER
+from onyx.security_layer.scanners.llamafirewall_adapter import (
+    configured_rag_scanner_fallback_provider,
+)
+from onyx.security_layer.scanners.llamafirewall_adapter import DENY_FALLBACK_PROVIDER
+from onyx.security_layer.scanners.llamafirewall_adapter import HEURISTIC_PROVIDER
 from onyx.security_layer.scanners.models import RAGInjectionRiskType
 from onyx.security_layer.scanners.models import RAGInjectionScannerDecision
 from onyx.security_layer.scanners.models import RAGInjectionScanRequest
 from onyx.security_layer.scanners.models import RAGInjectionScanResult
 
-RAG_SCANNER_PROVIDER_ENV: Final[str] = "SECURITY_RAG_SCANNER_PROVIDER"
-RAG_SCANNER_FALLBACK_PROVIDER_ENV: Final[str] = "SECURITY_RAG_SCANNER_FALLBACK_PROVIDER"
-
-HEURISTIC_PROVIDER: Final[str] = "heuristic"
-LLAMAFIREWALL_PROVIDER: Final[str] = "llamafirewall"
-AGENTSHIELD_PROVIDER: Final[str] = "agentshield"
-MONITOR_FALLBACK_PROVIDER: Final[str] = "monitor"
-DENY_FALLBACK_PROVIDER: Final[str] = "deny"
-
-_VALID_PROVIDERS: Final[frozenset[str]] = frozenset(
-    {HEURISTIC_PROVIDER, LLAMAFIREWALL_PROVIDER, AGENTSHIELD_PROVIDER}
-)
-_VALID_FALLBACK_PROVIDERS: Final[frozenset[str]] = frozenset(
-    {HEURISTIC_PROVIDER, MONITOR_FALLBACK_PROVIDER, DENY_FALLBACK_PROVIDER}
-)
 _CANDIDATE_MODULES: Final[tuple[str, ...]] = (
-    "llamafirewall",
-    "llama_firewall",
-    "PurpleLlama.llama_firewall",
-    "purple_llama.llama_firewall",
+    "agentshield",
+    "agent_shield",
+    "agent_shield.scanner",
+    "agentshield.scanner",
 )
 _CANDIDATE_DISTRIBUTIONS: Final[tuple[str, ...]] = (
-    "llamafirewall",
-    "llama-firewall",
-    "purplellama",
-    "purple-llama",
-    "PurpleLlama",
+    "agentshield",
+    "agent-shield",
+    "agent_shield",
 )
 
 
 class _Backend(NamedTuple):
     module: Any
     version: str | None
-
-
-def configured_rag_scanner_provider() -> str:
-    raw_provider = os.getenv(RAG_SCANNER_PROVIDER_ENV, HEURISTIC_PROVIDER).lower()
-    if raw_provider in _VALID_PROVIDERS:
-        return raw_provider
-    return HEURISTIC_PROVIDER
-
-
-def configured_rag_scanner_fallback_provider() -> str:
-    raw_provider = os.getenv(
-        RAG_SCANNER_FALLBACK_PROVIDER_ENV, HEURISTIC_PROVIDER
-    ).lower()
-    if raw_provider in _VALID_FALLBACK_PROVIDERS:
-        return raw_provider
-    return HEURISTIC_PROVIDER
 
 
 def _distribution_version() -> str | None:
@@ -128,6 +100,7 @@ def _backend_risk_score(result: object) -> float:
         "malicious",
         "block",
         "deny",
+        "unsafe",
     }:
         return 1.0
 
@@ -139,8 +112,20 @@ def _backend_risk_score(result: object) -> float:
     return 0.0
 
 
+def _backend_drift_score(result: object) -> float | None:
+    explicit_score = _value_from_backend_result(
+        result, "drift_score", "drift", "semantic_drift_score"
+    )
+    return _numeric_score(explicit_score)
+
+
 def _call_backend(module: Any, content: str) -> object:
-    for factory_name in ("LlamaFirewall", "PromptInjectionScanner", "Scanner"):
+    for factory_name in (
+        "AgentShield",
+        "PromptInjectionScanner",
+        "RAGInjectionScanner",
+        "Scanner",
+    ):
         factory = getattr(module, factory_name, None)
         if factory is None:
             continue
@@ -155,16 +140,17 @@ def _call_backend(module: Any, content: str) -> object:
         if callable(function):
             return function(content)
 
-    raise RuntimeError("no supported LlamaFirewall/PurpleLlama scan entry point found")
+    raise RuntimeError("no supported AgentShield scan entry point found")
 
 
-class LlamaFirewallRAGInjectionScannerAdapter:
-    """Optional adapter for a runtime-installed LlamaFirewall/PurpleLlama backend.
+class AgentShieldRAGInjectionScannerAdapter:
+    """Optional adapter for a runtime-installed AgentShield-style backend.
 
     The dependency is intentionally not imported at module import time and is not
     required for the local heuristic scanner. If the backend is unavailable or
-    its runtime API cannot be called safely, this adapter follows
-    ``SECURITY_RAG_SCANNER_FALLBACK_PROVIDER``.
+    cannot be called through a recognized entry point, this adapter follows
+    ``SECURITY_RAG_SCANNER_FALLBACK_PROVIDER`` and emits safe unavailable
+    metadata without exporting raw retrieved chunk text.
     """
 
     def __init__(self) -> None:
@@ -172,7 +158,7 @@ class LlamaFirewallRAGInjectionScannerAdapter:
 
     @property
     def scanner_name(self) -> str:
-        return "llamafirewall_rag_injection_scanner_adapter"
+        return "agentshield_rag_injection_scanner_adapter"
 
     @property
     def backend_available(self) -> bool:
@@ -195,12 +181,12 @@ class LlamaFirewallRAGInjectionScannerAdapter:
         return replace(
             result,
             scanner_name=self.scanner_name,
-            scanner_provider=LLAMAFIREWALL_PROVIDER,
+            scanner_provider=AGENTSHIELD_PROVIDER,
             scanner_backend_available=False,
             scanner_backend_version=self.backend_version,
             fallback_used=True,
             reason=(
-                f"llamafirewall backend unavailable; heuristic fallback; "
+                "agentshield backend unavailable; heuristic fallback; "
                 f"heuristic_reason={result.reason}"
             ),
         )
@@ -212,7 +198,7 @@ class LlamaFirewallRAGInjectionScannerAdapter:
     ) -> RAGInjectionScanResult:
         return RAGInjectionScanResult(
             scanner_name=self.scanner_name,
-            scanner_provider=LLAMAFIREWALL_PROVIDER,
+            scanner_provider=AGENTSHIELD_PROVIDER,
             scanner_backend_available=False,
             scanner_backend_version=self.backend_version,
             scanner_decision=decision,
@@ -221,7 +207,7 @@ class LlamaFirewallRAGInjectionScannerAdapter:
             sanitized=False,
             resource_chunk_id=request.resource_chunk_id,
             correlation_id=request.correlation_id,
-            reason="llamafirewall backend unavailable",
+            reason="agentshield backend unavailable",
             fallback_used=True,
         )
 
@@ -254,14 +240,15 @@ class LlamaFirewallRAGInjectionScannerAdapter:
         )
         return RAGInjectionScanResult(
             scanner_name=self.scanner_name,
-            scanner_provider=LLAMAFIREWALL_PROVIDER,
+            scanner_provider=AGENTSHIELD_PROVIDER,
             scanner_backend_available=True,
             scanner_backend_version=self.backend_version,
             scanner_decision=map_risk_to_decision(risk_score),
             risk_type=risk_type,
             risk_score=risk_score,
+            drift_score=_backend_drift_score(backend_result),
             sanitized=False,
             resource_chunk_id=request.resource_chunk_id,
             correlation_id=request.correlation_id,
-            reason="llamafirewall backend result mapped to scanner decision",
+            reason="agentshield backend result mapped to scanner decision",
         )

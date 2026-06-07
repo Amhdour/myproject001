@@ -40,6 +40,7 @@ _SAFE_RAG_INJECTION_FIELDS = frozenset(
         "scanner_decision",
         "risk_type",
         "risk_score",
+        "drift_score",
         "sanitized",
         "resource_chunk_id",
         "correlation_id",

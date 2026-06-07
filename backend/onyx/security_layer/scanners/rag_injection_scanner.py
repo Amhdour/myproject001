@@ -10,6 +10,7 @@ from onyx.security_layer.langfuse_evidence import emit_rag_injection_langfuse_ev
 from onyx.security_layer.redaction import safe_metadata
 from onyx.security_layer.scanners.decision_mapper import map_failure_to_decision
 from onyx.security_layer.scanners.decision_mapper import map_risk_to_decision
+from onyx.security_layer.scanners.llamafirewall_adapter import AGENTSHIELD_PROVIDER
 from onyx.security_layer.scanners.llamafirewall_adapter import (
     configured_rag_scanner_provider,
 )
@@ -126,17 +127,6 @@ class HeuristicRAGInjectionScanner:
         )
 
 
-class AgentShieldRAGInjectionScannerAdapter:
-    @property
-    def scanner_name(self) -> str:
-        return "agentshield_adapter_unimplemented"
-
-    def scan(self, request: RAGInjectionScanRequest) -> RAGInjectionScanResult:
-        raise NotImplementedError(
-            "AgentShield adapter is a planned extension point and is not implemented yet."
-        )
-
-
 def _scan_evidence_attributes(
     result: RAGInjectionScanResult,
 ) -> dict[str, object | None]:
@@ -149,6 +139,7 @@ def _scan_evidence_attributes(
             "scanner_decision": result.scanner_decision.value,
             "risk_type": result.risk_type.value,
             "risk_score": result.risk_score,
+            "drift_score": result.drift_score,
             "sanitized": result.sanitized,
             "resource_chunk_id": result.resource_chunk_id,
             "correlation_id": result.correlation_id,
@@ -265,6 +256,12 @@ def configured_rag_injection_scanner() -> RAGInjectionScanner:
         )
 
         return LlamaFirewallRAGInjectionScannerAdapter()
+    if provider == AGENTSHIELD_PROVIDER:
+        from onyx.security_layer.scanners.agentshield_adapter import (
+            AgentShieldRAGInjectionScannerAdapter,
+        )
+
+        return AgentShieldRAGInjectionScannerAdapter()
     return HeuristicRAGInjectionScanner()
 
 
