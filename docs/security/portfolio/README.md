@@ -22,9 +22,9 @@ The result means the portfolio has credible, reviewer-ready security-readiness e
 
 The current portfolio-readiness estimate is:
 
-**~99% production-style portfolio coverage**
+**94% portfolio presentation readiness / 88% technical portfolio proof readiness**
 
-This estimate describes portfolio completeness, evidence organization, and readiness narrative maturity. It does not mean 99% production security coverage, compliance coverage, or enterprise deployment readiness.
+These estimates describe portfolio completeness, evidence organization, focused proof coverage, and readiness narrative maturity. They do not mean production security coverage, compliance coverage, or enterprise deployment readiness.
 
 ## Files in This Package
 
@@ -55,10 +55,14 @@ Do **not** claim:
 This package supports safe statements such as:
 
 - The repository demonstrates a production-style AI Trust & Security Readiness portfolio.
-- The evidence package shows a structured approach to RAG and autonomous-agent runtime-security risks.
+- The evidence package shows a structured approach to RAG and autonomous-agent runtime-security risks, including bounded retrieved-content prompt-injection detection.
 - The Step 3 result is `PASS_WITH_LIMITATIONS`.
-- The portfolio is approximately `~99%` complete as a production-style portfolio artifact.
+- The portfolio is currently described as `94% portfolio presentation readiness` and `88% technical portfolio proof readiness`.
 - Remaining work is clearly documented before stronger production, enterprise, or external-validation claims.
+
+## Claim-boundary consistency note
+
+Older Step 3 documents may preserve historical percentage wording. Use `CLAIM_BOUNDARY.md` and `docs/security/final_readiness_scorecard.md` as the current source of truth for public readiness wording.
 
 ## Remaining Work
 

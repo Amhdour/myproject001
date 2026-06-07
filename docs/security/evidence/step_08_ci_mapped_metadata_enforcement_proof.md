@@ -83,10 +83,10 @@ Do not claim:
 
 These percentages are reviewer-facing portfolio estimates only; they are not production-system readiness claims.
 
-- Production-style portfolio coverage: remains about `99%` as a reviewer artifact only.
+- Production-style portfolio coverage: remains about `current separated readiness matrix` as a reviewer artifact only.
 - Retrieval ACL mapped-metadata CI proof status: `PENDING_CI` until GitHub Actions completes.
 - Production readiness: `NO-GO / 0%`.
-- Enterprise production-candidate readiness: `NO-GO / 7–9%`.
+- Enterprise production-candidate readiness: `NO-GO`.
 - Staging validation: not claimed / `0%` for this step.
 - External validation: pending.
 

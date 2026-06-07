@@ -97,8 +97,8 @@ Map real `InferenceChunk` tenant metadata from trusted Onyx retrieval/index meta
 
 ## Readiness update
 
-- Production-style portfolio coverage: remains about `99%` as a reviewer artifact only.
+- Production-style portfolio coverage: remains about `current separated readiness matrix` as a reviewer artifact only.
 - Production readiness: `NO-GO`.
-- Enterprise production-candidate readiness: `NO-GO / 7–9%`.
+- Enterprise production-candidate readiness: `NO-GO`.
 - External validation: pending.
 - Staging validation for this step: not claimed.

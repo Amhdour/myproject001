@@ -14,8 +14,8 @@ All demo inputs are synthetic. The package uses synthetic tenant IDs, synthetic 
 
 ## What demo attacks prove
 
-- The portfolio includes reviewer-friendly coverage for prompt injection, retrieval cross-tenant leakage, unsafe tool calls, MCP confused-deputy risk, and sensitive data exposure.
-- The deterministic runner can classify the five synthetic demo attacks as `denied_or_flagged`.
+- The portfolio includes reviewer-friendly coverage for direct prompt injection, retrieved-content prompt injection, retrieval cross-tenant leakage, unsafe tool calls, MCP confused-deputy risk, and sensitive data exposure.
+- The deterministic runner can classify the six synthetic demo attacks as `denied_or_flagged`.
 - The case files explain expected evidence and claim boundaries for each scenario.
 
 ## What demo attacks do NOT prove

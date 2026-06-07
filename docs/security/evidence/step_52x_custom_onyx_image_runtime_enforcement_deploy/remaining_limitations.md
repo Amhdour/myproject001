@@ -8,6 +8,6 @@
 - No runtime enforcement behavior smoke test was executed against Oracle staging.
 - The known Step 50X web healthcheck mismatch remains out of scope and unresolved by this step.
 - Production readiness remains NO-GO.
-- Enterprise production-candidate readiness remains NO-GO / 6-8%.
+- Enterprise production-candidate readiness remains NO-GO.
 - External validation remains PENDING.
 - Compliance certification remains NOT CLAIMED.

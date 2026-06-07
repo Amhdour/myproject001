@@ -2,7 +2,7 @@
 
 ## 30-Second Intro
 
-This is my Onyx-based RAG Agent Security Readiness portfolio. It is a production-style AI Trust & Security Readiness package for RAG and autonomous agent systems. The final Step 3 result is `PASS_WITH_LIMITATIONS`, and the readiness estimate is `~99% production-style portfolio coverage`. That percentage means the portfolio evidence package is nearly complete for reviewer use; it does not mean 99% production security coverage, enterprise production readiness, external validation, compliance certification, production deployment approval, full authenticated RBAC, full real-user tenant isolation, full real tool execution blocking, or full real MCP server blocking.
+This is my Onyx-based RAG Agent Security Readiness portfolio. It is a production-style AI Trust & Security Readiness package for RAG and autonomous agent systems. The final Step 3 result is `PASS_WITH_LIMITATIONS`, and the readiness estimate is `94% portfolio presentation readiness` and `88% technical portfolio proof readiness`. That percentage means the portfolio evidence package is nearly complete for reviewer use; it does not mean production security coverage, enterprise production readiness, external validation, compliance certification, production deployment approval, full authenticated RBAC, full real-user tenant isolation, full real tool execution blocking, or full real MCP server blocking.
 
 ## 3-Minute Walkthrough
 
@@ -13,7 +13,7 @@ This is my Onyx-based RAG Agent Security Readiness portfolio. It is a production
 2. **Show the final posture**
    - Open `FINAL_PORTFOLIO_GO_NO_GO.md`.
    - Point to `PASS_WITH_LIMITATIONS` as the exact Step 3 result.
-   - Point to `~99% production-style portfolio coverage` and explain that it is portfolio coverage only.
+   - Point to `94% portfolio presentation readiness` and `88% technical portfolio proof readiness` and explain that it is portfolio coverage only.
 
 3. **Explain the risk areas**
    - Prompt injection can attempt to override instructions.
@@ -41,7 +41,7 @@ This is my Onyx-based RAG Agent Security Readiness portfolio. It is a production
 3. **Final decision**
    - Open `FINAL_PORTFOLIO_GO_NO_GO.md`.
    - Highlight the final posture: `PASS_WITH_LIMITATIONS`.
-   - Highlight `~99% production-style portfolio coverage` and clarify that this means portfolio coverage, not production security coverage.
+   - Highlight `94% portfolio presentation readiness` and `88% technical portfolio proof readiness` and clarify that this means portfolio coverage, not production security coverage.
 
 4. **Runtime-security narrative**
    - Open `STEP3_RUNTIME_SECURITY_EVIDENCE_REPORT.md`.
@@ -69,9 +69,9 @@ This is my Onyx-based RAG Agent Security Readiness portfolio. It is a production
 
 It means the Step 3 runtime-security evidence is strong enough for a reviewer-facing portfolio, but it still has documented gaps before stronger operational claims are appropriate. It is not a claim of enterprise production readiness, external validation, compliance certification, or production deployment approval.
 
-### Q2: What does `~99% production-style portfolio coverage` mean?
+### Q2: What does `94% portfolio presentation readiness` and `88% technical portfolio proof readiness` mean?
 
-It means the portfolio package is nearly complete as a career/reviewer artifact: evidence is organized, claim boundaries are documented, demo paths are clear, and remaining work is explicit. It does not mean 99% production security coverage, compliance coverage, enterprise deployment readiness, or operational approval.
+It means the portfolio package is nearly complete as a career/reviewer artifact: evidence is organized, claim boundaries are documented, demo paths are clear, and remaining work is explicit. It does not mean production security coverage, compliance coverage, enterprise deployment readiness, or operational approval.
 
 ### Q3: Why not just say the system is secure?
 
@@ -120,7 +120,7 @@ I would say it is a structured evidence package that shows how an AI system was 
 
 - The project is a production-style portfolio artifact, not an enterprise production-readiness attestation.
 - The result is `PASS_WITH_LIMITATIONS`, not an unconditional pass.
-- The `~99% production-style portfolio coverage` estimate means portfolio coverage only, not production security coverage.
+- The `94% portfolio presentation readiness` and `88% technical portfolio proof readiness` estimate means portfolio coverage only, not production security coverage.
 - External validation is not claimed.
 - Compliance certification is not claimed.
 - Production deployment approval is not claimed.

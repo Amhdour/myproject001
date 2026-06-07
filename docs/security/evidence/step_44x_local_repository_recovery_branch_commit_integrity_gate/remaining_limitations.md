@@ -8,7 +8,7 @@
 - GitHub Actions run and PR-check status is unavailable; CI pass is not claimed.
 - Old sandbox commit SHAs are missing locally, although equivalent local Step evidence appears under different local commits and merge commits.
 - Live staging/cloud validation remains **PENDING**.
-- Enterprise production-candidate readiness remains **NO-GO / 5%**.
+- Enterprise production-candidate readiness remains **NO-GO**.
 - External validation remains **PENDING**.
 - Compliance certification remains **NOT CLAIMED**.
 - Full Onyx-wide enforcement and customer deployment remain **NOT CLAIMED**.

@@ -28,4 +28,4 @@ The security focus is RAG/agent retrieval trust: preventing or detecting retriev
 
 ## What the Reviewer Is Asked to Judge
 
-The reviewer is asked to assess whether the current evidence supports the bounded portfolio claims, especially the 92% production-style portfolio readiness score, Oracle staging PARTIAL GO status, runtime enforcement PARTIAL GO status, Step 39X hook presence in the diagnostic custom API container evidence, pytest smoke behavior, redaction discipline, and the honesty of remaining limitations.
+The reviewer is asked to assess whether the current evidence supports the bounded portfolio claims, especially the historical readiness snapshot production-style portfolio readiness score, Oracle staging PARTIAL GO status, runtime enforcement PARTIAL GO status, Step 39X hook presence in the diagnostic custom API container evidence, pytest smoke behavior, redaction discipline, and the honesty of remaining limitations.

@@ -22,8 +22,8 @@
 
 ## Readiness impact
 
-- Production-style portfolio readiness after Step 50X: 90%.
-- Enterprise production-candidate readiness after Step 50X: NO-GO / 6-8%.
+- Production-style portfolio readiness after Step 50X: historical readiness snapshot.
+- Enterprise production-candidate readiness after Step 50X: NO-GO.
 - Oracle staging evidence: PARTIAL GO.
 - Live full app GO: NOT CLAIMED.
 - External validation: PENDING.

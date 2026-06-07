@@ -46,13 +46,13 @@ GitHub Actions workflow files are present locally, and all three workflows are c
 | If skipped/not triggered, why? | Trigger/query path is blocked by missing `gh`, absent `origin`, and GitHub API HTTP CONNECT 403. |
 | Are local checks still passing? | Yes; required local verification passed. |
 | Does evidence preserve claim boundaries? | Yes; CI pass, live staging/cloud validation, external validation, compliance certification, production readiness, and enterprise production readiness are not claimed. |
-| Does CI evidence justify increasing production-style portfolio readiness? | No. Readiness remains 87% because CI evidence is blocked. |
+| Does CI evidence justify increasing production-style portfolio readiness? | No. Readiness remains historical readiness snapshot because CI evidence is blocked. |
 | What remains unverified? | Real GitHub PR metadata, PR #107 merged state, Step 46X PR metadata, GitHub Actions run IDs, job results, main branch Actions results, and live staging/cloud/external/compliance evidence. |
 
 ## Readiness impact
 
-- Production-style portfolio readiness after Step 46X: **87%**.
-- Enterprise production-candidate readiness after Step 46X: **NO-GO / 5%**.
+- Production-style portfolio readiness after Step 46X: **historical readiness snapshot**.
+- Enterprise production-candidate readiness after Step 46X: **NO-GO**.
 - CI Actions evidence: **BLOCKED**.
 - Live staging/cloud validation: **PENDING**.
 - External validation: **PENDING**.

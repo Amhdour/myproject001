@@ -20,8 +20,8 @@ This is architecture/configuration readiness. It is not verified redeploy eviden
 
 | Item | Status |
 |---|---|
-| Production-style portfolio readiness | 92% |
-| Enterprise production-candidate | NO-GO / 7–9% |
+| Production-style portfolio readiness | historical readiness snapshot |
+| Enterprise production-candidate | NO-GO |
 | External validation | simulated response only / real validation pending |
 | Compliance certification | NOT CLAIMED |
 

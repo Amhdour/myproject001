@@ -43,7 +43,7 @@ Select one:
 
 ## Portfolio Claim Decision
 
-Is the 92% production-style portfolio readiness claim acceptable with the documented boundaries?
+Is the historical readiness snapshot production-style portfolio readiness claim acceptable with the documented boundaries?
 
 - [ ] Yes
 - [ ] Partially

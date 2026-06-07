@@ -30,8 +30,8 @@ The prior reviewer-style finding source remains simulated. External validation i
 
 | Area | Status |
 |---|---|
-| Production-style portfolio readiness | 92% |
-| Enterprise production-candidate | NO-GO / 7–9% |
+| Production-style portfolio readiness | historical readiness snapshot |
+| Enterprise production-candidate | NO-GO |
 | Oracle staging | PARTIAL GO |
 | External validation | simulated response only / real validation pending |
 | Compliance certification | NOT CLAIMED |

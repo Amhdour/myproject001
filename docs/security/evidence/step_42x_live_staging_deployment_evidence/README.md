@@ -10,8 +10,8 @@ Step 42X is the first actual staging-deployment evidence step for the portfolio 
 - Live staging validation remains **PENDING**.
 - External validation remains **PENDING**.
 - Compliance certification is **NOT CLAIMED**.
-- Enterprise production-candidate readiness remains **NO-GO / 5%**.
-- Production-style portfolio readiness after Step 42X: **87%**. This is a portfolio-evidence score only, not production readiness.
+- Enterprise production-candidate readiness remains **NO-GO**.
+- Production-style portfolio readiness after Step 42X: **historical readiness snapshot**. This is a portfolio-evidence score only, not production readiness.
 
 ## Evidence Files
 - `environment_check.md` — starting state, tool availability, secret-status redaction, and path selection.

@@ -15,6 +15,17 @@ REQUIRED_PATHS = [
     Path("backend/tests/security/test_security_metrics.py"),
     Path("backend/tests/security/demo_attacks/test_cross_tenant_retrieval_attack.py"),
     Path("backend/tests/security/demo_attacks/test_high_risk_tool_without_approval.py"),
+    Path("docs/security/reviewer_commands.md"),
+    Path("docs/security/live_hook_gap_report.md"),
+    Path("docs/security/evidence/step_64x_retrieved_content_prompt_injection_proof/README.md"),
+    Path("docs/security/evidence/step_64x_retrieved_content_prompt_injection_proof/prompt_injection_detector_test_result.md"),
+    Path("docs/security/evidence/step_64x_retrieved_content_prompt_injection_proof/retrieval_context_hook_test_result.md"),
+    Path("docs/security/evidence/step_64x_retrieved_content_prompt_injection_proof/demo_attack_result.md"),
+    Path("docs/security/evidence/step_64x_retrieved_content_prompt_injection_proof/audit_sample.json"),
+    Path("docs/security/evidence/step_64x_retrieved_content_prompt_injection_proof/telemetry_sample.json"),
+    Path("docs/security/evidence/step_64x_retrieved_content_prompt_injection_proof/reviewer_command_output.md"),
+    Path("docs/security/evidence/step_64x_retrieved_content_prompt_injection_proof/ci_status.md"),
+    Path("docs/security/evidence/step_64x_retrieved_content_prompt_injection_proof/limitations.md"),
 ]
 
 

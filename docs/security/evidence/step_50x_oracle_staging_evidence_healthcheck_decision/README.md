@@ -28,8 +28,8 @@ This is an evidence packaging and claim-boundary step only. It does not add runt
 
 ## Bounded readiness status after Step 50X
 
-- Production-style portfolio readiness: 90%.
-- Enterprise production-candidate readiness: NO-GO / 6-8%.
+- Production-style portfolio readiness: historical readiness snapshot.
+- Enterprise production-candidate readiness: NO-GO.
 - Oracle staging evidence: PARTIAL GO.
 - Live full app GO: NOT CLAIMED.
 - External validation: PENDING.

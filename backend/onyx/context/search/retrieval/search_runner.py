@@ -3,6 +3,25 @@ from uuid import UUID
 
 from sqlalchemy.orm import Session
 
+from backend.security.enforcement.security_enforcer import SecurityEnforcer
+from backend.security_layer.retrieval.integration_flags import (
+    default_retrieval_integration_config,
+)
+from backend.security_layer.retrieval.integration_flags import is_monitor_only
+from backend.security_layer.retrieval.live_monitor_adapter import (
+    monitor_only_live_retrieval_check,
+)
+from backend.security_layer.retrieval.prompt_injection.hook import (
+    apply_retrieved_content_prompt_injection_hook,
+)
+from backend.security_layer.runtime_enforcement.config import (
+    get_runtime_enforcement_config,
+)
+from backend.security_layer.runtime_enforcement.config import RuntimeEnforcementMode
+from backend.security_layer.runtime_enforcement.context import RuntimeRetrievalContext
+from backend.security_layer.runtime_enforcement.retrieval_adapter import (
+    enforce_retrieval_runtime,
+)
 from onyx.configs.chat_configs import HYBRID_ALPHA
 from onyx.configs.chat_configs import NUM_RETURNED_HITS
 from onyx.context.search.enums import QueryType
@@ -20,18 +39,8 @@ from onyx.federated_connectors.federated_retrieval import (
 )
 from onyx.natural_language_processing.search_nlp_models import EmbeddingModel
 from onyx.security_layer.retrieval_guard.guard import apply_retrieval_acl_guard
-from backend.security.enforcement.security_enforcer import SecurityEnforcer
 from onyx.utils.logger import setup_logger
 from onyx.utils.threadpool_concurrency import run_functions_tuples_in_parallel
-from backend.security_layer.retrieval.integration_flags import default_retrieval_integration_config
-from backend.security_layer.runtime_enforcement.config import get_runtime_enforcement_config
-from backend.security_layer.runtime_enforcement.config import RuntimeEnforcementMode
-from backend.security_layer.runtime_enforcement.context import RuntimeRetrievalContext
-from backend.security_layer.runtime_enforcement.retrieval_adapter import enforce_retrieval_runtime
-from backend.security_layer.retrieval.integration_flags import is_monitor_only
-from backend.security_layer.retrieval.live_monitor_adapter import (
-    monitor_only_live_retrieval_check,
-)
 
 logger = setup_logger()
 
@@ -195,12 +204,20 @@ def search_chunks(
         session_id=session_id,
         chunks=guard_result.allowed_chunks,
     )
-    return _apply_step_39x_runtime_enforcement_hook(
+    runtime_chunks = _apply_step_39x_runtime_enforcement_hook(
         query_request=query_request,
         user_id=user_id,
         session_id=session_id,
         chunks=monitored_chunks,
     )
+    prompt_injection_result = apply_retrieved_content_prompt_injection_hook(
+        chunks=runtime_chunks,
+        request_id=session_id or "retrieval-prompt-injection-hook",
+        user_id=str(user_id) if user_id is not None else None,
+        tenant_id=query_request.filters.tenant_id,
+        correlation_id=session_id,
+    )
+    return list(prompt_injection_result.returned_chunks)
 
 
 def _apply_portfolio_readiness_retrieval_enforcement(

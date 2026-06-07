@@ -50,12 +50,17 @@ This audit prepares the repository for professional sharing. It does not prove p
 
 ## Status
 
-- Portfolio status: In progress
-- Production-style portfolio readiness: 97% portfolio presentation readiness after release-candidate package and checks pass, not production-system readiness
-- Production readiness: NO-GO
-- Enterprise readiness: NO-GO
-- External validation: PENDING
-- Compliance certification: NOT CLAIMED
+- Portfolio status: In progress / bounded reviewer-ready package.
+- Portfolio presentation readiness: 94%.
+- Technical portfolio proof readiness: 88%.
+- Client demo readiness: 85%.
+- Production-style runtime proof readiness: 70% for bounded hook/test proof only, not full live coverage.
+- Enterprise production-candidate readiness: 20% / NO-GO.
+- Real production readiness: 8% / NO-GO.
+- Production readiness: NO-GO.
+- Enterprise readiness: NO-GO.
+- External validation: PENDING.
+- Compliance certification: NOT CLAIMED.
 
 ## What This Project Is
 
@@ -95,11 +100,18 @@ My portfolio contribution is the security-readiness and evidence layer around th
 
 ## Current Readiness Snapshot
 
-- Production-style portfolio readiness: 97% as a portfolio presentation artifact after release-candidate package and checks pass, not as production-system readiness.
-- Enterprise production-candidate readiness: not claimed / NO-GO.
+- Portfolio presentation readiness: 94% as a reviewer-facing artifact, not as production-system readiness.
+- Technical portfolio proof readiness: 88% for focused local proof and evidence.
+- Client demo readiness: 85% for bounded synthetic attack demos and reviewer commands.
+- Production-style runtime proof readiness: 70% for bounded retrieval/context hook and test proof only.
+- Enterprise production-candidate readiness: 20% / NO-GO.
+- Real production readiness: 8% / NO-GO.
 - Production readiness: NO-GO.
+- Enterprise readiness: NO-GO.
 - External validation: PENDING.
 - Compliance certification: NOT CLAIMED.
+
+Older step-specific evidence may keep historical percentage snapshots. The current public-facing readiness language is the separated matrix above.
 
 ## What Is Already Strong
 
@@ -170,6 +182,7 @@ If dependencies are missing, treat that as a local execution blocker and documen
 - Isolated security-control helpers and tests.
 - Launch-gate and claim-boundary discipline.
 - Production-style demo, not enterprise deployment.
+- Retrieved-content prompt-injection detection covered by focused tests and demo evidence.
 
 ## Forbidden Claims
 

@@ -22,8 +22,8 @@ Positive local evidence remains meaningful but bounded:
 - No real secret was identified in Step 44X secret-hygiene review.
 
 ## Readiness Impact
-- Production-style portfolio readiness after Step 44X: **87%**.
-- Enterprise production-candidate readiness after Step 44X: **NO-GO / 5%**.
+- Production-style portfolio readiness after Step 44X: **historical readiness snapshot**.
+- Enterprise production-candidate readiness after Step 44X: **NO-GO**.
 - Live staging/cloud validation: **PENDING**.
 - External validation: **PENDING**.
 - Compliance certification: **NOT CLAIMED**.

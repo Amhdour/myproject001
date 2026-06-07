@@ -17,8 +17,8 @@
 
 | Area | Step 46X status |
 |---|---|
-| Production-style portfolio readiness | 87% |
-| Enterprise production-candidate readiness | NO-GO / 5% |
+| Production-style portfolio readiness | historical readiness snapshot |
+| Enterprise production-candidate readiness | NO-GO |
 | CI Actions evidence | BLOCKED |
 | Live staging/cloud validation | PENDING |
 | External validation | PENDING |

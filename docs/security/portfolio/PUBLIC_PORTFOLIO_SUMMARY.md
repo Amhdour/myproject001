@@ -10,7 +10,7 @@ A production-style AI Trust & Security Readiness portfolio for RAG and autonomou
 
 ## Problem Statement
 
-RAG and autonomous-agent systems introduce risks that are easy to understate in public demos: prompt injection, unsafe retrieval, sensitive-data exposure, tool misuse, MCP-style integration risk, tenant-boundary confusion, and unsupported security claims. The problem this portfolio addresses is not only how to think about those risks, but how to present the evidence honestly without implying enterprise production readiness, external validation, compliance certification, production deployment approval, full authenticated RBAC, full real-user tenant isolation, full real tool execution blocking, or full real MCP server blocking.
+RAG and autonomous-agent systems introduce risks that are easy to understate in public demos: direct prompt injection, retrieved-content prompt injection, unsafe retrieval, sensitive-data exposure, tool misuse, MCP-style integration risk, tenant-boundary confusion, and unsupported security claims. The problem this portfolio addresses is not only how to think about those risks, but how to present the evidence honestly without implying enterprise production readiness, external validation, compliance certification, production deployment approval, full authenticated RBAC, full real-user tenant isolation, full real tool execution blocking, or full real MCP server blocking.
 
 ## What I Built
 
@@ -48,7 +48,7 @@ The portfolio proves that I can:
 - distinguish portfolio completeness from operational production security;
 - map remaining security validation work into a clear next-step roadmap.
 
-The readiness estimate is `~99% production-style portfolio coverage`. That means the portfolio package is approximately complete as a career/reviewer artifact. It does not mean 99% production security coverage, enterprise deployment coverage, compliance coverage, or operational approval.
+The readiness estimate is `94% portfolio presentation readiness` and `88% technical portfolio proof readiness`. That means the portfolio package is approximately complete as a career/reviewer artifact. It does not mean production security coverage, enterprise deployment coverage, compliance coverage, or operational approval.
 
 ## What Is Not Claimed
 
@@ -70,7 +70,7 @@ This portfolio does not claim:
 Recommended reviewer demo path:
 
 1. Start with `README.md` to explain the purpose and claim boundaries.
-2. Open `FINAL_PORTFOLIO_GO_NO_GO.md` to show the final posture: `PASS_WITH_LIMITATIONS` and `~99% production-style portfolio coverage`.
+2. Open `FINAL_PORTFOLIO_GO_NO_GO.md` to show the final posture: `PASS_WITH_LIMITATIONS` and `94% portfolio presentation readiness` and `88% technical portfolio proof readiness`.
 3. Use `PORTFOLIO_RUNTIME_SECURITY_CLAIMS.md` to show safe versus forbidden language.
 4. Walk through `STEP3_RUNTIME_SECURITY_EVIDENCE_REPORT.md` for the evidence narrative.
 5. Use `DEMO_WALKTHROUGH.md` and `CASE_STUDY.md` for a concise interview or portfolio presentation.

@@ -15,9 +15,10 @@ This repository demonstrates:
 - RAG and agent security-readiness thinking;
 - reviewer-facing evidence packaging;
 - claim-boundary governance;
-- synthetic prompt-injection and agent-risk demos;
+- synthetic prompt-injection, retrieved-content prompt-injection, and agent-risk demos;
 - isolated Python security helpers and pytest checks;
 - CI gates for evidence and claim discipline;
+- retrieved-content prompt-injection detection covered by focused tests and demo evidence;
 - launch-gate language that separates portfolio evidence from production claims.
 
 ## What I cannot claim yet
@@ -35,7 +36,7 @@ This repo is portfolio/demo evidence. It is not a managed production security gu
 
 - RAG security readiness review.
 - AI agent launch-gate checklist.
-- Prompt-injection demo attack review.
+- Prompt-injection and retrieved-content prompt-injection demo attack review.
 - Retrieval ACL risk review.
 - Tool authorization review.
 - Evidence-room preparation.

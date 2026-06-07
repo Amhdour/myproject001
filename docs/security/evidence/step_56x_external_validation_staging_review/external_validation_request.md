@@ -34,8 +34,8 @@ Please perform an independent staging evidence review of the Step 56X package an
 
 ## Current Claim Boundary to Validate
 
-- Production-style portfolio readiness: 92%.
-- Enterprise production-candidate: NO-GO / 7–9%.
+- Production-style portfolio readiness: historical readiness snapshot.
+- Enterprise production-candidate: NO-GO.
 - Oracle staging evidence: PARTIAL GO.
 - Runtime enforcement behavior: PARTIAL GO.
 - External validation: PENDING.

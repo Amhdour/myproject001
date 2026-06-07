@@ -15,7 +15,7 @@ This repository is intended to demonstrate:
 - pytest-based validation;
 - CI gates for security-layer and portfolio checks;
 - claim-boundary governance;
-- demo attack design;
+- demo attack design, including retrieved-content prompt-injection coverage;
 - launch-gate thinking;
 - deployment limitation honesty.
 
@@ -27,7 +27,7 @@ Good interview prompts include:
 - Explain which controls are isolated helpers versus live runtime behavior.
 - Explain why production readiness remains NO-GO.
 - Explain how the claim-boundary scripts reduce portfolio overclaiming.
-- Show how the demo attack runner is structured and what PASS does not prove.
+- Show how the retrieved-content prompt-injection detector is tested, how the demo attack runner is structured, and what PASS does not prove.
 - Describe what evidence would be required before claiming live enforcement or full staging.
 - Explain how you would turn this into a client-ready assessment plan.
 
@@ -40,7 +40,7 @@ I should be able to explain:
 - the final evidence package contents;
 - why synthetic attacks are useful but limited;
 - how pytest and CI gates support evidence discipline;
-- which claims are safe, forbidden, or pending;
+- which claims are safe, forbidden, or pending, including why full prompt-injection defense is not claimed;
 - what work remains before stronger deployment claims could be considered.
 
 ## What the repo does not prove

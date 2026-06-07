@@ -9,8 +9,8 @@
 - Existing local service probes failed on the expected frontend/backend ports.
 
 ## Readiness After Step 42X
-- Production-style portfolio readiness: **87%**.
-- Enterprise production-candidate readiness: **NO-GO / 5%**.
+- Production-style portfolio readiness: **historical readiness snapshot**.
+- Enterprise production-candidate readiness: **NO-GO**.
 - External validation: **PENDING**.
 - Compliance certification: **NOT CLAIMED**.
 - Live staging/cloud validation: **PENDING**.

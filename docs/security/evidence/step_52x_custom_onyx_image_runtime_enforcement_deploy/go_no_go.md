@@ -14,8 +14,8 @@
 | Deployed Step 39X hook check | NOT VERIFIED |
 | API health after deploy | NOT VERIFIED |
 | Web/proxy health after deploy | NOT VERIFIED |
-| Production-style portfolio readiness | remains 90% |
-| Enterprise production-candidate readiness | NO-GO / 6-8% |
+| Production-style portfolio readiness | remains historical readiness snapshot |
+| Enterprise production-candidate readiness | NO-GO |
 | Oracle runtime-code deployment status | NOT DEPLOYED / NOT VERIFIED |
 | Runtime enforcement behavior smoke test | NOT EXECUTED |
 | External validation | PENDING |

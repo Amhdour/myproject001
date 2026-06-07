@@ -32,8 +32,8 @@ Step 43X satisfies the REMOTE_SYNC_BLOCKED classification:
 | Live staging/cloud validation | PENDING |
 | External validation | PENDING |
 | Compliance certification | NOT CLAIMED |
-| Enterprise production-candidate readiness | NO-GO / 5% |
-| Production-style portfolio readiness | 87% |
+| Enterprise production-candidate readiness | NO-GO |
+| Production-style portfolio readiness | historical readiness snapshot |
 
 ## Claim Boundary
 Step 43X does not claim CI passed, remote sync resolved, live staging/cloud validation, production readiness, enterprise production readiness, external validation, compliance certification, full Onyx-wide enforcement, or customer deployment.

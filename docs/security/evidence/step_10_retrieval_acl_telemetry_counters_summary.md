@@ -68,7 +68,7 @@ This step does not claim:
 
 These percentages are reviewer-facing portfolio estimates only, not production readiness claims.
 
-- Production-style portfolio coverage: about `99%` as a reviewer artifact only.
+- Production-style portfolio coverage: about `current separated readiness matrix` as a reviewer artifact only.
 - Retrieval ACL telemetry counters proof: focused in-memory proof complete.
 - Production readiness: `NO-GO / 0%`.
 - Enterprise production-candidate readiness: `NO-GO / 8–10%`.

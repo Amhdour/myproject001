@@ -106,9 +106,9 @@ Do not claim:
 
 | Area | Status |
 | --- | --- |
-| Production-style portfolio readiness | `99%` |
-| Employable portfolio readiness | `99%` |
-| Phase 2 runtime-security proof readiness | `90% portfolio-level` |
+| Production-style portfolio readiness | `current separated readiness matrix` |
+| Employable portfolio readiness | `current separated readiness matrix` |
+| Phase 2 runtime-security proof readiness | `historical readiness snapshot portfolio-level` |
 | Real integration readiness | `10-15%` |
 | Staging proof readiness | `0-10%` |
 | Production readiness | `0% / NO-GO` |

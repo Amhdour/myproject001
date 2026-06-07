@@ -1,5 +1,9 @@
 # Final GO/NO-GO Matrix
 
+## Current aggregate readiness note
+
+Historical step-level percentages in this file have been superseded by the current separated readiness matrix in `../../CLAIM_BOUNDARY.md` and `../claim_boundary.md`.
+
 | Area | Status | Notes |
 |---|---|---|
 | Portfolio README | GO | Root README provides portfolio positioning and claim boundary links. |
@@ -35,9 +39,9 @@
 | Area | Status | Notes |
 |---|---|---|
 | Step 40X runtime enforcement PR review gate | GO | Step 39X PR #102 was reviewed, narrow runtime-safety/test hardening was added, and required gates passed locally. |
-| Production-style portfolio readiness after Step 40X | 86% / GO for portfolio review | This percentage is a portfolio-evidence estimate only, not production readiness. |
+| Historical Step 40X portfolio snapshot | Historical / superseded by current matrix | This percentage is a portfolio-evidence estimate only, not production readiness. |
 | Production readiness after Step 40X | NO-GO | Step 40X does not prove production deployment readiness. |
-| Enterprise production-candidate readiness after Step 40X | NO-GO / 5% | Step 40X does not prove enterprise deployment readiness. |
+| Enterprise production-candidate readiness after Step 40X | NO-GO | Step 40X does not prove enterprise deployment readiness. |
 | External validation after Step 40X | PENDING | No independent external validation was performed. |
 | Compliance certification after Step 40X | NOT CLAIMED | No certification is claimed. |
 | Live staging/cloud validation after Step 40X | PENDING | No cloud, VPS, K3s, Rancher, Coolify, or real customer deployment validation was performed. |
@@ -48,17 +52,17 @@
 | Area | Status | Notes |
 |---|---|---|
 | Step 42X actual live staging deployment evidence | DEPLOYMENT_BLOCKED | Real cloud/VPS staging was unavailable; Docker Compose local staging was attempted but blocked because Docker is not installed. |
-| Production-style portfolio readiness after Step 42X | 87% / GO for portfolio review | This percentage is a portfolio-evidence estimate only, not production readiness. |
+| Historical Step 42X portfolio snapshot | Historical / superseded by current matrix | This percentage is a portfolio-evidence estimate only, not production readiness. |
 | Production readiness after Step 42X | NO-GO | Step 42X did not produce a successful staging deployment. |
-| Enterprise production-candidate readiness after Step 42X | NO-GO / 5% | Step 42X does not prove enterprise deployment readiness. |
+| Enterprise production-candidate readiness after Step 42X | NO-GO | Step 42X does not prove enterprise deployment readiness. |
 | External validation after Step 42X | PENDING | No independent external validation was performed. |
 | Compliance certification after Step 42X | NOT CLAIMED | No certification is claimed. |
 | Live staging/cloud validation after Step 42X | PENDING | No real cloud, VPS, Coolify, OCI, public URL, or customer deployment validation was completed. |
 | Local staging validation after Step 42X | PENDING | Docker and Docker Compose were unavailable, so no local app/container started. |
 | Full Onyx-wide enforcement after Step 42X | NOT CLAIMED | The runtime proof remains limited to the Step 39X retrieval-facing hook and controlled tests. |
 | GitHub remote/PR/CI evidence after Step 43X | REMOTE_SYNC_BLOCKED | Origin was configured locally, but remote reachability failed with HTTP CONNECT tunnel 403; Step 42X branch push, PR number/URL, and GitHub Actions runs remain unverified. |
-| Production-style portfolio readiness after Step 43X | 87% / GO for portfolio review | This percentage is a portfolio-evidence estimate only, not production readiness. |
-| Enterprise production-candidate readiness after Step 43X | NO-GO / 5% | Remote-backed PR/CI evidence remains blocked and enterprise readiness is not claimed. |
+| Historical Step 43X portfolio snapshot | Historical / superseded by current matrix | This percentage is a portfolio-evidence estimate only, not production readiness. |
+| Enterprise production-candidate readiness after Step 43X | NO-GO | Remote-backed PR/CI evidence remains blocked and enterprise readiness is not claimed. |
 | Live staging/cloud validation after Step 43X | PENDING | Step 43X did not add live staging/cloud deployment evidence. |
 | External validation after Step 43X | PENDING | No independent external validation was performed. |
 | Compliance certification after Step 43X | NOT CLAIMED | No certification is claimed. |
@@ -69,9 +73,9 @@
 |---|---|---|
 | Step 44X local repository recovery gate | REPOSITORY_RECOVERY_BLOCKED | Local evidence folders and merge messages are present, but origin/main recovery remains blocked by HTTP CONNECT 403 and `gh` is unavailable. |
 | GitHub repository integrity after Step 44X | BLOCKED | Remote branch inventory, `origin/main`, GitHub PR metadata, and GitHub Actions checks could not be verified from this workspace. |
-| Production-style portfolio readiness after Step 44X | 87% / GO for portfolio review | This percentage is a portfolio-evidence estimate only, not production readiness. |
+| Historical Step 44X portfolio snapshot | Historical / superseded by current matrix | This percentage is a portfolio-evidence estimate only, not production readiness. |
 | Production readiness after Step 44X | NO-GO | Step 44X does not prove production deployment readiness. |
-| Enterprise production-candidate readiness after Step 44X | NO-GO / 5% | Step 44X does not prove enterprise deployment readiness. |
+| Enterprise production-candidate readiness after Step 44X | NO-GO | Step 44X does not prove enterprise deployment readiness. |
 | Live staging/cloud validation after Step 44X | PENDING | Step 44X did not add live staging/cloud deployment evidence. |
 | External validation after Step 44X | PENDING | No independent external validation was performed. |
 | Compliance certification after Step 44X | NOT CLAIMED | No certification is claimed. |
@@ -84,9 +88,9 @@
 | Step 45X GitHub PR chain reconciliation | PR_CHAIN_PARTIALLY_VERIFIED | Local merge commits for PR #102-#106 are present and mapped, but GitHub PR metadata remains unavailable. |
 | Main branch containment after Step 45X | UNVERIFIED | `git checkout main` failed and no `origin` remote is configured. |
 | CI Actions evidence after Step 45X | PENDING / UNAVAILABLE | Workflow files are present locally, but Actions runs/conclusions could not be queried because `gh` is unavailable and GitHub API access is blocked by HTTP CONNECT 403. |
-| Production-style portfolio readiness after Step 45X | 87% / GO for portfolio review | This percentage is a portfolio-evidence estimate only, not production readiness. |
+| Historical Step 45X portfolio snapshot | Historical / superseded by current matrix | This percentage is a portfolio-evidence estimate only, not production readiness. |
 | Production readiness after Step 45X | NO-GO | Step 45X does not prove production deployment readiness. |
-| Enterprise production-candidate readiness after Step 45X | NO-GO / 5% | Step 45X does not prove enterprise deployment readiness. |
+| Enterprise production-candidate readiness after Step 45X | NO-GO | Step 45X does not prove enterprise deployment readiness. |
 | Live staging/cloud validation after Step 45X | PENDING | Step 45X did not add live staging/cloud deployment evidence. |
 | External validation after Step 45X | PENDING | No independent external validation was performed. |
 | Compliance certification after Step 45X | NOT CLAIMED | No certification is claimed. |
@@ -97,9 +101,9 @@
 |---|---|---|
 | Step 46X GitHub Actions CI run trigger + verification gate | CI_ACTIONS_BLOCKED | Workflow files are present locally, but real Actions run evidence is unavailable because `gh` is missing, no `origin` remote is configured, and GitHub API access returns HTTP CONNECT 403. |
 | CI Actions evidence after Step 46X | BLOCKED | No run IDs, workflow run URLs, job conclusions, or failed-step logs are available. |
-| Production-style portfolio readiness after Step 46X | 87% / GO for portfolio review | Readiness remains unchanged because CI did not become verified pass evidence. |
+| Historical Step 46X portfolio snapshot | Historical / superseded by current matrix | Readiness remains unchanged because CI did not become verified pass evidence. |
 | Production readiness after Step 46X | NO-GO | Step 46X does not prove production deployment readiness. |
-| Enterprise production-candidate readiness after Step 46X | NO-GO / 5% | Step 46X does not prove enterprise deployment readiness. |
+| Enterprise production-candidate readiness after Step 46X | NO-GO | Step 46X does not prove enterprise deployment readiness. |
 | Live staging/cloud validation after Step 46X | PENDING | No real cloud/VPS/staging deployment validation was added. |
 | External validation after Step 46X | PENDING | No independent external validation was performed. |
 | Compliance certification after Step 46X | NOT CLAIMED | No certification is claimed. |
@@ -116,8 +120,8 @@ Docker/local staging readiness was evaluated from this workspace. Docker was not
 
 Readiness status after Step 47X:
 
-- Production-style portfolio readiness: 87%.
-- Enterprise production-candidate readiness: NO-GO / 5%.
+- Historical portfolio readiness snapshot: superseded by current matrix.
+- Enterprise production-candidate readiness: NO-GO.
 - Local Docker staging evidence: BLOCKED.
 - Live staging/cloud validation: PENDING.
 - CI Actions evidence: BLOCKED from Step 46X.
@@ -142,7 +146,7 @@ Classification: `ORACLE_ONYX_STAGING_PARTIAL_GO`.
 - External validation: PENDING.
 - Compliance certification: NOT CLAIMED.
 
-Readiness impact: production-style portfolio readiness is 90%; enterprise production-candidate readiness remains NO-GO / 6-8%; Oracle staging evidence is PARTIAL GO; live full app GO is NOT CLAIMED.
+Readiness impact: historical portfolio readiness snapshot is superseded by current matrix; enterprise production-candidate readiness remains NO-GO; Oracle staging evidence is PARTIAL GO; live full app GO is NOT CLAIMED.
 
 ## Step 52X Addendum — Custom Onyx Image Runtime Enforcement Deploy
 
@@ -153,8 +157,8 @@ Readiness impact: production-style portfolio readiness is 90%; enterprise produc
 | Deployed Oracle API image | NOT VERIFIED | Assume upstream remains until VPS evidence proves the custom image is deployed. |
 | Step 39X runtime directory in deployed API | NOT VERIFIED | No deployed-container `docker exec` evidence exists for Step 52X. |
 | Step 39X hook in deployed API | NOT VERIFIED | Source hook exists, but deployed-container hook evidence is blocked. |
-| Production-style portfolio readiness | 90% | Remains unchanged because build/deploy evidence is blocked. |
-| Enterprise production-candidate readiness | NO-GO / 6-8% | No enterprise production-candidate readiness is claimed. |
+| Portfolio presentation readiness | 94% | Remains unchanged because build/deploy evidence is blocked. |
+| Enterprise production-candidate readiness | 20% / NO-GO | No enterprise production-candidate readiness is claimed. |
 | Runtime enforcement behavior smoke test | NOT EXECUTED | No safe-denial or live enforcement behavior is claimed. |
 | External validation | PENDING | No independent external validation was performed. |
 | Compliance certification | NOT CLAIMED | No certification is claimed. |
@@ -168,9 +172,9 @@ Step 52X does not claim production readiness, enterprise readiness, active Oracl
 | Step 57X classification | `INDEPENDENT_REVIEW_PACKAGE_READY_EXTERNAL_VALIDATION_REQUEST_PENDING` | Reviewer request package is ready, but no reviewer response is claimed. |
 | Independent reviewer package | GO | Package exists at `docs/security/evidence/step_57x_independent_reviewer_package_request/`. |
 | External validation | REQUEST PACKAGE READY / NOT YET COMPLETED | External validation is not complete until an actual reviewer responds. |
-| Production-style portfolio readiness | 92% | Bounded portfolio-readiness claim only. |
+| Portfolio presentation readiness | 94% | Bounded portfolio-readiness claim only. |
 | Production readiness after Step 57X | NO-GO | Production readiness is not claimed. |
-| Enterprise production-candidate readiness after Step 57X | NO-GO / 7–9% | Enterprise production-candidate readiness is not claimed. |
+| Enterprise production-candidate readiness after Step 57X | NO-GO | Enterprise production-candidate readiness is not claimed. |
 | Oracle staging evidence | PARTIAL GO | Step 50X/56X boundaries remain in force. |
 | Runtime enforcement behavior | PARTIAL GO | Step 39X/55X evidence remains bounded to portfolio-level behavior review. |
 | Compliance certification after Step 57X | NOT CLAIMED | No certification is claimed. |
@@ -187,7 +191,7 @@ Step 57X must not be described as an independent-review completion event, extern
 | Reviewer response received | NO | No independent reviewer response has been provided. |
 | External validation after Step 58X | REQUEST PACKAGE READY / NO RESPONSE YET | External validation is not complete. |
 | Production readiness after Step 58X | NO-GO | Production readiness is not claimed. |
-| Enterprise production-candidate readiness after Step 58X | NO-GO / 7–9% | Enterprise production-candidate readiness is not claimed. |
+| Enterprise production-candidate readiness after Step 58X | NO-GO | Enterprise production-candidate readiness is not claimed. |
 | Compliance certification after Step 58X | NOT CLAIMED | No certification is claimed. |
 
 Step 58X must not be described as reviewer approval, third-party validation, external-validation completion, production readiness, enterprise production-candidate readiness, compliance certification, independent red-team completion, customer deployment, or closure of reviewer findings.
@@ -204,7 +208,7 @@ Step 62X adds durable Oracle staging architecture/configuration readiness for si
 | Oracle VPS redeploy/retest | PENDING_USER_EXECUTION |
 | Full staging GO | NOT CLAIMED |
 | Production readiness | NO-GO |
-| Enterprise production-candidate | NO-GO / 7–9% |
+| Enterprise production-candidate | 20% / NO-GO |
 | External validation | simulated response only / real validation pending |
 | Compliance certification | NOT CLAIMED |
 

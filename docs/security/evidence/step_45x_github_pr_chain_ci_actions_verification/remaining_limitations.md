@@ -11,4 +11,4 @@
 - Live staging/cloud validation remains PENDING.
 - External validation remains PENDING.
 - Compliance certification remains NOT CLAIMED.
-- Enterprise production-candidate readiness remains NO-GO / 5%.
+- Enterprise production-candidate readiness remains NO-GO.

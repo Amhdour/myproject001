@@ -1,5 +1,9 @@
 # Evidence Index
 
+## Current aggregate readiness note
+
+Historical step-level readiness percentages have been superseded by the current separated readiness matrix in `../CLAIM_BOUNDARY.md` and `claim_boundary.md`.
+
 This index points reviewers to existing repository evidence and explains both what each artifact proves and what it does not prove. Evidence should be interpreted through the claim boundary in [`claim_boundary.md`](claim_boundary.md).
 
 | Evidence link | Evidence type | What it proves | What it does NOT prove |
@@ -53,7 +57,7 @@ This index points reviewers to existing repository evidence and explains both wh
 | [`CLAIM_BOUNDARY.md`](../CLAIM_BOUNDARY.md) | Root claim boundary | Summarizes safe claims, forbidden claims, current status, and links to detailed boundaries. | Does not remediate the listed NO-GO/PENDING/NOT CLAIMED gaps. |
 | [`docs/security/evidence/final_portfolio_package/README.md`](../docs/security/evidence/final_portfolio_package/README.md) | Final evidence package index | Bundles the final evidence summary, readiness score, checklist, and remaining gaps. | Does not create runtime enforcement, production deployment, or compliance certification. |
 | [`docs/security/evidence/final_portfolio_package/evidence_summary.md`](../docs/security/evidence/final_portfolio_package/evidence_summary.md) | Evidence summary | Maps final evidence categories to links, proof statements, and limitations. | Does not convert isolated tests into live application enforcement. |
-| [`docs/security/evidence/final_portfolio_package/readiness_score.md`](../docs/security/evidence/final_portfolio_package/readiness_score.md) | Readiness score | Explains the 97% production-style portfolio-readiness score after release-candidate package and checks pass. | Does not mean the system is 97% ready for production. |
+| [`docs/security/evidence/final_portfolio_package/readiness_score.md`](../docs/security/evidence/final_portfolio_package/readiness_score.md) | Readiness score | Explains the current separated readiness matrix after release-candidate package and checks pass. | Does not mean the system is ready for production. |
 | [`docs/security/evidence/final_portfolio_package/reviewer_checklist.md`](../docs/security/evidence/final_portfolio_package/reviewer_checklist.md) | Reviewer checklist | Gives reviewers a concise checklist and local commands. | Does not replace independent validation or production acceptance testing. |
 | [`docs/security/evidence/final_portfolio_package/remaining_gaps.md`](../docs/security/evidence/final_portfolio_package/remaining_gaps.md) | Remaining gaps | Lists unresolved gaps and final boundaries. | Does not show those gaps are remediated. |
 
@@ -167,7 +171,7 @@ Claim boundary: Step 46X does not prove GitHub Actions success, live staging/clo
 | Logs and rollback | `docs/security/evidence/step_47x_docker_local_compose_staging_proof/log_capture.md`; `docs/security/evidence/step_47x_docker_local_compose_staging_proof/rollback_evidence.md` | No runtime logs; rollback not needed because no containers started. |
 | Step 47X checker | `scripts/portfolio/check_step_47x_docker_staging_evidence.py` | Verifies evidence completeness and claim boundaries. |
 
-Step 47X does not prove local Docker staging success, live cloud/VPS staging validation, production readiness, enterprise production readiness, external validation, compliance certification, full Onyx-wide enforcement, customer deployment, or CI pass. Production-style portfolio readiness remains 87%; enterprise production-candidate readiness remains NO-GO / 5%.
+Step 47X does not prove local Docker staging success, live cloud/VPS staging validation, production readiness, enterprise production readiness, external validation, compliance certification, full Onyx-wide enforcement, customer deployment, or CI pass. Production-style portfolio readiness remains historical snapshot; enterprise production-candidate readiness remains NO-GO.
 
 ## Step 50X Oracle Staging Evidence + Healthcheck Decision
 
@@ -183,7 +187,7 @@ Step 47X does not prove local Docker staging success, live cloud/VPS staging val
 | Host/proxy curl results | `docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/host_proxy_curl_results.md` | Host/proxy responds; app route/domain on port `80` not configured. |
 | Logs and rollback | `docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/log_summary.md`; `docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/rollback_notes.md` | Redacted log summary and rollback notes documented. |
 
-Readiness after Step 50X: production-style portfolio readiness is 90%; enterprise production-candidate readiness remains NO-GO / 6-8%; Oracle staging evidence is PARTIAL GO; live full app GO is NOT CLAIMED; external validation is PENDING; compliance certification is NOT CLAIMED.
+Readiness after Step 50X: historical portfolio readiness snapshot is superseded by current matrix; enterprise production-candidate readiness remains NO-GO; Oracle staging evidence is PARTIAL GO; live full app GO is NOT CLAIMED; external validation is PENDING; compliance certification is NOT CLAIMED.
 
 ## Step 52X — Custom Onyx Image Runtime Enforcement Deploy Evidence
 
@@ -202,11 +206,11 @@ Readiness after Step 50X: production-style portfolio readiness is 90%; enterpris
 | Classification | `INDEPENDENT_REVIEW_PACKAGE_READY_EXTERNAL_VALIDATION_REQUEST_PENDING` |
 | Prior package | `docs/security/evidence/step_56x_external_validation_staging_review/` |
 | Reviewer package contents | Summary, evidence map, claims to validate, claims not made, reviewer questions, checklist, reproduction guide, review-request email, response template, GO/NO-GO decision, remaining limitations, and redaction note. |
-| Claims to validate | 92% production-style portfolio readiness; Oracle staging PARTIAL GO; runtime enforcement behavior PARTIAL GO; custom backend image Step 39X runtime code evidence; Step 39X hook presence in diagnostic custom API container evidence; pytest smoke behavior; host/proxy staging evidence; redaction and claim-boundary discipline; honest known limitations. |
+| Claims to validate | current separated readiness matrix; Oracle staging PARTIAL GO; runtime enforcement behavior PARTIAL GO; custom backend image Step 39X runtime code evidence; Step 39X hook presence in diagnostic custom API container evidence; pytest smoke behavior; host/proxy staging evidence; redaction and claim-boundary discipline; honest known limitations. |
 | Claims not made | Production readiness, enterprise production-candidate readiness, external validation completion, compliance certification, full Onyx-wide enforcement, customer deployment, complete CI verification, full domain/TLS app route, full web health GO, durable production architecture for diagnostic MinIO/container replacement, or security certification. |
 | External validation | REQUEST PACKAGE READY / NOT YET COMPLETED. |
-| Production-style portfolio readiness | 92%. |
-| Enterprise production-candidate readiness | NO-GO / 7–9%. |
+| Portfolio presentation readiness | 94%. |
+| Enterprise production-candidate readiness | 20% / NO-GO. |
 | Compliance certification | NOT CLAIMED. |
 
 ## Step 58X — External Reviewer Response Intake + Finding Tracker
@@ -221,8 +225,8 @@ Readiness after Step 50X: production-style portfolio readiness is 90%; enterpris
 | Closure criteria | `closure_criteria.md` |
 | Redaction guidance | `redaction_note.md` |
 | External validation | REQUEST PACKAGE READY / NO RESPONSE YET. |
-| Production-style portfolio readiness | 92%. |
-| Enterprise production-candidate readiness | NO-GO / 7–9%. |
+| Portfolio presentation readiness | 94%. |
+| Enterprise production-candidate readiness | 20% / NO-GO. |
 | Compliance certification | NOT CLAIMED. |
 
 Step 58X creates the reviewer response intake system only. It does not claim external validation completion, reviewer approval, third-party validation, production readiness, enterprise production-candidate readiness, compliance certification, or closed findings.
@@ -236,4 +240,18 @@ Step 58X creates the reviewer response intake system only. It does not claim ext
 | Architecture doc | `docs/security/oracle_staging_durable_deployment_architecture.md` |
 | Compose/Coolify file | `deployment/docker_compose/docker-compose.oracle-staging.override.yml` |
 | Simulated finding addressed | `SIM-F-004`: diagnostic deployment not durable. |
-| Claim boundary | Architecture/configuration readiness only; Oracle VPS redeploy/retest pending; production readiness NO-GO; enterprise production-candidate NO-GO / 7–9%; external validation simulated/pending; compliance certification NOT CLAIMED. |
+| Claim boundary | Architecture/configuration readiness only; Oracle VPS redeploy/retest pending; production readiness NO-GO; enterprise production-candidate 20% / NO-GO; external validation simulated/pending; compliance certification NOT CLAIMED. |
+
+## Step 64X — Retrieved-Content Prompt-Injection Proof
+
+| Field | Value |
+|---|---|
+| Evidence package | `docs/security/evidence/step_64x_retrieved_content_prompt_injection_proof/` |
+| Classification | `BOUNDED_RETRIEVED_CONTENT_PROMPT_INJECTION_PROOF_READY_FOR_REVIEW` |
+| Implemented | Pattern-based retrieved-content prompt-injection detector, mode-aware hook, redacted audit event, process-local telemetry counter, synthetic demo case, focused CI workflow definition. |
+| Tested | `PYTHONPATH=. pytest backend/security_layer/tests/test_retrieved_content_prompt_injection.py -q` passed locally. |
+| Demo-proven | `python demo_attacks/run_demo_attacks.py` passed locally with six synthetic scenarios including retrieved-content prompt injection. |
+| CI-proven | Workflow definition exists; GitHub Actions pass is not claimed without a real run URL/evidence. |
+| Staging-proven | NOT CLAIMED for this control. |
+| Safe claim | Retrieved-content prompt-injection detection/protection is covered by focused tests and synthetic demo evidence. |
+| Non-claims | Full prompt-injection defense, live blocking/filtering, production readiness, enterprise readiness, external validation, compliance certification. |

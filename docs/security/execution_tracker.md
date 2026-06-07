@@ -425,14 +425,14 @@ Status: Complete (post-commit).
 
 | Phase | Step | Workstream | Owner | Status | Branch | Commit | PR | Primary Artifacts | Evidence | External dependency status | Date | Runtime behavior | Notes |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| Phase 5 | 42X | Actual live staging deployment evidence | AI Trust & Security Readiness Engineer | DEPLOYMENT_BLOCKED; evidence package complete | step-42x-live-staging-deployment-evidence | TBD | TBD | docs/security/evidence/step_42x_live_staging_deployment_evidence/; scripts/portfolio/check_step_42x_staging_evidence.py | docs/security/evidence/step_42x_live_staging_deployment_evidence/ | No origin remote, no cloud/VPS/Coolify/OCI target, Docker missing, Docker Compose missing, local app not reachable | 2026-05-30 | no application behavior change; Step 39X mode default remains disabled | Live staging validation PENDING; local staging validation PENDING; production readiness NO-GO; enterprise production-candidate readiness NO-GO / 5%; external validation PENDING; compliance certification NOT CLAIMED. |
+| Phase 5 | 42X | Actual live staging deployment evidence | AI Trust & Security Readiness Engineer | DEPLOYMENT_BLOCKED; evidence package complete | step-42x-live-staging-deployment-evidence | TBD | TBD | docs/security/evidence/step_42x_live_staging_deployment_evidence/; scripts/portfolio/check_step_42x_staging_evidence.py | docs/security/evidence/step_42x_live_staging_deployment_evidence/ | No origin remote, no cloud/VPS/Coolify/OCI target, Docker missing, Docker Compose missing, local app not reachable | 2026-05-30 | no application behavior change; Step 39X mode default remains disabled | Live staging validation PENDING; local staging validation PENDING; production readiness NO-GO; enterprise production-candidate readiness NO-GO; external validation PENDING; compliance certification NOT CLAIMED. |
 
 - Chosen deployment path: **C — Deployment blocked evidence**.
 - Deployment command attempted: `docker compose -f deployment/docker_compose/docker-compose.yml -f deployment/docker_compose/docker-compose.onyx-lite.yml -f deployment/docker_compose/docker-compose.dev.yml up -d --wait`.
 - Exact blocker: `docker: command not found` with exit `127`.
 - Health check result: blocked; `curl -sS -i http://localhost:3000/api/health` failed to connect with exit `7`.
 - Security/portfolio checks: Step 39X test passed (`6 passed`), full security-layer tests passed (`274 passed, 8 skipped`), demo attacks passed, claim-boundary/no-fake-claims/evidence-links/release-candidate checks passed before final documentation edits.
-- Production-style portfolio readiness after Step 42X: **87%**. This is a portfolio-evidence estimate only, not production readiness.
+- Production-style portfolio readiness after Step 42X: **historical readiness snapshot**. This is a portfolio-evidence estimate only, not production readiness.
 
 ## Step 43X GitHub Remote PR CI Verification Gate
 
@@ -462,7 +462,7 @@ Status: Complete (post-commit).
 - Local merge messages for PR #102, #103, #104, and #105 were visible.
 - Origin/main recovery remains blocked from this workspace because the starting remote was missing and the recovered origin fetch failed with `CONNECT tunnel failed, response 403`.
 - GitHub CLI was unavailable, so GitHub PR metadata and CI status remain unverified.
-- Production-style portfolio readiness remains **87%**; enterprise production-candidate readiness remains **NO-GO / 5%**; live staging/cloud validation remains **PENDING**; external validation remains **PENDING**; compliance certification remains **NOT CLAIMED**.
+- Production-style portfolio readiness remains **historical readiness snapshot**; enterprise production-candidate readiness remains **NO-GO**; live staging/cloud validation remains **PENDING**; external validation remains **PENDING**; compliance certification remains **NOT CLAIMED**.
 
 ## Step 45X GitHub PR Chain + CI Actions Verification Update
 
@@ -482,7 +482,7 @@ Status: Complete (post-commit).
 | Secret hygiene | PASS after manual review |
 | Classification | PR_CHAIN_PARTIALLY_VERIFIED |
 | Evidence | `docs/security/evidence/step_45x_github_pr_chain_ci_actions_verification/` |
-| Readiness impact | Production-style portfolio readiness remains **87%**; enterprise production-candidate readiness remains **NO-GO / 5%**; live staging/cloud validation remains **PENDING**; external validation remains **PENDING**; compliance certification remains **NOT CLAIMED**. |
+| Readiness impact | Production-style portfolio readiness remains **historical readiness snapshot**; enterprise production-candidate readiness remains **NO-GO**; live staging/cloud validation remains **PENDING**; external validation remains **PENDING**; compliance certification remains **NOT CLAIMED**. |
 | Claim boundary | Does not prove GitHub PR metadata, GitHub Actions success, `main` containment, live staging/cloud validation, production readiness, enterprise production readiness, external validation, compliance certification, full Onyx-wide enforcement, customer deployment, or real cloud deployment. |
 
 ## Step 46X Update
@@ -492,9 +492,9 @@ Status: Complete (post-commit).
 | Step 46X GitHub Actions CI run trigger + verification gate | CI_ACTIONS_BLOCKED | Workflow files are present and configured for `pull_request` plus `workflow_dispatch`, but Actions cannot be triggered or queried because `gh` is unavailable, no `origin` remote is configured, and GitHub API access fails with HTTP CONNECT 403. |
 | PR #107 visibility after Step 46X | LOCAL MERGE TEXT ONLY | PR #107 is suggested by local merge commit text, but GitHub PR metadata and merged state were not verified from this workspace. |
 | CI Actions evidence after Step 46X | BLOCKED | No run IDs, workflow run URLs, job conclusions, or failed-step logs are available. |
-| Production-style portfolio readiness after Step 46X | 87% / GO for portfolio review | This percentage remains unchanged because CI evidence is blocked, not verified pass. |
+| Production-style portfolio readiness after Step 46X | historical readiness snapshot / GO for portfolio review | This percentage remains unchanged because CI evidence is blocked, not verified pass. |
 | Production readiness after Step 46X | NO-GO | Step 46X does not prove production deployment readiness. |
-| Enterprise production-candidate readiness after Step 46X | NO-GO / 5% | Step 46X does not prove enterprise deployment readiness. |
+| Enterprise production-candidate readiness after Step 46X | NO-GO | Step 46X does not prove enterprise deployment readiness. |
 | Live staging/cloud validation after Step 46X | PENDING | Step 46X did not add live staging/cloud deployment evidence. |
 | External validation after Step 46X | PENDING | No independent external validation was performed. |
 | Compliance certification after Step 46X | NOT CLAIMED | No certification is claimed. |
@@ -518,8 +518,8 @@ Status: Complete (post-commit).
 | Rollback | No container rollback needed; Docker rollback/status commands could not run because Docker was missing. |
 | Evidence package | `docs/security/evidence/step_47x_docker_local_compose_staging_proof/` |
 | Helper checker | `scripts/portfolio/check_step_47x_docker_staging_evidence.py` |
-| Production-style portfolio readiness after Step 47X | 87% / GO for portfolio review only. |
-| Enterprise production-candidate readiness after Step 47X | NO-GO / 5%. |
+| Production-style portfolio readiness after Step 47X | historical readiness snapshot / GO for portfolio review only. |
+| Enterprise production-candidate readiness after Step 47X | NO-GO. |
 | Local Docker staging evidence after Step 47X | BLOCKED. |
 | Live staging/cloud validation after Step 47X | PENDING. |
 | CI Actions evidence after Step 47X | BLOCKED from Step 46X; not reverified in Step 47X. |
@@ -544,7 +544,7 @@ Step 47X does not claim local Docker staging success, live cloud/VPS staging val
 | Web reachability | GO by container hostname/IP; Docker health remains NOT GO because healthcheck targets `127.0.0.1:3000` and receives `ECONNREFUSED`. |
 | Host/proxy evidence | PARTIAL GO; port `8000` redirects to `/login`, port `8088` returns nginx `200 OK`, and port `80` returns `404` due to no matching route/domain. |
 | Evidence package | `docs/security/evidence/step_50x_oracle_staging_evidence_healthcheck_decision/` |
-| Readiness impact | Production-style portfolio readiness is **90%**; enterprise production-candidate readiness remains **NO-GO / 6-8%**; Oracle staging evidence is **PARTIAL GO**; live full app GO is **NOT CLAIMED**; external validation remains **PENDING**; compliance certification remains **NOT CLAIMED**. |
+| Readiness impact | Production-style portfolio readiness is **historical readiness snapshot**; enterprise production-candidate readiness remains **NO-GO**; Oracle staging evidence is **PARTIAL GO**; live full app GO is **NOT CLAIMED**; external validation remains **PENDING**; compliance certification remains **NOT CLAIMED**. |
 | Claim boundary | Does not claim production readiness, enterprise production-candidate readiness, external validation, compliance certification, full live app GO, durable production MinIO architecture, domain/TLS app route, or full Onyx-wide runtime enforcement on Oracle VPS. |
 
 ## Step 52X Custom Onyx Image Runtime Enforcement Deploy Update
@@ -567,8 +567,8 @@ Step 47X does not claim local Docker staging success, live cloud/VPS staging val
 | Health after deploy | NOT VERIFIED; no deploy occurred. |
 | Evidence package | `docs/security/evidence/step_52x_custom_onyx_image_runtime_enforcement_deploy/` |
 | Helper checker | `scripts/portfolio/check_step_52x_custom_image_evidence.py` |
-| Production-style portfolio readiness after Step 52X | remains **90%**. |
-| Enterprise production-candidate readiness after Step 52X | remains **NO-GO / 6-8%**. |
+| Production-style portfolio readiness after Step 52X | remains **historical readiness snapshot**. |
+| Enterprise production-candidate readiness after Step 52X | remains **NO-GO**. |
 | External validation | PENDING. |
 | Compliance certification | NOT CLAIMED. |
 | Claim boundary | Does not claim production readiness, enterprise readiness, active Oracle runtime enforcement, safe-denial runtime behavior, full Onyx-wide enforcement, customer deployment, external validation, compliance certification, or CI pass. |
@@ -586,9 +586,9 @@ Step 47X does not claim local Docker staging success, live cloud/VPS staging val
 | Evidence package | `docs/security/evidence/step_57x_independent_reviewer_package_request/` |
 | Reviewer package | GO; includes summary, evidence map, claims to validate, claims not made, reviewer questions, checklist, reproduction guide, request email, response template, GO/NO-GO decision, remaining limitations, and redaction note. |
 | External validation | REQUEST PACKAGE READY / NOT YET COMPLETED. |
-| Production-style portfolio readiness after Step 57X | 92%. |
+| Production-style portfolio readiness after Step 57X | historical readiness snapshot. |
 | Production readiness after Step 57X | NO-GO. |
-| Enterprise production-candidate readiness after Step 57X | NO-GO / 7–9%. |
+| Enterprise production-candidate readiness after Step 57X | NO-GO. |
 | Oracle staging evidence after Step 57X | PARTIAL GO. |
 | Runtime enforcement behavior after Step 57X | PARTIAL GO. |
 | Compliance certification after Step 57X | NOT CLAIMED. |
@@ -608,9 +608,9 @@ Step 47X does not claim local Docker staging success, live cloud/VPS staging val
 | Finding tracker | GO; tracker exists but contains no findings because no reviewer response has been received. |
 | Reviewer response received | NO. |
 | External validation | REQUEST PACKAGE READY / NO RESPONSE YET. |
-| Production-style portfolio readiness after Step 58X | 92%. |
+| Production-style portfolio readiness after Step 58X | historical readiness snapshot. |
 | Production readiness after Step 58X | NO-GO. |
-| Enterprise production-candidate readiness after Step 58X | NO-GO / 7–9%. |
+| Enterprise production-candidate readiness after Step 58X | NO-GO. |
 | Compliance certification after Step 58X | NOT CLAIMED. |
 
 Step 58X does not claim reviewer approval, external validation completion, third-party validation, production readiness, enterprise production-candidate readiness, compliance certification, or closed reviewer findings. Findings may only be added and closed after a real reviewer response and objective closure evidence exist.
@@ -632,8 +632,8 @@ Step 58X does not claim reviewer approval, external validation completion, third
 | Step 61X healthcheck preservation | Preserved; `WEB_HEALTHCHECK_HOST` override and `require('os').hostname()` default remain in the base compose healthcheck. |
 | Oracle VPS redeploy/retest | `PENDING_USER_EXECUTION`; Step 62X does not claim VPS verification. |
 | Evidence package | `docs/security/evidence/step_62x_durable_coolify_compose_deployment_architecture/` |
-| Production-style portfolio readiness after Step 62X | 92%. |
-| Enterprise production-candidate readiness after Step 62X | NO-GO / 7–9%. |
+| Production-style portfolio readiness after Step 62X | historical readiness snapshot. |
+| Enterprise production-candidate readiness after Step 62X | NO-GO. |
 | External validation | simulated response only / real validation pending. |
 | Compliance certification | NOT CLAIMED. |
 | Claim boundary | Does not claim production readiness, enterprise production-candidate readiness, real external validation, compliance certification, durable VPS verification, full staging GO, customer deployment, or independent red-team report. |

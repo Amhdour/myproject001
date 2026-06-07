@@ -8,5 +8,5 @@
 - No domain/TLS application route proof is added by this step.
 - No runtime enforcement smoke test on Oracle VPS is added by this step.
 - Production readiness remains NO-GO.
-- Enterprise production-candidate remains NO-GO / 7–9%.
+- Enterprise production-candidate remains NO-GO.
 - Compliance certification remains NOT CLAIMED.

@@ -14,9 +14,9 @@ Step 45X verifies local merge commits and local evidence folders for the PR #102
 |---|---|
 | GitHub PR chain | PARTIALLY VERIFIED from local merge commits only |
 | CI Actions evidence | PENDING / UNAVAILABLE |
-| Production-style portfolio readiness | 87% / GO for portfolio review |
+| Production-style portfolio readiness | historical readiness snapshot / GO for portfolio review |
 | Production readiness | NO-GO |
-| Enterprise production-candidate readiness | NO-GO / 5% |
+| Enterprise production-candidate readiness | NO-GO |
 | Live staging/cloud validation | PENDING |
 | External validation | PENDING |
 | Compliance certification | NOT CLAIMED |

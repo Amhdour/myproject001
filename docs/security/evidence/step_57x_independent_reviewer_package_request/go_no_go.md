@@ -10,10 +10,10 @@
 |---|---|
 | Reviewer package | GO |
 | External validation | REQUEST PACKAGE READY / NOT YET COMPLETED |
-| Production-style portfolio readiness | 92% |
+| Production-style portfolio readiness | historical readiness snapshot |
 | Production readiness after Step 57X | NO-GO |
-| Enterprise production-candidate | NO-GO / 7–9% |
-| Enterprise production-candidate readiness after Step 57X | NO-GO / 7–9% |
+| Enterprise production-candidate | NO-GO |
+| Enterprise production-candidate readiness after Step 57X | NO-GO |
 | Oracle staging evidence | PARTIAL GO |
 | Runtime enforcement behavior | PARTIAL GO |
 | Compliance certification | NOT CLAIMED |

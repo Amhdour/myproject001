@@ -11,7 +11,7 @@
 | Oracle VPS redeploy/retest | PENDING_USER_EXECUTION |
 | Full staging GO | NOT CLAIMED |
 | Production readiness | NO-GO |
-| Enterprise production-candidate | NO-GO / 7–9% |
+| Enterprise production-candidate | NO-GO |
 | External validation | simulated response only / real validation pending |
 | Compliance certification | NOT CLAIMED |
 
