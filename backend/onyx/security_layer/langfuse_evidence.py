@@ -6,6 +6,8 @@ from collections.abc import Mapping
 from typing import Any
 from typing import Protocol
 
+from onyx.security_layer.redaction import safe_metadata
+
 logger = logging.getLogger(__name__)
 
 OPA_RETRIEVAL_ACL_LANGFUSE_OBSERVATION_NAME = "security.opa.retrieval_acl.decision"
@@ -83,7 +85,12 @@ def safe_opa_retrieval_acl_langfuse_payload(
             continue
         if isinstance(value, _SAFE_SCALAR_TYPES):
             payload[key] = value
-    return payload
+    redacted_payload = safe_metadata(payload)
+    return {
+        key: value
+        for key, value in redacted_payload.items()
+        if isinstance(value, _SAFE_SCALAR_TYPES)
+    }
 
 
 def emit_opa_retrieval_acl_langfuse_evidence(
