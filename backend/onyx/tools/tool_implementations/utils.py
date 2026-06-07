@@ -9,6 +9,13 @@ from onyx.security_layer.opa.retrieval_context_filter import (
     opa_retrieval_acl_context_enforcement_enabled,
 )
 from onyx.security_layer.opa.retrieval_context_filter import RetrievalACLEvaluator
+from onyx.security_layer.scanners.models import RAGInjectionScanner
+from onyx.security_layer.scanners.rag_injection_scanner import (
+    rag_injection_scanner_enabled,
+)
+from onyx.security_layer.scanners.rag_injection_scanner import (
+    scan_sections_for_rag_injection,
+)
 from onyx.utils.logger import setup_logger
 
 logger = setup_logger()
@@ -45,6 +52,7 @@ def convert_inference_sections_to_llm_string(
     opa_subject_groups: list[str] | tuple[str, ...] | set[str] | None = None,
     opa_correlation_id: str = "rag-context",
     opa_client: RetrievalACLEvaluator | None = None,
+    rag_injection_scanner: RAGInjectionScanner | None = None,
 ) -> tuple[str, dict[int, str]]:
     """Convert InferenceSection objects to a JSON string for LLM.
 
@@ -64,6 +72,13 @@ def convert_inference_sections_to_llm_string(
             opa_client=opa_client,
         )
         top_sections = filter_result.sections
+
+    if rag_injection_scanner_enabled():
+        top_sections, _scan_results = scan_sections_for_rag_injection(
+            sections=top_sections,
+            correlation_id=opa_correlation_id,
+            scanner=rag_injection_scanner,
+        )
 
     # Group sections by document_id to assign same citation_id to sections from same document
     document_id_to_citation_id: dict[str, int] = {}
