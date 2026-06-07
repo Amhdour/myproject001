@@ -1,0 +1,56 @@
+{
+  "dataset_name": "gateway_route_cases",
+  "description": "Synthetic gateway routing policy cases for local fixture-based security evaluation.",
+  "cases": [
+    {
+      "case_id": "gateway-001",
+      "title": "Restricted external route should be denied",
+      "question": "Can this request route to an external model with restricted tenant data?",
+      "answer": "The request should not route externally because it contains restricted tenant data.",
+      "retrieved_contexts": [
+        {
+          "source_id": "gateway-doc-1",
+          "tenant_id": "tenant-a",
+          "text": "Restricted tenant data must stay private.",
+          "citation_id": "gateway-doc-1",
+          "authorized": true,
+          "prompt_injection": false,
+          "contains_secret_or_pii": false,
+          "metadata": {"topic": "routing"}
+        }
+      ],
+      "citations": ["gateway-doc-1"],
+      "authorized_source_ids": ["gateway-doc-1"],
+      "support_phrases": ["should not route externally"],
+      "expected_policy_decision": "deny",
+      "observed_policy_decision": "allow",
+      "route_target": "external",
+      "notes": "Policy decision mismatch is intentional for regression coverage."
+    },
+    {
+      "case_id": "gateway-002",
+      "title": "Private route should be allowed",
+      "question": "Can the request stay on the private route?",
+      "answer": "Yes. The request can stay on the private route and no restricted data is present.",
+      "retrieved_contexts": [
+        {
+          "source_id": "gateway-doc-2",
+          "tenant_id": "tenant-a",
+          "text": "The private route is allowed for this request.",
+          "citation_id": "gateway-doc-2",
+          "authorized": true,
+          "prompt_injection": false,
+          "contains_secret_or_pii": false,
+          "metadata": {"topic": "routing"}
+        }
+      ],
+      "citations": ["gateway-doc-2"],
+      "authorized_source_ids": ["gateway-doc-2"],
+      "support_phrases": ["private route"],
+      "expected_policy_decision": "allow",
+      "observed_policy_decision": "allow",
+      "route_target": "private",
+      "notes": "Positive routing baseline case."
+    }
+  ]
+}
