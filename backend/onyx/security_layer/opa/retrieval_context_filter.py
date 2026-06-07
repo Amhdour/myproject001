@@ -2,21 +2,25 @@ from __future__ import annotations
 
 import os
 from dataclasses import dataclass
+from dataclasses import is_dataclass
+from dataclasses import replace
 from typing import Any
 from typing import Protocol
+from typing import TYPE_CHECKING
 
-from onyx.context.search.models import InferenceChunk
-from onyx.context.search.models import InferenceSection
-from onyx.security_layer.opa.decision_mapper import OPADecision
-from onyx.security_layer.opa.decision_mapper import OPADecisionValue
-from onyx.security_layer.opa.input_builder import build_retrieval_acl_input
-from onyx.security_layer.opa.opa_client import evaluate_retrieval_acl_with_fallback
-from onyx.security_layer.opa.opa_client import OPAClient
 from onyx.security_layer.langfuse_evidence import (
     emit_opa_retrieval_acl_langfuse_evidence,
 )
+from onyx.security_layer.opa.decision_mapper import OPADecision
+from onyx.security_layer.opa.decision_mapper import OPADecisionValue
+from onyx.security_layer.opa.input_builder import build_retrieval_acl_input
+from onyx.security_layer.scanners.models import RetrievedChunk
+from onyx.security_layer.scanners.models import RetrievedSection
 from onyx.security_layer.tracing import security_span
 from onyx.security_layer.tracing import set_security_span_attributes
+
+if TYPE_CHECKING:
+    from onyx.security_layer.opa.opa_client import OPAClient
 
 OPA_RETRIEVAL_ACL_CONTEXT_ENFORCEMENT_ENV = (
     "SECURITY_OPA_RETRIEVAL_ACL_CONTEXT_ENFORCEMENT"
@@ -30,7 +34,7 @@ class RetrievalACLEvaluator(Protocol):
 
 @dataclass(frozen=True)
 class RetrievalContextOPAFilterResult:
-    sections: list[InferenceSection]
+    sections: list[RetrievedSection]
     decisions: tuple[OPADecision, ...]
 
     @property
@@ -48,7 +52,7 @@ def opa_retrieval_acl_context_enforcement_enabled() -> bool:
     )
 
 
-def _metadata_string(chunk: InferenceChunk, key: str) -> str | None:
+def _metadata_string(chunk: RetrievedChunk, key: str) -> str | None:
     value = chunk.metadata.get(key)
     if value is None:
         return None
@@ -57,7 +61,7 @@ def _metadata_string(chunk: InferenceChunk, key: str) -> str | None:
     return str(value)
 
 
-def _metadata_string_list(chunk: InferenceChunk, key: str) -> list[str]:
+def _metadata_string_list(chunk: RetrievedChunk, key: str) -> list[str]:
     value = chunk.metadata.get(key)
     if value is None:
         return []
@@ -66,19 +70,19 @@ def _metadata_string_list(chunk: InferenceChunk, key: str) -> list[str]:
     return [str(value)] if str(value) else []
 
 
-def _embedded_acl(chunk: InferenceChunk) -> dict[str, Any]:
+def _embedded_acl(chunk: RetrievedChunk) -> dict[str, Any]:
     value = chunk.metadata.get("onyx_acl")
     return value if isinstance(value, dict) else {}
 
 
-def _embedded_acl_string(chunk: InferenceChunk, key: str) -> str | None:
+def _embedded_acl_string(chunk: RetrievedChunk, key: str) -> str | None:
     value = _embedded_acl(chunk).get(key)
     if value is None:
         return None
     return str(value)
 
 
-def _embedded_acl_string_list(chunk: InferenceChunk, key: str) -> list[str]:
+def _embedded_acl_string_list(chunk: RetrievedChunk, key: str) -> list[str]:
     value = _embedded_acl(chunk).get(key)
     if value is None:
         return []
@@ -87,7 +91,7 @@ def _embedded_acl_string_list(chunk: InferenceChunk, key: str) -> list[str]:
     return [str(value)] if str(value) else []
 
 
-def _resource_deleted(chunk: InferenceChunk) -> bool:
+def _resource_deleted(chunk: RetrievedChunk) -> bool:
     embedded_deleted = _embedded_acl(chunk).get("deleted")
     if isinstance(embedded_deleted, bool):
         return embedded_deleted
@@ -102,7 +106,7 @@ def _resource_deleted(chunk: InferenceChunk) -> bool:
 
 def build_chunk_context_opa_input(
     *,
-    chunk: InferenceChunk,
+    chunk: RetrievedChunk,
     subject_user_id: str | None,
     subject_tenant_id: str | None,
     subject_groups: list[str] | tuple[str, ...] | set[str] | None,
@@ -180,12 +184,12 @@ def _opa_decision_security_attributes(
 
 def _evaluate_chunk(
     *,
-    chunk: InferenceChunk,
+    chunk: RetrievedChunk,
     subject_user_id: str | None,
     subject_tenant_id: str | None,
     subject_groups: list[str] | tuple[str, ...] | set[str] | None,
     correlation_id: str,
-    opa_client: OPAClient | RetrievalACLEvaluator,
+    opa_client: "OPAClient" | RetrievalACLEvaluator,
 ) -> OPADecision:
     opa_input = build_chunk_context_opa_input(
         chunk=chunk,
@@ -198,7 +202,11 @@ def _evaluate_chunk(
         "security.opa.retrieval_acl.decision",
         _opa_input_security_attributes(opa_input),
     ) as span:
-        if isinstance(opa_client, OPAClient):
+        if opa_client.__class__.__name__ == "OPAClient":
+            from onyx.security_layer.opa.opa_client import (
+                evaluate_retrieval_acl_with_fallback,
+            )
+
             decision = evaluate_retrieval_acl_with_fallback(opa_client, opa_input)
         else:
             decision = opa_client.evaluate_retrieval_acl(opa_input)
@@ -209,9 +217,9 @@ def _evaluate_chunk(
 
 
 def _section_with_allowed_chunks(
-    section: InferenceSection,
-    allowed_chunks: list[InferenceChunk],
-) -> InferenceSection | None:
+    section: RetrievedSection,
+    allowed_chunks: list[RetrievedChunk],
+) -> RetrievedSection | None:
     if not allowed_chunks:
         return None
 
@@ -220,21 +228,30 @@ def _section_with_allowed_chunks(
         if section.center_chunk in allowed_chunks
         else allowed_chunks[0]
     )
-    return InferenceSection(
-        center_chunk=center_chunk,
-        chunks=allowed_chunks,
-        combined_content="\n".join(chunk.content for chunk in allowed_chunks),
-    )
+    update = {
+        "center_chunk": center_chunk,
+        "chunks": allowed_chunks,
+        "combined_content": "\n".join(chunk.content for chunk in allowed_chunks),
+    }
+    model_copy = getattr(section, "model_copy", None)
+    if callable(model_copy):
+        copied_section = model_copy(update=update)
+        return copied_section
+    if is_dataclass(section) and not isinstance(section, type):
+        return replace(section, **update)
+    section_attributes = dict(getattr(section, "__dict__", {}))
+    section_attributes.update(update)
+    return section.__class__(**section_attributes)
 
 
 def filter_sections_for_opa_retrieval_acl_context(
     *,
-    sections: list[InferenceSection],
+    sections: list[RetrievedSection],
     subject_user_id: str | None,
     subject_tenant_id: str | None,
     subject_groups: list[str] | tuple[str, ...] | set[str] | None,
     correlation_id: str,
-    opa_client: OPAClient | RetrievalACLEvaluator | None = None,
+    opa_client: "OPAClient" | RetrievalACLEvaluator | None = None,
 ) -> RetrievalContextOPAFilterResult:
     """Deny chunks before they are serialized into final RAG tool context.
 
@@ -243,8 +260,13 @@ def filter_sections_for_opa_retrieval_acl_context(
     evaluated, denied chunks are removed, and empty sections are dropped.
     """
 
-    resolved_client = opa_client or OPAClient()
-    filtered_sections: list[InferenceSection] = []
+    if opa_client is None:
+        from onyx.security_layer.opa.opa_client import OPAClient
+
+        resolved_client: OPAClient | RetrievalACLEvaluator = OPAClient()
+    else:
+        resolved_client = opa_client
+    filtered_sections: list[RetrievedSection] = []
     decisions: list[OPADecision] = []
 
     with security_span(
@@ -257,7 +279,7 @@ def filter_sections_for_opa_retrieval_acl_context(
         },
     ) as span:
         for section in sections:
-            allowed_chunks: list[InferenceChunk] = []
+            allowed_chunks: list[RetrievedChunk] = []
             for chunk in section.chunks:
                 decision = _evaluate_chunk(
                     chunk=chunk,

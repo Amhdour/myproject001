@@ -1,16 +1,56 @@
 from __future__ import annotations
 
 from contextlib import contextmanager
+from dataclasses import dataclass
+from dataclasses import replace
 from typing import Any
 
-from onyx.configs.constants import DocumentSource
-from onyx.context.search.models import InferenceChunk
-from onyx.context.search.models import InferenceSection
 from onyx.security_layer.langfuse_evidence import safe_rag_injection_langfuse_payload
 from onyx.security_layer.scanners.models import RAGInjectionScanRequest
 from onyx.tools.tool_implementations.utils import (
     convert_inference_sections_to_llm_string,
 )
+
+
+@dataclass(frozen=True)
+class FakeSourceType:
+    value: str
+
+
+@dataclass(frozen=True)
+class FakeInferenceChunk:
+    document_id: str
+    chunk_id: int
+    blurb: str
+    content: str
+    source_type: FakeSourceType
+    semantic_identifier: str
+    title: str | None
+    boost: int
+    score: float | None
+    hidden: bool
+    metadata: dict[str, Any]
+    match_highlights: list[str]
+    doc_summary: str
+    chunk_context: str
+    updated_at: Any | None
+    source_links: dict[int, str] | None = None
+    file_id: str | None = None
+    primary_owners: list[str] | None = None
+    secondary_owners: list[str] | None = None
+
+    def model_copy(self, *, update: dict[str, Any]) -> "FakeInferenceChunk":
+        return replace(self, **update)
+
+
+@dataclass(frozen=True)
+class FakeInferenceSection:
+    center_chunk: FakeInferenceChunk
+    chunks: list[FakeInferenceChunk]
+    combined_content: str
+
+    def model_copy(self, *, update: dict[str, Any]) -> "FakeInferenceSection":
+        return replace(self, **update)
 
 
 class AllowingOPAClient:
@@ -43,13 +83,13 @@ class FailingScanner:
         raise RuntimeError("synthetic scanner outage")
 
 
-def _chunk(*, document_id: str, chunk_id: int, content: str) -> InferenceChunk:
-    chunk = InferenceChunk(
+def _chunk(*, document_id: str, chunk_id: int, content: str) -> FakeInferenceChunk:
+    chunk = FakeInferenceChunk(
         document_id=document_id,
         chunk_id=chunk_id,
         blurb=content,
         content=content,
-        source_type=DocumentSource.FILE,
+        source_type=FakeSourceType("file"),
         semantic_identifier=document_id,
         title=document_id,
         boost=0,
@@ -72,14 +112,14 @@ def _chunk(*, document_id: str, chunk_id: int, content: str) -> InferenceChunk:
     return chunk
 
 
-def _section(content: str, *, document_id: str = "doc-a") -> InferenceSection:
+def _section(content: str, *, document_id: str = "doc-a") -> FakeInferenceSection:
     chunk = _chunk(document_id=document_id, chunk_id=0, content=content)
-    return InferenceSection(
+    return FakeInferenceSection(
         center_chunk=chunk, chunks=[chunk], combined_content=content
     )
 
 
-def _render(sections: list[InferenceSection], **kwargs: object) -> str:
+def _render(sections: list[FakeInferenceSection], **kwargs: object) -> str:
     docs_str, _citation_mapping = convert_inference_sections_to_llm_string(
         sections,
         opa_subject_user_id="user-a",

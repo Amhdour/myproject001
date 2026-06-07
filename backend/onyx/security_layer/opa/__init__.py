@@ -1,16 +1,8 @@
 """OPA integration helpers for Retrieval ACL policy decisions."""
 
-from onyx.security_layer.opa.decision_mapper import OPADecision
-from onyx.security_layer.opa.decision_mapper import OPADecisionValue
-from onyx.security_layer.opa.input_builder import build_retrieval_acl_input
-from onyx.security_layer.opa.opa_client import OPAClient
-from onyx.security_layer.opa.opa_client import OPAUnavailableError
-from onyx.security_layer.opa.retrieval_context_filter import (
-    filter_sections_for_opa_retrieval_acl_context,
-)
-from onyx.security_layer.opa.retrieval_context_filter import (
-    opa_retrieval_acl_context_enforcement_enabled,
-)
+from __future__ import annotations
+
+from typing import Any
 
 __all__ = [
     "OPAClient",
@@ -21,3 +13,26 @@ __all__ = [
     "opa_retrieval_acl_context_enforcement_enabled",
     "build_retrieval_acl_input",
 ]
+
+
+def __getattr__(name: str) -> Any:
+    if name in {"OPADecision", "OPADecisionValue"}:
+        from onyx.security_layer.opa import decision_mapper
+
+        return getattr(decision_mapper, name)
+    if name == "build_retrieval_acl_input":
+        from onyx.security_layer.opa.input_builder import build_retrieval_acl_input
+
+        return build_retrieval_acl_input
+    if name in {"OPAClient", "OPAUnavailableError"}:
+        from onyx.security_layer.opa import opa_client
+
+        return getattr(opa_client, name)
+    if name in {
+        "filter_sections_for_opa_retrieval_acl_context",
+        "opa_retrieval_acl_context_enforcement_enabled",
+    }:
+        from onyx.security_layer.opa import retrieval_context_filter
+
+        return getattr(retrieval_context_filter, name)
+    raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
