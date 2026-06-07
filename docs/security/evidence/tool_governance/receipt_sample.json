@@ -1,0 +1,12 @@
+{
+  "receipt_id": "00000000-0000-4000-8000-000000000001",
+  "previous_receipt_hash": null,
+  "receipt_hash": "example_sha256_receipt_hash_generated_at_runtime",
+  "correlation_id": "demo-tool-governance-high-risk",
+  "user_id": "demo-user",
+  "tenant_id": "demo-tenant",
+  "tool_name": "send_email",
+  "action": "execute",
+  "decision": "approval_required",
+  "reason": "High-risk side-effecting action requires approval"
+}

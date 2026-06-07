@@ -12,6 +12,7 @@ logger = logging.getLogger(__name__)
 
 OPA_RETRIEVAL_ACL_LANGFUSE_OBSERVATION_NAME = "security.opa.retrieval_acl.decision"
 RAG_INJECTION_LANGFUSE_OBSERVATION_NAME = "security.rag_injection.scan"
+TOOL_GOVERNANCE_LANGFUSE_OBSERVATION_NAME = "security.tool_governance.decision"
 LANGFUSE_PUBLIC_KEY_ENV = "LANGFUSE_PUBLIC_KEY"
 LANGFUSE_SECRET_KEY_ENV = "LANGFUSE_SECRET_KEY"
 
@@ -45,6 +46,18 @@ _SAFE_RAG_INJECTION_FIELDS = frozenset(
         "resource_chunk_id",
         "correlation_id",
         "fallback_used",
+    }
+)
+
+_SAFE_TOOL_GOVERNANCE_FIELDS = frozenset(
+    {
+        "tool_name",
+        "action",
+        "risk_level",
+        "decision",
+        "approval_required",
+        "receipt_hash",
+        "correlation_id",
     }
 )
 
@@ -188,4 +201,54 @@ def emit_rag_injection_langfuse_evidence(
         return True
     except Exception as e:
         logger.debug("Failed to emit RAG injection Langfuse evidence: %s", e)
+        return False
+
+
+def safe_tool_governance_langfuse_payload(
+    metadata: Mapping[str, object | None],
+) -> dict[str, str | bool | int | float]:
+    """Return only safe tool governance decision metadata for Langfuse.
+
+    Raw tool arguments, payloads, prompts, document content, secrets, and PII are
+    intentionally excluded by the allowlist and the result is passed through the
+    shared redaction helper as defense in depth.
+    """
+
+    payload: dict[str, str | bool | int | float] = {}
+    for key in _SAFE_TOOL_GOVERNANCE_FIELDS:
+        value = metadata.get(key)
+        if value is None:
+            continue
+        if isinstance(value, _SAFE_SCALAR_TYPES):
+            payload[key] = value
+    redacted_payload = safe_metadata(payload)
+    return {
+        key: value
+        for key, value in redacted_payload.items()
+        if isinstance(value, _SAFE_SCALAR_TYPES)
+    }
+
+
+def emit_tool_governance_langfuse_evidence(
+    metadata: Mapping[str, object | None],
+    *,
+    client: LangfuseEvidenceClient | None = None,
+) -> bool:
+    """Emit safe tool governance metadata to Langfuse when available."""
+
+    payload = safe_tool_governance_langfuse_payload(metadata)
+    resolved_client = client or _get_langfuse_client()
+    if resolved_client is None:
+        return False
+
+    try:
+        observation = resolved_client.start_observation(
+            name=TOOL_GOVERNANCE_LANGFUSE_OBSERVATION_NAME,
+            as_type="span",
+            metadata=payload,
+        )
+        observation.end()
+        return True
+    except Exception as e:
+        logger.debug("Failed to emit tool governance Langfuse evidence: %s", e)
         return False
