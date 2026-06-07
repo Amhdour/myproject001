@@ -1,0 +1,72 @@
+# Repository File Inventory
+
+## Purpose
+Capture the repository areas reviewed for an evidence-based RAG Security Baseline Review without asserting controls that are not supported by code, tests, workflows, or docs.
+
+## Commands or search methods used
+- `pwd`
+- `git status --short`
+- `git branch --show-current`
+- `git rev-parse --short HEAD`
+- `find . -maxdepth 3 -type f | sort | head -n 500`
+- `find docs -maxdepth 5 -type f | sort | head -n 500`
+- `find backend -maxdepth 6 -type f | sort | head -n 1000`
+- `find .github -maxdepth 5 -type f | sort`
+- `rg -n -i "RAG|retrieval|document|chunk|embedding|index|Vespa|connector|permission|ACL|authz|tenant|user|group|role|citation|prompt|injection|policy|audit|telemetry|logging|trace|demo_attack|security_layer|workflow|CI|pytest" backend docs .github demo_attacks web 2>/dev/null | head -n 2000 || true`
+
+## Files found
+Key repository areas found and reviewed:
+- `AGENTS.md`
+- `pyproject.toml`
+- `backend/onyx/context/search/pipeline.py`
+- `backend/onyx/context/search/retrieval/search_runner.py`
+- `backend/onyx/context/search/models.py`
+- `backend/onyx/context/search/preprocessing/access_filters.py`
+- `backend/onyx/document_index/vespa/chunk_retrieval.py`
+- `backend/onyx/document_index/vespa/shared_utils/vespa_request_builders.py`
+- `backend/onyx/document_index/vespa/indexing_utils.py`
+- `backend/onyx/indexing/indexing_pipeline.py`
+- `backend/onyx/indexing/models.py`
+- `backend/onyx/access/access.py`
+- `backend/onyx/access/models.py`
+- `backend/onyx/db/models.py`
+- `backend/onyx/db/enums.py`
+- `backend/onyx/tools/tool_implementations/search/search_tool.py`
+- `backend/onyx/tools/tool_implementations/utils.py`
+- `backend/onyx/chat/citation_processor.py`
+- `backend/onyx/chat/citation_utils.py`
+- `backend/onyx/security_layer/retrieval_guard/guard.py`
+- `backend/onyx/security_layer/retrieval_guard/acl_verifier.py`
+- `backend/onyx/security_layer/retrieval_guard/models.py`
+- `backend/onyx/security_layer/retrieval_guard/provenance.py`
+- `backend/onyx/security_layer/policies/retrieval.yaml`
+- `backend/onyx/security_layer/demo_attacks/retrieval_unauthorized_doc_attempt.json`
+- `backend/security_layer/tests/test_retrieval_acl_runtime.py`
+- `backend/security_layer/tests/test_retrieval_security_negative_cases.py`
+- `backend/tests/security/demo_attacks/test_cross_tenant_retrieval_attack.py`
+- `backend/tests/security/demo_attacks/test_prompt_injection_retrieval_attack.py`
+- `.github/workflows/security-layer-tests.yml`
+- `.github/workflows/security-readiness.yml`
+- `.github/workflows/retrieval-acl-runtime-tests.yml`
+- `.github/workflows/runtime-retrieval-acl-security.yml`
+- `.github/workflows/evidence-integrity.yml`
+- `.github/workflows/portfolio-claim-boundary.yml`
+
+## Relevant code paths found
+- Indexing: `backend/onyx/indexing/indexing_pipeline.py` and `backend/onyx/document_index/vespa/indexing_utils.py`.
+- Retrieval: `backend/onyx/context/search/pipeline.py`, `backend/onyx/context/search/retrieval/search_runner.py`, and `backend/onyx/document_index/vespa/chunk_retrieval.py`.
+- ACL: `backend/onyx/access/access.py`, `backend/onyx/access/models.py`, and `backend/onyx/document_index/vespa/shared_utils/vespa_request_builders.py`.
+- Security-layer retrieval guard: `backend/onyx/security_layer/retrieval_guard/*` and `backend/security_layer/retrieval_acl/*` tests.
+- Prompt/citation: `backend/onyx/tools/tool_implementations/search/search_tool.py`, `backend/onyx/tools/tool_implementations/utils.py`, `backend/onyx/chat/citation_processor.py`, and `backend/onyx/chat/citation_utils.py`.
+
+## Findings
+- The repository contains real Onyx RAG indexing/retrieval code and separate security-layer proof/test code.
+- The repository contains CI workflows for isolated security-layer and retrieval-ACL proof tests.
+- The repository does not provide local CI run results or staging/deployment validation artifacts in the inspected files.
+
+## Gaps
+- This review did not execute a live Onyx deployment, Vespa, Postgres, Redis, web server, or full integration test suite.
+- File inventories were intentionally bounded with `head` for large command outputs; details are in `executed_command_log.md`.
+
+## Claim boundary
+This inventory supports claims that the listed files were found and inspected. It does not prove production readiness, enterprise readiness, compliance certification, external audit status, or live deployment behavior.
