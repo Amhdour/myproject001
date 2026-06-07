@@ -13,6 +13,7 @@ logger = logging.getLogger(__name__)
 OPA_RETRIEVAL_ACL_LANGFUSE_OBSERVATION_NAME = "security.opa.retrieval_acl.decision"
 RAG_INJECTION_LANGFUSE_OBSERVATION_NAME = "security.rag_injection.scan"
 TOOL_GOVERNANCE_LANGFUSE_OBSERVATION_NAME = "security.tool_governance.decision"
+MCP_GOVERNANCE_LANGFUSE_OBSERVATION_NAME = "security.mcp_governance.decision"
 LANGFUSE_PUBLIC_KEY_ENV = "LANGFUSE_PUBLIC_KEY"
 LANGFUSE_SECRET_KEY_ENV = "LANGFUSE_SECRET_KEY"
 
@@ -56,6 +57,18 @@ _SAFE_TOOL_GOVERNANCE_FIELDS = frozenset(
         "risk_level",
         "decision",
         "approval_required",
+        "receipt_hash",
+        "correlation_id",
+    }
+)
+
+_SAFE_MCP_GOVERNANCE_FIELDS = frozenset(
+    {
+        "mcp_server_id",
+        "mcp_tool_name",
+        "mcp_resource_id",
+        "decision",
+        "reason",
         "receipt_hash",
         "correlation_id",
     }
@@ -251,4 +264,54 @@ def emit_tool_governance_langfuse_evidence(
         return True
     except Exception as e:
         logger.debug("Failed to emit tool governance Langfuse evidence: %s", e)
+        return False
+
+
+def safe_mcp_governance_langfuse_payload(
+    metadata: Mapping[str, object | None],
+) -> dict[str, str | bool | int | float]:
+    """Return only safe MCP governance decision metadata for Langfuse.
+
+    The allowlist excludes raw MCP payloads, secrets, tokens, tool outputs,
+    prompts, and document content. The surviving scalar metadata still passes
+    through the shared redaction helper as defense in depth.
+    """
+
+    payload: dict[str, str | bool | int | float] = {}
+    for key in _SAFE_MCP_GOVERNANCE_FIELDS:
+        value = metadata.get(key)
+        if value is None:
+            continue
+        if isinstance(value, _SAFE_SCALAR_TYPES):
+            payload[key] = value
+    redacted_payload = safe_metadata(payload)
+    return {
+        key: value
+        for key, value in redacted_payload.items()
+        if isinstance(value, _SAFE_SCALAR_TYPES)
+    }
+
+
+def emit_mcp_governance_langfuse_evidence(
+    metadata: Mapping[str, object | None],
+    *,
+    client: LangfuseEvidenceClient | None = None,
+) -> bool:
+    """Emit safe MCP governance metadata to Langfuse when available."""
+
+    payload = safe_mcp_governance_langfuse_payload(metadata)
+    resolved_client = client or _get_langfuse_client()
+    if resolved_client is None:
+        return False
+
+    try:
+        observation = resolved_client.start_observation(
+            name=MCP_GOVERNANCE_LANGFUSE_OBSERVATION_NAME,
+            as_type="span",
+            metadata=payload,
+        )
+        observation.end()
+        return True
+    except Exception as e:
+        logger.debug("Failed to emit MCP governance Langfuse evidence: %s", e)
         return False
