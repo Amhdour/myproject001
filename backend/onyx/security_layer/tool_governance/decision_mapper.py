@@ -55,10 +55,15 @@ def evaluate_tool_governance(
 ) -> ToolGovernanceResult:
     resolved_config = config or ToolGovernanceConfig()
     risk_entry = get_tool_risk_entry(request.tool_name, registry)
+    risk_level = request.risk_level or risk_entry.risk_level
     side_effecting = (
-        risk_entry.side_effecting
-        if request.is_side_effecting is None
-        else request.is_side_effecting
+        request.side_effect
+        if request.side_effect is not None
+        else (
+            risk_entry.side_effecting
+            if request.is_side_effecting is None
+            else request.is_side_effecting
+        )
     )
     action_hash = calculate_action_hash(
         tenant_id=request.tenant_id,
@@ -67,7 +72,7 @@ def evaluate_tool_governance(
     )
 
     decision, reason, approval_required = _base_decision(
-        risk_entry.risk_level,
+        risk_level,
         side_effecting=side_effecting,
         config=resolved_config,
     )
@@ -119,7 +124,7 @@ def evaluate_tool_governance(
     evidence = ToolGovernanceEvidence(
         tool_name=risk_entry.tool_name,
         action=request.action,
-        risk_level=risk_entry.risk_level,
+        risk_level=risk_level,
         decision=decision,
         approval_required=approval_required,
         receipt_hash=receipt.receipt_hash,
@@ -132,7 +137,7 @@ def evaluate_tool_governance(
             "security.correlation_id": request.correlation_id,
             "security.tool_name": risk_entry.tool_name,
             "security.action": request.action,
-            "security.risk_level": risk_entry.risk_level.value,
+            "security.risk_level": risk_level.value,
             "security.decision": decision.value,
             "security.approval_required": approval_required,
         },
@@ -148,7 +153,7 @@ def evaluate_tool_governance(
         tenant_id=request.tenant_id,
         tool_name=risk_entry.tool_name,
         action=request.action,
-        risk_level=risk_entry.risk_level,
+        risk_level=risk_level,
         decision=decision,
         reason=reason,
         approval_required=approval_required,

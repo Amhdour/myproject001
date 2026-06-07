@@ -39,6 +39,8 @@ class ToolActionRequest(BaseModel):
     tenant_id: str
     tool_name: str
     action: str = "execute"
+    risk_level: ToolRiskLevel | None = None
+    side_effect: bool | None = None
     is_side_effecting: bool | None = None
     raw_tool_payload: dict[str, Any] = Field(default_factory=dict, exclude=True)
     approval_id: str | None = None
