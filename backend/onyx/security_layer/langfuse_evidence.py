@@ -34,6 +34,9 @@ _SAFE_OPA_RETRIEVAL_ACL_FIELDS = frozenset(
 _SAFE_RAG_INJECTION_FIELDS = frozenset(
     {
         "scanner_name",
+        "scanner_provider",
+        "scanner_backend_available",
+        "scanner_backend_version",
         "scanner_decision",
         "risk_type",
         "risk_score",
