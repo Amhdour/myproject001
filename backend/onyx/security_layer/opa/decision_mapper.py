@@ -27,6 +27,7 @@ class OPADecision:
     subject_user_id: str | None = None
     subject_tenant_id: str | None = None
     resource_document_id: str | None = None
+    resource_chunk_id: str | None = None
     resource_tenant_id: str | None = None
     raw_result: dict[str, Any] = field(default_factory=dict)
 
@@ -41,6 +42,7 @@ class OPADecision:
             "subject_user_id": self.subject_user_id,
             "subject_tenant_id": self.subject_tenant_id,
             "resource_document_id": self.resource_document_id,
+            "resource_chunk_id": self.resource_chunk_id,
             "resource_tenant_id": self.resource_tenant_id,
             "correlation_id": self.correlation_id,
             "fallback_used": self.fallback_used,
@@ -66,12 +68,35 @@ def map_opa_result(result: dict[str, Any], opa_input: dict[str, Any]) -> OPADeci
         decision=decision,
         reason=str(result.get("reason", "OPA policy returned no reason")),
         policy_package=str(result.get("policy_package", OPA_RETRIEVAL_ACL_PACKAGE)),
-        policy_version=str(result.get("policy_version", OPA_RETRIEVAL_ACL_POLICY_VERSION)),
+        policy_version=str(
+            result.get("policy_version", OPA_RETRIEVAL_ACL_POLICY_VERSION)
+        ),
         fallback_used=bool(result.get("fallback_used", False)),
         correlation_id=str(opa_input.get("correlation_id", "missing:correlation")),
-        subject_user_id=_optional_string(subject.get("user_id")) if isinstance(subject, dict) else None,
-        subject_tenant_id=_optional_string(subject.get("tenant_id")) if isinstance(subject, dict) else None,
-        resource_document_id=_optional_string(resource.get("document_id")) if isinstance(resource, dict) else None,
-        resource_tenant_id=_optional_string(resource.get("tenant_id")) if isinstance(resource, dict) else None,
+        subject_user_id=(
+            _optional_string(subject.get("user_id"))
+            if isinstance(subject, dict)
+            else None
+        ),
+        subject_tenant_id=(
+            _optional_string(subject.get("tenant_id"))
+            if isinstance(subject, dict)
+            else None
+        ),
+        resource_document_id=(
+            _optional_string(resource.get("document_id"))
+            if isinstance(resource, dict)
+            else None
+        ),
+        resource_chunk_id=(
+            _optional_string(resource.get("chunk_id"))
+            if isinstance(resource, dict)
+            else None
+        ),
+        resource_tenant_id=(
+            _optional_string(resource.get("tenant_id"))
+            if isinstance(resource, dict)
+            else None
+        ),
         raw_result=result,
     )

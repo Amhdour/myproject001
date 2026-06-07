@@ -27,9 +27,14 @@ OPA Retrieval ACL decision evidence uses:
 - `subject_user_id`
 - `subject_tenant_id`
 - `resource_document_id`
+- `resource_chunk_id`
 - `resource_tenant_id`
 - `correlation_id`
 - `fallback_used`
+
+## Trace linkage
+
+OpenTelemetry instrumentation for this same enforcement path is documented in `docs/security/evidence/opentelemetry/`. The decision span `security.opa.retrieval_acl.decision` carries the same correlation, subject, resource, policy, decision, reason, fallback, and enforcement metadata needed to link traces back to OPA decision evidence without exporting raw chunk text.
 
 ## Evidence documents
 

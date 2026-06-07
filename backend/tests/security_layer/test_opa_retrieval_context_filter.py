@@ -201,3 +201,93 @@ def test_opa_unavailable_fallback_denies_and_records_evidence() -> None:
     assert result.decisions[0].decision == OPADecisionValue.DENY
     assert result.decisions[0].fallback_used is True
     assert result.decisions[0].audit_details["fallback_used"] is True
+
+
+def test_opa_retrieval_acl_tracing_records_metadata_without_chunk_text(
+    monkeypatch,
+) -> None:
+    spans: list[tuple[str, dict[str, object]]] = []
+
+    class FakeSecuritySpan:
+        def __init__(self, name: str) -> None:
+            self.name = name
+            self.attributes: dict[str, object] = {}
+
+        def set_attribute(self, key: str, value: object) -> None:
+            self.attributes[key] = value
+
+    class FakeSecuritySpanContext:
+        def __init__(self, name: str, attributes: dict[str, object | None]) -> None:
+            self.span = FakeSecuritySpan(name)
+            for key, value in attributes.items():
+                if value is not None:
+                    self.span.set_attribute(key, value)
+
+        def __enter__(self) -> FakeSecuritySpan:
+            return self.span
+
+        def __exit__(self, *args: object) -> None:
+            spans.append((self.span.name, dict(self.span.attributes)))
+
+    def fake_security_span(
+        name: str, attributes: dict[str, object | None] | None = None
+    ) -> FakeSecuritySpanContext:
+        return FakeSecuritySpanContext(name, attributes or {})
+
+    def fake_set_security_span_attributes(
+        span: FakeSecuritySpan | None, attributes: dict[str, object | None]
+    ) -> None:
+        if span is None:
+            return
+        for key, value in attributes.items():
+            if value is not None:
+                span.set_attribute(key, value)
+
+    import onyx.security_layer.opa.retrieval_context_filter as retrieval_context_filter
+
+    monkeypatch.setattr(retrieval_context_filter, "security_span", fake_security_span)
+    monkeypatch.setattr(
+        retrieval_context_filter,
+        "set_security_span_attributes",
+        fake_set_security_span_attributes,
+    )
+    monkeypatch.setenv("SECURITY_OPA_RETRIEVAL_ACL_CONTEXT_ENFORCEMENT", "true")
+
+    result = filter_sections_for_opa_retrieval_acl_context(
+        sections=[
+            _section(
+                [
+                    _chunk(
+                        document_id="doc-traced",
+                        chunk_id=7,
+                        content="raw secret chunk text must not be traced",
+                    )
+                ]
+            )
+        ],
+        subject_user_id="user-a",
+        subject_tenant_id="tenant-a",
+        subject_groups=None,
+        correlation_id="trace-test",
+        opa_client=RecordingOPAClient(),
+    )
+
+    assert len(result.decisions) == 1
+    decision_span = next(
+        attributes
+        for name, attributes in spans
+        if name == "security.opa.retrieval_acl.decision"
+    )
+    assert decision_span["correlation_id"] == "trace-test:doc-traced:7"
+    assert decision_span["subject_user_id"] == "user-a"
+    assert decision_span["subject_tenant_id"] == "tenant-a"
+    assert decision_span["resource_document_id"] == "doc-traced"
+    assert decision_span["resource_chunk_id"] == "7"
+    assert decision_span["resource_tenant_id"] == "tenant-a"
+    assert decision_span["policy_package"] == "onyx.security.retrieval_acl"
+    assert decision_span["decision"] == "allow"
+    assert decision_span["reason"] == "same tenant allowed user"
+    assert decision_span["fallback_used"] is False
+    assert decision_span["enforcement_enabled"] is True
+    serialized_attributes = str(spans)
+    assert "raw secret chunk text must not be traced" not in serialized_attributes
