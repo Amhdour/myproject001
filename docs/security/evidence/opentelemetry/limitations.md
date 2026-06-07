@@ -1,7 +1,7 @@
 # OpenTelemetry Retrieval ACL Limitations
 
 - This change instruments only the OPA Retrieval ACL context-enforcement path; it does not add OpenTelemetry spans for every security decision or every RAG step.
-- This change does not add Langfuse-specific wiring, Presidio, new scanners, dashboards, alerting, SIEM integration, compliance certification, or a production-readiness claim.
+- Langfuse-specific evidence linkage is documented separately in `docs/security/evidence/langfuse/`. This OpenTelemetry bundle does not add Presidio, new scanners, dashboards, alerting, SIEM integration, compliance certification, or a production-readiness claim.
 - If `opentelemetry-api` is unavailable, `backend/onyx/security_layer/tracing.py` returns no-op spans and does not break the RAG flow.
 - Trace export still depends on the deployment configuring an OpenTelemetry tracer provider and exporter. The repository change does not configure a collector endpoint.
 - Span attributes intentionally omit raw prompt text, raw chunk text, combined context, document bodies, and ACL principal lists.
