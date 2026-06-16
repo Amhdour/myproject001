@@ -1,0 +1,125 @@
+# Public-safe Docker Compose staging skeleton.
+# Copy to /opt/myproject001-staging/compose.staging.yml and adapt after app runtime integration.
+# This file intentionally uses placeholders and does not prove production readiness.
+
+name: myproject001-staging
+
+services:
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      STAGING_DOMAIN: ${STAGING_DOMAIN}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - app
+    networks:
+      - public
+      - private
+
+  app:
+    image: ghcr.io/REPLACE_OWNER/REPLACE_IMAGE:staging
+    restart: unless-stopped
+    env_file:
+      - ./.env.staging
+    expose:
+      - "8080"
+    depends_on:
+      - postgres
+      - qdrant
+      - opa
+    networks:
+      - private
+
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    expose:
+      - "5432"
+    networks:
+      - private
+
+  qdrant:
+    image: qdrant/qdrant:v1.12.4
+    restart: unless-stopped
+    environment:
+      QDRANT__SERVICE__API_KEY: ${QDRANT_API_KEY}
+    volumes:
+      - qdrant_data:/qdrant/storage
+    expose:
+      - "6333"
+      - "6334"
+    networks:
+      - private
+
+  opa:
+    image: openpolicyagent/opa:0.70.0
+    restart: unless-stopped
+    command: ["run", "--server", "--addr=0.0.0.0:8181", "--log-level=${OPA_LOG_LEVEL:-info}", "/policies"]
+    volumes:
+      - ./policies:/policies:ro
+    expose:
+      - "8181"
+    networks:
+      - private
+
+  prometheus:
+    image: prom/prometheus:v2.55.1
+    restart: unless-stopped
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    expose:
+      - "9090"
+    networks:
+      - private
+
+  loki:
+    image: grafana/loki:3.2.1
+    restart: unless-stopped
+    command: ["-config.file=/etc/loki/local-config.yaml"]
+    volumes:
+      - loki_data:/loki
+    expose:
+      - "3100"
+    networks:
+      - private
+
+  grafana:
+    image: grafana/grafana:11.3.0
+    restart: unless-stopped
+    environment:
+      GF_SECURITY_ADMIN_USER: ${GRAFANA_ADMIN_USER}
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_ADMIN_PASSWORD}
+    volumes:
+      - grafana_data:/var/lib/grafana
+    expose:
+      - "3000"
+    networks:
+      - private
+
+networks:
+  public:
+  private:
+    internal: true
+
+volumes:
+  caddy_data:
+  caddy_config:
+  postgres_data:
+  qdrant_data:
+  prometheus_data:
+  loki_data:
+  grafana_data:

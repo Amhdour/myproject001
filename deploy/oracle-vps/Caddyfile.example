@@ -1,0 +1,20 @@
+# Public-safe Caddy example for Oracle VPS staging.
+# Replace staging.example.com with your staging domain.
+# Copy to /opt/myproject001-staging/Caddyfile on the VPS.
+
+{$STAGING_DOMAIN} {
+  encode zstd gzip
+
+  header {
+    X-Content-Type-Options nosniff
+    X-Frame-Options DENY
+    Referrer-Policy no-referrer
+    -Server
+  }
+
+  # Application route placeholder.
+  # Replace app:8080 with the real app service and port after compose integration.
+  reverse_proxy app:8080
+
+  # Optional: protect internal dashboards behind network controls or auth before exposing.
+}
