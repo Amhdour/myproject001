@@ -1,3 +1,4 @@
+# Step 22B: MCP hardening remains monitor-only (no enforcement side effects).
 import time
 from backend.security_layer.mcp.credential_isolation import *
 from backend.security_layer.mcp.models import MCPCredentialContext

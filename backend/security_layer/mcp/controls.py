@@ -1,3 +1,4 @@
+# Step 22B: MCP hardening remains monitor-only (no enforcement side effects).
 from __future__ import annotations
 from backend.security_layer.runtime.audit import AuditEvent, write_audit_event
 from backend.security_layer.runtime.findings import SecurityFinding, record_finding

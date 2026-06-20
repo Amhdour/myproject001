@@ -1,3 +1,4 @@
+# Step 22B: MCP hardening remains monitor-only (no enforcement side effects).
 from backend.security_layer.mcp.egress_policy import *
 from backend.security_layer.mcp.models import MCPEgressPolicy,MCPEgressDecision
 

@@ -1,3 +1,4 @@
+<!-- Step 22B: MCP hardening remains monitor-only (no enforcement side effects). -->
 # MCP Hardening (Isolated)
 
 This package contains **isolated MCP hardening controls** only.
